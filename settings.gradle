@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url = "https://maven.architectury.dev/" }
+        maven { url = "https://maven.minecraftforge.net/" }
+        maven { url = "https://maven.fabricmc.net/" }
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        mavenCentral()
+        maven { url = "https://maven.architectury.dev/" }
+        maven { url = "https://maven.minecraftforge.net/" }
+        maven { url = "https://maven.fabricmc.net/" }
+        maven { url = "https://maven.quiltmc.org/repository/release/" }
+        maven { url = "https://maven.parchmentmc.org" }
+        maven { url = "https://maven.gtceu.com" }
+        maven { url = "https://cursemaven.com/" }
+        maven { url = "https://maven.blamejared.com/" }
+        maven { url = "https://maven.tterrag.com/" }
+        maven { url = "https://maven.toma.dev/releases" }
+    }
+}
+
+rootProject.name = "hk3gtm"
