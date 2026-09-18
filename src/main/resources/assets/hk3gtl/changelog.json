@@ -1,0 +1,581 @@
+{
+  "_comment": "仅供开发/审计，不展示给玩家；玩家向说明见 lang: hk3gtl.welcome.release.*",
+  "entries": [
+    {
+      "version": "0.4.0-beta.1",
+      "revision": 38,
+      "codename": "内测四 Beta 1",
+      "date": "2026-07-30",
+      "time": "22:23:10",
+      "summary": "生成内测四 Beta 1 候选测试包并明确预发布版本标识。",
+      "reason": "避免与未来正式 0.4.0 混淆，并确保 JAR 文件名、mods.toml 与 Manifest 使用一致的预发布版本及显示名称。",
+      "changes": [
+        "版本标识：mod_version 改为 0.4.0-beta.1，明确该包属于正式 0.4.0 之前的 Beta 1 候选版本",
+        "显示名称：mod_name 加入 Beta 1，中文部分继续使用 ASCII-safe Unicode 转义",
+        "构建验证：发布构建将执行 clean build，核对生成的 JAR 文件名、mods.toml 与 Manifest 版本信息一致"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "revision": 37,
+      "codename": "内测四",
+      "date": "2026-07-21",
+      "time": "11:00:00",
+      "summary": "新增阶段性原版进度（advancement）成就展示：玩家每跨越一个工业阶段获得一枚成就。",
+      "reason": "为阶段推进提供纯展示成就感，复用现有里程碑事件而非背包检测，避免创造/掉落绕过。",
+      "changes": [
+        "进度资源：新增 data/hk3gtl/advancements/stage/ 下 era_start/abyss/imaginary/quantum/finality/graduation 六个线性 advancement，触发器统一为 minecraft:impossible",
+        "授予逻辑：新增 Hk3StageAdvancements，将阶段事件 E-MS-001/003/005/007/010/015 映射到对应进度并在服务端手动授予（幂等）",
+        "事件桥接：Hk3EventService.markEventTriggered 末尾调用 Hk3StageAdvancements.onStageEvent，事件首次触发时同步授予进度",
+        "本地化：zh_cn/en_us 同步新增 advancement.hk3gtl.stage.* 的标题与描述键"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "revision": 36,
+      "codename": "内测四",
+      "date": "2026-07-21",
+      "time": "10:00:00",
+      "summary": "修复 V3 报告确定性代码问题：玩家死亡数据迁移、测试运行器假成功、缺失贴图孤儿模型。",
+      "reason": "报告 R-02/R-03/R-05 属于可直接确认的代码缺陷：persistentData 根级键死亡后不自动迁移会丢失进度；两套 main 测试失败计数恒 0 导致失败仍退出码 0；16 个旧命名 _mainframe 模型引用不存在贴图。",
+      "changes": [
+        "死亡迁移：新增 Hk3PlayerDataCloneHandler 订阅 PlayerEvent.Clone，按 hk3gtl_ 前缀白名单把旧实体 persistentData 深拷贝到新实体，覆盖死亡重生与末地返回",
+        "测试门禁：ParallelDataTest 与 MultiRecipeScenarioTest 的 run() 改为累计全局 passed/failed，失败或异常均递增 failed，修复 System.exit 恒为 0 的假成功",
+        "资源完整性：删除 abyss/imaginary/quantum/finality 各级共 16 个旧命名 _mainframe 孤儿物品模型（引用不存在的贴图，实际注册形态为 processor_mainframe）"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "revision": 35,
+      "codename": "内测四",
+      "date": "2026-07-19",
+      "time": "21:49:23",
+      "summary": "完成发布前剩余静态问题清理：移除生产调试上报和旧 KubeJS 配方，修复公平分配、缓存、owner 权限、网络隔离、本地化与注册表封装。",
+      "reason": "系统审计剩余问题包含生产 HTTP 插桩、开发配方污染、错误公平权重、无界缩减、长期缓存增长、多人权限归属、common 客户端类耦合、语言键差异和公开可变注册表，均会影响发布安全、平衡、长期稳定或内容完整性。",
+      "changes": [
+        "发布清理：删除 GL、Avaritia Shader 与西琳实体中的 127.0.0.1:7777 HTTP 调试上报；删除两个重复注册魂钢链的活动 KubeJS 旧脚本并修正 milestone_test.js 命名空间",
+        "公平分配：按 abs(EUt)×duration×parallel 使用 BigInteger 计算能耗权重，并将逐单位缩减改为有界批量调整",
+        "生命周期：虚数锚缓存加入限频过期清理，避免主世界拆建机器后坐标条目长期单调增长",
+        "多人归属：研究门控和跨配方候选统一使用持久化 ownerUUID；删除成型时绑定附近玩家，owner 未绑定或离线时需要账户的逻辑 fail-closed",
+        "网络隔离：ResearchStateSyncS2CPacket 不再导入 Minecraft/LocalPlayer，客户端应用逻辑迁移到 client.network.ClientResearchStateSyncHandler",
+        "资源与封装：中英文语言键补齐至 1980/1980；电路与退役仓室公开 Map 改为不可变动态视图",
+        "构建治理：删除开发机绝对 JDK 路径和动态 Manifest 构建时间；FTB 旧文件删除异常改为带上下文 WARN",
+        "验证：IDE 全局诊断为 0，clean compileJava test build 完整链退出码 0；实机专属 ME/WMP/Tier/重启与性能采样项目保留在报告回归矩阵"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "revision": 34,
+      "codename": "内测四",
+      "date": "2026-07-19",
+      "time": "21:34:40",
+      "summary": "修复 RecipeLogic 四个同位于 handleRecipeWorking@HEAD 的门控注入依赖隐含执行顺序。",
+      "reason": "四个独立可取消注入没有可靠的执行先后，双能源扣款可能先于研究、虚数锚或注视度门控发生，随后当前 tick 被取消而产生错误扣费。",
+      "changes": [
+        "RecipeLogicMixin：删除四个同位 HEAD 注入，合并为单一 hk3gtl$applyWorkingGuards 调度器",
+        "RecipeLogicMixin：使用短路门控链固定研究→虚数锚→注视度→崩坏能顺序，前三项任一阻止时不会触发后续阶段",
+        "RecipeLogicMixin：四个守卫统一使用 true 表示取消当前 tick，各阶段异常继续 fail-closed 并限频记录诊断日志",
+        "验证：RecipeLogicMixin IDE 诊断为 0，clean compileJava test build 完整链退出码 0"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "revision": 33,
+      "codename": "内测四",
+      "date": "2026-07-19",
+      "time": "20:14:25",
+      "summary": "新增 hk3gtl 16 个高阶电路板与 WMP 1.7.0 西瓜发电机 GT 电路模式联动。",
+      "reason": "WMP 原生仅识别 Tier 0~14 GT 电路和电压，hk3gtl 的 Tier 15~30 canonical 电路无法进入电路槽，也会被电压工具钳制为 MAX。",
+      "changes": [
+        "build.gradle：WMP 1.7.0 增加可选编译依赖并保留运行依赖，允许 Mixin 校验实际目标签名",
+        "Hk3WmpCircuitCompat：精确映射 16 个正式电路 ID 到 Tier 15~30，不包含 48 个归档占位物品",
+        "GTEnergyHelperMixin：扩展 isCircuit 与 getCircuitVoltageTier，使高阶电路进入 WMP 电路槽并保留堆叠数量倍率",
+        "VoltageHelperMixin：Tier 15~30 使用 BigInteger 公式电压 8×4^tier，并在 WMP GUI 显示 hk3gtl 阶段名称",
+        "Hk3MixinConfigPlugin：仅在加载 wmp 时应用联动 Mixin，WMP 缺失环境不解析目标类",
+        "hk3gtl.mixins.json：登记条件插件与两个 WMP Mixin；WMP 原有燃料消耗、升级倍率和 GT 输出链保持不变"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "revision": 32,
+      "codename": "内测四",
+      "date": "2026-07-19",
+      "time": "19:40:31",
+      "summary": "修复合并崩坏能成本获取机器 ID 时的 Java 静态类型编译错误。",
+      "reason": "runClient 强制重新执行 compileJava 后确认 IRecipeLogicMachine 不声明 getDefinition()；此前调用无法通过真实客户端编译。",
+      "changes": [
+        "Hk3MultiRecipeLogic：将 this.machine.getDefinition() 改为 getMachine().getDefinition()，从 MetaMachine 获取实际控制器 ID",
+        "保持 revision 31 的 BigInteger 合并成本公式、权威 recipe data 和原子扣款语义不变",
+        "重新执行 clean build 与客户端编译阶段验证，避免缓存导致的错误成功结论"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "revision": 31,
+      "codename": "内测四",
+      "date": "2026-07-19",
+      "time": "19:16:14",
+      "summary": "将无线崩坏能升级为 BigInteger 无限容量，并按原配方实际并行量精确结算合并配方成本。",
+      "reason": "固定 10 亿容量会限制终局并行规模；合并配方只按合成 ID 解析一次成本，无法表达 Σ(原配方成本×实际并行量)，且模拟后实扣存在竞态少扣窗口。",
+      "changes": [
+        "HonkaiWirelessNetwork/HonkaiWirelessSavedData：余额与持久化升级为 BigInteger，移除固定容量，NBT 使用十进制字符串保存任意精度数值",
+        "HonkaiWirelessNetwork/IDualEnergyConsumer：新增单键原子全额扣款，余额不足时零扣除，避免模拟与提交之间的竞态",
+        "Hk3DualEnergyCosts/Hk3MultiRecipeLogic：按原配方 ID 与实际并行量计算 Σ(cost×parallel)，在最终运行配方 data 中写入权威 BigInteger 每 tick 成本",
+        "RecipeLogicMixin：优先读取合并成本并原子扣款；普通配方继续按配方级覆盖和机器默认值解析",
+        "Hk3HonkaiEnergyFormatter：提供紧凑、科学、完整分组和工程计数格式；机器 GUI 使用紧凑余额与工程速率",
+        "Hk3HonkaiNetworkInjectorMachine：移除池满预检与溢出分支，容量显示为无限；FTB Quests 同步移除 10 亿容量描述",
+        "退役无线仓 long 能力仅提供 Long.MAX_VALUE 饱和视图，不影响 BigInteger 真实账户余额"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "revision": 30,
+      "codename": "内测四",
+      "date": "2026-07-19",
+      "time": "15:35:56",
+      "summary": "修复无限跨配方在最终合并校验前提前消费输入的问题，改为完整模拟后统一提交一次性输入。",
+      "reason": "贪心和公平分配原先逐子配方永久扣除输入，随后最终输出空间或 tick I/O 校验仍可能失败并回退普通配方，导致普通库存或 ME 样板物资吞失；需要建立无副作用规划与最终提交之间的明确事务边界。",
+      "changes": [
+        "Hk3RecipeCalculationHelper：删除贪心/公平循环内逐子配方 handleRecipeInput 和提前清空 inputs，规划结果保留完整一次性输入",
+        "Hk3RecipeCalculationHelper：候选加入前与既有规划配方聚合模拟，共享输入、输出空间、条件与 tick I/O 必须同时满足",
+        "Hk3MultiRecipeLogic：最终合并配方先统一模拟，再只调用一次 commitInputs；提交成功后才清理运行副本的一次性 inputs",
+        "Hk3MultiRecipeLogic：输入提交失败时停止当前 tick 且不回退普通配方，避免底层能力部分落账后启动另一配方",
+        "ParallelData：更新为无副作用规划结果语义，processedRecipeList 保留完整 inputs，shouldProcess 在两阶段流程中为 false"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 29,
+      "codename": "内测三",
+      "date": "2026-07-19",
+      "time": "02:29:49",
+      "summary": "回退 revision 28 的 GTValues.ALL_TIERS/TIER_COUNT 扩展，恢复原版 0~14 / 15 的自动注册边界。",
+      "reason": "用户确认不再需要把 Tier 15~30 加入 GT 全局 tier 集合；保持 ALL_TIERS/TIER_COUNT 原版范围能同时阻止 GTCEu 与联动模组直接遍历该集合时自动生成高阶总线、仓室及其他残缺部件。",
+      "changes": [
+        "GTValuesMixin：ALL_TIERS 从 0~30 恢复为 0~14，TIER_COUNT 从 31 恢复为 15",
+        "保留 V/VH/VA/VHA/VN/VNF/VOLTAGE_NAMES 的 31 项扩展，Tier 15~30 配方电压与显示功能不受影响",
+        "Hk3Tiers/Hk3TiersImpl：恢复扩展 tier 通过 Hk3Tiers/Hk3Values 单独访问、不参与 GT 自动注册集合的维护契约",
+        "保留 revision 28 历史记录并新增本回退条目，确保变更审计链完整"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 28,
+      "codename": "内测三",
+      "date": "2026-07-19",
+      "time": "02:11:46",
+      "summary": "将 GTValues.ALL_TIERS 与 TIER_COUNT 正式扩展到 Tier 0~30 / 31，同时保持 GT 原生总线、仓室和盖子只注册到原版上限。",
+      "reason": "扩展电压数组已覆盖 Tier 15~30，但全局 ALL_TIERS/TIER_COUNT 仍停留在 15，导致 GT 的 tier 集合与数组容量不一致；GTCEu 1.4.4 的原生注册实际通过 tiersBetween(..., MAX/OpV) 独立限制上限，因此可安全扩大全局容量而不生成高阶残缺部件。",
+      "changes": [
+        "GTValuesMixin：ALL_TIERS 由 0~14 扩展为有序的 0~30，TIER_COUNT 改为 ALL_TIERS.length（31）",
+        "确认 GTMachines 的 ALL_TIERS/MULTI_HATCH_TIERS/DUAL_HATCH_TIERS 等注册集合均通过 tiersBetween(..., MAX/UHV/OpV) 构造，不会包含 Tier 15~30",
+        "确认 GTCovers 的注册集合通过 tiersBetween(LV/ULV, OpV/UV) 构造，不会自动生成 Tier 15~30 盖子",
+        "Hk3Tiers/Hk3TiersImpl：移除禁止扩展 ALL_TIERS/TIER_COUNT 的过期说明，明确全局 tier 容量与 GT 原生自动注册范围相互独立",
+        "保留 Tier 15~30 高阶部件由 hk3gtl 自身注册逻辑负责，不向 GTCEu 注入额外总线或仓室注册"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 27,
+      "codename": "内测三",
+      "date": "2026-07-19",
+      "time": "01:54:53",
+      "summary": "修复超级样板总成与增广 ME 输出总成在无限并行/无限跨配方机器中无效的问题，并恢复多方块无需实体能源仓的设计。",
+      "reason": "原跨配方逻辑使用 GTCEu 普通库存搜索与 matchRecipe，无法识别 GTLCore 的 ME 样板请求和 ME 输出内部缓冲；同时 autoAbilities 默认能源检查令结构重新要求能源仓。",
+      "changes": [
+        "Hk3P1PatternsImpl：改用关闭能源检查的 autoAbilities 重载，保留标准物品/流体 IO，不再要求能源输入仓",
+        "Hk3MultiRecipeLogic：单类型候选改用 getRecipeIterator(machine, r -> true)，避免原版 searchRecipe 按普通库存过滤掉 ME 样板配方",
+        "Hk3MultiRecipeLogic/Hk3RecipeCalculationHelper：匹配 gate 改用 GTLCore RecipeRunnerHelper.matchRecipe，兼容 ME 样板输入和 ME 输出内部缓冲",
+        "Hk3RecipeCalculationHelper：每个倍乘配方经 RecipeRunnerHelper.handleRecipeInput 独立消费一次性输入，再清除已处理 inputs 并汇总运行参数与输出",
+        "删除按 ME 方块 ID/接口回退标准单配方的特判，以及已清空输入后复用上一合成配方的免费续跑风险",
+        "实机确认：超级样板总成自动化、增广 ME 输出总成输出、无限并行、无限跨配方和无线电网供能同时正常"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 26,
+      "codename": "内测三",
+      "date": "2026-07-03",
+      "time": "01:30:00",
+      "summary": "多方块能源模型重构：取消能源仓，EU 绑定玩家 UUID 直接从 GTMThings 无线电网扣除；结构仓室精简为 1物入/1物出/1液入/1液出。",
+      "reason": "玩家要求多方块结构不要堆仓室，只留四类基础 IO 仓；能源不再依赖实体能源仓，改为控制器按放置者 UUID 从 GTM 电网直接结算，简化建造与供电体验。",
+      "changes": [
+        "新增 Hk3PlayerGridEnergyTrait：控制器自带 EU IN 配方处理特征（NotifiableRecipeHandlerTrait+IEnergyContainer），handleRecipeInner 直接调 WirelessEnergyManager.addEUToGlobalEnergyMap 扣电/充电，simulate 只读余额；名义电压 VA_LONG[29]、安培 2（绕开 GTValues.VEX 高 tier 越界）",
+        "Hk3WorkableMultiblockMachine：新增 @Persisted ownerUUID（放置时绑定 + 成型兜底绑定最近玩家）+ 专属 ManagedFieldHolder；实现 IMachineLife；addDisplayText 追加电网绑定状态行；getEnergyContainer 聚合到该特征，研究矩阵/双转换矩阵反射扣电零改动兼容",
+        "Hk3P1PatternsImpl：hatchPredicates 删除 autoAbilities(recipeTypes) 与 INPUT_ENERGY/SUBSTATION_INPUT_ENERGY，改为 IMPORT_ITEMS/EXPORT_ITEMS/IMPORT_FLUIDS/EXPORT_FLUIDS 各 setMaxGlobalLimited(1)",
+        "Hk3ResearchMatrixPatternImpl：删除 INPUT_ENERGY/SUBSTATION_INPUT_ENERGY/INPUT_LASER 三条能源仓谓词，崩坏能仓保留",
+        "HyperionPatternData：'Ψ' 槽位由 INPUT_ENERGY 能源仓改为 gravity_stabilization_casing 机壳",
+        "语言文件：新增 hk3gtl.machine.player_grid.bound / unbound（zh_cn + en_us）"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 25,
+      "codename": "内测三",
+      "date": "2026-07-02",
+      "time": "14:20:00",
+      "summary": "排查「多配方逻辑上线后机器不执行配方」：日志证实卡点在原版 searchRecipe 搜索层（返回空）而非合并层；补深度诊断+修复两处与原版不一致的行为。",
+      "reason": "07-01 运行日志显示 lookupRecipeSet() 对 honkai_absorption_tower 持续返回空，且回退的原版单配方匹配同样失败——说明贪心/合并代码未被执行，问题在配方搜索前置条件（编程电路未设置/供电不足/仓室代理未挂载三者之一），旧日志无法区分是哪一种。",
+      "changes": [
+        "Hk3MultiRecipeLogic：新增 deepDiagnoseEmptyLookup()——搜索为空时从 RecipeManager 取该类型全部配方，逐个输出 matchRecipe/matchTickRecipe 具体拒绝原因 + hasProxies + IN 侧能力代理清单，一次运行定位根因",
+        "Hk3MultiRecipeLogic：findAndHandleRecipe 补回原版「续跑上一配方」快路径（未脏且仍满足时直接 setupRecipe，不再每轮全量重搜）",
+        "Hk3MultiRecipeLogic：删除 onRecipeFinish 重写——原实现无法复位父类私有 isActive 导致完成后渲染状态残留，改用父类实现（markLastRecipeDirty→IDLE→下一 tick 自动重入批量匹配）"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 24,
+      "codename": "内测三",
+      "date": "2026-06-30",
+      "time": "03:30:00",
+      "summary": "修复崩坏能吸收塔等自定义多方块机器成型后始终无法启动的 Bug：多配方逻辑静默失败导致机器永久 IDLE，无 WAITING 状态/无 JADE 错误提示。新增回退机制 + 全链路诊断日志。",
+      "reason": "Hk3MultiRecipeLogic.findAndHandleRecipe() 在多配方逻辑返回 null 时直接丢弃结果，不填充 lastFailedMatches（原版 RecipeLogic.handleSearchingRecipes 会缓存失败配方供 serverTick 重试），导致机器永不进入 WAITING 状态、玩家看不到任何错误原因。吸收塔配方 EUt=MAX(2B EU/t)，若能源仓电压不足则 searchRecipe() 空返回，修复前静默 IDLE。",
+      "changes": [
+        "Hk3MultiRecipeLogic：新增 fallbackToStandardMatch() 回退方法——多配方逻辑失败时调用 GTCEu 原版 checkMatchedRecipeAvailable 逐个匹配并填充 lastFailedMatches，确保 WAITING 状态和 JADE 错误提示正常工作",
+        "Hk3MultiRecipeLogic：新增 LOGGER 静态字段和 diagTickCounter 诊断计数器；getRecipe()/buildFinalNormalRecipe() 的 6 个失败分支各添加 [HK3GTL-diag] WARN 日志，每 200 tick 输出一次避免刷屏",
+        "Hk3RecipeCalculationHelper：贪心/公平分配中新增 fullModify失败/parallel=0/match失败 拒绝原因计数器及综合 WARN 日志，替代原先静默 continue",
+        "变更记录：Hk3MultiRecipeLogic 追加 #3、Hk3RecipeCalculationHelper 追加 #2（按 code-changelog.mdc 规范格式）"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 23,
+      "codename": "内测三",
+      "date": "2026-06-28",
+      "time": "02:45:00",
+      "summary": "所有制造类多方块新增「多配方同时运行 + 无限并行」：一台机同 tick 跑光所有能跑的不同配方，无需研究直接白给。",
+      "reason": "对标 GTLsupb 的跨配方便利；本模组定位非堆量grind，故把这种便利机制直接交给玩家，而非锁在研究后。无限并行本就无条件生效（无研究门控），本次补齐「跨配方」短板。",
+      "changes": [
+        "新增 Hk3MultiRecipeLogic：重写 findAndHandleRecipe，批量匹配 searchRecipe 全部配方→逐个 fullModifyRecipe(无限并行)→贪心增量合并(每加一个用 matchRecipe/matchTickRecipe/checkConditions 校验整体可行)，杜绝吞/复制物品；duration 取组件最大值",
+        "Hk3MultiRecipeLogic：逐组件研究门控过滤(合成配方 id 取首个组件，避免未解锁配方混入绕过门槛)；不重写 handleRecipeWorking，保证研究/虚数锚定/注视度三 Mixin 节流继续生效",
+        "Hk3WorkableMultiblockMachine：重写 createRecipeLogic 按 enableMultiRecipe() 挂载；删除遗留孤儿 import(Hk3ResearchManager/Hk3ResearchNodes)",
+        "Hk3ResearchMatrixMachine / Hk3HonkaiEuConverterMachine：重写 enableMultiRecipe()=false 排除(非标准配方机)"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 22,
+      "codename": "内测三",
+      "date": "2026-06-01",
+      "time": "21:20:00",
+      "summary": "将所有配方中的磁物质板(Magmatter plate)统一改为磁物质锭(Magmatter ingot)。",
+      "reason": "按需求统一 Magmatter 在配方中以锭形态消耗。",
+      "changes": [
+        "Hk3RecipeAdderImpl：3 处 TagPrefix.plate → TagPrefix.ingot (Magmatter，2048/4096/4096)",
+        "MaxStageRecipes.max_circuit_enhanced：Magmatter 板×256 → 锭×256，同步注释",
+        "其余原已用 ingot 的配方(海渊合金炉/魂钢/超导氢)保持不变"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 21,
+      "codename": "内测三",
+      "date": "2026-06-01",
+      "time": "18:00:00",
+      "summary": "完善进世界「更新页面」与「加载自检页面」：更新说明改写为内测三实际内容；自检新增「量子多方块」项。",
+      "reason": "内测三补全量子工业链/修复链路/创造物GUI限制后，欢迎窗的两页需如实反映本版变化与量子阶段注册健康度。",
+      "changes": [
+        "Hk3ModHealthReport：新增 quantumMachinesOk 自检(纠缠计算机/精密装配厂/世界泡熔炉)；recipeTypesOk 追加量子配方类型校验；追加变更记录 #2",
+        "lang(zh/en) 新增 welcome.status.quantum_machines",
+        "lang(zh/en) welcome.release.0_3_0 重写为 6 条内测三更新说明(量子产线/链路自检/创造物GUI/Bug与彩蛋/主线目标)"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 20,
+      "codename": "内测三",
+      "date": "2026-06-01",
+      "time": "17:40:00",
+      "summary": "把配方循环检测器从「并集成环」重写为「可达性/死链分析」，精准定位到 1 个真死链（casing_finality_dominion 无产出配方→3 台终焉控制器造不出）并修复。",
+      "reason": "并集模型对替代/回收配方误报上千假环；可达性分析只报「任何配方都无法从基础材料引导出来」的产物，才是工业链是否打通的正确判据。重写后真死链从噪声中暴露：终焉统治机壳缺产线。",
+      "changes": [
+        "RecipeCycleDetector 重写为 OUTPUT_TO_RECIPES(每条配方独立输入集)+不动点可达性；只报真死链并附缺失输入提示；追加变更记录 #3",
+        "FinalityStageRecipes 新增 finality_dominion_casing：终焉3电路+稳定结晶→casing_finality_dominion，补齐唯一缺失的终焉机壳产线",
+        "效果：可达性检测由 708 假环 → 4 真死链 → 修复后预期 0（待重跑确认）"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 19,
+      "codename": "内测三",
+      "date": "2026-06-01",
+      "time": "16:10:00",
+      "summary": "修复配方循环检测器误报(1219条多为假自环)：根因是检测器全树搜索 ingredient 把 GT 输出物当输入物；并断掉量子链两条真实回收环。同步清理 KubeJS 创造箱/储罐删除代码（保留获取方式）。",
+      "reason": "GT 配方输出项也用 ingredient:{item} 序列化，旧检测逻辑令每个产物成为自身输入→海量假环；真实环来自 superconductive↔circuit_2/einstein、ancient_legacy↔data_research_package 两组回收配方。",
+      "changes": [
+        "RecipeCycleDetector.record：改为按 inputs/outputs 子树分别提取(extractScoped)，删除全树 ingredient 搜索；消除假自环",
+        "QuantumStageRecipes：quantum_hydrogen_lattice 改用结晶+压缩核心(去 circuit_2/einstein)；legacy_observation_package 改用压缩核心(去 ancient_legacy)，断真实回收环",
+        "run/kubejs + 项目 kubejs 的 removal.js：移除创造箱/储罐的配方移除与背包没收代码，保留魂钢 EBF 移除；生存禁开 GUI 已由 Java Hk3CreativeItemGuard 接管"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 18,
+      "codename": "内测三",
+      "date": "2026-06-01",
+      "time": "15:30:00",
+      "summary": "补齐量子阶段「八大件」产线：新增 QuantumComponentRecipes（量子 I~IV 共 32 条组装配方），修复量子组装链断点（原 robot_arm 配方消耗的量子电机无任何来源）。",
+      "reason": "勘探发现量子 II~IV 八大件（及 I 级多数）无生产配方，导致量子组装相关机器与下游产线实际不可用；虚数侧本有完整 4 级×8 产线，量子侧缺失。",
+      "changes": [
+        "新增 QuantumComponentRecipes：镜像 ImaginaryComponentRecipes，GT 装配机 + 研究门控(R-QT-001/007/010/011)，tier I 以虚数 IV 八大件为基底，逐级升级",
+        "Hk3RecipeAdderImpl Layer 9 接入 addQuantumI~IVComponentRecipes",
+        "无迴圈保证：量子组件仅消耗低阶组件/量子电路/基础材料/虚数IV组件，从不回喂电路或材料，对 RecipeCycleDetector 反向图不构成新环"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 17,
+      "codename": "内测三",
+      "date": "2026-06-01",
+      "time": "14:05:00",
+      "summary": "策略改写：保留创造箱/创造储罐的获取，但生存/冒险模式右键无法打开其 GUI，被挡时爱莉希雅(粉色)在聊天栏发话。",
+      "reason": "需求由“没收物品”改为“保留物品但禁止生存模式使用其无限存储界面”，更温和且不剥夺持有。",
+      "changes": [
+        "Hk3CreativeItemGuard：删除每 tick 没收逻辑，改为监听 RightClickBlock，对 gtceu:creative_chest/creative_tank 机器 setUseBlock(DENY) 阻止开 GUI；追加变更记录 #3",
+        "被阻止时由爱莉希雅发话 translatable(hk3gtl.guard.creative_item.elysia)，每玩家 3 秒冷却防刷屏，仅服务端发消息",
+        "lang(zh/en)：移除 hk3gtl.guard.creative_item.sirin，新增 hk3gtl.guard.creative_item.elysia(粉色 §d)"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 16,
+      "codename": "内测三",
+      "date": "2026-06-01",
+      "time": "13:55:00",
+      "summary": "生存模式没收创造箱/创造储罐后，改由西琳出面发话劝阻“偷鸡”(走捷径)，替换原普通红字提示。",
+      "reason": "在没收的同时给出符合世界观的角色台词，强化设定表达。",
+      "changes": [
+        "Hk3CreativeItemGuard：没收提示改为 translatable(hk3gtl.guard.creative_item.sirin)，追加变更记录 #2",
+        "lang(zh/en) 新增 hk3gtl.guard.creative_item.sirin 西琳台词",
+        "守卫每秒扫描背包覆盖任何获取途径，行为不变：检测→清除→西琳发话"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 15,
+      "codename": "内测三",
+      "date": "2026-06-01",
+      "time": "13:45:00",
+      "summary": "修复“生存模式没收创造箱/创造储罐”一直不生效：原逻辑在 KubeJS removal.js，但整合包实例 kubejs 目录与项目不同步、不含该脚本，故从未运行。迁移为 Java 实现 Hk3CreativeItemGuard，随 jar 加载。",
+      "reason": "项目 kubejs/ 仅为开发占位，实例运行的是另一套脚本(无 recipes/removal.js)；KubeJS 散文件不打进 jar，导致该功能在实际游戏中永不触发。改 Java 后随模组加载，不依赖 kubejs 同步。",
+      "changes": [
+        "新增 Hk3CreativeItemGuard：服务端每 20 tick 扫描玩家背包，生存/冒险模式下清除 gtceu:creative_chest / gtceu:creative_tank 并提示",
+        "物品 ID 经 BuiltInRegistries 动态解析+懒缓存，缺 GTCEu 不崩；仅服务端、节流执行",
+        "kubejs/server_scripts/recipes/removal.js 中失效的 inventoryChanged 没收块已移除(配方移除部分保留)"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 14,
+      "codename": "内测三",
+      "date": "2026-05-31",
+      "time": "23:05:00",
+      "summary": "热修：GlDebugMixin 在生产环境(Prism/SRG)因 remap=false 找不到 GlDebug.printDebugLog 导致 Mixin APPLY 崩溃、客户端无法启动；改为 remap=true 修复。",
+      "reason": "GlDebug 是 Mojang 原版类，方法名在生产被混淆为 SRG(m_84038_)；remap=false 用字面名查找仅在开发环境成立，生产必崩。项目「全部 remap=false」规则仅针对 GT/联动模组(无 Mojang 映射)。",
+      "changes": [
+        "GlDebugMixin：@Mixin(value=GlDebug.class, remap=false) → @Mixin(GlDebug.class)(remap 默认 true)，追加变更记录 #3",
+        "验证：构建后 hk3gtl-refmap.json 已含 printDebugLog → Lcom/mojang/blaze3d/platform/GlDebug;m_84038_(IIIIIJJ)V",
+        "影响：仅修目标解析方式，行为逻辑不变；生产仍不触发该回调(无 GL 调试)，开发端去重照旧"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "revision": 13,
+      "codename": "内测三",
+      "date": "2026-05-31",
+      "time": "22:30:00",
+      "summary": "版本升级内测三(0.3.0)；西琳终局对话由 5 条 IF 线扩展为 10 条(前5条文明走向沿用内测二，后5条为模组包/模组类别隐喻)；进世界欢迎窗改为内测三说明(特定玩家彩蛋，不描述细节)。",
+      "reason": "需求为在原 5 条基础上再加 5 条共 10 条；后 5 条借模组包/模组类别隐喻‘文明的不同走向’，刻意不点名任何具体模组或整合包。先前误用版本化方案替换原 5 条，已订正。",
+      "changes": [
+        "gradle.properties：mod_version 0.2.0→0.3.0，mod_name 内测2→内测3",
+        "SirinDialogueDefinitions：新增常量 IF_BRANCH_COUNT=10，register/intro 选项/段构建按 10 条展开(if_0~if_9)；撤销 #3 版本化方案，恢复非版本化 if/choice 键；追加变更记录 #3/#4",
+        "掩码同步扩展为 10 位：SirinIfProgressStore.ALL_MASK=(1<<IF_BRANCH_COUNT)-1 与 markUsed 越界判定；DialogueSessionManager/Hk3DialogueScreen 默认掩码改用 (1<<IF_BRANCH_COUNT)-1",
+        "lang(zh/en) 新增 choice.5-9 + if.5.xx~if.9.xx 共 5 条 IF 线(IF-06 包罗万象之匣/IF-07 永动的流水线/IF-08 咒文与信仰/IF-09 无尽的彼岸/IF-10 回到起点)，原 choice.0-4/if.0-4 内测二主题保留",
+        "lang(zh/en) 新增内测三专属终局开场 v0_3_0.d01~d24(可能性主题独白 + 内测三更新提示 + 反馈致辞)，由版本号自动选用，回退内测二 d01~d24",
+        "lang(zh/en) welcome.title/intro 改内测三；welcome.release.0_3_0 写为通用更新说明(修复已知Bug/修正彩蛋时机/新增彩蛋不描述/主线仍海渊→虚数)"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 12,
+      "codename": "内测二",
+      "date": "2026-05-31",
+      "time": "22:12:00",
+      "summary": "修正彩蛋 eg053（深夜工厂）：由误用游戏内时间改为现实凌晨3:00~3:59在线触发，与文案/condition 一致。",
+      "reason": "原 dayTime 3000~4000 实为游戏内上午9~10点，与现实凌晨3~4点文案矛盾；eg053 应与 eg051/052/058/059 同属现实世界时间彩蛋。",
+      "changes": [
+        "Hk3EasterEggChecker.checkTimeEggs：删除 eg053 的 dayTime 区间判定，改用 LocalTime.now().getHour()==3",
+        "eg070(游戏内正午12:00)保持 getDayTime 判定不变",
+        "新增 import java.time.LocalTime，追加文件变更记录 #2"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 11,
+      "codename": "内测二",
+      "date": "2026-05-31",
+      "time": "22:10:00",
+      "summary": "新增玩家 xiguamao 专属首次入世礼物彩蛋：每个存档仅触发一次，登录时发放 wmp/sov 物品并弹出西琳台词。",
+      "reason": "为多次站在西琳面前的文明建造者(xiguamao)定制一次性礼物；礼物物品来自外部模组 wmp/sov，运行时动态解析并 null 兜底，缺模组不崩溃。",
+      "changes": [
+        "新增 Hk3XiguamaoGiftHandler：监听 PlayerLoggedInEvent，名称匹配 xiguamao 且未触发过则发放礼物",
+        "去重标记 hk3gtl_xiguamao_first_join_gift 写入 persistentData(随存档保存)，保证每世界一次",
+        "礼物 wmp:watermelon_generator×1 / wmp:zijizhezhongxigua×256 / wmp:hov×1 / sov:spear_of_void×1，按 maxStackSize 拆分发放",
+        "lang 新增 hk3gtl.gift.xiguamao(zh_cn/en_us 同步)"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 10,
+      "codename": "内测二",
+      "date": "2026-05-31",
+      "time": "21:28:00",
+      "summary": "采用方案B：注册 GlDebugMixin 抑制 dev 端 GL 刷屏，维持星空特效；方案A(AvaritiaShaderMixin/CosmicBakeModelMixin)源码保留未注册以便随时切换。",
+      "reason": "方案A会令 AvaritiaShaders.cosmicOpacity=null 致穿无尽护甲玩家 NPE，故不启用；方案B无 NPE 且 dev 日志干净。保留A代码供应急切换。",
+      "changes": [
+        "mixins.json client 新增 GlDebugMixin（维持 AvaritiaCCShaderInstanceMixin/AvaritiaCCUniformInvoker）",
+        "GlDebugMixin 追加变更记录 #2，修正注册状态说明",
+        "AvaritiaShaderMixin/CosmicBakeModelMixin 源码保留未注册（方案A备用）"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 9,
+      "codename": "内测二",
+      "date": "2026-05-31",
+      "time": "20:24:00",
+      "summary": "保持 CCShaderInstance 星空修复不变；新增 GlDebugMixin 为待命代码(未注册)。撤销曾试启用的 AvaritiaShaderMixin 方案。",
+      "reason": "排查测试者毁档日志发现：①生产刷屏实为 Avaritia 自身 committee.nova.mods.avaritia.Static 每帧记录 infinity_armor_mask_wings(48986行/25MB)，非 hk3gtl；②GL id=1282 仅 dev 环境(开 GlDebug)出现；③AvaritiaShaderMixin 取消 onRegisterShaders 会令 AvaritiaShaders.cosmicOpacity=null，穿无尽护甲玩家每帧 NPE 崩溃，故不可用。",
+      "changes": [
+        "mixins.json client 维持 AvaritiaCCShaderInstanceMixin/AvaritiaCCUniformInvoker(安全，不引入 NPE)",
+        "新增 GlDebugMixin(待命未注册)：仅 dev 抑制 id=1282 重复 GL 警告",
+        "结论：hk3gtl 自身特殊渲染(西琳实体/翅膀 item/generated/裂隙空渲染)不经 Avaritia IItemRenderer 路径，无直接冲突"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 8,
+      "codename": "内测二",
+      "date": "2026-05-19",
+      "time": "05:40:00",
+      "summary": "进虚数维度仅生成裂隙，西琳在右键裂隙后才 spawn。",
+      "reason": "玩家第一眼应只见虚数裂隙粒子，不应有隐形西琳实体。",
+      "changes": [
+        "ensurePlatformAndEntity 不再预生成西琳",
+        "onRiftInteracted 时 spawnSirinAtPlatform + 登场动画"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 7,
+      "codename": "内测二",
+      "date": "2026-05-19",
+      "time": "06:59:00",
+      "summary": "进世界欢迎屏改为玩家向版本亮点，不再 dump changelog.json。",
+      "reason": "内部 revision/reason 条目让测试者困惑。",
+      "changes": [
+        "Hk3ModWelcomeScreen 读取 hk3gtl.welcome.release.<ver>.*",
+        "changelog.json 保留作开发审计"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 6,
+      "codename": "内测二",
+      "date": "2026-05-19",
+      "time": "06:59:00",
+      "summary": "虚数维度：先见裂隙右键登场，再右键西琳开终局对话。",
+      "reason": "终局演出需分步：裂隙粒子 → 西琳登场 → 对话，避免进维度即见西琳。",
+      "changes": [
+        "新增 imaginary_rift 交互实体（原版粒子裂隙）",
+        "右键裂隙触发登场动画；登场完成后提示再次右键西琳",
+        "终局 intro 恢复优先读取 hk3gtl.dialogue.sirin.v0_2_0.dXX"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 5,
+      "codename": "内测二",
+      "date": "2026-05-19",
+      "time": "05:10:00",
+      "summary": "登场动画全程隐藏西琳；终局对话优先读取 d01～d24 翻译键。",
+      "reason": "动画中途显形干扰演出；译者改 d01 键但代码只读 v0_2_0 键导致文案不更新。",
+      "changes": [
+        "出场动画 tick 全程 setInvisible，结束 reveal() 再显示",
+        "内测二 intro 首选 hk3gtl.dialogue.sirin.d01～d24，v0_2_0 为回退"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 4,
+      "codename": "内测二",
+      "date": "2026-05-19",
+      "time": "04:45:00",
+      "summary": "修复西琳出场四翼与背对玩家；重新启用出场动画与翅膀层。",
+      "reason": "翅膀层 body.yRot 与实体 yRot 叠乘导致翅膀留在原地；终态 yaw=180° 使 PlayerModel 背对南侧出生点玩家。",
+      "changes": [
+        "SirinWingLayer：translateAndRotate 前清零 body.yRot，翅膀随实体旋转",
+        "出场终态 yaw 改为 Hk3Dimensions.sirinFacePlayerYaw()（约 0°）",
+        "applyFacingYaw 同步躯干/头部 yaw",
+        "重新启用 ENTRANCE_ANIMATION 与 WING_LAYER"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 3,
+      "codename": "内测二",
+      "date": "2026-05-19",
+      "time": "04:25:00",
+      "summary": "修复模组显示名乱码；西琳出场动画与翅膀层归档停用。",
+      "reason": "Gradle 展开 mods.toml 未指定 UTF-8 导致中文 displayName 变成 Mojibake；内测二优先保证终局对话可玩，演出动画延后。",
+      "changes": [
+        "build.gradle processResources / hk3gtlWriteModsTomlToClasses 增加 filteringCharset=UTF-8",
+        "西琳出场粒子动画迁至 archive.entrance，内测二生成即现身、右键直接对话",
+        "SirinWingLayer 内测二关闭渲染"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 2,
+      "codename": "内测二",
+      "date": "2026-05-19",
+      "time": "04:11:50",
+      "summary": "虚数维度入口改为持有虚数四·虚序主脑后触发。",
+      "reason": "内测二虚数产线已可玩通，终局传送应与虚数 IV 出口对齐，避免海渊 I 即进虚数维度打断节奏。",
+      "changes": [
+        "进入虚数维度：背包检测虚数四·虚序主脑（imaginary_4_processor_mainframe），不再检测海渊 I 电路",
+        "E-MS-003 仍为首获海渊 I 里程碑；E-MS-006 首获虚数 IV 时传送并触发虚数掌控事件"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "revision": 1,
+      "codename": "内测二",
+      "date": "2026-05-19",
+      "time": "12:00",
+      "summary": "打通海渊 + 虚数双阶段工业链，完善叙事/事件与内测体验。",
+      "reason": "内测一仅覆盖 P1→海渊 I 入口；内测二需要可玩通海渊全套与虚数双阵营产线，并收集玩家反馈以迭代量子/终焉阶段。",
+      "changes": [
+        "海渊阶段 23 台多方块专属配方 + 海渊 II~IV 电路/八大件/机壳完整产线",
+        "虚数阶段 12 台机器：机壳、电路演算、天命/逆熵双核心链、相位纯化闭环",
+        "文明档案卷轴：彩蛋栏位、可拖拽滚动条、100 条彩蛋档案",
+        "事件：奥托邀请赠送虚空万藏；瓦尔特馈赠改为检测 MAX 电路标签",
+        "配方循环检测与多处配方回圈修复；新增量子机壳组装配方（为后续阶段预留）",
+        "进入世界加载状态弹窗；档案解锁提示仅首次显示"
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "codename": "内测一",
+      "date": "2026-05-18",
+      "time": "—",
+      "summary": "P1 崩坏能/魂钢产线与海渊 I 入口。",
+      "reason": "验证 GT 扩展集成、基础多方块与研究矩阵框架。",
+      "changes": [
+        "崩坏能吸收塔、结晶凝结厂、魂钢冶铸中心",
+        "海渊 I 电路与基础研究节点",
+        "西琳内测版终局对话（beta 文案键）"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "parent": "hk3gtl:stage/finality",
+  "display": {
+    "icon": { "item": "hk3gtl:finality_4_processor_mainframe" },
+    "title": { "translate": "advancement.hk3gtl.stage.graduation.title" },
+    "description": { "translate": "advancement.hk3gtl.stage.graduation.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [["granted"]]
+}

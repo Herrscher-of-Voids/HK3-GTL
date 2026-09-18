@@ -1,25 +1,24 @@
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
-
-# idea
-out
+# Build outputs and local dependencies
+.gradle/
+build/
+out/
+bin/
+run/
+libs/*.jar
+*.class
+*.log
+# Local workspace files
+.*
+!.gitignore
+!.gitattributes
+*.iml
 *.ipr
 *.iws
-*.iml
-.idea
-
-# gradle
-build
-.gradle
-
-# other
-eclipse
-run
-
-# Files from Forge MDK
-forge*changelog.txt
+# Internal material
+doc/
+docs/
+archive/
+tools/
+node_modules/
+temp_*
+debug-*

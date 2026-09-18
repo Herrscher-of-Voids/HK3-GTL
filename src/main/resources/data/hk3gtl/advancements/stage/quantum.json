@@ -1,0 +1,18 @@
+{
+  "parent": "hk3gtl:stage/imaginary",
+  "display": {
+    "icon": { "item": "hk3gtl:quantum_1_processor" },
+    "title": { "translate": "advancement.hk3gtl.stage.quantum.title" },
+    "description": { "translate": "advancement.hk3gtl.stage.quantum.desc" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [["granted"]]
+}

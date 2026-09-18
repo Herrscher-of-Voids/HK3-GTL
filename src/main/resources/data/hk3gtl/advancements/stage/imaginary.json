@@ -1,0 +1,18 @@
+{
+  "parent": "hk3gtl:stage/abyss",
+  "display": {
+    "icon": { "item": "hk3gtl:imaginary_1_processor" },
+    "title": { "translate": "advancement.hk3gtl.stage.imaginary.title" },
+    "description": { "translate": "advancement.hk3gtl.stage.imaginary.desc" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [["granted"]]
+}

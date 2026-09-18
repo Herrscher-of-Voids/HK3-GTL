@@ -7,7 +7,7 @@ base {
     archivesName = project.archives_base_name
 }
 
-version = project.mod_version
+version = mod_version
 group = project.maven_group
 
 loom {
@@ -19,7 +19,7 @@ loom {
         }
 
         // ★ 新增：Mixin 配置
-        mixinConfig "hk3gtm.mixins.json"
+        mixinConfig "hk3gtl.mixins.json"
     }
 
     runConfigs.named("data").configure {
@@ -27,11 +27,11 @@ loom {
     }
 
     runConfigs.named("client").configure {
-        environmentVariable("MOD_CLASSES", "main%%" + file("build/classes/java/main").absolutePath + ";" + file("build/resources/main").absolutePath)
+        environmentVariable("MOD_CLASSES", "main%%" + file("build/classes/java/main").absolutePath)
     }
 
     runConfigs.named("server").configure {
-        environmentVariable("MOD_CLASSES", "main%%" + file("build/classes/java/main").absolutePath + ";" + file("build/resources/main").absolutePath)
+        environmentVariable("MOD_CLASSES", "main%%" + file("build/classes/java/main").absolutePath)
     }
 }
 
@@ -120,7 +120,7 @@ dependencies {
 
     // ── GT CEu 核心 ──
     modImplementation("com.gregtechceu.gtceu:gtceu-${project.minecraft_version}:${project.gtceu_version}") { transitive = false }
-    modImplementation("dev:ldlib-forge-1.20.1-1.0.33.b") { transitive = false }
+    modImplementation("dev:ldlib-forge-${project.minecraft_version}-${project.ldlib_version}") { transitive = false }
     modImplementation("com.tterrag.registrate:Registrate:${project.registrate_version}")
     modImplementation("curse.maven:configuration-444699:4608425") { transitive = false }
 
@@ -146,18 +146,25 @@ dependencies {
     // ── Caffeine 缓存库（GTCEu Mixin 依赖） ──
     forgeRuntimeLibrary("com.github.ben-manes.caffeine:caffeine:3.2.1")
 
+    // ── 本地模组依赖 ──
+    modImplementation(files("libs/Spear_of_Void-1.3.0fix4.jar"))
+
     // ── KubeJS + Rhino ──
     modImplementation(files("libs/kubejs-forge-2001.6.5-build.16.jar"))
     modImplementation(files("libs/rhino-forge-2001.2.3-build.10.jar"))
 
-    // ── FTB 系列 ──
-    modImplementation("curse.maven:ftb-library-forge-404465:7296748") { transitive = false }
-    // ── FTB Ultimine ──
-    modImplementation("curse.maven:ftb-ultimine-forge-386134:6899418") { transitive = false }
-    // ── FTB Chunks ──
-    modImplementation("curse.maven:ftb-chunks-forge-314906:6431735") { transitive = false }
-    // ── FTB Teams ──
-    modImplementation("curse.maven:ftb-teams-forge-404468:7499810") { transitive = false }
+    // ── FTB 系列已彻底移除（设定上无引路者，与世界观冲突）──
+    // 如需恢复，jar 文件仍保留在 libs/，从 archive/removed_ftbquests/ 拷回集成代码即可。
+    // polylib 与 constructionwand 已确认无 src/ 引用，一并移除以保持依赖图整洁。
+    // 注意：GTLCore 1.2.2.8-fix5 在初始化阶段会硬引用 ftb-ultimine 的类，因此开发环境必须提供该模组（否则直接 NoClassDefFoundError）。
+    modRuntimeOnly(files("libs/ftb-library-forge-2001.2.12.jar"))
+    modRuntimeOnly(files("libs/ftb-teams-forge-2001.3.2.jar"))
+    modRuntimeOnly(files("libs/ftb-ultimine-forge-2001.1.7.jar"))
+    // 注意：GTMThings 的部分 mixin 会引用 FTBChunks API 元数据，未加载 ftb-chunks 时会在类转换阶段直接崩溃。
+    modRuntimeOnly(files("libs/ftb-chunks-forge-2001.3.6.jar"))
+    modRuntimeOnly(files("libs/ftb-xmod-compat-forge-2.1.3.jar"))
+    // FTB Quests：任务线数据集成（纯 SNBT 同步，Java 侧零 API 依赖，见 FtbQuestsIntegration）
+    modRuntimeOnly(files("libs/ftb-quests-forge-2001.4.18.jar"))
 
     // ── Architectury API ──
     modImplementation("dev.architectury:architectury-forge:${project.architectury_version}")
@@ -186,8 +193,16 @@ dependencies {
     modCompileOnly("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}") { transitive = false }
     modRuntimeOnly("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}") { transitive = false }
 
-    // ── JEI Integration（JEI 补充 tooltip 等；仅运行时，无需编译进 hk3gtm）──
+    // ── JEI Integration（JEI 补充 tooltip 等；仅运行时，无需编译进 hk3gtl）──
     modRuntimeOnly("curse.maven:jei-integration-265917:${project.jei_integration_curse_file}") { transitive = false }
+
+    // ── Jade（WTHIT 类信息显示模组）──
+    // 11.13.2 的 StringRenderOutputMixin 与 1.20.1 不兼容，回退到 11.12.2
+    modRuntimeOnly("curse.maven:jade-324717:5876199")
+
+    // ── WMP（可选联动：电路板驱动西瓜发电机 GT 模式）──
+    modCompileOnly(files("libs/wmp-1.7.0.jar"))
+    modRuntimeOnly(files("libs/wmp-1.7.0.jar"))
 
     // ── Mixin Extras ──
     implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${project.mixinextras_version}"))
@@ -206,9 +221,12 @@ def hk3ModsTomlProps = [
         "version"          : version,
         "mod_name"         : mod_name,
         "mod_authors"      : mod_authors,
-        "forge_version"    : forge_version.split("\\.")[0],
+        "mod_description"  : mod_description,
+        "forge_version"    : forge_version,
         "minecraft_version": minecraft_version,
         "gtceu_version"    : gtceu_version,
+        "ldlib_version"    : ldlib_version,
+        "registrate_version": registrate_version,
         "jei_version"             : jei_version,
         "jei_integration_version" : jei_integration_version,
         "kubejs_version"   : kubejs_version,
@@ -217,6 +235,7 @@ def hk3ModsTomlProps = [
 
 processResources {
     inputs.properties(hk3ModsTomlProps)
+    filteringCharset = "UTF-8"
 
     filesMatching("META-INF/mods.toml") {
         expand hk3ModsTomlProps
@@ -225,19 +244,65 @@ processResources {
     exclude("META-INF/mods.toml")
 }
 
-tasks.register("hk3gtmWriteModsTomlToClasses", Copy) {
+tasks.register("hk3gtlWriteModsTomlToClasses", Copy) {
+    // 必须把展开属性登记为任务输入：否则改 gradle.properties 版本号后任务被判 UP-TO-DATE，
+    // jar 内 mods.toml 会残留旧版本号（欢迎自检页版本与说明取自运行时 mods.toml）
+    inputs.properties(hk3ModsTomlProps)
+    filteringCharset = "UTF-8"
     from("src/main/resources/META-INF/mods.toml")
     into(layout.buildDirectory.dir("classes/java/main/META-INF"))
     expand hk3ModsTomlProps
+    doFirst {
+        // Copy 的增量输出可能保留旧文件，写入前删除以保证版本范围与源码一致。
+        file("${layout.buildDirectory.get()}/classes/java/main/META-INF/mods.toml").delete()
+    }
+}
+
+tasks.register("hk3gtlSyncDevResourcesToClasses", Copy) {
+    dependsOn("processResources")
+    from(layout.buildDirectory.dir("resources/main")) {
+        // mods.toml 由专用任务展开，禁止旧资源副本并发覆盖锁定后的版本范围。
+        exclude("META-INF/mods.toml")
+    }
+    into(layout.buildDirectory.dir("classes/java/main"))
 }
 
 tasks.named("classes").configure {
-    dependsOn("hk3gtmWriteModsTomlToClasses")
+    dependsOn("hk3gtlWriteModsTomlToClasses")
+    dependsOn("hk3gtlSyncDevResourcesToClasses")
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
     options.release.set(17)
+}
+
+tasks.withType(AbstractCopyTask).configureEach {
+    filteringCharset = "UTF-8"
+}
+
+tasks.register("renameToChinese") {
+    dependsOn("remapJar")
+    doLast {
+        def buildLibs = layout.buildDirectory.dir("libs").get().asFile
+        def base = project.archives_base_name as String
+        def ver = project.mod_version as String
+        def jar = new File(buildLibs, "${base}-${ver}.jar")
+        if (!jar.exists()) {
+            jar = new File(buildLibs, "${base}.jar")
+        }
+        def target = new File(buildLibs, "${project.mod_name}.jar")
+        if (!jar.exists()) {
+            throw new GradleException("未找到 remapJar 产物: ${buildLibs.absolutePath}")
+        }
+        java.nio.file.Files.copy(jar.toPath(), target.toPath(),
+                java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+        println "发布包: ${target.absolutePath}"
+    }
+}
+
+tasks.named("build").configure {
+    finalizedBy("renameToChinese")
 }
 
 java {
@@ -248,6 +313,7 @@ java {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes([
                 "Specification-Title"     : mod_id,
@@ -255,8 +321,7 @@ jar {
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : version,
-                "Implementation-Vendor"   : mod_authors,
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Vendor"   : mod_authors
         ])
     }
 }
@@ -267,4 +332,57 @@ publishing {
             from components.java
         }
     }
+}
+
+// 研究系统图完整性回归测试运行器（纯逻辑，走 test runtimeClasspath 以提供 Minecraft/Forge 类）。
+tasks.register("runResearchGraphTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    description = "运行研究系统前置图成环/自锁回归测试"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchGraphIntegrityTest"
+    standardOutput = System.out
+    errorOutput = System.err
+}
+
+// 终焉注视度系统核心公式回归测试运行器。
+tasks.register("runGazeSystemTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    description = "运行终焉注视度系统衰减/阈值/增长修正回归测试"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.gaze.GazeSystemTest"
+    standardOutput = System.out
+    errorOutput = System.err
+}
+
+// 本地文件依赖不会由 Maven 解析，必须在 check 阶段主动校验，避免缺包延迟到启动时崩溃。
+def requiredLocalModJars = [
+        "Spear_of_Void-1.3.0fix4.jar",
+        "kubejs-forge-${project.kubejs_version}.jar",
+        "rhino-forge-2001.2.3-build.10.jar",
+        "ftb-library-forge-2001.2.12.jar",
+        "ftb-teams-forge-2001.3.2.jar",
+        "ftb-ultimine-forge-2001.1.7.jar",
+        "ftb-chunks-forge-2001.3.6.jar",
+        "ftb-xmod-compat-forge-2.1.3.jar",
+        "ftb-quests-forge-2001.4.18.jar",
+        "wmp-1.7.0.jar"
+]
+
+tasks.register("verifyLocalModJars") {
+    group = "verification"
+    description = "校验开发与运行环境必需的本地模组 JAR"
+    inputs.files(requiredLocalModJars.collect { file("libs/${it}") })
+    doLast {
+        def missing = requiredLocalModJars.findAll { !file("libs/${it}").isFile() }
+        if (!missing.isEmpty()) {
+            throw new GradleException("缺少本地模组依赖:\n - " + missing.join("\n - "))
+        }
+    }
+}
+
+tasks.named("check").configure {
+    // 研究图测试依赖完整 Forge 游戏引导，保留为独立验证任务；纯 JVM 注视度测试可纳入标准门禁。
+    dependsOn("verifyLocalModJars", "runGazeSystemTest")
 }

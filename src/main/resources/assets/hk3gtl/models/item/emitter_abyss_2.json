@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/abyss/components/emitter_abyss_2"
+  }
+}

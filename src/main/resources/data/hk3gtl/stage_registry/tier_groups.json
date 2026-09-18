@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "groups": {
+    "honkai_base": {
+      "description": "MAX后起始与崩坏能基础工业链资源",
+      "items": [
+        "raw_honkai_particle",
+        "honkai_energy_crystal",
+        "stabilized_honkai_crystal",
+        "compressed_honkai_core",
+        "honkai_fuel_rod",
+        "dense_honkai_fuel_rod",
+        "honkai_suppressant",
+        "gaze_buffer_unit"
+      ]
+    },
+    "soulium_chain": {
+      "description": "魂钢工业链中间件资源",
+      "items": [
+        "soulium_precursor_mix",
+        "activated_nano_matrix",
+        "soulium_proto_mass",
+        "stabilized_soulium_proto_mass",
+        "oriented_soulium_component"
+      ]
+    },
+    "abyss": {
+      "description": "海渊阶段部件、电路与研究许可资源",
+      "items": [
+        "electric_motor_abyss_1",
+        "electric_piston_abyss_1",
+        "electric_pump_abyss_1",
+        "conveyor_module_abyss_1",
+        "robot_arm_abyss_1",
+        "field_generator_abyss_1",
+        "emitter_abyss_1",
+        "sensor_abyss_1",
+        "abyss_1_processor",
+        "abyss_2_processor",
+        "abyss_3_processor",
+        "abyss_4_processor",
+        "abyss_voltage_permit_i",
+        "abyss_circuit_permit_i",
+        "abyss_component_permit_i"
+      ]
+    }
+  }
+}

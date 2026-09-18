@@ -1,0 +1,251 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "hk3_ch6_finale"
+	group: ""
+	icon: "hk3gtl:imaginary_dimension_gateway"
+	id: "4A60000000000000"
+	order_index: 5
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"最终章。你的文明将建成十二座奇观、完成毕业校验研究链，然后前往虚数维度，接受空之律者·西琳的终局审判。"
+			]
+			icon: "minecraft:end_crystal"
+			id: "4A60000000000100"
+			shape: "gear"
+			size: 1.5d
+			tasks: [{
+				id: "4A60000000000101"
+				title: "迈向终局"
+				type: "checkmark"
+			}]
+			title: "§d§l终局审判"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A60000000000100"]
+			description: [
+				"能量与信仰四奇观：崩坏能终极聚变核心、神之键大圣堂、命运织机、万界通讯枢纽。"
+			]
+			id: "4A60000000000200"
+			subtitle: "奇观 I"
+			tasks: [
+				{
+					id: "4A60000000000201"
+					item: "hk3gtl:honkai_ultimate_fusion_core"
+					type: "item"
+				}
+				{
+					id: "4A60000000000203"
+					item: "hk3gtl:divine_key_grand_cathedral"
+					type: "item"
+				}
+				{
+					id: "4A60000000000205"
+					item: "hk3gtl:destiny_loom"
+					type: "item"
+				}
+				{
+					id: "4A60000000000207"
+					item: "hk3gtl:myriad_realms_communication_nexus"
+					type: "item"
+				}
+			]
+			title: "§d奇观 · 能量与信仰"
+			x: 2.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["4A60000000000100"]
+			description: [
+				"记忆与审视四奇观：文明审判回廊、文明记忆永恒碑、文明之眼观测阵、轮回叙述者平台。"
+				""
+				"§e提示：§7毕业后回到存在证明纪念碑旁站一会，会有特别的彩蛋。"
+			]
+			id: "4A60000000000300"
+			subtitle: "奇观 II"
+			tasks: [
+				{
+					id: "4A60000000000301"
+					item: "hk3gtl:civilization_judgment_corridor"
+					type: "item"
+				}
+				{
+					id: "4A60000000000303"
+					item: "hk3gtl:civilization_memory_eternal_monument"
+					type: "item"
+				}
+				{
+					id: "4A60000000000305"
+					item: "hk3gtl:civilization_eye_observation_array"
+					type: "item"
+				}
+				{
+					id: "4A60000000000307"
+					item: "hk3gtl:cycle_narrator_platform"
+					type: "item"
+				}
+			]
+			title: "§d奇观 · 记忆与审视"
+			x: 2.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["4A60000000000200", "4A60000000000300"]
+			description: [
+				"存在与传承四奇观：文明星舰博物馆、存在证明纪念碑、终极冥想圣殿、大汇聚祭坛。"
+				"§7十二奇观齐聚，文明的完整性将通过验证矩阵的最终审查。"
+			]
+			id: "4A60000000000400"
+			subtitle: "奇观 III"
+			tasks: [
+				{
+					id: "4A60000000000401"
+					item: "hk3gtl:civilization_starship_museum"
+					type: "item"
+				}
+				{
+					id: "4A60000000000403"
+					item: "hk3gtl:proof_of_existence_memorial"
+					type: "item"
+				}
+				{
+					id: "4A60000000000405"
+					item: "hk3gtl:ultimate_meditation_sanctum"
+					type: "item"
+				}
+				{
+					id: "4A60000000000407"
+					item: "hk3gtl:grand_convergence_altar"
+					type: "item"
+				}
+			]
+			title: "§d奇观 · 存在与传承"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A60000000000400"]
+			description: [
+				"在研究矩阵中完成毕业校验链 §dR-GR-001 ~ R-GR-005§r。"
+				"R-GR-005「最终毕业许可」完成后，§d虚数维度跃迁门§r方可启动。"
+			]
+			id: "4A60000000000500"
+			subtitle: "R-GR-005 · 最终许可"
+			tasks: [{
+				id: "4A60000000000501"
+				item: "hk3gtl:imaginary_dimension_gateway"
+				type: "item"
+			}]
+			title: "§d虚数维度跃迁门"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A60000000000500"]
+			description: [
+				"踏入虚数维度（通过跃迁门，或在首次持有虚数四主脑时被动传送）。"
+				""
+				"§e维度规则："
+				"§71. 进入后强制冒险模式，禁止破坏与放置方块；"
+				"§72. 平台中央有一道§d虚数裂隙§7——右键它，西琳才会降临；"
+				"§73. 已毕业的存档无法再次进入。"
+			]
+			id: "4A60000000000600"
+			subtitle: "空之律者的领域"
+			tasks: [{
+				dimension: "hk3gtl:imaginary_dimension"
+				id: "4A60000000000601"
+				type: "dimension"
+			}]
+			title: "§d§l踏入虚数维度"
+			x: 10.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A60000000000600"]
+			description: [
+				"右键虚数裂隙，等待西琳的出场演出结束后，§d再次右键西琳§r开启终局对话。"
+				"在对话中选择一条 IF 线，听她讲完你的文明在另一个可能性里的故事。"
+				""
+				"§d对话结束的瞬间：存档标记毕业（E-MS-015），你将被送回主世界出生点。§r"
+				""
+				"§e提示：§7IF 线跨存档去重——同一位玩家的每个存档会听到不同的 IF 故事，直到 20 条全部读完。"
+			]
+			icon: "minecraft:amethyst_shard"
+			id: "4A60000000000700"
+			size: 1.5d
+			subtitle: "E-MS-015 · 好结局 · 文明通过审判"
+			tasks: [{
+				id: "4A60000000000701"
+				title: "完成与西琳的终局对话"
+				type: "checkmark"
+			}]
+			title: "§d§l终局审判 · 毕业"
+			x: 12.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A60000000000600"]
+			description: [
+				"§c§l警告：这不是玩笑。"
+				""
+				"如果你在虚数维度对西琳挥拳——她无敌、免疫一切减益、每秒回满生命，而且你的每一点伤害都会以十倍反弹到你自己身上。"
+				""
+				"如果你§c坚持累计攻击她 10 次§r，将触发坏结局：她会亲手把你从这个故事里摘出去——§c包括你的游戏进程和世界的名字§r。"
+				""
+				"重新进入游戏并再次回到虚数维度后，坏结局会走向它自己的终点，存档同样会被标记毕业。"
+				""
+				"§7§o选择权在你。"
+			]
+			hide_dependent_lines: true
+			icon: "minecraft:wither_rose"
+			id: "4A60000000000800"
+			shape: "octagon"
+			subtitle: "§c不要攻击空之律者"
+			tasks: [{
+				id: "4A60000000000801"
+				title: "我已知晓后果"
+				type: "checkmark"
+			}]
+			title: "§4§l禁忌 · 叙事层的报复"
+			x: 12.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["4A60000000000700"]
+			description: [
+				"§a§l任务线验收清单（发布前逐项核对）："
+				""
+				"§f1. 触发验证：§7全部物品任务的注册 ID 与 JEI 内实际 ID 一致（重点：hk3gtl:soulium_ingot、hk3gtl:liquid_honkai_energy_bucket 为 GT 材料物品）；维度任务目标为 hk3gtl:imaginary_dimension；"
+				"§f2. 奖励验证：§7各章 XP 与物品奖励均可正常领取，无越权物品；"
+				"§f3. 链路验证：§7六章依赖均为章内单向依赖 + 章间顺序排列，无循环、无断点；checkmark 任务不阻塞主线（说明类任务均为旁支）；"
+				"§f4. 文案验证：§7所有里程碑编号（E-MS/E-FB）、研究编号（R-XX）与代码实际触发条件一致；避坑提示与机制实现一致（EBF 禁冶魂钢、E-MS-006 强制传送、坏结局触发条件）；"
+				"§f5. 完成本任务即代表任务线验收通过。§d感谢游玩崩坏三-GTL！"
+			]
+			icon: "minecraft:nether_star"
+			id: "4A60000000000900"
+			shape: "hexagon"
+			size: 2.0d
+			subtitle: "全任务线完成"
+			rewards: [{
+				id: "4A60000000000902"
+				type: "xp_levels"
+				xp_levels: 50
+			}]
+			tasks: [{
+				id: "4A60000000000901"
+				title: "验收通过"
+				type: "checkmark"
+			}]
+			title: "§6§l毕业典礼 · 验收"
+			x: 15.0d
+			y: 0.0d
+		}
+	]
+	subtitle: ["最终章 · 奇观与审判"]
+	title: "§d最终章 · 终局审判"
+}

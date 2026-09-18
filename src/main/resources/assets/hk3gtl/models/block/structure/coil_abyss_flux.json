@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "hk3gtl:block/casings/coil_abyss_flux"
+  }
+}

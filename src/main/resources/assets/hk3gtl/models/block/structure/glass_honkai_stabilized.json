@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "hk3gtl:block/casings/glass_honkai_stabilized"
+  },
+  "render_type": "minecraft:translucent"
+}

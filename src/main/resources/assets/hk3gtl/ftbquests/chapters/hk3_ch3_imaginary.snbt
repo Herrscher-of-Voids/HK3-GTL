@@ -1,0 +1,311 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "hk3_ch3_imaginary"
+	group: ""
+	icon: "hk3gtl:imaginary_1_processor"
+	id: "4A30000000000000"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"虚数阶段（电压 Tier 19~22）。这一阶段你将触碰虚数之树的枝桠，与前文明的遗产对话。"
+				"本章共 12 台多方块，多数研究节点需要§d对应机器建成事件§r（E-FB-009/010/011）作为前置——先建机器，再开研究。"
+			]
+			icon: "hk3gtl:nano_ceramic"
+			id: "4A30000000000100"
+			shape: "gear"
+			size: 1.5d
+			tasks: [{
+				id: "4A30000000000101"
+				title: "进入虚数阶段"
+				type: "checkmark"
+			}]
+			title: "§d§l虚数之枝"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000100"]
+			description: [
+				"纳米陶瓷是虚数阶段的入门材料，虚数机壳与电路的共同基底。"
+			]
+			id: "4A30000000000200"
+			subtitle: "虚数材料学第一课"
+			tasks: [{
+				count: 16L
+				id: "4A30000000000201"
+				item: "hk3gtl:nano_ceramic"
+				type: "item"
+			}]
+			title: "纳米陶瓷"
+			x: 2.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000200"]
+			description: [
+				"虚数之树观测阵——建成触发 §dE-FB-009§r，解锁虚数 I 系研究。"
+				""
+				"§e避坑：§7没有这台机器，虚数 I 研究节点无法提交，别急着攒电路材料。"
+			]
+			id: "4A30000000000300"
+			subtitle: "E-FB-009 · 虚数研究之门"
+			tasks: [{
+				id: "4A30000000000301"
+				item: "hk3gtl:imaginary_tree_observation_array"
+				type: "item"
+			}]
+			title: "§d虚数之树观测阵"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000300"]
+			description: [
+				"虚数级电路演算圣堂——虚数四阶电路的产地。"
+				"配合观测阵完成虚数 I 研究后，铸造§d虚数一枝序芯元§r（触发里程碑 E-MS-005）。"
+			]
+			id: "4A30000000000400"
+			subtitle: "E-MS-005 · 虚数算力点火"
+			rewards: [{
+				id: "4A30000000000402"
+				type: "xp_levels"
+				xp_levels: 10
+			}]
+			tasks: [
+				{
+					id: "4A30000000000401"
+					item: "hk3gtl:imaginary_circuit_computation_sanctum"
+					type: "item"
+				}
+				{
+					id: "4A30000000000403"
+					item: "hk3gtl:imaginary_1_processor"
+					type: "item"
+				}
+			]
+			title: "§6虚数一枝序芯元"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000400"]
+			description: [
+				"虚数梦境熔炉与虚数物质编织机——虚数材料双子：流体合金、相转移镜面、爱因斯坦环磁机都从这里产出。"
+			]
+			id: "4A30000000000500"
+			subtitle: "虚数材料产线"
+			tasks: [
+				{
+					id: "4A30000000000501"
+					item: "hk3gtl:imaginary_dream_furnace"
+					type: "item"
+				}
+				{
+					id: "4A30000000000503"
+					item: "hk3gtl:imaginary_matter_weaver"
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "4A30000000000505"
+					item: "hk3gtl:fluid_alloy"
+					type: "item"
+				}
+			]
+			title: "§d梦境熔炉 × 物质编织机"
+			x: 10.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["4A30000000000400"]
+			description: [
+				"文明交流议事枢——与天命、逆熵两大组织建立联系。"
+				"产出§d天命·虚数核心§r与§d逆熵·虚数核心§r，虚数 II 电路的双核心。"
+			]
+			id: "4A30000000000600"
+			subtitle: "两大组织的技术结晶"
+			tasks: [
+				{
+					id: "4A30000000000601"
+					item: "hk3gtl:civilization_exchange_council_hub"
+					type: "item"
+				}
+				{
+					id: "4A30000000000603"
+					item: "hk3gtl:schicksal_imaginary_core"
+					type: "item"
+				}
+				{
+					id: "4A30000000000605"
+					item: "hk3gtl:anti_entropy_imaginary_core"
+					type: "item"
+				}
+			]
+			title: "§d文明交流议事枢"
+			x: 10.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000600"]
+			description: ["集齐双核心与虚数 I 算力后，组装§d虚数二树冠集成体§r。"]
+			id: "4A30000000000700"
+			subtitle: "树冠层的算力"
+			tasks: [{
+				id: "4A30000000000701"
+				item: "hk3gtl:imaginary_2_assembly"
+				type: "item"
+			}]
+			title: "虚数二树冠集成体"
+			x: 12.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000700"]
+			description: [
+				"虚数锚定装置——建成触发 §dE-FB-010§r，解锁虚数 III 系研究。"
+				"配合梦境熔炉的相转移镜面与爱因斯坦环磁机，演算§d虚数三虚律运算枢§r。"
+			]
+			id: "4A30000000000800"
+			subtitle: "E-FB-010 · 锚定虚数"
+			tasks: [
+				{
+					id: "4A30000000000801"
+					item: "hk3gtl:imaginary_anchor_device"
+					type: "item"
+				}
+				{
+					id: "4A30000000000803"
+					item: "hk3gtl:imaginary_3_computer"
+					type: "item"
+				}
+			]
+			title: "§d虚数锚定装置 → 虚数 III"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000400"]
+			description: [
+				"崩坏相态净化厂——16 格范围内§a注视度增长 -30%§r，缓冲激活时效果叠乘。"
+				"把它建在研究矩阵旁边，是中后期控制注视度的被动手段。"
+			]
+			icon: "hk3gtl:honkai_suppressant"
+			id: "4A30000000000900"
+			shape: "diamond"
+			subtitle: "被动注视抑制"
+			tasks: [{
+				id: "4A30000000000901"
+				item: "hk3gtl:honkai_phase_purification_plant"
+				type: "item"
+			}]
+			title: "§5崩坏相态净化厂"
+			x: 10.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["4A30000000000800"]
+			description: [
+				"双能稳定供应站（崩坏能 + EU 双轨供能）与魂钢超构锻造台（魂钢终极形态加工）。"
+				"两者都是虚数后段与量子阶段配方链的常客。"
+			]
+			id: "4A30000000000A00"
+			subtitle: "虚数后段基建"
+			tasks: [
+				{
+					id: "4A30000000000A01"
+					item: "hk3gtl:dual_energy_stable_supply_station"
+					type: "item"
+				}
+				{
+					id: "4A30000000000A03"
+					item: "hk3gtl:soulium_superstructure_forge"
+					type: "item"
+				}
+			]
+			title: "§d双能供应 × 超构锻造"
+			x: 17.5d
+			y: -2.0d
+		}
+		{
+			dependencies: ["4A30000000000800"]
+			description: [
+				"前文明数据库解码塔——建成触发 §dE-FB-011§r，解锁虚数 IV 系研究。"
+				"解码产出§d远古传承§r与§d远古意志§r：前者供研究，后者是虚数 IV 主脑与毕业链的关键材料。"
+			]
+			id: "4A30000000000B00"
+			subtitle: "E-FB-011 · 倾听前文明"
+			tasks: [
+				{
+					id: "4A30000000000B01"
+					item: "hk3gtl:precivilization_database_decoder"
+					type: "item"
+				}
+				{
+					id: "4A30000000000B03"
+					item: "hk3gtl:ancient_legacy"
+					type: "item"
+				}
+				{
+					id: "4A30000000000B05"
+					item: "hk3gtl:ancient_will"
+					type: "item"
+				}
+			]
+			title: "§d前文明数据库解码塔"
+			x: 17.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000B00"]
+			description: [
+				"§c§l合成前务必阅读！"
+				""
+				"虚数四虚序主脑是虚数阶段之巅。§d首次将它放入背包的瞬间，触发里程碑 E-MS-006：你会被立即传送到虚数维度§r——空之律者·西琳所在的地方。"
+				""
+				"§e避坑："
+				"§71. 传送后强制冒险模式，无法破坏/放置方块，这是正常现象；"
+				"§72. 维度内的剧情交互（虚数裂隙与西琳）详见第六章「终局审判」——§c对话一旦完成即触发终局审判并标记毕业§7，想先完成量子/终焉阶段的话，见到西琳后不要与她对话，直接离开即可；"
+				"§73. 离开后可以继续正常游戏，主脑功能不受影响。"
+			]
+			id: "4A30000000000C00"
+			size: 1.5d
+			subtitle: "E-MS-006 · 虚数之巅 · 强制传送警告"
+			rewards: [{
+				id: "4A30000000000C02"
+				type: "xp_levels"
+				xp_levels: 20
+			}]
+			tasks: [{
+				id: "4A30000000000C01"
+				item: "hk3gtl:imaginary_4_processor_mainframe"
+				type: "item"
+			}]
+			title: "§6§l虚数四虚序主脑"
+			x: 20.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A30000000000C00"]
+			description: [
+				"完成研究 §dR-IM-021「虚数出口认证」§r（前置 R-IM-016 / R-IM-017 / R-IM-020）后，量子阶段解锁。"
+			]
+			icon: "hk3gtl:superconductive_metal_hydrogen"
+			id: "4A30000000000D00"
+			shape: "diamond"
+			subtitle: "R-IM-021 · 通往量子之海"
+			tasks: [{
+				id: "4A30000000000D01"
+				title: "完成虚数出口认证研究"
+				type: "checkmark"
+			}]
+			title: "§d虚数出口"
+			x: 22.5d
+			y: 0.0d
+		}
+	]
+	subtitle: ["第三章 · 电压 Tier 19~22"]
+	title: "§d第三章 · 虚数阶段"
+}

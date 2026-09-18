@@ -1,0 +1,127 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All Rights Reserved"
+
+[[mixins]]
+config = "hk3gtl.mixins.json"
+
+[[mods]]
+modId = "hk3gtl"
+version = "${version}"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
+description = "${mod_description}"
+
+# ── 硬性前置 ──
+
+[[dependencies."hk3gtl"]]
+modId = "forge"
+mandatory = true
+versionRange = "[47.4.16,47.5)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${minecraft_version},1.20.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "gtceu"
+mandatory = true
+versionRange = "[1.4.4,1.4.5)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "gtlcore"
+mandatory = true
+versionRange = "[1.2.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "gtmthings"
+mandatory = true
+versionRange = "[1.3,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "ae2"
+mandatory = true
+versionRange = "[15.2,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "ad_astra"
+mandatory = true
+versionRange = "[1.15.20,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "sgjourney"
+mandatory = true
+versionRange = "[0.6.44,)"
+ordering = "AFTER"
+side = "BOTH"
+
+# GTLAdditions：多方块 Pattern 硬引用 gtladditions:spatially_transcendent_gravitational_lens
+# 及 Hyperion 结构方块，缺失时结构解析会抛 IllegalStateException，故声明为硬依赖。
+[[dependencies."hk3gtl"]]
+modId = "gtladditions"
+mandatory = true
+versionRange = "[2.6.5,)"
+ordering = "AFTER"
+side = "BOTH"
+
+# Avaritia（Re-Avaritia）：客户端 Mixin/Invoker 直接链接 Avaritia Shader API，
+# 缺失时客户端存在目标类加载风险，故声明为硬依赖。
+[[dependencies."hk3gtl"]]
+modId = "avaritia"
+mandatory = true
+versionRange = "[1.3.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+# ── 软性前置 ──
+
+[[dependencies."hk3gtl"]]
+modId = "guideme"
+mandatory = false
+versionRange = "[20.1.7,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "kubejs"
+mandatory = false
+versionRange = "[2001.6.5-build.16,2001.6.6)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "jei"
+mandatory = false
+versionRange = "[15.20.0.129,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."hk3gtl"]]
+modId = "jeiintegration"
+mandatory = false
+versionRange = "[10.0.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+# FTB Quests 软依赖：任务线引导（未安装时模组正常运行，仅不同步任务数据）
+[[dependencies."hk3gtl"]]
+modId = "ftbquests"
+mandatory = false
+versionRange = "[2001.4.18,)"
+ordering = "AFTER"
+side = "BOTH"

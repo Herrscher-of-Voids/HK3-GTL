@@ -1,0 +1,337 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "hk3_ch2_abyss"
+	group: ""
+	icon: "hk3gtl:abyss_1_processor"
+	id: "4A20000000000000"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"海渊阶段（电压 Tier 15~18）正式开始。"
+				"本章目标：搭建 MAX 起始四件套 → 点亮海渊 I~IV 电路 → 用世界泡样本敲开虚数之门。"
+				""
+				"§e提示：§7海渊起，几乎所有配方都被研究节点门控。研究界面里灰色的配方，先去研究矩阵补前置。"
+			]
+			icon: "hk3gtl:casing_soulium"
+			id: "4A20000000000100"
+			shape: "gear"
+			size: 1.5d
+			tasks: [{
+				id: "4A20000000000101"
+				title: "进入海渊阶段"
+				type: "checkmark"
+			}]
+			title: "§d§l坠入海渊"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A20000000000100"]
+			description: [
+				"虚空万藏解析所——解析「虚空万藏」神之键副本的数据，产出前文明数据碎片等海渊研究材料。"
+				""
+				"§e提示：§7虚空万藏本体由剧情事件 E-OT-001（奥托的邀请）赠予，留意聊天框的事件文本与文明档案卷轴。"
+			]
+			id: "4A20000000000200"
+			subtitle: "解读神之键的回响"
+			tasks: [{
+				id: "4A20000000000201"
+				item: "hk3gtl:void_archives_analysis_chamber"
+				type: "item"
+			}]
+			title: "§d虚空万藏解析所"
+			x: 2.5d
+			y: -2.0d
+		}
+		{
+			dependencies: ["4A20000000000100"]
+			description: [
+				"理构电路重构阵列——生产全系§d崩坏能电路板§r（ULV~MAX 共 15 阶）以及注视缓冲单元。"
+				""
+				"§e提示：§7该机器的产线需要研究 R-WL-001「瓦尔特的馈赠」，对应事件 E-WL-001 触发后自动完成。"
+			]
+			id: "4A20000000000300"
+			subtitle: "崩坏能电路板产线"
+			tasks: [{
+				id: "4A20000000000301"
+				item: "hk3gtl:reason_reconstruction_array"
+				type: "item"
+			}]
+			title: "§d理构电路重构阵列"
+			x: 2.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A20000000000100"]
+			description: [
+				"崩坏能-EU 转换塔——在崩坏能与 GT 电能之间架桥，是崩坏能体系并入主电网的关键节点。"
+			]
+			id: "4A20000000000400"
+			subtitle: "两种能源的桥梁"
+			tasks: [{
+				id: "4A20000000000401"
+				item: "hk3gtl:honkai_eu_converter"
+				type: "item"
+			}]
+			title: "§d崩坏能-EU转换塔"
+			x: 2.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["4A20000000000300"]
+			description: [
+				"海渊电路铸造厂——海渊全部四阶电路的产地。"
+				"用 MAX 电路 + 魂钢材料 + 崩坏碎片 + 液态崩坏能铸造第一块海渊电路。"
+			]
+			id: "4A20000000000500"
+			subtitle: "超越 MAX 的算力"
+			tasks: [{
+				id: "4A20000000000501"
+				item: "hk3gtl:abyss_circuit_foundry"
+				type: "item"
+			}]
+			title: "§d海渊电路铸造厂"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A20000000000500"]
+			description: [
+				"铸造海渊一演算核心（Tier 15 电路）。"
+				""
+				"§d首次持有将触发里程碑 E-MS-003「海渊突破」，注视度 +50§r——这是文明第一次真正被终焉看见。"
+				"§e建议：§7先做好注视缓冲单元再合成它（见本章「压低注视度」任务）。"
+			]
+			id: "4A20000000000600"
+			size: 1.5d
+			subtitle: "E-MS-003 · 海渊突破"
+			rewards: [{
+				id: "4A20000000000602"
+				type: "xp_levels"
+				xp_levels: 10
+			}]
+			tasks: [{
+				id: "4A20000000000601"
+				item: "hk3gtl:abyss_1_processor"
+				type: "item"
+			}]
+			title: "§6§l海渊一演算核心"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A20000000000300"]
+			description: [
+				"注视缓冲单元：§a右键使用§r立即降低 50 点注视度，并获得 10 分钟缓冲（期间注视增长减半）。"
+				""
+				"§e避坑：§7高级注视缓冲单元是研究提交材料，§c没有§7右键效果，别拿它当消耗品用。"
+			]
+			icon: "hk3gtl:gaze_buffer_unit"
+			id: "4A20000000000700"
+			shape: "diamond"
+			subtitle: "主动压制终焉的目光"
+			rewards: [{
+				count: 2
+				id: "4A20000000000702"
+				item: "hk3gtl:gaze_buffer_unit"
+				type: "item"
+			}]
+			tasks: [{
+				id: "4A20000000000701"
+				item: "hk3gtl:gaze_buffer_unit"
+				type: "item"
+			}]
+			title: "§5压低注视度"
+			x: 5.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["4A20000000000600"]
+			description: [
+				"大型崩坏能反应堆——海渊阶段的主力能源（建成触发 E-FB-005，首次注视 +20）。"
+				"燃料为§d崩坏能燃料棒§r，后期可升级高密度燃料棒。"
+			]
+			id: "4A20000000000800"
+			subtitle: "E-FB-005 · 崩坏能主力能源"
+			tasks: [
+				{
+					id: "4A20000000000801"
+					item: "hk3gtl:large_honkai_reactor"
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "4A20000000000803"
+					item: "hk3gtl:honkai_fuel_rod"
+					type: "item"
+				}
+			]
+			title: "§d大型崩坏能反应堆"
+			x: 10.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["4A20000000000600"]
+			description: [
+				"海渊深层冶炼厂与海渊精密加工坊——魂钢深加工双子星。"
+				"前者负责高温冶炼产线，后者负责精密部件（八大件、结构件）。"
+			]
+			id: "4A20000000000900"
+			subtitle: "魂钢深加工"
+			tasks: [
+				{
+					id: "4A20000000000901"
+					item: "hk3gtl:abyss_deep_smeltery"
+					type: "item"
+				}
+				{
+					id: "4A20000000000903"
+					item: "hk3gtl:abyss_precision_workshop"
+					type: "item"
+				}
+			]
+			title: "§d深层冶炼 × 精密加工"
+			x: 10.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A20000000000900"]
+			description: [
+				"海渊阶段的「八大件」：电动马达、活塞、泵、传送带、机械臂、力场发生器、发射器、传感器。"
+				"提交一枚海渊 I 电动马达证明产线已通——其余七件同产线可得。"
+			]
+			id: "4A20000000000A00"
+			subtitle: "超 MAX 部件产线"
+			tasks: [{
+				id: "4A20000000000A01"
+				item: "hk3gtl:electric_motor_abyss_1"
+				type: "item"
+			}]
+			title: "海渊八大件"
+			x: 12.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["4A20000000000800"]
+			description: [
+				"崩坏能无线仓室：潜行右键绑定所有者后，崩坏能直接进出你的§d个人无线池§r（BigInteger 无限容量）。"
+				"从此崩坏能产地与用电机器不再需要物理连接。"
+				""
+				"§e避坑：§7无线池按玩家绑定，忘记潜行右键绑定 = 仓室不工作。"
+			]
+			id: "4A20000000000B00"
+			subtitle: "崩坏能自动化的最后一环"
+			tasks: [
+				{
+					id: "4A20000000000B01"
+
+					type: "item"
+				}
+				{
+					id: "4A20000000000B03"
+
+					type: "item"
+				}
+			]
+			title: "§d崩坏能无线网络"
+			x: 12.5d
+			y: -2.0d
+		}
+		{
+			dependencies: ["4A20000000000900"]
+			description: [
+				"海渊粒子研究环——海渊高阶研究材料与三分结晶/崩坏结晶深加工。"
+				"配合研究矩阵推进 R-AB 中后段节点。"
+			]
+			id: "4A20000000000C00"
+			subtitle: "海渊科研重器"
+			tasks: [{
+				id: "4A20000000000C01"
+				item: "hk3gtl:abyss_particle_research_ring"
+				type: "item"
+			}]
+			title: "§d海渊粒子研究环"
+			x: 12.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A20000000000A00", "4A20000000000C00"]
+			description: [
+				"逐阶点亮海渊 II、III 电路：海渊二演算矩阵 → 海渊三智算中枢。"
+				"§7每一阶都需要上一阶电路 + 对应研究节点，卡住时先看研究树。"
+			]
+			id: "4A20000000000D00"
+			subtitle: "算力爬升"
+			tasks: [
+				{
+					id: "4A20000000000D01"
+					item: "hk3gtl:abyss_2_assembly"
+					type: "item"
+				}
+				{
+					id: "4A20000000000D03"
+					item: "hk3gtl:abyss_3_computer"
+					type: "item"
+				}
+			]
+			title: "海渊 II · III 电路"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A20000000000D00"]
+			description: [
+				"海渊四统御主机——海渊阶段的算力之巅。"
+				""
+				"§d首次持有将触发里程碑 E-MS-004§r。"
+			]
+			id: "4A20000000000E00"
+			subtitle: "E-MS-004 · 海渊之巅"
+			rewards: [{
+				id: "4A20000000000E02"
+				type: "xp_levels"
+				xp_levels: 15
+			}]
+			tasks: [{
+				id: "4A20000000000E01"
+				item: "hk3gtl:abyss_4_processor_mainframe"
+				type: "item"
+			}]
+			title: "§6海渊四统御主机"
+			x: 17.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A20000000000E00"]
+			description: [
+				"量子之海观测站——观测世界泡，采集§d世界泡样本§r。"
+				"世界泡样本是海渊出口研究 R-AB-024 与虚数阶段多个节点的核心提交物。"
+				""
+				"完成研究 §dR-AB-024「海渊出口认证」§r后，虚数阶段正式解锁。"
+			]
+			id: "4A20000000000F00"
+			size: 1.5d
+			subtitle: "R-AB-024 · 通往虚数的船票"
+			tasks: [
+				{
+					id: "4A20000000000F01"
+					item: "hk3gtl:sea_of_quanta_observatory"
+					type: "item"
+				}
+				{
+					id: "4A20000000000F03"
+					item: "hk3gtl:world_bubble_sample"
+					type: "item"
+				}
+			]
+			title: "§d§l量子之海观测站"
+			x: 20.0d
+			y: 0.0d
+		}
+	]
+	subtitle: ["第二章 · 电压 Tier 15~18"]
+	title: "§d第二章 · 海渊阶段"
+}

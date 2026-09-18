@@ -1,0 +1,18 @@
+{
+  "display": {
+    "icon": { "item": "hk3gtl:honkai_energy_crystal" },
+    "title": { "translate": "advancement.hk3gtl.stage.era_start.title" },
+    "description": { "translate": "advancement.hk3gtl.stage.era_start.desc" },
+    "frame": "task",
+    "background": "minecraft:textures/gui/advancements/backgrounds/end.png",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [["granted"]]
+}

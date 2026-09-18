@@ -1,0 +1,297 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "hk3_ch1_honkai"
+	group: ""
+	icon: "hk3gtl:honkai_energy_crystal"
+	id: "4A10000000000000"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"欢迎来到§d崩坏三-GTL§r。你的文明已经抵达 GT 科技的 MAX 电压，但这只是序章。"
+				""
+				"在 MAX 之上，还有§d海渊§r、§d虚数§r、§d量子§r、§d终焉§r四个全新阶段，最终你的文明将接受终局审判。"
+				""
+				"§e核心须知："
+				"§71. 本模组的多方块机器§f不需要能源仓§7，成型时自动绑定最近的玩家，EU 直接从你的无线电网扣除——请确保电网里有电。"
+				"§72. 大量配方与机器被§f研究系统§7门控，后续任务会引导你建造研究矩阵。"
+				"§73. 文明越强大，越会被§f终焉注视§7——注视度过高会拖慢研究速度，学会管理它。"
+			]
+			icon: "minecraft:book"
+			id: "4A10000000000100"
+			shape: "gear"
+			size: 1.5d
+			tasks: [{
+				id: "4A10000000000101"
+				title: "开始崩坏纪元"
+				type: "checkmark"
+			}]
+			title: "§d§l欢迎来到崩坏纪元"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A10000000000100"]
+			description: [
+				"文明档案卷轴是模组的叙事入口——已触发的里程碑、阵营事件与彩蛋都会记录在这里。"
+				"迷路时先翻档案，事件文本里往往藏着下一步的方向。"
+			]
+			id: "4A10000000000200"
+			subtitle: "你的文明编年史"
+			tasks: [{
+				id: "4A10000000000201"
+				item: "hk3gtl:narrative_codex"
+				type: "item"
+			}]
+			title: "文明档案卷轴"
+			x: 0.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["4A10000000000100"]
+			description: [
+				"合成崩坏能吸收塔控制器并搭建多方块结构。"
+				"吸收塔从虚空中提取§d原始崩坏能颗粒§r——这是一切超越 MAX 科技的起点。"
+				""
+				"§e避坑：§7控制器成型后会绑定最近的玩家作为机主，请本人站在旁边完成搭建；EU 从机主的无线电网扣除，电网没电时配方会一直等待（WAITING）。"
+			]
+			id: "4A10000000000300"
+			subtitle: "从虚空中提取崩坏能"
+			tasks: [{
+				id: "4A10000000000301"
+				item: "hk3gtl:honkai_absorption_tower"
+				type: "item"
+			}]
+			title: "§d崩坏能吸收塔"
+			x: 2.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A10000000000300"]
+			description: [
+				"让吸收塔持续运转，积累一批原始崩坏能颗粒。"
+				"§7后续的结晶、魂钢、电路全部以它为源头，建议尽早自动化收集。"
+			]
+			id: "4A10000000000400"
+			subtitle: "虚空中的能量碎屑"
+			rewards: [{
+				count: 256
+				id: "4A10000000000402"
+				item: "hk3gtl:raw_honkai_particle"
+				type: "item"
+			}]
+			tasks: [{
+				count: 512L
+				id: "4A10000000000401"
+				item: "hk3gtl:raw_honkai_particle"
+				type: "item"
+			}]
+			title: "原始崩坏能颗粒"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A10000000000400"]
+			description: [
+				"合成崩坏能结晶凝结厂控制器并搭建结构。"
+				"凝结厂有两条产线：颗粒 → §d崩坏碎片§r（固体），以及颗粒 → §d液态崩坏能§r（流体）。两条都需要。"
+			]
+			id: "4A10000000000500"
+			subtitle: "颗粒的两种归宿"
+			tasks: [{
+				id: "4A10000000000501"
+				item: "hk3gtl:honkai_crystal_condenser"
+				type: "item"
+			}]
+			title: "§d崩坏能结晶凝结厂"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A10000000000500"]
+			description: [
+				"在凝结厂中将原始颗粒凝结为崩坏碎片。"
+				""
+				"§d获得崩坏碎片的瞬间将触发里程碑 E-MS-001「崩坏能时代开启」§r——附赠 8 个原始颗粒，并自动完成研究 R-AB-001/R-AB-002。"
+			]
+			id: "4A10000000000600"
+			subtitle: "E-MS-001 · 崩坏能时代开启"
+			rewards: [{
+				id: "4A10000000000602"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			tasks: [{
+				count: 128L
+				id: "4A10000000000601"
+				item: "hk3gtl:honkai_energy_crystal"
+				type: "item"
+			}]
+			title: "崩坏碎片"
+			x: 10.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["4A10000000000500"]
+			description: [
+				"凝结厂的流体产线——液态崩坏能。"
+				"§7魂钢冶炼的每一步都要消耗它，提前备好流体存储与管道。"
+			]
+			id: "4A10000000000700"
+			subtitle: "魂钢冶炼的命脉"
+			tasks: [{
+				id: "4A10000000000701"
+				item: "hk3gtl:liquid_honkai_energy_bucket"
+				type: "item"
+			}]
+			title: "液态崩坏能"
+			x: 10.0d
+			y: 1.5d
+		}
+		{
+			dependencies: [
+				"4A10000000000600"
+				"4A10000000000700"
+			]
+			description: [
+				"合成魂钢冶铸中心控制器并搭建结构。"
+				"魂钢冶铸中心承载一条四步冶炼链："
+				"§d前体混合物 → 活化纳米基质 → 魂钢初生质 → 魂钢锭§r"
+				""
+				"§c避坑：§7电力高炉（EBF）§c无法§7冶炼魂钢——该配方已被移除，四步链是唯一途径，不要浪费材料尝试。"
+			]
+			id: "4A10000000000800"
+			subtitle: "四步冶炼链"
+			tasks: [{
+				id: "4A10000000000801"
+				item: "hk3gtl:soulium_smeltery"
+				type: "item"
+			}]
+			title: "§d魂钢冶铸中心"
+			x: 12.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A10000000000800"]
+			description: [
+				"完成四步冶炼链，产出第一批魂钢锭。"
+				"魂钢是全部海渊级机器外壳与部件的基础材料。"
+				""
+				"§d首次持有魂钢锭将触发里程碑 E-MS-002「魂钢文明诞生」§r，自动完成研究 R-AB-003。"
+			]
+			id: "4A10000000000900"
+			subtitle: "E-MS-002 · 魂钢文明诞生"
+			rewards: [{
+				id: "4A10000000000902"
+				type: "xp_levels"
+				xp_levels: 10
+			}]
+			tasks: [{
+				count: 64L
+				id: "4A10000000000901"
+				item: "hk3gtl:soulium_ingot"
+				type: "item"
+			}]
+			title: "魂钢锭"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A10000000000900"]
+			description: [
+				"合成海渊研究解析矩阵控制器并搭建结构（触发事件 E-FB-007，解锁手动研究提交）。"
+				""
+				"§e研究系统用法："
+				"§71. 右键控制器打开研究界面；"
+				"§72. 选择研究节点，提交所需物品开始研究；"
+				"§73. 研究期间矩阵§f持续扣电§7（待机也扣），断电或结构解散会中止研究；"
+				"§74. 玩家离线时研究暂停，无需挂机。"
+			]
+			id: "4A10000000000A00"
+			subtitle: "E-FB-007 · 科技树的钥匙"
+			tasks: [{
+				id: "4A10000000000A01"
+				item: "hk3gtl:abyss_research_analysis_matrix"
+				type: "item"
+			}]
+			title: "§d§l海渊研究解析矩阵"
+			size: 1.5d
+			x: 17.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A10000000000A00"]
+			description: [
+				"数据研究包是许多研究节点的通用提交物，建议常备一组。"
+				"§7在研究界面里可以看到每个节点的具体提交需求。"
+			]
+			id: "4A10000000000B00"
+			subtitle: "研究的硬通货"
+			rewards: [{
+				count: 2
+				id: "4A10000000000B02"
+				item: "hk3gtl:data_research_package"
+				type: "item"
+			}]
+			tasks: [{
+				id: "4A10000000000B01"
+				item: "hk3gtl:data_research_package"
+				type: "item"
+			}]
+			title: "数据研究包"
+			x: 20.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["4A10000000000600"]
+			description: [
+				"从触碰崩坏能的那一刻起，你的文明就进入了「终焉」的视野。"
+				""
+				"§e注视度机制："
+				"§7· 范围 0~1000，左上角 HUD 实时显示（为 0 时隐藏）；"
+				"§7· 触发关键里程碑、建成标志性机器、持有更高阶电路都会§c增加§7注视度；"
+				"§7· 注视度越高，§c研究速度越慢§7（最低降到一半以下）；"
+				"§7· 阈值 100/500/800 会触发不同阵营的注视事件。"
+				""
+				"§a应对手段将在海渊章节解锁：注视缓冲单元、崩坏相态净化厂等。"
+			]
+			icon: "minecraft:ender_eye"
+			id: "4A10000000000C00"
+			shape: "diamond"
+			tasks: [{
+				id: "4A10000000000C01"
+				title: "了解注视度"
+				type: "checkmark"
+			}]
+			title: "§5终焉的注视"
+			x: 10.0d
+			y: 3.5d
+		}
+		{
+			dependencies: ["4A10000000000A00"]
+			description: [
+				"本模组的多方块§f没有能源仓§r：控制器成型时绑定最近玩家，EU 从该玩家的 GTMThings 无线电网结算。"
+				""
+				"§e避坑清单："
+				"§71. 电网余额不足时机器进入 WAITING，不会爆炸也不会跑——先查电网再排查结构；"
+				"§72. 换人重建结构会改变绑定机主；"
+				"§73. 崩坏能体系另有独立的§d崩坏能无线网络§7（按玩家绑定，BigInteger 无限容量），与 EU 电网互不相通，海渊章节会用到。"
+			]
+			icon: "minecraft:redstone"
+			id: "4A10000000000D00"
+			shape: "diamond"
+			tasks: [{
+				id: "4A10000000000D01"
+				title: "了解供电体系"
+				type: "checkmark"
+			}]
+			title: "§e无仓室供电体系"
+			x: 20.0d
+			y: 1.5d
+		}
+	]
+	subtitle: ["第一章 · 从 MAX 到崩坏能"]
+	title: "§d第一章 · 崩坏能时代"
+}

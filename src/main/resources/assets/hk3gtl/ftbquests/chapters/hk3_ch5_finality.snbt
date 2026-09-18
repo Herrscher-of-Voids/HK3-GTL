@@ -1,0 +1,245 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "hk3_ch5_finality"
+	group: ""
+	icon: "hk3gtl:finality_1_processor"
+	id: "4A50000000000000"
+	order_index: 4
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"终焉阶段（电压 Tier 27~30）——最后的电压区间。"
+				"你的文明将建造休伯利安号、通过文明验证矩阵的审查，取得毕业许可。"
+				""
+				"§c警告：§7本章的标志性建筑会带来巨额注视度（休伯利安 +80、验证矩阵 +100），确保缓冲手段就绪。"
+			]
+			icon: "hk3gtl:ancient_will"
+			id: "4A50000000000100"
+			shape: "gear"
+			size: 1.5d
+			tasks: [{
+				id: "4A50000000000101"
+				title: "进入终焉阶段"
+				type: "checkmark"
+			}]
+			title: "§d§l终焉纪元"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A50000000000100"]
+			description: [
+				"终焉文明建设工坊与终焉极限材料锻炉——终焉阶段的部件与材料双引擎。"
+			]
+			id: "4A50000000000200"
+			subtitle: "终焉基建起步"
+			tasks: [
+				{
+					id: "4A50000000000201"
+					item: "hk3gtl:finality_civilization_construction_works"
+					type: "item"
+				}
+				{
+					id: "4A50000000000203"
+					item: "hk3gtl:finality_ultimate_material_forge"
+					type: "item"
+				}
+			]
+			title: "§d建设工坊 × 极限锻炉"
+			x: 2.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A50000000000200"]
+			description: [
+				"铸造§d终焉一终序判定核§r，触发里程碑 E-MS-010。"
+			]
+			id: "4A50000000000300"
+			subtitle: "E-MS-010 · 终焉算力点火"
+			rewards: [{
+				id: "4A50000000000302"
+				type: "xp_levels"
+				xp_levels: 20
+			}]
+			tasks: [{
+				id: "4A50000000000301"
+				item: "hk3gtl:finality_1_processor"
+				type: "item"
+			}]
+			title: "§6终焉一终序判定核"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A50000000000300"]
+			description: [
+				"休伯利安号——天命的旗舰，终焉阶段的核心平台。"
+				"建成触发里程碑 §dE-MS-011§r 与 §dE-FB-015§r（舰载扩展研究入口），§c首次建成注视度 +80§r。"
+			]
+			id: "4A50000000000400"
+			size: 1.5d
+			subtitle: "E-MS-011 / E-FB-015 · 旗舰起航"
+			tasks: [{
+				id: "4A50000000000401"
+				item: "hk3gtl:hyperion_flagship"
+				type: "item"
+			}]
+			title: "§d§l休伯利安号"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A50000000000400"]
+			description: [
+				"四大舰载模块："
+				"§7· 舰载终焉观测舱：研究速度 §a2.0×§7（全场最高加成）"
+				"§7· 舰载双能反应堆甲板：舰队能源"
+				"§7· 舰载文明协调大厅：文明协同"
+				"§7· 舰载神之键圣龛：神之键供奉"
+				""
+				"§e提示：§7集齐四模块还有隐藏彩蛋。"
+			]
+			id: "4A50000000000500"
+			subtitle: "旗舰全副武装"
+			tasks: [
+				{
+					id: "4A50000000000501"
+					item: "hk3gtl:shipboard_finality_observation"
+					type: "item"
+				}
+				{
+					id: "4A50000000000503"
+					item: "hk3gtl:shipboard_dual_energy_reactor_deck"
+					type: "item"
+				}
+				{
+					id: "4A50000000000505"
+					item: "hk3gtl:shipboard_civilization_coordination_hall"
+					type: "item"
+				}
+				{
+					id: "4A50000000000507"
+					item: "hk3gtl:shipboard_divine_key_shrine"
+					type: "item"
+				}
+			]
+			title: "§d四大舰载模块"
+			x: 10.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A50000000000500"]
+			description: [
+				"终焉二茧域集成阵与§d终焉三审判运算体§r（触发里程碑 E-MS-012）。"
+			]
+			id: "4A50000000000600"
+			subtitle: "E-MS-012 · 审判算力"
+			tasks: [
+				{
+					id: "4A50000000000601"
+					item: "hk3gtl:finality_2_assembly"
+					type: "item"
+				}
+				{
+					id: "4A50000000000603"
+					item: "hk3gtl:finality_3_computer"
+					type: "item"
+				}
+			]
+			title: "§6终焉 II · III 电路"
+			x: 12.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A50000000000400"]
+			description: [
+				"终焉文明动力枢与终焉·崩坏歼灭环——终局审查前的能源与净化保障。"
+			]
+			id: "4A50000000000700"
+			subtitle: "终焉能源与净化"
+			tasks: [
+				{
+					id: "4A50000000000701"
+					item: "hk3gtl:finality_civilization_power_hub"
+					type: "item"
+				}
+				{
+					id: "4A50000000000703"
+					item: "hk3gtl:finality_honkai_annihilation_ring"
+					type: "item"
+				}
+			]
+			title: "§d动力枢 × 歼灭环"
+			x: 10.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["4A50000000000600"]
+			description: [
+				"§d终焉四裁决主机§r——全模组最高阶电路，触发里程碑 E-MS-013。"
+			]
+			id: "4A50000000000800"
+			subtitle: "E-MS-013 · 算力终点"
+			rewards: [{
+				id: "4A50000000000802"
+				type: "xp_levels"
+				xp_levels: 30
+			}]
+			tasks: [{
+				id: "4A50000000000801"
+				item: "hk3gtl:finality_4_processor_mainframe"
+				type: "item"
+			}]
+			title: "§6§l终焉四裁决主机"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A50000000000800"]
+			description: [
+				"文明验证矩阵——终局审查装置，建成触发 §dE-MS-014§r 与 §dE-FB-016§r（毕业校验研究链入口），§c首次建成注视度 +100§r。"
+				""
+				"§e提示：§7完成研究 R-FN-009 时会触发各阵营的毕业前认证事件，留意档案卷轴。"
+			]
+			id: "4A50000000000900"
+			size: 1.5d
+			subtitle: "E-MS-014 / E-FB-016 · 接受审查"
+			tasks: [{
+				id: "4A50000000000901"
+				item: "hk3gtl:civilization_validation_matrix"
+				type: "item"
+			}]
+			title: "§d§l文明验证矩阵"
+			x: 17.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A50000000000900"]
+			description: [
+				"毕业权限验证祭坛与文明奇观圣殿——毕业校验链（R-GR-001~005）的实体载体。"
+				"完成研究 §dR-FN-012「终焉出口认证」§r后，毕业校验阶段开启。"
+			]
+			id: "4A50000000000A00"
+			subtitle: "R-FN-012 · 毕业前夜"
+			tasks: [
+				{
+					id: "4A50000000000A01"
+					item: "hk3gtl:graduation_permission_verification_altar"
+					type: "item"
+				}
+				{
+					id: "4A50000000000A03"
+					item: "hk3gtl:civilization_wonder_sanctum"
+					type: "item"
+				}
+			]
+			title: "§d验证祭坛 × 奇观圣殿"
+			x: 20.0d
+			y: 0.0d
+		}
+	]
+	subtitle: ["第五章 · 电压 Tier 27~30"]
+	title: "§d第五章 · 终焉阶段"
+}

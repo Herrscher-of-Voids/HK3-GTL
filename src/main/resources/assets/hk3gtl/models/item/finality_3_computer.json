@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/finality/circuits/finality_3_computer"
+  }
+}

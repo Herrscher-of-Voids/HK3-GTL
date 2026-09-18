@@ -1,0 +1,31 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.sirin.hk3gtl.mixin",
+  "plugin": "com.sirin.hk3gtl.mixin.Hk3MixinConfigPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "verbose": true,
+  "mixins": [
+    "GTValuesMixin",
+    "GTRecipeTypesMixin",
+    "GTMachinesMixin",
+    "SkyTearsAndGregHeartMixin",
+    "FluidIngredientMixin",
+    "RecipeLogicMixin",
+    "wmp.GTEnergyHelperMixin",
+    "wmp.VoltageHelperMixin",
+    "PrimaryLevelDataAccessor",
+    "LevelSettingsAccessor"
+  ],
+  "client": [
+    "AvaritiaCCShaderInstanceMixin",
+    "AvaritiaCCUniformInvoker",
+    "GlDebugMixin",
+    "GTRecipeWidgetMixin",
+    "ItemRecipeCapabilityMixin",
+    "FluidRecipeCapabilityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

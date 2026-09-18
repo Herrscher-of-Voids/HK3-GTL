@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "hk3gtl:block/casings/casing_imaginary_anchor"
+  }
+}

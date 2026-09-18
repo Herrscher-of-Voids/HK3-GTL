@@ -1,0 +1,285 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "hk3_ch4_quantum"
+	group: ""
+	icon: "hk3gtl:quantum_1_processor"
+	id: "4A40000000000000"
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"量子阶段（电压 Tier 23~26）。文明驶入量子之海，注视度的压力开始成为主要矛盾。"
+				"本章关键：量子纠缠计算机是§d全部量子研究§r的前置（E-FB-012），务必最先建造。"
+			]
+			icon: "hk3gtl:world_bubble_sample"
+			id: "4A40000000000100"
+			shape: "gear"
+			size: 1.5d
+			tasks: [{
+				id: "4A40000000000101"
+				title: "进入量子阶段"
+				type: "checkmark"
+			}]
+			title: "§d§l量子之海"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A40000000000100"]
+			description: [
+				"量子纠缠计算机——建成触发 §dE-FB-012§r，解锁量子全线研究，同时为研究矩阵提供 §a1.5× 研究速度§r加成。"
+				""
+				"§e提示：§7它既是门槛也是加速器，量子阶段的第一优先级。"
+			]
+			id: "4A40000000000200"
+			size: 1.5d
+			subtitle: "E-FB-012 · 量子研究之门"
+			tasks: [{
+				id: "4A40000000000201"
+				item: "hk3gtl:quantum_entanglement_computer"
+				type: "item"
+			}]
+			title: "§d§l量子纠缠计算机"
+			x: 2.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A40000000000200"]
+			description: [
+				"量子超导晶格工厂——产出§d超导金属氢§r，量子电路与机壳的核心材料。"
+			]
+			id: "4A40000000000300"
+			subtitle: "量子材料基石"
+			tasks: [
+				{
+					id: "4A40000000000301"
+					item: "hk3gtl:quantum_superconductor_lattice_factory"
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "4A40000000000303"
+					item: "hk3gtl:superconductive_metal_hydrogen"
+					type: "item"
+				}
+			]
+			title: "§d量子超导晶格工厂"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A40000000000300"]
+			description: [
+				"量子思维锻造台——量子四阶电路的产地。"
+				"铸造§d量子一纠缠逻辑核§r，触发里程碑 E-MS-007。"
+			]
+			id: "4A40000000000400"
+			subtitle: "E-MS-007 · 量子算力点火"
+			rewards: [{
+				id: "4A40000000000402"
+				type: "xp_levels"
+				xp_levels: 15
+			}]
+			tasks: [
+				{
+					id: "4A40000000000401"
+					item: "hk3gtl:quantum_thought_forge"
+					type: "item"
+				}
+				{
+					id: "4A40000000000403"
+					item: "hk3gtl:quantum_1_processor"
+					type: "item"
+				}
+			]
+			title: "§6量子一纠缠逻辑核"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A40000000000400"]
+			description: [
+				"世界泡熔毁炉与量子文明贸易港——把量子之海的资源（世界泡、跨文明贸易品）纳入生产体系。"
+			]
+			id: "4A40000000000500"
+			subtitle: "量子资源双通道"
+			tasks: [
+				{
+					id: "4A40000000000501"
+					item: "hk3gtl:world_bubble_meltdown_furnace"
+					type: "item"
+				}
+				{
+					id: "4A40000000000503"
+					item: "hk3gtl:quantum_civilization_trade_port"
+					type: "item"
+				}
+			]
+			title: "§d熔毁炉 × 贸易港"
+			x: 10.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["4A40000000000400"]
+			description: [
+				"崩坏能无线中转枢纽——崩坏能无线网络的核心节点，承载 honkai_wireless_transit 产线。"
+				"配合第二章的无线仓室，崩坏能体系全面无线化。"
+			]
+			id: "4A40000000000600"
+			subtitle: "无线网络主干"
+			tasks: [{
+				id: "4A40000000000601"
+				item: "hk3gtl:honkai_wireless_transit_hub"
+				type: "item"
+			}]
+			title: "§d崩坏能无线中转枢纽"
+			x: 10.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A40000000000400"]
+			description: [
+				"量子精密装配厂与量子·崩坏聚变环——量子中后段的部件与能源担当。"
+				"量子八大件（如 §fsensor_quantum_x§7）由装配厂产出。"
+			]
+			id: "4A40000000000700"
+			subtitle: "量子基建双雄"
+			tasks: [
+				{
+					id: "4A40000000000701"
+					item: "hk3gtl:quantum_precision_assembly_factory"
+					type: "item"
+				}
+				{
+					id: "4A40000000000703"
+					item: "hk3gtl:quantum_honkai_fusion_ring"
+					type: "item"
+				}
+			]
+			title: "§d装配厂 × 聚变环"
+			x: 10.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["4A40000000000500", "4A40000000000600", "4A40000000000700"]
+			description: ["逐阶点亮量子 II、III 电路。"]
+			id: "4A40000000000800"
+			subtitle: "算力爬升"
+			tasks: [
+				{
+					id: "4A40000000000801"
+					item: "hk3gtl:quantum_2_assembly"
+					type: "item"
+				}
+				{
+					id: "4A40000000000803"
+					item: "hk3gtl:quantum_3_computer"
+					type: "item"
+				}
+			]
+			title: "量子 II · III 电路"
+			x: 12.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A40000000000200"]
+			description: [
+				"终焉压力缓冲阵列——附近的研究矩阵§a研究速度下限提升到 40%§r，高注视度时的保命建筑。"
+				"神之键展示廊——每台额外 +10% 研究速度，最多叠加 3 台（+30%）。"
+				""
+				"§e提示：§7量子阶段注视度动辄数百，这两台是研究效率的生命线。"
+			]
+			icon: "hk3gtl:gaze_buffer_unit"
+			id: "4A40000000000900"
+			shape: "diamond"
+			subtitle: "对抗注视的基建"
+			tasks: [
+				{
+					id: "4A40000000000901"
+					item: "hk3gtl:finality_pressure_buffer_array"
+					type: "item"
+				}
+				{
+					id: "4A40000000000903"
+					item: "hk3gtl:divine_key_gallery"
+					type: "item"
+				}
+			]
+			title: "§5压力缓冲 × 神之键展示"
+			x: 5.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["4A40000000000800"]
+			description: [
+				"量子四量子裁定主机——量子阶段之巅。"
+				""
+				"§d首次持有将触发里程碑 E-MS-009§r。"
+			]
+			id: "4A40000000000A00"
+			subtitle: "E-MS-009 · 量子之巅"
+			rewards: [{
+				id: "4A40000000000A02"
+				type: "xp_levels"
+				xp_levels: 20
+			}]
+			tasks: [{
+				id: "4A40000000000A01"
+				item: "hk3gtl:quantum_4_processor_mainframe"
+				type: "item"
+			}]
+			title: "§6量子四量子裁定主机"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A40000000000A00"]
+			description: [
+				"千界一乘——跨越千个世界泡的列车。"
+				"建成触发里程碑 §dE-MS-008§r 与 §dE-FB-013§r（终焉研究入口），§c首次建成注视度 +50§r。"
+				""
+				"奇观模拟建造平台——终焉奇观的预演场，建议同期建设。"
+			]
+			id: "4A40000000000B00"
+			size: 1.5d
+			subtitle: "E-MS-008 / E-FB-013 · 驶向终焉"
+			tasks: [
+				{
+					id: "4A40000000000B01"
+					item: "hk3gtl:thousand_realms_train"
+					type: "item"
+				}
+				{
+					id: "4A40000000000B03"
+					item: "hk3gtl:wonder_construction_simulation_platform"
+					type: "item"
+				}
+			]
+			title: "§d§l千界一乘"
+			x: 17.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4A40000000000B00"]
+			description: [
+				"完成研究 §dR-QT-012「量子出口认证」§r（前置 R-QT-011 / R-QT-006 / R-QT-009）后，终焉阶段解锁。"
+			]
+			icon: "hk3gtl:quantum_4_processor_mainframe"
+			id: "4A40000000000C00"
+			shape: "diamond"
+			subtitle: "R-QT-012 · 终焉入场券"
+			tasks: [{
+				id: "4A40000000000C01"
+				title: "完成量子出口认证研究"
+				type: "checkmark"
+			}]
+			title: "§d量子出口"
+			x: 20.0d
+			y: 0.0d
+		}
+	]
+	subtitle: ["第四章 · 电压 Tier 23~26"]
+	title: "§d第四章 · 量子阶段"
+}
