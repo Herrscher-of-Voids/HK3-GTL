@@ -1,7 +1,19 @@
 package com.sirin.hk3gtl.common.machine;
 
+/**
+ * 【文件职责／本轮边界】持久化独立研究团队归属；离队不迁移机器，重绑要求原队权限且无进行中的批次或研究。
+ * 【变更记录 #1】2026-09-29 21:06:40（第 1 次编号备注 · 内测5修订100）
+ * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
+ * 新增／修改：持久化独立研究团队归属；离队不迁移机器，重绑要求原队权限且无进行中的批次或研究。
+ * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
+ * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
+ * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
+ */
+
+/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
 
+/** 中文说明：该处说明已按当前代码行为整理。*/
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.feature.IMachineLife;
@@ -20,6 +32,7 @@ import com.sirin.hk3gtl.common.machine.multiblock.part.HonkaiEnergyHatchPartMach
 import com.sirin.hk3gtl.common.machine.trait.Hk3PlayerGridEnergyTrait;
 import com.sirin.hk3gtl.common.block.energy.HonkaiHatchType;
 import com.sirin.hk3gtl.common.capability.Hk3DualEnergyCosts;
+import com.sirin.hk3gtl.common.recipe.power.Hk3RecipePower;
 import com.sirin.hk3gtl.common.capability.HonkaiWirelessNetwork;
 import com.sirin.hk3gtl.common.capability.IDualEnergyConsumer;
 import com.sirin.hk3gtl.common.capability.IHonkaiEnergyContainer;
@@ -27,6 +40,7 @@ import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.event.Hk3EventManager;
 import com.sirin.hk3gtl.common.util.Hk3HonkaiEnergyFormatter;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -64,8 +78,117 @@ import java.util.UUID;
  *   <li>寻找最近玩家时使用 64 格距离阈值避免给离线 / 远处玩家误派事件</li>
  * </ul>
  */
+/**
+ * 【变更记录 #2】2026-09-30 15:50:54（内测5修订109）
+ * 删除：无。新增：稳定锚提供者的加载登记与卸载清理。
+ * 修改：不凭控制器名称登记普通机器；用途：研究按位置查询有效锚，不批准新结构。
+ */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+/**
+ * 【变更记录 #3】2026-10-01 17:33:35（修订138）
+ * 删除：单配方工厂返回未检查实际tick提交的原始执行器；新增：Hk3RecipeLogic共用入口。
+ * 修改：单配方与多配方都传播实际提交失败；用途：保持所有本模组配方机器一致，不改研究所独立队列。
+ */
+/**
+ * 【变更记录 #4】2026-10-15 02:59:25（第4次备注 · 香港时间 · 内测5修订159）
+ * 删除：本模组直接匹配及朝向更新绕过GT结构锁的并发入口；不删除GT异步扫描或匹配规则。
+ * 新增：三种匹配入口与两种朝向更新共用父类每台控制器结构锁，异常时也在finally释放。
+ * 修改：原始匹配仍调用pattern.checkPatternAt(state,false)，尝试检查不能取锁时立即返回false。
+ * 用途：防止服务器朝向检查与后台扫描同时写同一个匹配上下文；同线程重入及预览假世界沿用原语义。
+ */
+/**
+ * 【变更记录 #5】2026-10-17 16:27:36（第5次备注 · 修订165）
+ * 删除：显式高阶工况经第三方double超频/部件倍率产生饱和费用的路径。
+ * 新增：固定工况原值副本入口；修改：标记配方只由HK精确并行规划器倍乘，未标记配方保持原超频行为。
+ * 用途：额定要求、工时与计费基准一致，不把高阶价码经舍入变成免费产能，不新增机器或硬件。
+ */
+/**
+ * 【变更记录 #6】2026-10-19 02:09:59（第6次备注 · 修订171）
+ * 删除：无，保留全部研究归属和工作逻辑。
+ * 新增：总览索引随真实加载、放置、研究归属重绑及方块拆除同步。
+ * 修改：卸载仅保留未加载快照，重绑成功后立即撤销旧队可见性；成型和失效仅提交只读观察。
+ * 用途：以本类持久研究团队为权威归属，不按附近玩家或当前在线队伍重新分配机器。
+ */
+/**
+ * 【变更记录 #7】2026-10-19 02:19:20（第7次备注 · 修订171）
+ * 删除：加载和放置回调内的提前索引写入。
+ * 新增：无；修改：两类回调统一由总览GT钩子下tick重验同一BE后登记，已授权研究重绑仍立即登记。
+ * 用途：Forge取消放置及回滚不提前改归属；普通卸载保留快照，重绑即时撤旧队可见性。
+ */
+/**
+ * 【变更记录 #8】2026-11-04 21:04:10（内测5修订200）
+ * 删除：无。新增：真实拆除回调立即撤销本实例稳定源登记。
+ * 修改：复用实例身份注销；用途：不等待区块卸载清理已拆除源，保留原生命周期处理。
+ */
 public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMachine implements IMachineLife, IDualEnergyConsumer {
+
+    /** 高阶固定工况不经过第三方浮点超频；后续合并仍允许在真实供能预算内精确并行。 */
+    @Override
+    public GTRecipe fullModifyRecipe(GTRecipe recipe, OCParams params, OCResult result) {
+        if (Hk3RecipePower.marked(recipe)) return recipe.copy();
+        return super.fullModifyRecipe(recipe, params, result);
+    }
+
+    /** 原始入口也持锁，覆盖GT朝向更新和其他直接匹配调用；不改变判定与空模式行为。 */
+    @Override public boolean checkPattern() {
+        return Hk3PatternLock.withLock(getPatternLock(), () -> {
+            var pattern = getPattern();
+            return pattern != null && pattern.checkPatternAt(getMultiblockState(), false);
+        });
+    }
+
+    /** 保留虚调用入口，并确保嵌套匹配异常时本层锁也会释放。 */
+    @Override public boolean checkPatternWithLock() {
+        return Hk3PatternLock.withLock(getPatternLock(), this::checkPattern);
+    }
+
+    /** 后台尝试检查只能立即取锁，竞争时返回false，不能阻塞异步扫描队列。 */
+    @Override public boolean checkPatternWithTryLock() {
+        return Hk3PatternLock.tryCheck(getPatternLock(), this::checkPattern);
+    }
+
+    /** 朝向变化、失效通知和GT同步匹配作为一个锁内过程，避免后台读取过渡状态。 */
+    @Override public void setFrontFacing(Direction facing) {
+        Hk3PatternLock.withLock(getPatternLock(), () -> {
+            super.setFrontFacing(facing);
+            return null;
+        });
+    }
+
+    /** 扩展朝向与普通朝向使用同一可重入锁；父类禁用扩展朝向时仍按原规则返回。 */
+    @Override public void setUpwardsFacing(Direction upwardsFacing) {
+        Hk3PatternLock.withLock(getPatternLock(), () -> {
+            super.setUpwardsFacing(upwardsFacing);
+            return null;
+        });
+    }
+
+    /** 稳定锚按提供者登记；机器总览另按本类持久研究归属登记。 */
+    @Override public void onLoad() {
+        super.onLoad();
+        com.sirin.hk3gtl.common.gaze.Hk3ResearchSuppression.register(this);
+    }
+    @Override public void onUnload() {
+        com.sirin.hk3gtl.common.gaze.Hk3ResearchSuppression.unregister(this);
+        com.sirin.hk3gtl.common.overview.Hk3MachineOverviewHooks.unloaded(this);
+        super.onUnload();
+    }
+
+    @Override public void onMachineRemoved() {
+        com.sirin.hk3gtl.common.gaze.Hk3ResearchSuppression.unregister(this);
+        IMachineLife.super.onMachineRemoved();
+        com.sirin.hk3gtl.common.overview.Hk3MachineOverviewHooks.removed(this);
+    }
+
+    /** 显式研究重绑已通过原队授权，此处立即刷新归属；不改变机器运行。 */
+    private void registerOverview() {
+        if (!(getLevel() instanceof ServerLevel level) || !level.getServer().isSameThread()) return;
+        try {
+            com.sirin.hk3gtl.common.overview.Hk3MachineOverviewService.register(this, getResearchTeamUUID());
+        } catch (RuntimeException | LinkageError failure) {
+            LogUtils.getLogger().debug("[HK3-OVERVIEW] 研究归属机器登记失败", failure);
+        }
+    }
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -92,6 +215,7 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
     @Persisted
     @Nullable
     private UUID ownerUUID;
+    @Persisted @Nullable private UUID researchTeamUUID;
 
     /** 玩家电网 EU 特征：构造期挂载（MachineTrait 构造器自动 attachTraits），成型时被 GT 注入 EU IN 代理 */
     @SuppressWarnings("unused")
@@ -116,6 +240,26 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
         return ownerUUID;
     }
 
+    /** 研究归属首次绑定后固定；电网归属仍使用放置者。 */
+    @Nullable public UUID getResearchTeamUUID() {
+        if (researchTeamUUID==null && ownerUUID!=null && getLevel()!=null && !isRemote() && getLevel().getServer()!=null) {
+            researchTeamUUID=com.sirin.hk3gtl.common.research.Hk3ResearchTeams.scope(getLevel().getServer(),ownerUUID);
+            if (getHolder() instanceof net.minecraft.world.level.block.entity.BlockEntity be) be.setChanged();
+        }
+        return researchTeamUUID;
+    }
+    /** 旧队授权后才能改研究归属；在研投入与进行中的生产批次不得随机器转队。 */
+    public boolean rebindResearchTeam(net.minecraft.server.level.ServerPlayer actor,UUID target) {
+        if (target==null || isRemote() || getLevel()!=actor.level() || getResearchTeamUUID()==null
+                || actor.distanceToSqr(getPos().getX()+0.5,getPos().getY()+0.5,getPos().getZ()+0.5)>64) return false;
+        if (!com.sirin.hk3gtl.common.research.Hk3ResearchTeams.canManage(actor.server,researchTeamUUID,actor.getUUID())) return false;
+        String facility=getLevel().dimension().location()+"@"+getPos().asLong();
+        if (getRecipeLogic().isActive() || com.sirin.hk3gtl.common.research.Hk3ResearchData.get(actor).facilityOccupied(facility)) return false;
+        researchTeamUUID=target;
+        if(getHolder() instanceof net.minecraft.world.level.block.entity.BlockEntity be)be.setChanged();
+        registerOverview();
+        return true;
+    }
     /** 双能源结算归属：与 EU 电网共用同一个 ownerUUID，保证两条能源轨的账户一致 */
     @Override
     @Nullable
@@ -131,6 +275,7 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
         IMachineLife.super.onMachinePlaced(player, stack);
         if (player != null) {
             this.ownerUUID = player.getUUID();
+            if (!isRemote()) getResearchTeamUUID();
         }
     }
 
@@ -156,7 +301,7 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
         if (enableMultiRecipe()) {
             return new Hk3MultiRecipeLogic(this);
         }
-        return super.createRecipeLogic(args);
+        return new Hk3RecipeLogic(this);
     }
 
     /**
@@ -204,6 +349,7 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
         // 需求 13 Phase A：扫描并缓存结构区域内的崩坏能仓，供子类机器 tick 使用
         scanHonkaiHatches();
         notifyMultiblockEvent();
+        com.sirin.hk3gtl.common.overview.Hk3MachineOverviewHooks.changed(this);
 
         // Phase 5 诊断：成型时输出控制器 + appearance + parts 数量，便于定位贴图问题
         try {
@@ -232,6 +378,7 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
     public void onStructureInvalid() {
         super.onStructureInvalid();
         honkaiHatches = Collections.emptyList();
+        com.sirin.hk3gtl.common.overview.Hk3MachineOverviewHooks.changed(this);
     }
 
     /**
@@ -374,3 +521,5 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
     }
 
 }
+
+// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。

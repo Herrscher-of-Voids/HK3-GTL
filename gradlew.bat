@@ -37,9 +37,9 @@ for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
 
 @rem Find java.exe
-set HK3GTM_JAVA_EXE=C:\Program Files\Java\jdk-17.0.15+6\bin\java.exe
-if exist "%HK3GTM_JAVA_EXE%" (
-  set JAVA_EXE=%HK3GTM_JAVA_EXE%
+set HK3GTL_JAVA_EXE=C:\Program Files\Java\jdk-17.0.15+6\bin\java.exe
+if exist "%HK3GTL_JAVA_EXE%" (
+  set JAVA_EXE=%HK3GTL_JAVA_EXE%
   goto execute
 )
 if defined JAVA_HOME goto findJavaFromJavaHome
@@ -95,3 +95,5 @@ exit /b %EXIT_CODE%
 if "%OS%"=="Windows_NT" endlocal
 
 :omega
+
+@rem 【变更记录 #1】2026-10-23 23:41:24（内测5名称统一维护）：删除旧项目名引用；新增本条维护记录；修改项目路径、启动标识或纹理目录为 HK3GTL 对应名称；用途为统一工具与构建引用，保留原有业务逻辑。

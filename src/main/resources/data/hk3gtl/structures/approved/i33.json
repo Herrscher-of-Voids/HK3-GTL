@@ -1,0 +1,285 @@
+{
+  "key": "i33",
+  "machine": "hk3gtl:i33_imitation_divine_key_assembly_center",
+  "source": "data/hk3gtl/approved_architecture/i33.json",
+  "sha256": "f3fab460d1b7771189413b9f3b476847a7fe90bfef0c10aacfbf967afc167a83",
+  "template_sha256": "4df69929b002381140fe3c30e57a26e89eab93219b16efa51fcda61a739f3e8d",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_031122_229329_batch-08_05of05_I33_V1_QCV_外观已确认\\I33_仿制神之键装配中心_圣匣铸键工坊_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_031122_229329_batch-08_05of05_I33_V1_QCV_外观已确认\\I33_仿制神之键装配中心_圣匣铸键工坊_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_031122_229329_batch-08_05of05_I33_V1_QCV_外观已确认\\I33_仿制神之键装配中心_圣匣铸键工坊_V1_20261027\\i33\\hk3gtl-i33-divine-key-assembly-v1-20261027.nbt",
+  "source_nbt_sha256": "1ceca469e6f48718550cce2c654f2fbb1c71ad5f41922fc1053a8d0775d52e78",
+  "controller": [
+    125,
+    25,
+    8
+  ],
+  "size_xyz": [
+    251,
+    173,
+    241
+  ],
+  "blocks": 1595661,
+  "ports": [
+    {
+      "id": "仿制核心输入",
+      "purpose": "接收I08交付的既有获批仿制核心",
+      "pos": [
+        101,
+        25,
+        8
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "研究许可核验",
+      "purpose": "已有研究许可候选接入口；不自动解锁",
+      "pos": [
+        149,
+        25,
+        8
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "西侧装配供能",
+      "purpose": "侧翼封装和工况校验设备供能",
+      "pos": [
+        0,
+        25,
+        65
+      ],
+      "face": "west",
+      "group": "energy_input"
+    },
+    {
+      "id": "东侧装配供能",
+      "purpose": "镜像侧翼封装和工况校验设备供能",
+      "pos": [
+        250,
+        25,
+        65
+      ],
+      "face": "east",
+      "group": "energy_input"
+    },
+    {
+      "id": "西侧冷却输入",
+      "purpose": "精密封装工段冷却介质候选入口",
+      "pos": [
+        0,
+        25,
+        178
+      ],
+      "face": "west",
+      "group": "fluid_input"
+    },
+    {
+      "id": "东侧冷却回流",
+      "purpose": "冷却回路候选回流接口",
+      "pos": [
+        250,
+        25,
+        178
+      ],
+      "face": "east",
+      "group": "fluid_output"
+    },
+    {
+      "id": "仿制神之键交付",
+      "purpose": "交付既有三种物品神之键，使用工况不消耗",
+      "pos": [
+        101,
+        25,
+        232
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "魂钢部件输入",
+      "purpose": "接收I16与GT既有结构、电子和机械分件",
+      "pos": [
+        149,
+        25,
+        232
+      ],
+      "face": "south",
+      "group": "item_input"
+    },
+    {
+      "id": "列车信标组件交付",
+      "purpose": "第二神之键输出列车或信标控制组件",
+      "pos": [
+        77,
+        25,
+        232
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "测试残件输出",
+      "purpose": "保留维护及非消耗工况验证产生的测试残件",
+      "pos": [
+        173,
+        25,
+        232
+      ],
+      "face": "south",
+      "group": "item_output"
+    }
+  ],
+  "target_voltage": "QCV",
+  "installed_hatches": {
+    "仿制核心输入": "item_input",
+    "研究许可核验": "item_input",
+    "西侧冷却输入": "fluid_input",
+    "东侧冷却回流": "fluid_output",
+    "仿制神之键交付": "item_output",
+    "魂钢部件输入": "item_input",
+    "列车信标组件交付": "item_output",
+    "测试残件输出": "item_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 180,
+  "materials": 26,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        101,
+        25,
+        8
+      ],
+      "role": "仿制核心输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        125,
+        25,
+        8
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i33_imitation_divine_key_assembly_center[facing=north]",
+      "block_entity_id": "hk3gtl:i33_imitation_divine_key_assembly_center"
+    },
+    {
+      "pos": [
+        149,
+        25,
+        8
+      ],
+      "role": "研究许可核验",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        0,
+        25,
+        65
+      ],
+      "role": "西侧装配供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        250,
+        25,
+        65
+      ],
+      "role": "东侧装配供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        0,
+        25,
+        178
+      ],
+      "role": "西侧冷却输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        250,
+        25,
+        178
+      ],
+      "role": "东侧冷却回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        77,
+        25,
+        232
+      ],
+      "role": "列车信标组件交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        101,
+        25,
+        232
+      ],
+      "role": "仿制神之键交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        149,
+        25,
+        232
+      ],
+      "role": "魂钢部件输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=south]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        173,
+        25,
+        232
+      ],
+      "role": "测试残件输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i33_imitation_divine_key_assembly_center",
+  "process_scope": "正式建筑、控制器、原位仓室和完整预览接入；不开放暂定工艺或未实现的世界泡任务。"
+}

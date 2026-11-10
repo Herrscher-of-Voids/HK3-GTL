@@ -1,7 +1,19 @@
 package com.sirin.hk3gtl.client.entity;
 
 
-
+/**
+ * 【文件职责】
+ * - 负责 VoidQueenSirinRenderer 客户端渲染或 UI 逻辑。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录 #1】2026-05-19（内测二首轮）
+ *
+ * 【变更记录 #2】2026-05-19 04:45:00（第 2 次备注 · 内测二第 4 次更新）
+ * - 修改：朝向由服务端 {@link SirinEntranceAnimationArchive#applyFacingYaw} 与翅膀层 body.yRot 清零配合修复。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.entity.VoidQueenSirinEntity;

@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "source": "Hong Kong Observatory annual Gregorian-Lunar Calendar Conversion Tables",
+  "sourceZone": "Asia/Hong_Kong",
+  "years": {
+    "2024": {
+      "qingming": "2024-04-04",
+      "winter_solstice": "2024-12-21"
+    },
+    "2025": {
+      "qingming": "2025-04-04",
+      "winter_solstice": "2025-12-21"
+    },
+    "2026": {
+      "qingming": "2026-04-05",
+      "winter_solstice": "2026-12-22"
+    },
+    "2027": {
+      "qingming": "2027-04-05",
+      "winter_solstice": "2027-12-22"
+    },
+    "2028": {
+      "qingming": "2028-04-04",
+      "winter_solstice": "2028-12-21"
+    },
+    "2029": {
+      "qingming": "2029-04-04",
+      "winter_solstice": "2029-12-21"
+    },
+    "2030": {
+      "qingming": "2030-04-05",
+      "winter_solstice": "2030-12-22"
+    },
+    "2031": {
+      "qingming": "2031-04-05",
+      "winter_solstice": "2031-12-22"
+    },
+    "2032": {
+      "qingming": "2032-04-04",
+      "winter_solstice": "2032-12-21"
+    },
+    "2033": {
+      "qingming": "2033-04-04",
+      "winter_solstice": "2033-12-21"
+    },
+    "2034": {
+      "qingming": "2034-04-05",
+      "winter_solstice": "2034-12-22"
+    },
+    "2035": {
+      "qingming": "2035-04-05",
+      "winter_solstice": "2035-12-22"
+    }
+  }
+}

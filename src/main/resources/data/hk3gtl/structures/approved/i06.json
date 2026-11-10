@@ -1,0 +1,107 @@
+{
+  "key": "i06",
+  "source": "data/hk3gtl/approved_architecture/i06.json",
+  "machine": "hk3gtl:honkai_fuel_blending_plant",
+  "sha256": "ab96127139d4701c3e6f0f9e6432727ebe3bae99b48829fe01022fc7d69d0026",
+  "template_sha256": "694f4fc859e0afc9157b1670cfede3e2409bad82e0616acede54b00e2f7bb5d9",
+  "approved_blueprint_sha256": "2efe1647b518c3f93e30560ee19c0a9fa4350b862179c3b08d8be865f1703d08",
+  "approved_nbt_sha256": "a6a0fcc53b8f0f76ea56a042f71b1e411af18687c4449625d7387bc0f60da304",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "controller": [
+    27,
+    2,
+    17
+  ],
+  "size_xyz": [
+    55,
+    29,
+    41
+  ],
+  "blocks": 9705,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {
+    "MEDIUM": "fluid_input",
+    "FUEL": "fluid_output",
+    "BASE": "item_input",
+    "RESIDUE": "item_output"
+  },
+  "geometry_changes": "批准V2原几何；仅主控与六接口以原注册ID和原仓状态替换",
+  "game_verified": false,
+  "target_voltage": "HBV",
+  "target_casing": "hk3gtl:voltage_machine_casing_hbv",
+  "approval_quote": "实装这一些吧",
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-20T00:52:09+08:00",
+      "reason": "负责人明确采用整批21形态新配色",
+      "deleted": "无；旧归档、候选原件与旧正式资源快照保留",
+      "added": "明确目标电压、新批准来源与本次修改身份",
+      "modified": "主体配色采用已批候选，控制器/仓室与能力合同沿用原正式实现",
+      "purpose": "使已有Pattern和放置模板读取批准配色；游戏成型与运行仍待验收"
+    },
+    {
+      "record": 2,
+      "time": "2026-10-23T13:37:02+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准当前主控置中融合V2并要求实装",
+      "deleted": "旧独立接口载体的正式几何引用；旧正式文件应用前完整备份",
+      "added": "本次批准来源身份、新控制点及按ID迁移的接口布局",
+      "modified": "几何逐格采用V2，注册ID、原接口能力合同与真实仓完整状态保持",
+      "purpose": "既有Pattern与正式放置模板共用新坐标；游戏运行仍待实机验收"
+    }
+  ],
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "paste_anchor": [
+    0,
+    0,
+    0
+  ],
+  "controller_centering": {
+    "version": "V2",
+    "recorded_at": "2026-10-23T11:45:02+08:00",
+    "summary": "主控在同一滚筒承重鞍座内由X23移至整机中心X27；沿用完整耐热鞍座表面与内部背壳。",
+    "policy": "主控X=(sizeX-1)//2；以整台结构宽度为准，不能仅以局部设备中心代替",
+    "width": 55,
+    "center_x_0based": 27,
+    "center_column_1based": 28,
+    "old_controller": [
+      23,
+      2,
+      17
+    ],
+    "new_controller": [
+      27,
+      2,
+      17
+    ],
+    "moved": true,
+    "passed": true,
+    "host": "一级滚筒固定承重鞍座中心列北壁",
+    "restored_old_surface_state": "gtceu:heatproof_machine_casing",
+    "internal_backing_added": [],
+    "delta": {
+      "before": 9705,
+      "after": 9705,
+      "deleted": 0,
+      "changed": 2,
+      "added": 0
+    },
+    "ports_unchanged": true,
+    "boundary": "几何候选；尚未获新版外观批准，未改正式资源或不可变归档",
+    "source_blueprint": "deliveries/I01-I18_控制器接口融合修订_V1_20261023/i06/blueprint.json",
+    "source_blueprint_sha256": "cb52a05790f9dceaacb04ba4d9d4c4440acad14069d8c01d9ef9fc47f398277e",
+    "controller": [
+      27,
+      2,
+      17
+    ],
+    "source_status": "外部确认清单已批准"
+  }
+}

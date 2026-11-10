@@ -1,7 +1,37 @@
 package com.sirin.hk3gtl.mixin;
 
 
-
+/**
+ * 【文件职责】
+ * - 处理 AvaritiaCCShaderInstanceMixin 的 Mixin 注入逻辑。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ *
+ * 【变更记录 #2】2026-07-19 21:49:23（第 2 次备注 · revision 35）
+ * - 删除：
+ *   1) 删除本地 HTTP 调试 URI、HttpClient 及 Uniform 观察集合字段和相关网络导入。
+ *   2) 删除 reportBeforeAdapt、reportUniform 两组 JSON 上报方法、sendAsync 调用及 debug-point D/F 区块。
+ * - 新增：
+ *   1) 无新增生产功能；继续保留原版 Uniform 到 CCUniform 的适配、缓存和容器替换逻辑。
+ * - 修改：
+ *   1) Uniform 查找、类型映射、适配和缺失警告流程改为不产生本地网络副作用，原有返回值与 Shader 适配行为保持不变。
+ *   2) 修改范围限定为调试上报移除，反射容器扫描和并发缓存仍按原实现执行。
+ * - 用途：
+ *   1) 清理生产代码中的本地调试数据上报，避免 Shader 解析路径向 127.0.0.1:7777 发起请求。
+ *   2) 保持 Re-Avaritia Shader 适配链，兼容普通 Uniform、CCUniform 及不支持类型的安全返回。
+ */
 import com.mojang.blaze3d.shaders.Uniform;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.logging.LogUtils;

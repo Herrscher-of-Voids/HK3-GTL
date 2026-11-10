@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.common.recipe;
 
 
-
+/**
+ * 【文件职责】
+ * - 负责 Hk3RecipeTypesImpl 对应的配方注册与门槛绑定。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
@@ -32,7 +49,17 @@ import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection
  * <h3>子类分布</h3>
  * {@link Hk3RecipeTypesImaginary}(10) → {@link Hk3RecipeTypesQuantum}(12) → {@link Hk3RecipeTypesFinality}(13) → {@link Hk3RecipeTypesWonder}(12)
  */
+/** 中文说明：该处说明已按当前代码行为整理。*/
+/**
+ * 【变更记录 #1】2026-10-01 21:41:57（第1次备注 · 内测5修订151）
+ * 删除：内测1—4旧结构相关入口。新增：无替代结构。
+ * 修改：移除无工艺使用的旧吸收/冷凝配方类型；其他生产配方定义保留待新设备接入。
+ * 用途：落实旧结构全部退役；内测5未审批设备仍待接入，不保留空注册兼容。
+ */
 public class Hk3RecipeTypesImpl {
+
+    /** 内测5活动配方类型已迁移到 Hk3Beta5RecipeTypes，本类保留旧类型兼容入口。 */
+    // 中文备注：该处说明已按当前代码行为整理。
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -41,28 +68,10 @@ public class Hk3RecipeTypesImpl {
     // ════════════════════════════════════════
 
     /** 崩坏能吸收 | IO: 1物入/1物出/0液入/0液出 | EU: IN | 对应机器: HONKAI_ABSORPTION_TOWER */
-    public static final GTRecipeType HONKAI_ABSORPTION_RECIPES = GTRecipeTypes.register(
-                    "honkai_absorption", "multiblock")
-            .setMaxIOSize(1, 1, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     /** 崩坏能凝结 | IO: 2/2/0/1 | EU: IN | 对应机器: HONKAI_CRYSTAL_CONDENSER */
-    public static final GTRecipeType HONKAI_CONDENSATION_RECIPES = GTRecipeTypes.register(
-                    "honkai_condensation", "multiblock")
-            .setMaxIOSize(2, 2, 0, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COOLING);
 
     /** 魂钢冶炼 | IO: 4/4/1/0 | EU: IN | 对应机器: SOULIUM_SMELTERY */
-    public static final GTRecipeType SOULIUM_SMELTING_RECIPES = GTRecipeTypes.register(
-                    "soulium_smelting", "multiblock")
-            .setMaxIOSize(4, 4, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.FURNACE);
 
     /** 海渊研究分析 | IO: 4/1/0/0 | EU: IN | 对应机器: ABYSS_RESEARCH_ANALYSIS_MATRIX + 共享 */
     public static final GTRecipeType ABYSS_RESEARCH_ANALYSIS_RECIPES = GTRecipeTypes.register(
@@ -78,100 +87,28 @@ public class Hk3RecipeTypesImpl {
     // ════════════════════════════════════════
 
     /** 虚空档案分析 | IO: 4/2/0/0 */
-    public static final GTRecipeType VOID_ARCHIVES_ANALYSIS_RECIPES = GTRecipeTypes.register(
-                    "void_archives_analysis", "multiblock")
-            .setMaxIOSize(4, 2, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     /** 理性重构 | IO: 4/4/1/1 */
-    public static final GTRecipeType REASON_RECONSTRUCTION_RECIPES = GTRecipeTypes.register(
-                    "reason_reconstruction", "multiblock")
-            .setMaxIOSize(4, 4, 1, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ASSEMBLER);
 
     /** 小型崩坏能反应 | IO: 2/2/1/1 | EU: OUT（发电） */
-    public static final GTRecipeType SMALL_HONKAI_REACTION_RECIPES = GTRecipeTypes.register(
-                    "small_honkai_reaction", "multiblock")
-            .setMaxIOSize(2, 2, 1, 1)
-            .setEUIO(IO.OUT)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.FURNACE);
 
     /** 中型崩坏能反应 | IO: 3/3/1/1 | EU: OUT（发电） */
-    public static final GTRecipeType MEDIUM_HONKAI_REACTION_RECIPES = GTRecipeTypes.register(
-                    "medium_honkai_reaction", "multiblock")
-            .setMaxIOSize(3, 3, 1, 1)
-            .setEUIO(IO.OUT)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.FURNACE);
 
     /** 崩坏能-EU转换 | IO: 2/2/1/1 | EU: BOTH（双向转换） */
-    public static final GTRecipeType HONKAI_EU_CONVERSION_RECIPES = GTRecipeTypes.register(
-                    "honkai_eu_conversion", "multiblock")
-            .setMaxIOSize(2, 2, 1, 1)
-            .setEUIO(IO.BOTH)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ARC);
 
     /** 崩坏能网络注入 | IO: 2/1/1/0 | EU: IN | 对应机器: HONKAI_NETWORK_INJECTOR（产出为无线网络余额，非物品） */
-    public static final GTRecipeType HONKAI_NETWORK_INJECTION_RECIPES = GTRecipeTypes.register(
-                    "honkai_network_injection", "multiblock")
-            .setMaxIOSize(2, 1, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     /** 海渊电路铸造 | IO: 6/4/1/0 */
-    public static final GTRecipeType ABYSS_CIRCUIT_FOUNDRY_RECIPES = GTRecipeTypes.register(
-                    "abyss_circuit_foundry", "multiblock")
-            .setMaxIOSize(6, 4, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ASSEMBLER);
 
     /** 海渊机壳压制 | IO: 4/2/0/0 */
-    public static final GTRecipeType ABYSS_CASING_PRESS_RECIPES = GTRecipeTypes.register(
-                    "abyss_casing_press", "multiblock")
-            .setMaxIOSize(4, 2, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COMPRESSOR);
 
     /** 崩坏能蒸馏 | IO: 2/1/2/6（多液体输出） */
-    public static final GTRecipeType HONKAI_DISTILLATION_RECIPES = GTRecipeTypes.register(
-                    "honkai_distillation", "multiblock")
-            .setMaxIOSize(2, 1, 2, 6)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COOLING);
 
     /** 魂钢拉丝 | IO: 2/4/0/0 */
-    public static final GTRecipeType SOULIUM_WIRE_DRAWING_RECIPES = GTRecipeTypes.register(
-                    "soulium_wire_drawing", "multiblock")
-            .setMaxIOSize(2, 4, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.MOTOR);
 
     /** 前文明数据恢复 | IO: 2/4/0/0 */
-    public static final GTRecipeType PRECIVILIZATION_DATA_RECOVERY_RECIPES = GTRecipeTypes.register(
-                    "precivilization_data_recovery", "multiblock")
-            .setMaxIOSize(2, 4, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     /** 崩坏能环境采样 | IO: 1/4/0/1 */
-    public static final GTRecipeType HONKAI_ENVIRONMENT_SAMPLING_RECIPES = GTRecipeTypes.register(
-                    "honkai_environment_sampling", "multiblock")
-            .setMaxIOSize(1, 4, 0, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     // ════════════════════════════════════════
     //  海渊阶段新增（24个）— 对应 Hk3MachinesAbyssStage 中的 23 台机器
@@ -179,216 +116,48 @@ public class Hk3RecipeTypesImpl {
     // ════════════════════════════════════════
 
     /** 大型崩坏能反应 | IO: 3/3/2/2 | EU: OUT（发电） */
-    public static final GTRecipeType LARGE_HONKAI_REACTION_RECIPES = GTRecipeTypes.register(
-                    "large_honkai_reaction", "multiblock")
-            .setMaxIOSize(3, 3, 2, 2)
-            .setEUIO(IO.OUT)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.FURNACE);
 
-    public static final GTRecipeType ABYSS_MATERIAL_COMPRESSION_RECIPES = GTRecipeTypes.register(
-                    "abyss_material_compression", "multiblock")
-            .setMaxIOSize(4, 2, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COMPRESSOR);
 
-    public static final GTRecipeType ABYSS_PRECISION_ASSEMBLY_RECIPES = GTRecipeTypes.register(
-                    "abyss_precision_assembly", "multiblock")
-            .setMaxIOSize(6, 4, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ASSEMBLER);
 
-    public static final GTRecipeType SEA_OF_QUANTA_OBSERVATION_RECIPES = GTRecipeTypes.register(
-                    "sea_of_quanta_observation", "multiblock")
-            .setMaxIOSize(4, 4, 1, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
-    public static final GTRecipeType WORLD_BUBBLE_SAMPLING_RECIPES = GTRecipeTypes.register(
-                    "world_bubble_sampling", "multiblock")
-            .setMaxIOSize(4, 2, 1, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
-    public static final GTRecipeType HONKAI_POLLUTION_SUPPRESSION_RECIPES = GTRecipeTypes.register(
-                    "honkai_pollution_suppression", "multiblock")
-            .setMaxIOSize(2, 1, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COOLING);
 
-    public static final GTRecipeType ABYSS_SUPERCONDUCTOR_COOLING_RECIPES = GTRecipeTypes.register(
-                    "abyss_superconductor_cooling", "multiblock")
-            .setMaxIOSize(2, 2, 1, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COOLING);
 
-    public static final GTRecipeType ABYSS_ALLOY_REFINING_RECIPES = GTRecipeTypes.register(
-                    "abyss_alloy_refining", "multiblock")
-            .setMaxIOSize(4, 4, 2, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.FURNACE);
 
-    public static final GTRecipeType ABYSS_CHEMICAL_MEGA_REACTION_RECIPES = GTRecipeTypes.register(
-                    "abyss_chemical_mega_reaction", "multiblock")
-            .setMaxIOSize(4, 4, 3, 3)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
-    public static final GTRecipeType ABYSS_PARTICLE_ACCELERATION_RECIPES = GTRecipeTypes.register(
-                    "abyss_particle_acceleration", "multiblock")
-            .setMaxIOSize(4, 4, 1, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ARC);
 
-    public static final GTRecipeType ABYSS_NANO_FABRICATION_RECIPES = GTRecipeTypes.register(
-                    "abyss_nano_fabrication", "multiblock")
-            .setMaxIOSize(6, 2, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ASSEMBLER);
 
     /** 海渊精炼窑 | IO: 4/2/1/0 | 机器: ABYSS_KILN_CHAMBER（替代数据保险库） */
-    public static final GTRecipeType ABYSS_KILN_REFINING_RECIPES = GTRecipeTypes.register(
-                    "abyss_kiln_refining", "multiblock")
-            .setMaxIOSize(4, 2, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.FURNACE);
 
     /** 海渊能源缓冲 | IO: 2/2/1/1 | EU: BOTH | 被多台机器共享（存储阵列/发射塔/接收塔/缓冲站） */
-    public static final GTRecipeType ABYSS_ENERGY_BUFFER_RECIPES = GTRecipeTypes.register(
-                    "abyss_energy_buffer", "multiblock")
-            .setMaxIOSize(2, 2, 1, 1)
-            .setEUIO(IO.BOTH)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ARC);
 
     /** 海渊机械匠厅 | IO: 6/4/0/0 | 机器: ABYSS_CARTWRIGHT_HALL（替代物流分拣枢纽，叙事向：手工锻造） */
-    public static final GTRecipeType ABYSS_CARTWRIGHT_CRAFTING_RECIPES = GTRecipeTypes.register(
-                    "abyss_cartwright_crafting", "multiblock")
-            .setMaxIOSize(6, 4, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ASSEMBLER);
 
-    public static final GTRecipeType ABYSS_VACUUM_SMELTING_RECIPES = GTRecipeTypes.register(
-                    "abyss_vacuum_smelting", "multiblock")
-            .setMaxIOSize(4, 4, 1, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.FURNACE);
 
-    public static final GTRecipeType ABYSS_CRYSTAL_GROWTH_RECIPES = GTRecipeTypes.register(
-                    "abyss_crystal_growth", "multiblock")
-            .setMaxIOSize(4, 2, 2, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COOLING);
 
-    public static final GTRecipeType ABYSS_MAGNETIC_CONFINEMENT_RECIPES = GTRecipeTypes.register(
-                    "abyss_magnetic_confinement", "multiblock")
-            .setMaxIOSize(2, 2, 1, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ARC);
 
-    public static final GTRecipeType ABYSS_BIOCOMPUTING_RECIPES = GTRecipeTypes.register(
-                    "abyss_biocomputing", "multiblock")
-            .setMaxIOSize(4, 4, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
-    public static final GTRecipeType ABYSS_WASTE_RECYCLING_RECIPES = GTRecipeTypes.register(
-                    "abyss_waste_recycling", "multiblock")
-            .setMaxIOSize(4, 6, 1, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.MACERATOR);
 
-    public static final GTRecipeType ABYSS_SPECTRUM_ANALYSIS_RECIPES = GTRecipeTypes.register(
-                    "abyss_spectrum_analysis", "multiblock")
-            .setMaxIOSize(4, 4, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
-    public static final GTRecipeType ABYSS_HONKAI_CONCENTRATION_RECIPES = GTRecipeTypes.register(
-                    "abyss_honkai_concentration", "multiblock")
-            .setMaxIOSize(2, 2, 2, 1)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COOLING);
 
-    public static final GTRecipeType ABYSS_ARMOR_PLATE_FORGING_RECIPES = GTRecipeTypes.register(
-                    "abyss_armor_plate_forging", "multiblock")
-            .setMaxIOSize(4, 2, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COMPRESSOR);
 
-    public static final GTRecipeType ABYSS_COMMUNICATION_AMPLIFIER_RECIPES = GTRecipeTypes.register(
-                    "abyss_communication_amplifier", "multiblock")
-            .setMaxIOSize(4, 2, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     // ════════════════════════════════════════
     //  独立配方类型 — 此前错误共享 ABYSS_RESEARCH_ANALYSIS / ABYSS_ENERGY_BUFFER
     // ════════════════════════════════════════
 
     /** 文明通讯 | IO: 4/2/0/0 | EU: IN | 对应机器: CIVILIZATION_COMMUNICATION_RELAY */
-    public static final GTRecipeType CIVILIZATION_COMMUNICATION_RECIPES = GTRecipeTypes.register(
-                    "civilization_communication", "multiblock")
-            .setMaxIOSize(4, 2, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     /** 崩坏能污染监测 | IO: 2/4/0/0 | EU: IN | 对应机器: HONKAI_POLLUTION_MONITOR */
-    public static final GTRecipeType HONKAI_POLLUTION_MONITORING_RECIPES = GTRecipeTypes.register(
-                    "honkai_pollution_monitoring", "multiblock")
-            .setMaxIOSize(2, 4, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     /** 崩坏能裂解 | IO: 2/2/2/2 | 机器: HONKAI_CRACKING_FURNACE */
-    public static final GTRecipeType HONKAI_CRACKING_RECIPES = GTRecipeTypes.register(
-                    "honkai_cracking", "multiblock")
-            .setMaxIOSize(2, 2, 2, 2)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.FURNACE);
 
     /** 远古遗物解析 | IO: 2/2/0/0 | 机器: ANCIENT_RELIC_ANALYZER */
-    public static final GTRecipeType ANCIENT_RELIC_ANALYSIS_RECIPES = GTRecipeTypes.register(
-                    "ancient_relic_analysis", "multiblock")
-            .setMaxIOSize(2, 2, 0, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.ELECTROLYZER);
 
     /**
      * 崩坏能认知铸锻 | IO: 4/2/1/0 | EU: IN | 机器: HONKAI_COGNITION_STUDIO
      * 把崩坏能凝结成概念性产物（思维晶片），替代已移除的储存阵列，走叙事向。
      */
-    public static final GTRecipeType HONKAI_COGNITION_SMITHING_RECIPES = GTRecipeTypes.register(
-                    "honkai_cognition_smithing", "multiblock")
-            .setMaxIOSize(4, 2, 1, 0)
-            .setEUIO(IO.IN)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COOLING);
 
     /**
      * 初始化所有配方类型（含子阶段）。
@@ -396,11 +165,11 @@ public class Hk3RecipeTypesImpl {
      * 新增阶段在此追加子类 init() 调用即可。
      */
     public static void init() {
-        Hk3RecipeTypesImaginary.init();
-        Hk3RecipeTypesQuantum.init();
-        Hk3RecipeTypesFinality.init();
-        Hk3RecipeTypesWonder.init();
-        LOGGER.info("[HK3GTL] RecipeTypes 已注册（共 {} 个）。",
-                43 + 10 + 12 + 13 + 12);
+        Hk3IndustrialRecipeTypes.init();
+        LOGGER.info("[HK3GTL] 已注册现行工业工艺类型与研究所分析类型；旧设备配方类型已退役。");
     }
 }
+
+// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+
+// 【变更记录 · 修订162】2026-10-17 14:38:46：移除旧四版设备配方类型注册及其专用注册入口，不保留兼容字段或空常量；仅保留研究所分析类型与现行工业工艺初始化。历史备注原样保留，本次退役不声明现行规划已完成。

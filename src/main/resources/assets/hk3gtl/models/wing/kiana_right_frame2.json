@@ -1,0 +1,8 @@
+{
+  "_comment": "2026-10-01T19:48:19 修订145：琪亚娜frame2像素层；ItemRenderer烘焙挤出，动画交由纹理图集。",
+  "parent": "item/generated",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "layer0": "hk3gtl:item/wing/kiana_right_frame2"
+  }
+}

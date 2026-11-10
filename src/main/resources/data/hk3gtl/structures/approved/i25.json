@@ -1,0 +1,170 @@
+{
+  "key": "i25",
+  "machine": "hk3gtl:i25_world_bubble_coordinate_analysis_center",
+  "source": "data/hk3gtl/approved_architecture/i25.json",
+  "sha256": "71379ce1ad0401f998783e40c9787f87b20353c026a7b8d49dd9f7a65c70f00f",
+  "template_sha256": "ffa25be3bcc706938165e0fde12cd681d75c4b59b97fdd4ef27236aba459b7bd",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_174652_373851_I25_QEV_戴森天球最终现物_历史漏项补档\\I25_世界泡坐标解析中心_量子天球研究院_重制首版_20261025",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_174652_373851_I25_QEV_戴森天球最终现物_历史漏项补档\\I25_世界泡坐标解析中心_量子天球研究院_重制首版_20261025\\i25\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_174652_373851_I25_QEV_戴森天球最终现物_历史漏项补档\\I25_世界泡坐标解析中心_量子天球研究院_重制首版_20261025\\i25\\hk3gtl-i25-world-bubble-observatory-20261025.nbt",
+  "source_nbt_sha256": "c05e153f1b408477c0229bbbbd51a341a07b77abac1dca3f8d74d6ca14566717",
+  "controller": [
+    125,
+    5,
+    0
+  ],
+  "size_xyz": [
+    251,
+    190,
+    251
+  ],
+  "blocks": 539129,
+  "ports": [
+    {
+      "id": "SPECTRA-IN",
+      "pos": [
+        128,
+        5,
+        0
+      ],
+      "face": "north",
+      "purpose": "I24异常谱与观测载荷输入",
+      "group": "item_input"
+    },
+    {
+      "id": "REFERENCE-IN",
+      "pos": [
+        0,
+        10,
+        125
+      ],
+      "face": "west",
+      "purpose": "参照样本与坐标漂移校准输入",
+      "group": "item_input"
+    },
+    {
+      "id": "PHASE-IN",
+      "pos": [
+        250,
+        13,
+        125
+      ],
+      "face": "east",
+      "purpose": "I44增强信号与相位拟合输入",
+      "group": "item_input"
+    },
+    {
+      "id": "VALID-OUT",
+      "pos": [
+        113,
+        8,
+        250
+      ],
+      "face": "south",
+      "purpose": "有效坐标记录输出",
+      "group": "item_output"
+    },
+    {
+      "id": "INVALID-OUT",
+      "pos": [
+        137,
+        8,
+        250
+      ],
+      "face": "south",
+      "purpose": "失效坐标与误差记录输出",
+      "group": "item_output"
+    }
+  ],
+  "target_voltage": "QEV",
+  "installed_hatches": {
+    "SPECTRA-IN": "item_input",
+    "REFERENCE-IN": "item_input",
+    "PHASE-IN": "item_input",
+    "VALID-OUT": "item_output",
+    "INVALID-OUT": "item_output"
+  },
+  "required_abilities": [
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 19,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        125,
+        5,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i25_world_bubble_coordinate_analysis_center[facing=north]",
+      "block_entity_id": "hk3gtl:i25_world_bubble_coordinate_analysis_center"
+    },
+    {
+      "pos": [
+        128,
+        5,
+        0
+      ],
+      "role": "SPECTRA-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        113,
+        8,
+        250
+      ],
+      "role": "VALID-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        137,
+        8,
+        250
+      ],
+      "role": "INVALID-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        0,
+        10,
+        125
+      ],
+      "role": "REFERENCE-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        250,
+        13,
+        125
+      ],
+      "role": "PHASE-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=east]",
+      "block_entity_id": "gtceu:max_input_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i25_world_bubble_coordinate_analysis_center",
+  "controller_json_state": "hk3gtl:i25_world_bubble_coordinate_analysis_center"
+}

@@ -1,0 +1,281 @@
+{
+  "key": "i28",
+  "machine": "hk3gtl:i28_world_bubble_termination_reclaimer",
+  "source": "data/hk3gtl/approved_architecture/i28.json",
+  "sha256": "40adf59df9f669b6451857b9e42872804e6a18b796f074fdba1b945abb40bcae",
+  "template_sha256": "e442d14379f648fda40238f371bcf7d2a310b13e1c8cff45bd639b130c71486a",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_174652_373851_I28_V1_IMV_已确认\\I28_真实世界泡终止回收机_双闸断界归流炉_V1_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_174652_373851_I28_V1_IMV_已确认\\I28_真实世界泡终止回收机_双闸断界归流炉_V1_20261026\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_174652_373851_I28_V1_IMV_已确认\\I28_真实世界泡终止回收机_双闸断界归流炉_V1_20261026\\i28\\hk3gtl-i28-real-world-termination-reclaimer-v1-20261026.nbt",
+  "source_nbt_sha256": "63d90036db2778ffe57c0f12662fb9b03f4dd4eb58c90203f3a77e1894ac979c",
+  "controller": [
+    150,
+    28,
+    8
+  ],
+  "size_xyz": [
+    301,
+    201,
+    361
+  ],
+  "blocks": 1779878,
+  "ports": [
+    {
+      "id": "封存真实世界泡输入",
+      "purpose": "前置交接厅输入I27已封存的真实目标",
+      "pos": [
+        128,
+        28,
+        8
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "终止耗材输入",
+      "purpose": "前置交接厅终止耗材与容器工装",
+      "pos": [
+        172,
+        28,
+        8
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "西侧控制能源",
+      "purpose": "西侧脉冲控制与隔离供能",
+      "pos": [
+        0,
+        29,
+        132
+      ],
+      "face": "west",
+      "group": "energy_input"
+    },
+    {
+      "id": "维护与隔离检查",
+      "purpose": "西侧供能厅维护区",
+      "pos": [
+        0,
+        29,
+        213
+      ],
+      "face": "west",
+      "group": "maintenance"
+    },
+    {
+      "id": "东侧控制能源",
+      "purpose": "东侧脉冲控制与隔离供能",
+      "pos": [
+        300,
+        29,
+        132
+      ],
+      "face": "east",
+      "group": "energy_input"
+    },
+    {
+      "id": "研究与终止授权",
+      "purpose": "真实目标注销和一次性结算授权候选",
+      "pos": [
+        300,
+        29,
+        213
+      ],
+      "face": "east",
+      "group": "research"
+    },
+    {
+      "id": "物品资源分流",
+      "purpose": "物品分流舱输出至现有GT后处理",
+      "pos": [
+        20,
+        29,
+        312
+      ],
+      "face": "west",
+      "group": "item_output"
+    },
+    {
+      "id": "流体资源分流",
+      "purpose": "流体分流舱输出至现有GT后处理",
+      "pos": [
+        280,
+        29,
+        312
+      ],
+      "face": "east",
+      "group": "fluid_output"
+    },
+    {
+      "id": "遗留档案与状态记录",
+      "purpose": "回收厅后侧输出终止状态与遗留档案",
+      "pos": [
+        128,
+        28,
+        352
+      ],
+      "face": "south",
+      "group": "research"
+    },
+    {
+      "id": "空容器残件输出",
+      "purpose": "回收厅后侧输出已注销目标的容器残件",
+      "pos": [
+        172,
+        28,
+        352
+      ],
+      "face": "south",
+      "group": "item_output"
+    }
+  ],
+  "target_voltage": "IMV",
+  "installed_hatches": {
+    "封存真实世界泡输入": "item_input",
+    "终止耗材输入": "item_input",
+    "物品资源分流": "item_output",
+    "流体资源分流": "fluid_output",
+    "空容器残件输出": "item_output"
+  },
+  "required_abilities": [
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 37,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        128,
+        28,
+        8
+      ],
+      "role": "封存真实世界泡输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        150,
+        28,
+        8
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i28_world_bubble_termination_reclaimer[facing=north]",
+      "block_entity_id": "hk3gtl:i28_world_bubble_termination_reclaimer"
+    },
+    {
+      "pos": [
+        172,
+        28,
+        8
+      ],
+      "role": "终止耗材输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        128,
+        28,
+        352
+      ],
+      "role": "遗留档案与状态记录",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        172,
+        28,
+        352
+      ],
+      "role": "空容器残件输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        0,
+        29,
+        132
+      ],
+      "role": "西侧控制能源",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        300,
+        29,
+        132
+      ],
+      "role": "东侧控制能源",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        0,
+        29,
+        213
+      ],
+      "role": "维护与隔离检查",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        300,
+        29,
+        213
+      ],
+      "role": "研究与终止授权",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        20,
+        29,
+        312
+      ],
+      "role": "物品资源分流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=west]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        280,
+        29,
+        312
+      ],
+      "role": "流体资源分流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i28_world_bubble_termination_reclaimer",
+  "controller_json_state": "hk3gtl:i28_world_bubble_termination_reclaimer"
+}

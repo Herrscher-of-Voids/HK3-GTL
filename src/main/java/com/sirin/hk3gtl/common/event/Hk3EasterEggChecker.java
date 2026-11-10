@@ -1,7 +1,38 @@
 package com.sirin.hk3gtl.common.event;
 
 
-
+/**
+ * 【文件职责】
+ * - 处理 Hk3EasterEggChecker 相关事件分发与触发。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【变更记录 #2】2026-05-31 22:12:00（第 2 次备注 · 内测二第 2 次更新）
+ * - 删除：
+ *   1) 删除 checkTimeEggs 中 eg053 的游戏内时间判定 `dayTime>=3000 && <=4000`。
+ *   2) 原因：该区间实为游戏内上午 9~10 点，与彩蛋文案/condition“现实凌晨3:00~4:00在线”不符（误用 getDayTime）。
+ *   3) 影响：仅修正 eg053 触发时机，不影响 eg070（游戏内正午 12:00，仍用 getDayTime 保留）。
+ * - 新增：
+ *   1) 新增基于现实时钟的判定 `LocalTime.now().getHour()==3`，覆盖真实凌晨 3:00:00~3:59:59。
+ *   2) 触发边界：每存档去重（tryEgg→tryTriggerFirstTime），玩家在该时段在线即触发一次。
+ *   3) 新增 import java.time.LocalTime。
+ * - 修改：
+ *   1) eg053 从“游戏内时间”改为“现实世界时间”，与 eg051/052/058/059 同类（均用 java.time 现实时钟）。
+ * - 用途：
+ *   1) 使“深夜的工厂仍在运转”名副其实，在玩家现实凌晨 3 点档在线时触发。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
@@ -57,6 +88,18 @@ import java.util.Locale;
  * 彩蛋事件 E-EG-001~100 监听与触发（对应设计文档彩蛋事件总表）。
  */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+/**
+ * 【变更记录 #3】2026-09-30 02:17:47（第3次备注 · 内测5修订107）
+ * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
+ * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
+ * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
+ * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
+ */
+/** 【变更记录 #4】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：毕业/传送/彩蛋/调试改为查询当前玩家，实体避免在已有坏结局演出时开启新会面；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
+/** 【变更记录 #5】2026-10-01 01:54:14（修订127）：删除：被替代的旧分支；新增/修改：修正六小时/周日凌晨误触发，研究数量只读内测5真实课题；附近扫描不再强制加载区块；用途：个人收藏与正式资格分离，保留历史记录。 */
+/** 【变更记录 #6】2026-10-01 03:57:47（修订128）：删除：旧固定上限或被替代的分支；新增/修改：已迁移规则的ID不再走旧近似分支，未迁移触发仍列为未完成；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #7】2026-10-01 04:09:54（修订128）：删除：旧固定上限或被替代的分支；新增/修改：停用旧100条近似判定的授予出口，等待依赖的条目保持未解锁；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #8】2026-10-01 04:21:47（修订128）：删除：旧固定上限或被替代的分支；新增/修改：取消旧彩蛋自动事件订阅，保留源码与历史作为迁移依据；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
 public final class Hk3EasterEggChecker {
 
     private static final String LAST_SOULIUM = "last_soulium";
@@ -195,7 +238,7 @@ public final class Hk3EasterEggChecker {
         if ("R-FN-003".equals(researchId)) {
             tryEgg(player, 18);
         }
-        if ("R-IM-001".equals(researchId) || inventoryHas(player, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_1.get())) {
+        if ("R-IM-001".equals(researchId) || inventoryHas(player, ImaginaryCircuitItems.CIRCUIT_QSV.get())) {
             tryEgg(player, 11);
         }
     }
@@ -215,14 +258,15 @@ public final class Hk3EasterEggChecker {
 
   // ── Forge 事件 ──
 
-    @SubscribeEvent
+    
     public static void onContainerOpen(PlayerEvent.PlayerLoggedInEvent event) {
         // 登录时检查日期类彩蛋
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        Hk3EasterEggStats.root(player).putLong("session_online_ticks",0L);
         checkDateEggsOnLogin(player);
     }
 
-    @SubscribeEvent
+    
     public static void onLivingAttack(LivingAttackEvent event) {
         if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
         if (event.getEntity().getType() == Hk3Entities.VOID_QUEEN_SIRIN.get()) {
@@ -230,7 +274,7 @@ public final class Hk3EasterEggChecker {
         }
     }
 
-    @SubscribeEvent
+    
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (event.getLevel().isClientSide() || !(event.getEntity() instanceof ServerPlayer player)) return;
         BlockPos pos = event.getPos();
@@ -277,7 +321,7 @@ public final class Hk3EasterEggChecker {
         }
     }
 
-    @SubscribeEvent
+    
     public static void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         BlockPos placed = event.getPos();
@@ -296,7 +340,7 @@ public final class Hk3EasterEggChecker {
         }
     }
 
-    @SubscribeEvent
+    
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         if (!(event.getPlayer() instanceof ServerPlayer player)) return;
         if (player.level().dimension() == Hk3Dimensions.IMAGINARY) {
@@ -315,8 +359,8 @@ public final class Hk3EasterEggChecker {
 
     private static void trackPlayTime(ServerPlayer player) {
         Hk3EasterEggStats.addLong(player, ONLINE_TICKS, 20);
-        long hours6 = 6L * 60 * 60 * 20;
-        if (Hk3EasterEggStats.getLong(player, ONLINE_TICKS) >= hours6) {
+        Hk3EasterEggStats.addLong(player,"session_online_ticks",20);
+        if (Hk3EasterEggClock.restDue(Hk3EasterEggStats.getLong(player,"session_online_ticks"))) {
             tryEgg(player, 54);
         }
         long hours100 = 100L * 60 * 60 * 20;
@@ -367,7 +411,7 @@ public final class Hk3EasterEggChecker {
             tryEgg(player, 37);
         }
 
-        if (inventoryHas(player, AbyssCircuitItems.CIRCUIT_ABYSS_1.get())) {
+        if (inventoryHas(player, AbyssCircuitItems.CIRCUIT_HBV.get())) {
             tryEgg(player, 6);
         }
 
@@ -398,39 +442,7 @@ public final class Hk3EasterEggChecker {
     }
 
     private static void checkTimeEggs(ServerPlayer player) {
-        // eg053 为“现实世界”时间彩蛋（与 eg051/052/058/059 同类）：真实凌晨 3:00~3:59 在线触发。
-        // 历史实现误用游戏内 getDayTime()（dayTime 3000~4000 实为游戏内上午 9~10 点），与文案“凌晨3~4点在线”不符，此处改用现实时钟。
-        if (LocalTime.now().getHour() == 3) {
-            tryEgg(player, 53);
-        }
-        long dayTime = player.serverLevel().getDayTime() % 24000L;
-        if (dayTime >= 6000L && dayTime <= 6100L) {
-            tryEgg(player, 70);
-        }
-        long day = player.serverLevel().getDayTime() / 24000L;
-        if (day == 0) {
-            tryEgg(player, 55);
-        } else if (day == 100) {
-            tryEgg(player, 56);
-        } else if (day == 365) {
-            tryEgg(player, 57);
-        }
-        LocalDate now = LocalDate.now();
-        if (now.getMonthValue() == 4 && now.getDayOfMonth() == 1) {
-            tryEgg(player, 51);
-        }
-        if (now.getMonthValue() == 12 && now.getDayOfMonth() == 25) {
-            tryEgg(player, 52);
-        }
-        if (now.getMonthValue() == 2 && now.getDayOfMonth() == 14) {
-            tryEgg(player, 58);
-        }
-        if (now.getMonthValue() == 10 && now.getDayOfMonth() == 1) {
-            tryEgg(player, 59);
-        }
-        if (now.getDayOfWeek().getValue() == 7) {
-            tryEgg(player, 60);
-        }
+        for(int id:Hk3EasterEggClock.events(java.time.LocalDateTime.now(),player.serverLevel().getDayTime()))tryEgg(player,id);
     }
 
     private static void checkDateEggsOnLogin(ServerPlayer player) {
@@ -464,9 +476,7 @@ public final class Hk3EasterEggChecker {
         if (gaze >= 800) {
             // 与正式事件 E-HQ-001 共用注视阈值，彩蛋 5 已在 666 处理
         }
-        if (gaze >= 100) {
-            tryEgg(player, 54);
-        }
+
     }
 
     private static void checkExactInventoryEggs(ServerPlayer player) {
@@ -479,7 +489,10 @@ public final class Hk3EasterEggChecker {
     }
 
     private static void checkResearchCountEggs(ServerPlayer player) {
-        // 在 onResearchCompleted 中处理
+        int done=countCompletedResearch(player);
+        if(done>=42)tryEgg(player,66);
+        if(done>=50)tryEgg(player,26);
+        if(done>=90)tryEgg(player,27);
     }
 
     private static void checkIndustrialEggs(ServerPlayer player) {
@@ -505,7 +518,7 @@ public final class Hk3EasterEggChecker {
         }
         if (isNearController(player.level(), player.blockPosition(), "finality_civilization_power_hub", 16)
                 && countActiveMultiblocksNearby(player, 16) > 0
-                && inventoryHas(player, FinalityCircuitItems.CIRCUIT_FINALITY_4.get())) {
+                && inventoryHas(player, FinalityCircuitItems.CIRCUIT_CEV.get())) {
             tryEgg(player, 34);
         }
     }
@@ -569,7 +582,7 @@ public final class Hk3EasterEggChecker {
     }
 
     private static void checkGraduatedReturn(ServerPlayer player) {
-        if (!Hk3GraduationData.get(player.serverLevel()).isGraduated()) {
+        if (!Hk3GraduationData.get(player.serverLevel()).isGraduated(player.getUUID())) {
             return;
         }
         if (isNearController(player.level(), player.blockPosition(), "proof_of_existence_memorial", 6)) {
@@ -654,9 +667,9 @@ public final class Hk3EasterEggChecker {
     // ── 工具 ──
 
     public static void tryEgg(ServerPlayer player, int index) {
-        String eventId = String.format(Locale.ROOT, "E-EG-%03d", index);
-        String langKey = String.format(Locale.ROOT, "hk3gtl.event.eg%03d", index);
-        Hk3EventService.tryTriggerFirstTime(player, eventId, langKey);
+        // 旧检测器保留迁移参考；库存变化、旧结构与旧研究不能解锁修订后的条件。
+        // 已接入的条目由 common.easter 的事实入口独立执行。
+
     }
 
     public static void trackFuelConsumed(ServerPlayer player, int amount) {
@@ -692,13 +705,9 @@ public final class Hk3EasterEggChecker {
     }
 
     private static int countCompletedResearch(ServerPlayer player) {
-        int n = 0;
-        for (var node : Hk3ResearchNodes.allNodes()) {
-            if (Hk3ResearchManager.isCompleted(player, node.id())) {
-                n++;
-            }
-        }
-        return n;
+        var data=com.sirin.hk3gtl.common.research.Hk3ResearchData.get(player);
+        var team=com.sirin.hk3gtl.common.research.Hk3ResearchTeams.scope(player.server,player.getUUID());
+        return (int)com.sirin.hk3gtl.common.research.Hk3ResearchPlans.all().keySet().stream().filter(id->data.completed(team,id)).count();
     }
 
     private static int countActiveMultiblocksNearby(ServerPlayer player, int radius) {
@@ -739,7 +748,8 @@ public final class Hk3EasterEggChecker {
         long radiusSq = (long) radius * radius;
         for (int dx = -chunkRadius; dx <= chunkRadius; dx++) {
             for (int dz = -chunkRadius; dz <= chunkRadius; dz++) {
-                LevelChunk chunk = serverLevel.getChunk(cx + dx, cz + dz);
+                LevelChunk chunk = serverLevel.getChunkSource().getChunkNow(cx + dx, cz + dz);
+                if(chunk==null)continue;
                 for (BlockEntity be : chunk.getBlockEntities().values()) {
                     if (be.getBlockPos().distSqr(center) <= radiusSq) {
                         consumer.accept(be);
@@ -806,3 +816,5 @@ public final class Hk3EasterEggChecker {
         return player.getInventory().contains(new ItemStack(item));
     }
 }
+
+// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。

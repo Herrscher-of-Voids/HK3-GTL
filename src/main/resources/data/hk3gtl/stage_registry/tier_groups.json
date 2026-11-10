@@ -25,24 +25,26 @@
       ]
     },
     "abyss": {
-      "description": "海渊阶段部件、电路与研究许可资源",
+      "description": "崩能压至致密压阶段部件、电路与研究许可资源",
       "items": [
-        "electric_motor_abyss_1",
-        "electric_piston_abyss_1",
-        "electric_pump_abyss_1",
-        "conveyor_module_abyss_1",
-        "robot_arm_abyss_1",
-        "field_generator_abyss_1",
-        "emitter_abyss_1",
-        "sensor_abyss_1",
-        "abyss_1_processor",
-        "abyss_2_processor",
-        "abyss_3_processor",
-        "abyss_4_processor",
+        "electric_motor_hbv",
+        "electric_piston_hbv",
+        "electric_pump_hbv",
+        "conveyor_module_hbv",
+        "robot_arm_hbv",
+        "field_generator_hbv",
+        "emitter_hbv",
+        "sensor_hbv",
+        "hbv_processor",
+        "hcv_assembly",
+        "hrv_computer",
+        "hdv_processor_mainframe",
         "abyss_voltage_permit_i",
         "abyss_circuit_permit_i",
         "abyss_component_permit_i"
       ]
     }
-  }
+  },
+  "_comment_r155": "变更记录 #155 2026-10-01 22:50:14：删除旧电压及玩家开发说明；新增正式名称和玩家措辞；只调整文案，ID、数值与事件条件不改。逐项差异见logs/text-r155/resource-diff.json。",
+  "_comment_r202": "变更记录 #1 2026-11-04 23:18:28：删除三个已停用的处理器占位引用；新增无；修改为本阶正式集成、计算机及主机ID；用途：阶段资源目录与正式52电路一致，不改变电压、配方或研究。"
 }

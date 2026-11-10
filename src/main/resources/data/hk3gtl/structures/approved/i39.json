@@ -1,0 +1,285 @@
+{
+  "key": "i39",
+  "machine": "hk3gtl:i39_unmanned_cross_boundary_route_relay",
+  "source": "data/hk3gtl/approved_architecture/i39.json",
+  "sha256": "f2b8752cffe9ff73c79e84de9b32be7bbad98c2a4c36f21632e04ea40cbea60c",
+  "template_sha256": "771c9b56dbbe722506e5c10d34ffe57960a777b12099305b1d5210ade8d8888e",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_222056_124451_batch-09_05of05_I39_V1_ICV_外观已确认\\I39_无人跨界航路中继站_偏馈碟阵与双轨整备站_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_222056_124451_batch-09_05of05_I39_V1_ICV_外观已确认\\I39_无人跨界航路中继站_偏馈碟阵与双轨整备站_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_222056_124451_batch-09_05of05_I39_V1_ICV_外观已确认\\I39_无人跨界航路中继站_偏馈碟阵与双轨整备站_V1_20261027\\i39\\hk3gtl-i39-unmanned-relay-v1-20261027.nbt",
+  "source_nbt_sha256": "4d8e43c9ffbb5c2a7cfd3fcb73491b137d9bd52f6379cdb21433318d121960ed",
+  "controller": [
+    190,
+    22,
+    0
+  ],
+  "size_xyz": [
+    381,
+    211,
+    301
+  ],
+  "blocks": 2383123,
+  "ports": [
+    {
+      "id": "发射任务输入",
+      "pos": [
+        168,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "发射任务输入候选；实际调度、权限及传输能力另验",
+      "group": "item_input"
+    },
+    {
+      "id": "信标坐标输入",
+      "pos": [
+        152,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "信标坐标输入候选；实际调度、权限及传输能力另验",
+      "group": "item_input"
+    },
+    {
+      "id": "无人设备送入",
+      "pos": [
+        136,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "无人设备送入候选；实际调度、权限及传输能力另验",
+      "group": "item_input"
+    },
+    {
+      "id": "维护物资补给",
+      "pos": [
+        120,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "维护物资补给候选；实际调度、权限及传输能力另验",
+      "group": "item_input"
+    },
+    {
+      "id": "辅助供能输入",
+      "pos": [
+        104,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "辅助供能输入候选；实际调度、权限及传输能力另验",
+      "group": "energy_input"
+    },
+    {
+      "id": "返航装置交接",
+      "pos": [
+        212,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "返航装置交接候选；实际调度、权限及传输能力另验",
+      "group": "item_output"
+    },
+    {
+      "id": "任务状态回执",
+      "pos": [
+        228,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "任务状态回执候选；实际调度、权限及传输能力另验",
+      "group": "item_output"
+    },
+    {
+      "id": "异常维护处置",
+      "pos": [
+        244,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "异常维护处置候选；实际调度、权限及传输能力另验",
+      "group": "maintenance"
+    },
+    {
+      "id": "用后材料输出",
+      "pos": [
+        260,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "用后材料输出候选；实际调度、权限及传输能力另验",
+      "group": "item_output"
+    },
+    {
+      "id": "辅助供能回路",
+      "pos": [
+        276,
+        22,
+        0
+      ],
+      "face": "north",
+      "purpose": "辅助供能回路候选；实际调度、权限及传输能力另验",
+      "group": "energy_input"
+    }
+  ],
+  "target_voltage": "ICV",
+  "installed_hatches": {
+    "发射任务输入": "item_input",
+    "信标坐标输入": "item_input",
+    "无人设备送入": "item_input",
+    "维护物资补给": "item_input",
+    "返航装置交接": "item_output",
+    "任务状态回执": "item_output",
+    "用后材料输出": "item_output"
+  },
+  "required_abilities": [
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 181,
+  "materials": 42,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        104,
+        22,
+        0
+      ],
+      "role": "辅助供能输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        120,
+        22,
+        0
+      ],
+      "role": "维护物资补给",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        136,
+        22,
+        0
+      ],
+      "role": "无人设备送入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        152,
+        22,
+        0
+      ],
+      "role": "信标坐标输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        168,
+        22,
+        0
+      ],
+      "role": "发射任务输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        190,
+        22,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i39_unmanned_cross_boundary_route_relay[facing=north]",
+      "block_entity_id": "hk3gtl:i39_unmanned_cross_boundary_route_relay"
+    },
+    {
+      "pos": [
+        212,
+        22,
+        0
+      ],
+      "role": "返航装置交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        228,
+        22,
+        0
+      ],
+      "role": "任务状态回执",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        244,
+        22,
+        0
+      ],
+      "role": "异常维护处置",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        260,
+        22,
+        0
+      ],
+      "role": "用后材料输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        276,
+        22,
+        0
+      ],
+      "role": "辅助供能回路",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i39_unmanned_cross_boundary_route_relay",
+  "approved_version": "V1",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "process_scope": "正式建筑、控制器、原位物品流体仓及完整预览；崩坏能、能源与维护接口允许位置保留，不虚称未实现能力或工艺已运行。"
+}

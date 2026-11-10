@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "source": "香港天文台公历与农历日期对照表 https://www.hko.gov.hk/en/gts/time/conversion.htm",
+  "sourceZone": "Asia/Hong_Kong",
+  "_history": "2026-11-05 修订211：由官方逐日表抽取六节日，跳过闰月；不外推缺年。",
+  "years": {
+    "2024": {
+      "spring_festival": "2024-02-10",
+      "lantern_festival": "2024-02-24",
+      "dragon_boat": "2024-06-10",
+      "qixi": "2024-08-10",
+      "mid_autumn": "2024-09-17",
+      "double_ninth": "2024-10-11"
+    },
+    "2025": {
+      "spring_festival": "2025-01-29",
+      "lantern_festival": "2025-02-12",
+      "dragon_boat": "2025-05-31",
+      "qixi": "2025-08-29",
+      "mid_autumn": "2025-10-06",
+      "double_ninth": "2025-10-29"
+    },
+    "2026": {
+      "spring_festival": "2026-02-17",
+      "lantern_festival": "2026-03-03",
+      "dragon_boat": "2026-06-19",
+      "qixi": "2026-08-19",
+      "mid_autumn": "2026-09-25",
+      "double_ninth": "2026-10-18"
+    },
+    "2027": {
+      "spring_festival": "2027-02-06",
+      "lantern_festival": "2027-02-20",
+      "dragon_boat": "2027-06-09",
+      "qixi": "2027-08-08",
+      "mid_autumn": "2027-09-15",
+      "double_ninth": "2027-10-08"
+    },
+    "2028": {
+      "spring_festival": "2028-01-26",
+      "lantern_festival": "2028-02-09",
+      "dragon_boat": "2028-05-28",
+      "qixi": "2028-08-26",
+      "mid_autumn": "2028-10-03",
+      "double_ninth": "2028-10-26"
+    },
+    "2029": {
+      "spring_festival": "2029-02-13",
+      "lantern_festival": "2029-02-27",
+      "dragon_boat": "2029-06-16",
+      "qixi": "2029-08-16",
+      "mid_autumn": "2029-09-22",
+      "double_ninth": "2029-10-16"
+    },
+    "2030": {
+      "spring_festival": "2030-02-03",
+      "lantern_festival": "2030-02-17",
+      "dragon_boat": "2030-06-05",
+      "qixi": "2030-08-05",
+      "mid_autumn": "2030-09-12",
+      "double_ninth": "2030-10-05"
+    },
+    "2031": {
+      "spring_festival": "2031-01-23",
+      "lantern_festival": "2031-02-06",
+      "dragon_boat": "2031-06-24",
+      "qixi": "2031-08-24",
+      "mid_autumn": "2031-10-01",
+      "double_ninth": "2031-10-24"
+    },
+    "2032": {
+      "spring_festival": "2032-02-11",
+      "lantern_festival": "2032-02-25",
+      "dragon_boat": "2032-06-12",
+      "qixi": "2032-08-12",
+      "mid_autumn": "2032-09-19",
+      "double_ninth": "2032-10-12"
+    },
+    "2033": {
+      "spring_festival": "2033-01-31",
+      "lantern_festival": "2033-02-14",
+      "dragon_boat": "2033-06-01",
+      "qixi": "2033-08-01",
+      "mid_autumn": "2033-09-08",
+      "double_ninth": "2033-10-01"
+    },
+    "2034": {
+      "spring_festival": "2034-02-19",
+      "lantern_festival": "2034-03-05",
+      "dragon_boat": "2034-06-20",
+      "qixi": "2034-08-20",
+      "mid_autumn": "2034-09-27",
+      "double_ninth": "2034-10-20"
+    },
+    "2035": {
+      "spring_festival": "2035-02-08",
+      "lantern_festival": "2035-02-22",
+      "dragon_boat": "2035-06-10",
+      "qixi": "2035-08-10",
+      "mid_autumn": "2035-09-16",
+      "double_ninth": "2035-10-09"
+    }
+  }
+}

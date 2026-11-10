@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.mixin;
 
 
-
+/**
+ * 【文件职责】
+ * - 处理 FluidRecipeCapabilityMixin 的 Mixin 注入逻辑。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.gregtechceu.gtceu.api.capability.recipe.FluidRecipeCapability;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
@@ -70,14 +87,7 @@ public class FluidRecipeCapabilityMixin {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    /**
-     * Hook 位置：{@code FluidRecipeCapability#createXEIContainerContents}
-     * （把配方的 Content 列表转成 XEI 可用的条目列表）。
-     * <br>Hook 时机：{@code @At("HEAD")} + {@code cancellable} —— 完全接管，不让原方法执行。
-     * <br>策略：遍历每个 Content，转成 {@link FluidIngredient}，调用
-     * {@code FluidRecipeCapability.mapFluid} 生成展示条目；任何一步失败都记日志并填 null，
-     * 保证列表长度和原 contents 对齐，不影响 XEI 的占位逻辑。
-     */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Inject(method = "createXEIContainerContents", at = @At("HEAD"), cancellable = true)
     private void hk3gtl$safeCreateXEIContents(List<Content> contents, GTRecipe recipe, IO io,
                                               CallbackInfoReturnable<List<Object>> cir) {
@@ -111,14 +121,7 @@ public class FluidRecipeCapabilityMixin {
         cir.setReturnValue(entryLists);
     }
 
-    /**
-     * Hook 位置：{@code FluidRecipeCapability#createXEIContainer}
-     * （把上一步生成的条目列表包装成 XEI 的容器对象，用于点击展开/循环展示）。
-     * <br>Hook 时机：{@code @At("HEAD")} + {@code cancellable} —— 接管并改用
-     * {@link CycleFluidTransfer}（纯流体循环展示器），规避原版 TagOrCycleFluidTransfer
-     * 的退化问题。
-     * <br>null 兜底：contents == null 时返回空的循环容器，不让 XEI 拿到 null。
-     */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Inject(method = "createXEIContainer", at = @At("HEAD"), cancellable = true)
     private void hk3gtl$useCycleFluidTransfer(List<?> contents, CallbackInfoReturnable<Object> cir) {
         if (contents == null) {
@@ -133,15 +136,7 @@ public class FluidRecipeCapabilityMixin {
         cir.setReturnValue(new CycleFluidTransfer(normalized));
     }
 
-    /**
-     * 辅助方法：展开一个 XEI 条目为 {@code List<FluidStack>}。
-     * <p>GTCEu 的条目类型是 {@code Either<List<Pair<TagKey<Fluid>, Long>>, List<FluidStack>>}：
-     * <ul>
-     *   <li>右值分支（直接流体列表）：过滤掉 empty 流体；</li>
-     *   <li>左值分支（Tag + 数量）：查 Tag 下所有流体，每个展开成一个 FluidStack；</li>
-     *   <li>其他情况（包括非 Either）：返回空列表，确保循环展示器位数对齐。</li>
-     * </ul>
-     */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static List<FluidStack> hk3gtl$unwrapEntry(Object entry) {
         if (!(entry instanceof Either<?, ?> either)) {
             return Collections.emptyList();

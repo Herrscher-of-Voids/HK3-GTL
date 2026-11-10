@@ -1,0 +1,107 @@
+{
+  "key": "i08",
+  "source": "data/hk3gtl/approved_architecture/i08.json",
+  "machine": "hk3gtl:imitation_core_crystallization_chamber",
+  "sha256": "9b83fa4d9f349d62cd2b2f54b8ada8482977c66233b4ec60b92e95a375158e2a",
+  "template_sha256": "dad039aa3036756d193c673d061c40bfed57a66778d1144b34f596af69c65503",
+  "approved_blueprint_sha256": "f24c96b9282b8d7cc0934a6d50d694666f8b5d7b37d757e81b8b88f413329888",
+  "approved_nbt_sha256": "ee7535e654750b3a3b2e2de2e8b035d78ce76f2a97bc3246ad0a4ab6bc2c9076",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "controller": [
+    22,
+    3,
+    9
+  ],
+  "size_xyz": [
+    45,
+    40,
+    43
+  ],
+  "blocks": 8333,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {
+    "MEDIUM": "fluid_input",
+    "COOLANT": "fluid_output",
+    "PRECURSOR": "item_input",
+    "CRYSTAL": "item_output"
+  },
+  "geometry_changes": "批准V2原几何；仅主控与六接口以原注册ID和原仓状态替换",
+  "game_verified": false,
+  "target_voltage": "QSV",
+  "target_casing": "hk3gtl:voltage_machine_casing_qsv",
+  "approval_quote": "实装这一些吧",
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-20T00:52:09+08:00",
+      "reason": "负责人明确采用整批21形态新配色",
+      "deleted": "无；旧归档、候选原件与旧正式资源快照保留",
+      "added": "明确目标电压、新批准来源与本次修改身份",
+      "modified": "主体配色采用已批候选，控制器/仓室与能力合同沿用原正式实现",
+      "purpose": "使已有Pattern和放置模板读取批准配色；游戏成型与运行仍待验收"
+    },
+    {
+      "record": 2,
+      "time": "2026-10-23T13:37:02+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准当前主控置中融合V2并要求实装",
+      "deleted": "旧独立接口载体的正式几何引用；旧正式文件应用前完整备份",
+      "added": "本次批准来源身份、新控制点及按ID迁移的接口布局",
+      "modified": "几何逐格采用V2，注册ID、原接口能力合同与真实仓完整状态保持",
+      "purpose": "既有Pattern与正式放置模板共用新坐标；游戏运行仍待实机验收"
+    }
+  ],
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "paste_anchor": [
+    0,
+    0,
+    0
+  ],
+  "controller_centering": {
+    "version": "V2",
+    "recorded_at": "2026-10-23T11:45:02+08:00",
+    "summary": "原主控已处于整台结构宽度中心列，保留原设备表面及全部接口；仅新增中心核验记录。",
+    "policy": "主控X=(sizeX-1)//2；以整台结构宽度为准，不能仅以局部设备中心代替",
+    "width": 45,
+    "center_x_0based": 22,
+    "center_column_1based": 23,
+    "old_controller": [
+      22,
+      3,
+      9
+    ],
+    "new_controller": [
+      22,
+      3,
+      9
+    ],
+    "moved": false,
+    "passed": true,
+    "host": "取晶床固定前端",
+    "restored_old_surface_state": null,
+    "internal_backing_added": [],
+    "delta": {
+      "before": 8333,
+      "after": 8333,
+      "deleted": 0,
+      "changed": 0,
+      "added": 0
+    },
+    "ports_unchanged": true,
+    "boundary": "几何候选；尚未获新版外观批准，未改正式资源或不可变归档",
+    "source_blueprint": "deliveries/I01-I18_控制器接口融合修订_V1_20261023/i08/blueprint.json",
+    "source_blueprint_sha256": "6b7953ecac05ae0270a0f49f98fd3fa54aac828db90325bb1bc05f6d9d15921c",
+    "controller": [
+      22,
+      3,
+      9
+    ],
+    "source_status": "外部确认清单已批准"
+  }
+}

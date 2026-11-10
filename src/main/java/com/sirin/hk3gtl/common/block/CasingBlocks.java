@@ -1,21 +1,30 @@
 package com.sirin.hk3gtl.common.block;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 CasingBlocks 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.RegistryObject;
 
-/**
- * 所有阶段的机壳方块注册。
- * <p>
- * 【修改指南】
- * - 新增机壳：在对应阶段区域添加 static 字段 + 在 register() 中调用 casing("注册ID")
- * - 修改硬度/爆炸抗性：调整 casingProperties() 或 coloredCasingProperties() 中的数值
- * - 修改颜色机壳的 MapColor：修改 COLORED_CASINGS 数组中对应元素的 MapColor 参数
- * - 所有注册ID必须全小写下划线，与 blockstates / models / textures / lang 保持一致
- */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public class CasingBlocks {
 
     // ════════════════════════════════════════════

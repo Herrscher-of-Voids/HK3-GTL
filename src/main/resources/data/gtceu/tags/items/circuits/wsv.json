@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:world_weaving_processor_mainframe",
+    "hk3gtl:terminal_computation_computer",
+    "hk3gtl:wsv_assembly"
+  ],
+  "_comment_revision75": "变更记录 #1 2026-09-26 22:06:33：补入本电压新系列，禁止跨级替代。"
+}

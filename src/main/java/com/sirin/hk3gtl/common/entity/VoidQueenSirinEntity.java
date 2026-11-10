@@ -1,7 +1,58 @@
 package com.sirin.hk3gtl.common.entity;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 VoidQueenSirinEntity 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录 #1】2026-05-19（内测二首轮）
+ * - 用途：终局 NPC 无敌、平台生成、对话触发。
+ *
+ * 【变更记录 #2】2026-05-19 04:25:00（第 2 次备注 · 内测二第 3 次更新）
+ *
+ * 【变更记录 #2】2026-05-19 04:25:00（第 2 次备注 · 内测二第 3 次更新）
+ * - 删除：
+ *   1) 主类内联的出场粒子/凝聚 tick 实现（迁至 archive.entrance）。
+ * - 修改：
+ *   1) 内测二曾关闭出场动画；后于 #3 重新启用并修复朝向/翅膀。
+ *
+ * 【变更记录 #5】2026-05-19 05:40:00（第 5 次备注 · 内测二第 8 次更新）
+ * - 删除：ensurePlatformAndEntity 时自动 spawnSirinAtPlatform（未交互前仅生成裂隙）。
+ * - 新增：syncImaginaryEncounterState 清除未登场西琳；右键裂隙时才 spawnSirinAtPlatform。
+ *
+ * 【变更记录 #4】2026-05-19 05:10:00（第 4 次备注 · 内测二第 5 次更新）
+ * - 修改：出场 tick 结束后调用 {@link SirinEntranceAnimationArchive#reveal} 再开对话。
+ *
+ * 【变更记录 #3】2026-05-19 04:45:00（第 3 次备注 · 内测二第 4 次更新）
+ * - 修改：
+ *   1) 生成/落位 yaw 改为 {@link Hk3Dimensions#sirinFacePlayerYaw()}（面向玩家，约 0°）。
+ *   2) 出场旋转经 {@link SirinEntranceAnimationArchive#applyFacingYaw} 同步 yBodyRot/yHeadRot。
+ * - 用途：
+ *   1) 修复出场后背对玩家；配合翅膀层 body.yRot 清零修复四翼。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ *
+ * 【变更记录 #6】2026-07-19 21:49:23（第 6 次备注 · revision 35）
+ * - 删除：
+ *   1) 删除本地 HTTP 调试 URI、HttpClient 及 URI/HttpRequest/HttpResponse 导入。
+ *   2) 删除 die、setHealth、remove、tickDeath 生命周期中的 JSON 上报方法与调用，以及 aiStep 的 debug-point A 区块。
+ * - 新增：
+ *   1) 无新增实体功能；保留无敌、生命恢复、常驻和生命周期拦截逻辑。
+ * - 修改：
+ *   1) 生命周期方法改为只执行原有防死亡状态维护，不再向 127.0.0.1:7777 发送事件。
+ *   2) aiStep 删除死亡状态探针后，仍保留服务端判定、满血恢复、坏结局战斗和出场动画流程。
+ * - 用途：
+ *   1) 移除生产代码中的本地 HTTP 调试上报，避免实体 tick、伤害和移除路径产生网络副作用。
+ *   2) 保持空之律者实体无敌/生命周期安全逻辑、服务端状态同步与终局剧情调用链；并发玩家状态集合不变。
+ */
+/**
+ * 【变更记录 #7】2026-09-29 17:51:46（内测5修订93）
+ * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
+ * - 新增／修改：终审使用本存档玩家IF账本，以活跃会话去重，关闭后允许继续；保留出场及翅膀时序。
+ * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
+ */
 import com.sirin.hk3gtl.archive.entrance.SirinEntranceAnimationArchive;
 import com.sirin.hk3gtl.common.badending.Hk3BadEndingData;
 import com.sirin.hk3gtl.common.badending.SirinBadEndingManager;
@@ -65,6 +116,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *   <li>禁止移除无敌相关重写方法，会破坏终局安全性</li>
  * </ul>
  */
+/** 【变更记录 #8】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：毕业/传送/彩蛋/调试改为查询当前玩家，实体避免在已有坏结局演出时开启新会面；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
 public class VoidQueenSirinEntity extends Mob {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -335,20 +387,18 @@ public class VoidQueenSirinEntity extends Mob {
     private static final String DIALOGUE_DONE_TAG = "hk3gtl_dialogue_done";
 
     private void tryStartDialogue(ServerPlayer player) {
-        if (Hk3GraduationData.get(player.serverLevel()).isGraduated()) return;
+        if (Hk3GraduationData.get(player.serverLevel()).isGraduated(player.getUUID())) return;
         if (player.getPersistentData().getBoolean(DIALOGUE_DONE_TAG)) return;
         // 坏结局流程激活后（含被抹除/终局文本阶段）不再走常规终局对话
-        if (Hk3BadEndingData.get(player.serverLevel()).getStage() != Hk3BadEndingData.STAGE_NONE) return;
+        if (Hk3BadEndingData.get(player.serverLevel()).getStage(player.getUUID()) != Hk3BadEndingData.STAGE_NONE) return;
 
         UUID uuid = player.getUUID();
-        if (triggeredPlayers.containsKey(uuid)) return;
+        if (SirinBadEndingManager.isCinematicBusy()) return;
+        if (DialogueSessionManager.hasActiveDialogue(uuid)) return;
+        triggeredPlayers.remove(uuid);
         if (pendingDialogues.containsKey(uuid)) return;
 
-        int availableMask = SirinIfProgressStore.availableMask(player);
-        if (availableMask == 0 && SirinIfProgressStore.usesGlobalIfDedup(player)) {
-            player.sendSystemMessage(Component.translatable("hk3gtl.dialogue.sirin.no_more_if"));
-            return;
-        }
+        int availableMask = com.sirin.hk3gtl.common.dialogue.Hk3FinaleIfData.get(player).selectedMask(uuid);
 
         if (!introCompleted) {
             if (introPlaying) {
@@ -623,8 +673,9 @@ public class VoidQueenSirinEntity extends Mob {
             ServerPlayer player = server.getPlayerList().getPlayer(uuid);
             pendingDialogues.remove(uuid);
             if (player == null || player.level() != level) continue;
-            if (Hk3GraduationData.get(player.serverLevel()).isGraduated()) continue;
+            if (Hk3GraduationData.get(player.serverLevel()).isGraduated(player.getUUID())) continue;
             if (player.getPersistentData().getBoolean(DIALOGUE_DONE_TAG)) continue;
+            if (SirinBadEndingManager.isCinematicBusy() || Hk3BadEndingData.get(level).getStage(uuid) != Hk3BadEndingData.STAGE_NONE) continue;
             if (DialogueSessionManager.startDialogue(player, "sirin_finale", availableMask)) {
                 triggeredPlayers.put(uuid, true);
                 Hk3FactionEventChecker.onFinaleDialogueStarted(player);

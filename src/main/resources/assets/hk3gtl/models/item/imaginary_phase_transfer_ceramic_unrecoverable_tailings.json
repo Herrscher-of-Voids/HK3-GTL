@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/imaginary_phase_transfer_ceramic_unrecoverable_tailings/layer0",
+    "layer1": "hk3gtl:item/main_material/imaginary_phase_transfer_ceramic_unrecoverable_tailings/layer1",
+    "layer2": "hk3gtl:item/main_material/imaginary_phase_transfer_ceramic_unrecoverable_tailings/layer2"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "key": "i04",
+  "source": "data/hk3gtl/approved_architecture/i04.json",
+  "machine": "hk3gtl:liquid_honkai_stabilization_tower",
+  "sha256": "8841a89f3cf8f1fdcf54f1f533055f95495b5b9c5637ca9b6e81b73cd9fc1652",
+  "template_sha256": "2ddf0f2591e6bb6b1f738cabc703e90c2d40577acbf2c5cc0d7c037c5b798e19",
+  "approved_blueprint_sha256": "a4443d6f699ec5f531bfc4c5d9efde9c6558fa9715c6863367819d4cdbc49dc6",
+  "approved_nbt_sha256": "645aed8f7e6b94bbf18a6d402bbcbe05b0831f19e9b69d586d7b2afa62748e6b",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "controller": [
+    17,
+    3,
+    10
+  ],
+  "size_xyz": [
+    35,
+    43,
+    35
+  ],
+  "blocks": 4005,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {
+    "WASH": "fluid_input",
+    "STABLE_LIQUID": "fluid_output",
+    "STABILIZER": "item_input",
+    "POWER": "item_output"
+  },
+  "geometry_changes": "批准V2原几何；仅主控与六接口以原注册ID和原仓状态替换",
+  "game_verified": false,
+  "target_voltage": "MAX",
+  "target_casing": "gtceu:max_machine_casing",
+  "approval_quote": "实装这一些吧",
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-20T00:52:09+08:00",
+      "reason": "负责人明确采用整批21形态新配色",
+      "deleted": "无；旧归档、候选原件与旧正式资源快照保留",
+      "added": "明确目标电压、新批准来源与本次修改身份",
+      "modified": "主体配色采用已批候选，控制器/仓室与能力合同沿用原正式实现",
+      "purpose": "使已有Pattern和放置模板读取批准配色；游戏成型与运行仍待验收"
+    },
+    {
+      "record": 2,
+      "time": "2026-10-23T13:37:02+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准当前主控置中融合V2并要求实装",
+      "deleted": "旧独立接口载体的正式几何引用；旧正式文件应用前完整备份",
+      "added": "本次批准来源身份、新控制点及按ID迁移的接口布局",
+      "modified": "几何逐格采用V2，注册ID、原接口能力合同与真实仓完整状态保持",
+      "purpose": "既有Pattern与正式放置模板共用新坐标；游戏运行仍待实机验收"
+    }
+  ],
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "paste_anchor": [
+    0,
+    0,
+    0
+  ],
+  "controller_centering": {
+    "version": "V2",
+    "recorded_at": "2026-10-23T11:45:01+08:00",
+    "summary": "原主控已处于整台结构宽度中心列，保留原设备表面及全部接口；仅新增中心核验记录。",
+    "policy": "主控X=(sizeX-1)//2；以整台结构宽度为准，不能仅以局部设备中心代替",
+    "width": 35,
+    "center_x_0based": 17,
+    "center_column_1based": 18,
+    "old_controller": [
+      17,
+      3,
+      10
+    ],
+    "new_controller": [
+      17,
+      3,
+      10
+    ],
+    "moved": false,
+    "passed": true,
+    "host": "低位换热梳中央固定齿座",
+    "restored_old_surface_state": null,
+    "internal_backing_added": [],
+    "delta": {
+      "before": 4005,
+      "after": 4005,
+      "deleted": 0,
+      "changed": 0,
+      "added": 0
+    },
+    "ports_unchanged": true,
+    "boundary": "几何候选；尚未获新版外观批准，未改正式资源或不可变归档",
+    "source_blueprint": "deliveries/I01-I18_控制器接口融合修订_V1_20261023/i04/blueprint.json",
+    "source_blueprint_sha256": "2bdd5fec67072af22448e75b9e91e54044250f0ba4ed5a8063f9aae5e5395f45",
+    "controller": [
+      17,
+      3,
+      10
+    ],
+    "source_status": "外部确认清单已批准"
+  }
+}

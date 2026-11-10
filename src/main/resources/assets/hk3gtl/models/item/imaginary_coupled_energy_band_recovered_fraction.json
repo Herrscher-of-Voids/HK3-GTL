@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/imaginary_coupled_energy_band_recovered_fraction/layer0",
+    "layer1": "hk3gtl:item/main_material/imaginary_coupled_energy_band_recovered_fraction/layer1",
+    "layer2": "hk3gtl:item/main_material/imaginary_coupled_energy_band_recovered_fraction/layer2"
+  }
+}

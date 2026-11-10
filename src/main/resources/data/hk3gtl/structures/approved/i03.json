@@ -1,0 +1,117 @@
+{
+  "key": "i03",
+  "source": "data/hk3gtl/approved_architecture/i03.json",
+  "machine": "hk3gtl:liquid_honkai_fractionation_center",
+  "sha256": "51dad664409d50f7fcc9ff3cc4ba52b57e2bb4ee53e02d38d66c80edd59644b8",
+  "template_sha256": "ba7790e40d99b53e828c3b823c494550d610927e0b21eafd1f427c68dde12dc7",
+  "approved_blueprint_sha256": "a2e69ed782148c2dedd69db0e60068c93c9172c91829af9f5a915555d0eb6c3b",
+  "approved_nbt_sha256": "0da991e3ccb506197237a46dd7c889121c046c45ed298b178d8cf2465db47847",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "controller": [
+    20,
+    3,
+    33
+  ],
+  "size_xyz": [
+    41,
+    29,
+    39
+  ],
+  "blocks": 4179,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {
+    "SOLVENT": "fluid_input",
+    "LIGHT_PHASE": "fluid_output",
+    "POWER": "item_input",
+    "RESIDUE": "item_output"
+  },
+  "geometry_changes": "批准V2原几何；仅主控与六接口以原注册ID和原仓状态替换",
+  "game_verified": false,
+  "target_voltage": "MAX",
+  "target_casing": "gtceu:max_machine_casing",
+  "approval_quote": "实装这一些吧",
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-20T00:52:09+08:00",
+      "reason": "负责人明确采用整批21形态新配色",
+      "deleted": "无；旧归档、候选原件与旧正式资源快照保留",
+      "added": "明确目标电压、新批准来源与本次修改身份",
+      "modified": "主体配色采用已批候选，控制器/仓室与能力合同沿用原正式实现",
+      "purpose": "使已有Pattern和放置模板读取批准配色；游戏成型与运行仍待验收"
+    },
+    {
+      "record": 2,
+      "time": "2026-10-23T13:37:02+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准当前主控置中融合V2并要求实装",
+      "deleted": "旧独立接口载体的正式几何引用；旧正式文件应用前完整备份",
+      "added": "本次批准来源身份、新控制点及按ID迁移的接口布局",
+      "modified": "几何逐格采用V2，注册ID、原接口能力合同与真实仓完整状态保持",
+      "purpose": "既有Pattern与正式放置模板共用新坐标；游戏运行仍待实机验收"
+    }
+  ],
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "paste_anchor": [
+    0,
+    0,
+    0
+  ],
+  "controller_centering": {
+    "version": "V2",
+    "recorded_at": "2026-10-23T11:45:01+08:00",
+    "summary": "由偏置飞轮轴承座迁入机器宽度中心列上的既有冷却分析座；分析机壳与顶部散热列保持，仅补内部背壳。",
+    "policy": "主控X=(sizeX-1)//2；以整台结构宽度为准，不能仅以局部设备中心代替",
+    "width": 41,
+    "center_x_0based": 20,
+    "center_column_1based": 21,
+    "old_controller": [
+      7,
+      3,
+      18
+    ],
+    "new_controller": [
+      20,
+      3,
+      33
+    ],
+    "moved": true,
+    "passed": true,
+    "host": "固定低位轴承冷却分析座中央北壁",
+    "restored_old_surface_state": "gtceu:solid_machine_casing",
+    "internal_backing_added": [
+      {
+        "pos": [
+          20,
+          3,
+          34
+        ],
+        "state": "gtceu:computer_casing",
+        "用途": "设备内部控制器实背壳"
+      }
+    ],
+    "delta": {
+      "before": 4178,
+      "after": 4179,
+      "deleted": 0,
+      "changed": 2,
+      "added": 1
+    },
+    "ports_unchanged": true,
+    "boundary": "几何候选；尚未获新版外观批准，未改正式资源或不可变归档",
+    "source_blueprint": "deliveries/I01-I18_控制器接口融合修订_V1_20261023/i03/blueprint.json",
+    "source_blueprint_sha256": "ea0988cab19d3d2bf2be16180986ac2f4f2ce8da54e57c1cb88663b3d7345ccc",
+    "controller": [
+      20,
+      3,
+      33
+    ],
+    "source_status": "外部确认清单已批准"
+  }
+}

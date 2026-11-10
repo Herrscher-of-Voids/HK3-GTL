@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/coherent_interconnect_grid_foil/layer0",
+    "layer1": "hk3gtl:item/main_material/coherent_interconnect_grid_foil/layer1",
+    "layer2": "hk3gtl:item/main_material/coherent_interconnect_grid_foil/layer2"
+  }
+}

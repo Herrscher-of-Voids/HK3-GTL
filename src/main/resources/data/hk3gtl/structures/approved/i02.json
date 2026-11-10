@@ -1,0 +1,103 @@
+{
+  "key": "i02",
+  "source": "data/hk3gtl/approved_architecture/i02.json",
+  "machine": "hk3gtl:i02_spectrum_analysis_array",
+  "sha256": "ac7a060038b15c94176302808170145bd7abd5b14957a06eb9bbdf98e0daf7f6",
+  "template_sha256": "e956b5643160d2301ee9ccb0e86fa964247028fa90d1c88643b94026ae80bee2",
+  "approved_blueprint_sha256": "d0cbbe7fa2fcbeb1047073d58fd55f2e89b9a0fb27df22d517f73f1fc12fd124",
+  "approved_nbt_sha256": "6c598efb6b01d8e8259839dcedf0feb528e8c7d3bcb083945db93557d357dd10",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "controller": [
+    19,
+    3,
+    12
+  ],
+  "size_xyz": [
+    39,
+    25,
+    35
+  ],
+  "blocks": 2452,
+  "required_abilities": [
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {
+    "STANDARD": "item_input",
+    "DATA": "item_output"
+  },
+  "geometry_changes": "批准V2原几何；仅主控与六接口以原注册ID和原仓状态替换",
+  "game_verified": false,
+  "target_voltage": "MAX",
+  "target_casing": "gtceu:max_machine_casing",
+  "approval_quote": "实装这一些吧",
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-20T00:52:09+08:00",
+      "reason": "负责人明确采用整批21形态新配色",
+      "deleted": "无；旧归档、候选原件与旧正式资源快照保留",
+      "added": "明确目标电压、新批准来源与本次修改身份",
+      "modified": "主体配色采用已批候选，控制器/仓室与能力合同沿用原正式实现",
+      "purpose": "使已有Pattern和放置模板读取批准配色；游戏成型与运行仍待验收"
+    },
+    {
+      "record": 2,
+      "time": "2026-10-23T13:37:02+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准当前主控置中融合V2并要求实装",
+      "deleted": "旧独立接口载体的正式几何引用；旧正式文件应用前完整备份",
+      "added": "本次批准来源身份、新控制点及按ID迁移的接口布局",
+      "modified": "几何逐格采用V2，注册ID、原接口能力合同与真实仓完整状态保持",
+      "purpose": "既有Pattern与正式放置模板共用新坐标；游戏运行仍待实机验收"
+    }
+  ],
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "paste_anchor": [
+    0,
+    0,
+    0
+  ],
+  "controller_centering": {
+    "version": "V2",
+    "recorded_at": "2026-10-23T11:45:01+08:00",
+    "summary": "原主控已处于整台结构宽度中心列，保留原设备表面及全部接口；仅新增中心核验记录。",
+    "policy": "主控X=(sizeX-1)//2；以整台结构宽度为准，不能仅以局部设备中心代替",
+    "width": 39,
+    "center_x_0based": 19,
+    "center_column_1based": 20,
+    "old_controller": [
+      19,
+      3,
+      12
+    ],
+    "new_controller": [
+      19,
+      3,
+      12
+    ],
+    "moved": false,
+    "passed": true,
+    "host": "样本棱镜台北端圆形承台",
+    "restored_old_surface_state": null,
+    "internal_backing_added": [],
+    "delta": {
+      "before": 2452,
+      "after": 2452,
+      "deleted": 0,
+      "changed": 0,
+      "added": 0
+    },
+    "ports_unchanged": true,
+    "boundary": "几何候选；尚未获新版外观批准，未改正式资源或不可变归档",
+    "source_blueprint": "deliveries/I01-I18_控制器接口融合修订_V1_20261023/i02/blueprint.json",
+    "source_blueprint_sha256": "28fe5d343fb94b7a86281c6907381da9e0b8a51f5a6fc64ba4513a3d1fd9767c",
+    "controller": [
+      19,
+      3,
+      12
+    ],
+    "source_status": "外部确认清单已批准"
+  }
+}

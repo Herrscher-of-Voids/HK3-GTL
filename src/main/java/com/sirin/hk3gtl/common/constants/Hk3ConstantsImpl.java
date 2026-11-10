@@ -1,22 +1,25 @@
 package com.sirin.hk3gtl.common.constants;
 
 
-
 /**
- * 模组全局常量定义 —— 所有跨模块共享的配置值集中在此。
+ * 【文件职责】
+ * - 维护 Hk3ConstantsImpl 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
  *
- * <h3>职责</h3>
- * 提供模组ID、数值公式参数、毕业条件等不变常量。
- * Hk3Constants 继承本类，外部统一通过 Hk3Constants.XXX 引用。
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
  *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>新增全局常量：直接在本类中添加 public static final 字段</li>
- *   <li>修改毕业条件：调整 GRADUATION_WONDER_COUNT / GRADUATION_RESEARCH_COUNT</li>
- *   <li>调整注视度机制参数：修改 GAZE_MAX / RESEARCH_SPEED_FLOOR / GAZE_DECAY_DIVISOR</li>
- *   <li>禁止硬编码数值——所有模块应引用此处常量</li>
- * </ul>
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
  */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public class Hk3ConstantsImpl {
 
     /** 模组ID，用于所有注册（方块/物品/网络通道/资源路径等） */

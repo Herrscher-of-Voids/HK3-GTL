@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/energy_fuel/honkai_ptfe_membrane_carrier/layer0",
+    "layer1": "hk3gtl:item/energy_fuel/honkai_ptfe_membrane_carrier/layer1",
+    "layer2": "hk3gtl:item/energy_fuel/honkai_ptfe_membrane_carrier/layer2"
+  }
+}

@@ -1,7 +1,25 @@
 package com.sirin.hk3gtl.client.narrative;
 
 
-
+/**
+ * 【文件职责】
+ * - 管理 Hk3NarrativeCodexScreen 叙事节点与档案显示数据。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 左侧阵营 Button 列表（超出面板高度会截断末尾「彩蛋」项）。
+ * - 新增：
+ *   1) 「全部」下方固定「彩蛋/残篇」筛选；阵营列表可滚动。
+ *   2) 节点/详情/阵营滚动条支持鼠标拖拽。
+ * - 修改：
+ *   1) 阵营筛选改为自绘列表 + factionScroll，确保 100 条彩蛋档案可进入。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeFaction;
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeLog;
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeNode;
@@ -25,7 +43,13 @@ import java.util.List;
  * <p>2026-05-19 变更：
  * 新增彩蛋条件展示与可视化滚动条，便于 100 条彩蛋档案快速浏览。</p>
  */
-public class Hk3NarrativeCodexScreen extends Screen {
+/** 中文说明：该处说明已按当前代码行为整理。*/
+/** 【变更记录 #1】2026-10-01 00:44:40（修订123）：删除无；新增/修改：卷轴增加服务端正式经历分页，旧收藏保留独立切换；正式页不使用滚轮；用途：个人交流、团队决定及额外收藏分开，保留真实记录。 */
+/** 【变更记录 #2】2026-10-01 01:54:14（修订127）：删除：被替代的旧分支；新增/修改：三栏目录保留，正文及完整触发条件改翻页；底部进度避让切换按钮，与手机同源分类说明；用途：个人收藏与正式资格分离，保留历史记录。 */
+/** 【变更记录 #3】2026-10-01 01:59:30（修订127）：删除：被替代的旧分支；新增/修改：卷轴目录和数量读取此次打开的服务端本人快照，调试与复活后不显示过期进度；用途：个人收藏与正式资格分离，保留历史记录。 */
+/** 【变更记录 #4】2026-10-01 22:47:35（第4次备注 · 内测5修订155）：删除玩家展示中的旧电压及开发说明；新增现行正文投影或对应回归；修改仅限呈现与检索，不改变进度、回执、触发条件或权限；用途：统一发布版玩家文案，历史备注保留。 */
+/** 【变更记录 #5】2026-11-04 06:08:10（第5次备注 · 内测5修订196）：删除64正式收藏列表的旧标题投影；新增共享迁移标题入口；修改仅当前收藏列表，锁定项与终审正文不变；用途：列表与详情显示同一获准新版档案。 */
+public class Hk3NarrativeCodexScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int GUI_WIDTH = 420;
     private static final int GUI_HEIGHT = 320;
@@ -66,13 +90,28 @@ public class Hk3NarrativeCodexScreen extends Screen {
     private Hk3NarrativeNode selectedNode;
     private int factionScroll;
     private int nodeScroll;
-    private int detailScroll;
+    private int detailPage;
+    private net.minecraft.client.gui.components.Button detailPrev,detailNext;
+    private String progressBody="";
+    private java.util.Set<String> unlockedSnapshot;
+    private boolean formal=true;
+    private int progressPage;
+    private final List<net.minecraft.util.FormattedCharSequence> progressLines=new ArrayList<>();
+    public static void openProgress(net.minecraft.nbt.CompoundTag view){
+        var mc=Minecraft.getInstance();var screen=new Hk3NarrativeCodexScreen();
+        screen.progressBody=view.getString("Body");
+        if(view.contains("Unlocked",net.minecraft.nbt.Tag.TAG_LIST)){
+            screen.unlockedSnapshot=new java.util.HashSet<>();
+            for(var tag:view.getList("Unlocked",net.minecraft.nbt.Tag.TAG_STRING))screen.unlockedSnapshot.add(tag.getAsString());
+        }
+        mc.setScreen(screen);
+    }
     private ScrollTarget draggingScroll = ScrollTarget.NONE;
     private int dragScrollAnchor;
     private double dragMouseAnchor;
 
     public Hk3NarrativeCodexScreen() {
-        super(Component.literal("文明档案卷轴"));
+        super(Component.literal("文明档案卷轴"), 444, 344);
         buildFactionFilters();
         applyFactionFilter(null);
     }
@@ -84,7 +123,7 @@ public class Hk3NarrativeCodexScreen extends Screen {
     }
 
     @Override
-    protected void init() {
+    protected void initFitted() {
         guiWidth = Math.min(GUI_WIDTH, Math.max(240, width - 12));
         guiHeight = Math.min(GUI_HEIGHT, Math.max(160, height - 12));
         guiLeft = (width - guiWidth) / 2;
@@ -93,24 +132,44 @@ public class Hk3NarrativeCodexScreen extends Screen {
         contentHeight = guiHeight - BOTTOM_HEIGHT - PADDING * 2;
         detailWidth = guiWidth - LEFT_WIDTH - MID_WIDTH - PADDING * 4;
         clearWidgets();
+        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal(formal?"档案与收藏":"正式经历"),b->{formal=!formal;initFitted();}).bounds(guiLeft+guiWidth-102,guiTop+guiHeight-23,96,18).build());
+        if(!formal){
+            int dx=guiLeft+PADDING*3+LEFT_WIDTH+MID_WIDTH;
+            detailPrev=addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("上一页"),b->{detailPage=Math.max(0,detailPage-1);}).bounds(dx+6,contentTop+contentHeight-24,60,18).build());
+            detailNext=addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("下一页"),b->{detailPage=Math.min(detailPages()-1,detailPage+1);}).bounds(dx+detailWidth-66,contentTop+contentHeight-24,60,18).build());
+        }
+        if(formal){
+            progressLines.clear();
+            for(String line:progressBody.split("\n",-1))if(line.isEmpty())progressLines.add(net.minecraft.util.FormattedCharSequence.EMPTY);else progressLines.addAll(font.split(Component.literal(line),guiWidth-28));
+            int count=Math.max(1,(progressLines.size()+19)/20);progressPage=Math.max(0,Math.min(progressPage,count-1));
+            addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("上一页"),b->{progressPage--;initFitted();}).bounds(guiLeft+8,guiTop+guiHeight-23,60,18).build()).active=progressPage>0;
+            addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("下一页"),b->{progressPage++;initFitted();}).bounds(guiLeft+72,guiTop+guiHeight-23,60,18).build()).active=progressPage+1<count;
+        }
     }
 
     @Override
-    public void render(GuiGraphics gui, int mouseX, int mouseY, float partialTick) {
+    public void renderFitted(GuiGraphics gui, int mouseX, int mouseY, float partialTick) {
         renderBackground(gui);
         gui.fill(0, 0, width, height, BG_ROOT);
 
         drawPanel(gui, guiLeft, guiTop, guiWidth, guiHeight, BG_PANEL, BORDER);
+        if(formal){
+            gui.drawString(font,"本人经历",guiLeft+12,guiTop+10,TEXT_TITLE,false);
+            for(int i=0;i<20&&progressPage*20+i<progressLines.size();i++)gui.drawString(font,progressLines.get(progressPage*20+i),guiLeft+12,guiTop+32+i*12,TEXT_NORMAL,false);
+            gui.drawString(font,"第 "+(progressPage+1)+" / "+Math.max(1,(progressLines.size()+19)/20)+" 页",guiLeft+145,guiTop+guiHeight-18,TEXT_DIM,false);
+            super.renderFitted(gui,mouseX,mouseY,partialTick);return;
+        }
         drawFactionPanel(gui, mouseX, mouseY);
         drawNodePanel(gui, mouseX, mouseY);
         drawDetailPanel(gui);
         drawBottomProgress(gui);
 
-        super.render(gui, mouseX, mouseY, partialTick);
+        super.renderFitted(gui, mouseX, mouseY, partialTick);
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean clickFitted(double mouseX, double mouseY, int button) {
+        if (formal) return super.clickFitted(mouseX,mouseY,button);
         if (button == 0) {
             ScrollTarget target = scrollTargetAt(mouseX, mouseY);
             if (target != ScrollTarget.NONE) {
@@ -128,34 +187,35 @@ public class Hk3NarrativeCodexScreen extends Screen {
                 int index = nodeIndexAt(mouseY);
                 if (index >= 0 && index < filteredNodes.size()) {
                     selectedNode = filteredNodes.get(index);
-                    detailScroll = 0;
+                    detailPage = 0;
                     return true;
                 }
             }
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.clickFitted(mouseX, mouseY, button);
     }
 
     @Override
-    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+    public boolean releaseFitted(double mouseX, double mouseY, int button) {
         if (button == 0 && draggingScroll != ScrollTarget.NONE) {
             draggingScroll = ScrollTarget.NONE;
             return true;
         }
-        return super.mouseReleased(mouseX, mouseY, button);
+        return super.releaseFitted(mouseX, mouseY, button);
     }
 
     @Override
-    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+    public boolean dragFitted(double mouseX, double mouseY, int button, double dragX, double dragY) {
         if (button == 0 && draggingScroll != ScrollTarget.NONE) {
             applyScrollDrag(mouseY);
             return true;
         }
-        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+        return super.dragFitted(mouseX, mouseY, button, dragX, dragY);
     }
 
     @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+    public boolean scrollFitted(double mouseX, double mouseY, double delta) {
+        if (formal) return true;
         if (isInsideFactionPanel(mouseX, mouseY)) {
             int maxOffset = Math.max(0, factionFilters.size() - visibleFactionCount());
             factionScroll = Mth.clamp(factionScroll - (int) Math.signum(delta), 0, maxOffset);
@@ -166,14 +226,8 @@ public class Hk3NarrativeCodexScreen extends Screen {
             nodeScroll = Mth.clamp(nodeScroll - (int) Math.signum(delta), 0, maxOffset);
             return true;
         }
-        if (isInsideDetailPanel(mouseX, mouseY)) {
-            int maxDetailScroll = maxDetailScrollLines();
-            if (maxDetailScroll > 0) {
-                detailScroll = Mth.clamp(detailScroll - (int) Math.signum(delta), 0, maxDetailScroll);
-                return true;
-            }
-        }
-        return super.mouseScrolled(mouseX, mouseY, delta);
+        if (isInsideDetailPanel(mouseX, mouseY)) return true;
+        return super.scrollFitted(mouseX, mouseY, delta);
     }
 
     @Override
@@ -222,7 +276,7 @@ public class Hk3NarrativeCodexScreen extends Screen {
 
         factionScroll = 0;
         nodeScroll = 0;
-        detailScroll = 0;
+        detailPage = 0;
         if (selectedNode == null || !filteredNodes.contains(selectedNode)) {
             selectedNode = filteredNodes.isEmpty() ? null : filteredNodes.get(0);
         }
@@ -289,7 +343,7 @@ public class Hk3NarrativeCodexScreen extends Screen {
             }
 
             gui.fill(x + 4, rowY, x + MID_WIDTH - 4, rowY + ROW_HEIGHT - 2, bg);
-            String title = unlocked ? I18n.get(node.titleKey()) : LOCKED_PLACEHOLDER;
+            String title = unlocked ? com.sirin.hk3gtl.common.narrative.Hk3CollectionRecords.title(node,key->I18n.get(key)) : LOCKED_PLACEHOLDER;
             int color = unlocked ? TEXT_NORMAL : TEXT_LOCKED;
             gui.drawString(font, trimToWidth(title, listWidth - 8), x + 8, rowY + 5, color, false);
         }
@@ -315,81 +369,55 @@ public class Hk3NarrativeCodexScreen extends Screen {
             return;
         }
 
+        detailPrev.active=false;detailNext.active=false;
         if (!isNodeUnlocked(selectedNode)) {
             gui.drawString(font, "该节点尚未解锁", x + 6, y + 8, TEXT_LOCKED, false);
             return;
         }
 
-        int textX = x + 6;
-        int textY = y + 8;
-        int textWidth = detailWidth - 12;
-
-        String title = I18n.get(selectedNode.titleKey());
-        gui.drawString(font, trimToWidth(title, textWidth), textX, textY, TEXT_TITLE, false);
-        textY += 13;
-
-        if (selectedNode.hasAuthor()) {
-            String author = I18n.get(selectedNode.authorKey());
-            gui.drawString(font, trimToWidth(author, textWidth), textX, textY, TEXT_DIM, false);
-            textY += 12;
-        }
-        if (selectedNode.hasCondition()) {
-            String condition = "触发条件: " + I18n.get(selectedNode.conditionKey());
-            gui.drawString(font, trimToWidth(condition, textWidth), textX, textY, 0xFFC9D6E6, false);
-            textY += 12;
-        }
-        gui.fill(textX, textY, textX + textWidth, textY + 1, 0x7054657A);
-        textY += 6;
-
-        List<String> lines = detailLines(selectedNode, textWidth);
-        int visibleLines = Math.max(1, (contentHeight - (textY - y) - 6) / DETAIL_LINE_HEIGHT);
-        int start = Mth.clamp(detailScroll, 0, Math.max(0, lines.size() - visibleLines));
-        for (int i = 0; i < visibleLines && start + i < lines.size(); i++) {
-            gui.drawString(font, lines.get(start + i), textX, textY + i * DETAIL_LINE_HEIGHT, TEXT_NORMAL, false);
-        }
-        drawVerticalScrollbar(
-                gui,
-                x + detailWidth - 6,
-                y + 6,
-                contentHeight - 12,
-                lines.size(),
-                visibleLines,
-                start);
+        int textX=x+6,textWidth=detailWidth-12;
+        gui.drawString(font,trimToWidth(com.sirin.hk3gtl.common.narrative.Hk3CollectionRecords.title(selectedNode,key->I18n.get(key)),textWidth),textX,y+8,TEXT_TITLE,false);
+        List<String> lines=detailLines(selectedNode,textWidth);
+        int visible=detailVisibleLines(),pages=detailPages();detailPage=Mth.clamp(detailPage,0,pages-1);
+        detailPrev.active=detailPage>0;detailNext.active=detailPage+1<pages;
+        for(int i=0;i<visible&&detailPage*visible+i<lines.size();i++)
+            gui.drawString(font,lines.get(detailPage*visible+i),textX,y+26+i*DETAIL_LINE_HEIGHT,TEXT_NORMAL,false);
+        gui.drawString(font,"第 "+(detailPage+1)+" / "+pages+" 页",textX,y+contentHeight-38,TEXT_DIM,false);
+    }
+    private int detailVisibleLines(){return Math.max(1,(contentHeight-70)/DETAIL_LINE_HEIGHT);}
+    private int detailPages(){
+        if(selectedNode==null||!isNodeUnlocked(selectedNode))return 1;
+        return Math.max(1,(detailLines(selectedNode,detailWidth-12).size()+detailVisibleLines()-1)/detailVisibleLines());
     }
 
     private void drawBottomProgress(GuiGraphics gui) {
         int x = guiLeft + PADDING;
         int y = guiTop + guiHeight - BOTTOM_HEIGHT - PADDING + 2;
-        int w = guiWidth - PADDING * 2;
+        int w = guiWidth - PADDING * 2 - 102;
         int h = BOTTOM_HEIGHT - 4;
 
         drawPanel(gui, x, y, w, h, 0xD010141B, BORDER);
 
         Player player = Minecraft.getInstance().player;
         int total = Hk3NarrativeNodes.totalCount();
-        int unlocked = player == null ? 0 : Hk3NarrativeLog.unlockedCount(player);
+        int unlocked = (int)Hk3NarrativeNodes.all().stream().filter(this::isNodeUnlocked).count();
         int fillWidth = total <= 0 ? 0 : (int) ((w - 2) * (unlocked / (double) total));
         gui.fill(x + 1, y + 1, x + 1 + fillWidth, y + h - 1, 0xA036B7D9);
 
-        String progress = "进度: " + unlocked + "/" + total;
-        gui.drawCenteredString(font, progress, x + w / 2, y + 4, 0xFFFFFFFF);
+        String progress = "已收录 " + unlocked + "/" + total + " · 非终审资格";
+        gui.drawString(font, progress, x + 4, y + 4, 0xFFFFFFFF, false);
     }
 
     private boolean isNodeUnlocked(Hk3NarrativeNode node) {
         Player player = Minecraft.getInstance().player;
-        return player != null && Hk3NarrativeLog.isUnlocked(player, node.id());
+        return unlockedSnapshot!=null?unlockedSnapshot.contains(node.id()):player != null && Hk3NarrativeLog.isUnlocked(player, node.id());
     }
 
     private List<String> detailLines(Hk3NarrativeNode node, int width) {
         List<String> out = new ArrayList<>();
-        for (String bodyKey : node.bodyKeys()) {
-            String paragraph = I18n.get(bodyKey);
-            out.addAll(wrapParagraph(paragraph, width));
-            out.add("");
-        }
-        if (!out.isEmpty() && out.get(out.size() - 1).isEmpty()) {
-            out.remove(out.size() - 1);
-        }
+        String body=com.sirin.hk3gtl.common.narrative.Hk3CollectionRecords.body(node,key->I18n.get(key));
+        if(com.sirin.hk3gtl.common.narrative.Hk3LegacyArchiveMigration.all().containsKey(node.unlockEventId()))body="仅回看；本次阅读不取得正式资格。正式全文请从手机通知进入。\n\n"+body;
+        for(String paragraph:body.split("\\n",-1))out.addAll(wrapParagraph(paragraph,width));
         return out;
     }
 
@@ -447,7 +475,7 @@ public class Hk3NarrativeCodexScreen extends Screen {
     }
 
     private enum ScrollTarget {
-        NONE, FACTION, NODE, DETAIL
+        NONE, FACTION, NODE
     }
 
     private ScrollTarget scrollTargetAt(double mouseX, double mouseY) {
@@ -456,9 +484,6 @@ public class Hk3NarrativeCodexScreen extends Screen {
         }
         if (isOnScrollbar(mouseX, mouseY, ScrollTarget.NODE)) {
             return ScrollTarget.NODE;
-        }
-        if (isOnScrollbar(mouseX, mouseY, ScrollTarget.DETAIL)) {
-            return ScrollTarget.DETAIL;
         }
         return ScrollTarget.NONE;
     }
@@ -503,7 +528,6 @@ public class Hk3NarrativeCodexScreen extends Screen {
         switch (draggingScroll) {
             case FACTION -> factionScroll = next;
             case NODE -> nodeScroll = next;
-            case DETAIL -> detailScroll = next;
             default -> {
             }
         }
@@ -525,56 +549,11 @@ public class Hk3NarrativeCodexScreen extends Screen {
                     filteredNodes.size(),
                     visibleNodeCount(),
                     nodeScroll);
-            case DETAIL -> {
-                if (selectedNode == null || !isNodeUnlocked(selectedNode)) {
-                    yield null;
-                }
-                int x = guiLeft + PADDING * 3 + LEFT_WIDTH + MID_WIDTH;
-                int y = contentTop;
-                int textY = y + 8 + 13;
-                if (selectedNode.hasAuthor()) {
-                    textY += 12;
-                }
-                if (selectedNode.hasCondition()) {
-                    textY += 12;
-                }
-                textY += 7;
-                int textWidth = detailWidth - 12;
-                List<String> lines = detailLines(selectedNode, textWidth);
-                int visibleLines = Math.max(1, (contentHeight - (textY - y) - 6) / DETAIL_LINE_HEIGHT);
-                yield new ScrollMetrics(
-                        x + detailWidth - 6,
-                        y + 6,
-                        contentHeight - 12,
-                        lines.size(),
-                        visibleLines,
-                        detailScroll);
-            }
             default -> null;
         };
     }
 
     private record ScrollMetrics(int trackX, int trackY, int trackH, int totalRows, int visibleRows, int scroll) {}
-
-    private int maxDetailScrollLines() {
-        if (selectedNode == null || !isNodeUnlocked(selectedNode)) {
-            return 0;
-        }
-        int x = guiLeft + PADDING * 3 + LEFT_WIDTH + MID_WIDTH;
-        int y = contentTop;
-        int textY = y + 8 + 13;
-        if (selectedNode.hasAuthor()) {
-            textY += 12;
-        }
-        if (selectedNode.hasCondition()) {
-            textY += 12;
-        }
-        textY += 7;
-        int textWidth = detailWidth - 12;
-        List<String> lines = detailLines(selectedNode, textWidth);
-        int visibleLines = Math.max(1, (contentHeight - (textY - y) - 6) / DETAIL_LINE_HEIGHT);
-        return Math.max(0, lines.size() - visibleLines);
-    }
 
     private boolean isInsideNodePanel(double mouseX, double mouseY) {
         int x = guiLeft + PADDING * 2 + LEFT_WIDTH;

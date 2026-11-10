@@ -1,0 +1,692 @@
+{
+  "analysis_date": "2026-09-30",
+  "instances_compared": {
+    "instance_1": {
+      "name": "GregTech-Leisure-1.4.5.2",
+      "path": "C:/Users/OWNER/AppData/Roaming/PrismLauncher/instances/GregTech-Leisure-1.4.5.2",
+      "description": "Official GTL 1.4.5.2 release"
+    },
+    "instance_2": {
+      "name": "GregTech Leisure-增强版「巨构时代」 2.1",
+      "path": "C:/Users/OWNER/AppData/Roaming/PrismLauncher/instances/GregTech Leisure-增强版「巨构时代」 2.1",
+      "description": "Enhanced GTL with Megastructure Age modifications"
+    }
+  },
+
+  "mod_versions": {
+    "instance_1": {
+      "gtceu": "1.20.1-1.4.4",
+      "gtlcore": "1.2.3.2-fix2",
+      "gtladditions": "3.3-fix1",
+      "gtlsupb": "3.5",
+      "gtmthings": "1.3.5.b",
+      "hk3gtl": "0.5.0",
+      "GTMAdvancedHatch": "1.20.1-0.1.10 fix2",
+      "extendedae_plus_gtladd": "1.0.4"
+    },
+    "instance_2": {
+      "gtceu": "1.20.1-1.4.4",
+      "gtlcore": "1.2.3.2-fix2",
+      "gtladditions": "3.2.8Custom-fix2",
+      "GTL-Enhancedcore": "2.8.2",
+      "gtmthings": "1.3.5.fix",
+      "hk3gtl": "0.5.0",
+      "GTMAdvancedHatch": "1.20.1-0.1.10 fix8",
+      "extendedae_plus_gtladd": "1.0.3"
+    }
+  },
+
+  "voltage_tier_system": {
+    "source": "Confirmed from hk3gtl-0.5.0 source code (Hk3TiersImpl.java, Hk3ValuesImpl.java)",
+    "standard_tiers": [
+      {
+        "tier": 0,
+        "name": "ULV",
+        "full_name": "Ultra Low Voltage",
+        "voltage": 8,
+        "voltage_adjusted": 7,
+        "color": "0xC80000",
+        "display_level": "Primitive"
+      },
+      {
+        "tier": 1,
+        "name": "LV",
+        "full_name": "Low Voltage",
+        "voltage": 32,
+        "voltage_adjusted": 30,
+        "color": "0xDCDCDC",
+        "display_level": "Basic"
+      },
+      {
+        "tier": 2,
+        "name": "MV",
+        "full_name": "Medium Voltage",
+        "voltage": 128,
+        "voltage_adjusted": 120,
+        "color": "0xFF6400",
+        "display_level": "Advanced"
+      },
+      {
+        "tier": 3,
+        "name": "HV",
+        "full_name": "High Voltage",
+        "voltage": 512,
+        "voltage_adjusted": 480,
+        "color": "0xFFFF1E",
+        "display_level": "Advanced II"
+      },
+      {
+        "tier": 4,
+        "name": "EV",
+        "full_name": "Extreme Voltage",
+        "voltage": 2048,
+        "voltage_adjusted": 1920,
+        "color": "0x808080",
+        "display_level": "Advanced III"
+      },
+      {
+        "tier": 5,
+        "name": "IV",
+        "full_name": "Insane Voltage",
+        "voltage": 8192,
+        "voltage_adjusted": 7680,
+        "color": "0xF0F0F5",
+        "display_level": "Elite"
+      },
+      {
+        "tier": 6,
+        "name": "LuV",
+        "full_name": "Ludicrous Voltage",
+        "voltage": 32768,
+        "voltage_adjusted": 30720,
+        "color": "0xE99797",
+        "display_level": "Elite II"
+      },
+      {
+        "tier": 7,
+        "name": "ZPM",
+        "full_name": "Zero Point Module",
+        "voltage": 131072,
+        "voltage_adjusted": 122880,
+        "color": "0x7EC3C4",
+        "display_level": "Elite III"
+      },
+      {
+        "tier": 8,
+        "name": "UV",
+        "full_name": "Ultimate Voltage",
+        "voltage": 524288,
+        "voltage_adjusted": 491520,
+        "color": "0x7EB07E",
+        "display_level": "Ultimate"
+      },
+      {
+        "tier": 9,
+        "name": "UHV",
+        "full_name": "Ultra High Voltage",
+        "voltage": 2097152,
+        "voltage_adjusted": 1966080,
+        "color": "0xBF74C0",
+        "display_level": "Epic"
+      },
+      {
+        "tier": 10,
+        "name": "UEV",
+        "full_name": "Ultra Excessive Voltage",
+        "voltage": 8388608,
+        "voltage_adjusted": 7864320,
+        "color": "0x0B5CFE",
+        "display_level": "Epic II"
+      },
+      {
+        "tier": 11,
+        "name": "UIV",
+        "full_name": "Ultra Immense Voltage",
+        "voltage": 33554432,
+        "voltage_adjusted": 31457280,
+        "color": "0x914E91",
+        "display_level": "Epic III"
+      },
+      {
+        "tier": 12,
+        "name": "UXV",
+        "full_name": "Ultra Extreme Voltage",
+        "voltage": 134217728,
+        "voltage_adjusted": 125829120,
+        "color": "0x488748",
+        "display_level": "Epic IV"
+      },
+      {
+        "tier": 13,
+        "name": "OpV",
+        "full_name": "Overpowered Voltage",
+        "voltage": 536870912,
+        "voltage_adjusted": 503316480,
+        "color": "0x8C0000",
+        "display_level": "Legendary"
+      },
+      {
+        "tier": 14,
+        "name": "MAX",
+        "full_name": "Maximum Voltage",
+        "voltage": 2147483647,
+        "voltage_adjusted": 2013265920,
+        "color": "0x2828F5",
+        "display_level": "MAX"
+      }
+    ],
+
+    "extended_tiers_hk3gtl": [
+      {
+        "tier": 15,
+        "name": "HBV",
+        "symbol": "AB-I",
+        "full_name": "Honkai-Based Voltage",
+        "full_name_zh": "崩能压",
+        "voltage": 8589934592,
+        "voltage_adjusted": 8053063680,
+        "color": "0x0A1A5E",
+        "display_level": "Abyss I",
+        "phase": "Abyss",
+        "phase_zh": "海渊"
+      },
+      {
+        "tier": 16,
+        "name": "HCV",
+        "symbol": "AB-II",
+        "full_name": "Honkai-Containment Voltage",
+        "full_name_zh": "约束压",
+        "voltage": 34359738368,
+        "voltage_adjusted": 32212254720,
+        "color": "0x0C2278",
+        "display_level": "Abyss II",
+        "phase": "Abyss",
+        "phase_zh": "海渊"
+      },
+      {
+        "tier": 17,
+        "name": "HRV",
+        "symbol": "AB-III",
+        "full_name": "Honkai-Resonance Voltage",
+        "full_name_zh": "谐振压",
+        "voltage": 137438953472,
+        "voltage_adjusted": 128849018880,
+        "color": "0x0E2A92",
+        "display_level": "Abyss III",
+        "phase": "Abyss",
+        "phase_zh": "海渊"
+      },
+      {
+        "tier": 18,
+        "name": "HDV",
+        "symbol": "AB-IV",
+        "full_name": "Honkai-Densification Voltage",
+        "full_name_zh": "致密压",
+        "voltage": 549755813888,
+        "voltage_adjusted": 515396075520,
+        "color": "0x1032AC",
+        "display_level": "Abyss IV",
+        "phase": "Abyss",
+        "phase_zh": "海渊"
+      },
+      {
+        "tier": 19,
+        "name": "QSV",
+        "symbol": "IM-I",
+        "full_name": "Quantum-Superposition Voltage",
+        "full_name_zh": "叠态压",
+        "voltage": 2199023255552,
+        "voltage_adjusted": 2061584302080,
+        "color": "0x1A5C5C",
+        "display_level": "Imaginary I",
+        "phase": "Imaginary",
+        "phase_zh": "虚数"
+      },
+      {
+        "tier": 20,
+        "name": "QCV",
+        "symbol": "IM-II",
+        "full_name": "Quantum-Coherence Voltage",
+        "full_name_zh": "相干压",
+        "voltage": 8796093022208,
+        "voltage_adjusted": 8246337208320,
+        "color": "0x1E7070",
+        "display_level": "Imaginary II",
+        "phase": "Imaginary",
+        "phase_zh": "虚数"
+      },
+      {
+        "tier": 21,
+        "name": "QEV",
+        "symbol": "IM-III",
+        "full_name": "Quantum-Entanglement Voltage",
+        "full_name_zh": "纠缠压",
+        "voltage": 35184372088832,
+        "voltage_adjusted": 32985348833280,
+        "color": "0x228484",
+        "display_level": "Imaginary III",
+        "phase": "Imaginary",
+        "phase_zh": "虚数"
+      },
+      {
+        "tier": 22,
+        "name": "QAV",
+        "symbol": "IM-IV",
+        "full_name": "Quantum-Anchoring Voltage",
+        "full_name_zh": "锚定压",
+        "voltage": 140737488355328,
+        "voltage_adjusted": 131941395333120,
+        "color": "0x269898",
+        "display_level": "Imaginary IV",
+        "phase": "Imaginary",
+        "phase_zh": "虚数"
+      },
+      {
+        "tier": 23,
+        "name": "IMV",
+        "symbol": "QT-I",
+        "full_name": "Imaginary-Medium Voltage",
+        "full_name_zh": "虚数压",
+        "voltage": 562949953421312,
+        "voltage_adjusted": 527765581332480,
+        "color": "0xC8A000",
+        "display_level": "Quantum I",
+        "phase": "Quantum",
+        "phase_zh": "量子"
+      },
+      {
+        "tier": 24,
+        "name": "ICV",
+        "symbol": "QT-II",
+        "full_name": "Imaginary-Coupling Voltage",
+        "full_name_zh": "耦合压",
+        "voltage": 2251799813685248,
+        "voltage_adjusted": 2111062325329920,
+        "color": "0xD4AC00",
+        "display_level": "Quantum II",
+        "phase": "Quantum",
+        "phase_zh": "量子"
+      },
+      {
+        "tier": 25,
+        "name": "IRV",
+        "symbol": "QT-III",
+        "full_name": "Imaginary-Reconstruction Voltage",
+        "full_name_zh": "重构压",
+        "voltage": 9007199254740992,
+        "voltage_adjusted": 8444249301319680,
+        "color": "0xE0B800",
+        "display_level": "Quantum III",
+        "phase": "Quantum",
+        "phase_zh": "量子"
+      },
+      {
+        "tier": 26,
+        "name": "IWV",
+        "symbol": "QT-IV",
+        "full_name": "Imaginary-Weaving Voltage",
+        "full_name_zh": "织界压",
+        "voltage": 36028797018963968,
+        "voltage_adjusted": 33776997205278720,
+        "color": "0xECC400",
+        "display_level": "Quantum IV",
+        "phase": "Quantum",
+        "phase_zh": "量子"
+      },
+      {
+        "tier": 27,
+        "name": "WFV",
+        "symbol": "FN-I",
+        "full_name": "World-Fabrication Voltage",
+        "full_name_zh": "构界压",
+        "voltage": 144115188075855872,
+        "voltage_adjusted": 135107988821114880,
+        "color": "0x8B0000",
+        "display_level": "Finality I",
+        "phase": "Finality",
+        "phase_zh": "终焉"
+      },
+      {
+        "tier": 28,
+        "name": "WSV",
+        "symbol": "FN-II",
+        "full_name": "World-Stabilization Voltage",
+        "full_name_zh": "稳界压",
+        "voltage": 576460752303423488,
+        "voltage_adjusted": 540431955284459520,
+        "color": "0xA00000",
+        "display_level": "Finality II",
+        "phase": "Finality",
+        "phase_zh": "终焉"
+      },
+      {
+        "tier": 29,
+        "name": "CIV",
+        "symbol": "FN-III",
+        "full_name": "Civilization-Integration Voltage",
+        "full_name_zh": "统合压",
+        "voltage": 2305843009213693952,
+        "voltage_adjusted": 2161727821137838080,
+        "color": "0xB50000",
+        "display_level": "Finality III",
+        "phase": "Finality",
+        "phase_zh": "终焉"
+      },
+      {
+        "tier": 30,
+        "name": "CEV",
+        "symbol": "FN-IV",
+        "full_name": "Civilization-Endurance Voltage",
+        "full_name_zh": "恒续压",
+        "voltage": 9223372036854775807,
+        "voltage_adjusted": 9223372036854775807,
+        "color": "0xCA0000",
+        "display_level": "Finality IV",
+        "phase": "Finality",
+        "phase_zh": "终焉",
+        "note": "MAX value is Long.MAX_VALUE"
+      }
+    ]
+  },
+
+  "coil_blocks": {
+    "source": "Extracted from kubejs/startup_scripts (block.js and 注册.js)",
+    "standard_coils": [
+      {
+        "material": "cupronickel",
+        "temperature": 1800,
+        "tier": "LV",
+        "source": "GTCEu base mod"
+      },
+      {
+        "material": "kanthal",
+        "temperature": 2700,
+        "tier": "MV",
+        "source": "GTCEu base mod"
+      },
+      {
+        "material": "nichrome",
+        "temperature": 3600,
+        "tier": "HV",
+        "source": "GTCEu base mod"
+      },
+      {
+        "material": "rtm_alloy",
+        "temperature": 4500,
+        "tier": "EV",
+        "source": "GTCEu base mod"
+      },
+      {
+        "material": "hssg",
+        "temperature": 5400,
+        "tier": "IV",
+        "source": "GTCEu base mod"
+      },
+      {
+        "material": "naquadah",
+        "temperature": 7200,
+        "tier": "LuV",
+        "source": "GTCEu base mod"
+      },
+      {
+        "material": "trinium",
+        "temperature": 9000,
+        "tier": "ZPM",
+        "source": "GTCEu base mod"
+      },
+      {
+        "material": "tritanium",
+        "temperature": 10800,
+        "tier": "UV",
+        "source": "GTCEu base mod"
+      }
+    ],
+    "custom_coils_kubejs": [
+      {
+        "material": "uruium",
+        "temperature": 273,
+        "level": 1,
+        "tier": 1,
+        "energy_discount": 1,
+        "note": "Low temperature coil for stellar forge",
+        "registry_id": "kubejs:uruium_coil_block"
+      },
+      {
+        "material": "abyssalalloy",
+        "temperature": 12600,
+        "level": 16,
+        "tier": 8,
+        "energy_discount": 8,
+        "registry_id": "kubejs:abyssalalloy_coil_block"
+      },
+      {
+        "material": "titansteel",
+        "temperature": 14400,
+        "level": 32,
+        "tier": 8,
+        "energy_discount": 8,
+        "registry_id": "kubejs:titansteel_coil_block"
+      },
+      {
+        "material": "adamantine",
+        "temperature": 16200,
+        "level": 32,
+        "tier": 9,
+        "energy_discount": 8,
+        "registry_id": "kubejs:adamantine_coil_block"
+      },
+      {
+        "material": "naquadriatictaranium",
+        "temperature": 18900,
+        "level": 64,
+        "tier": 9,
+        "energy_discount": 8,
+        "registry_id": "kubejs:naquadriatictaranium_coil_block"
+      },
+      {
+        "material": "starmetal",
+        "temperature": 21600,
+        "level": 64,
+        "tier": 9,
+        "energy_discount": 8,
+        "registry_id": "kubejs:starmetal_coil_block"
+      },
+      {
+        "material": "infinity",
+        "temperature": 36000,
+        "level": 128,
+        "tier": 9,
+        "energy_discount": 8,
+        "registry_id": "kubejs:infinity_coil_block"
+      },
+      {
+        "material": "hypogen",
+        "temperature": 62000,
+        "level": 256,
+        "tier": 9,
+        "energy_discount": 8,
+        "registry_id": "kubejs:hypogen_coil_block"
+      },
+      {
+        "material": "eternity",
+        "temperature": 96000,
+        "level": 512,
+        "tier": 9,
+        "energy_discount": 8,
+        "registry_id": "kubejs:eternity_coil_block"
+      }
+    ],
+    "voltage_coils_kubejs": [
+      {
+        "tier_name": "UHV",
+        "registry_id": "kubejs:uhv_voltage_coil",
+        "note": "Voltage coil for tier 9"
+      },
+      {
+        "tier_name": "UEV",
+        "registry_id": "kubejs:uev_voltage_coil",
+        "note": "Voltage coil for tier 10"
+      },
+      {
+        "tier_name": "UIV",
+        "registry_id": "kubejs:uiv_voltage_coil",
+        "note": "Voltage coil for tier 11"
+      },
+      {
+        "tier_name": "UXV",
+        "registry_id": "kubejs:uxv_voltage_coil",
+        "note": "Voltage coil for tier 12"
+      },
+      {
+        "tier_name": "OpV",
+        "registry_id": "kubejs:opv_voltage_coil",
+        "note": "Voltage coil for tier 13"
+      },
+      {
+        "tier_name": "MAX",
+        "registry_id": "kubejs:max_voltage_coil",
+        "note": "Voltage coil for tier 14"
+      }
+    ]
+  },
+
+  "circuit_tiers": {
+    "source": "Extracted from kubejs/startup_scripts (item.js and 注册.js)",
+    "advanced_circuit_series": [
+      {
+        "series": "bioware",
+        "components": ["processor", "assembly", "computer", "mainframe", "circuit_board", "printed_circuit_board"],
+        "smd_components": ["capacitor", "diode", "resistor", "transistor", "inductor"],
+        "wafer_components": ["ram_wafer", "ram_chip"],
+        "note": "Bio-based circuit series"
+      },
+      {
+        "series": "optical",
+        "components": ["processor", "assembly", "computer", "mainframe", "circuit_board", "printed_circuit_board"],
+        "smd_components": ["capacitor", "diode", "resistor", "transistor", "inductor"],
+        "wafer_components": ["ram_wafer", "ram_chip"],
+        "note": "Photonic circuit series"
+      },
+      {
+        "series": "exotic",
+        "components": ["processor", "assembly", "computer", "mainframe", "circuit_board", "printed_circuit_board"],
+        "smd_components": ["capacitor", "diode", "resistor", "transistor", "inductor"],
+        "wafer_components": ["ram_wafer", "ram_chip"],
+        "note": "Exotic matter circuit series"
+      },
+      {
+        "series": "cosmic",
+        "components": ["processor", "assembly", "computer", "mainframe", "circuit_board", "printed_circuit_board"],
+        "smd_components": ["capacitor", "diode", "resistor", "transistor", "inductor"],
+        "wafer_components": ["ram_wafer", "ram_chip"],
+        "note": "Cosmic energy circuit series"
+      },
+      {
+        "series": "supracausal",
+        "components": ["processor", "assembly", "computer", "mainframe", "circuit_board", "printed_circuit_board"],
+        "smd_components": ["capacitor", "diode", "resistor", "transistor", "inductor"],
+        "note": "Causality-transcending circuit series (no RAM components)"
+      }
+    ],
+    "suprachronal_circuits": {
+      "tiers": ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"],
+      "note": "Time-transcending circuits covering all 15 standard tiers",
+      "tag": "gtceu:circuits/{tier}"
+    },
+    "resonatic_circuits": {
+      "tiers": ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv"],
+      "note": "Magneto-resonatic circuits up to UIV (tier 11)",
+      "tag": "gtceu:circuits/{tier}"
+    },
+    "universal_circuits": {
+      "tiers": ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"],
+      "note": "Universal circuit boards for all 15 standard tiers",
+      "tag": "gtceu:circuits/{tier}",
+      "display_name_format": "{TIER}通用电路板"
+    }
+  },
+
+  "configuration_differences": {
+    "gtlcore_yaml": {
+      "instance_1": {
+        "enableSkyBlokeMode": false,
+        "oreMultiplier": 4,
+        "durationMultiplier": 1.0,
+        "disableDrift": true,
+        "sendUpdateMessages": true,
+        "MEPatternOutputMax": 80,
+        "batchProcessingEnabledByDefault": false
+      },
+      "instance_2": {
+        "enableSkyBlokeMode": true,
+        "oreMultiplier": 3,
+        "durationMultiplier": 0.2,
+        "disableDrift": false,
+        "sendUpdateMessages": false,
+        "MEPatternOutputMax": 20,
+        "batchProcessingEnabledByDefault": true,
+        "enablePrimitiveVoidOre": true
+      }
+    }
+  },
+
+  "key_structural_blocks": {
+    "planet_stones": [
+      "titanstone", "plutostone", "iostone", "ganymedestone",
+      "enceladusstone", "ceresstone"
+    ],
+    "planet_gravel": [
+      "titangrunt", "plutogrunt", "ioash", "ganymedegrunt", "ceresgrunt"
+    ],
+    "special_casings": [
+      "neutronium_pipe_casing", "neutronium_gearbox",
+      "laser_cooling_casing", "spacetime_compression_field_generator",
+      "dimensional_bridge_casing", "dimensional_stability_casing",
+      "machine_casing_circuit_assembly_line", "high_strength_concrete",
+      "space_elevator_internal_support", "dyson_control_casing",
+      "dyson_deployment_casing", "dyson_receiver_casing",
+      "spacetime_assembly_line_casing", "dimension_creation_casing"
+    ],
+    "charge_blocks": [
+      "naquadria_charge", "leptonic_charge", "quantum_chromodynamic_charge",
+      "magic_core", "annihilate_core"
+    ]
+  },
+
+  "version_differences_summary": {
+    "mod_version_changes": [
+      "Instance 2 uses GTL-Enhancedcore 2.8.2 (not present in Instance 1)",
+      "Instance 1 uses GTLsupb 3.5 (not present in Instance 2)",
+      "Instance 1 uses gtladditions 3.3-fix1 vs Instance 2 uses 3.2.8Custom-fix2",
+      "GTMAdvancedHatch differs: fix2 (Instance 1) vs fix8 (Instance 2)"
+    ],
+    "gameplay_changes": [
+      "Instance 2 enables Sky Island Mode (enableSkyBlokeMode: true)",
+      "Instance 2 has 5x faster recipes (durationMultiplier: 0.2 vs 1.0)",
+      "Instance 2 has lower ore multiplier (3 vs 4)",
+      "Instance 2 enables batch processing by default",
+      "Instance 2 has primitive void ore enabled"
+    ],
+    "kubejs_structure": [
+      "Instance 1 uses English filenames (block.js, item.js)",
+      "Instance 2 uses Chinese filenames (注册.js merges block + item + more)",
+      "Both instances have identical coil and circuit definitions",
+      "Instance 2 has consolidated startup scripts into fewer files"
+    ]
+  },
+
+  "notes": {
+    "data_source": "All voltage tier data extracted from hk3gtl-0.5.0 Java source code",
+    "tier_range": "Standard tiers 0-14 (ULV to MAX), Extended tiers 15-30 (HBV/AB-I to CEV/FN-IV)",
+    "total_tiers": 31,
+    "extended_tier_phases": "4 phases × 4 tiers each = 16 extended tiers",
+    "voltage_calculation": "Extended tiers use long type to avoid integer overflow (tier 15+ exceeds int max)",
+    "coil_tier_note": "Coil 'tier' parameter refers to coil tier, not voltage tier",
+    "material_dependencies": "Custom coils reference GTMaterials.get() for material properties",
+    "unconfirmed_elements": [
+      "Machine casing materials per voltage tier (would require examining machine registration code)",
+      "Complete multiblock structure requirements (would require reading multiblock pattern definitions)",
+      "Exact recipe voltage requirements per tier (scattered across recipe files)"
+    ]
+  }
+}

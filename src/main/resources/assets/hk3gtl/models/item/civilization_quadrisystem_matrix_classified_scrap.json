@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/civilization_quadrisystem_matrix_classified_scrap/layer0",
+    "layer1": "hk3gtl:item/main_material/civilization_quadrisystem_matrix_classified_scrap/layer1",
+    "layer2": "hk3gtl:item/main_material/civilization_quadrisystem_matrix_classified_scrap/layer2"
+  }
+}

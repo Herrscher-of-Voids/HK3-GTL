@@ -1,0 +1,51 @@
+{
+  "key": "s04",
+  "machine": "hk3gtl:s04_world_maintenance_institute",
+  "size": [
+    73,
+    55,
+    73
+  ],
+  "controller": [
+    36,
+    3,
+    25
+  ],
+  "paste_anchor": [
+    36,
+    3,
+    25
+  ],
+  "source": "src/main/resources/data/hk3gtl/approved_architecture/s04.json",
+  "sha256": "e34a2b4da3a38e791dd17d2692b2a3fdb3664ddee5d99b428bea7e4d45aae263",
+  "template_sha256": "aa31756d1bd35b1ed38218c98a46f16752e8a27626dc64e2aeb83da51cd6bbc5",
+  "review_snapshot": "deliveries/多方块确认归档/20261020_005209_151059_21形态_电压主色修订_已确认",
+  "approved_bundle_sha256": "5dd32253ae44d3c0290e71835479b707ee47b3a46817f933c08cebf0de61ab46",
+  "source_nbt_sha256": "af31f7dde03c0332660ff93d6c832bd04bc817f8e6123e6b78f314a0db3072c5",
+  "required_ability_counts": {},
+  "optional_abilities": [
+    "honkai_energy_input",
+    "wireless_honkai_input"
+  ],
+  "material_payment": "玩家背包和既有研究账本",
+  "eu_payment": "绑定玩家或FTB队伍无线电网",
+  "template_ports": "六个工业接口壳；默认没有实际仓室，不改变研究支付逻辑",
+  "formal_geometry_installed": true,
+  "game_verified": false,
+  "approved_blueprint_sha256": "5f78075f77f612aaadfe56908829db394dbe0afd1a67511084a7c12e23234aef",
+  "approved_nbt_sha256": "af31f7dde03c0332660ff93d6c832bd04bc817f8e6123e6b78f314a0db3072c5",
+  "target_voltage": "IRV",
+  "target_casing": "hk3gtl:voltage_machine_casing_irv",
+  "approval_quote": "采用整批21形态新配色",
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-20T00:52:09+08:00",
+      "reason": "负责人明确采用整批21形态新配色",
+      "deleted": "无；旧归档、候选原件与旧正式资源快照保留",
+      "added": "明确目标电压、新批准来源与本次修改身份",
+      "modified": "主体配色采用已批候选，控制器/仓室与能力合同沿用原正式实现",
+      "purpose": "使已有Pattern和放置模板读取批准配色；游戏成型与运行仍待验收"
+    }
+  ]
+}

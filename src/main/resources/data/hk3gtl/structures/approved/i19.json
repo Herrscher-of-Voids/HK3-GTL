@@ -1,0 +1,237 @@
+{
+  "key": "i19",
+  "machine": "hk3gtl:i19_small_honkai_reactor",
+  "source": "data/hk3gtl/approved_architecture/i19.json",
+  "sha256": "e709c13305ca4942e23135735475ddaebf176586c4bdb73c432dbab9c4270122",
+  "template_sha256": "be693c3b477a13cb34ad4bc37b2c96e741ba86d528b5cea469372f5cfa172e47",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\I19_小型崩坏能反应堆_单塔蓝湾独立候选_V3_20261023\\i19",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\I19_小型崩坏能反应堆_单塔蓝湾独立候选_V3_20261023\\i19\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\I19_小型崩坏能反应堆_单塔蓝湾独立候选_V3_20261023\\i19\\i19-hbv-coastal-single-unit-v3.nbt",
+  "source_nbt_sha256": "e899365656c3c57e7eb4270e7cf6eaf751de29e0183fe71df4a940c71c1e454e",
+  "controller": [
+    95,
+    3,
+    20
+  ],
+  "size_xyz": [
+    191,
+    123,
+    175
+  ],
+  "blocks": 256075,
+  "ports": [
+    {
+      "id": "F1",
+      "pos": [
+        190,
+        3,
+        108
+      ],
+      "face": "east",
+      "purpose": "普通燃料棒输入候选",
+      "group": "item_input"
+    },
+    {
+      "id": "F2",
+      "pos": [
+        190,
+        3,
+        139
+      ],
+      "face": "east",
+      "purpose": "乏燃料棒输出候选",
+      "group": "item_output"
+    },
+    {
+      "id": "C1",
+      "pos": [
+        8,
+        3,
+        37
+      ],
+      "face": "west",
+      "purpose": "崩坏冷却剂输入候选",
+      "group": "fluid_input"
+    },
+    {
+      "id": "C2",
+      "pos": [
+        8,
+        3,
+        53
+      ],
+      "face": "west",
+      "purpose": "热崩坏冷却剂输出候选",
+      "group": "fluid_output"
+    },
+    {
+      "id": "E1",
+      "pos": [
+        116,
+        4,
+        8
+      ],
+      "face": "north",
+      "purpose": "电力送出候选分组1",
+      "group": "energy_output"
+    },
+    {
+      "id": "E2",
+      "pos": [
+        134,
+        4,
+        8
+      ],
+      "face": "north",
+      "purpose": "电力送出候选分组2",
+      "group": "energy_output"
+    },
+    {
+      "id": "E3",
+      "pos": [
+        152,
+        4,
+        8
+      ],
+      "face": "north",
+      "purpose": "电力送出候选分组3",
+      "group": "energy_output"
+    },
+    {
+      "id": "E4",
+      "pos": [
+        170,
+        4,
+        8
+      ],
+      "face": "north",
+      "purpose": "电力送出候选分组4",
+      "group": "energy_output"
+    }
+  ],
+  "target_voltage": "HBV",
+  "installed_hatches": {
+    "F1": "item_input",
+    "F2": "item_output",
+    "C1": "fluid_input",
+    "C2": "fluid_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 12,
+  "source_diamond_count": 2,
+  "preserved_other_diamonds": 1,
+  "changes": [
+    {
+      "pos": [
+        95,
+        3,
+        20
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i19_small_honkai_reactor[facing=north]",
+      "block_entity_id": "hk3gtl:i19_small_honkai_reactor"
+    },
+    {
+      "pos": [
+        8,
+        3,
+        37
+      ],
+      "role": "C1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        8,
+        3,
+        53
+      ],
+      "role": "C2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        190,
+        3,
+        108
+      ],
+      "role": "F1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=east]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        190,
+        3,
+        139
+      ],
+      "role": "F2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        116,
+        4,
+        8
+      ],
+      "role": "E1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        134,
+        4,
+        8
+      ],
+      "role": "E2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        152,
+        4,
+        8
+      ],
+      "role": "E3",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        170,
+        4,
+        8
+      ],
+      "role": "E4",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i19_small_honkai_reactor",
+  "controller_json_state": "hk3gtl:i19_small_honkai_reactor"
+}

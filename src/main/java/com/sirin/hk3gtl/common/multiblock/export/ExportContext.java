@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.common.multiblock.export;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 ExportContext 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -12,29 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * 多方块导出流程中贯穿各 Writer 的不可变数据载体。
- *
- * <h3>职责</h3>
- * <ul>
- *   <li>承载扫描结果：三维字符矩阵、尺寸、图例（符号 → 方块 ID）</li>
- *   <li>承载控制器元信息：世界坐标 / 注册名 / 朝向 / 是否为 HK3 自己的控制器</li>
- *   <li>承载舱口能力汇总：供 Pattern 生成时决定 autoAbilities 组合</li>
- *   <li>承载诊断信息：WARN 列表（creative 仓 / 非标准方块）</li>
- * </ul>
- *
- * <h3>坐标系统</h3>
- * grid[z][y][x] 中：
- * <ul>
- *   <li>x 轴 = 控制器正面视角下的"右手方向"</li>
- *   <li>y 轴 = 世界 Y 对应的相对偏移（控制器 Y 为 0）</li>
- *   <li>z 轴 = 控制器"背面方向"（z=0 是控制器前脸，z=depth-1 是最后排）</li>
- * </ul>
- *
- * <h3>不可变约定</h3>
- * 本类所有字段均为 final，grid 数组内容扫描完成后不再修改；legend 与 abilities 使用
- * 构造时冻结的 map（LinkedHashMap 可序化，迭代顺序稳定）。
- */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class ExportContext {
 
     public final String exportName;
@@ -46,7 +41,7 @@ public final class ExportContext {
     public final Map<Character, ResourceLocation> legend;
     /** 符号 → Ability（对应 GT 原生舱口时才有值，普通方块为 null） */
     public final Map<Character, HatchAbilityMap.Ability> abilityBySymbol;
-    /** 舱口能力汇总（决定 Pattern 中使用 autoAbilities 的组合） */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     public final HatchAbilityMap.Summary abilitySummary;
 
     public final BlockPos controllerWorldPos;

@@ -1,0 +1,239 @@
+{
+  "key": "i29",
+  "machine": "hk3gtl:i29_simulated_world_bubble_synthesizer",
+  "source": "data/hk3gtl/approved_architecture/i29.json",
+  "sha256": "d4a803652720e809039358ae2df492860c10b4fe3ed7832c9a20c23fa607c52e",
+  "template_sha256": "2b744064f0679cf4053d6f8e718fedffca6abf9d5ce79e2564574572f84701de",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_011314_252615_batch-08_01of05_I29_V1_ICV_外观已确认\\I29_模拟世界泡构筑机_双瓣造界工厂_V1_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_011314_252615_batch-08_01of05_I29_V1_ICV_外观已确认\\I29_模拟世界泡构筑机_双瓣造界工厂_V1_20261026\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_011314_252615_batch-08_01of05_I29_V1_ICV_外观已确认\\I29_模拟世界泡构筑机_双瓣造界工厂_V1_20261026\\i29\\hk3gtl-i29-simulated-world-fabricator-v1-20261026.nbt",
+  "source_nbt_sha256": "1fd8f9c02b130e5c33b47cfd5be972c372e501c6794784e5287306b29413fea0",
+  "controller": [
+    190,
+    33,
+    21
+  ],
+  "size_xyz": [
+    381,
+    223,
+    361
+  ],
+  "blocks": 5624362,
+  "ports": [
+    {
+      "id": "世界模型输入",
+      "purpose": "控制厅接收有效世界模型与模型参数",
+      "pos": [
+        168,
+        33,
+        21
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "真实种子输入",
+      "purpose": "隔离供料设备接收真实世界泡种子",
+      "pos": [
+        212,
+        33,
+        21
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "西翼物质输入",
+      "purpose": "编织原料计量与预处理",
+      "pos": [
+        2,
+        33,
+        128
+      ],
+      "face": "west",
+      "group": "item_input"
+    },
+    {
+      "id": "东翼耗材输入",
+      "purpose": "写入耗材与封装介质",
+      "pos": [
+        378,
+        33,
+        128
+      ],
+      "face": "east",
+      "group": "item_input"
+    },
+    {
+      "id": "西翼控制能源",
+      "purpose": "编译与造界场持续用能候选位",
+      "pos": [
+        2,
+        33,
+        232
+      ],
+      "face": "west",
+      "group": "energy_input"
+    },
+    {
+      "id": "东翼冷却流体",
+      "purpose": "冷端循环与设备散热",
+      "pos": [
+        378,
+        33,
+        232
+      ],
+      "face": "east",
+      "group": "fluid_input"
+    },
+    {
+      "id": "未稳定批次输出",
+      "purpose": "独立模拟批次交给I30稳定，不直接产资源",
+      "pos": [
+        168,
+        33,
+        339
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "模型误差记录",
+      "purpose": "输出模型偏差与构筑审计记录",
+      "pos": [
+        212,
+        33,
+        339
+      ],
+      "face": "south",
+      "group": "item_output"
+    }
+  ],
+  "target_voltage": "ICV",
+  "installed_hatches": {
+    "世界模型输入": "item_input",
+    "真实种子输入": "item_input",
+    "西翼物质输入": "item_input",
+    "东翼耗材输入": "item_input",
+    "东翼冷却流体": "fluid_input",
+    "未稳定批次输出": "item_output",
+    "模型误差记录": "item_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 180,
+  "materials": 39,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        168,
+        33,
+        21
+      ],
+      "role": "世界模型输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        190,
+        33,
+        21
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i29_simulated_world_bubble_synthesizer[facing=north]",
+      "block_entity_id": "hk3gtl:i29_simulated_world_bubble_synthesizer"
+    },
+    {
+      "pos": [
+        212,
+        33,
+        21
+      ],
+      "role": "真实种子输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        2,
+        33,
+        128
+      ],
+      "role": "西翼物质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        378,
+        33,
+        128
+      ],
+      "role": "东翼耗材输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=east]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        2,
+        33,
+        232
+      ],
+      "role": "西翼控制能源",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        378,
+        33,
+        232
+      ],
+      "role": "东翼冷却流体",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        168,
+        33,
+        339
+      ],
+      "role": "未稳定批次输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        212,
+        33,
+        339
+      ],
+      "role": "模型误差记录",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i29_simulated_world_bubble_synthesizer",
+  "process_scope": "正式建筑、控制器、原位仓室和完整预览接入；不开放暂定工艺或未实现的世界泡任务。"
+}

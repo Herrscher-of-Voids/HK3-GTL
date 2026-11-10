@@ -1,7 +1,25 @@
 package com.sirin.hk3gtl.client.entity;
 
 
-
+/**
+ * 【文件职责】
+ * - 负责 SirinWingLayer 客户端渲染或 UI 逻辑。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录 #1】2026-05-19（内测二首轮）
+ *
+ * 【变更记录 #2】2026-05-19 04:25:00（第 2 次备注 · 内测二第 3 次更新）
+ * - 修改：内测二曾关闭翅膀层。
+ *
+ * 【变更记录 #3】2026-05-19 04:45:00（第 3 次备注 · 内测二第 4 次更新）
+ * - 修改：
+ *   1) translateAndRotate 前清零 body.yRot，避免与实体 yRot 叠乘导致翅膀留在原地（四翼）。
+ * - 用途：
+ *   1) 出场旋转时翅膀与躯干同向转动。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
@@ -96,7 +114,7 @@ public class SirinWingLayer extends RenderLayer<VoidQueenSirinEntity, PlayerMode
     public void render(PoseStack ps, MultiBufferSource buffers, int light,
                        VoidQueenSirinEntity entity, float limbSwing, float limbSwingAmount,
                        float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (!SirinEntranceFeatures.WING_LAYER_ENABLED) return;
+        if (!SirinEntranceFeatures.WING_LAYER_ENABLED || entity.isInvisible()) return;
         if (lBodyModel == null && rBodyModel == null) return;
 
         float flap = 12F + (float) ((Math.sin((entity.tickCount + partialTick) * 0.12) + 0.4) * 5.0);

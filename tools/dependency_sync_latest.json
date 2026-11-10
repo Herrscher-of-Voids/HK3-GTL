@@ -1,0 +1,736 @@
+{
+  "stamp": "2026-09-23_03-28-36",
+  "replacements": [
+    {
+      "old": "ExtendedAE-1.20-1.4.13-forge.jar",
+      "new": "ExtendedAE-1.20-1.4.19-forge.jar"
+    },
+    {
+      "old": "ftb-chunks-forge-2001.3.6.jar",
+      "new": "ftb-chunks-forge-2001.3.8.jar"
+    },
+    {
+      "old": "ftb-library-forge-2001.2.12.jar",
+      "new": "ftb-library-forge-2001.2.13.jar"
+    },
+    {
+      "old": "ftb-quests-forge-2001.4.18.jar",
+      "new": "ftb-quests-forge-2001.4.22.jar"
+    },
+    {
+      "old": "ftb-ultimine-forge-2001.1.7.jar",
+      "new": "ftb-ultimine-forge-2001.1.8.jar"
+    },
+    {
+      "old": "gtladditions-2.6.5Custom.jar",
+      "new": "gtladditions-3.3.jar"
+    },
+    {
+      "old": "gtlcore-1.2.2.8-fix5.jar",
+      "new": "gtlcore-1.2.3.2-fix2.jar"
+    },
+    {
+      "old": "gtmthings-1.3.5.fix.jar",
+      "new": "gtmthings-1.3.5.b.jar"
+    },
+    {
+      "old": "Jade-1.20.1-Forge-11.13.2.jar",
+      "new": "Jade-1.20.1-Forge-11.13.3.jar"
+    },
+    {
+      "old": "kubejs-forge-2001.6.5-build.16.jar",
+      "new": "kubejs-forge-2001.6.5-build.26.jar"
+    },
+    {
+      "old": "sgjourney-1.20.1-0.6.44.jar",
+      "new": "[星门之旅] Stargate Journey-1.20.1-0.6.44.jar"
+    }
+  ],
+  "retained": [
+    "BuildingWands-forge-MC1.20.1-3.0.2.jar",
+    "gtl_extend-3.2.1-NoPlanetaryEngine-beta2.jar"
+  ],
+  "jars": [
+    {
+      "file": "ad_astra-forge-1.20.1-1.15.20.jar",
+      "ids": [
+        "ad_astra"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ad_astra-forge-1.20.1-1.15.20.jar",
+      "sha256": "99e274894af7c3b01622a74775a9960b5857b35951888414e733f8c2ec683f26"
+    },
+    {
+      "file": "ad_astra_rocketed-forge-1.20.1-1.0.5.jar",
+      "ids": [
+        "ad_astra_rocketed"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ad_astra_rocketed-forge-1.20.1-1.0.5.jar",
+      "sha256": "5c8aac1f11daf225afb2da30ed1672e944c9426bca135dc9fae20ee4b3220e80"
+    },
+    {
+      "file": "ae2ct-1.20.1-1.1.1.jar",
+      "ids": [
+        "ae2ct"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ae2ct-1.20.1-1.1.1.jar",
+      "sha256": "0996cd736e5a951593f94125c059710800056de8def77995deb7ba6b50099367"
+    },
+    {
+      "file": "ae2wtlib-15.3.3-forge.jar",
+      "ids": [
+        "ae2wtlib"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ae2wtlib-15.3.3-forge.jar",
+      "sha256": "39e5cede37d5c6a07592d6c1e83398791e037f3d434bc44f7460cd085a4de5f4"
+    },
+    {
+      "file": "AEF-1.0-forge-1.20.1.jar",
+      "ids": [
+        "aef"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\AEF-1.0-forge-1.20.1.jar",
+      "sha256": "82b7caa4a12227c5e95331a4effc47276581c90165c2087e20f8385b61d2ee61"
+    },
+    {
+      "file": "alltheleaks-1.1.3+1.20.1-forge.jar",
+      "ids": [
+        "alltheleaks"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\alltheleaks-1.1.3+1.20.1-forge.jar",
+      "sha256": "4bb5a05d7f9caa9e689e43c4b4b65540b67afe53bb7c9e810465f63da4744685"
+    },
+    {
+      "file": "appliedenergistics2-forge-15.4.10.jar",
+      "ids": [
+        "ae2"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\appliedenergistics2-forge-15.4.10.jar",
+      "sha256": "fbfee05c6674cb6b00fe425e945ca4818d41eb34069b60dcb4a36221a0390fcc"
+    },
+    {
+      "file": "architectury-9.2.14-forge.jar",
+      "ids": [
+        "architectury"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\architectury-9.2.14-forge.jar",
+      "sha256": "218b471d0b8a1f6cda14cfc1beb9eeb0df54304500acc6c5613d9b88ec65d9af"
+    },
+    {
+      "file": "botarium-forge-1.20.1-2.3.4.jar",
+      "ids": [
+        "botarium"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\botarium-forge-1.20.1-2.3.4.jar",
+      "sha256": "470810a364ff4ad4d4fcd4e55798263938fc893970eacecc58e8b741a392b1cf"
+    },
+    {
+      "file": "buildinggadgets2-1.0.8.jar",
+      "ids": [
+        "buildinggadgets2"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\buildinggadgets2-1.0.8.jar",
+      "sha256": "59efb399a4acdb69a01a970b1f1e3c5584495aabc726ff40857ab4aed9372c83"
+    },
+    {
+      "file": "chloride-FORGE-mc1.20.1-v1.8.1.jar",
+      "ids": [
+        "chloride"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\chloride-FORGE-mc1.20.1-v1.8.1.jar",
+      "sha256": "6ebabdcaf4d466ff229f50f0b5715ebc3e9229e72dae2064c4fe8f1fb62d860b"
+    },
+    {
+      "file": "cloth-config-11.1.136-forge.jar",
+      "ids": [
+        "cloth_config"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\cloth-config-11.1.136-forge.jar",
+      "sha256": "1e895e85cf5b1e1905ef3178ec155c8badfe22a1577b92c09143a5aa1f4ce0f2"
+    },
+    {
+      "file": "constructionwand-1.20.1-2.11.jar",
+      "ids": [
+        "constructionwand"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\constructionwand-1.20.1-2.11.jar",
+      "sha256": "b55ca6f0e734bad848adb06949675136f1d05cb4fb3efdde084c9842c40e1eec"
+    },
+    {
+      "file": "curios-forge-5.14.1+1.20.1.jar",
+      "ids": [
+        "curios"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\curios-forge-5.14.1+1.20.1.jar",
+      "sha256": "1e817919a35b37cf30524aaec73f0ca5130452f23f168f844854df282eb8e51f"
+    },
+    {
+      "file": "embeddium-0.3.31+mc1.20.1.jar",
+      "ids": [
+        "embeddium",
+        "rubidium"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\embeddium-0.3.31+mc1.20.1.jar",
+      "sha256": "eed3d1325f2acc2fd4e69bb495e5ccb91d962126ac5330f0582ebc2a3daf47fb"
+    },
+    {
+      "file": "ExtendedAE-1.20-1.4.19-forge.jar",
+      "ids": [
+        "expatternprovider"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ExtendedAE-1.20-1.4.19-forge.jar",
+      "sha256": "89fc6d01d9799a0a06cc51d1230cbe238cd38501bc8396fd7fdf8ebe4a73c79e"
+    },
+    {
+      "file": "extendedae_plus-1.6.1.jar",
+      "ids": [
+        "extendedae_plus"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\extendedae_plus-1.6.1.jar",
+      "sha256": "68a4d1c740715dc5f0fe3b88739c4cce1d62c5c1043bcb7599355e3d59e9520c"
+    },
+    {
+      "file": "FastFurnace-1.20.1-8.0.2.jar",
+      "ids": [
+        "fastfurnace"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\FastFurnace-1.20.1-8.0.2.jar",
+      "sha256": "970c11c090e7a364e2e006aabb5e573f79901e710e97195334ee5802317776e8"
+    },
+    {
+      "file": "FastLeafDecay-32.jar",
+      "ids": [
+        "fastleafdecay"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\FastLeafDecay-32.jar",
+      "sha256": "ce48db06bfb5830c147969793771a8f8b5a5774b182543b906bc439efd4e9469"
+    },
+    {
+      "file": "FastSuite-1.20.1-5.1.2.jar",
+      "ids": [
+        "fastsuite"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\FastSuite-1.20.1-5.1.2.jar",
+      "sha256": "5e05cb3ce05785a0061a41b7a83443074a6c26dd7d9db75c453fa2487481d54e"
+    },
+    {
+      "file": "FastWorkbench-1.20.1-8.0.4.jar",
+      "ids": [
+        "fastbench"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\FastWorkbench-1.20.1-8.0.4.jar",
+      "sha256": "86d20c6879bf86ef76b3fd94998d3e5c3327acb5d5324b6eb0b5348354766620"
+    },
+    {
+      "file": "ferritecore-6.0.1-forge.jar",
+      "ids": [
+        "ferritecore"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ferritecore-6.0.1-forge.jar",
+      "sha256": "9c2c9396a49e796d88497758caa4637d2bcbb433c318e2dd9cebcffbaf0f6c54"
+    },
+    {
+      "file": "FramedBlocks-9.4.3.jar",
+      "ids": [
+        "framedblocks"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\FramedBlocks-9.4.3.jar",
+      "sha256": "58f4a8d8fb759a9db8754d83461df1b7b2e94426888259286d3acc316e6c6589"
+    },
+    {
+      "file": "ftb-chunks-forge-2001.3.8.jar",
+      "ids": [
+        "ftbchunks"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ftb-chunks-forge-2001.3.8.jar",
+      "sha256": "783f7aa42089b6f72500801284796f7cc8eb641ecddcf76f65bf586c017efb02"
+    },
+    {
+      "file": "ftb-essentials-forge-2001.2.4.jar",
+      "ids": [
+        "ftbessentials"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ftb-essentials-forge-2001.2.4.jar",
+      "sha256": "e0022bfe29dc10e373947701dae1bc4ce75ee15fe21f6d89269677fbb9aebf73"
+    },
+    {
+      "file": "ftb-library-forge-2001.2.13.jar",
+      "ids": [
+        "ftblibrary"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ftb-library-forge-2001.2.13.jar",
+      "sha256": "41810281b65336265cae2c88412022d02f2f0a3f28c66a06173d86f98acf14a7"
+    },
+    {
+      "file": "ftb-quests-forge-2001.4.22.jar",
+      "ids": [
+        "ftbquests"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ftb-quests-forge-2001.4.22.jar",
+      "sha256": "9ea9d159a78a2724cfe0457b024680fdb52a2126eff9cfa5280a30578f647a68"
+    },
+    {
+      "file": "ftb-teams-forge-2001.3.2.jar",
+      "ids": [
+        "ftbteams"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ftb-teams-forge-2001.3.2.jar",
+      "sha256": "b1cb4d82ea9f137a87e12a7aaf3329619294b56f7d70337dfd557a76e10b6e07"
+    },
+    {
+      "file": "ftb-ultimine-forge-2001.1.8.jar",
+      "ids": [
+        "ftbultimine"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ftb-ultimine-forge-2001.1.8.jar",
+      "sha256": "b80dde55b2c91fd27f09f15ed2aefb0756c7bd704316e488ae8a06b179e85730"
+    },
+    {
+      "file": "ftb-xmod-compat-forge-2.1.3.jar",
+      "ids": [
+        "ftbxmodcompat"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ftb-xmod-compat-forge-2.1.3.jar",
+      "sha256": "16a8eb9de88d5c33d29cb076cc39dfb337b2c54348e1ef1efe9dd60cf85e5f72"
+    },
+    {
+      "file": "ftbbackups2-forge-1.20-1.0.23.jar",
+      "ids": [
+        "ftbbackups2"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ftbbackups2-forge-1.20-1.0.23.jar",
+      "sha256": "19cea280a56e533b9669d4f866aef38ebe54f6d8627efe6798016e17b6b4afda"
+    },
+    {
+      "file": "Glodium-1.20-1.5-forge.jar",
+      "ids": [
+        "glodium"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\Glodium-1.20-1.5-forge.jar",
+      "sha256": "fc419cb5bf511750c0a2da498b925f5122ac4f78617aca6630fe80abf0b6f460"
+    },
+    {
+      "file": "gpumemleakfix-1.20.1-1.8.jar",
+      "ids": [
+        "gpumemleakfix"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gpumemleakfix-1.20.1-1.8.jar",
+      "sha256": "a7019442f1b07b1a4a875fe404d04d162905cc7fd42e0b3c843aefc7b39efc46"
+    },
+    {
+      "file": "gtceu-1.20.1-1.4.4.jar",
+      "ids": [
+        "gtceu"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar",
+      "sha256": "e7b5239e1fedd1096f55e9408cf673b01ddbed14c806f0368f02386137289f12"
+    },
+    {
+      "file": "gtlcore-1.2.3.2-fix2.jar",
+      "ids": [
+        "gtlcore"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtlcore-1.2.3.2-fix2.jar",
+      "sha256": "e4703254e7faaafecb4b2a5f457a1b252e3046351200f282b4828092954f7aea"
+    },
+    {
+      "file": "GTLsupb-3.5.jar",
+      "ids": [
+        "gtlsupb"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\GTLsupb-3.5.jar",
+      "sha256": "73e701d0ade17e17118b346b3a75436979baff421f180cf6979d2006a420eb08"
+    },
+    {
+      "file": "GTMAdvancedHatch-1.20.1-0.1.10 fix2.jar",
+      "ids": [
+        "gtmadvancedhatch"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\GTMAdvancedHatch-1.20.1-0.1.10 fix2.jar",
+      "sha256": "e5351799eac5ab70a61696e073557293e6e3921c2e3eb9253d33791c40701a68"
+    },
+    {
+      "file": "gtmthings-1.3.5.b.jar",
+      "ids": [
+        "gtmthings"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtmthings-1.3.5.b.jar",
+      "sha256": "b230de569b0f4601c36153d668e3fee76728982ad9c1baef0ee32e69ad3349e4"
+    },
+    {
+      "file": "guideme-20.1.15.jar",
+      "ids": [
+        "guideme"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\guideme-20.1.15.jar",
+      "sha256": "cf8052ab3da121012efc59a20e731c24bfe7488dfa556c9b88809f42dea3b24a"
+    },
+    {
+      "file": "invtweaks-1.20.1-1.2.2.jar",
+      "ids": [
+        "invtweaks"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\invtweaks-1.20.1-1.2.2.jar",
+      "sha256": "54ba6fd7d5e4b9a9dadf6876153b99a94b4997f8d4ee0e46c9c58ea5c8c95802"
+    },
+    {
+      "file": "Jade-1.20.1-Forge-11.13.3.jar",
+      "ids": [
+        "jade"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\Jade-1.20.1-Forge-11.13.3.jar",
+      "sha256": "a632c77975e5aedff6322b0072f8b0db3f5d4bf914df6bdcc87d1aea4d5f55f4"
+    },
+    {
+      "file": "jecharacters-1.20.1-forge-4.6.9.jar",
+      "ids": [
+        "jecharacters"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\jecharacters-1.20.1-forge-4.6.9.jar",
+      "sha256": "ddc90aa18b4fb184d81d383613a31e6bb446dbf22f0fbef926bc4e6849f11ff2"
+    },
+    {
+      "file": "jei-1.20.1-forge-15.49.0.188.jar",
+      "ids": [
+        "jei"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\jei-1.20.1-forge-15.49.0.188.jar",
+      "sha256": "070229014841acdd8d1b1c7ce426a9dd02324aca9c28bae87e88ef253ca0fb01"
+    },
+    {
+      "file": "jeiintegration_1.20.1-10.0.0.jar",
+      "ids": [
+        "jeiintegration"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\jeiintegration_1.20.1-10.0.0.jar",
+      "sha256": "0d83bcb477d761a73cdbb37f723a5d994e61a389340e219e5ce8dc9618be933e"
+    },
+    {
+      "file": "JustEnoughResources-1.20.1-1.4.0.247.jar",
+      "ids": [
+        "jeresources"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\JustEnoughResources-1.20.1-1.4.0.247.jar",
+      "sha256": "311d3a83db489d27b96cd15deb690ce64c78cffb552c25c3dff85956a14ec09e"
+    },
+    {
+      "file": "kubejs-forge-2001.6.5-build.26.jar",
+      "ids": [
+        "kubejs"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\kubejs-forge-2001.6.5-build.26.jar",
+      "sha256": "1769312192fbf9d72f45054ba61130523bfb471b5f480a4bff8c210ec09400bb"
+    },
+    {
+      "file": "laserio-uel-1.5.1.jar",
+      "ids": [
+        "laserio"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\laserio-uel-1.5.1.jar",
+      "sha256": "cb0198823048599b914659150815979b50cbdcd4888ff52f2f8ba0a968da5e1e"
+    },
+    {
+      "file": "ldlib-forge-1.20.1-1.0.33.b.jar",
+      "ids": [
+        "ldlib"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ldlib-forge-1.20.1-1.0.33.b.jar",
+      "sha256": "5b1c73e63cd665249c79bd28146eac32a9f0838e1643e75b031d7062c393b86a"
+    },
+    {
+      "file": "LibX-1.20.1-5.0.14.jar",
+      "ids": [
+        "libx"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\LibX-1.20.1-5.0.14.jar",
+      "sha256": "6b795bbeeb320a4fc44438bec23f7937e8c70f7b87e809e044872e37a9ac1b27"
+    },
+    {
+      "file": "mae2-2.0.0-beta.c.jar",
+      "ids": [
+        "mae2"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\mae2-2.0.0-beta.c.jar",
+      "sha256": "633e21125646a72b7c9a6fa3c92764cf2287535547d560d6ca1d2f855be24f7f"
+    },
+    {
+      "file": "merequester-forge-1.20.1-1.1.5.jar",
+      "ids": [
+        "merequester"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\merequester-forge-1.20.1-1.1.5.jar",
+      "sha256": "119c23431ff06b1ebe57606daff460b7c74f74c8564a26f1cbac4cd3521968cd"
+    },
+    {
+      "file": "modernfix-forge-5.27.72+mc1.20.1.jar",
+      "ids": [
+        "modernfix"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\modernfix-forge-5.27.72+mc1.20.1.jar",
+      "sha256": "f9a837bffecbf3a6bfe044cf9f6a5d7a984bec15e37bcd46d7956f9c29692f80"
+    },
+    {
+      "file": "ModernUI-Forge-1.20.1-3.12.0.1-universal.jar",
+      "ids": [
+        "modernui"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ModernUI-Forge-1.20.1-3.12.0.1-universal.jar",
+      "sha256": "49fea599522316ef7abd8897e8bcad3ed742d935f0a53726eba1f00c9ca8fe4c"
+    },
+    {
+      "file": "MouseTweaks-forge-mc1.20.1-2.25.1.jar",
+      "ids": [
+        "mousetweaks"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\MouseTweaks-forge-mc1.20.1-2.25.1.jar",
+      "sha256": "6c27d16aa715ac6613a55fc463739e2c7b78279e4e4c4cede299e4a2d4a70f08"
+    },
+    {
+      "file": "oculus-mc1.20.1-1.8.0.jar",
+      "ids": [
+        "oculus"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\oculus-mc1.20.1-1.8.0.jar",
+      "sha256": "0945df0cba0f62b3901dd80c3268e5311b770ece78c78037a45db12ac0425fef"
+    },
+    {
+      "file": "PackMenu-1.20.1-6.1.2.jar",
+      "ids": [
+        "packmenu"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\PackMenu-1.20.1-6.1.2.jar",
+      "sha256": "fc33c41205dc2fd432dd07d5b5f28d105d7a99dced19220e9b3c6529c2f2af55"
+    },
+    {
+      "file": "pipez-forge-1.20.1-1.2.26.jar",
+      "ids": [
+        "pipez"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\pipez-forge-1.20.1-1.2.26.jar",
+      "sha256": "f692b0a24c46c954358db8535248021deaf3399973c4e746ba1e3e115a8a48c9"
+    },
+    {
+      "file": "Placebo-1.20.1-8.6.3.jar",
+      "ids": [
+        "placebo"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\Placebo-1.20.1-8.6.3.jar",
+      "sha256": "1cdf906cfbcbb5e5be2ef1bb721f79a24b01bd2ac559c8cdbfb7693f62421571"
+    },
+    {
+      "file": "polylib-forge-2000.0.3-build.143.jar",
+      "ids": [
+        "polylib"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\polylib-forge-2000.0.3-build.143.jar",
+      "sha256": "abf42a3240b083fc96b9c022a049323cd4130844fcef338e1ab8b2cd6502a04b"
+    },
+    {
+      "file": "radium-mc1.20.1-0.12.4+git.26c9d8e.jar",
+      "ids": [
+        "radium"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\radium-mc1.20.1-0.12.4+git.26c9d8e.jar",
+      "sha256": "b42584e2672d6b5329959ec2b0f342395b19389fed0ee4d86ea71072f42f77a0"
+    },
+    {
+      "file": "Re-Avaritia-forged-1.20.1-1.3.8.3.jar",
+      "ids": [
+        "avaritia"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\Re-Avaritia-forged-1.20.1-1.3.8.3.jar",
+      "sha256": "16bd812bc35657f2350f25546883ef09a647eff914fca43ee4e66ab45daf08b9"
+    },
+    {
+      "file": "redirector-5.0.0.jar",
+      "ids": [
+        "redirector"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\redirector-5.0.0.jar",
+      "sha256": "06f4f5ac6beb817acf0f9534f77c894b23b729d3a992a646af36c854099447a8"
+    },
+    {
+      "file": "resourcefulconfig-forge-1.20.1-2.1.3.jar",
+      "ids": [
+        "resourcefulconfig"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\resourcefulconfig-forge-1.20.1-2.1.3.jar",
+      "sha256": "c404b9e5cf8595427a72d4ca6ee5730289168762b463f169be3ae5dfe3727ded"
+    },
+    {
+      "file": "resourcefullib-forge-1.20.1-2.1.29.jar",
+      "ids": [
+        "resourcefullib"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\resourcefullib-forge-1.20.1-2.1.29.jar",
+      "sha256": "b13afb95231d88e1caea5a045967e0fc291b29020b0d26ad39e6f9e9a551fee8"
+    },
+    {
+      "file": "rhino-forge-2001.2.3-build.10.jar",
+      "ids": [
+        "rhino"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\rhino-forge-2001.2.3-build.10.jar",
+      "sha256": "fed2211429301bf043864183cab9ab8e92d4cc4dbb9e488ce6c75217c54584a6"
+    },
+    {
+      "file": "rubidium-extra-0.5.4.4+mc1.20.1-build.131.jar",
+      "ids": [
+        "embeddium_extra"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\rubidium-extra-0.5.4.4+mc1.20.1-build.131.jar",
+      "sha256": "32c28582040dfab4e167542bf319107296e9eff3cb17f4f576eba036f2d256da"
+    },
+    {
+      "file": "Shrink-1.20.1-1.4.5.jar",
+      "ids": [
+        "shrink"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\Shrink-1.20.1-1.4.5.jar",
+      "sha256": "a7af6dc3bc080c470a27ff691152c974bd13ce61e0c0948daf5eefece432abb1"
+    },
+    {
+      "file": "skinlayers3d-forge-1.11.3-mc1.20.1.jar",
+      "ids": [
+        "skinlayers3d"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\skinlayers3d-forge-1.11.3-mc1.20.1.jar",
+      "sha256": "6229ea6e5d77dd1f66d21163bf3187abb899d59f508dae63ab67ecbb0f804cc5"
+    },
+    {
+      "file": "SkyblockBuilder-1.20.1-5.1.33.jar",
+      "ids": [
+        "skyblockbuilder"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\SkyblockBuilder-1.20.1-5.1.33.jar",
+      "sha256": "2973c5d8a0ce123f01ccd8597628f86da01593341101c2f3f2c97746965b074b"
+    },
+    {
+      "file": "sophisticatedbackpacks-1.20.1-3.24.65.2073.jar",
+      "ids": [
+        "sophisticatedbackpacks"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\sophisticatedbackpacks-1.20.1-3.24.65.2073.jar",
+      "sha256": "673362c7c31cc25141104850f43f4e424ecf70a87c73df4357fc2be3fa1b6810"
+    },
+    {
+      "file": "sophisticatedcore-1.20.1-1.3.79.2250.jar",
+      "ids": [
+        "sophisticatedcore"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\sophisticatedcore-1.20.1-1.3.79.2250.jar",
+      "sha256": "d6dee35cfaedf3a1533bef484540d3483d09ee2019e448dd7a75e38878708a83"
+    },
+    {
+      "file": "sophisticatedstorage-1.20.1-1.4.79.2078.jar",
+      "ids": [
+        "sophisticatedstorage"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\sophisticatedstorage-1.20.1-1.4.79.2078.jar",
+      "sha256": "b547712ec3cbb7e465ff8c1e84a6957039daeac91a9d282d0ef8c1712c219461"
+    },
+    {
+      "file": "Spear_of_Void-1.3.0fix4.jar",
+      "ids": [
+        "sov"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\Spear_of_Void-1.3.0fix4.jar",
+      "sha256": "8ee95e36774a34f321e4e2b107ff4e2dbda3e28b85e2787d40db302d9673e6cb"
+    },
+    {
+      "file": "ToolBelt-1.20.1-1.20.03.jar",
+      "ids": [
+        "toolbelt"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\ToolBelt-1.20.1-1.20.03.jar",
+      "sha256": "9c1b8c52d848055d7a4c60989f5b36247431c11d84a2e2975bb1ccfca2663030"
+    },
+    {
+      "file": "TravelAnchors-1.20.1-5.0.1.jar",
+      "ids": [
+        "travelanchors"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\TravelAnchors-1.20.1-5.0.1.jar",
+      "sha256": "12fe743ffc70809c16cddd57fdf14e4e2a4b2bb0a168129f645e5e1aba467438"
+    },
+    {
+      "file": "usclb-0.0.26.jar",
+      "ids": [
+        "usclb"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\usclb-0.0.26.jar",
+      "sha256": "e0783a0698022a99890dfa98bafa04abe1ffcba98361dcb1be333b62cdd9a105"
+    },
+    {
+      "file": "wildcard_pattern-0.1.2-gtl.jar",
+      "ids": [
+        "wildcard_pattern"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\wildcard_pattern-0.1.2-gtl.jar",
+      "sha256": "a18745ebd18e4c54f0fa4fc1c97d9ff7973ec9d1a84e413843164282d2061d34"
+    },
+    {
+      "file": "wmp-1.7.0.jar",
+      "ids": [
+        "wmp"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\wmp-1.7.0.jar",
+      "sha256": "43f28ac708e7978cb6ba7316508e2dd92df4cb55fcfee887ca07d0b1085447b7"
+    },
+    {
+      "file": "[AE2-FTB任务检测器] ae2_ftbquest_detector-1.1-SNAPSHOT.jar",
+      "ids": [
+        "ae2_ftbquest_detector"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\[AE2-FTB任务检测器] ae2_ftbquest_detector-1.1-SNAPSHOT.jar",
+      "sha256": "13054662eb55f13a4c36a81019670e2c73ce7de8878094258267c78735f76aec"
+    },
+    {
+      "file": "[多态合成] polymorph-forge-0.49.10+1.20.1.jar",
+      "ids": [
+        "polymorph"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\[多态合成] polymorph-forge-0.49.10+1.20.1.jar",
+      "sha256": "cbe63a0a1cb6ae8dbc0e29bb96d149a137cd4e714b295fa49d230994091d157f"
+    },
+    {
+      "file": "[无线连接器]ae2cs-1.20.1-forge-1.1.4.514.jar",
+      "ids": [
+        "ae2cs"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\[无线连接器]ae2cs-1.20.1-forge-1.1.4.514.jar",
+      "sha256": "637cd0327d1e722d4afd3e87367ce8c2c6a25e5799087d505324f182d4856e69"
+    },
+    {
+      "file": "[星门之旅] Stargate Journey-1.20.1-0.6.44.jar",
+      "ids": [
+        "sgjourney"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\[星门之旅] Stargate Journey-1.20.1-0.6.44.jar",
+      "sha256": "9fdec75a79b8983599c896d6d3675a44f13912feabf492d678f2000398dd13c6"
+    },
+    {
+      "file": "[输入法冲突修复] IMBlocker-5.5.3-forge+1.17-1.20.4.jar",
+      "ids": [
+        "imblocker"
+      ],
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\[输入法冲突修复] IMBlocker-5.5.3-forge+1.17-1.20.4.jar",
+      "sha256": "7e408b84975c3c28d98b707b32351453458f63308cc463aad3e8966693861a58"
+    },
+    {
+      "file": "gtladditions-3.3.jar",
+      "ids": [
+        "gtladditions"
+      ],
+      "source": "C:\\Users\\OWNER\\下載\\gtladditions-3.3.jar",
+      "sha256": "719403e40fdbb483af078b00e2bf11b8a296bb21d81e42cf0b314f1ac4927411"
+    }
+  ],
+  "archive": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\archive\\dependency-sync-2026-09-23_03-28-36",
+  "instance_backup": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\hk3gtl-mod-backups\\gtladditions-2026-09-23_03-28-36",
+  "additional_required_dependency": {
+    "file": "kotlinforforge-4.11.0-all.jar",
+    "source": "https://cdn.modrinth.com/data/ordsPcFz/versions/hmeyC41q/kotlinforforge-4.11.0-all.jar",
+    "sha256": "ef988f86d170af499d147ea8a5c34c99dbd6d8f4a5ad236a4b43818dc4470a10",
+    "reason": "GTLAdditions 3.3 requires kotlinforforge >=4.11.0; absent in original instance"
+  }
+}

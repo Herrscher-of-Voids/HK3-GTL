@@ -1,0 +1,284 @@
+{
+  "key": "i31",
+  "machine": "hk3gtl:i31_simulated_world_bubble_termination_reclaimer",
+  "source": "data/hk3gtl/approved_architecture/i31.json",
+  "sha256": "54ad995c90e11612a29c29a1a565f55a870bf71bbbdcc6b3b7aec8ba4e6e6d47",
+  "template_sha256": "5e84d91a0ad459796e6ecab74f0c0674cdc038f5513bd6e96eaebc00142d451a",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_020324_514861_batch-08_03of05_I31_V1_ICV_外观已确认\\I31_模拟世界泡终止回收机_逆相沙漏回收庭_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_020324_514861_batch-08_03of05_I31_V1_ICV_外观已确认\\I31_模拟世界泡终止回收机_逆相沙漏回收庭_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_020324_514861_batch-08_03of05_I31_V1_ICV_外观已确认\\I31_模拟世界泡终止回收机_逆相沙漏回收庭_V1_20261027\\i31\\hk3gtl-i31-simulated-world-reclaimer-v1-20261027.nbt",
+  "source_nbt_sha256": "d25843c2947952bd2765173ef87c481becab137186454564d4f27c1dee218133",
+  "controller": [
+    185,
+    36,
+    8
+  ],
+  "size_xyz": [
+    371,
+    229,
+    371
+  ],
+  "blocks": 4185130,
+  "ports": [
+    {
+      "id": "稳定模拟批次输入",
+      "purpose": "接收I30同一持久化批次和状态载体，不创建第二个结算来源",
+      "pos": [
+        161,
+        36,
+        8
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "批次核验及许可",
+      "purpose": "核验模拟来源与批次状态；不替代正式研究许可",
+      "pos": [
+        209,
+        36,
+        8
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "西侧终止供能",
+      "purpose": "受控终止及分流回收的持续控制能量候选位",
+      "pos": [
+        0,
+        36,
+        112
+      ],
+      "face": "west",
+      "group": "energy_input"
+    },
+    {
+      "id": "东侧终止供能",
+      "purpose": "镜像终止供能支路候选位",
+      "pos": [
+        370,
+        36,
+        112
+      ],
+      "face": "east",
+      "group": "energy_input"
+    },
+    {
+      "id": "西侧流体回收",
+      "purpose": "同既定资源目录的随机流体独立输出候选位",
+      "pos": [
+        0,
+        36,
+        258
+      ],
+      "face": "west",
+      "group": "fluid_output"
+    },
+    {
+      "id": "东侧流体回收",
+      "purpose": "镜像回收流体缓冲与交付候选位",
+      "pos": [
+        370,
+        36,
+        258
+      ],
+      "face": "east",
+      "group": "fluid_output"
+    },
+    {
+      "id": "随机物品输出",
+      "purpose": "按已定目录和概率原则结算的随机物品输出",
+      "pos": [
+        161,
+        36,
+        362
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "模拟日志输出",
+      "purpose": "终止日志及模拟来源档案交I32研究，不能当作免费资源",
+      "pos": [
+        209,
+        36,
+        362
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "残件交付",
+      "purpose": "批次终止残件独立交付，不擅定种子返还或增产倍率",
+      "pos": [
+        137,
+        36,
+        362
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "回收热流体排出",
+      "purpose": "回收热端流体经独立管路交既有换热工艺",
+      "pos": [
+        233,
+        36,
+        362
+      ],
+      "face": "south",
+      "group": "fluid_output"
+    }
+  ],
+  "target_voltage": "ICV",
+  "installed_hatches": {
+    "稳定模拟批次输入": "item_input",
+    "批次核验及许可": "item_input",
+    "西侧流体回收": "fluid_output",
+    "东侧流体回收": "fluid_output",
+    "随机物品输出": "item_output",
+    "模拟日志输出": "item_output",
+    "残件交付": "item_output",
+    "回收热流体排出": "fluid_output"
+  },
+  "required_abilities": [
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 180,
+  "materials": 39,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        161,
+        36,
+        8
+      ],
+      "role": "稳定模拟批次输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        185,
+        36,
+        8
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i31_simulated_world_bubble_termination_reclaimer[facing=north]",
+      "block_entity_id": "hk3gtl:i31_simulated_world_bubble_termination_reclaimer"
+    },
+    {
+      "pos": [
+        209,
+        36,
+        8
+      ],
+      "role": "批次核验及许可",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        0,
+        36,
+        112
+      ],
+      "role": "西侧终止供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        370,
+        36,
+        112
+      ],
+      "role": "东侧终止供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        0,
+        36,
+        258
+      ],
+      "role": "西侧流体回收",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        370,
+        36,
+        258
+      ],
+      "role": "东侧流体回收",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        137,
+        36,
+        362
+      ],
+      "role": "残件交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        161,
+        36,
+        362
+      ],
+      "role": "随机物品输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        209,
+        36,
+        362
+      ],
+      "role": "模拟日志输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        233,
+        36,
+        362
+      ],
+      "role": "回收热流体排出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i31_simulated_world_bubble_termination_reclaimer",
+  "process_scope": "正式建筑、控制器、原位仓室和完整预览接入；不开放暂定工艺或未实现的世界泡任务。"
+}

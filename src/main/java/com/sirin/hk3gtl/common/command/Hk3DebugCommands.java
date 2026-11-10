@@ -1,7 +1,30 @@
 package com.sirin.hk3gtl.common.command;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 Hk3DebugCommands 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
+/**
+ * 【变更记录 #1】2026-09-29 17:51:46（内测5修订93）
+ * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
+ * - 新增／修改：调试重开清除新检查点；正式终审读取本存档玩家IF账本，不使用旧跨存档掩码。
+ * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
+ */
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -32,6 +55,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+/** 【变更记录 #2】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：毕业/传送/彩蛋/调试改为查询当前玩家，实体避免在已有坏结局演出时开启新会面；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
+/** 【变更记录 #3】2026-10-01 16:49:18（修订135）：删除调试触发正文直接走正式毕业的路径；新增个人准入账本随本人调试重置；修改trigger_dialogue为审核正文预览；用途：继续支持测试文本和演出，不产生真实资格或消耗正式IF五选。 */
 public class Hk3DebugCommands {
 
     private static final String TAG = "§a[HK3DEBUG] §f";
@@ -102,7 +127,10 @@ public class Hk3DebugCommands {
         if (player == null) return 0;
 
         player.getPersistentData().remove(DIALOGUE_DONE_TAG);
-        Hk3GraduationData.get(player.serverLevel()).resetForDebug();
+        player.getPersistentData().remove("hk3gtl_finale_checkpoint_v5");
+        Hk3GraduationData.get(player.serverLevel()).resetForDebug(player.getUUID());
+        com.sirin.hk3gtl.common.finale.Hk3FinaleData.get(player.server).change(l->{l.resetForDebug(player.getUUID());return true;});
+        com.sirin.hk3gtl.common.badending.Hk3BadEndingData.get(player.serverLevel()).resetForDebug(player.getUUID());
 
         DialogueSessionManager.onPlayerDisconnect(player.getUUID());
 
@@ -120,10 +148,10 @@ public class Hk3DebugCommands {
         ServerPlayer player = source.getPlayer();
         if (player == null) return 0;
 
-        int availableMask = SirinIfProgressStore.availableMask(player);
-        boolean ok = DialogueSessionManager.startDialogue(player, SirinDialogueDefinitions.DIALOGUE_ID, availableMask);
-        source.sendSuccess(() -> Component.literal(TAG + (ok ? "终局对话已启动。" : "终局对话启动失败（可能已有活跃对话）。")), true);
-        return 1;
+        int availableMask = com.sirin.hk3gtl.common.dialogue.Hk3FinaleIfData.get(player).selectedMask(player.getUUID());
+        boolean ok = DialogueSessionManager.startDialogue(player, com.sirin.hk3gtl.common.dialogue.definition.Hk3ApprovedDialogues.FINALE_PREVIEW, availableMask);
+        source.sendSuccess(() -> Component.literal(TAG + (ok ? "终局正文预览已启动；不授予正式资格、不毕业、不占用IF五选。" : "预览启动失败（可能已有活跃对话）。")), true);
+        return ok?1:0;
     }
 
     private static int tpImaginary(CommandSourceStack source) {
@@ -145,12 +173,14 @@ public class Hk3DebugCommands {
         }
 
         Hk3GraduationData graduationData = Hk3GraduationData.get(player.serverLevel());
-        if (!bypassGraduationCheck && graduationData.isGraduated()) {
-            source.sendFailure(Component.literal(ERR + "当前世界已毕业，请使用 /hk3debug force_tp_imaginary 强制重测。"));
+        if (!bypassGraduationCheck && graduationData.isGraduated(player.getUUID())) {
+            source.sendFailure(Component.literal(ERR + "当前玩家已通过终审，请使用 /hk3debug force_tp_imaginary 强制重测。"));
             return 0;
         }
         if (bypassGraduationCheck) {
-            graduationData.resetForDebug();
+            graduationData.resetForDebug(player.getUUID());
+            com.sirin.hk3gtl.common.finale.Hk3FinaleData.get(player.server).change(l->{l.resetForDebug(player.getUUID());return true;});
+        com.sirin.hk3gtl.common.badending.Hk3BadEndingData.get(player.serverLevel()).resetForDebug(player.getUUID());
         }
 
         VoidQueenSirinEntity.ensurePlatformAndEntity(imaginary);
@@ -200,7 +230,7 @@ public class Hk3DebugCommands {
         CompoundTag data = player.getPersistentData();
 
         boolean dialogueDone = data.getBoolean(DIALOGUE_DONE_TAG);
-        boolean graduated = Hk3GraduationData.get(player.serverLevel()).isGraduated();
+        boolean graduated = Hk3GraduationData.get(player.serverLevel()).isGraduated(player.getUUID());
         int gazeLevel = data.getInt("hk3gtl_gaze_level");
 
         int resCount = countByPrefix(data, "hk3gtl_res_");
@@ -210,7 +240,7 @@ public class Hk3DebugCommands {
         source.sendSuccess(() -> Component.literal(
                 "§6§l══ HK3GTL 状态 ══\n" +
                 TAG + "对话完成: " + bool(dialogueDone) + "\n" +
-                TAG + "世界毕业: " + bool(graduated) + "\n" +
+                TAG + "个人终审通过: " + bool(graduated) + "\n" +
                 TAG + "注视度: §e" + gazeLevel + "\n" +
                 TAG + "研究完成: §e" + resCount + " §f个\n" +
                 TAG + "叙事解锁: §e" + narCount + " §f个\n" +
@@ -406,7 +436,8 @@ public class Hk3DebugCommands {
         player.getPersistentData().remove("hk3gtl_gaze_level");
         total += 2;
 
-        Hk3GraduationData.get(player.serverLevel()).resetForDebug();
+        Hk3GraduationData.get(player.serverLevel()).resetForDebug(player.getUUID());
+        com.sirin.hk3gtl.common.badending.Hk3BadEndingData.get(player.serverLevel()).resetForDebug(player.getUUID());
 
         for (ServerLevel sl : player.server.getAllLevels()) {
             sl.getEntities(Hk3Entities.VOID_QUEEN_SIRIN.get(),

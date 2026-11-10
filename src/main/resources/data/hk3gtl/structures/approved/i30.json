@@ -1,0 +1,285 @@
+{
+  "key": "i30",
+  "machine": "hk3gtl:i30_simulated_world_bubble_stabilizer",
+  "source": "data/hk3gtl/approved_architecture/i30.json",
+  "sha256": "4db7847ffef3904ce49306eca61f938cf60c4023e3a25ab710fbe66e2e690bf0",
+  "template_sha256": "73cc58e3279ee0334460cbcbba4dd88b16ff367e4e303c9469394bba6677ada0",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_014038_267181_batch-08_02of05_I30_V1_ICV_外观已确认\\I30_模拟世界泡稳定控制器_六脊稳界深井_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_014038_267181_batch-08_02of05_I30_V1_ICV_外观已确认\\I30_模拟世界泡稳定控制器_六脊稳界深井_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_014038_267181_batch-08_02of05_I30_V1_ICV_外观已确认\\I30_模拟世界泡稳定控制器_六脊稳界深井_V1_20261027\\i30\\hk3gtl-i30-simulated-world-stabilizer-v1-20261027.nbt",
+  "source_nbt_sha256": "0ef7456451a511b5e57f6c27abfc90eb3633849cebdb5eeff32e8f43a12c5966",
+  "controller": [
+    182,
+    35,
+    12
+  ],
+  "size_xyz": [
+    365,
+    223,
+    365
+  ],
+  "blocks": 3466331,
+  "ports": [
+    {
+      "id": "未稳定模拟载体输入",
+      "purpose": "接收I29独立模拟批次及状态载体",
+      "pos": [
+        158,
+        35,
+        12
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "模型与负载参数",
+      "purpose": "接收对应批次的模型、研究许可及负载参数",
+      "pos": [
+        206,
+        35,
+        12
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "西侧稳定介质输入",
+      "purpose": "新鲜稳定介质与循环补充介质的候选入口",
+      "pos": [
+        0,
+        35,
+        104
+      ],
+      "face": "west",
+      "group": "fluid_input"
+    },
+    {
+      "id": "东侧稳定介质输入",
+      "purpose": "镜像介质回路的候选入口",
+      "pos": [
+        364,
+        35,
+        104
+      ],
+      "face": "east",
+      "group": "fluid_input"
+    },
+    {
+      "id": "西侧持续供能",
+      "purpose": "稳界磁场与模型运算的持续用能候选位",
+      "pos": [
+        0,
+        35,
+        256
+      ],
+      "face": "west",
+      "group": "energy_input"
+    },
+    {
+      "id": "东侧持续供能",
+      "purpose": "镜像稳界回路的持续用能候选位",
+      "pos": [
+        364,
+        35,
+        256
+      ],
+      "face": "east",
+      "group": "energy_input"
+    },
+    {
+      "id": "可终止模拟载体输出",
+      "purpose": "交给I31受控终止的模拟批次，不在本机结算随机资源",
+      "pos": [
+        158,
+        35,
+        352
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "运行档案输出",
+      "purpose": "输出独立模拟来源及运行状态档案，供研究与批次审计",
+      "pos": [
+        206,
+        35,
+        352
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "废介质排出",
+      "purpose": "用后稳定介质经独立流体出口交给既有再生工艺",
+      "pos": [
+        134,
+        35,
+        352
+      ],
+      "face": "south",
+      "group": "fluid_output"
+    },
+    {
+      "id": "热回流排出",
+      "purpose": "稳定回路热流体经独立流体出口交给换热工艺",
+      "pos": [
+        230,
+        35,
+        352
+      ],
+      "face": "south",
+      "group": "fluid_output"
+    }
+  ],
+  "target_voltage": "ICV",
+  "installed_hatches": {
+    "未稳定模拟载体输入": "item_input",
+    "模型与负载参数": "item_input",
+    "西侧稳定介质输入": "fluid_input",
+    "东侧稳定介质输入": "fluid_input",
+    "可终止模拟载体输出": "item_output",
+    "运行档案输出": "item_output",
+    "废介质排出": "fluid_output",
+    "热回流排出": "fluid_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 180,
+  "materials": 39,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        158,
+        35,
+        12
+      ],
+      "role": "未稳定模拟载体输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        182,
+        35,
+        12
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i30_simulated_world_bubble_stabilizer[facing=north]",
+      "block_entity_id": "hk3gtl:i30_simulated_world_bubble_stabilizer"
+    },
+    {
+      "pos": [
+        206,
+        35,
+        12
+      ],
+      "role": "模型与负载参数",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        0,
+        35,
+        104
+      ],
+      "role": "西侧稳定介质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        364,
+        35,
+        104
+      ],
+      "role": "东侧稳定介质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        0,
+        35,
+        256
+      ],
+      "role": "西侧持续供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        364,
+        35,
+        256
+      ],
+      "role": "东侧持续供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        134,
+        35,
+        352
+      ],
+      "role": "废介质排出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        158,
+        35,
+        352
+      ],
+      "role": "可终止模拟载体输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        206,
+        35,
+        352
+      ],
+      "role": "运行档案输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        230,
+        35,
+        352
+      ],
+      "role": "热回流排出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i30_simulated_world_bubble_stabilizer",
+  "process_scope": "正式建筑、控制器、原位仓室和完整预览接入；不开放暂定工艺或未实现的世界泡任务。"
+}

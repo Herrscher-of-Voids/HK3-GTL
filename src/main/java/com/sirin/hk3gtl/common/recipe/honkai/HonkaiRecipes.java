@@ -1,111 +1,93 @@
 package com.sirin.hk3gtl.common.recipe.honkai;
 
-
-
-import com.sirin.hk3gtl.common.constants.Hk3Tiers;
+import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.common.data.GTMaterials;
+import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
+import com.sirin.hk3gtl.common.item.honkai.HonkaiMaterialItems;
 import com.sirin.hk3gtl.common.machine.energy.Hk3HonkaiNetworkInjectorMachine;
 import com.sirin.hk3gtl.common.material.Hk3Materials;
-import com.sirin.hk3gtl.common.item.honkai.HonkaiMaterialItems;
-import com.sirin.hk3gtl.common.recipe.Hk3RecipeTypesImpl;
+import com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes;
+import com.sirin.hk3gtl.common.registration.Hk3IndustrialContent;
+import com.sirin.hk3gtl.common.registration.Hk3IndustrialFluids;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-
+import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
 import java.util.function.Consumer;
 
+/** 中文说明：该处说明已按当前代码行为整理。*/
 /**
- * 崩坏能相关配方 —— 注册崩坏能吸收塔和崩坏能凝缩器的配方。
- *
- * <h3>职责</h3>
- * 提供崩坏能产业链的基础配方：原始崩坏粒子采集、粒子凝缩为结晶/液态崩坏能。
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>调整电压：修改 ABYSS_1_EUT / MAX_EUT 常量</li>
- *   <li>新增配方：在对应方法中调用 recipeBuilder().xxx.save()</li>
- *   <li>配方ID格式：直接使用描述性名称（如 "basic_absorption"）</li>
- *   <li>circuitMeta 用于区分同机器不同模式的配方</li>
- * </ul>
+ * 【变更记录 #1】2026-09-24 16:37:18（内测5修订66）
+ * 删除：旧共享精炼工艺注册，原文件完整归档。新增：专用工艺注册委托与高效采集研究门槛。
+ * 修改：初始采集保持不变；用途：避免同一配方重复注册与旧能耗配置继续生效。
  */
-public class HonkaiRecipes {
+/**
+ * 【变更记录 #2】2026-09-27 01:54:24（第 2 次备注 · 内测5修订86）
+ * 删除：无，保留全部历史注册与工艺。
+ * 新增：燃料封装起步配方注册委托，沿现有液态工艺入口调用。
+ * 修改：接入负责人确认的棒壳、封装样件与I02检测路线。
+ * 用途：补齐RN-FRP实验入口，不注册I18，不跳过研究支付或前置。
+ */
+/**
+ * 【变更记录 #3】2026-09-27 02:26:24（第 3 次备注 · 内测5修订87）
+ * 删除：无，保留历史备注、稳定注册键和不相关工艺。
+ * 新增：无新增采集配方。
+ * 修改：I01高效采集的4份参考样本改为不消耗标准件；探测器、钨钢板、铂线、EU及研究门槛不变。
+ * 用途：采集仍要求样本到位，但连续生产不再逐批销毁样本；I07校准与探测器制造不受影响。
+ */
+public final class HonkaiRecipes {
+    private static final long MAX_EUT = Hk3Values.VA_LONG[GTValues.MAX];
 
-    /** 海渊I阶段基准电压（EU/t），来自 Hk3Values.VA_LONG */
-    private static final long ABYSS_1_EUT = Hk3Values.VA_LONG[Hk3Tiers.ABYSS_1];
-    /** MAX 电压（Tier 14）基准 EU/t */
-    private static final long MAX_EUT = Hk3Values.VA_LONG[14];
+    private HonkaiRecipes() {}
 
-    /** 注册崩坏能吸收塔配方：从虚空采集崩坏粒子（circuitMeta 区分基础/高级模式） */
+    private static ItemStack betaItem(String id, int amount) {
+        var object = Hk3IndustrialContent.items().get(id);
+        if (object == null) throw new IllegalStateException("Missing Beta 5 item registration: " + id);
+        return new ItemStack(object.get(), amount);
+    }
+
+    private static FluidStack fluid(String id, int amount) {
+        var material = Hk3IndustrialFluids.materials().get(id);
+        if (material == null) throw new IllegalStateException("Missing Beta 5 fluid registration: " + id);
+        return material.getFluid(amount);
+    }
+
+    /** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
     public static void addAbsorptionRecipes(Consumer<FinishedRecipe> provider) {
-        Hk3RecipeTypesImpl.HONKAI_ABSORPTION_RECIPES.recipeBuilder("basic_absorption")
-                .circuitMeta(1)
-                .outputItems(new ItemStack(HonkaiMaterialItems.RAW_HONKAI_PARTICLE.get(), 256))
-                .duration(800)
-                .EUt(MAX_EUT)
-                .save(provider);
-
-        Hk3RecipeTypesImpl.HONKAI_ABSORPTION_RECIPES.recipeBuilder("advanced_absorption")
-                .circuitMeta(2)
-                .outputItems(new ItemStack(HonkaiMaterialItems.RAW_HONKAI_PARTICLE.get(), 1024))
-                .duration(900)
-                .EUt(MAX_EUT)
-                .save(provider);
-    }
-
-    /**
-     * 注册崩坏能网络注入器配方（双能源引擎 D-01 配套）。
-     * <p>三条充网路线用编程电路区分，产出是无线网络余额（由
-     * {@link com.sirin.hk3gtl.common.machine.energy.Hk3HonkaiNetworkInjectorMachine#afterWorking}
-     * 结算），因此配方本身无物品/流体产出。</p>
-     * <ul>
-     *   <li>meta=1 液态路线：16000 mB = 16000 崩坏能（1:1，无损）</li>
-     *   <li>meta=2 结晶路线：64 结晶 = 6400 崩坏能（1 结晶 = 100，便携高价）</li>
-     *   <li>meta=3 纯EU路线：2000万 EU = 20000 崩坏能（1000:1，与全模组换算比一致）</li>
-     * </ul>
-     */
-    public static void addNetworkInjectionRecipes(Consumer<FinishedRecipe> provider) {
-        // 液态崩坏能 → 网络：16000 mB / 100 tick，处理耗电为象征性 ZPM 档
-        Hk3RecipeTypesImpl.HONKAI_NETWORK_INJECTION_RECIPES.recipeBuilder("inject_liquid_honkai")
-                .circuitMeta(1)
-                .inputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(16000))
-                .duration(100)
-                .EUt(32768)
-                .save(provider);
-        Hk3HonkaiNetworkInjectorMachine.bindYield("honkai_network_injection", "inject_liquid_honkai", 16000L);
-
-        // 崩坏能结晶 → 网络：64 结晶 / 60 tick
-        Hk3RecipeTypesImpl.HONKAI_NETWORK_INJECTION_RECIPES.recipeBuilder("inject_honkai_crystal")
-                .circuitMeta(2)
-                .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 64))
-                .duration(60)
-                .EUt(32768)
-                .save(provider);
-        Hk3HonkaiNetworkInjectorMachine.bindYield("honkai_network_injection", "inject_honkai_crystal", 6400L);
-
-        // 纯 EU → 网络：100万 EU/t × 20 tick = 2000万 EU → 20000 崩坏能（精确 1000:1）
-        Hk3RecipeTypesImpl.HONKAI_NETWORK_INJECTION_RECIPES.recipeBuilder("inject_from_eu")
+        Hk3IndustrialRecipeTypes.COLLECTION.recipeBuilder(new ResourceLocation("hk3gtl", "industrial_liquid_sampling"))
                 .circuitMeta(3)
-                .duration(20)
-                .EUt(1_000_000)
-                .save(provider);
-        Hk3HonkaiNetworkInjectorMachine.bindYield("honkai_network_injection", "inject_from_eu", 20000L);
+                .notConsumable(betaItem("prototype_honkai_detector", 1))
+                .inputItems(com.gregtechceu.gtceu.api.data.tag.TagPrefix.plate, com.gregtechceu.gtceu.common.data.GTMaterials.StainlessSteel, 8)
+                .inputItems(com.gregtechceu.gtceu.api.data.tag.TagPrefix.wireGtSingle, com.gregtechceu.gtceu.common.data.GTMaterials.Copper, 16)
+                .inputItems(net.minecraft.world.item.Items.GLASS_PANE, 8)
+                .outputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(100))
+                .duration(200).EUt(MAX_EUT).save(provider);
+
+        com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate.bind("industrial_honkai_collection", "industrial_liquid_collection", "RN-DMT");
+        // 一阶探测器提升采集效率，但仍只在采集塔内作为非消耗工具使用。
+        Hk3IndustrialRecipeTypes.COLLECTION.recipeBuilder(new ResourceLocation("hk3gtl", "industrial_liquid_collection"))
+                .circuitMeta(4)
+                .notConsumable(betaItem("liquid_honkai_detector", 1))
+                .inputItems(com.gregtechceu.gtceu.api.data.tag.TagPrefix.plate, com.gregtechceu.gtceu.common.data.GTMaterials.TungstenSteel, 12)
+                .inputItems(com.gregtechceu.gtceu.api.data.tag.TagPrefix.wireFine, com.gregtechceu.gtceu.common.data.GTMaterials.Platinum, 24)
+                .notConsumable(betaItem("honkai_reference_sample", 4))
+                .outputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(2400))
+                .duration(600).EUt(MAX_EUT).save(provider);
     }
 
-    /** 注册崩坏能凝缩器配方：粒子转结晶(meta=1)或液态崩坏能(meta=2) */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static void addCondensationRecipes(Consumer<FinishedRecipe> provider) {
-        Hk3RecipeTypesImpl.HONKAI_CONDENSATION_RECIPES.recipeBuilder("particle_to_crystal")
-                .circuitMeta(1)
-                .inputItems(new ItemStack(HonkaiMaterialItems.RAW_HONKAI_PARTICLE.get(), 2048))
-                .outputItems(new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 64))
-                .duration(600)
-                .EUt(ABYSS_1_EUT)
-                .save(provider);
+        Hk3LiquidLineRecipes.processing(provider);
+        Hk3FuelRodBootstrapRecipes.register(provider);
+    }
 
-        Hk3RecipeTypesImpl.HONKAI_CONDENSATION_RECIPES.recipeBuilder("particle_to_liquid")
-                .circuitMeta(2)
-                .inputItems(new ItemStack(HonkaiMaterialItems.RAW_HONKAI_PARTICLE.get(), 2048))
-                .outputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(2304))
-                .duration(400)
-                .EUt(ABYSS_1_EUT)
-                .save(provider);
+    /** 液态、浓缩与结晶三条路径使用相同的正式网络结算。 */
+    public static void addNetworkInjectionRecipes(Consumer<FinishedRecipe> provider) {
+        Hk3LiquidLineRecipes.injection(provider);
     }
 }
+
+// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。

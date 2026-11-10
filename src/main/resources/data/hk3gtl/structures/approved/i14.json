@@ -1,0 +1,55 @@
+{
+  "key": "i14",
+  "source": "data/hk3gtl/approved_architecture/i14.json",
+  "machine": "hk3gtl:soulium_polymerization_die_caster",
+  "sha256": "252b7ba2da79dd527559be4f01890219698496b38332bf780ee6e184bbc1ff71",
+  "template_sha256": "b9e92d540dde2d5185b0a07ec15c6c28f51598504fffd4635072b12dd8acc5cd",
+  "approved_blueprint_sha256": "feb7bf9a7567b3d4e30739784480e3ac0fe8570fde8b5765daabe247b059d111",
+  "approved_nbt_sha256": "f34a09bfcf204459b66bb5e88ba58904560bb2fff509f9246c4c4c8dd3d754fe",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "controller": [
+    23,
+    3,
+    8
+  ],
+  "size_xyz": [
+    47,
+    39,
+    43
+  ],
+  "blocks": 13818,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {
+    "NANO_GROUP": "item_input",
+    "PRECURSOR": "fluid_input",
+    "PRODUCT": "item_output",
+    "TAIL_LIQUID": "fluid_output"
+  },
+  "installed_hatch_blocks": {
+    "NANO_GROUP": "gtceu:max_input_bus",
+    "PRECURSOR": "gtceu:max_input_hatch_4x",
+    "PRODUCT": "gtceu:max_output_bus",
+    "TAIL_LIQUID": "gtceu:max_output_hatch_4x"
+  },
+  "geometry_changes": "仅指定主控与接口替换，全部其他批准方块无变化",
+  "game_verified": false,
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-23T13:41:15+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准主控置中融合V2并要求实装",
+      "deleted": "I17旧海渊布局正式引用；批准归档无改动",
+      "added": "五台正式入口、精确几何、真实仓模板和批准来源身份",
+      "modified": "仅指定主控替换；模板仅另换声明接口为真实仓",
+      "purpose": "保持批准造型；配方开放、生存获取和实机成型另行验收"
+    }
+  ]
+}

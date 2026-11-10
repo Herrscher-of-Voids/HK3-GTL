@@ -1,8 +1,9 @@
 package com.sirin.hk3gtl.common.event;
 
 
-
+/** 中文说明：该处说明已按当前代码行为整理。*/
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.sirin.hk3gtl.common.communication.Hk3FirstContactService;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.gaze.Hk3GazeManager;
@@ -14,9 +15,6 @@ import com.sirin.hk3gtl.common.item.imaginary.ImaginaryCircuitItems;
 import com.sirin.hk3gtl.common.item.quantum.QuantumCircuitItems;
 import com.sirin.hk3gtl.common.material.SouliumMaterial;
 import com.sirin.hk3gtl.common.research.Hk3ResearchManager;
-import com.sirin.hk3gtl.common.dimension.Hk3Dimensions;
-import com.sirin.hk3gtl.common.dimension.Hk3GraduationData;
-import com.sirin.hk3gtl.common.entity.VoidQueenSirinEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.TagKey;
@@ -31,7 +29,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.player.AnvilRepairEvent;
@@ -57,7 +54,39 @@ import java.util.Locale;
  * - 多方块首次建成
  * - P2 第一版研究事件桥接
  */
+/**
+ * 【变更记录 #3】2026-09-30 15:49:23（第3次编号备注 · 内测5修订109）
+ * 删除：过期的计算或无运行依据的分支；保留历史备注。
+ * 新增／修改：原有注视事件增加明确来源键和持久去重；数值与触发条件不变，不追补旧记录，不以此完成新课题。
+ * 用途：统一注视与研究联动，服务端判定；不新增结构或贴图。
+ */
+/**
+ * 【变更记录 #4】2026-09-30 16:20:43（内测5修订110）
+ * 删除：被新版通知读取流程替代的旧分支，历史备注保留。
+ * 新增／修改：事件后附带提示持久入箱并按键去重；物品操作与命令反馈保持原入口。
+ * 用途：通知与业务结果分离，服务端授权和个人持久化；不改结构、贴图和贸易。
+ */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+/**
+ * 【变更记录 #1】2026-09-26 23:56:20（第 1 次备注 · 内测5修订76）
+ * - 删除：无，保留存档、历史备注和所有能量数值。
+ * - 新增：本地崩坏能仓余额与容量的 HW 单位。
+ * - 修改：仅右键查询显示文字，与双能源 GUI 单位一致。
+ * - 用途：统一玩家可见单位，不改变充放电、换算或持久化逻辑。
+ */
+/**
+ * 【变更记录 #2】2026-09-30 02:17:47（第2次备注 · 内测5修订107）
+ * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
+ * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
+ * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
+ * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
+ */
+/** 【变更记录 #5】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：毕业/传送/彩蛋/调试改为查询当前玩家，实体避免在已有坏结局演出时开启新会面；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
+/** 【变更记录 #6】2026-10-01 01:56:49（修订127）：删除：被替代的旧分支；新增/修改：移除未调用且日期错误的旧彩蛋时间副本，保留统一时钟入口与命名彩蛋；用途：个人收藏与正式资格分离，保留历史记录。 */
+/** 【变更记录 #7】2026-10-01 03:55:10（修订128）：删除：旧固定上限或被替代的分支；新增/修改：铁砧彩蛋取出时复核成品真实名称，非目标名立即清预览缓存，防取消改名后误触发；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #8】2026-10-01 04:09:54（修订128）：删除：旧固定上限或被替代的分支；新增/修改：真实铁砧取出后按成品精确中文名匹配独立规则，不承认预览或英文别名；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #9】2026-10-01 04:21:47（修订128）：删除：旧固定上限或被替代的分支；新增/修改：停止已退役的旧彩蛋轮询，其余正式剧情事件原样保留；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #10】2026-10-01 16:49:18（修订135）：删除E-MS-006持电路自动传送及孤立传送函数；新增无；修改仅保留原里程碑提示，正式终审由权威资格申请进入；用途：避免跳过100课题、工程及个人经历，旧实现保存在修订定向备份。 */
 public class Hk3EventManagerImpl {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -89,7 +118,7 @@ public class Hk3EventManagerImpl {
         if (player.tickCount % 20 != 0) return;
 
         checkMilestoneEvents(player);
-        Hk3EasterEggChecker.onPlayerTick(player);
+        // 修订128：500目录改由独立原生事件执行，不再运行旧彩蛋附近机器/库存差分轮询。
         Hk3FactionEventChecker.checkFactionEvents(player);
         // 事件检查完成后再同步事件型研究，避免依赖 Forge 订阅顺序并合并每秒入口。
         Hk3ResearchManager.onPlayerSecond(player);
@@ -113,20 +142,9 @@ public class Hk3EventManagerImpl {
             player.addItem(new ItemStack(HonkaiMaterialItems.RAW_HONKAI_PARTICLE.get(), 8));
         }
 
-        // E-OT-001: 奥托邀请 — 背包持有星门底座时触发，并赠送虚空万藏（唯一获取途径）
-        if (!Hk3EventService.isEventMarked(data, "E-OT-001")
-                && inventoryContainsByItemId(inv, "sgjourney", "classic_stargate_base_block")) {
-            if (Hk3EventService.tryTriggerFirstTime(player, "E-OT-001", "hk3gtl.event.ot001")) {
-                grantVoidArchives(player);
-            }
-            sendHint(player, "hk3gtl.event.ot001.hint");
-        }
-
-        // E-WL-001: 瓦尔特馈赠 — 首次在背包获得 MAX 级电路板（gtceu:circuits/max）
-        if (!Hk3EventService.isEventMarked(data, "E-WL-001")
-                && inventoryContainsTag(inv, GTCEU_MAX_CIRCUIT_TAG)) {
-            Hk3EventService.tryTriggerFirstTime(player, "E-WL-001", "hk3gtl.event.wl001");
-        }
+        // 内测5首信仅记录情报，禁止调用旧奖励/研究桥接；旧触发完整源码已归档。
+        // 中文备注：该处说明已按当前代码行为整理。
+        Hk3FirstContactService.checkInventory(player);
 
         // E-MS-002: 魂钢文明诞生 — 首次获得魂钢锭
         if (!Hk3EventService.isEventMarked(data, "E-MS-002") && inventoryContainsSouliumIngot(inv)) {
@@ -135,61 +153,57 @@ public class Hk3EventManagerImpl {
 
         // E-MS-003: 海渊突破 — 首次获得海渊I电路（仅里程碑与凝视，不再传送虚数维度）
         if (!Hk3EventService.isEventMarked(data, "E-MS-003")
-                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_1.get())) {
+                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HBV.get())) {
             if (Hk3EventService.tryTriggerFirstTime(player, "E-MS-003", "hk3gtl.event.ms003")) {
-                Hk3GazeManager.addGaze(player, 50);
+                Hk3GazeManager.addGazeOnce(player, 50, "milestone:E-MS-003");
             }
         }
 
         // E-MS-004: 深海征服 — 首次获得海渊IV电路
         if (!Hk3EventService.isEventMarked(data, "E-MS-004")
-                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_4.get())) {
+                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HDV.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-004", "hk3gtl.event.ms004");
         }
 
         // E-MS-005: 虚数觉醒 — 首次获得虚数I电路
         if (!Hk3EventService.isEventMarked(data, "E-MS-005")
-                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_1.get())) {
+                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QSV.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-005", "hk3gtl.event.ms005");
         }
 
-        // E-MS-006: 虚数掌控 — 背包持有虚数四·虚序主脑 → 里程碑 + 传送虚数维度（未完成终局对话时）
+        // E-MS-006仅记录电路里程碑，不作为终审工程或个人资格。
         if (!Hk3EventService.isEventMarked(data, "E-MS-006")
-                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get())) {
+                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QAV.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-006", "hk3gtl.event.ms006");
-            if (!Hk3GraduationData.get(player.serverLevel()).isGraduated()
-                    && !player.getPersistentData().getBoolean("hk3gtl_dialogue_done")) {
-                teleportToImaginaryDimension(player);
-            }
         }
 
         // E-MS-007: 量子跃迁 — 首次获得量子I电路
         if (!Hk3EventService.isEventMarked(data, "E-MS-007")
-                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_1.get())) {
+                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_IMV.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-007", "hk3gtl.event.ms007");
         }
 
         // E-MS-009: 量子极限 — 首次获得量子IV电路
         if (!Hk3EventService.isEventMarked(data, "E-MS-009")
-                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_4.get())) {
+                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_IWV.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-009", "hk3gtl.event.ms009");
         }
 
         // E-MS-010: 终焉降临 — 首次获得终焉I电路
         if (!Hk3EventService.isEventMarked(data, "E-MS-010")
-                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_1.get())) {
+                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_WFV.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-010", "hk3gtl.event.ms010");
         }
 
         // E-MS-012: 终焉极限 — 首次获得终焉III电路
         if (!Hk3EventService.isEventMarked(data, "E-MS-012")
-                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_3.get())) {
+                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_CIV.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-012", "hk3gtl.event.ms012");
         }
 
         // E-MS-013: 超越极限 — 首次获得终焉IV电路
         if (!Hk3EventService.isEventMarked(data, "E-MS-013")
-                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_4.get())) {
+                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_CEV.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-013", "hk3gtl.event.ms013");
         }
 
@@ -225,7 +239,7 @@ public class Hk3EventManagerImpl {
                 long amount = hatch.getContainer().getAmount();
                 long capacity = hatch.getContainer().getCapacity();
                 String typeStr = hatch.getHatchType().id;
-                player.sendSystemMessage(Component.literal(String.format("§b[%s] §f崩坏能: §a%d §f/ §e%d", typeStr, amount, capacity)));
+                player.sendSystemMessage(Component.literal(String.format("§b[%s] §f崩坏能: §a%d §f/ §e%d HW", typeStr, amount, capacity)));
             }
 
             event.setCanceled(true);
@@ -237,7 +251,7 @@ public class Hk3EventManagerImpl {
     public static void onAnvilUpdate(AnvilUpdateEvent event) {
         if (!(event.getPlayer() instanceof ServerPlayer player)) return;
         String mapped = mapAnvilNameToEvent(event.getName());
-        if (mapped == null) return;
+        if (mapped == null) { player.getPersistentData().remove(ANVIL_PENDING_EVENT_TAG); return; }
         player.getPersistentData().putString(ANVIL_PENDING_EVENT_TAG, mapped);
     }
 
@@ -245,8 +259,13 @@ public class Hk3EventManagerImpl {
     public static void onAnvilRepair(AnvilRepairEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         CompoundTag data = player.getPersistentData();
-        String eventId = data.getString(ANVIL_PENDING_EVENT_TAG);
-        if (eventId.isEmpty()) return;
+        data.remove(ANVIL_PENDING_EVENT_TAG);
+        var output=event.getOutput();
+        if(output.isEmpty()||!output.hasCustomHoverName())return;
+        com.sirin.hk3gtl.common.easter.Hk3EggRuntime.observe(player,"anvil_taken",
+            java.util.Map.of("name",output.getHoverName().getString()));
+        String eventId = mapAnvilNameToEvent(output.getHoverName().getString());
+        if (eventId==null) return;
         String langKey = langKeyForEvent(eventId);
         Hk3EventService.tryTriggerFirstTime(player, eventId, langKey);
         data.remove(ANVIL_PENDING_EVENT_TAG);
@@ -280,7 +299,7 @@ public class Hk3EventManagerImpl {
                 boolean first = !Hk3EventService.isEventMarked(data, "E-FB-005");
                 tryTrigger(player, data, "E-FB-005", "hk3gtl.event.fb005");
                 if (first) {
-                    Hk3GazeManager.addGaze(player, 20);
+                    Hk3GazeManager.addGazeOnce(player, 20, "milestone:E-FB-005");
                 }
             }
             case "abyss_research_analysis_matrix" ->
@@ -387,7 +406,7 @@ public class Hk3EventManagerImpl {
                 tryTrigger(player, data, "E-FB-013", "hk3gtl.event.fb013");
                 tryTrigger(player, data, "E-MS-008", "hk3gtl.event.ms008");
                 if (first) {
-                    Hk3GazeManager.addGaze(player, 50);
+                    Hk3GazeManager.addGazeOnce(player, 50, "milestone:E-FB-013");
                 }
             }
             case "hyperion_flagship" -> {
@@ -395,7 +414,7 @@ public class Hk3EventManagerImpl {
                 tryTrigger(player, data, "E-FB-015", "hk3gtl.event.fb015");
                 tryTrigger(player, data, "E-MS-011", "hk3gtl.event.ms011");
                 if (first) {
-                    Hk3GazeManager.addGaze(player, 80);
+                    Hk3GazeManager.addGazeOnce(player, 80, "milestone:E-FB-015");
                 }
             }
             case "civilization_validation_matrix" -> {
@@ -403,7 +422,7 @@ public class Hk3EventManagerImpl {
                 tryTrigger(player, data, "E-FB-016", "hk3gtl.event.fb016");
                 tryTrigger(player, data, "E-MS-014", "hk3gtl.event.ms014");
                 if (first) {
-                    Hk3GazeManager.addGaze(player, 100);
+                    Hk3GazeManager.addGazeOnce(player, 100, "milestone:E-FB-016");
                 }
             }
         }
@@ -428,7 +447,7 @@ public class Hk3EventManagerImpl {
             return;
         }
         data.putInt(VOLTAGE_TIER_TAG, current);
-        Hk3GazeManager.addGaze(player, 30);
+        Hk3GazeManager.addGazeOnce(player, 30, "voltage:" + current);
         if (hasAllVoltageCircuits(inv)) {
             Hk3EventService.tryTriggerFirstTime(player, "E-EG-028", "hk3gtl.event.eg028");
         }
@@ -436,22 +455,22 @@ public class Hk3EventManagerImpl {
 
     private static int detectVoltageTier(Inventory inv) {
         boolean[] tiers = new boolean[] {
-                inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_1.get()),
-                inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_2.get()),
-                inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_3.get()),
-                inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_4.get()),
-                inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_1.get()),
-                inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_2.get()),
-                inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_3.get()),
-                inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get()),
-                inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_1.get()),
-                inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_2.get()),
-                inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_3.get()),
-                inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_4.get()),
-                inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_1.get()),
-                inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_2.get()),
-                inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_3.get()),
-                inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_4.get())
+                inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HBV.get()),
+                inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HCV.get()),
+                inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HRV.get()),
+                inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HDV.get()),
+                inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QSV.get()),
+                inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QCV.get()),
+                inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QEV.get()),
+                inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QAV.get()),
+                inventoryContains(inv, QuantumCircuitItems.CIRCUIT_IMV.get()),
+                inventoryContains(inv, QuantumCircuitItems.CIRCUIT_ICV.get()),
+                inventoryContains(inv, QuantumCircuitItems.CIRCUIT_IRV.get()),
+                inventoryContains(inv, QuantumCircuitItems.CIRCUIT_IWV.get()),
+                inventoryContains(inv, FinalityCircuitItems.CIRCUIT_WFV.get()),
+                inventoryContains(inv, FinalityCircuitItems.CIRCUIT_WSV.get()),
+                inventoryContains(inv, FinalityCircuitItems.CIRCUIT_CIV.get()),
+                inventoryContains(inv, FinalityCircuitItems.CIRCUIT_CEV.get())
         };
         int highest = 0;
         for (int i = 0; i < tiers.length; i++) {
@@ -463,39 +482,22 @@ public class Hk3EventManagerImpl {
     }
 
     private static boolean hasAllVoltageCircuits(Inventory inv) {
-        return inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_1.get())
-                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_2.get())
-                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_3.get())
-                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_ABYSS_4.get())
-                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_1.get())
-                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_2.get())
-                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_3.get())
-                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get())
-                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_1.get())
-                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_2.get())
-                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_3.get())
-                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_QUANTUM_4.get())
-                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_1.get())
-                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_2.get())
-                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_3.get())
-                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_FINALITY_4.get());
-    }
-
-    private static void checkTimeAndDateEvents(ServerPlayer player) {
-        long dayTime = player.serverLevel().getDayTime() % 24000L;
-        if (dayTime >= 21000L && dayTime <= 22000L) {
-            Hk3EventService.tryTriggerFirstTime(player, "E-EG-053", "hk3gtl.event.eg053");
-        }
-        LocalDate now = LocalDate.now();
-        if (now.getMonthValue() == 4 && now.getDayOfMonth() == 1) {
-            Hk3EventService.tryTriggerFirstTime(player, "E-EG-051", "hk3gtl.event.eg051");
-        }
-        if (now.getMonthValue() == 12 && now.getDayOfMonth() == 25) {
-            Hk3EventService.tryTriggerFirstTime(player, "E-EG-052", "hk3gtl.event.eg052");
-        }
-        if (now.getMonthValue() == 6 && now.getDayOfMonth() == 9) {
-            Hk3EventService.tryTriggerFirstTime(player, "E-EG-058", "hk3gtl.event.eg058");
-        }
+        return inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HBV.get())
+                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HCV.get())
+                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HRV.get())
+                && inventoryContains(inv, AbyssCircuitItems.CIRCUIT_HDV.get())
+                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QSV.get())
+                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QCV.get())
+                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QEV.get())
+                && inventoryContains(inv, ImaginaryCircuitItems.CIRCUIT_QAV.get())
+                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_IMV.get())
+                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_ICV.get())
+                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_IRV.get())
+                && inventoryContains(inv, QuantumCircuitItems.CIRCUIT_IWV.get())
+                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_WFV.get())
+                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_WSV.get())
+                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_CIV.get())
+                && inventoryContains(inv, FinalityCircuitItems.CIRCUIT_CEV.get());
     }
 
     private static String mapAnvilNameToEvent(String name) {
@@ -550,7 +552,7 @@ public class Hk3EventManagerImpl {
         return false;
     }
 
-    /** 扫描背包是否包含指定物品（精确匹配 Item） */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static boolean inventoryContains(Inventory inv, Item item) {
         for (int i = 0; i < inv.getContainerSize(); i++) {
             if (inv.getItem(i).is(item)) return true;
@@ -567,10 +569,7 @@ public class Hk3EventManagerImpl {
         return inventoryContains(inv, item);
     }
 
-    /**
-     * 检查背包是否包含魂钢锭（需要通过 NBT 对比，因为 GT 材料物品的 Item 相同，靠 NBT 区分）。
-     * 首次调用时通过 ChemicalHelper 获取标准参考 ItemStack 并缓存。
-     */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static boolean inventoryContainsSouliumIngot(Inventory inv) {
         if (souliumIngotRef == null) {
             souliumIngotRef = ChemicalHelper.get(TagPrefix.ingot, SouliumMaterial.SOULIUM);
@@ -585,29 +584,7 @@ public class Hk3EventManagerImpl {
 
     /** 向玩家发送灰色提示消息（通常紧随事件消息之后） */
     private static void sendHint(ServerPlayer player, String key) {
-        player.sendSystemMessage(
-                Component.literal("§7").append(Component.translatable(key)));
+        com.sirin.hk3gtl.common.phone.Hk3PhoneService.notify(player,"hint_"+key,"记录补充",Component.translatable(key).getString());
     }
 
-    /**
-     * 将玩家传送至虚数维度（确保平台和西琳已生成，强制冒险模式）。
-     * 触发条件：背包检测到虚数四·虚序主脑且 E-MS-006 尚未标记、终局对话未完成。
-     */
-    private static void teleportToImaginaryDimension(ServerPlayer player) {
-        if (Hk3GraduationData.get(player.serverLevel()).isGraduated()) {
-            LOGGER.debug("[HK3GTL] 世界已毕业，跳过虚数维度传送");
-            return;
-        }
-        ServerLevel imaginary = player.server.getLevel(Hk3Dimensions.IMAGINARY);
-        if (imaginary == null) {
-            LOGGER.warn("[HK3GTL] 虚数维度未加载，无法传送玩家");
-            return;
-        }
-        VoidQueenSirinEntity.ensurePlatformAndEntity(imaginary);
-        player.setGameMode(GameType.ADVENTURE);
-        player.teleportTo(imaginary,
-                Hk3Dimensions.SPAWN_X + 0.5, Hk3Dimensions.SPAWN_Y, Hk3Dimensions.SPAWN_Z + 0.5,
-                0f, 0f);
-        LOGGER.info("[HK3GTL] 玩家 {} 持有虚数四·虚序主脑，已传送至虚数维度", player.getName().getString());
-    }
 }

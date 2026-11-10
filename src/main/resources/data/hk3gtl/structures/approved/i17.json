@@ -1,0 +1,55 @@
+{
+  "key": "i17",
+  "source": "data/hk3gtl/approved_architecture/i17.json",
+  "machine": "hk3gtl:honkai_fuel_concentration_plant",
+  "sha256": "3cb10f12506f64290df7bd16182943a1a68731ed80de880833351bf78f8b5b9d",
+  "template_sha256": "6270d9be80c8db5191b3562990f6677ffc2dead3a30e4475911417e11aeba638",
+  "approved_blueprint_sha256": "5e7bc163369375c6ef1f7e07baeec2cb2b50b59d3cce21f6ccb81a289cbce645",
+  "approved_nbt_sha256": "9a03928542b8c5070085e003a5742cb24cebb49fcdf1b777048f2a40516a983b",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "controller": [
+    24,
+    3,
+    20
+  ],
+  "size_xyz": [
+    49,
+    35,
+    55
+  ],
+  "blocks": 13254,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {
+    "LIQUID_FUEL": "fluid_input",
+    "STABILIZER": "item_input",
+    "CONCENTRATE": "fluid_output",
+    "RESIDUAL": "item_output"
+  },
+  "installed_hatch_blocks": {
+    "LIQUID_FUEL": "gtceu:max_input_hatch_4x",
+    "STABILIZER": "gtceu:max_input_bus",
+    "CONCENTRATE": "gtceu:max_output_hatch_4x",
+    "RESIDUAL": "gtceu:max_output_bus"
+  },
+  "geometry_changes": "仅指定主控与接口替换，全部其他批准方块无变化",
+  "game_verified": false,
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-23T13:41:15+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准主控置中融合V2并要求实装",
+      "deleted": "I17旧海渊布局正式引用；批准归档无改动",
+      "added": "五台正式入口、精确几何、真实仓模板和批准来源身份",
+      "modified": "仅指定主控替换；模板仅另换声明接口为真实仓",
+      "purpose": "保持批准造型；配方开放、生存获取和实机成型另行验收"
+    }
+  ]
+}

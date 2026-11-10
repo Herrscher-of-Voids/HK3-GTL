@@ -1,24 +1,44 @@
-# Build outputs and local dependencies
-.gradle/
-build/
-out/
-bin/
-run/
-libs/*.jar
+# 构建产物、本地依赖及缓存
+/.gradle*/
+/build/
+/out/
+/bin/
+/run/
+/libs/*.jar
+node_modules/
+__pycache__/
+*.py[cod]
 *.class
 *.log
-# Local workspace files
-.*
-!.gitignore
-!.gitattributes
+
+# 本地工作区、凭据及游戏数据
+/.idea/
+/.vscode/
+/.cursor/
+/.codemoss/
+/.aiassistant/
+/.dbg/
+/.tmp*/
+/AGENTS.md
+/rule/
+/logs/
+/deliveries/
+/archive/
+/output/
+/doc/
+/docs/
 *.iml
 *.ipr
 *.iws
-# Internal material
-doc/
-docs/
-archive/
-tools/
-node_modules/
-temp_*
-debug-*
+.env
+.env.*
+*.pem
+*.key
+*.jks
+*.keystore
+/temp_*
+/debug-*
+
+# 原始大蓝图由受校验的压缩源码自动恢复，禁止重复入库
+/src/main/resources/data/hk3gtl/approved_architecture/*.json
+/src/generated/**/.cache/

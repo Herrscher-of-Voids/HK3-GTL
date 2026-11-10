@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/causal_reconstruction/circuits/causal_reconstruction_computer"
+  },
+  "_history": [
+    "变更记录 #1 2026-09-26 22:06:33 修订75：负责人确认九套GT/GTL原图按13系列顺序轮用，仅整体染色，动画和透明度保留。"
+  ]
+}

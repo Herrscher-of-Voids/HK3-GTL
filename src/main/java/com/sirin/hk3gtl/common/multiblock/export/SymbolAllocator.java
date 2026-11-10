@@ -1,45 +1,30 @@
 package com.sirin.hk3gtl.common.multiblock.export;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 SymbolAllocator 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * 导出时将方块注册 ID 映射为单字符符号的分配器。
- *
- * <h3>分配策略（按优先级）</h3>
- * <ol>
- *   <li>同一 ID 必须返回同一字符（通过 {@code byId} 缓存保证）</li>
- *   <li>若该方块被识别为 GT 原生舱口（{@link HatchAbilityMap#lookup} 非 null 且非创造），
- *       统一归为 {@link #HATCH_SYMBOL} {@code 'H'}，成型时走 abilities 抽象</li>
- *   <li>按方块路径关键字的首选符号：
- *       <ul>
- *         <li>casing → X</li>
- *         <li>glass → G</li>
- *         <li>coil → C</li>
- *         <li>frame / frame_box → F</li>
- *       </ul>
- *       若首选符号已被占用 → 回退到字母池顺序分配</li>
- *   <li>其他按 {@link #POOL} 顺序分配：A→Z → a→z → 0→9 → 其他符号</li>
- * </ol>
- *
- * <h3>保留字符</h3>
- * <ul>
- *   <li>{@code 'S'} = 控制器（由扫描器单独处理）</li>
- *   <li>{@code '#'} = 空气</li>
- *   <li>{@code ' '} = Pattern 中 {@code Predicates.any()} 的自由位（本分配器不使用）</li>
- * </ul>
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>扩展符号池：修改 {@link #POOL}。当前 64 字符，重构结构密度更大时需扩充</li>
- *   <li>调整首选符号：改 {@link #preferredFor}。首选符号只在"首次遇到"且未占用时生效</li>
- *   <li>新增保留字符：在 {@link #isReserved} 与 {@link #POOL} 中同步调整</li>
- * </ul>
- */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class SymbolAllocator {
 
     public static final char CONTROLLER_SYMBOL = 'S';

@@ -1,0 +1,240 @@
+{
+  "key": "i26",
+  "machine": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch",
+  "source": "data/hk3gtl/approved_architecture/i26.json",
+  "sha256": "a965c9e7ce7bb605ec286d8ac82fac182d165c6af3254a4a57e49a0ea4cd5677",
+  "template_sha256": "e0a19d050f20f8b1c3b1ce007885541d061241a220f48d9c41db06cc7a813439",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_164410_339340_batch-07_04of05_I26_V5_QAV_外观已确认\\I26_葵涌码头_疏散货柜与随机集卡运营场景_V5_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_164410_339340_batch-07_04of05_I26_V5_QAV_外观已确认\\I26_葵涌码头_疏散货柜与随机集卡运营场景_V5_20261026\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_164410_339340_batch-07_04of05_I26_V5_QAV_外观已确认\\I26_葵涌码头_疏散货柜与随机集卡运营场景_V5_20261026\\i26\\hk3gtl-i26-operating-yard-v5-20261026.nbt",
+  "source_nbt_sha256": "ee2d74cec276062f90f73074f2e428874d27ce63bc6946522bfe684b4d58d6db",
+  "controller": [
+    166,
+    76,
+    119
+  ],
+  "size_xyz": [
+    333,
+    110,
+    301
+  ],
+  "blocks": 606452,
+  "ports": [
+    {
+      "id": "无人装置与耗材输入",
+      "purpose": "西侧维护坞输入候选",
+      "pos": [
+        0,
+        25,
+        144
+      ],
+      "face": "west",
+      "group": "item_input"
+    },
+    {
+      "id": "回收装置与磨损件输出",
+      "purpose": "东侧维护坞输出候选",
+      "pos": [
+        332,
+        25,
+        144
+      ],
+      "face": "east",
+      "group": "item_output"
+    },
+    {
+      "id": "冷却介质输入",
+      "purpose": "西侧冷却回路输入候选",
+      "pos": [
+        0,
+        34,
+        184
+      ],
+      "face": "west",
+      "group": "fluid_input"
+    },
+    {
+      "id": "冷却介质回流",
+      "purpose": "东侧冷却回路接口候选",
+      "pos": [
+        332,
+        34,
+        184
+      ],
+      "face": "east",
+      "group": "fluid_output"
+    },
+    {
+      "id": "任务授权与坐标输入",
+      "purpose": "后侧调度接口候选",
+      "pos": [
+        148,
+        29,
+        300
+      ],
+      "face": "south",
+      "group": "item_input"
+    },
+    {
+      "id": "供能输入",
+      "purpose": "后侧高压母线接口候选；额定EU待核验",
+      "pos": [
+        184,
+        29,
+        300
+      ],
+      "face": "south",
+      "group": "energy_input"
+    },
+    {
+      "id": "远征记录接口",
+      "purpose": "西侧任务记录接口候选",
+      "pos": [
+        0,
+        28,
+        248
+      ],
+      "face": "west",
+      "group": "item_input"
+    },
+    {
+      "id": "遗留档案输出",
+      "purpose": "东侧隔离档案出口候选",
+      "pos": [
+        332,
+        28,
+        248
+      ],
+      "face": "east",
+      "group": "item_output"
+    }
+  ],
+  "target_voltage": "QAV",
+  "installed_hatches": {
+    "无人装置与耗材输入": "item_input",
+    "回收装置与磨损件输出": "item_output",
+    "冷却介质输入": "fluid_input",
+    "冷却介质回流": "fluid_output",
+    "任务授权与坐标输入": "item_input",
+    "远征记录接口": "item_input",
+    "遗留档案输出": "item_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 34,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        0,
+        25,
+        144
+      ],
+      "role": "无人装置与耗材输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        332,
+        25,
+        144
+      ],
+      "role": "回收装置与磨损件输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        0,
+        28,
+        248
+      ],
+      "role": "远征记录接口",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        332,
+        28,
+        248
+      ],
+      "role": "遗留档案输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        148,
+        29,
+        300
+      ],
+      "role": "任务授权与坐标输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=south]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        184,
+        29,
+        300
+      ],
+      "role": "供能输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        0,
+        34,
+        184
+      ],
+      "role": "冷却介质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        332,
+        34,
+        184
+      ],
+      "role": "冷却介质回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        166,
+        76,
+        119
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch[facing=north]",
+      "block_entity_id": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch",
+  "controller_json_state": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch"
+}

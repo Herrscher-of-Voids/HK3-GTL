@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.common.narrative;
 
 
-
+/**
+ * 【文件职责】
+ * - 管理 Hk3NarrativeNodes 叙事节点与档案显示数据。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -43,6 +60,7 @@ import java.util.stream.Collectors;
  *   <li>用途：让文明档案卷轴可完整展示 100 彩蛋条目与触发条件</li>
  * </ul>
  */
+/** 【变更记录 #1】2026-10-01 03:50:42（修订128）：删除：旧固定上限或被替代的分支；新增/修改：从已审核资源目录注册稳定彩蛋ID，保留正式剧情和历史残篇节点；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
 public final class Hk3NarrativeNodes {
 
     /** 节点顺序表；LinkedHashMap 保证 GUI 显示顺序稳定 */
@@ -270,8 +288,8 @@ public final class Hk3NarrativeNodes {
         regEvents(Hk3NarrativeFaction.KIANA, "E-KI-001", "E-KI-002", "E-KI-003", "E-KI-004");
         regEvents(Hk3NarrativeFaction.LUNAR_BASE, "E-LB-001", "E-LB-002", "E-LB-003", "E-LB-004");
         regEvents(Hk3NarrativeFaction.TESLA, "E-TS-001", "E-TS-002", "E-TS-003");
-        for (int i = 1; i <= 100; i++) {
-            regEvent(String.format("E-EG-%03d", i), Hk3NarrativeFaction.EASTER_EGG);
+        for (var egg : com.sirin.hk3gtl.common.easter.Hk3EggCatalog.all()) {
+            regEvent(egg.id(), Hk3NarrativeFaction.EASTER_EGG);
         }
         return true;
     }

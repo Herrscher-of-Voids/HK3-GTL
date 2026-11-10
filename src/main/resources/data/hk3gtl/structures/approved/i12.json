@@ -1,0 +1,312 @@
+{
+  "key": "i12",
+  "source": "data/hk3gtl/approved_architecture/i12.json",
+  "machine": "hk3gtl:nano_self_organizing_programming_chamber",
+  "sha256": "876a21d993e27fe6e4fcd71f73092bd7253bd1dffd2889be5b17b24cbe905cb6",
+  "template_sha256": "6be58f94e597b1dc17967190dd92442d3dac22f5cbda273a2cc330a826e7b663",
+  "approved_blueprint_sha256": "e121aee29f3ef6d073f8381da7d44a9703ba61d422a2095b022a47e034f2e319",
+  "approved_nbt_sha256": "b4b6422f213df2d415a8e9e8cc0a7df5079a858f6ccdc3e764f0b392e7048851",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "controller": [
+    22,
+    3,
+    18
+  ],
+  "size_xyz": [
+    45,
+    37,
+    39
+  ],
+  "blocks": 8405,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {
+    "SAMPLE": "fluid_input",
+    "RETURN": "fluid_output",
+    "TEMPLATE": "item_input",
+    "DATA": "item_output"
+  },
+  "geometry_changes": "批准V2原几何；仅主控与六接口以原注册ID和原仓状态替换",
+  "game_verified": false,
+  "target_voltage": "HRV",
+  "target_casing": "hk3gtl:voltage_machine_casing_hrv",
+  "approval_quote": "实装这一些吧",
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-20T00:52:09+08:00",
+      "reason": "负责人明确采用整批21形态新配色",
+      "deleted": "无；旧归档、候选原件与旧正式资源快照保留",
+      "added": "明确目标电压、新批准来源与本次修改身份",
+      "modified": "主体配色采用已批候选，控制器/仓室与能力合同沿用原正式实现",
+      "purpose": "使已有Pattern和放置模板读取批准配色；游戏成型与运行仍待验收"
+    },
+    {
+      "record": 2,
+      "time": "2026-10-23T13:37:02+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准当前主控置中融合V2并要求实装",
+      "deleted": "旧独立接口载体的正式几何引用；旧正式文件应用前完整备份",
+      "added": "本次批准来源身份、新控制点及按ID迁移的接口布局",
+      "modified": "几何逐格采用V2，注册ID、原接口能力合同与真实仓完整状态保持",
+      "purpose": "既有Pattern与正式放置模板共用新坐标；游戏运行仍待实机验收"
+    }
+  ],
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "paste_anchor": [
+    0,
+    0,
+    0
+  ],
+  "controller_centering": {
+    "recorded_at": "2026-10-23T11:44:31+08:00",
+    "version": 2,
+    "summary": "原主控已在整机第23列，保留晶舱八角基座嵌入位置。",
+    "equipment_surface": "分面编程晶舱既有八角基座北面",
+    "equipment_integration_basis": "原钻石标记已嵌于编程晶舱自身的低位八角基座，具有实体背壳和原检修路径；本轮不改任何方块。",
+    "width": 45,
+    "center_column_1based": 23,
+    "center_x_0based": 22,
+    "old_controller": [
+      22,
+      3,
+      18
+    ],
+    "controller": [
+      22,
+      3,
+      18
+    ],
+    "moved": false,
+    "old_position_restored_state": null,
+    "new_position_replaced_state": null,
+    "maintenance_floor_added_cells": [],
+    "delta": {
+      "removed": 0,
+      "added": 0,
+      "replaced": 0
+    },
+    "changed_cells": [],
+    "ports_exactly_unchanged": true,
+    "existing_internal_core_markers_preserved": [
+      [
+        22,
+        16,
+        22
+      ],
+      [
+        22,
+        18,
+        22
+      ],
+      [
+        22,
+        20,
+        22
+      ]
+    ],
+    "size_baseline": {
+      "id": "I12",
+      "baseline_wdh": [
+        25,
+        29,
+        29
+      ],
+      "declared_xyz": [
+        45,
+        37,
+        39
+      ],
+      "actual_xyz": [
+        45,
+        37,
+        39
+      ],
+      "min_pos": [
+        0,
+        0,
+        0
+      ],
+      "max_pos": [
+        44,
+        36,
+        38
+      ],
+      "passed": true,
+      "source": "doc\\HK3GTL-内测5\\03_机器结构\\内测5_69座多方块逐台占地规划与比例预览_v2.html",
+      "axis_order": "总表宽长高；候选及实际范围宽高深"
+    },
+    "access": [
+      {
+        "id": "主控",
+        "pos": [
+          22,
+          3,
+          18
+        ],
+        "face": "north",
+        "front_clear": true,
+        "backing_solid": true,
+        "walk_access": true,
+        "operation_stand": [
+          22,
+          3,
+          17
+        ]
+      },
+      {
+        "id": "TEMPLATE",
+        "pos": [
+          5,
+          3,
+          11
+        ],
+        "face": "north",
+        "front_clear": true,
+        "backing_solid": true,
+        "walk_access": true,
+        "operation_stand": [
+          5,
+          2,
+          10
+        ]
+      },
+      {
+        "id": "SAMPLE",
+        "pos": [
+          20,
+          3,
+          18
+        ],
+        "face": "north",
+        "front_clear": true,
+        "backing_solid": true,
+        "walk_access": true,
+        "operation_stand": [
+          20,
+          3,
+          17
+        ]
+      },
+      {
+        "id": "POWER",
+        "pos": [
+          24,
+          3,
+          18
+        ],
+        "face": "north",
+        "front_clear": true,
+        "backing_solid": true,
+        "walk_access": true,
+        "operation_stand": [
+          24,
+          3,
+          17
+        ]
+      },
+      {
+        "id": "DATA",
+        "pos": [
+          39,
+          3,
+          11
+        ],
+        "face": "north",
+        "front_clear": true,
+        "backing_solid": true,
+        "walk_access": true,
+        "operation_stand": [
+          39,
+          2,
+          10
+        ]
+      },
+      {
+        "id": "NANITE",
+        "pos": [
+          26,
+          3,
+          20
+        ],
+        "face": "north",
+        "front_clear": true,
+        "backing_solid": true,
+        "walk_access": true,
+        "operation_stand": [
+          26,
+          2,
+          19
+        ]
+      },
+      {
+        "id": "RETURN",
+        "pos": [
+          39,
+          3,
+          19
+        ],
+        "face": "north",
+        "front_clear": true,
+        "backing_solid": true,
+        "walk_access": true,
+        "operation_stand": [
+          39,
+          2,
+          18
+        ]
+      }
+    ],
+    "paths_have_no_solid_cells": true,
+    "materials": "只复用本机V1材料；不改主体机壳、电压配色或I14/I15历史映射。",
+    "status": "独立V2候选；未批准、未正式接入、未部署和未实机验收",
+    "visual_review": "由专项视审记录逐台审视，静态核查不代替建筑外观批准。",
+    "source_blueprint": "deliveries/I01-I18_控制器接口融合修订_V1_20261023/i12/blueprint.json",
+    "source_sha256": "35b042dccd35f99927aa75b541b6ea72e4a9c8d7d386f41a41b3b43bdce3f510",
+    "rule_read_record": [
+      {
+        "path": "rule/hk3gtl java文件变更备注规范.md",
+        "sha256": "4b373131e62c098cbabe18994f40c47d044f48a87560760c0a1b6b73044d4b13",
+        "lines": 85,
+        "read_complete": true
+      },
+      {
+        "path": "rule/rules.md",
+        "sha256": "0f4cafb2bd96134733d30b22c3d55e5641430a414bd7b1cc05b0c629ce58cd75",
+        "lines": 139,
+        "read_complete": true
+      },
+      {
+        "path": "rule/崩坏三-gtl (hk3gtl) 项目规则.md",
+        "sha256": "bdc5b2a79e5947d79243477288c618ce0e020694673e7cb63fa2a5f06f65effe",
+        "lines": 246,
+        "read_complete": true
+      },
+      {
+        "path": "rule/巨构提示词.txt",
+        "sha256": "8daa24a907e02ab95498c73162ad334c305f856590676bbd48ba863824d1b602",
+        "lines": 259,
+        "read_complete": true
+      },
+      {
+        "path": "rule/当前多方块设计规则.md",
+        "sha256": "672ecf030c030eeb05a01d99feacc985b6294d5a363c7d893fd38c8bc2d704c2",
+        "lines": 125,
+        "read_complete": true
+      },
+      {
+        "path": "rule/系统角色设定.md",
+        "sha256": "ed6f0d6c8d455fe9d38432efd13dcad48aff03fbfa722f32068c16b7bd508e98",
+        "lines": 118,
+        "read_complete": true
+      }
+    ],
+    "passed": true,
+    "source_status": "外部确认清单已批准"
+  }
+}

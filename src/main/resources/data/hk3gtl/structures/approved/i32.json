@@ -1,0 +1,285 @@
+{
+  "key": "i32",
+  "machine": "hk3gtl:i32_relic_technology_reverse_laboratory",
+  "source": "data/hk3gtl/approved_architecture/i32.json",
+  "sha256": "35bf55caea8b12d0e88884be6b45df15c1ad46b3b54ecca7b469223844966552",
+  "template_sha256": "64f2abebb568e07163b4fe0b5364b2c97be08a5906f3ef35ea60d7af086a1d72",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_023834_753722_batch-08_04of05_I32_V1_QAV_外观已确认\\I32_遗留技术逆向实验室_遗构剖析院_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_023834_753722_batch-08_04of05_I32_V1_QAV_外观已确认\\I32_遗留技术逆向实验室_遗构剖析院_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_023834_753722_batch-08_04of05_I32_V1_QAV_外观已确认\\I32_遗留技术逆向实验室_遗构剖析院_V1_20261027\\i32\\hk3gtl-i32-relic-reverse-lab-v1-20261027.nbt",
+  "source_nbt_sha256": "61a706342e483184b40be88a7ab29c2b5d04de9cf79fe29bee14ed0c62d4abaf",
+  "controller": [
+    131,
+    28,
+    8
+  ],
+  "size_xyz": [
+    263,
+    197,
+    253
+  ],
+  "blocks": 1891199,
+  "ports": [
+    {
+      "id": "遗留技术残片输入",
+      "purpose": "残片接入隔离核验及成分/结构解析工位",
+      "pos": [
+        107,
+        28,
+        8
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "真实模拟日志输入",
+      "purpose": "真实和模拟档案独立来源交叉验证",
+      "pos": [
+        155,
+        28,
+        8
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "西侧实验供能",
+      "purpose": "断层扫描及精密制样设备供能候选位",
+      "pos": [
+        0,
+        28,
+        91
+      ],
+      "face": "west",
+      "group": "energy_input"
+    },
+    {
+      "id": "东侧实验供能",
+      "purpose": "镜像实验供能支路候选位",
+      "pos": [
+        262,
+        28,
+        91
+      ],
+      "face": "east",
+      "group": "energy_input"
+    },
+    {
+      "id": "西侧试剂输入",
+      "purpose": "消耗性实验试剂及制样介质入口候选位",
+      "pos": [
+        0,
+        28,
+        159
+      ],
+      "face": "west",
+      "group": "fluid_input"
+    },
+    {
+      "id": "东侧废试剂输出",
+      "purpose": "实验后废试剂独立输出候选位",
+      "pos": [
+        262,
+        28,
+        159
+      ],
+      "face": "east",
+      "group": "fluid_output"
+    },
+    {
+      "id": "逆向档案输出",
+      "purpose": "交研究系统判定证据，不能自动解锁或自动毕业",
+      "pos": [
+        107,
+        28,
+        244
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "复现样件输出",
+      "purpose": "耗费实验材料完成的可复现样件交付",
+      "pos": [
+        155,
+        28,
+        244
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "失败样件输出",
+      "purpose": "失败件保留并送缺陷诊断，不伪装成研究成功",
+      "pos": [
+        83,
+        28,
+        244
+      ],
+      "face": "south",
+      "group": "item_output"
+    },
+    {
+      "id": "实验材料输入",
+      "purpose": "复现与制样真实消耗材料，不开放免费蓝图复制",
+      "pos": [
+        179,
+        28,
+        244
+      ],
+      "face": "south",
+      "group": "item_input"
+    }
+  ],
+  "target_voltage": "QAV",
+  "installed_hatches": {
+    "遗留技术残片输入": "item_input",
+    "真实模拟日志输入": "item_input",
+    "西侧试剂输入": "fluid_input",
+    "东侧废试剂输出": "fluid_output",
+    "逆向档案输出": "item_output",
+    "复现样件输出": "item_output",
+    "失败样件输出": "item_output",
+    "实验材料输入": "item_input"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 180,
+  "materials": 30,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        107,
+        28,
+        8
+      ],
+      "role": "遗留技术残片输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        131,
+        28,
+        8
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i32_relic_technology_reverse_laboratory[facing=north]",
+      "block_entity_id": "hk3gtl:i32_relic_technology_reverse_laboratory"
+    },
+    {
+      "pos": [
+        155,
+        28,
+        8
+      ],
+      "role": "真实模拟日志输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        0,
+        28,
+        91
+      ],
+      "role": "西侧实验供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        262,
+        28,
+        91
+      ],
+      "role": "东侧实验供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        0,
+        28,
+        159
+      ],
+      "role": "西侧试剂输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        262,
+        28,
+        159
+      ],
+      "role": "东侧废试剂输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        83,
+        28,
+        244
+      ],
+      "role": "失败样件输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        107,
+        28,
+        244
+      ],
+      "role": "逆向档案输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        155,
+        28,
+        244
+      ],
+      "role": "复现样件输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        179,
+        28,
+        244
+      ],
+      "role": "实验材料输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=south]",
+      "block_entity_id": "gtceu:max_input_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i32_relic_technology_reverse_laboratory",
+  "process_scope": "正式建筑、控制器、原位仓室和完整预览接入；不开放暂定工艺或未实现的世界泡任务。"
+}

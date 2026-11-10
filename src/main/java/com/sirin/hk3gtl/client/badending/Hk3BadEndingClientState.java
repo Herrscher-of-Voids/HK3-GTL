@@ -12,7 +12,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 /**
- * 坏结局黑屏客户端状态机 —— 淡入计时 + 黑屏完成后退出到游戏主标题画面。
+ * 坏结局客户端过渡状态机 —— 抓取演出计时，最终黑屏后退出到游戏主标题画面。
  *
  * <p>退出流程与原版「保存并退出到标题」一致：断开世界 → 集成服务端存盘 → 返回 {@link TitleScreen}，
  * 保证世界数据（含"已被抹除"改名）正常落盘。</p>
@@ -23,8 +23,8 @@ import net.minecraftforge.fml.common.Mod;
 public final class Hk3BadEndingClientState {
 
     private static boolean active = false;
-    private static int fadeTicks = 60;
-    private static int holdTicks = 30;
+    private static int fadeTicks = 100;
+    private static int holdTicks = 35;
     private static int elapsed = 0;
     private static boolean returnToTitle = false;
     private static boolean exitIssued = false;
@@ -45,10 +45,17 @@ public final class Hk3BadEndingClientState {
         return active;
     }
 
-    /** 当前黑屏不透明度 0..1（淡入期间线性递增，之后保持全黑）。 */
-    public static float getAlpha() {
+    /** Continuous cinematic progress, including partial ticks for smooth HUD animation. */
+    public static float getProgress(float partialTick) {
         if (!active) return 0.0F;
-        return Mth.clamp((float) elapsed / (float) fadeTicks, 0.0F, 1.0F);
+        return Mth.clamp((elapsed + partialTick) / fadeTicks, 0.0F, 1.0F);
+    }
+
+    /** Black curtain rises after the impact rather than hiding the entire grab. */
+    public static float getAlpha(float partialTick) {
+        float progress = getProgress(partialTick);
+        if (progress < 0.72F) return 0.48F * Math.min(1.0F, progress / 0.55F);
+        return Mth.clamp(0.48F + (progress - 0.72F) / 0.28F * 0.52F, 0.0F, 1.0F);
     }
 
     @SubscribeEvent

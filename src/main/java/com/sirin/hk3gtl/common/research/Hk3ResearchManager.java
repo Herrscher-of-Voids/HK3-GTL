@@ -1,7 +1,19 @@
 package com.sirin.hk3gtl.common.research;
 
+/**
+ * 【文件职责／本轮边界】RN研究判定和同步读取当前团队知识，保留未迁移旧研究分支。
+ * 【变更记录 #1】2026-09-29 21:06:40（第 1 次编号备注 · 内测5修订100）
+ * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
+ * 新增／修改：RN研究判定和同步读取当前团队知识，保留未迁移旧研究分支。
+ * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
+ * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
+ * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
+ */
+
+/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
 
+/** 中文说明：该处说明已按当前代码行为整理。*/
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.civ.Hk3CivExchange;
 import com.sirin.hk3gtl.common.event.Hk3EventManager;
@@ -64,6 +76,18 @@ import java.util.stream.Collectors;
  *   <li><b>矩阵交互</b>：修改 {@link #ABYSS_RESEARCH_MATRIX_ID} 以替换研究矩阵方块 ID</li>
  * </ul>
  */
+/**
+ * 【变更记录 #2】2026-09-30 15:49:23（第2次编号备注 · 内测5修订109）
+ * 删除：过期的计算或无运行依据的分支；保留历史备注。
+ * 新增／修改：原有注视事件增加明确来源键和持久去重；数值与触发条件不变，不追补旧记录，不以此完成新课题。
+ * 用途：统一注视与研究联动，服务端判定；不新增结构或贴图。
+ */
+/**
+ * 【变更记录 #3】2026-09-30 16:20:43（内测5修订110）
+ * 删除：被新版通知读取流程替代的旧分支，历史备注保留。
+ * 新增／修改：旧研究成果与研究员闲话转入私人收件箱；闲话低优先，可关闭浮层，保留业务完成回调。
+ * 用途：通知与业务结果分离，服务端授权和个人持久化；不改结构、贴图和贸易。
+ */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Hk3ResearchManager {
 
@@ -112,6 +136,8 @@ public class Hk3ResearchManager {
 
         ResourceLocation clickedId = BuiltInRegistries.BLOCK.getKey(event.getLevel().getBlockState(event.getPos()).getBlock());
         if (!ABYSS_RESEARCH_MATRIX_ID.equals(clickedId)) return;
+        if (event.getLevel().getBlockEntity(event.getPos()) instanceof com.gregtechceu.gtceu.api.machine.IMachineBlockEntity be
+                && be.getMetaMachine() instanceof com.sirin.hk3gtl.common.machine.research.Hk3ResearchInstituteMachine) return;
 
         // Shift+右键留给终端自动搭建和其它 GT 原生交互。
         if (player.isShiftKeyDown()) return;
@@ -127,16 +153,22 @@ public class Hk3ResearchManager {
 
     /** 检查指定玩家是否已完成某研究节点（服务端 ServerPlayer 版本） */
     public static boolean isCompleted(ServerPlayer player, String researchId) {
+        if (researchId.startsWith("RN-")) return Hk3ResearchData.get(player).permits(Hk3ResearchData.get(player).scope(player.getUUID()), researchId);
+        if (Hk3ResearchNodes.get(researchId) == null) return false;
         return player.getPersistentData().getBoolean(TAG_PREFIX + researchId);
     }
 
     /** 检查指定玩家是否已完成某研究节点（通用 Player 版本，客户端/服务端均可用） */
     public static boolean isCompleted(Player player, String researchId) {
+        if (player instanceof ServerPlayer serverPlayer) return isCompleted(serverPlayer, researchId);
+        if (!researchId.startsWith("RN-") && Hk3ResearchNodes.get(researchId) == null) return false;
         return player.getPersistentData().getBoolean(TAG_PREFIX + researchId);
     }
 
     /** 检查 CompoundTag 中是否已完成某研究（用于批量检查时避免重复获取 persistentData） */
     public static boolean isCompleted(CompoundTag data, String researchId) {
+        // 中文备注：该处说明已按当前代码行为整理。
+        if (researchId.startsWith("RN-") || Hk3ResearchNodes.get(researchId) == null) return false;
         return data.getBoolean(TAG_PREFIX + researchId);
     }
 
@@ -414,7 +446,7 @@ public class Hk3ResearchManager {
         return ItemStack.EMPTY;
     }
 
-    /** 检查背包是否包含满足需求的物品（精确 Item+NBT 或 Tag 匹配，累计数量） */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static boolean inventoryContains(Inventory inventory, Hk3ResearchRequirement requirement,
                                              ItemStack candidate, int required) {
         int remaining = required;
@@ -457,7 +489,7 @@ public class Hk3ResearchManager {
         data.putBoolean(TAG_PREFIX + node.id(), true);
 
         LOGGER.info("[HK3GTL] 研究完成: {} (consumed={})", node.id(), consumedItems);
-        Hk3GazeManager.addGaze(player, 5);
+        Hk3GazeManager.addGazeOnce(player, 5, "legacy-research:" + node.id());
 
         // ── 三行剧情化聊天（由 ResearchAcademyChatter 提供人物 + 台词池）──
         String researcher = ResearchAcademyChatter.randomResearcher();
@@ -466,15 +498,10 @@ public class Hk3ResearchManager {
                 Component.translatable(node.nameKey()).getString());
         String progress = ResearchAcademyChatter.randomProgressLine("§e§l" + researchName + "§r");
 
-        // 头行：研究院电台抬头 + 研究员名牌 + 进展台词
-        player.sendSystemMessage(Component.literal("§6[崩坏能研究院] " + researcher + " " + progress));
-
-        // 次行：节点 unlockDescription 作为成果详情，灰色斜体呈现
-        player.sendSystemMessage(Component.literal("§7§o  ▸ ")
-                .append(Component.translatable(node.unlockDescriptionKey())));
-
-        // 尾行：内部花絮 / 彩蛋台词，营造研究院"有人味"的氛围
-        player.sendSystemMessage(Component.literal(ResearchAcademyChatter.randomFlavorLine()));
+        com.sirin.hk3gtl.common.phone.Hk3PhoneService.notify(player,"legacy_research_"+node.id(),
+                "研究完成｜"+researchName, researcher+"："+progress+"\n已开放："+Component.translatable(node.unlockDescriptionKey()).getString(),"research");
+        com.sirin.hk3gtl.common.phone.Hk3PhoneService.notify(player,"legacy_chatter_"+node.id(),
+                "通讯｜"+researcher,ResearchAcademyChatter.randomFlavorLine(),"chatter");
 
         Hk3FactionEventChecker.onResearchCompleted(player, node.id());
         Hk3EasterEggChecker.onResearchCompleted(player, node.id());
@@ -508,6 +535,18 @@ public class Hk3ResearchManager {
             }
         }
         appendNearestMatrixSnapshot(player, syncTag);
+        // 覆盖旧玩家标签中可能存在的RN伪造值，仅同步账本算出的只读结果。
+        // 中文备注：该处备注已按当前代码行为整理，不使用问号占位。
+        for (String key : java.util.List.copyOf(syncTag.getAllKeys())) {
+            if (key.startsWith(TAG_PREFIX + "RN-")) syncTag.remove(key);
+        }
+        Hk3ResearchData industrial = Hk3ResearchData.get(player);
+        for (String id : Hk3ResearchCatalog.bundled().topics().keySet()) {
+            if (industrial.completed(industrial.scope(player.getUUID()), id)) syncTag.putBoolean(TAG_PREFIX + id, true);
+        }
+        for (String tier : Hk3ResearchData.CIRCUIT_TIERS) {
+            if (industrial.canReconstruct(industrial.scope(player.getUUID()), tier)) syncTag.putBoolean(TAG_PREFIX + Hk3ResearchData.CIRCUIT_PREFIX + tier, true);
+        }
 
         Hk3Network.CHANNEL.send(
                 PacketDistributor.PLAYER.with(() -> player),
@@ -534,3 +573,5 @@ public class Hk3ResearchManager {
         syncTag.put("hk3gtl_research_matrix", matrixTag);
     }
 }
+
+// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。

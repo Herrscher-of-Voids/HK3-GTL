@@ -1,0 +1,787 @@
+{
+  "revision": 75,
+  "generated_at": "2026-09-26 22:06:33",
+  "entries": [
+    {
+      "id": "hbv_processor",
+      "source": "assets/gtceu/textures/item/nano_processor.png",
+      "source_sha256": "3b24ce020fba02a12d1abaeadce42809d373288365c90f305f2251567cd2ab3c",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hbv_processor.png",
+      "sha256": "5c0bacfea878d246c4458233091181fc24ef1826693c855df8453982a105884a",
+      "size": [
+        16,
+        16
+      ],
+      "family": "soulium_lattice",
+      "color": "#A45BDA",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "hcv_assembly",
+      "source": "assets/gtceu/textures/item/nano_processor_assembly.png",
+      "source_sha256": "5044c89a9b25bfa43af3fb3bcbca3d3deaa40c60c1abb85e0d7207150e5ccba1",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hcv_assembly.png",
+      "sha256": "7adace7558d1c588270a9bd4ac3d6ca1362162a08b7afdadd6adb00eff10db2e",
+      "size": [
+        16,
+        16
+      ],
+      "family": "soulium_lattice",
+      "color": "#A45BDA",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "hrv_computer",
+      "source": "assets/gtceu/textures/item/nano_processor_computer.png",
+      "source_sha256": "3209cc5d6dbd17445436e9e5e946377715883af6e21b23dbe9481dde7a541b7c",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hrv_computer.png",
+      "sha256": "0823a978500b5d2b73eb0db8262fbb56b6def9c998f8af58abe5c1a30a2c5f46",
+      "size": [
+        16,
+        16
+      ],
+      "family": "soulium_lattice",
+      "color": "#A45BDA",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "hdv_processor_mainframe",
+      "source": "assets/gtceu/textures/item/nano_processor_mainframe.png",
+      "source_sha256": "ea681d79670d32d6900a4afd578c5724995c037da160c9483ed0a68ecab16884",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hdv_processor_mainframe.png",
+      "sha256": "908a57dc064dc587b45e165b879c4533611cd75d28bfa275b021d531205f00ec",
+      "size": [
+        16,
+        80
+      ],
+      "family": "soulium_lattice",
+      "color": "#A45BDA",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "rhythmic_coupling_processor",
+      "source": "assets/gtceu/textures/item/quantum_processor.png",
+      "source_sha256": "ad811fc31b64609e26d6751eede113790e1d26f70af5897f5359bea2f048c3b0",
+      "destination": "assets/hk3gtl/textures/item/rhythmic_coupling/circuits/rhythmic_coupling_processor.png",
+      "sha256": "c174ce54d1ab8cf4adf3f51b27d7a094e94029cd655bc5d9efc49969d3b18b0f",
+      "size": [
+        16,
+        16
+      ],
+      "family": "rhythmic_coupling",
+      "color": "#DB70A5",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "rhythmic_coupling_assembly",
+      "source": "assets/gtceu/textures/item/quantum_processor_assembly.png",
+      "source_sha256": "0cfaff88c6e184ccdadd0817999d1907a9c305b698e757ff5575e62a772fde0c",
+      "destination": "assets/hk3gtl/textures/item/rhythmic_coupling/circuits/rhythmic_coupling_assembly.png",
+      "sha256": "09c573ad55674e849c5ed1a1f707a0c6b53fa5adb77033cef7453922206f3eb5",
+      "size": [
+        16,
+        16
+      ],
+      "family": "rhythmic_coupling",
+      "color": "#DB70A5",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "rhythmic_coupling_computer",
+      "source": "assets/gtceu/textures/item/quantum_processor_computer.png",
+      "source_sha256": "0d56337cba05743a348545370015ef29464fa640df25b93d29c32cf3f001e0be",
+      "destination": "assets/hk3gtl/textures/item/rhythmic_coupling/circuits/rhythmic_coupling_computer.png",
+      "sha256": "a27ee1d45f34cd4baf57b98ae857a3435e3e5ecc883ae84272e28b0f379da70a",
+      "size": [
+        16,
+        16
+      ],
+      "family": "rhythmic_coupling",
+      "color": "#DB70A5",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "rhythmic_coupling_processor_mainframe",
+      "source": "assets/gtceu/textures/item/quantum_processor_mainframe.png",
+      "source_sha256": "ba9d8fc2da717d9b6acba5c26fe1601c2aad33eca3507e766b1f41dd12be215a",
+      "destination": "assets/hk3gtl/textures/item/rhythmic_coupling/circuits/rhythmic_coupling_processor_mainframe.png",
+      "sha256": "04f6953d9ac32b9ebee4118eab688a869d899a3b626ee4db9268d73560251ff1",
+      "size": [
+        16,
+        112
+      ],
+      "family": "rhythmic_coupling",
+      "color": "#DB70A5",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "honkai_resonance_processor",
+      "source": "assets/gtceu/textures/item/crystal_processor.png",
+      "source_sha256": "64b9962685cb752c1cbb9b8511e981a4fd10d95a5885d1d5a400f07f9811a36f",
+      "destination": "assets/hk3gtl/textures/item/honkai_resonance/circuits/honkai_resonance_processor.png",
+      "sha256": "2bc03cdb71404ea82cfd9b735f23b1b368e0f9f8234e6c5b95f8629aa9762498",
+      "size": [
+        16,
+        112
+      ],
+      "family": "honkai_resonance",
+      "color": "#CC68F1",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "honkai_resonance_assembly",
+      "source": "assets/gtceu/textures/item/crystal_processor_assembly.png",
+      "source_sha256": "c587118482674f2cd5544927ace882a72cab71ff52cdcd3cc41dcd391ed86b25",
+      "destination": "assets/hk3gtl/textures/item/honkai_resonance/circuits/honkai_resonance_assembly.png",
+      "sha256": "6eb49af165d963cbc4fc6d1fed8ea1a23bc6fba78ea4fa7562ef61f2ade0964c",
+      "size": [
+        16,
+        112
+      ],
+      "family": "honkai_resonance",
+      "color": "#CC68F1",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "honkai_resonance_computer",
+      "source": "assets/gtceu/textures/item/crystal_processor_computer.png",
+      "source_sha256": "a08ca01e5147cd0156f0deebf79702b6f64cc2932b1262d6c88d905ca15b09cb",
+      "destination": "assets/hk3gtl/textures/item/honkai_resonance/circuits/honkai_resonance_computer.png",
+      "sha256": "15ceb31778343421e7dbacaa660b45fd9a7ec265b6cf651feef7c878d54050a8",
+      "size": [
+        16,
+        16
+      ],
+      "family": "honkai_resonance",
+      "color": "#CC68F1",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "honkai_resonance_processor_mainframe",
+      "source": "assets/gtceu/textures/item/crystal_processor_mainframe.png",
+      "source_sha256": "c5198b405b9b816778e3fd3d37d4422a468c63f4966a8864e0469357728cddb9",
+      "destination": "assets/hk3gtl/textures/item/honkai_resonance/circuits/honkai_resonance_processor_mainframe.png",
+      "sha256": "53d1539359ce4faae44d10aef3fbd3330cc6b5e7898233f12fdd795197e9e3c1",
+      "size": [
+        16,
+        128
+      ],
+      "family": "honkai_resonance",
+      "color": "#CC68F1",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "quantum_bridge_processor",
+      "source": "assets/gtceu/textures/item/wetware_processor.png",
+      "source_sha256": "44303b3d7b24217570034fc4e6c40689691e8b5d3c3297bcdd537cec85b2b2ce",
+      "destination": "assets/hk3gtl/textures/item/quantum_bridge/circuits/quantum_bridge_processor.png",
+      "sha256": "6279455dc0b11ea2a907f7d77cd0bbf80d8dadab25bfac6f578741707fbd0b99",
+      "size": [
+        16,
+        144
+      ],
+      "family": "quantum_bridge",
+      "color": "#62B5D5",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "quantum_bridge_assembly",
+      "source": "assets/gtceu/textures/item/wetware_processor_assembly.png",
+      "source_sha256": "7bcf2f6b4a7a71534e47ac1c7cf041e4020241148493f2c1982da03af9f926f1",
+      "destination": "assets/hk3gtl/textures/item/quantum_bridge/circuits/quantum_bridge_assembly.png",
+      "sha256": "90bc42f8b9f748a7163db0564089e8d04e2605e20c6736159bc2f793be42c1a9",
+      "size": [
+        16,
+        112
+      ],
+      "family": "quantum_bridge",
+      "color": "#62B5D5",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "quantum_bridge_computer",
+      "source": "assets/gtceu/textures/item/wetware_processor_computer.png",
+      "source_sha256": "cace184053ca188d0c97b0ae4b988b697a19adb00bcddeb10bf9fb39d4fb8027",
+      "destination": "assets/hk3gtl/textures/item/quantum_bridge/circuits/quantum_bridge_computer.png",
+      "sha256": "b431ba693aef8d76afb8967e6a5291512f3ee86092111473e046af600093aca6",
+      "size": [
+        16,
+        144
+      ],
+      "family": "quantum_bridge",
+      "color": "#62B5D5",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "quantum_bridge_processor_mainframe",
+      "source": "assets/gtceu/textures/item/wetware_processor_mainframe.png",
+      "source_sha256": "4c322d4df7085ed9850299bb7166c6874ea2ec56ceaccb067b450773bdc8590b",
+      "destination": "assets/hk3gtl/textures/item/quantum_bridge/circuits/quantum_bridge_processor_mainframe.png",
+      "sha256": "7399df7726a3b96f491d805928d0b7d3b0adc6095a00c1e86fd9e341e642293e",
+      "size": [
+        16,
+        128
+      ],
+      "family": "quantum_bridge",
+      "color": "#62B5D5",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "qsv_processor",
+      "source": "assets/kubejs/textures/item/bioware_processor.png",
+      "source_sha256": "f47bb1948e7d95af05c61ae14a2d399dd925b5a9fe8876d38823d2bd3e895c78",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qsv_processor.png",
+      "sha256": "14cff3428bc461dacd6e01c6882f1c14ea39498dcabfab58dc91c56638ec41ed",
+      "size": [
+        16,
+        144
+      ],
+      "family": "quantum_coherence",
+      "color": "#22BCD2",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "qcv_assembly",
+      "source": "assets/kubejs/textures/item/bioware_assembly.png",
+      "source_sha256": "0b60138be5f5dc90d15cca7bdc6537ba45121301775d4d0cd2f2655d9a98493b",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qcv_assembly.png",
+      "sha256": "a55add4e898e77ddb8a5150db30fbe6e46bc5d12911482b4823487c586445d41",
+      "size": [
+        16,
+        112
+      ],
+      "family": "quantum_coherence",
+      "color": "#22BCD2",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "qev_computer",
+      "source": "assets/kubejs/textures/item/bioware_computer.png",
+      "source_sha256": "f698868f0dfefddaa7503b2f59e7287e920ace376d05b4a3fece0836db5711ad",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qev_computer.png",
+      "sha256": "f3dbd1ecb502834ad110c28070042e82e4a2d1bf14b0cabb2ef4cee464817408",
+      "size": [
+        16,
+        144
+      ],
+      "family": "quantum_coherence",
+      "color": "#22BCD2",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "qav_processor_mainframe",
+      "source": "assets/kubejs/textures/item/bioware_mainframe.png",
+      "source_sha256": "38c4438ba7b6fe53b756102b57d0880288713b8f2793ea38e7939336598ba1e8",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qav_processor_mainframe.png",
+      "sha256": "a6616465221e644e9e313aa1bddbe4d74be8877fab9b617baf0d0b2f954d3621",
+      "size": [
+        16,
+        144
+      ],
+      "family": "quantum_coherence",
+      "color": "#22BCD2",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "quantum_interference_processor",
+      "source": "assets/kubejs/textures/item/optical_processor.png",
+      "source_sha256": "f47447ea5c04ec2bef85d27a89df9ff9333d78845d623e8225073c0e00d80099",
+      "destination": "assets/hk3gtl/textures/item/quantum_interference/circuits/quantum_interference_processor.png",
+      "sha256": "de79837d588a5e96217de64ea3744abccddecfba118feffab99d341932144530",
+      "size": [
+        16,
+        112
+      ],
+      "family": "quantum_interference",
+      "color": "#55D9A2",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "quantum_interference_assembly",
+      "source": "assets/kubejs/textures/item/optical_assembly.png",
+      "source_sha256": "fe095a8b59c7820b347330f7e0dddeddf4ad15374c482a4905c69ff56cf5be6f",
+      "destination": "assets/hk3gtl/textures/item/quantum_interference/circuits/quantum_interference_assembly.png",
+      "sha256": "75d07c801b26a146cfaab9eb9ae8c55f4de57c22b75a6ebf0d5d5b213286520d",
+      "size": [
+        16,
+        96
+      ],
+      "family": "quantum_interference",
+      "color": "#55D9A2",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "quantum_interference_computer",
+      "source": "assets/kubejs/textures/item/optical_computer.png",
+      "source_sha256": "764c1b5febe51eb41a6274cfdd6a8cfa13f80ecb775453c402d08ede8b7346e0",
+      "destination": "assets/hk3gtl/textures/item/quantum_interference/circuits/quantum_interference_computer.png",
+      "sha256": "a578583073e834ca346326349839e1c7b716a0e22f94bed189fd42762bd24a4c",
+      "size": [
+        16,
+        128
+      ],
+      "family": "quantum_interference",
+      "color": "#55D9A2",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "quantum_interference_processor_mainframe",
+      "source": "assets/kubejs/textures/item/optical_mainframe.png",
+      "source_sha256": "4b44c88aa29262a4c1e9374d574d3dcb62336677395cf61cbfaf2a0c845ec32b",
+      "destination": "assets/hk3gtl/textures/item/quantum_interference/circuits/quantum_interference_processor_mainframe.png",
+      "sha256": "0b194c1f7ba01e7e39d1e608d6de139dcb49e2a24e314d190db3c12f51a5ae46",
+      "size": [
+        16,
+        128
+      ],
+      "family": "quantum_interference",
+      "color": "#55D9A2",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "entanglement_anchor_processor",
+      "source": "assets/kubejs/textures/item/exotic_processor.png",
+      "source_sha256": "779433e1d09c9cd5ec0303926c1dae81f5d611deafc66e9bf9bfa4c445b4dbf6",
+      "destination": "assets/hk3gtl/textures/item/entanglement_anchor/circuits/entanglement_anchor_processor.png",
+      "sha256": "bf7cbc256e90732b08c3402af1a5798df96c473b4ad2223b38aba6fa405a8b55",
+      "size": [
+        16,
+        96
+      ],
+      "family": "entanglement_anchor",
+      "color": "#4784EA",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "entanglement_anchor_assembly",
+      "source": "assets/kubejs/textures/item/exotic_assembly.png",
+      "source_sha256": "a8ba1678436c4f670d2908779556b4fdd2b2687a19aba1bf9a77d4eda9f573c5",
+      "destination": "assets/hk3gtl/textures/item/entanglement_anchor/circuits/entanglement_anchor_assembly.png",
+      "sha256": "5268b73cf1a40dccfe8f3cd1fb4ea743e308908a54abfed366961d860fc58c78",
+      "size": [
+        16,
+        96
+      ],
+      "family": "entanglement_anchor",
+      "color": "#4784EA",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "entanglement_anchor_computer",
+      "source": "assets/kubejs/textures/item/exotic_computer.png",
+      "source_sha256": "9be52820806c1e1c55e7d0025075ce1d429ac6f095653f093ac4b00e72eed975",
+      "destination": "assets/hk3gtl/textures/item/entanglement_anchor/circuits/entanglement_anchor_computer.png",
+      "sha256": "0d249be8e3388f9cbc2d36d941a02de45f8d474e8e1a29989f0cd56ce54b1b32",
+      "size": [
+        16,
+        96
+      ],
+      "family": "entanglement_anchor",
+      "color": "#4784EA",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "entanglement_anchor_processor_mainframe",
+      "source": "assets/kubejs/textures/item/exotic_mainframe.png",
+      "source_sha256": "45a8948cdb60bfd64fd3edf24f6550a19f4f64f4f26d3daa44381f0da4fba555",
+      "destination": "assets/hk3gtl/textures/item/entanglement_anchor/circuits/entanglement_anchor_processor_mainframe.png",
+      "sha256": "fc87e412d9af0da38029206d43a84da42e78d19d2924f2d10a72b38faa258c13",
+      "size": [
+        16,
+        128
+      ],
+      "family": "entanglement_anchor",
+      "color": "#4784EA",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "imaginary_anchoring_processor",
+      "source": "assets/kubejs/textures/item/cosmic_processor.png",
+      "source_sha256": "54886bba89482f26904f657876465cba6be225b391bc18f574b9078c1b44e296",
+      "destination": "assets/hk3gtl/textures/item/imaginary_anchoring/circuits/imaginary_anchoring_processor.png",
+      "sha256": "21275ffbef3b567961604e90b27136f9d7a3013e4c213c619bf35d1d5add263a",
+      "size": [
+        16,
+        96
+      ],
+      "family": "imaginary_anchoring",
+      "color": "#7695DD",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "imaginary_anchoring_assembly",
+      "source": "assets/kubejs/textures/item/cosmic_assembly.png",
+      "source_sha256": "d884e4d8e524d844eb6bcdd7fc14fad5105f77efd6827440cb9c7d6006a895af",
+      "destination": "assets/hk3gtl/textures/item/imaginary_anchoring/circuits/imaginary_anchoring_assembly.png",
+      "sha256": "b76e02dd2544cbd9a2cbf460e8e466729aca38adc36629ba9e8f8cb32aec6245",
+      "size": [
+        16,
+        96
+      ],
+      "family": "imaginary_anchoring",
+      "color": "#7695DD",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "imaginary_anchoring_computer",
+      "source": "assets/kubejs/textures/item/cosmic_computer.png",
+      "source_sha256": "53f9ebead2b319ae77c0021dfd7b257760a98450da3095c8b10c741d5d3ddd71",
+      "destination": "assets/hk3gtl/textures/item/imaginary_anchoring/circuits/imaginary_anchoring_computer.png",
+      "sha256": "8dba0b4148c22e91c260e6b4b89a957fb73c2e478c1b9797d332740f3fdd344d",
+      "size": [
+        16,
+        96
+      ],
+      "family": "imaginary_anchoring",
+      "color": "#7695DD",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "imaginary_anchoring_processor_mainframe",
+      "source": "assets/kubejs/textures/item/cosmic_mainframe.png",
+      "source_sha256": "1fd352da1923428d352dbff270ee75b27b9c3447b4dd779362ad37671c1b355a",
+      "destination": "assets/hk3gtl/textures/item/imaginary_anchoring/circuits/imaginary_anchoring_processor_mainframe.png",
+      "sha256": "9c8ed44e867410d21a6b265f2ffbf7c6f2bfedbfee09277e2c6d709dbb510138",
+      "size": [
+        16,
+        128
+      ],
+      "family": "imaginary_anchoring",
+      "color": "#7695DD",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "imv_processor",
+      "source": "assets/kubejs/textures/item/supracausal_processor.png",
+      "source_sha256": "3e2feaf76b432db444175925f36b7290987cf6c492086e99defcb46f6458c2ea",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/imv_processor.png",
+      "sha256": "953e0de0cc5050448f52454f70b15b8c5bbd2e18479a09fed085bd8cbc54fbf1",
+      "size": [
+        16,
+        256
+      ],
+      "family": "imaginary_reconstruction",
+      "color": "#EBA630",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "icv_assembly",
+      "source": "assets/kubejs/textures/item/supracausal_assembly.png",
+      "source_sha256": "d085190c9cc30335f74c38573773f508608e89020affa72f5b3e485566c2f742",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/icv_assembly.png",
+      "sha256": "e38d628087cf3b56693a9d1b5394c143d795f9b55a22bf011195a43bd100a2d7",
+      "size": [
+        16,
+        256
+      ],
+      "family": "imaginary_reconstruction",
+      "color": "#EBA630",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "irv_computer",
+      "source": "assets/kubejs/textures/item/supracausal_computer.png",
+      "source_sha256": "93a0bf17134a63370a956a7ff2b6fcaee5f9ea618a91212d12f9f0dde32b11df",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/irv_computer.png",
+      "sha256": "9f20b85f562c16a4ef23fe43b03433724c7eb275ec16709b07453aa143e325bf",
+      "size": [
+        16,
+        256
+      ],
+      "family": "imaginary_reconstruction",
+      "color": "#EBA630",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "iwv_processor_mainframe",
+      "source": "assets/kubejs/textures/item/supracausal_mainframe.png",
+      "source_sha256": "8bdf5603401b17991f5b2c55019d0404938dbacc863480b2ef90893943a1172b",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/iwv_processor_mainframe.png",
+      "sha256": "ed950ac4bf78b9402c1e02c25106c504e4968963db19f768e0ad75a10b6bb1fd",
+      "size": [
+        16,
+        256
+      ],
+      "family": "imaginary_reconstruction",
+      "color": "#EBA630",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "causal_reconstruction_processor",
+      "source": "assets/gtceu/textures/item/nano_processor.png",
+      "source_sha256": "3b24ce020fba02a12d1abaeadce42809d373288365c90f305f2251567cd2ab3c",
+      "destination": "assets/hk3gtl/textures/item/causal_reconstruction/circuits/causal_reconstruction_processor.png",
+      "sha256": "513f5803146f5f1af1893750655a9f25ed02ebecfb8c9df3bf7622d34c19783d",
+      "size": [
+        16,
+        16
+      ],
+      "family": "causal_reconstruction",
+      "color": "#F0C759",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "causal_reconstruction_assembly",
+      "source": "assets/gtceu/textures/item/nano_processor_assembly.png",
+      "source_sha256": "5044c89a9b25bfa43af3fb3bcbca3d3deaa40c60c1abb85e0d7207150e5ccba1",
+      "destination": "assets/hk3gtl/textures/item/causal_reconstruction/circuits/causal_reconstruction_assembly.png",
+      "sha256": "06c58e6e88522cfcedcb0db6dd0a3acdba7ee48c338328764aef6268ea234386",
+      "size": [
+        16,
+        16
+      ],
+      "family": "causal_reconstruction",
+      "color": "#F0C759",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "causal_reconstruction_computer",
+      "source": "assets/gtceu/textures/item/nano_processor_computer.png",
+      "source_sha256": "3209cc5d6dbd17445436e9e5e946377715883af6e21b23dbe9481dde7a541b7c",
+      "destination": "assets/hk3gtl/textures/item/causal_reconstruction/circuits/causal_reconstruction_computer.png",
+      "sha256": "0a907373e44c899f215207ccc5e4532777359643d0e0cc8232acb74bbd46ab5b",
+      "size": [
+        16,
+        16
+      ],
+      "family": "causal_reconstruction",
+      "color": "#F0C759",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "causal_reconstruction_processor_mainframe",
+      "source": "assets/gtceu/textures/item/nano_processor_mainframe.png",
+      "source_sha256": "ea681d79670d32d6900a4afd578c5724995c037da160c9483ed0a68ecab16884",
+      "destination": "assets/hk3gtl/textures/item/causal_reconstruction/circuits/causal_reconstruction_processor_mainframe.png",
+      "sha256": "45d4c535f627224067290285cd8a461ee63bbe426422a24c8fd3c8ad47262bc2",
+      "size": [
+        16,
+        80
+      ],
+      "family": "causal_reconstruction",
+      "color": "#F0C759",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "world_weaving_processor",
+      "source": "assets/gtceu/textures/item/quantum_processor.png",
+      "source_sha256": "ad811fc31b64609e26d6751eede113790e1d26f70af5897f5359bea2f048c3b0",
+      "destination": "assets/hk3gtl/textures/item/world_weaving/circuits/world_weaving_processor.png",
+      "sha256": "67190e133d776f9ba04709e90508869df0fb4bcd76e00fd572f5ef7d649923f4",
+      "size": [
+        16,
+        16
+      ],
+      "family": "world_weaving",
+      "color": "#BFD57E",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "world_weaving_assembly",
+      "source": "assets/gtceu/textures/item/quantum_processor_assembly.png",
+      "source_sha256": "0cfaff88c6e184ccdadd0817999d1907a9c305b698e757ff5575e62a772fde0c",
+      "destination": "assets/hk3gtl/textures/item/world_weaving/circuits/world_weaving_assembly.png",
+      "sha256": "b1e3b4632b43a9cdda75d4139a294b91726900af0eca8be6c7855c210628d07c",
+      "size": [
+        16,
+        16
+      ],
+      "family": "world_weaving",
+      "color": "#BFD57E",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "world_weaving_computer",
+      "source": "assets/gtceu/textures/item/quantum_processor_computer.png",
+      "source_sha256": "0d56337cba05743a348545370015ef29464fa640df25b93d29c32cf3f001e0be",
+      "destination": "assets/hk3gtl/textures/item/world_weaving/circuits/world_weaving_computer.png",
+      "sha256": "d6ebeb688cea99308621efc308fc66359aee207214a8f334a3c329098fa5e83e",
+      "size": [
+        16,
+        16
+      ],
+      "family": "world_weaving",
+      "color": "#BFD57E",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "world_weaving_processor_mainframe",
+      "source": "assets/gtceu/textures/item/quantum_processor_mainframe.png",
+      "source_sha256": "ba9d8fc2da717d9b6acba5c26fe1601c2aad33eca3507e766b1f41dd12be215a",
+      "destination": "assets/hk3gtl/textures/item/world_weaving/circuits/world_weaving_processor_mainframe.png",
+      "sha256": "8d1890c1645fbf6eb831acb7555bf0e0a699e489c37b22f0a102535e35b5a133",
+      "size": [
+        16,
+        112
+      ],
+      "family": "world_weaving",
+      "color": "#BFD57E",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "terminal_computation_processor",
+      "source": "assets/gtceu/textures/item/crystal_processor.png",
+      "source_sha256": "64b9962685cb752c1cbb9b8511e981a4fd10d95a5885d1d5a400f07f9811a36f",
+      "destination": "assets/hk3gtl/textures/item/terminal_computation/circuits/terminal_computation_processor.png",
+      "sha256": "8ef2013db9b2affe21731fe7dc6798dc912b71e2ee9b9526af9efdfb807c1fff",
+      "size": [
+        16,
+        112
+      ],
+      "family": "terminal_computation",
+      "color": "#C986DB",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "terminal_computation_assembly",
+      "source": "assets/gtceu/textures/item/crystal_processor_assembly.png",
+      "source_sha256": "c587118482674f2cd5544927ace882a72cab71ff52cdcd3cc41dcd391ed86b25",
+      "destination": "assets/hk3gtl/textures/item/terminal_computation/circuits/terminal_computation_assembly.png",
+      "sha256": "c8fccdb49d01ffecfc8b6fe7e93f450e1541fc9041505a321dd7df0e0f24af1f",
+      "size": [
+        16,
+        112
+      ],
+      "family": "terminal_computation",
+      "color": "#C986DB",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "terminal_computation_computer",
+      "source": "assets/gtceu/textures/item/crystal_processor_computer.png",
+      "source_sha256": "a08ca01e5147cd0156f0deebf79702b6f64cc2932b1262d6c88d905ca15b09cb",
+      "destination": "assets/hk3gtl/textures/item/terminal_computation/circuits/terminal_computation_computer.png",
+      "sha256": "ee9b0529403fed858bc96a66c4ef28cabbcdb84270e8ecbb6370340fc3096d4c",
+      "size": [
+        16,
+        16
+      ],
+      "family": "terminal_computation",
+      "color": "#C986DB",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "terminal_computation_processor_mainframe",
+      "source": "assets/gtceu/textures/item/crystal_processor_mainframe.png",
+      "source_sha256": "c5198b405b9b816778e3fd3d37d4422a468c63f4966a8864e0469357728cddb9",
+      "destination": "assets/hk3gtl/textures/item/terminal_computation/circuits/terminal_computation_processor_mainframe.png",
+      "sha256": "595ca9c55cd8e6875119571e47297a5d8b43f7ecb5f20b2676755595a3a549d1",
+      "size": [
+        16,
+        128
+      ],
+      "family": "terminal_computation",
+      "color": "#C986DB",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "wfv_processor",
+      "source": "assets/gtceu/textures/item/wetware_processor.png",
+      "source_sha256": "44303b3d7b24217570034fc4e6c40689691e8b5d3c3297bcdd537cec85b2b2ce",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wfv_processor.png",
+      "sha256": "c12667c1ddb2e0540f5e916e46958e6e507f7059d5f194997c089ae48e94528c",
+      "size": [
+        16,
+        144
+      ],
+      "family": "civilization_endurance",
+      "color": "#DC456F",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "wsv_assembly",
+      "source": "assets/gtceu/textures/item/wetware_processor_assembly.png",
+      "source_sha256": "7bcf2f6b4a7a71534e47ac1c7cf041e4020241148493f2c1982da03af9f926f1",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wsv_assembly.png",
+      "sha256": "0d7d8344aa982306f60238cf71230d3f461a08cd51364874ff448c475975ceb6",
+      "size": [
+        16,
+        112
+      ],
+      "family": "civilization_endurance",
+      "color": "#DC456F",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "civ_computer",
+      "source": "assets/gtceu/textures/item/wetware_processor_computer.png",
+      "source_sha256": "cace184053ca188d0c97b0ae4b988b697a19adb00bcddeb10bf9fb39d4fb8027",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/civ_computer.png",
+      "sha256": "2d01cb4335f7d77056bf87ae026c78d9aef9242520fd84068ad6ae48062fda60",
+      "size": [
+        16,
+        144
+      ],
+      "family": "civilization_endurance",
+      "color": "#DC456F",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    },
+    {
+      "id": "cev_processor_mainframe",
+      "source": "assets/gtceu/textures/item/wetware_processor_mainframe.png",
+      "source_sha256": "4c322d4df7085ed9850299bb7166c6874ea2ec56ceaccb067b450773bdc8590b",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/cev_processor_mainframe.png",
+      "sha256": "9ca5552a30d6e16e30678ca87dc5a16c2c762b26a9d19c4d5a0de8433b0ec387",
+      "size": [
+        16,
+        128
+      ],
+      "family": "civilization_endurance",
+      "color": "#DC456F",
+      "alpha_preserved": true,
+      "hsv_value_preserved": true
+    }
+  ],
+  "changes": "负责人确认九套原图轮用，52张透明度与HSV明度逐像素一致，保留动画。"
+}

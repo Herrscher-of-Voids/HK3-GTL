@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.common.item;
 
 
-
+/**
+ * 【文件职责】
+ * - 注册或实现 NarrativeCodexItem 物品行为。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeLog;
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeNodes;
 import net.minecraft.ChatFormatting;
@@ -19,27 +36,8 @@ import net.minecraftforge.fml.DistExecutor;
 import javax.annotation.Nullable;
 import java.util.List;
 
-/**
- * 《文明档案卷轴》—— 世界文本叙事系统的玩家入口物品。
- *
- * <h3>交互（当前阶段）</h3>
- * <ul>
- *   <li>右键空气：客户端打开卷轴 GUI 浏览叙事节点</li>
- *   <li>潜行右键：打印"总共 N / 已解锁 M"的统计行</li>
- * </ul>
- *
- * <h3>未来（下一轮扩展）</h3>
- * 本物品会升级为打开完整 GUI（{@code Hk3NarrativeLogScreen}），
- * 分章节显示阵营分类 + 节点详情 + 插画。
- * 本轮先提供聊天栏版本保证系统可用 + 可测试，避免玩家在没有 GUI 时看不到解锁进度。
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>GUI 落地后：在 {@link #use} 里改为打开 Screen，聊天栏逻辑保留为 fallback 或删除</li>
- *   <li>不要在此类做"解锁状态写入"：那是 {@link com.sirin.hk3gtl.common.narrative.Hk3NarrativeManager} 的职责</li>
- *   <li>聊天栏输出格式变动时保持 {@code §d[档案]} 前缀与 {@code Hk3NarrativeManager} 对齐</li>
- * </ul>
- */
+/** 中文说明：该处说明已按当前代码行为整理。*/
+/** 【变更记录 #1】2026-10-01 00:44:40（修订123）：删除无；新增/修改：卷轴读取服务端本人经历，不消耗物品，不复制物品NBT中的资格；用途：个人交流、团队决定及额外收藏分开，保留真实记录。 */
 public class NarrativeCodexItem extends Item {
 
     public NarrativeCodexItem(Properties properties) {
@@ -56,19 +54,16 @@ public class NarrativeCodexItem extends Item {
             return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
         }
 
-        if (level.isClientSide()) {
-            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
-                    com.sirin.hk3gtl.client.narrative.Hk3NarrativeCodexScreen.open(player));
+        if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            com.sirin.hk3gtl.common.narrative.Hk3PersonalArchive.openCodex(serverPlayer);
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
     }
 
     /** 潜行右键：总览统计 */
     private static void sendStats(Player player) {
-        int total = Hk3NarrativeNodes.totalCount();
-        int unlocked = Hk3NarrativeLog.unlockedCount(player);
-        player.sendSystemMessage(Component.literal("§d[档案] §f已解锁 §e" + unlocked
-                + "§f / §7" + total + " §f条，继续你的文明史。"));
+        if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer)
+            player.sendSystemMessage(Component.literal(com.sirin.hk3gtl.common.narrative.Hk3PersonalArchive.summary(serverPlayer)));
     }
 
     @Override

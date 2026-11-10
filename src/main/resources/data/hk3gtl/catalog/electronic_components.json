@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "revision": 72,
+  "generated_at": "2026-09-25 04:44:34",
+  "description": "四平台电子部件资源来源与注册映射；不代表游戏内验证。",
+  "entries": [
+    {
+      "id": "honkai_lattice_circuit_substrate",
+      "platform": "honkai_lattice",
+      "part": "circuit_substrate",
+      "source": "hk3gtl:item/honkai_adapted_circuit_substrate"
+    },
+    {
+      "id": "honkai_lattice_printed_circuit_board",
+      "platform": "honkai_lattice",
+      "part": "printed_circuit_board",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "honkai_lattice_smd_capacitor",
+      "platform": "honkai_lattice",
+      "part": "smd_capacitor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "honkai_lattice_smd_diode",
+      "platform": "honkai_lattice",
+      "part": "smd_diode",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "honkai_lattice_smd_resistor",
+      "platform": "honkai_lattice",
+      "part": "smd_resistor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "honkai_lattice_smd_transistor",
+      "platform": "honkai_lattice",
+      "part": "smd_transistor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "honkai_lattice_smd_inductor",
+      "platform": "honkai_lattice",
+      "part": "smd_inductor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "honkai_lattice_ram_wafer",
+      "platform": "honkai_lattice",
+      "part": "ram_wafer",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "honkai_lattice_ram_chip",
+      "platform": "honkai_lattice",
+      "part": "ram_chip",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "honkai_lattice_cpu",
+      "platform": "honkai_lattice",
+      "part": "cpu",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_circuit_substrate",
+      "platform": "quantum_coherence",
+      "part": "circuit_substrate",
+      "source": "hk3gtl:item/honkai_adapted_circuit_substrate"
+    },
+    {
+      "id": "quantum_coherence_printed_circuit_board",
+      "platform": "quantum_coherence",
+      "part": "printed_circuit_board",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_smd_capacitor",
+      "platform": "quantum_coherence",
+      "part": "smd_capacitor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_smd_diode",
+      "platform": "quantum_coherence",
+      "part": "smd_diode",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_smd_resistor",
+      "platform": "quantum_coherence",
+      "part": "smd_resistor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_smd_transistor",
+      "platform": "quantum_coherence",
+      "part": "smd_transistor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_smd_inductor",
+      "platform": "quantum_coherence",
+      "part": "smd_inductor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_ram_wafer",
+      "platform": "quantum_coherence",
+      "part": "ram_wafer",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_ram_chip",
+      "platform": "quantum_coherence",
+      "part": "ram_chip",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "quantum_coherence_cpu",
+      "platform": "quantum_coherence",
+      "part": "cpu",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_circuit_substrate",
+      "platform": "imaginary_topology",
+      "part": "circuit_substrate",
+      "source": "hk3gtl:item/honkai_adapted_circuit_substrate"
+    },
+    {
+      "id": "imaginary_topology_printed_circuit_board",
+      "platform": "imaginary_topology",
+      "part": "printed_circuit_board",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_smd_capacitor",
+      "platform": "imaginary_topology",
+      "part": "smd_capacitor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_smd_diode",
+      "platform": "imaginary_topology",
+      "part": "smd_diode",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_smd_resistor",
+      "platform": "imaginary_topology",
+      "part": "smd_resistor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_smd_transistor",
+      "platform": "imaginary_topology",
+      "part": "smd_transistor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_smd_inductor",
+      "platform": "imaginary_topology",
+      "part": "smd_inductor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_ram_wafer",
+      "platform": "imaginary_topology",
+      "part": "ram_wafer",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_ram_chip",
+      "platform": "imaginary_topology",
+      "part": "ram_chip",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "imaginary_topology_cpu",
+      "platform": "imaginary_topology",
+      "part": "cpu",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_circuit_substrate",
+      "platform": "civilization_endurance",
+      "part": "circuit_substrate",
+      "source": "hk3gtl:item/honkai_adapted_circuit_substrate"
+    },
+    {
+      "id": "civilization_endurance_printed_circuit_board",
+      "platform": "civilization_endurance",
+      "part": "printed_circuit_board",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_smd_capacitor",
+      "platform": "civilization_endurance",
+      "part": "smd_capacitor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_smd_diode",
+      "platform": "civilization_endurance",
+      "part": "smd_diode",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_smd_resistor",
+      "platform": "civilization_endurance",
+      "part": "smd_resistor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_smd_transistor",
+      "platform": "civilization_endurance",
+      "part": "smd_transistor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_smd_inductor",
+      "platform": "civilization_endurance",
+      "part": "smd_inductor",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_ram_wafer",
+      "platform": "civilization_endurance",
+      "part": "ram_wafer",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_ram_chip",
+      "platform": "civilization_endurance",
+      "part": "ram_chip",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    },
+    {
+      "id": "civilization_endurance_cpu",
+      "platform": "civilization_endurance",
+      "part": "cpu",
+      "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar"
+    }
+  ],
+  "encoding_repair_at": "2026-09-25 04:45:01"
+}

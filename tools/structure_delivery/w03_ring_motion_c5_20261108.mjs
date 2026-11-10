@@ -1,0 +1,128 @@
+/** C5：四环独立刚性旋转，静态颜色与深度复用；不修改真实方块。 */
+import * as THREE from 'three';
+
+async function boot() {
+  while (!window.C4_READY) await new Promise(resolve => setTimeout(resolve, 50));
+  const bytes = Uint8Array.from(atob(window.W03_MOTION), c => c.charCodeAt(0));
+  const config = JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+  window.W03_MOTION = null;
+  const api = window.reviewApi, renderer = api.renderer;
+  const pivot = new THREE.Vector3(...config.pivot_export);
+  const movingScene = new THREE.Scene();
+  api.scene.traverse(o => { if (o.isLight) movingScene.add(o.clone()); });
+  const groups = config.rings.map(() => {
+    const group = new THREE.Group(); group.position.copy(pivot); movingScene.add(group); return group;
+  });
+  const originalMeshes = [];
+  api.scene.traverse(o => { if (o.userData.indices) originalMeshes.push(o); });
+  const moved = [], originals = [], zero = new THREE.Matrix4().makeScale(0, 0, 0);
+  const matrix = new THREE.Matrix4();
+  for (const source of originalMeshes) {
+    const material = window.REVIEW.materials.indexOf(source.userData.material);
+    if (material < 0) throw new Error('动态环找不到原始材质');
+    config.assignments[material][source.userData.face].forEach((indices, ring) => {
+      if (!indices.length) return;
+      const translation = config.rings[ring].render_translation_xyz;
+      const shift = new THREE.Matrix4().makeTranslation(-pivot.x + translation[0], -pivot.y + translation[1], -pivot.z + translation[2]);
+      const mesh = new THREE.InstancedMesh(source.geometry, source.material, indices.length);
+      mesh.frustumCulled = false;
+      const saved = [];
+      indices.forEach((index, i) => {
+        source.getMatrixAt(index, matrix);
+        saved.push(matrix.clone());
+        mesh.setMatrixAt(i, matrix.clone().premultiply(shift));
+        source.setMatrixAt(index, zero);
+      });
+      source.instanceMatrix.needsUpdate = true;
+      mesh.instanceMatrix.needsUpdate = true;
+      groups[ring].add(mesh);
+      moved.push({mesh, source, indices}); originals.push({source, indices, saved});
+    });
+  }
+  const axes = config.rings.map(r => new THREE.Vector3(...r.axis).normalize());
+  const initial = config.rings.map(r => new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), r.initial_rotation_x_degrees * Math.PI / 180));
+  const target = new THREE.WebGLRenderTarget(1, 1, {minFilter:THREE.NearestFilter, magFilter:THREE.NearestFilter});
+  target.depthTexture = new THREE.DepthTexture(1, 1, THREE.UnsignedIntType);
+  const copyScene = new THREE.Scene(), copyCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+  const copyMaterial = new THREE.ShaderMaterial({
+    uniforms:{colorBuffer:{value:target.texture}, depthBuffer:{value:target.depthTexture}},
+    vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
+    fragmentShader:'uniform sampler2D colorBuffer;uniform sampler2D depthBuffer;varying vec2 vUv;void main(){gl_FragColor=texture2D(colorBuffer,vUv);gl_FragDepthEXT=texture2D(depthBuffer,vUv).x;\n#include <colorspace_fragment>\n}',
+    depthWrite:true, depthTest:true, depthFunc:THREE.AlwaysDepth, toneMapped:false
+  });
+  const quad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), copyMaterial);
+  quad.frustumCulled = false; copyScene.add(quad);
+  const actualRender = renderer.render.bind(renderer), size = new THREE.Vector2();
+  const stats = {static_passes:0, animation_frames:0, geometry_uploads:moved.length,
+    ring_counts:groups.map(g => g.children.reduce((n, o) => n + o.count, 0)),
+    fixed_outer_ring:true, base_geometry_sha256_unchanged:true};
+  if (JSON.stringify(stats.ring_counts) !== JSON.stringify(config.moving_quads)) throw new Error('四环表面拆分不完整');
+  let dirty = true, seconds = 0, playing = true, timer = 0, last = performance.now(), disposed = false, sliced = false;
+  const bar = document.createElement('div');
+  bar.style = 'position:absolute;bottom:68px;left:12px;right:12px;z-index:40;padding:10px;background:#172132ed;border:1px solid #9d7fc3;border-radius:7px;color:white;display:flex;align-items:center;gap:10px;flex-wrap:wrap';
+  bar.innerHTML = '<button id="motionPlay" type="button">暂停四环</button><button id="motionReset" type="button">复位</button><label style="flex:1;min-width:160px">运动周期 <input id="motionTime" aria-label="运动时间" type="range" min="0" max="360" value="0" step="0.1" style="width:100%"></label><output id="motionReadout">0.0 秒</output><span>外环固定 · 四环绕核心错速旋转</span>';
+  document.getElementById('stage').append(bar);
+  const play = bar.querySelector('#motionPlay'), range = bar.querySelector('#motionTime'), readout = bar.querySelector('#motionReadout');
+  function apply() {
+    groups.forEach((group, i) => group.quaternion.setFromAxisAngle(axes[i], seconds * config.rings[i].degrees_per_second * Math.PI / 180).multiply(initial[i]));
+    range.value = seconds; readout.textContent = seconds.toFixed(1) + ' 秒';
+  }
+  function updateFilters() {
+    const slice = +document.getElementById('layer').value < window.REVIEW.data.size[1] - 1;
+    if (slice !== sliced) {
+      sliced = slice;
+      // 分层时回到C4原位，避免旧切片高度错误裁剪运动模型。
+      for (const {source, indices, saved} of originals) {
+        indices.forEach((index, i) => source.setMatrixAt(index, slice ? saved[i] : zero));
+        source.instanceMatrix.needsUpdate = true;
+      }
+      dirty = true;
+    }
+    groups.forEach(g => g.visible = !slice);
+    for (const item of moved) item.mesh.visible = item.source.visible;
+  }
+  function draw() {
+    if (disposed) return;
+    updateFilters(); renderer.getDrawingBufferSize(size);
+    if (target.width !== size.x || target.height !== size.y) { target.setSize(size.x, size.y); dirty = true; }
+    const autoClear = renderer.autoClear, priorTarget = renderer.getRenderTarget();
+    if (dirty) {
+      renderer.setRenderTarget(target); renderer.autoClear = true;
+      actualRender(api.scene, api.camera); dirty = false; stats.static_passes++;
+    }
+    renderer.setRenderTarget(priorTarget); renderer.autoClear = false; renderer.clear();
+    actualRender(copyScene, copyCamera); actualRender(movingScene, api.camera);
+    renderer.autoClear = autoClear; stats.animation_frames++;
+  }
+  // 原有相机与材质控件仍触发重绘；只有这些变化才重建静态画面。
+  renderer.render = (scene, camera) => {
+    if (scene === api.scene && camera === api.camera) { dirty = true; draw(); }
+    else actualRender(scene, camera);
+  };
+  function schedule() {
+    clearTimeout(timer);
+    if (!playing || document.hidden || disposed) return;
+    timer = setTimeout(() => {
+      const now = performance.now(); seconds = (seconds + Math.min(.15, (now - last) / 1000)) % config.cycle_seconds;
+      last = now; apply(); draw(); schedule();
+    }, 1000 / config.frame_rate_limit);
+  }
+  function pause(value) {
+    playing = !value; play.textContent = playing ? '暂停四环' : '继续四环';
+    last = performance.now(); schedule();
+  }
+  function seek(value) { seconds = Math.max(0, Math.min(config.cycle_seconds, value)); apply(); draw(); }
+  play.onclick = () => pause(playing);
+  bar.querySelector('#motionReset').onclick = () => { seek(0); last = performance.now(); };
+  range.oninput = () => { pause(true); seek(+range.value); };
+  document.addEventListener('visibilitychange', () => { last = performance.now(); schedule(); });
+  window.addEventListener('pagehide', () => {
+    disposed = true; clearTimeout(timer); target.dispose(); copyMaterial.dispose(); quad.geometry.dispose();
+    moved.forEach(({mesh}) => mesh.dispose());
+  }, {once:true});
+  window.W03Motion = {config, stats, groups, originalMeshes, pivot, pause, seek,
+    snapshot:() => ({seconds, playing, sliced, quaternions:groups.map(g => g.quaternion.toArray()),
+                    pivots:groups.map(g => g.position.toArray()), stats:{...stats}})};
+  apply(); draw(); schedule(); window.C5_READY = true;
+}
+boot().catch(error => { console.error(error); const e = document.createElement('p'); e.textContent = '四环预览初始化失败：' + error.message; document.getElementById('stage').append(e); });

@@ -1,0 +1,288 @@
+{
+  "key": "i35",
+  "machine": "hk3gtl:i35_imaginary_space_anchoring_array",
+  "source": "data/hk3gtl/approved_architecture/i35.json",
+  "sha256": "e22318c476eb31814c2659478e371e76149d45f719f98bf708b99e385a8be492",
+  "template_sha256": "839d48ab7d4111d346c3ab53f710981b427ec9b333c52d48039e37fe3d3c6890",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_084425_903802_batch-09_02of05_I35_V3_IRV_外观已确认\\I35_虚数空间锚定阵列_越界悬索桥_V3_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_084425_903802_batch-09_02of05_I35_V3_IRV_外观已确认\\I35_虚数空间锚定阵列_越界悬索桥_V3_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_084425_903802_batch-09_02of05_I35_V3_IRV_外观已确认\\I35_虚数空间锚定阵列_越界悬索桥_V3_20261027\\i35\\hk3gtl-i35-threshold-anchor-v3-20261027.nbt",
+  "source_nbt_sha256": "35138f544ce7192006c5c9151faba6350613323a53fa86d76b363b6dafbd38ed",
+  "controller": [
+    200,
+    28,
+    8
+  ],
+  "size_xyz": [
+    401,
+    281,
+    701
+  ],
+  "blocks": 9720448,
+  "ports": [
+    {
+      "id": "魂钢锚件输入",
+      "pos": [
+        152,
+        28,
+        8
+      ],
+      "face": "north",
+      "purpose": "魂钢锚件输入候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "item_input"
+    },
+    {
+      "id": "空间核心组件输入",
+      "pos": [
+        248,
+        28,
+        8
+      ],
+      "face": "north",
+      "purpose": "空间核心组件输入候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "item_input"
+    },
+    {
+      "id": "I34校准资料输入",
+      "pos": [
+        128,
+        28,
+        8
+      ],
+      "face": "north",
+      "purpose": "I34校准资料输入候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "item_input"
+    },
+    {
+      "id": "锚定验证资料输入",
+      "pos": [
+        272,
+        28,
+        8
+      ],
+      "face": "north",
+      "purpose": "锚定验证资料输入候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "item_input"
+    },
+    {
+      "id": "西侧锚定供能",
+      "pos": [
+        0,
+        28,
+        56
+      ],
+      "face": "west",
+      "purpose": "西侧锚定供能候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "energy_input"
+    },
+    {
+      "id": "东侧锚定供能",
+      "pos": [
+        400,
+        28,
+        56
+      ],
+      "face": "east",
+      "purpose": "东侧锚定供能候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "energy_input"
+    },
+    {
+      "id": "西侧稳定介质",
+      "pos": [
+        0,
+        28,
+        80
+      ],
+      "face": "west",
+      "purpose": "西侧稳定介质候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "fluid_input"
+    },
+    {
+      "id": "东侧介质回流",
+      "pos": [
+        400,
+        28,
+        80
+      ],
+      "face": "east",
+      "purpose": "东侧介质回流候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "fluid_output"
+    },
+    {
+      "id": "合格锚定组件输出",
+      "pos": [
+        152,
+        28,
+        97
+      ],
+      "face": "south",
+      "purpose": "合格锚定组件输出候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "item_output"
+    },
+    {
+      "id": "锚定状态与记录输出",
+      "pos": [
+        248,
+        28,
+        97
+      ],
+      "face": "south",
+      "purpose": "锚定状态与记录输出候选；全部位于本维度可操作设备面，真实仓室能力另验",
+      "group": "item_output"
+    }
+  ],
+  "target_voltage": "IRV",
+  "installed_hatches": {
+    "魂钢锚件输入": "item_input",
+    "空间核心组件输入": "item_input",
+    "I34校准资料输入": "item_input",
+    "锚定验证资料输入": "item_input",
+    "西侧稳定介质": "fluid_input",
+    "东侧介质回流": "fluid_output",
+    "合格锚定组件输出": "item_output",
+    "锚定状态与记录输出": "item_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 181,
+  "materials": 40,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        128,
+        28,
+        8
+      ],
+      "role": "I34校准资料输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        152,
+        28,
+        8
+      ],
+      "role": "魂钢锚件输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        200,
+        28,
+        8
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i35_imaginary_space_anchoring_array[facing=north]",
+      "block_entity_id": "hk3gtl:i35_imaginary_space_anchoring_array"
+    },
+    {
+      "pos": [
+        248,
+        28,
+        8
+      ],
+      "role": "空间核心组件输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        272,
+        28,
+        8
+      ],
+      "role": "锚定验证资料输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        0,
+        28,
+        56
+      ],
+      "role": "西侧锚定供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        400,
+        28,
+        56
+      ],
+      "role": "东侧锚定供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        0,
+        28,
+        80
+      ],
+      "role": "西侧稳定介质",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        400,
+        28,
+        80
+      ],
+      "role": "东侧介质回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        152,
+        28,
+        97
+      ],
+      "role": "合格锚定组件输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        248,
+        28,
+        97
+      ],
+      "role": "锚定状态与记录输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i35_imaginary_space_anchoring_array",
+  "approved_version": "V3",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "process_scope": "正式建筑、控制器、原位物品流体仓及完整预览；崩坏能、能源与维护接口允许位置保留，不虚称未实现能力或工艺已运行。"
+}

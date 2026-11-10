@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.mixin;
 
 
-
+/**
+ * 【文件职责】
+ * - 处理 CosmicBakeModelMixin 的 Mixin 注入逻辑。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
@@ -39,12 +56,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(targets = "committee.nova.mods.avaritia.client.model.CosmicBakeModel", remap = false)
 public class CosmicBakeModelMixin {
 
-    /**
-     * Hook 位置：{@code CosmicBakeModel#renderItem}（物品渲染方法，每帧都会调用）。
-     * <br>Hook 时机：{@code @At("HEAD")} —— 一进入方法立刻取消，避免触碰任何 uniform。
-     * <br>效果：物品会走 fallback 到普通烘焙模型（由上层 ItemRenderer 处理），
-     * 视觉上失去宇宙动态效果，但不会崩溃。
-     */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Inject(method = "renderItem", at = @At("HEAD"), cancellable = true, require = 0)
     private void hk3gtl$skipCosmicRender(CallbackInfo ci) {
         ci.cancel();

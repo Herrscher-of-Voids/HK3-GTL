@@ -1,23 +1,24 @@
 package com.sirin.hk3gtl.common.recipe;
 
 
-
 /**
- * 配方类型入口（桥接类 / 重导出类）。
+ * 【文件职责】
+ * - 负责 Hk3RecipeTypes 对应的配方注册与门槛绑定。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
  *
- * <h3>职责</h3>
- * <ul>
- *   <li>仅作为空壳转发，真正实现位于 {@link Hk3RecipeTypesImpl}</li>
- *   <li>通过继承 Impl 暴露所有 GTRecipeType 常量（如研究、熔炼、虚数合成等配方类型）</li>
- *   <li>所有引用配方类型的代码统一走本类或其重导出 {@link com.sirin.hk3gtl.common.data.Hk3RecipeTypes}</li>
- * </ul>
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
  *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>新增配方类型：请去 {@link Hk3RecipeTypesImpl} 中新增 public static final 字段并在 init() 注册</li>
- *   <li>本类禁止写任何字段或方法，必须保持空桥接</li>
- *   <li>删改配方类型会影响所有配方 JSON、多方块 recipeType 绑定及 JEI 展示，改动前需全局搜索引用</li>
- * </ul>
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
  */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public class Hk3RecipeTypes extends Hk3RecipeTypesImpl {
 }

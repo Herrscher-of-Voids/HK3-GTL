@@ -1,0 +1,5820 @@
+{
+  "schema": 1,
+  "rules": [
+    {
+      "id": "E-EG-001",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "首次成功打开内测五I01崩坏能采集设备的已批准GUI；旧吸收塔不替代"
+    },
+    {
+      "id": "E-EG-002",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "material:soulium_ingot"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "100"
+        }
+      ],
+      "approvedCondition": "本人负责的正式配方累计实际产出100枚魂钢锭；按完成回执计"
+    },
+    {
+      "id": "E-EG-003",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "hk3gtl:honkai_energy_crystal"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1000"
+        }
+      ],
+      "approvedCondition": "正式工业回执累计产出1000枚崩坏能结晶"
+    },
+    {
+      "id": "E-EG-004",
+      "event": "gaze",
+      "checks": [
+        {
+          "field": "old",
+          "op": "EQ",
+          "value": "0"
+        },
+        {
+          "field": "gaze",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人注视度首次从0变为正值"
+    },
+    {
+      "id": "E-EG-005",
+      "event": "gaze",
+      "checks": [
+        {
+          "field": "gaze",
+          "op": "EQ",
+          "value": "666"
+        }
+      ],
+      "approvedCondition": "注视度自然结算后恰为666；不要求维持"
+    },
+    {
+      "id": "E-EG-006",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "hk3gtl:hbv_processor"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "正式配方首次产出HBV崩能压电路并归属本人记录"
+    },
+    {
+      "id": "E-EG-007",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "7"
+        }
+      ],
+      "approvedCondition": "一次正式配方实际同时成功扣除EU与崩坏能"
+    },
+    {
+      "id": "E-EG-009",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "material:soulium_frame"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "50"
+        }
+      ],
+      "approvedCondition": "正式配方实际产出魂钢框架累计50个；若新版无该产物则休眠"
+    },
+    {
+      "id": "E-EG-020",
+      "event": "finale_settled",
+      "checks": [
+        {
+          "field": "completed",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人正式终审通过回执生成时；旁注在主线演出后投递"
+    },
+    {
+      "id": "E-EG-021",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "21"
+        }
+      ],
+      "approvedCondition": "在已开放虚数维度同一1格范围内连续站立30秒；瞬移或离维度重置"
+    },
+    {
+      "id": "E-EG-022",
+      "event": "sirin_attack",
+      "checks": [
+        {
+          "field": "validated",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "服务器确认玩家攻击正式空之律者实体；保持既定坏结局流程"
+    },
+    {
+      "id": "E-EG-023",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "23"
+        }
+      ],
+      "approvedCondition": "当前本人终审会话同一待选节点连续等待60秒；关闭即取消计时"
+    },
+    {
+      "id": "E-EG-025",
+      "event": "effective_buffer",
+      "checks": [
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "20"
+        }
+      ],
+      "approvedCondition": "有效缓冲单元真实生效累计20次；无效果或搬运不计"
+    },
+    {
+      "id": "E-EG-026",
+      "event": "research_count",
+      "checks": [
+        {
+          "field": "completed",
+          "op": "AT_LEAST",
+          "value": "50"
+        }
+      ],
+      "approvedCondition": "所在团队完成至少50项内测五正式课题；本人在线收到统计快照"
+    },
+    {
+      "id": "E-EG-027",
+      "event": "research_count",
+      "checks": [
+        {
+          "field": "completed",
+          "op": "AT_LEAST",
+          "value": "90"
+        }
+      ],
+      "approvedCondition": "所在团队完成至少90项内测五正式课题；不授个人亲历"
+    },
+    {
+      "id": "E-EG-030",
+      "event": "finale_settled",
+      "checks": [
+        {
+          "field": "completed",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人终审收束节点结束后投递；不改变标题返回流程"
+    },
+    {
+      "id": "E-EG-031",
+      "event": "running_machines",
+      "checks": [
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "10"
+        }
+      ],
+      "approvedCondition": "本人观察到96格内10台已加载有效机器同时实际运行；注明非本人总产能"
+    },
+    {
+      "id": "E-EG-032",
+      "event": "running_machines",
+      "checks": [
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "30"
+        }
+      ],
+      "approvedCondition": "96格内30台已加载有效机器同时运行"
+    },
+    {
+      "id": "E-EG-033",
+      "event": "running_machines",
+      "checks": [
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "50"
+        }
+      ],
+      "approvedCondition": "96格内50台已加载有效机器同时运行"
+    },
+    {
+      "id": "E-EG-034",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "34"
+        }
+      ],
+      "approvedCondition": "有效EU发电设备最近20tick平均真实产出达到QCV档VA_LONG阈值；防重复计网络搬运"
+    },
+    {
+      "id": "E-EG-036",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "material:soulium_ingot"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "10000"
+        }
+      ],
+      "approvedCondition": "正式工业回执累计产出10000枚魂钢锭"
+    },
+    {
+      "id": "E-EG-037",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "hk3gtl:honkai_energy_crystal"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "50000"
+        }
+      ],
+      "approvedCondition": "正式工业回执累计产出50000枚崩坏能结晶"
+    },
+    {
+      "id": "E-EG-038",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "38"
+        }
+      ],
+      "approvedCondition": "一台有效双供能机器连续200tick同时实际消耗EU和崩坏能"
+    },
+    {
+      "id": "E-EG-047",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "47"
+        }
+      ],
+      "approvedCondition": "本人正在执行的研究实际应用最低速度因子并成功推进至少1tick"
+    },
+    {
+      "id": "E-EG-050",
+      "event": "clock",
+      "checks": [
+        {
+          "field": "online_ticks",
+          "op": "AT_LEAST",
+          "value": "7200000"
+        }
+      ],
+      "approvedCondition": "个人存档累计在线达到100小时；不要求连续、不提供奖励"
+    },
+    {
+      "id": "E-EG-051",
+      "event": "login",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "4"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "服务器配置时区4月1日登录"
+    },
+    {
+      "id": "E-EG-052",
+      "event": "login",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "12"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "25"
+        }
+      ],
+      "approvedCondition": "服务器配置时区12月25日登录"
+    },
+    {
+      "id": "E-EG-053",
+      "event": "clock",
+      "checks": [
+        {
+          "field": "hour",
+          "op": "EQ",
+          "value": "3"
+        }
+      ],
+      "approvedCondition": "服务器配置时区03:00至03:59在线自然触发一次"
+    },
+    {
+      "id": "E-EG-054",
+      "event": "clock",
+      "checks": [
+        {
+          "field": "session_ticks",
+          "op": "AT_LEAST",
+          "value": "432000"
+        }
+      ],
+      "approvedCondition": "同次连接在线累计6小时；只温和提醒，无奖励"
+    },
+    {
+      "id": "E-EG-055",
+      "event": "first_login",
+      "checks": [
+        {
+          "field": "game_day",
+          "op": "EQ",
+          "value": "0"
+        }
+      ],
+      "approvedCondition": "世界dayTime位于第0天时首次加入；错过不补成就"
+    },
+    {
+      "id": "E-EG-056",
+      "event": "clock",
+      "checks": [
+        {
+          "field": "game_day",
+          "op": "AT_LEAST",
+          "value": "100"
+        }
+      ],
+      "approvedCondition": "世界日历达到100天后本人首次在线收到该快照"
+    },
+    {
+      "id": "E-EG-057",
+      "event": "clock",
+      "checks": [
+        {
+          "field": "game_day",
+          "op": "AT_LEAST",
+          "value": "365"
+        }
+      ],
+      "approvedCondition": "世界日历达到365天后首次在线收到快照"
+    },
+    {
+      "id": "E-EG-058",
+      "event": "login",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "2"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "14"
+        }
+      ],
+      "approvedCondition": "服务器配置时区2月14日登录"
+    },
+    {
+      "id": "E-EG-059",
+      "event": "login",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "10"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "服务器配置时区10月1日登录"
+    },
+    {
+      "id": "E-EG-060",
+      "event": "clock",
+      "checks": [
+        {
+          "field": "dow",
+          "op": "EQ",
+          "value": "7"
+        },
+        {
+          "field": "hour",
+          "op": "AT_MOST",
+          "value": "5"
+        }
+      ],
+      "approvedCondition": "服务器配置时区周日00:00至05:59在线"
+    },
+    {
+      "id": "E-EG-061",
+      "event": "gaze",
+      "checks": [
+        {
+          "field": "gaze",
+          "op": "EQ",
+          "value": "42"
+        }
+      ],
+      "approvedCondition": "一次正常结算后的注视度恰为42"
+    },
+    {
+      "id": "E-EG-062",
+      "event": "gaze",
+      "checks": [
+        {
+          "field": "gaze",
+          "op": "EQ",
+          "value": "314"
+        }
+      ],
+      "approvedCondition": "一次正常结算后的注视度恰为314"
+    },
+    {
+      "id": "E-EG-063",
+      "event": "gaze",
+      "checks": [
+        {
+          "field": "gaze",
+          "op": "EQ",
+          "value": "777"
+        }
+      ],
+      "approvedCondition": "一次正常结算后的注视度恰为777"
+    },
+    {
+      "id": "E-EG-064",
+      "event": "holdings",
+      "checks": [
+        {
+          "field": "soulium",
+          "op": "EQ",
+          "value": "64"
+        }
+      ],
+      "approvedCondition": "背包魂钢锭合计恰为64；纯持有趣味，不记生产"
+    },
+    {
+      "id": "E-EG-065",
+      "event": "holdings",
+      "checks": [
+        {
+          "field": "crystal",
+          "op": "EQ",
+          "value": "999"
+        }
+      ],
+      "approvedCondition": "背包崩坏能结晶合计恰为999；纯持有趣味"
+    },
+    {
+      "id": "E-EG-066",
+      "event": "research_count",
+      "checks": [
+        {
+          "field": "completed",
+          "op": "AT_LEAST",
+          "value": "42"
+        }
+      ],
+      "approvedCondition": "团队正式研究完成数首次达到42；不赋个人正式资格"
+    },
+    {
+      "id": "E-EG-067",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "67"
+        }
+      ],
+      "approvedCondition": "本人累计完成100次有效结构成型；同坐标同版本只记一次"
+    },
+    {
+      "id": "E-EG-068",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "68"
+        }
+      ],
+      "approvedCondition": "有权限EU发电账本累计真实发电量首次跨过1234567890EU；改为累计而非瞬时精确值"
+    },
+    {
+      "id": "E-EG-069",
+      "event": "gaze",
+      "checks": [
+        {
+          "field": "old",
+          "op": "AT_LEAST",
+          "value": "1"
+        },
+        {
+          "field": "gaze",
+          "op": "EQ",
+          "value": "0"
+        },
+        {
+          "field": "source",
+          "op": "EQ",
+          "value": "buffer-unit"
+        }
+      ],
+      "approvedCondition": "有效缓冲操作直接使注视度从正值降到0"
+    },
+    {
+      "id": "E-EG-070",
+      "event": "clock",
+      "checks": [
+        {
+          "field": "game_time",
+          "op": "AT_LEAST",
+          "value": "6000"
+        },
+        {
+          "field": "game_time",
+          "op": "AT_MOST",
+          "value": "6019"
+        }
+      ],
+      "approvedCondition": "主世界dayTime进入6000至6019tick且玩家在线；每日只首次符合计候选发现"
+    },
+    {
+      "id": "E-EG-071",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "71"
+        }
+      ],
+      "approvedCondition": "脚下方块属于已批准I01结构最高可站立层；位于实际包围盒内"
+    },
+    {
+      "id": "E-EG-074",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "74"
+        }
+      ],
+      "approvedCondition": "终审当前可操作页2秒内收到8次重复输入；限频且不替玩家选项"
+    },
+    {
+      "id": "E-EG-084",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "84"
+        }
+      ],
+      "approvedCondition": "仅当本人丢出的结晶实体确因落入虚空被销毁才触发；转存不计"
+    },
+    {
+      "id": "E-EG-086",
+      "event": "anvil_taken",
+      "checks": [
+        {
+          "field": "name",
+          "op": "EQ",
+          "value": "西琳"
+        }
+      ],
+      "approvedCondition": "铁砧成功取出且成品实际名称恰为西琳"
+    },
+    {
+      "id": "E-EG-087",
+      "event": "anvil_taken",
+      "checks": [
+        {
+          "field": "name",
+          "op": "EQ",
+          "value": "琪亚娜"
+        }
+      ],
+      "approvedCondition": "铁砧成功取出且成品实际名称恰为琪亚娜"
+    },
+    {
+      "id": "E-EG-088",
+      "event": "anvil_taken",
+      "checks": [
+        {
+          "field": "name",
+          "op": "EQ",
+          "value": "芽衣"
+        }
+      ],
+      "approvedCondition": "铁砧成功取出且成品实际名称恰为芽衣"
+    },
+    {
+      "id": "E-EG-089",
+      "event": "anvil_taken",
+      "checks": [
+        {
+          "field": "name",
+          "op": "EQ",
+          "value": "崩坏"
+        }
+      ],
+      "approvedCondition": "铁砧成功取出且成品实际名称恰为崩坏"
+    },
+    {
+      "id": "E-EG-090",
+      "event": "anvil_taken",
+      "checks": [
+        {
+          "field": "name",
+          "op": "EQ",
+          "value": "终焉"
+        }
+      ],
+      "approvedCondition": "铁砧成功取出且成品实际名称恰为终焉"
+    },
+    {
+      "id": "E-EG-101",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "101"
+        }
+      ],
+      "approvedCondition": "V01联系人已开放；雨天结束后向芽衣发送内置话题“吃过饭了吗”并读完回复"
+    },
+    {
+      "id": "E-EG-103",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "103"
+        }
+      ],
+      "approvedCondition": "V02已按二审阶段开放；首次读完其欢迎消息"
+    },
+    {
+      "id": "E-EG-104",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "104"
+        }
+      ],
+      "approvedCondition": "V02已开放；首次向其发送内置话题“明天的计划”"
+    },
+    {
+      "id": "E-EG-105",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "105"
+        }
+      ],
+      "approvedCondition": "V03已开放；首次向空之律者发送“看看我的工厂”内置话题"
+    },
+    {
+      "id": "E-EG-106",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "106"
+        }
+      ],
+      "approvedCondition": "V03已开放；首次选择“今天想歇一会儿”话题"
+    },
+    {
+      "id": "E-EG-107",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "107"
+        }
+      ],
+      "approvedCondition": "V04已开放；吃完一份熟食后首次选择“刚刚吃饱了”话题"
+    },
+    {
+      "id": "E-EG-109",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "109"
+        }
+      ],
+      "approvedCondition": "V05已按二审阶段开放；首次读完欢迎消息"
+    },
+    {
+      "id": "E-EG-110",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "110"
+        }
+      ],
+      "approvedCondition": "V05已开放；本人二审通过后选择“下一步呢”话题"
+    },
+    {
+      "id": "E-EG-111",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "111"
+        }
+      ],
+      "approvedCondition": "V06已开放；首次选择“仓库又满了”话题"
+    },
+    {
+      "id": "E-EG-112",
+      "event": "social_sent",
+      "checks": [
+        {
+          "field": "contact",
+          "op": "EQ",
+          "value": "V06"
+        },
+        {
+          "field": "note20",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "V06已开放；首次保存一篇含至少20字的本地笔记后与其通信"
+    },
+    {
+      "id": "E-EG-113",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "113"
+        }
+      ],
+      "approvedCondition": "V07已按二审阶段开放；首次选择“我拿到了材料，研究算完成吗”话题"
+    },
+    {
+      "id": "E-EG-114",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "114"
+        }
+      ],
+      "approvedCondition": "V07已开放；首次选择“数据和预期不一样”话题"
+    },
+    {
+      "id": "E-EG-115",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "115"
+        }
+      ],
+      "approvedCondition": "V08已开放；首次选择“休息时做什么”话题"
+    },
+    {
+      "id": "E-EG-116",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "116"
+        }
+      ],
+      "approvedCondition": "V08已开放；首次选择“新发现”话题"
+    },
+    {
+      "id": "E-EG-117",
+      "event": "social_sent",
+      "checks": [
+        {
+          "field": "contact",
+          "op": "EQ",
+          "value": "V09"
+        },
+        {
+          "field": "high_overworld",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "V09已开放；在主世界高于当地海平面64格处与温蒂通信"
+    },
+    {
+      "id": "E-EG-118",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "118"
+        }
+      ],
+      "approvedCondition": "V09已开放；首次选择“今天没什么进展”话题"
+    },
+    {
+      "id": "E-EG-119",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "119"
+        }
+      ],
+      "approvedCondition": "V10已按二审阶段开放；首次读完欢迎消息"
+    },
+    {
+      "id": "E-EG-120",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "120"
+        }
+      ],
+      "approvedCondition": "V10已开放；本人死亡后恢复存档角色的首次通信"
+    },
+    {
+      "id": "E-EG-121",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "121"
+        }
+      ],
+      "approvedCondition": "V11在既定阶段已开放；首次读完匿名欢迎消息"
+    },
+    {
+      "id": "E-EG-122",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "122"
+        }
+      ],
+      "approvedCondition": "V11已开放；首次选择“你是谁”固定匿名话题"
+    },
+    {
+      "id": "E-EG-123",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "123"
+        }
+      ],
+      "approvedCondition": "V12在既定阶段已开放；首次读完匿名欢迎消息"
+    },
+    {
+      "id": "E-EG-124",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "124"
+        }
+      ],
+      "approvedCondition": "V12已开放；首次选择“你在看着我吗”固定匿名话题"
+    },
+    {
+      "id": "E-EG-125",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "125"
+        }
+      ],
+      "approvedCondition": "V13仍处于允许通信阶段；首次选择“工程很难”话题"
+    },
+    {
+      "id": "E-EG-126",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "126"
+        }
+      ],
+      "approvedCondition": "V13阶段可见；首次选择“还要继续吗”话题"
+    },
+    {
+      "id": "E-EG-127",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "127"
+        }
+      ],
+      "approvedCondition": "V14阶段可见；首次给普通爱莉希雅发送内置问候"
+    },
+    {
+      "id": "E-EG-128",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "128"
+        }
+      ],
+      "approvedCondition": "V14阶段可见；首次回看其已读欢迎信末页"
+    },
+    {
+      "id": "E-EG-129",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "129"
+        }
+      ],
+      "approvedCondition": "V15阶段可见；首次选择“按钮太多了”话题"
+    },
+    {
+      "id": "E-EG-130",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "130"
+        }
+      ],
+      "approvedCondition": "V15阶段可见；首次完成手机应用拖动并向其选择“桌面整理好了”话题"
+    },
+    {
+      "id": "E-EG-131",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "131"
+        }
+      ],
+      "approvedCondition": "V16阶段可见；持有世界泡样本时首次选择“样本有什么用”话题"
+    },
+    {
+      "id": "E-EG-133",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "133"
+        }
+      ],
+      "approvedCondition": "V17二审后可见；首次读完欢迎消息"
+    },
+    {
+      "id": "E-EG-134",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "134"
+        }
+      ],
+      "approvedCondition": "V17已开放；首次选择“故事会结束吗”话题"
+    },
+    {
+      "id": "E-EG-135",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "135"
+        }
+      ],
+      "approvedCondition": "V18二审后可见；首次选择“我卡住了”话题"
+    },
+    {
+      "id": "E-EG-136",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "136"
+        }
+      ],
+      "approvedCondition": "V18已开放；首次选择“替我选吧”话题"
+    },
+    {
+      "id": "E-EG-137",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "137"
+        }
+      ],
+      "approvedCondition": "V19处于一审后至二审前；首次读完欢迎消息"
+    },
+    {
+      "id": "E-EG-138",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "138"
+        }
+      ],
+      "approvedCondition": "V19阶段可见；首次选择“你能保证结果吗”话题"
+    },
+    {
+      "id": "E-EG-139",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "139"
+        }
+      ],
+      "approvedCondition": "V20处于获准通信阶段；首次读完欢迎消息"
+    },
+    {
+      "id": "E-EG-140",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "140"
+        }
+      ],
+      "approvedCondition": "V20已开放；首次选择“你不明白也没关系”话题"
+    },
+    {
+      "id": "E-EG-157",
+      "event": "reading_complete",
+      "checks": [
+        {
+          "field": "first_letters",
+          "op": "EQ",
+          "value": "5"
+        }
+      ],
+      "approvedCondition": "本人读完五势力首信末页；不因此授合作许可"
+    },
+    {
+      "id": "E-EG-158",
+      "event": "first_letter_read",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "158"
+        }
+      ],
+      "approvedCondition": "首次读完天命奥托署名首信"
+    },
+    {
+      "id": "E-EG-159",
+      "event": "first_letter_read",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "159"
+        }
+      ],
+      "approvedCondition": "首次读完逆熵爱因斯坦与特斯拉共同署名首信"
+    },
+    {
+      "id": "E-EG-160",
+      "event": "first_letter_read",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "160"
+        }
+      ],
+      "approvedCondition": "首次读完世界蛇灰蛇署名首信"
+    },
+    {
+      "id": "E-EG-161",
+      "event": "first_letter_read",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "161"
+        }
+      ],
+      "approvedCondition": "首次读完圣芙蕾雅德丽莎署名首信"
+    },
+    {
+      "id": "E-EG-162",
+      "event": "first_letter_read",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "162"
+        }
+      ],
+      "approvedCondition": "首次读完往世乐土爱莉希雅署名首信"
+    },
+    {
+      "id": "E-EG-163",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "163"
+        }
+      ],
+      "approvedCondition": "本人首次提交被研究服务接受的真实机器产出证据"
+    },
+    {
+      "id": "E-EG-164",
+      "event": "research_paid",
+      "checks": [
+        {
+          "field": "committed",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人首次按正式研究结算成功支付资源且事务提交"
+    },
+    {
+      "id": "E-EG-165",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "165"
+        }
+      ],
+      "approvedCondition": "本人第一次由研究完成回调开放新对象"
+    },
+    {
+      "id": "E-EG-169",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "169"
+        }
+      ],
+      "approvedCondition": "本人一审合法问答已选2问时关闭非代表阅读页；不改变会话规则"
+    },
+    {
+      "id": "E-EG-170",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "170"
+        }
+      ],
+      "approvedCondition": "本人作为一审代表重连后按规则重开并重播已确认问题"
+    },
+    {
+      "id": "E-EG-171",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "171"
+        }
+      ],
+      "approvedCondition": "本人一审已完成后仅陪同一次团队会面至结束"
+    },
+    {
+      "id": "E-EG-172",
+      "event": "if_read",
+      "checks": [
+        {
+          "field": "free",
+          "op": "EQ",
+          "value": "false"
+        },
+        {
+          "field": "normal_count",
+          "op": "EQ",
+          "value": "5"
+        }
+      ],
+      "approvedCondition": "本人终审正常选择并读完第5条不同IF线"
+    },
+    {
+      "id": "E-EG-173",
+      "event": "if_read",
+      "checks": [
+        {
+          "field": "free",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "complete",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "通过获准免费指令阅读一条IF至末句；不占终审选择次数"
+    },
+    {
+      "id": "E-EG-174",
+      "event": "if_read",
+      "checks": [
+        {
+          "field": "complete",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人首次用逐句模式完整读完一条IF，未跳句"
+    },
+    {
+      "id": "E-EG-175",
+      "event": "civilization_overview_read",
+      "checks": [
+        {
+          "field": "complete",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人已安装手机后首次读完文明总览末页"
+    },
+    {
+      "id": "E-EG-176",
+      "event": "reading_complete",
+      "checks": [
+        {
+          "field": "letter",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "pages",
+          "op": "AT_LEAST",
+          "value": "2"
+        }
+      ],
+      "approvedCondition": "首次把超过1页的来信逐页读至末页"
+    },
+    {
+      "id": "E-EG-177",
+      "event": "phone_position",
+      "checks": [
+        {
+          "field": "valid",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "保存一次不同于默认值且位于屏幕内的通知框拖动位置"
+    },
+    {
+      "id": "E-EG-178",
+      "event": "phone_layout",
+      "checks": [
+        {
+          "field": "valid",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "成功保存一次不同于默认顺序的手机App布局"
+    },
+    {
+      "id": "E-EG-179",
+      "event": "phone_open",
+      "checks": [
+        {
+          "field": "mode",
+          "op": "EQ",
+          "value": "home"
+        },
+        {
+          "field": "recharged",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "手机电量曾低于10%，真实充电至80%以上后再打开"
+    },
+    {
+      "id": "E-EG-180",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "180"
+        }
+      ],
+      "approvedCondition": "关闭自定义AI后首次收到微讯息内置话题回复"
+    },
+    {
+      "id": "E-EG-181",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "181"
+        }
+      ],
+      "approvedCondition": "本人从ae2:charger取出本次充电完成的ae2:charged_certus_quartz_crystal"
+    },
+    {
+      "id": "E-EG-182",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "182"
+        }
+      ],
+      "approvedCondition": "本人参与的有效转化首次生成ae2:fluix_crystal"
+    },
+    {
+      "id": "E-EG-183",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "ae2:logic_processor"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次完成ae2:logic_processor的真实制作"
+    },
+    {
+      "id": "E-EG-184",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "ae2:calculation_processor"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次完成ae2:calculation_processor的真实制作"
+    },
+    {
+      "id": "E-EG-185",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "ae2:engineering_processor"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次完成ae2:engineering_processor的真实制作"
+    },
+    {
+      "id": "E-EG-186",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "186"
+        }
+      ],
+      "approvedCondition": "同时持有ae2:logic_processor_press、ae2:calculation_processor_press、ae2:engineering_processor_press并打开压印机"
+    },
+    {
+      "id": "E-EG-187",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "187"
+        }
+      ],
+      "approvedCondition": "本人首次在压印过程完成ae2:printed_silicon"
+    },
+    {
+      "id": "E-EG-188",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "188"
+        }
+      ],
+      "approvedCondition": "在同一制作流程见证ae2:printed_logic_processor转为ae2:logic_processor"
+    },
+    {
+      "id": "E-EG-189",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "189"
+        }
+      ],
+      "approvedCondition": "同一制作流程见证ae2:printed_calculation_processor转为ae2:calculation_processor"
+    },
+    {
+      "id": "E-EG-190",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "190"
+        }
+      ],
+      "approvedCondition": "同一制作流程见证ae2:printed_engineering_processor转为ae2:engineering_processor"
+    },
+    {
+      "id": "E-EG-191",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "191"
+        }
+      ],
+      "approvedCondition": "把ae2:blank_pattern成功放入有权限的样板编码界面"
+    },
+    {
+      "id": "E-EG-192",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "192"
+        }
+      ],
+      "approvedCondition": "本人首次成功编码ae2:crafting_pattern"
+    },
+    {
+      "id": "E-EG-193",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "193"
+        }
+      ],
+      "approvedCondition": "本人首次成功编码ae2:processing_pattern且包含非空输入输出"
+    },
+    {
+      "id": "E-EG-194",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "194"
+        }
+      ],
+      "approvedCondition": "成功修改一张已有ae2:processing_pattern的输出数量并保存"
+    },
+    {
+      "id": "E-EG-195",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "195"
+        }
+      ],
+      "approvedCondition": "本人放置的ae2:controller首次进入有效在线网络状态"
+    },
+    {
+      "id": "E-EG-196",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "196"
+        }
+      ],
+      "approvedCondition": "首次在本人有权限的ae2:drive装入有效存储单元并识别成功"
+    },
+    {
+      "id": "E-EG-197",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "197"
+        }
+      ],
+      "approvedCondition": "首次在ae2:crafting_terminal完成一次真实合成"
+    },
+    {
+      "id": "E-EG-198",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "198"
+        }
+      ],
+      "approvedCondition": "本人使用已绑定ae2:wireless_terminal在有效范围内成功访问网络"
+    },
+    {
+      "id": "E-EG-199",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "199"
+        }
+      ],
+      "approvedCondition": "从手机入口成功打开背包内ae2:wireless_crafting_terminal的原生合成菜单"
+    },
+    {
+      "id": "E-EG-200",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "200"
+        }
+      ],
+      "approvedCondition": "在ae2:pattern_access_terminal定位并取回本人有权限的一张样板"
+    },
+    {
+      "id": "E-EG-201",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "201"
+        }
+      ],
+      "approvedCondition": "在ae2:pattern_encoding_terminal检查预览后取消一次编码"
+    },
+    {
+      "id": "E-EG-202",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "202"
+        }
+      ],
+      "approvedCondition": "使用ae2:memory_card成功复制并恢复一组兼容设备设置"
+    },
+    {
+      "id": "E-EG-203",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "203"
+        }
+      ],
+      "approvedCondition": "首次将ae2:capacity_card有效安装到支持设备并扩展配置槽"
+    },
+    {
+      "id": "E-EG-204",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "204"
+        }
+      ],
+      "approvedCondition": "首次把ae2:speed_card装入支持设备并见证一次实际传输"
+    },
+    {
+      "id": "E-EG-205",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "205"
+        }
+      ],
+      "approvedCondition": "装有ae2:redstone_card的设备因一次真实红石变化切换工作状态"
+    },
+    {
+      "id": "E-EG-206",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "206"
+        }
+      ],
+      "approvedCondition": "支持设备装入ae2:inverter_card后实际按反选规则成功过滤物品"
+    },
+    {
+      "id": "E-EG-207",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "207"
+        }
+      ],
+      "approvedCondition": "装有ae2:fuzzy_card的支持设备成功匹配一个非完全相同但符合规则的目标"
+    },
+    {
+      "id": "E-EG-208",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "208"
+        }
+      ],
+      "approvedCondition": "打开ae2:cell_workbench并查看已有内容单元，随后不改动退出"
+    },
+    {
+      "id": "E-EG-209",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "209"
+        }
+      ],
+      "approvedCondition": "本人向AE提交的有效自动合成任务完成，使用ae2:1k_crafting_storage所在CPU"
+    },
+    {
+      "id": "E-EG-210",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "210"
+        }
+      ],
+      "approvedCondition": "本人在含ae2:crafting_accelerator的CPU上完成可并行的自动合成任务"
+    },
+    {
+      "id": "E-EG-211",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:vacuum_tube"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtceu:vacuum_tube"
+    },
+    {
+      "id": "E-EG-212",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "212"
+        }
+      ],
+      "approvedCondition": "同一工作台会话实际制作gtceu:resistor和gtceu:capacitor各1个"
+    },
+    {
+      "id": "E-EG-213",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:transistor"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtceu:transistor"
+    },
+    {
+      "id": "E-EG-214",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "214"
+        }
+      ],
+      "approvedCondition": "本人将gtceu:tantalum_capacitor放进此前专放电容的有权限容器"
+    },
+    {
+      "id": "E-EG-215",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "215"
+        }
+      ],
+      "approvedCondition": "本人一次成功合成批次后同时持有gtceu:smd_resistor、gtceu:smd_capacitor、gtceu:smd_transistor"
+    },
+    {
+      "id": "E-EG-216",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "216"
+        }
+      ],
+      "approvedCondition": "本人真实制作gtceu:advanced_smd_resistor并已制作普通贴片电阻"
+    },
+    {
+      "id": "E-EG-217",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "217"
+        }
+      ],
+      "approvedCondition": "本人真实制作gtceu:advanced_smd_capacitor并放入有权限的分类仓"
+    },
+    {
+      "id": "E-EG-218",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "218"
+        }
+      ],
+      "approvedCondition": "本人真实制作gtceu:advanced_smd_transistor并阅读对应配方页"
+    },
+    {
+      "id": "E-EG-219",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:resin_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人真实制作gtceu:resin_circuit_board"
+    },
+    {
+      "id": "E-EG-220",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "220"
+        }
+      ],
+      "approvedCondition": "实际工艺消耗gtceu:resin_circuit_board产出gtceu:resin_printed_circuit_board"
+    },
+    {
+      "id": "E-EG-221",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:phenolic_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtceu:phenolic_circuit_board"
+    },
+    {
+      "id": "E-EG-222",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:phenolic_printed_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人完成gtceu:phenolic_printed_circuit_board真实配方"
+    },
+    {
+      "id": "E-EG-223",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:plastic_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次制作gtceu:plastic_circuit_board"
+    },
+    {
+      "id": "E-EG-224",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:plastic_printed_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "实际工艺产出gtceu:plastic_printed_circuit_board并送入合法输出端"
+    },
+    {
+      "id": "E-EG-225",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:epoxy_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次完成gtceu:epoxy_circuit_board实际配方"
+    },
+    {
+      "id": "E-EG-226",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:epoxy_printed_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次完成gtceu:epoxy_printed_circuit_board实际配方"
+    },
+    {
+      "id": "E-EG-227",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:fiber_reinforced_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次制作gtceu:fiber_reinforced_circuit_board"
+    },
+    {
+      "id": "E-EG-228",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:fiber_reinforced_printed_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次制作gtceu:fiber_reinforced_printed_circuit_board"
+    },
+    {
+      "id": "E-EG-229",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:multilayer_fiber_reinforced_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次制作gtceu:multilayer_fiber_reinforced_circuit_board"
+    },
+    {
+      "id": "E-EG-230",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:multilayer_fiber_reinforced_printed_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次制作gtceu:multilayer_fiber_reinforced_printed_circuit_board"
+    },
+    {
+      "id": "E-EG-231",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:wetware_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次制作gtceu:wetware_circuit_board"
+    },
+    {
+      "id": "E-EG-232",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:wetware_printed_circuit_board"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次制作gtceu:wetware_printed_circuit_board"
+    },
+    {
+      "id": "E-EG-233",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "233"
+        }
+      ],
+      "approvedCondition": "制作更高阶段电路后再次真实制作gtceu:basic_electronic_circuit"
+    },
+    {
+      "id": "E-EG-234",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtceu:good_electronic_circuit"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次制作gtceu:good_electronic_circuit"
+    },
+    {
+      "id": "E-EG-235",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "235"
+        }
+      ],
+      "approvedCondition": "本人修改gtceu:programmed_circuit配置并用该配置成功完成一条配方"
+    },
+    {
+      "id": "E-EG-236",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "236"
+        }
+      ],
+      "approvedCondition": "本人首次装备gtceu:rubber_gloves后交互工作设备"
+    },
+    {
+      "id": "E-EG-237",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "237"
+        }
+      ],
+      "approvedCondition": "本人首次持有gtceu:copper_credit并打开存储容器"
+    },
+    {
+      "id": "E-EG-238",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "238"
+        }
+      ],
+      "approvedCondition": "同一容器中由本人实际存入gtceu:silver_credit和gtceu:copper_credit"
+    },
+    {
+      "id": "E-EG-240",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "240"
+        }
+      ],
+      "approvedCondition": "本人从仓库取出gtceu:resin_printed_circuit_board并真实用于新配方"
+    },
+    {
+      "id": "E-EG-241",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "241"
+        }
+      ],
+      "approvedCondition": "使用gtlcore:wireless_network_binding_tool成功绑定本人有权限的目标"
+    },
+    {
+      "id": "E-EG-242",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "242"
+        }
+      ],
+      "approvedCondition": "使用gtlcore:cfg_copy在兼容设备间成功复制配置"
+    },
+    {
+      "id": "E-EG-243",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "243"
+        }
+      ],
+      "approvedCondition": "本人首次持有gtlcore:compressed_pufferfish并放进有权限容器"
+    },
+    {
+      "id": "E-EG-244",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "244"
+        }
+      ],
+      "approvedCondition": "本人将gtlcore:contaminated_petri_dish放入单独空容器"
+    },
+    {
+      "id": "E-EG-245",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "245"
+        }
+      ],
+      "approvedCondition": "本人在支持界面成功使用gtlcore:conversion_simulate_card的模拟功能"
+    },
+    {
+      "id": "E-EG-246",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtlcore:highly_insulating_foil"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtlcore:highly_insulating_foil"
+    },
+    {
+      "id": "E-EG-247",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "247"
+        }
+      ],
+      "approvedCondition": "本人将gtlcore:item_storage_cell_1m装入兼容存储设备并成功识别"
+    },
+    {
+      "id": "E-EG-248",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "248"
+        }
+      ],
+      "approvedCondition": "本人将gtlcore:fluid_storage_cell_1m装入兼容设备并实际存入一种流体"
+    },
+    {
+      "id": "E-EG-249",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "249"
+        }
+      ],
+      "approvedCondition": "本人首次给gtlcore:extremely_max_battery成功充入电量"
+    },
+    {
+      "id": "E-EG-250",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "250"
+        }
+      ],
+      "approvedCondition": "本人真实制作gtlcore:max_electric_motor并用于有效装配配方"
+    },
+    {
+      "id": "E-EG-251",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "251"
+        }
+      ],
+      "approvedCondition": "本人首次取得gtladditions:barnarda_data并查看其物品说明"
+    },
+    {
+      "id": "E-EG-252",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtladditions:bioware_echo_shard_wafer"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtladditions:bioware_echo_shard_wafer"
+    },
+    {
+      "id": "E-EG-253",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtladditions:chaos_soc"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtladditions:chaos_soc"
+    },
+    {
+      "id": "E-EG-254",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "254"
+        }
+      ],
+      "approvedCondition": "本人在生存合法取得gtladditions:create_data并查看说明；创造栏拿取不计"
+    },
+    {
+      "id": "E-EG-255",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtladditions:echo_shard_boule"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtladditions:echo_shard_boule"
+    },
+    {
+      "id": "E-EG-256",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtladditions:extraordinary_soc"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtladditions:extraordinary_soc"
+    },
+    {
+      "id": "E-EG-257",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "257"
+        }
+      ],
+      "approvedCondition": "本人首次打开gtladditions:guide的有效阅读界面"
+    },
+    {
+      "id": "E-EG-258",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "258"
+        }
+      ],
+      "approvedCondition": "本人真实制作gtladditions:harmonizing_core并用于一次配方"
+    },
+    {
+      "id": "E-EG-259",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtladditions:spacetime_lens"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtladditions:spacetime_lens"
+    },
+    {
+      "id": "E-EG-260",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "gtladditions:primary_soc"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "本人首次真实制作gtladditions:primary_soc"
+    },
+    {
+      "id": "E-EG-261",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "261"
+        }
+      ],
+      "approvedCondition": "使用gtlsupb:pattern_modifier成功修改一张样板并保存"
+    },
+    {
+      "id": "E-EG-262",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "262"
+        }
+      ],
+      "approvedCondition": "首次使用gtlsupb:super_terminal成功打开本人有权限的原生菜单"
+    },
+    {
+      "id": "E-EG-263",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "263"
+        }
+      ],
+      "approvedCondition": "本人通过gtlsupb:dimensional_teleporter成功传送后查看坐标"
+    },
+    {
+      "id": "E-EG-264",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "264"
+        }
+      ],
+      "approvedCondition": "使用gtlsupb:ae_wireless_filter_tool成功配置兼容目标"
+    },
+    {
+      "id": "E-EG-265",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "265"
+        }
+      ],
+      "approvedCondition": "本人使用gtlsupb:primitive_stone_furnace完成一次真实配方"
+    },
+    {
+      "id": "E-EG-266",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "266"
+        }
+      ],
+      "approvedCondition": "本人操作gtlsupb:quantum_weaver完成一次真实配方"
+    },
+    {
+      "id": "E-EG-267",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "267"
+        }
+      ],
+      "approvedCondition": "本人操作gtlsupb:electric_assembly_line完成首次有效配方"
+    },
+    {
+      "id": "E-EG-268",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "268"
+        }
+      ],
+      "approvedCondition": "本人在gtlsupb:universal_factory上连续完成两种不同有效配方"
+    },
+    {
+      "id": "E-EG-270",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "270"
+        }
+      ],
+      "approvedCondition": "本人通过gtlsupb:fragment_world_collector首次获得真实结算产物"
+    },
+    {
+      "id": "E-EG-271",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "271"
+        }
+      ],
+      "approvedCondition": "本人配置gtmthings:wireless_item_transfer_cover后首次实际送达1件物品"
+    },
+    {
+      "id": "E-EG-272",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "272"
+        }
+      ],
+      "approvedCondition": "本人配置gtmthings:wireless_fluid_transfer_cover后首次实际送达流体"
+    },
+    {
+      "id": "E-EG-273",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "273"
+        }
+      ],
+      "approvedCondition": "gtmthings:advanced_wireless_item_transfer_cover首次按本人过滤条件送达物品"
+    },
+    {
+      "id": "E-EG-274",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "274"
+        }
+      ],
+      "approvedCondition": "gtmthings:advanced_wireless_fluid_transfer_cover首次按本人配置送达流体"
+    },
+    {
+      "id": "E-EG-276",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "276"
+        }
+      ],
+      "approvedCondition": "本人通过gtmthings:lv_wireless_energy_receive_cover首次实际接收能量"
+    },
+    {
+      "id": "E-EG-278",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "278"
+        }
+      ],
+      "approvedCondition": "gtmthings:wireless_fluid_transfer_cover因接收端满暂停后成功恢复传输"
+    },
+    {
+      "id": "E-EG-279",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "279"
+        }
+      ],
+      "approvedCondition": "本人为gtmthings:advanced_wireless_item_transfer_cover切换合法目标后首次成功交付"
+    },
+    {
+      "id": "E-EG-280",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "280"
+        }
+      ],
+      "approvedCondition": "使用gtmthings:advanced_terminal完成一次有效操作后存回有权限工具容器"
+    },
+    {
+      "id": "E-EG-281",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "281"
+        }
+      ],
+      "approvedCondition": "本人成功保存一张输入总件数与输出总件数均为1的加工样板"
+    },
+    {
+      "id": "E-EG-282",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "282"
+        }
+      ],
+      "approvedCondition": "本人在同一工具容器放入两把不同耐久的同种镐"
+    },
+    {
+      "id": "E-EG-283",
+      "event": "notebook_saved",
+      "checks": [
+        {
+          "field": "colors",
+          "op": "EQ",
+          "value": "7"
+        }
+      ],
+      "approvedCondition": "本人同次笔记保存包含红、绿、蓝三个颜色标签"
+    },
+    {
+      "id": "E-EG-284",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "284"
+        }
+      ],
+      "approvedCondition": "本人在同一16格范围成功放置朝向东南西北的4扇门"
+    },
+    {
+      "id": "E-EG-285",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "285"
+        }
+      ],
+      "approvedCondition": "本人在容器连续5格分别放入5种可食用物品"
+    },
+    {
+      "id": "E-EG-286",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "286"
+        }
+      ],
+      "approvedCondition": "本人放置普通箱子后其六个相邻格均为空气；只记布局趣味"
+    },
+    {
+      "id": "E-EG-287",
+      "event": "player_stats",
+      "checks": [
+        {
+          "field": "arrows",
+          "op": "AT_LEAST",
+          "value": "7"
+        }
+      ],
+      "approvedCondition": "本人在一次弓箭使用统计中累计射出第7支箭；不要求击中目标"
+    },
+    {
+      "id": "E-EG-288",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "288"
+        }
+      ],
+      "approvedCondition": "本人在同一音符盒成功调音8次再奏响"
+    },
+    {
+      "id": "E-EG-289",
+      "event": "crafted",
+      "checks": [
+        {
+          "field": "input_slots",
+          "op": "EQ",
+          "value": "9"
+        }
+      ],
+      "approvedCondition": "本人手动配方成功合成时九个输入格均非空"
+    },
+    {
+      "id": "E-EG-290",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "paragraphs",
+          "op": "EQ",
+          "value": "10"
+        }
+      ],
+      "approvedCondition": "个人手机笔记首次保存恰好10个非空段落"
+    },
+    {
+      "id": "E-EG-291",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "291"
+        }
+      ],
+      "approvedCondition": "本人连续在不同位置种下11朵花；累计事件不要求快速"
+    },
+    {
+      "id": "E-EG-292",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "292"
+        }
+      ],
+      "approvedCondition": "本人在单个箱子的前12格各存入1个不同种物品"
+    },
+    {
+      "id": "E-EG-293",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "293"
+        }
+      ],
+      "approvedCondition": "本人累计成功钓鱼13次"
+    },
+    {
+      "id": "E-EG-294",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "294"
+        }
+      ],
+      "approvedCondition": "本人从一次传送落点连续步行14至15格后打开文明总览"
+    },
+    {
+      "id": "E-EG-295",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "295"
+        }
+      ],
+      "approvedCondition": "本人向同一容器存入15本书；只看存入完成事件"
+    },
+    {
+      "id": "E-EG-296",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "296"
+        }
+      ],
+      "approvedCondition": "本人把一组64个圆石等分为16堆，每堆4个，保存在同一容器"
+    },
+    {
+      "id": "E-EG-297",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "297"
+        }
+      ],
+      "approvedCondition": "本人完成收割后背包小麦种子总数恰为17"
+    },
+    {
+      "id": "E-EG-298",
+      "event": "container_close",
+      "checks": [
+        {
+          "field": "empty",
+          "op": "EQ",
+          "value": "18"
+        },
+        {
+          "field": "chest",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "关闭普通箱子时其中恰有18个空槽且本人本次确实存取过"
+    },
+    {
+      "id": "E-EG-299",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "different_saves",
+          "op": "AT_LEAST",
+          "value": "19"
+        }
+      ],
+      "approvedCondition": "个人笔记第19次有效保存不同正文；空保存不计"
+    },
+    {
+      "id": "E-EG-300",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "300"
+        }
+      ],
+      "approvedCondition": "本人手动奏响同一音符盒20次，间隔至少10tick"
+    },
+    {
+      "id": "E-EG-301",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "301"
+        }
+      ],
+      "approvedCondition": "本人在同一柱上依次放置21块普通建筑方块；结构外且不要求跳落"
+    },
+    {
+      "id": "E-EG-302",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "302"
+        }
+      ],
+      "approvedCondition": "本人累计放置22块玻璃；拆装同位置只计一次"
+    },
+    {
+      "id": "E-EG-303",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "303"
+        }
+      ],
+      "approvedCondition": "游戏内时间首次跨过23:00时本人关闭阅读界面"
+    },
+    {
+      "id": "E-EG-305",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "305"
+        }
+      ],
+      "approvedCondition": "本人种植的小麦形成一个5×5完整地块；只检查已加载附近"
+    },
+    {
+      "id": "E-EG-306",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "alphabet",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "笔记保存包含从A到Z各至少一次的自写文本"
+    },
+    {
+      "id": "E-EG-307",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "307"
+        }
+      ],
+      "approvedCondition": "本人首次填满普通箱子的27个槽位；不要求每格满堆"
+    },
+    {
+      "id": "E-EG-308",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "308"
+        }
+      ],
+      "approvedCondition": "本人在雪地留下连续步行28格记录；不要求真实脚印贴图"
+    },
+    {
+      "id": "E-EG-309",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "309"
+        }
+      ],
+      "approvedCondition": "一次探洞返回地表后背包火把恰为29根"
+    },
+    {
+      "id": "E-EG-310",
+      "event": "phone_gallery_closed",
+      "checks": [
+        {
+          "field": "thirty_seconds",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "手机相册式风景页打开30秒后手动关闭；不生成截图权限"
+    },
+    {
+      "id": "E-EG-311",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "game_day",
+          "op": "EQ",
+          "value": "31"
+        }
+      ],
+      "approvedCondition": "世界第31天本人保存一篇笔记"
+    },
+    {
+      "id": "E-EG-312",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "312"
+        }
+      ],
+      "approvedCondition": "本人将64个同类物品均分为两堆32个并完成一次容器操作"
+    },
+    {
+      "id": "E-EG-313",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "313"
+        }
+      ],
+      "approvedCondition": "本人挖掘红石矿后背包红石粉总数恰为33"
+    },
+    {
+      "id": "E-EG-314",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "314"
+        }
+      ],
+      "approvedCondition": "本人打开背包时36个主物品栏槽全非空；不包含装备副手"
+    },
+    {
+      "id": "E-EG-315",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "315"
+        }
+      ],
+      "approvedCondition": "本人在地面放置完成7×7同类普通地板"
+    },
+    {
+      "id": "E-EG-316",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "316"
+        }
+      ],
+      "approvedCondition": "本人在海边放下容器并存入恰好51个圆石"
+    },
+    {
+      "id": "E-EG-317",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "317"
+        }
+      ],
+      "approvedCondition": "本人把63个同类可堆叠物品补成64个后关闭容器"
+    },
+    {
+      "id": "E-EG-318",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "318"
+        }
+      ],
+      "approvedCondition": "本人向已含64个圆石的单槽容器放入第65个，实际进入第二槽"
+    },
+    {
+      "id": "E-EG-319",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "319"
+        }
+      ],
+      "approvedCondition": "本人完成9×9两色普通方块交替地板；不属于受保护结构"
+    },
+    {
+      "id": "E-EG-320",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "320"
+        }
+      ],
+      "approvedCondition": "本人向空容器存入恰好99个小麦"
+    },
+    {
+      "id": "E-EG-321",
+      "event": "reading_complete",
+      "checks": [
+        {
+          "field": "read_count",
+          "op": "AT_LEAST",
+          "value": "101"
+        }
+      ],
+      "approvedCondition": "本人累计读完101条不同已收到的通知；不生成凑数通知"
+    },
+    {
+      "id": "E-EG-322",
+      "event": "phone_charged",
+      "checks": [
+        {
+          "field": "full",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "手机实际电量从低处充到恰好128000EU上限时首次检查"
+    },
+    {
+      "id": "E-EG-323",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "323"
+        }
+      ],
+      "approvedCondition": "本人在一个容器内存放恰好256块石砖"
+    },
+    {
+      "id": "E-EG-324",
+      "event": "collection_search",
+      "checks": [
+        {
+          "field": "query",
+          "op": "EQ",
+          "value": "404"
+        },
+        {
+          "field": "results",
+          "op": "EQ",
+          "value": "0"
+        }
+      ],
+      "approvedCondition": "在手机搜索已拥有收藏时输入404且结果为空；只记录搜索不模拟故障"
+    },
+    {
+      "id": "E-EG-325",
+      "event": "tiles_replay",
+      "checks": [
+        {
+          "field": "highest",
+          "op": "AT_LEAST",
+          "value": "512"
+        }
+      ],
+      "approvedCondition": "个人离线2048游戏首次合成512方块"
+    },
+    {
+      "id": "E-EG-326",
+      "event": "tiles_replay",
+      "checks": [
+        {
+          "field": "highest",
+          "op": "AT_LEAST",
+          "value": "1024"
+        }
+      ],
+      "approvedCondition": "个人离线2048首次合成1024方块"
+    },
+    {
+      "id": "E-EG-327",
+      "event": "tiles_replay",
+      "checks": [
+        {
+          "field": "highest",
+          "op": "AT_LEAST",
+          "value": "2048"
+        }
+      ],
+      "approvedCondition": "个人离线2048首次合成2048方块"
+    },
+    {
+      "id": "E-EG-328",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "body",
+          "op": "CONTAINS",
+          "value": "31415"
+        }
+      ],
+      "approvedCondition": "游戏中打开笔记并写入31415后保存；不要求现实背诵"
+    },
+    {
+      "id": "E-EG-329",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "body",
+          "op": "CONTAINS",
+          "value": "2718"
+        },
+        {
+          "field": "characters",
+          "op": "AT_LEAST",
+          "value": "20"
+        }
+      ],
+      "approvedCondition": "个人笔记首次保存包含2718与自写说明的段落，至少20字"
+    },
+    {
+      "id": "E-EG-330",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "330"
+        }
+      ],
+      "approvedCondition": "本人完成宽16长10的普通地板并在笔记写下1.618"
+    },
+    {
+      "id": "E-EG-331",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "331"
+        }
+      ],
+      "approvedCondition": "本人把同类物品按1、1、2、3、5、8顺序存入连续6格"
+    },
+    {
+      "id": "E-EG-332",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "332"
+        }
+      ],
+      "approvedCondition": "同一容器连续5格物品数量依次为2、3、5、7、11"
+    },
+    {
+      "id": "E-EG-333",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "333"
+        }
+      ],
+      "approvedCondition": "连续8格物品数量按1、2、4、8、16、32、64、1存入，末格物品种类不同"
+    },
+    {
+      "id": "E-EG-334",
+      "event": "phone_open",
+      "checks": [
+        {
+          "field": "mode",
+          "op": "EQ",
+          "value": "home"
+        },
+        {
+          "field": "palindrome_time",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "游戏内12:21至12:21:59打开手机主页"
+    },
+    {
+      "id": "E-EG-335",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "335"
+        }
+      ],
+      "approvedCondition": "在合法数量输入框成功提交1221并完成操作；不含调试命令"
+    },
+    {
+      "id": "E-EG-336",
+      "event": "player_stats",
+      "checks": [
+        {
+          "field": "walk_cm",
+          "op": "AT_LEAST",
+          "value": "1000000"
+        }
+      ],
+      "approvedCondition": "个人步行距离统计首次自然跨过10000米；不要求连续"
+    },
+    {
+      "id": "E-EG-337",
+      "event": "container_close",
+      "checks": [
+        {
+          "field": "wheat",
+          "op": "EQ",
+          "value": "1"
+        },
+        {
+          "field": "carrot",
+          "op": "EQ",
+          "value": "2"
+        },
+        {
+          "field": "potato",
+          "op": "EQ",
+          "value": "3"
+        }
+      ],
+      "approvedCondition": "本人存储的小麦、胡萝卜、马铃薯分别为1、2、3件且关闭容器"
+    },
+    {
+      "id": "E-EG-338",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "338"
+        }
+      ],
+      "approvedCondition": "本人让三盏相邻红石灯分别由强度3、6、9的独立线路点亮"
+    },
+    {
+      "id": "E-EG-339",
+      "event": "notebook_checked",
+      "checks": [
+        {
+          "field": "completed",
+          "op": "AT_LEAST",
+          "value": "3"
+        },
+        {
+          "field": "pending",
+          "op": "EQ",
+          "value": "0"
+        }
+      ],
+      "approvedCondition": "个人笔记中已有至少3条任务被本人逐一勾完，未完成数归零"
+    },
+    {
+      "id": "E-EG-340",
+      "event": "phone_closed",
+      "checks": [
+        {
+          "field": "infinity_note",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人在笔记写入∞并手动退出手机"
+    },
+    {
+      "id": "E-EG-341",
+      "event": "login",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "1"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "服务器日历1月1日首次登录"
+    },
+    {
+      "id": "E-EG-342",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "服务器日历1月内首次整理笔记并保存"
+    },
+    {
+      "id": "E-EG-343",
+      "event": "reading_complete",
+      "checks": [
+        {
+          "field": "letter",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "2"
+        }
+      ],
+      "approvedCondition": "服务器日历2月内首次读完一封已有来信"
+    },
+    {
+      "id": "E-EG-344",
+      "event": "login",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "2"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "29"
+        }
+      ],
+      "approvedCondition": "服务器公历2月29日登录；无此日期的年份不替补、不影响收集进度"
+    },
+    {
+      "id": "E-EG-345",
+      "event": "phone_open",
+      "checks": [
+        {
+          "field": "mode",
+          "op": "EQ",
+          "value": "civilization"
+        },
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "3"
+        },
+        {
+          "field": "daylight",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "服务器日历3月内首次在白天打开手机文明总览"
+    },
+    {
+      "id": "E-EG-346",
+      "event": "block_placed",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "3"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "12"
+        },
+        {
+          "field": "sapling",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "服务器日历3月12日成功种下一棵树苗；日期主题不改变生长"
+    },
+    {
+      "id": "E-EG-347",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "347"
+        }
+      ],
+      "approvedCondition": "服务器日历3月22日使用桶成功收起一格水源"
+    },
+    {
+      "id": "E-EG-348",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "348"
+        }
+      ],
+      "approvedCondition": "服务器日历4月内游戏下雨时首次关闭手机看向天空"
+    },
+    {
+      "id": "E-EG-349",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "349"
+        }
+      ],
+      "approvedCondition": "服务器日历4月22日首次查看主世界地图"
+    },
+    {
+      "id": "E-EG-350",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "350"
+        }
+      ],
+      "approvedCondition": "服务器日历4月23日首次在讲台读完一本成书"
+    },
+    {
+      "id": "E-EG-351",
+      "event": "login",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "5"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "服务器日历5月1日登录"
+    },
+    {
+      "id": "E-EG-352",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "5"
+        },
+        {
+          "field": "recipe_note",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "服务器日历5月内首次保存一份配方笔记"
+    },
+    {
+      "id": "E-EG-353",
+      "event": "block_placed",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "5"
+        },
+        {
+          "field": "dow",
+          "op": "EQ",
+          "value": "7"
+        },
+        {
+          "field": "week",
+          "op": "EQ",
+          "value": "2"
+        },
+        {
+          "field": "flower",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "服务器日历5月第二个星期日游戏内种花；按公历算法确定"
+    },
+    {
+      "id": "E-EG-354",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "354"
+        }
+      ],
+      "approvedCondition": "服务器日历6月1日首次打开任一手机小游戏"
+    },
+    {
+      "id": "E-EG-355",
+      "event": "phone_closed",
+      "checks": [
+        {
+          "field": "mode",
+          "op": "EQ",
+          "value": "home"
+        },
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "6"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "5"
+        }
+      ],
+      "approvedCondition": "服务器日历6月5日本人主动退出手机主页"
+    },
+    {
+      "id": "E-EG-356",
+      "event": "reading_complete",
+      "checks": [
+        {
+          "field": "letter",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "6"
+        },
+        {
+          "field": "dow",
+          "op": "EQ",
+          "value": "7"
+        },
+        {
+          "field": "week",
+          "op": "EQ",
+          "value": "3"
+        }
+      ],
+      "approvedCondition": "服务器日历6月第三个星期日读完一封已有来信"
+    },
+    {
+      "id": "E-EG-357",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "357"
+        }
+      ],
+      "approvedCondition": "服务器日历7月内在树叶遮蔽下打开手机"
+    },
+    {
+      "id": "E-EG-358",
+      "event": "food_finished",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "7"
+        },
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "minecraft:melon_slice"
+        }
+      ],
+      "approvedCondition": "服务器日历7月内第一次吃完西瓜片"
+    },
+    {
+      "id": "E-EG-359",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "359"
+        }
+      ],
+      "approvedCondition": "服务器日历8月内首次进入本人未记录的主世界群系"
+    },
+    {
+      "id": "E-EG-360",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "360"
+        }
+      ],
+      "approvedCondition": "服务器日历8月19日查看游戏内地图；不读系统相册"
+    },
+    {
+      "id": "E-EG-361",
+      "event": "phone_open",
+      "checks": [
+        {
+          "field": "mode",
+          "op": "EQ",
+          "value": "notes"
+        },
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "9"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "服务器日历9月1日首次打开个人笔记"
+    },
+    {
+      "id": "E-EG-362",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "9"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "10"
+        },
+        {
+          "field": "thanks",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "characters",
+          "op": "AT_LEAST",
+          "value": "20"
+        }
+      ],
+      "approvedCondition": "服务器日历9月10日保存一段至少20字的感谢笔记"
+    },
+    {
+      "id": "E-EG-363",
+      "event": "crop_harvest",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "10"
+        }
+      ],
+      "approvedCondition": "服务器日历10月内首次采收成熟作物"
+    },
+    {
+      "id": "E-EG-364",
+      "event": "block_placed",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "10"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "31"
+        },
+        {
+          "field": "block",
+          "op": "EQ",
+          "value": "minecraft:jack_o_lantern"
+        }
+      ],
+      "approvedCondition": "服务器日历10月31日放置南瓜灯"
+    },
+    {
+      "id": "E-EG-365",
+      "event": "slept",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "11"
+        }
+      ],
+      "approvedCondition": "服务器日历11月内首次使用床成功入睡"
+    },
+    {
+      "id": "E-EG-366",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "11"
+        },
+        {
+          "field": "dow",
+          "op": "EQ",
+          "value": "4"
+        },
+        {
+          "field": "week",
+          "op": "EQ",
+          "value": "4"
+        },
+        {
+          "field": "thanks",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "服务器日历11月第四个星期四保存一段感谢笔记"
+    },
+    {
+      "id": "E-EG-367",
+      "event": "block_placed",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "12"
+        },
+        {
+          "field": "block",
+          "op": "EQ",
+          "value": "minecraft:lantern"
+        }
+      ],
+      "approvedCondition": "服务器日历12月内首次放置灯笼"
+    },
+    {
+      "id": "E-EG-368",
+      "event": "reading_complete",
+      "checks": [
+        {
+          "field": "letter",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "12"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "24"
+        }
+      ],
+      "approvedCondition": "服务器日历12月24日读完一封已有来信"
+    },
+    {
+      "id": "E-EG-369",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "month",
+          "op": "EQ",
+          "value": "12"
+        },
+        {
+          "field": "day",
+          "op": "EQ",
+          "value": "31"
+        }
+      ],
+      "approvedCondition": "服务器日历12月31日保存个人笔记"
+    },
+    {
+      "id": "E-EG-370",
+      "event": "block_placed",
+      "checks": [
+        {
+          "field": "lunar_festival",
+          "op": "EQ",
+          "value": "spring_festival"
+        },
+        {
+          "field": "lantern",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "配置日历库确认农历正月初一时放置灯笼；未配置有效农历表则休眠"
+    },
+    {
+      "id": "E-EG-371",
+      "event": "festival_night_sky",
+      "checks": [
+        {
+          "field": "lunar_festival",
+          "op": "EQ",
+          "value": "lantern_festival"
+        }
+      ],
+      "approvedCondition": "配置日历库确认农历正月十五，游戏夜晚查看天空"
+    },
+    {
+      "id": "E-EG-372",
+      "event": "block_placed",
+      "approvedCondition": "配置日历库给出当年清明日期时在普通地面种花；不得硬编码固定月日",
+      "checks": [
+        {
+          "field": "qingming",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "flower",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "ordinary_ground",
+          "op": "EQ",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "E-EG-373",
+      "event": "festival_rowed",
+      "checks": [
+        {
+          "field": "lunar_festival",
+          "op": "EQ",
+          "value": "dragon_boat"
+        }
+      ],
+      "approvedCondition": "配置日历库确认农历五月初五，成功划船移动20格"
+    },
+    {
+      "id": "E-EG-374",
+      "event": "festival_adjacent_lanterns",
+      "checks": [
+        {
+          "field": "lunar_festival",
+          "op": "EQ",
+          "value": "qixi"
+        }
+      ],
+      "approvedCondition": "配置日历库确认农历七月初七，放下两盏相邻灯笼"
+    },
+    {
+      "id": "E-EG-375",
+      "event": "food_finished",
+      "checks": [
+        {
+          "field": "lunar_festival",
+          "op": "EQ",
+          "value": "mid_autumn"
+        }
+      ],
+      "approvedCondition": "配置日历库确认农历八月十五，吃完一份任意食物"
+    },
+    {
+      "id": "E-EG-376",
+      "event": "festival_safe_walk",
+      "checks": [
+        {
+          "field": "lunar_festival",
+          "op": "EQ",
+          "value": "double_ninth"
+        }
+      ],
+      "approvedCondition": "配置日历库确认农历九月初九，安全步行抵达高于海平面64格位置"
+    },
+    {
+      "id": "E-EG-377",
+      "event": "slept",
+      "approvedCondition": "配置日历库给出当年冬至日期时成功入睡；未配置则休眠",
+      "checks": [
+        {
+          "field": "winter_solstice",
+          "op": "EQ",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "E-EG-378",
+      "event": "notebook_calendar_open",
+      "checks": [
+        {
+          "field": "monday",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "服务器日历周一首次打开手机待办页"
+    },
+    {
+      "id": "E-EG-379",
+      "event": "notebook_calendar_close",
+      "checks": [
+        {
+          "field": "friday_completed",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "服务器日历周五本人完成一项笔记待办后关闭手机"
+    },
+    {
+      "id": "E-EG-380",
+      "event": "world_anniversary_login",
+      "approvedCondition": "存档创建满1个公历年后的首次登录；使用真实创建时间元数据，缺失不猜",
+      "checks": [
+        {
+          "field": "anniversary_reached",
+          "op": "EQ",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "E-EG-381",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "381"
+        }
+      ],
+      "approvedCondition": "本人在自建普通门廊两侧各放置一盏灯，再手持铁剑面向门廊停留5秒；仅检测已加载普通装饰，不生成守门人实体"
+    },
+    {
+      "id": "E-EG-382",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "382"
+        }
+      ],
+      "approvedCondition": "本人在普通桌椅布置旁放置蛋糕，并将一张名为343的纸放入旁边箱子；以本次存入完成为判定，不消耗额外物品"
+    },
+    {
+      "id": "E-EG-383",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "383"
+        }
+      ],
+      "approvedCondition": "本人把腐肉放入独立箱子并用告示牌写“隔离”"
+    },
+    {
+      "id": "E-EG-384",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "384"
+        }
+      ],
+      "approvedCondition": "本人在手机笔记创建标题3125、正文包含自拟五项清单的记录，退出再重开；仅读取本次笔记，不读取系统剪贴板或其他文件"
+    },
+    {
+      "id": "E-EG-385",
+      "event": "note_read_last",
+      "checks": [
+        {
+          "field": "title",
+          "op": "EQ",
+          "value": "2747"
+        },
+        {
+          "field": "paragraphs",
+          "op": "EQ",
+          "value": "7"
+        },
+        {
+          "field": "complete",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "manual",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人在笔记中保存7个非空段落，标题为2747，再手动翻至最后一页；不要求删除已有记录"
+    },
+    {
+      "id": "E-EG-386",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "386"
+        }
+      ],
+      "approvedCondition": "本人把雕刻南瓜放进展示物品框而非戴在头上"
+    },
+    {
+      "id": "E-EG-387",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "387"
+        }
+      ],
+      "approvedCondition": "本人在同一箱子存入黑色染料、玻璃瓶和纸各1件"
+    },
+    {
+      "id": "E-EG-388",
+      "event": "note_open",
+      "checks": [
+        {
+          "field": "title",
+          "op": "EQ",
+          "value": "不是圆的"
+        }
+      ],
+      "approvedCondition": "本人保存一篇标题“不是圆的”的笔记后首次重新打开"
+    },
+    {
+      "id": "E-EG-389",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "389"
+        }
+      ],
+      "approvedCondition": "本人在普通黑色石材墙前放置红色旗帜，并在相邻告示牌写下深红之王；不采用仪式、献祭或实体伤害条件"
+    },
+    {
+      "id": "E-EG-390",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "390"
+        }
+      ],
+      "approvedCondition": "本人在已种植小麦田边放置写有“073”的告示牌"
+    },
+    {
+      "id": "E-EG-391",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "391"
+        }
+      ],
+      "approvedCondition": "本人将一把铁剑放入被黑色石材包围的箱子"
+    },
+    {
+      "id": "E-EG-392",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "392"
+        }
+      ],
+      "approvedCondition": "本人把一张写有“079”的命名纸放入工作台旁箱子，再打开手机笔记"
+    },
+    {
+      "id": "E-EG-393",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "393"
+        }
+      ],
+      "approvedCondition": "本人沿普通人工楼梯连续下降30格高度且未坠落"
+    },
+    {
+      "id": "E-EG-394",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "394"
+        }
+      ],
+      "approvedCondition": "本人透过红色染色玻璃使用望远镜持续观察3秒"
+    },
+    {
+      "id": "E-EG-395",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "395"
+        }
+      ],
+      "approvedCondition": "本人放置一幅画后立刻转身并步行离开8格；不检测真实图片内容"
+    },
+    {
+      "id": "E-EG-396",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "396"
+        }
+      ],
+      "approvedCondition": "本人在深板岩墙前放置一块锈蚀铜并打开写有“106”的笔记"
+    },
+    {
+      "id": "E-EG-397",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "397"
+        }
+      ],
+      "approvedCondition": "本人并排放置两个末影之眼物品展示框"
+    },
+    {
+      "id": "E-EG-398",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "398"
+        }
+      ],
+      "approvedCondition": "本人面对自建石制盔甲架展示位连续5秒后走开；不使用原作品雕像图像"
+    },
+    {
+      "id": "E-EG-399",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "399"
+        }
+      ],
+      "approvedCondition": "本人在笔记创建标题机械降神并记录至少3项文明备份检查项，再打开文明总览；只是阅读彩蛋，不执行重置或人物复制"
+    },
+    {
+      "id": "E-EG-400",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "400"
+        }
+      ],
+      "approvedCondition": "本人扩建同一封闭普通房间，使内部地板面积增加至少9格"
+    },
+    {
+      "id": "E-EG-401",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "401"
+        }
+      ],
+      "approvedCondition": "本人在主世界日出时段dayTime 23000至23999，隔着橙色玻璃看向天空5秒；不改变日光伤害、实体或天气"
+    },
+    {
+      "id": "E-EG-402",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "402"
+        }
+      ],
+      "approvedCondition": "本人在山地群系使用望远镜观察远方后，保存一篇标题3819的风景笔记；不生成灾难或修改任何居民"
+    },
+    {
+      "id": "E-EG-403",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "403"
+        }
+      ],
+      "approvedCondition": "本人向发射器装入水瓶后以按钮实际发射一次"
+    },
+    {
+      "id": "E-EG-404",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "404"
+        }
+      ],
+      "approvedCondition": "本人在床边箱子存入一碗蘑菇煲后成功入睡"
+    },
+    {
+      "id": "E-EG-405",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "405"
+        }
+      ],
+      "approvedCondition": "本人用至少4种颜色的羊毛在5×5范围搭建小模型"
+    },
+    {
+      "id": "E-EG-406",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "body",
+          "op": "CONTAINS",
+          "value": "我是一台烤面包机"
+        }
+      ],
+      "approvedCondition": "本人在笔记以第一人称写“我是一台烤面包机”并保存"
+    },
+    {
+      "id": "E-EG-407",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "407"
+        }
+      ],
+      "approvedCondition": "本人把金苹果存入写着“药箱”的普通箱子"
+    },
+    {
+      "id": "E-EG-408",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "408"
+        }
+      ],
+      "approvedCondition": "本人连续两次跨维度后返回最初维度；不要求危险传送"
+    },
+    {
+      "id": "E-EG-409",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "409"
+        }
+      ],
+      "approvedCondition": "本人在驯服的猫旁放置一幅画，再保存标题“半张照片”的笔记"
+    },
+    {
+      "id": "E-EG-410",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "410"
+        }
+      ],
+      "approvedCondition": "本人对同一只已命名普通僵尸完成一次伤害后将其隔离；不要求击杀或异常强化"
+    },
+    {
+      "id": "E-EG-411",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "411"
+        }
+      ],
+      "approvedCondition": "本人在盔甲架上放置一套普通盔甲，并保存标题为什么？、正文含5000的笔记；不发起敌对阵营或伤害事件"
+    },
+    {
+      "id": "E-EG-412",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "412"
+        }
+      ],
+      "approvedCondition": "本人在普通切石机以同一原料先后制作两种不同形状成品"
+    },
+    {
+      "id": "E-EG-413",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "413"
+        }
+      ],
+      "approvedCondition": "本人在洞穴内让音符盒以两种不同乐器音色奏响"
+    },
+    {
+      "id": "E-EG-414",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "414"
+        }
+      ],
+      "approvedCondition": "本人在橙色羊毛旁放置蜂蜜块并吃完一份食物"
+    },
+    {
+      "id": "E-EG-415",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "415"
+        }
+      ],
+      "approvedCondition": "本人夜间在森林步行50格后安全返回自己的床旁"
+    },
+    {
+      "id": "E-EG-416",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "416"
+        }
+      ],
+      "approvedCondition": "本人用棕色羊毛搭建至少5块的小模型，并放置“1048”告示牌"
+    },
+    {
+      "id": "E-EG-417",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "417"
+        }
+      ],
+      "approvedCondition": "本人在笔记保存标题即死年且正文含至少3项自拟应急准备，再打开手机日期页；只读当前存档时间，不修改时间、不触发死亡"
+    },
+    {
+      "id": "E-EG-418",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "418"
+        }
+      ],
+      "approvedCondition": "本人读完一篇自写冒险计划后首次进入未记录群系"
+    },
+    {
+      "id": "E-EG-419",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "419"
+        }
+      ],
+      "approvedCondition": "本人在手机已有合法匿名联系人列表首次打开“？？？”会话；遵循原阶段"
+    },
+    {
+      "id": "E-EG-420",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "420"
+        }
+      ],
+      "approvedCondition": "本人把纸、羽毛和龙息瓶存入同一普通箱子"
+    },
+    {
+      "id": "E-EG-421",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "421"
+        }
+      ],
+      "approvedCondition": "本人在白天首次观察到原版史莱姆进入已加载视野"
+    },
+    {
+      "id": "E-EG-422",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "422"
+        }
+      ],
+      "approvedCondition": "本人首次把木镐存入工具箱并换用更高等级镐"
+    },
+    {
+      "id": "E-EG-423",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "423"
+        }
+      ],
+      "approvedCondition": "本人在家中放下一张床、一张工作台和一支火把"
+    },
+    {
+      "id": "E-EG-424",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "424"
+        }
+      ],
+      "approvedCondition": "本人夜间手持末影之眼看向天空3秒；不投掷"
+    },
+    {
+      "id": "E-EG-425",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "425"
+        }
+      ],
+      "approvedCondition": "本人透过红色玻璃观察月亮；需真实夜晚和无遮挡视线"
+    },
+    {
+      "id": "E-EG-426",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "426"
+        }
+      ],
+      "approvedCondition": "本人雨天手持树叶方块步行10格后进入屋檐"
+    },
+    {
+      "id": "E-EG-427",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "427"
+        }
+      ],
+      "approvedCondition": "本人抵达Y高于海平面80格的自建安全平台并放下箱子"
+    },
+    {
+      "id": "E-EG-428",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "428"
+        }
+      ],
+      "approvedCondition": "本人在海平面以下30格的水中成功钓鱼一次"
+    },
+    {
+      "id": "E-EG-429",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "429"
+        }
+      ],
+      "approvedCondition": "本人在丛林群系使用望远镜观察树冠"
+    },
+    {
+      "id": "E-EG-430",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "430"
+        }
+      ],
+      "approvedCondition": "本人白天步行穿过沙漠并在日落前到达其他群系"
+    },
+    {
+      "id": "E-EG-431",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "431"
+        }
+      ],
+      "approvedCondition": "本人在雪地发现并实际打开一个自然生成战利品箱"
+    },
+    {
+      "id": "E-EG-432",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "432"
+        }
+      ],
+      "approvedCondition": "本人在普通地牢附近放置火把后停在门口；不召唤额外Boss"
+    },
+    {
+      "id": "E-EG-433",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "433"
+        }
+      ],
+      "approvedCondition": "本人在原版蜂巢下点燃营火并合法收集蜂蜜"
+    },
+    {
+      "id": "E-EG-434",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "434"
+        }
+      ],
+      "approvedCondition": "本人在海洋群系成功钓得一条原版鱼"
+    },
+    {
+      "id": "E-EG-435",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "435"
+        }
+      ],
+      "approvedCondition": "本人在熔岩湖上方安全完成至少20格长的桥"
+    },
+    {
+      "id": "E-EG-436",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "436"
+        }
+      ],
+      "approvedCondition": "本人沿自己挖出的同一水平矿道步行200格"
+    },
+    {
+      "id": "E-EG-437",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "gravity_plan",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人用笔记保存“如果重力倒过来”并画出文字方案；不修改重力"
+    },
+    {
+      "id": "E-EG-438",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "438"
+        }
+      ],
+      "approvedCondition": "本人沿连续20格梯子上下往返一次"
+    },
+    {
+      "id": "E-EG-439",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "439"
+        }
+      ],
+      "approvedCondition": "本人跨维度返回主世界后抵达自己的重生点16格内"
+    },
+    {
+      "id": "E-EG-440",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "440"
+        }
+      ],
+      "approvedCondition": "本人连续完成5种不同工具的真实手工合成"
+    },
+    {
+      "id": "E-EG-441",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "441"
+        }
+      ],
+      "approvedCondition": "本人打开背包时携带指南针、时钟、望远镜和盾牌"
+    },
+    {
+      "id": "E-EG-442",
+      "event": "container",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "442"
+        }
+      ],
+      "approvedCondition": "本人在一个箱子存入4种不同效果的原版药水"
+    },
+    {
+      "id": "E-EG-443",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "443"
+        }
+      ],
+      "approvedCondition": "本人受伤后通过普通进食自然恢复到满生命"
+    },
+    {
+      "id": "E-EG-444",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "night",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "stars",
+          "op": "AT_LEAST",
+          "value": "5"
+        }
+      ],
+      "approvedCondition": "本人夜间在笔记保存一个星号图案，至少5个星号"
+    },
+    {
+      "id": "E-EG-445",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "445"
+        }
+      ],
+      "approvedCondition": "本人用蘑菇方块搭建带门和床的普通小屋"
+    },
+    {
+      "id": "E-EG-446",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "446"
+        }
+      ],
+      "approvedCondition": "本人以水和熔岩成功生成黑曜石后首次开采"
+    },
+    {
+      "id": "E-EG-447",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "447"
+        }
+      ],
+      "approvedCondition": "本人把两把不同材质的剑摆入相邻物品框"
+    },
+    {
+      "id": "E-EG-448",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "448"
+        }
+      ],
+      "approvedCondition": "本人夜间给铁傀儡修复生命并放下一盏灯"
+    },
+    {
+      "id": "E-EG-449",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "449"
+        }
+      ],
+      "approvedCondition": "本人在墙上对称放置两个末影之眼展示框，中间间距3格"
+    },
+    {
+      "id": "E-EG-450",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "450"
+        }
+      ],
+      "approvedCondition": "本人在丛林中种下并养大一株可骨粉催生的花或树苗"
+    },
+    {
+      "id": "E-EG-451",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "451"
+        }
+      ],
+      "approvedCondition": "本人进入自然丛林神庙并首次拆除一段绊线"
+    },
+    {
+      "id": "E-EG-452",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "452"
+        }
+      ],
+      "approvedCondition": "本人看着月亮从升起到观察10秒后回屋；不要求整夜"
+    },
+    {
+      "id": "E-EG-453",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "453"
+        }
+      ],
+      "approvedCondition": "本人并排放置南瓜灯、音符盒和蛋糕后奏响音符盒"
+    },
+    {
+      "id": "E-EG-454",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "454"
+        }
+      ],
+      "approvedCondition": "本人在雪地放置一排5盏灯笼"
+    },
+    {
+      "id": "E-EG-455",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "455"
+        }
+      ],
+      "approvedCondition": "本人修复一件受损工具后在笔记记录本次经验花费"
+    },
+    {
+      "id": "E-EG-456",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "456"
+        }
+      ],
+      "approvedCondition": "本人完成一次钓鱼后自愿收竿并在笔记写一条收获"
+    },
+    {
+      "id": "E-EG-458",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "458"
+        }
+      ],
+      "approvedCondition": "本人站在安全高台手持一把剑看向天空"
+    },
+    {
+      "id": "E-EG-459",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "459"
+        }
+      ],
+      "approvedCondition": "本人首次从洞穴返回地面后打开写有“Terraria”的笔记"
+    },
+    {
+      "id": "E-EG-460",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "460"
+        }
+      ],
+      "approvedCondition": "本人一次出门取得矿石、鱼与木材后返回重生点16格内"
+    },
+    {
+      "id": "E-EG-462",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "462"
+        }
+      ],
+      "approvedCondition": "本人在普通工业机器顶面真实起跳5次；不含旗舰、不中断配方"
+    },
+    {
+      "id": "E-EG-463",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "463"
+        }
+      ],
+      "approvedCondition": "同次登录先打开有权限AE终端，再打开机器GUI，随后再次打开AE终端"
+    },
+    {
+      "id": "E-EG-464",
+      "event": "notebook_saved",
+      "checks": [
+        {
+          "field": "optimizations",
+          "op": "AT_LEAST",
+          "value": "3"
+        }
+      ],
+      "approvedCondition": "本人在已完成任务笔记上连续3次修改标题中的“优化”，均有实际正文变化"
+    },
+    {
+      "id": "E-EG-465",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "465"
+        }
+      ],
+      "approvedCondition": "本人打开30个游戏日未访问的自有箱子并取出一件物品"
+    },
+    {
+      "id": "E-EG-467",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "reference",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "modification",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人在笔记记录建筑参考来源并写至少20字改动说明"
+    },
+    {
+      "id": "E-EG-468",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "468"
+        }
+      ],
+      "approvedCondition": "同一命名工具累计真实修复3次，保留其持久身份标识"
+    },
+    {
+      "id": "E-EG-469",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "469"
+        }
+      ],
+      "approvedCondition": "本人在JEI同一有效标签页查看至少3种不同来源物品"
+    },
+    {
+      "id": "E-EG-470",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "470"
+        }
+      ],
+      "approvedCondition": "本人同次登录查看来自5个不同已安装模组的配方页"
+    },
+    {
+      "id": "E-EG-471",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "471"
+        }
+      ],
+      "approvedCondition": "本人在笔记写下“速通”后至少60秒内仅进行准备而未改变主线进度"
+    },
+    {
+      "id": "E-EG-472",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "472"
+        }
+      ],
+      "approvedCondition": "本人首次在重生点16格内放置床、箱子、工作台和照明"
+    },
+    {
+      "id": "E-EG-473",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "473"
+        }
+      ],
+      "approvedCondition": "本人获得一件有自定义名称的武器后保存其用途笔记"
+    },
+    {
+      "id": "E-EG-474",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "474"
+        }
+      ],
+      "approvedCondition": "本人把至少8种物品在背包内整理并腾出1格；不丢弃"
+    },
+    {
+      "id": "E-EG-475",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "475"
+        }
+      ],
+      "approvedCondition": "手机2048一局结束后主动返回主页"
+    },
+    {
+      "id": "E-EG-476",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "476"
+        }
+      ],
+      "approvedCondition": "手机贪吃蛇首次达到长度16且仍存活"
+    },
+    {
+      "id": "E-EG-477",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "477"
+        }
+      ],
+      "approvedCondition": "本人在床设置重生点后保存游戏内笔记“歇会儿”"
+    },
+    {
+      "id": "E-EG-478",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "478"
+        }
+      ],
+      "approvedCondition": "本人盾牌成功挡下一支骷髅箭后离开战斗范围"
+    },
+    {
+      "id": "E-EG-479",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "479"
+        }
+      ],
+      "approvedCondition": "本人穿过下界传送门后原路返回且无死亡"
+    },
+    {
+      "id": "E-EG-480",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "480"
+        }
+      ],
+      "approvedCondition": "本人放置蛋糕并实际吃下一片"
+    },
+    {
+      "id": "E-EG-481",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "481"
+        }
+      ],
+      "approvedCondition": "本人在打开普通箱子前用盾牌格挡1次再正常开启"
+    },
+    {
+      "id": "E-EG-482",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "482"
+        }
+      ],
+      "approvedCondition": "本人用剑成功破坏10株普通草；不影响特殊植物"
+    },
+    {
+      "id": "E-EG-483",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "483"
+        }
+      ],
+      "approvedCondition": "本人给已有有效生产线新增一处分支并完成一次真实生产"
+    },
+    {
+      "id": "E-EG-484",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "484"
+        }
+      ],
+      "approvedCondition": "本人发起自动化任务后在旁完成阅读一封已有来信，任务正常交付"
+    },
+    {
+      "id": "E-EG-485",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "power_plan",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人在笔记写下“戴森球”与至少20字供能设想"
+    },
+    {
+      "id": "E-EG-486",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "486"
+        }
+      ],
+      "approvedCondition": "本人同一游戏日完成浇田替代动作放水、收割、喂养各一次"
+    },
+    {
+      "id": "E-EG-487",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "487"
+        }
+      ],
+      "approvedCondition": "本人饥饿值不足时喝完蜂蜜瓶后返回安全屋"
+    },
+    {
+      "id": "E-EG-488",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "488"
+        }
+      ],
+      "approvedCondition": "本人破坏脚下方块后落入自放水中安全落地"
+    },
+    {
+      "id": "E-EG-489",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "489"
+        }
+      ],
+      "approvedCondition": "本人填充一张地图后打开邻接区域的新地图"
+    },
+    {
+      "id": "E-EG-490",
+      "event": "phone_app_hints_open",
+      "checks": [
+        {
+          "field": "three_read",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人依次悬停手机3个不同App并读到工具提示后打开其中1个"
+    },
+    {
+      "id": "E-EG-491",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "backup",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "has_date",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人在笔记写下备份计划并标记日期；不声称已经完成系统备份"
+    },
+    {
+      "id": "E-EG-492",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "492"
+        }
+      ],
+      "approvedCondition": "离线至少7个现实日后本人再次进入此存档；只提醒不奖励"
+    },
+    {
+      "id": "E-EG-493",
+      "event": "phone_closed",
+      "checks": [
+        {
+          "field": "notes_elapsed",
+          "op": "AT_LEAST",
+          "value": "3600"
+        }
+      ],
+      "approvedCondition": "第一次打开笔记3分钟后主动关闭手机；只统计正常阅读不要求挂机"
+    },
+    {
+      "id": "E-EG-494",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "494"
+        }
+      ],
+      "approvedCondition": "连续3个现实日未进入后首次读到已有通知"
+    },
+    {
+      "id": "E-EG-495",
+      "event": "note_saved",
+      "checks": [
+        {
+          "field": "acceptance",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "steps",
+          "op": "AT_LEAST",
+          "value": "3"
+        }
+      ],
+      "approvedCondition": "本人保存一份至少3项明确验收条件的笔记"
+    },
+    {
+      "id": "E-EG-496",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "496"
+        }
+      ],
+      "approvedCondition": "本人把两种不同模组同用途物品并排放入容器，不进行战斗"
+    },
+    {
+      "id": "E-EG-497",
+      "event": "block_placed",
+      "checks": [
+        {
+          "field": "creative",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "ordinary_building",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人在创造模式放置第一块普通建筑方块；仅创造收藏分区"
+    },
+    {
+      "id": "E-EG-499",
+      "event": "phone_closed",
+      "checks": [
+        {
+          "field": "later_note",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人把一条笔记标为“下次再做”后退出手机"
+    },
+    {
+      "id": "E-EG-500",
+      "event": "collection_collect",
+      "checks": [
+        {
+          "field": "id",
+          "op": "EQ",
+          "value": "E-EG-500"
+        },
+        {
+          "field": "discovered",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "complete",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "active",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人发现至少1条本批彩蛋后在收藏目录阅读本条说明并主动收藏；不要求收齐499条"
+    }
+  ],
+  "_comment_r128_exact": "【变更记录 #2】2026-10-01 04:09:54：保持审核触发条件；独立事实检测，关闭旧近似入口。",
+  "history": [
+    {
+      "time": "2026-10-01 04:41:04",
+      "revision": 128,
+      "change": "撤销283正文关键词捷径；等待真正三色笔记标签界面，不改审核条件。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 04:43:52",
+      "change": "增加既有制作、关闭容器、跨维度、手机日历和原生AE终端成功回执；不改原条件。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 04:45:29",
+      "change": "AE2编码和压印真实结果入口；原生制作之外的AE工艺仍需独立核验。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 04:47:12",
+      "change": "逐条纠正388/406/437/467/485/495/499旧题材错配；417未有日期页保持等待，不用文明总览替代。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 04:48:51",
+      "change": "小游戏彩蛋通过操作重放验证；无客户端分数授予入口。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 04:51:18",
+      "change": "装饰场景基于实际本人动作；不生成SCP或Terraria实体。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 04:53:17",
+      "change": "连续观察按真实tick和视线，回血按原版饥饿系统回调核验。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 04:55:02",
+      "change": "手动音符实际奏响与充能石英真实转化后取出，不用模拟或持有替代。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 04:58:34",
+      "change": "真实工业输入输出关联及离线研究完成回执；保留未审批结构约束，不解锁正式资格。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:02:11",
+      "change": "钓鱼成功按所有真实钓获回执统计，连续步行排除瞬移与飞行，保留原条件。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:04:18",
+      "change": "现有背包地图页面和加载范围内真实工作机器，仅观察可选收藏。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:09:29",
+      "change": "所有绑定规则携带完整已审条件，加载时与正式目录逐字校对；非执行路径验证，不夸大覆盖。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:11:58",
+      "change": "现有I01正式GUI、AE机器菜单顺序及合法通信接线；无需新结构。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:20:36",
+      "change": "联动工具真实提交接线；保留原条件。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:24:14",
+      "change": "AE菜单实际存入、合成、取回及只读退出；补齐无线终端直接打开。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:28:18",
+      "change": "生活动作实际回执，修复及挡箭事件不以右键代替成功。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:33:27",
+      "change": "正式终审同节点待选计时与重复输入旁注，不改变对话控制。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:36:00",
+      "change": "分类仓存取与真实制造记录组合，自有旧箱不伪造历史时间。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:41:36",
+      "change": "实际放置归属与连续几何布局；维护有界历史，旧建筑不猜归属。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:47:22",
+      "change": "正式研究最低速度扣电推进、高阶后基础电路制造、超级终端原生菜单。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:56:06",
+      "change": "真实天气和叶片遮挡下手机开关序列。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 05:59:33",
+      "change": "本人真实装饰存放、修复与虚数静立；完整保留审核条件。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:01:37",
+      "change": "切石原料/成品配对与本人背包无损整理。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:04:42",
+      "change": "AE控制器、驱动器、容量卡、记忆卡的实际结果。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:05:54",
+      "change": "连续实际步行、探洞归来与梯子往返。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:09:22",
+      "change": "蜂蜜后返回安全屋及本人蘑菇房屋；修正高台放箱自锁。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:11:31",
+      "change": "同机器同tick双能源实际成功扣款与连续工作旁注。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:15:25",
+      "change": "普通与高级无线覆盖板成功交付实际回执。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:19:47",
+      "change": "补充无线能源真实接收、实际笔记场景与传送步行；耕作只接回调，未齐前不注册规则。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:23:20",
+      "change": "补齐结构、虚空销毁与已存在装饰耕作流程；未变审批条件。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:25:16",
+      "change": "补齐讲台节日完整阅读、雪地自然箱子、原版蜂巢安全采蜜。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:27:59",
+      "change": "AE真实转化、CPU交付及任务间阅读现有来信；适配范围仍须记录。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:31:11",
+      "change": "AE总线升级卡与驱动器流体单元实际路径；其他支持设备覆盖另列。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:39:10",
+      "change": "普通门廊、桌椅蛋糕、石制展示位、20格岩浆桥及出门采集返回的真实场景。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 06:45:52",
+      "change": "真实发电窗口与累计账本、跨23点主动关闭阅读；授桥前复查全部几何。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 12:13:33",
+      "change": "现有JEI配方/标签及真实工具提示和指南页面观察；不读创造持有作生产。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 12:16:23",
+      "change": "护具、复制配置、电池实际充电三类工具旁注。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 12:18:50",
+      "change": "月亮实际方向与遮挡、矿道、神庙、准备、下界门往返及地图探索回执。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 12:32:24",
+      "change": "本人挖脚下后无伤落入自放源水的实际过程检测。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 12:33:29",
+      "change": "普通无线流体覆盖板接收端真实满载暂停后实际恢复交付。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 13:24:37",
+      "change": "本人电路配置后成功配方、高级无线覆盖板目标变更后实际交付。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 13:26:03",
+      "change": "AE实际预览后主动取消、维度传送器成功传送后实际查看F3坐标。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 13:27:41",
+      "change": "独立信号三灯、命名僵尸受伤后本人隔离、自然地牢照明及停门口。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 13:29:18",
+      "change": "本人放水真实生成源熔岩黑曜石后实际开采；普通放置不替代生成。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 13:31:18",
+      "change": "模拟卡实际转换、碎界采集器成功产物、本人丛林树苗真实成长。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 13:33:12",
+      "change": "高级终端本人有效操作后存入权限收纳容器。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 13:34:51",
+      "change": "本人装水瓶并实际按钮发射的三步事务回执。"
+    },
+    {
+      "revision": 128,
+      "time": "2026-10-01 13:36:23",
+      "change": "已有GT物品线新增分支实际交付后在目标机消耗并产出。"
+    }
+  ],
+  "_comment_r134": "【变更记录 #1】2026-10-01 16:30:04（修订134）：新增417真实日期页规则，删除无；保持500原条件，不替换其他等待依赖条目。",
+  "_comment_r204": "【变更记录 #3】2026-11-05 01:51:41（内测5修订204）：删除无；新增324本人空搜索、385七段保存版本手动翻页完整阅读、500发现后阅读说明并主动收藏的三条规则；修改无审核正文与条件；用途：仅接收服务端成功事务，不授研究或阶段。",
+  "_comment_r210": "【变更记录 #4】2026-11-05 19:08:32（修订210）：新增372/377可靠年度节气事实及380新世界创建时间周年；原374条、500正文及审核条件不变。",
+  "_history_r211": {
+    "time": "2026-11-05 22:19:02",
+    "reason": "N14集中实现",
+    "changes": "新增45条真实入口规则，原377条与500条审核条件保留。未接通来源不加规则。"
+  }
+}

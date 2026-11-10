@@ -1,0 +1,10 @@
+{
+  "vertex":"hk3gtl:i34_tree_lines","fragment":"hk3gtl:i34_tree_lines",
+  "blend":{"func":"add","srcrgb":"srcalpha","dstrgb":"one"},
+  "samplers":[],"attributes":["Position","Color"],
+  "uniforms":[
+    {"name":"ModelViewMat","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name":"ProjMat","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name":"Power","type":"float","count":1,"values":[1]}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "vertex": "hk3gtl:farview", "fragment": "hk3gtl:farview",
+  "samplers": [{"name": "Sampler0"}, {"name": "Sampler1"}],
+  "attributes": ["Position", "Color", "UV0"],
+  "uniforms": [
+    {"name":"ModelViewMat","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name":"ProjMat","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name":"TileOrigin","type":"float","count":3,"values":[0,0,0]},
+    {"name":"CameraOrigin","type":"float","count":3,"values":[0,0,0]},
+    {"name":"ChunkOrigin","type":"float","count":2,"values":[0,0]},
+    {"name":"FarLimit","type":"float","count":1,"values":[2048]},
+    {"name":"NearLimit","type":"float","count":1,"values":[64]}
+  ]
+}

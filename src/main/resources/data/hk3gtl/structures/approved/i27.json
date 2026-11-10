@@ -1,0 +1,234 @@
+{
+  "key": "i27",
+  "machine": "hk3gtl:i27_world_bubble_capture_array",
+  "source": "data/hk3gtl/approved_architecture/i27.json",
+  "sha256": "6d83987b52228f4473cacda24cef55c1dc777628ebc1680ae58fc166433e7733",
+  "template_sha256": "299d2da334b70e1e4595e5e8c0d0a706ff137a421b892c7adb1c4fbc3150b7a1",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_171435_109565_batch-07_05of05_I27_V1_IMV_已确认\\I27_世界泡整体捕获阵列_锁界环形回收坞_V1_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_171435_109565_batch-07_05of05_I27_V1_IMV_已确认\\I27_世界泡整体捕获阵列_锁界环形回收坞_V1_20261026\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_171435_109565_batch-07_05of05_I27_V1_IMV_已确认\\I27_世界泡整体捕获阵列_锁界环形回收坞_V1_20261026\\i27\\hk3gtl-i27-whole-world-capture-array-v1-20261026.nbt",
+  "source_nbt_sha256": "c6f5256df63e34dd21b85080326c1199fd389eda5dfbfb013208140e0625f3ae",
+  "controller": [
+    168,
+    35,
+    18
+  ],
+  "size_xyz": [
+    337,
+    205,
+    337
+  ],
+  "blocks": 1201924,
+  "ports": [
+    {
+      "id": "坐标数据输入",
+      "purpose": "接收I25有效目标坐标，前调度厅齐平接口",
+      "pos": [
+        146,
+        35,
+        18
+      ],
+      "face": "north",
+      "group": "item_input"
+    },
+    {
+      "id": "锁定与研究授权",
+      "purpose": "接收I44目标锁定及RN-WBC许可候选",
+      "pos": [
+        190,
+        35,
+        18
+      ],
+      "face": "north",
+      "group": "research"
+    },
+    {
+      "id": "西侧约束能源",
+      "purpose": "西侧脉冲供能厅外墙",
+      "pos": [
+        12,
+        35,
+        140
+      ],
+      "face": "west",
+      "group": "energy_input"
+    },
+    {
+      "id": "西侧维护",
+      "purpose": "西侧场发生器维护通道",
+      "pos": [
+        12,
+        35,
+        196
+      ],
+      "face": "west",
+      "group": "maintenance"
+    },
+    {
+      "id": "东侧约束能源",
+      "purpose": "东侧脉冲供能厅外墙",
+      "pos": [
+        324,
+        35,
+        140
+      ],
+      "face": "east",
+      "group": "energy_input"
+    },
+    {
+      "id": "捕获异常与场衰减记录",
+      "purpose": "状态恢复与记录交换，东侧设备厅",
+      "pos": [
+        324,
+        35,
+        196
+      ],
+      "face": "east",
+      "group": "research"
+    },
+    {
+      "id": "空收容容器输入",
+      "purpose": "独立回收厅后侧容器交接，不代表世界泡可制造",
+      "pos": [
+        154,
+        35,
+        322
+      ],
+      "face": "south",
+      "group": "item_input"
+    },
+    {
+      "id": "封存世界泡输出",
+      "purpose": "保留真实目标UUID及已采次数，封存后送I28",
+      "pos": [
+        182,
+        35,
+        322
+      ],
+      "face": "south",
+      "group": "item_output"
+    }
+  ],
+  "target_voltage": "IMV",
+  "installed_hatches": {
+    "坐标数据输入": "item_input",
+    "空收容容器输入": "item_input",
+    "封存世界泡输出": "item_output"
+  },
+  "required_abilities": [
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 36,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        146,
+        35,
+        18
+      ],
+      "role": "坐标数据输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        168,
+        35,
+        18
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i27_world_bubble_capture_array[facing=north]",
+      "block_entity_id": "hk3gtl:i27_world_bubble_capture_array"
+    },
+    {
+      "pos": [
+        190,
+        35,
+        18
+      ],
+      "role": "锁定与研究授权",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        12,
+        35,
+        140
+      ],
+      "role": "西侧约束能源",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        324,
+        35,
+        140
+      ],
+      "role": "东侧约束能源",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        12,
+        35,
+        196
+      ],
+      "role": "西侧维护",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        324,
+        35,
+        196
+      ],
+      "role": "捕获异常与场衰减记录",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        154,
+        35,
+        322
+      ],
+      "role": "空收容容器输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=south]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        182,
+        35,
+        322
+      ],
+      "role": "封存世界泡输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i27_world_bubble_capture_array",
+  "controller_json_state": "hk3gtl:i27_world_bubble_capture_array"
+}

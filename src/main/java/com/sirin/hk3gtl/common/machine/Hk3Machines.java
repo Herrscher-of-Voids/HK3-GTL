@@ -1,30 +1,24 @@
 package com.sirin.hk3gtl.common.machine;
 
 
-
 /**
- * 多方块机器注册的公开门面类。
+ * 【文件职责】
+ * - 定义 Hk3Machines 机器行为与结构逻辑。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
  *
- * <h3>职责</h3>
- * 定义并注册所有 HK3GTL 多方块控制器，通过 GTRegistrate 绑定：
- * <ul>
- *   <li>配方类型（{@link com.sirin.hk3gtl.common.recipe.Hk3RecipeTypes}）</li>
- *   <li>结构 Pattern（{@code pattern} 包下各 Pattern 类）</li>
- *   <li>外观方块与渲染贴图</li>
- * </ul>
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
  *
- * <h3>注册顺序</h3>
- * P1 核心 4 台 → Max 阶段 → 海渊 → 虚数 → 量子 → 终焉 → 奇观，
- * 由 {@link Hk3MachinesImpl#init()} 统一调度。
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>新增机器 → 在对应阶段子类中添加（如 {@code Hk3MachinesAbyssStage}）</li>
- *   <li>切换正式结构 → 将 {@code Hk3TemporaryMultiblockPatterns} 替换为对应 Pattern 类</li>
- *   <li>所有多方块必须使用 {@code Hk3WorkableMultiblockMachine} 基类</li>
- * </ul>
- *
- * @see Hk3MachinesImpl
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
  */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public class Hk3Machines extends Hk3MachinesImpl {
 }

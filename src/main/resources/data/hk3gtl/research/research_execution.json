@@ -1,0 +1,2915 @@
+{
+  "schema": 1,
+  "revision": 102,
+  "structure_approval": false,
+  "topics": [
+    {
+      "id": "RN-HED",
+      "title": "崩坏能识别",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I01-1",
+      "recipe": "machine:liquid_collection",
+      "existing": true,
+      "prerequisites": [],
+      "facts": [],
+      "specimen": "research_specimen_hed",
+      "precursor": "prototype_honkai_detector",
+      "ticks": 800,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [],
+      "source": "I01-1首次液态采样",
+      "success": "采样实际消耗与液体输出提交成功；不要求同意合作",
+      "inputs": "奥托首信观察资料、零阶探测器、MAX阶段可得采样耗材",
+      "benefit": "开放HSA研究资格；不重复锁住起步I01/I02",
+      "no_self_lock": "首次采样不能要求HED研究完成"
+    },
+    {
+      "id": "RN-HSA",
+      "title": "样本光谱解析",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I02",
+      "recipe": "industrial_initial_spectrum",
+      "existing": true,
+      "prerequisites": [
+        "RN-HED"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_hsa",
+      "precursor": "honkai_analysis_sample",
+      "ticks": 800,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "I03"
+      ],
+      "source": "I02初始光谱实验",
+      "success": "实际输出分析样本，保留采样和分析批次来源",
+      "inputs": "I01液态样本经GT灌装机封瓶、纸",
+      "benefit": "I03控制器与初次分馏；标准样本分析",
+      "no_self_lock": "研究前允许初始光谱实验，持有或购买分析样本不能伪造本队证据"
+    },
+    {
+      "id": "RN-LSE",
+      "title": "液态分离工艺",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I03",
+      "recipe": "industrial_liquid_fractionation",
+      "existing": true,
+      "prerequisites": [
+        "RN-HSA"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_lse",
+      "precursor": "separation_filter",
+      "ticks": 800,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "I04"
+      ],
+      "source": "I03首次分馏",
+      "success": "粗液、母液、试剂及杂质全部真实提交；输出阻塞不记账",
+      "inputs": "初采液、碳、前级MAX制造滤芯与结晶基质",
+      "benefit": "母液净化、回流、新鲜介质和I04稳定化路线",
+      "no_self_lock": "第一批滤芯不可依赖净化产物；基础介质不能依赖回收废液"
+    },
+    {
+      "id": "RN-LES",
+      "title": "液态崩坏能稳定化",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I04",
+      "recipe": "industrial_liquid_stabilization",
+      "existing": true,
+      "prerequisites": [
+        "RN-LSE"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_les",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 800,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [],
+      "source": "I04稳定化",
+      "success": "稳定液、结晶、用后介质和热冷却剂完成真实输出",
+      "inputs": "I03粗液、净化产物制晶种、新鲜稳定介质与冷却剂",
+      "benefit": "适配基板制造及I02兼容性实验",
+      "no_self_lock": "研究LES前可执行稳定化实验；初次稳定化不依赖再生介质"
+    },
+    {
+      "id": "RN-BCE",
+      "title": "起步电路适配",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I02",
+      "recipe": "industrial_circuit_adaptation_experiment",
+      "existing": true,
+      "prerequisites": [
+        "RN-LES"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_bce",
+      "precursor": "honkai_adapted_circuit_substrate",
+      "ticks": 800,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "I05",
+        "I06",
+        "I07"
+      ],
+      "source": "I02现有电路兼容试验",
+      "success": "输入提交且对应样件与分析结果真实输出",
+      "inputs": "LES后适配基板、MAX电路、纸、MAX传感器",
+      "benefit": "I05/I06/I07起步控制器及工艺；前级种子电子制造的保留入口",
+      "no_self_lock": "BCE试验不得使用BCE解锁后的CPU/RAM或新级电路"
+    },
+    {
+      "id": "RN-DMT",
+      "title": "探测器校准",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I07",
+      "recipe": "industrial_prototype_detector_calibration",
+      "existing": true,
+      "prerequisites": [
+        "RN-HSA",
+        "RN-BCE"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_dmt",
+      "precursor": "prototype_honkai_detector",
+      "ticks": 840,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [],
+      "source": "I07现有对照校准",
+      "success": "输出校准报告并返回原探测器；不是单纯取走探测器",
+      "inputs": "零阶探测器、参考样本、分析样本、纸与铂箔",
+      "benefit": "一阶液态探测器制造及高效采集",
+      "no_self_lock": "研究付款不得吞掉唯一升级用报告；采集参考样本按已定规则不消耗"
+    },
+    {
+      "id": "RN-SMR",
+      "title": "稳定介质再生",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I05",
+      "recipe": "industrial_stabilization_medium_recovery",
+      "existing": true,
+      "prerequisites": [
+        "RN-LES",
+        "RN-BCE"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_smr",
+      "precursor": "separation_filter",
+      "ticks": 840,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [],
+      "source": "I05基础稳定介质再生",
+      "success": "实际完成800mB用后介质的基础回收批次；以真实配方回执为准",
+      "inputs": "I04用后稳定介质、已有试剂和残渣",
+      "benefit": "扩展分析试剂、分析线冷却剂和其他残液回收",
+      "no_self_lock": "基础再生提前开放；一般排污出口不能全部被SMR锁住"
+    },
+    {
+      "id": "RN-HFB",
+      "title": "崩坏燃料调配",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I06",
+      "recipe": "industrial_liquid_fuel_blending",
+      "existing": true,
+      "prerequisites": [
+        "RN-LES",
+        "RN-BCE"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_hfb",
+      "precursor": "fuel_matrix",
+      "ticks": 840,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "I17"
+      ],
+      "source": "I06已有液态燃料调配",
+      "success": "液态燃料与副产物完成结算",
+      "inputs": "I04稳定液、稳定介质、燃料基质、结晶与样本",
+      "benefit": "液态燃料网络注入、浓缩起步、FRP试验准备",
+      "no_self_lock": "不得用正式燃料棒当作调配实验的第一份投入"
+    },
+    {
+      "id": "RN-FRP",
+      "title": "普通燃料棒封装",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I02",
+      "recipe": "industrial_fuel_rod_isolation_experiment",
+      "existing": true,
+      "prerequisites": [
+        "RN-HFB"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_frp",
+      "precursor": "fuel_encapsulation_test_specimen",
+      "ticks": 840,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "I18"
+      ],
+      "source": "GT组装/灌装→I02破坏性隔离检测",
+      "success": "消耗试验件并产出不合格棒；现有配方已采用这一路线",
+      "inputs": "HFB后GT制造棒壳与密封件；100mB液态燃料灌成试验件",
+      "benefit": "I18正式封装工艺与普通可用燃料棒",
+      "no_self_lock": "试验件不可发电；首批壳体不要求魂钢；正式I18不参与自身起步证据"
+    },
+    {
+      "id": "RN-SRE",
+      "title": "小型反应堆工程",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I02",
+      "recipe": "industrial_experiment_sre",
+      "existing": false,
+      "prerequisites": [
+        "RN-FRP"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_sre",
+      "precursor": "honkai_fuel_rod_casing",
+      "ticks": 840,
+      "energy_tier": 14,
+      "provisional": true,
+      "unlocks": [
+        "I19"
+      ],
+      "source": "前级GT制安全试件→I02检测",
+      "success": "封装冷却相容性与绝缘检测真实完成；取得一份专用安全试验记录",
+      "inputs": "FRP后可得壳体、密封件、冷却剂与前级绝缘工装",
+      "benefit": "I19控制器、普通燃料棒发电工况及对应冷却/失活棒输出",
+      "no_self_lock": "不要求I19先发电；先用新鲜冷却剂启动，热液和失活棒可暂存"
+    },
+    {
+      "id": "RN-HLC",
+      "title": "冷却剂换热回流",
+      "lab": 1,
+      "tier": 2,
+      "executor": "I02",
+      "recipe": "industrial_experiment_hlc",
+      "existing": false,
+      "prerequisites": [
+        "RN-SRE",
+        "RN-SMR"
+      ],
+      "facts": [
+        "reactor_load"
+      ],
+      "specimen": "research_specimen_hlc",
+      "precursor": "fuel_encapsulation_part",
+      "ticks": 880,
+      "energy_tier": 15,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT小批换热→I02分析密封取样件",
+      "success": "记录一次真实冷热介质交换及损耗；不能只读罐内库存",
+      "inputs": "I19真实生成热冷却剂、前级换热工装与补充冷却介质",
+      "benefit": "I05反应堆热循环工况（I46合并候选）",
+      "no_self_lock": "区别SMR的分析线冷却剂净化；不得要求HLC已开放的正式闭环"
+    },
+    {
+      "id": "RN-SFR",
+      "title": "失活燃料后处理",
+      "lab": 1,
+      "tier": 2,
+      "executor": "I02",
+      "recipe": "industrial_experiment_sfr",
+      "existing": false,
+      "prerequisites": [
+        "RN-SRE",
+        "RN-LSE"
+      ],
+      "facts": [
+        "reactor_spent_rod"
+      ],
+      "specimen": "research_specimen_sfr",
+      "precursor": "depleted_honkai_fuel_rod",
+      "ticks": 880,
+      "energy_tier": 15,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT屏蔽拆解样件→I02检验",
+      "success": "失活棒被实际处理；仅输出试验残渣与检测件，不作为正式回收批次",
+      "inputs": "I19真实生成失活棒、前级屏蔽拆解工装",
+      "benefit": "I05屏蔽拆解、有限材料回收和残渣处置（I47合并候选）",
+      "no_self_lock": "不要求I16魂钢加工；试验与正式回收不能给同一根棒重复返还材料"
+    },
+    {
+      "id": "RN-RAT",
+      "title": "现实稳定锚原理",
+      "lab": 1,
+      "tier": 2,
+      "executor": "I02",
+      "recipe": "industrial_experiment_rat",
+      "existing": false,
+      "prerequisites": [
+        "RN-HSA",
+        "RN-LES"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_rat",
+      "precursor": "honkai_reference_sample",
+      "ticks": 880,
+      "energy_tier": 15,
+      "provisional": true,
+      "unlocks": [
+        "I36"
+      ],
+      "source": "前级GT制场响应试件→I02干扰对照",
+      "success": "同一试件的干扰前后读数形成有效检测回执",
+      "inputs": "HSA/LES后液态样本、MAX场控制器件、普通屏蔽基材",
+      "benefit": "I36基础现实稳定锚控制器及基础工况",
+      "no_self_lock": "不要求仿制核心、虚数材料或先运行稳定锚；S01本身仍免受注视度影响"
+    },
+    {
+      "id": "RN-SSP",
+      "title": "魂钢前驱体",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "industrial_experiment_ssp",
+      "existing": false,
+      "prerequisites": [
+        "RN-LES",
+        "RN-SMR"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_ssp",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 920,
+      "energy_tier": 16,
+      "provisional": true,
+      "unlocks": [
+        "I09"
+      ],
+      "source": "前级GT微量前驱试样→I02分析",
+      "success": "微量试样实际制作并检测；试样不能输入正式纳米群量产配方",
+      "inputs": "稳定介质、前级可得金属基材与化工试剂",
+      "benefit": "I09魂钢前驱液生产",
+      "no_self_lock": "不得用魂钢、I09正式前驱液或待研究新材料制造第一份样件"
+    },
+    {
+      "id": "RN-NBS",
+      "title": "纳米基元合成",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "industrial_experiment_nbs",
+      "existing": false,
+      "prerequisites": [
+        "RN-SSP"
+      ],
+      "facts": [
+        "soulium_precursor"
+      ],
+      "specimen": "research_specimen_nbs",
+      "precursor": "soulium_microstructure_template",
+      "ticks": 920,
+      "energy_tier": 16,
+      "provisional": true,
+      "unlocks": [
+        "I10"
+      ],
+      "source": "前级GT小批反应/分离→I02基元检测",
+      "success": "试制微结构样件的形态与组分检测成功；不产出可直接用于量产的基元",
+      "inputs": "I09正式前驱液、前级精细金属与已有分离介质",
+      "benefit": "I10纳米基元合成",
+      "no_self_lock": "试样不能要求I10先合成正式纳米基元"
+    },
+    {
+      "id": "RN-NRA",
+      "title": "纳米机器人装配",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "industrial_experiment_nra",
+      "existing": false,
+      "prerequisites": [
+        "RN-NBS"
+      ],
+      "facts": [
+        "nano_building"
+      ],
+      "specimen": "research_specimen_nra",
+      "precursor": "nano_building_unit",
+      "ticks": 920,
+      "energy_tier": 16,
+      "provisional": true,
+      "unlocks": [
+        "I11"
+      ],
+      "source": "前级GT组装台架→I02驱动检测",
+      "success": "微执行器完成可启动/停止的真实台架工序；样件只用于检测",
+      "inputs": "I10纳米基元、前级电路与驱动材料",
+      "benefit": "I11未编程纳米单元制造",
+      "no_self_lock": "不要求I11正式单元、受控纳米群或未生产的新级电路"
+    },
+    {
+      "id": "RN-NSP",
+      "title": "纳米自组织编程",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "industrial_experiment_nsp",
+      "existing": false,
+      "prerequisites": [
+        "RN-NRA"
+      ],
+      "facts": [
+        "nano_assembly"
+      ],
+      "specimen": "research_specimen_nsp",
+      "precursor": "unprogrammed_nanobot",
+      "ticks": 920,
+      "energy_tier": 16,
+      "provisional": true,
+      "unlocks": [
+        "I12"
+      ],
+      "source": "前级GT封装隔离测试载体→I02执行控制对照",
+      "success": "实际验证启动、执行与停止指令；测试单元不能当作受控纳米群投入生产",
+      "inputs": "I11未编程纳米单元、前级控制电路和隔离载体",
+      "benefit": "I12受控纳米群制造与控制工况",
+      "no_self_lock": "不得用I12通用受控纳米群证明自己；无自动增长或复制物品机制"
+    },
+    {
+      "id": "RN-CBS",
+      "title": "适配基板生长",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "industrial_experiment_cbs",
+      "existing": false,
+      "prerequisites": [
+        "RN-NSP",
+        "RN-BCE"
+      ],
+      "facts": [
+        "nano_control"
+      ],
+      "specimen": "research_specimen_cbs",
+      "precursor": "controlled_nano_swarm",
+      "ticks": 920,
+      "energy_tier": 16,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT制生长试片→I02检测",
+      "success": "试片沉积与绝缘检测真实完成；仅输出检测用试片",
+      "inputs": "I12受控纳米群、稳定介质、MAX可得载体",
+      "benefit": "I12基础基板生长工况（I48合并候选）",
+      "no_self_lock": "不要求魂钢；BCE早期适配基板路线保留，不回锁起步电子部件"
+    },
+    {
+      "id": "RN-HRC",
+      "title": "崩坏抗性包覆",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "industrial_experiment_hrc",
+      "existing": false,
+      "prerequisites": [
+        "RN-NSP"
+      ],
+      "facts": [
+        "nano_control"
+      ],
+      "specimen": "research_specimen_hrc",
+      "precursor": "controlled_nano_swarm",
+      "ticks": 960,
+      "energy_tier": 17,
+      "provisional": true,
+      "unlocks": [
+        "I13"
+      ],
+      "source": "前级GT涂覆试片→I02侵蚀前后对照",
+      "success": "包覆层耐受检测完成，残余样件不能代替正式抗性纳米群",
+      "inputs": "I12受控纳米群、已有涂覆材料与对照载体",
+      "benefit": "I13崩坏抗性包覆工艺",
+      "no_self_lock": "不得消耗未开放的I13正式包覆群制作首个试片"
+    },
+    {
+      "id": "RN-SPC",
+      "title": "魂钢聚合压铸",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "industrial_experiment_spc",
+      "existing": false,
+      "prerequisites": [
+        "RN-HRC"
+      ],
+      "facts": [
+        "nano_coating"
+      ],
+      "specimen": "research_specimen_spc",
+      "precursor": "coated_nano_swarm",
+      "ticks": 960,
+      "energy_tier": 17,
+      "provisional": true,
+      "unlocks": [
+        "I14"
+      ],
+      "source": "前级GT压制致密化试件→I02结构检测",
+      "success": "试件真实压制并检测；仅为非量产材料样件",
+      "inputs": "I13包覆群、前阶模具和压制载体",
+      "benefit": "I14粗魂钢聚合压铸",
+      "no_self_lock": "不要求粗魂钢或后级魂钢模具，试件不能绕过I14当作魂钢材料"
+    },
+    {
+      "id": "RN-SRA",
+      "title": "魂钢重构退火",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "industrial_experiment_sra",
+      "existing": false,
+      "prerequisites": [
+        "RN-SPC"
+      ],
+      "facts": [
+        "soulium_polymerization"
+      ],
+      "specimen": "research_specimen_sra",
+      "precursor": "soulium_proto_mass",
+      "ticks": 960,
+      "energy_tier": 17,
+      "provisional": true,
+      "unlocks": [
+        "I15"
+      ],
+      "source": "前级GT热处理试件→I02缺陷检测",
+      "success": "退火试件完成热处理和缺陷检验；只作为检测件",
+      "inputs": "I14粗魂钢、已有热处理与冷却介质",
+      "benefit": "I15稳定魂钢退火工艺",
+      "no_self_lock": "不先消耗稳定魂钢；旧直接凝锭路线须在新链落地时逐项迁移，不能绕过整条链"
+    },
+    {
+      "id": "RN-SPM",
+      "title": "魂钢精密加工",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "industrial_experiment_spm",
+      "existing": false,
+      "prerequisites": [
+        "RN-SRA"
+      ],
+      "facts": [
+        "soulium_reconstruction"
+      ],
+      "specimen": "research_specimen_spm",
+      "precursor": "stabilized_soulium_proto_mass",
+      "ticks": 960,
+      "energy_tier": 17,
+      "provisional": true,
+      "unlocks": [
+        "I16"
+      ],
+      "source": "前级GT机床加工试件→I02公差检测",
+      "success": "实际加工的公差试件检测成功；不充当正式精密部件",
+      "inputs": "I15稳定魂钢、前级刀具和夹具",
+      "benefit": "I16魂钢精密加工与后续掩模/导体制造基础",
+      "no_self_lock": "首次刀具和机床不得依赖I16正式精密件"
+    },
+    {
+      "id": "RN-MCE",
+      "title": "多层电路蚀刻",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "industrial_experiment_mce",
+      "existing": false,
+      "prerequisites": [
+        "RN-CBS",
+        "RN-SPM"
+      ],
+      "facts": [
+        "substrate_growth",
+        "soulium_processing"
+      ],
+      "specimen": "research_specimen_mce",
+      "precursor": "honkai_adapted_circuit_substrate",
+      "ticks": 960,
+      "energy_tier": 17,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT蚀刻试片→I02绝缘与层间检测",
+      "success": "已加工多层试片完成层间连通/绝缘检测，不凭库存授予",
+      "inputs": "CBS基础基板、SPM可得导体和掩模",
+      "benefit": "I16正式多层电路蚀刻（I49合并候选）及前级可达的种子封装路线",
+      "no_self_lock": "不要求I50/CPT或S02先开放；七条专用电路材料支线仍未定稿"
+    },
+    {
+      "id": "RN-ALE",
+      "title": "高级材料研究所工程",
+      "lab": 1,
+      "tier": 4,
+      "executor": "S01",
+      "recipe": "LAB-ALE",
+      "existing": true,
+      "prerequisites": [
+        "RN-SPM",
+        "RN-MCE"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_ale",
+      "precursor": "etched_circuit_layer",
+      "ticks": 960,
+      "energy_tier": 17,
+      "provisional": false,
+      "unlocks": [
+        "S02"
+      ],
+      "source": "S01独立工程试验任务",
+      "success": "在现有S01实际耗电运行设施负载试验并输出工程证据，不能点击直接授予",
+      "inputs": "SPM精密件、MCE电路层及其真实检测记录",
+      "benefit": "S02控制器及必要功能件；仍需支付研究费用并完成研究",
+      "no_self_lock": "实验在S01完成且单独执行，不能要求S02自证；正式名称与外观仍未确定"
+    },
+    {
+      "id": "RN-OPR",
+      "title": "介质损耗优化",
+      "lab": 1,
+      "tier": 2,
+      "executor": "S01",
+      "recipe": "LAB-OPR",
+      "existing": true,
+      "prerequisites": [
+        "RN-HLC",
+        "RN-SFR"
+      ],
+      "facts": [
+        "recovery_medium",
+        "recovery_heat",
+        "recovery_spent_rods"
+      ],
+      "specimen": "research_specimen_opr",
+      "precursor": "separation_filter",
+      "ticks": 880,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [],
+      "source": "S01独立收支核验任务",
+      "success": "至少各一种有效成功批次，核对实际输入输出及损耗；同批重复回调不增加计数",
+      "inputs": "I05介质回收、HLC换热和SFR后处理的真实批次回执",
+      "benefit": "经配平的高效回收配方，基础与SMR扩展路线继续可用",
+      "no_self_lock": "只持有残渣不足以证明收支；不采用统一效率倍率或无损/净产能回收"
+    },
+    {
+      "id": "RN-SSC",
+      "title": "固态崩坏能采集",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_ssc",
+      "existing": false,
+      "prerequisites": [
+        "RN-ALE",
+        "RN-DMT",
+        "RN-SPM"
+      ],
+      "facts": [
+        "liquid_collection"
+      ],
+      "specimen": "research_specimen_ssc",
+      "precursor": "soulium_data_substrate",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [
+        "I01-2"
+      ],
+      "source": "前级GT制作试件→I02相态响应检测",
+      "success": "真实完成液态样本与约束试件的响应检测，关联原采集和制样批次",
+      "inputs": "I01-1液态采集回执、SPM后可制造的魂钢场约束试件、前级探测元件",
+      "benefit": "I01-2控制器、固态探测器及固态采集工况",
+      "no_self_lock": "首个试件不得使用固态崩坏能；造塔与造探测器均不能要求二阶塔自产物"
+    },
+    {
+      "id": "RN-CCE",
+      "title": "仿制核心结晶",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_cce",
+      "existing": false,
+      "prerequisites": [
+        "RN-SSC"
+      ],
+      "facts": [
+        "solid_collection"
+      ],
+      "specimen": "research_specimen_cce",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [
+        "I08"
+      ],
+      "source": "前级GT小批结晶→I02试晶检测",
+      "success": "真实结晶试样经成分和晶格检测形成有效回执；试晶不具有核心能力",
+      "inputs": "I01-2真实固态样本、前级晶种载体和普通结晶介质",
+      "benefit": "I08控制器、基础结晶与供各核心课题使用的未定性结晶样件",
+      "no_self_lock": "不得用I08正式晶体制造I08首机；CCE不自动解锁九种完整核心"
+    },
+    {
+      "id": "RN-CFR",
+      "title": "浓缩崩坏燃料精制",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I17",
+      "recipe": "industrial_liquid_fuel_concentration",
+      "existing": true,
+      "prerequisites": [
+        "RN-HFB"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_cfr",
+      "precursor": "fuel_matrix",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "沿用I17液态燃料浓缩成功入口",
+      "success": "现有浓缩配方实际输出提交成功；证据可提前记录，研究仍核对SSC和HFB",
+      "inputs": "HFB后可得液态燃料与既有浓缩耗材",
+      "benefit": "后续固态精制、浓缩燃料及I18对应燃料棒工况；保持HFB后的液态起步浓缩可用",
+      "no_self_lock": "不得将现有初次浓缩反锁到CFR；不将记录证据等同研究完成"
+    },
+    {
+      "id": "RN-MRE",
+      "title": "中型反应堆工程",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_mre",
+      "existing": false,
+      "prerequisites": [
+        "RN-CFR",
+        "RN-HLC",
+        "RN-SFR",
+        "RN-SRE"
+      ],
+      "facts": [
+        "reactor_load",
+        "recovery_heat",
+        "recovery_spent_rods"
+      ],
+      "specimen": "research_specimen_mre",
+      "precursor": "fuel_encapsulation_part",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [
+        "I20"
+      ],
+      "source": "前级GT制隔离燃料试件→I02检测并关联前序回执",
+      "success": "试件实际完成受控热响应和密封检测；核验已有发电、换热、后处理批次",
+      "inputs": "CFR浓缩燃料安全试件，I19真实运行、HLC换热和SFR失活棒处理回执",
+      "benefit": "I20独立控制器与中型反应堆燃料工况",
+      "no_self_lock": "不要求I20先发电；原始I19和新鲜冷却启动路线保留"
+    },
+    {
+      "id": "RN-CPT",
+      "title": "电路封装与工况测试",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_cpt",
+      "existing": false,
+      "prerequisites": [
+        "RN-ALE",
+        "RN-MCE",
+        "RN-SSC",
+        "RN-SPM"
+      ],
+      "facts": [
+        "circuit_etching"
+      ],
+      "specimen": "research_specimen_cpt",
+      "precursor": "etched_circuit_layer",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT/GTL封装设备制试件→I02电气与热工况检测",
+      "success": "封装试件完成导通、绝缘与热循环检测；检测件不是可用于造首机的新级电路",
+      "inputs": "MCE电路层、SPM魂钢载体、前级可得封装和绝缘介质",
+      "benefit": "正式精密封装与终检工况，承接I50职责的候选位置为I16",
+      "no_self_lock": "CPT首枚试件与正式工况首套设备都用前级电路；MCE前级种子封装不回锁"
+    },
+    {
+      "id": "RN-ERA",
+      "title": "强化现实稳定",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_era",
+      "existing": false,
+      "prerequisites": [
+        "RN-RAT",
+        "RN-CCE"
+      ],
+      "facts": [
+        "anchor_basic"
+      ],
+      "specimen": "research_specimen_era",
+      "precursor": "soulium_anchor_component",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I36基础场运行→I02对比试件检测",
+      "success": "对同一基准记录强化前后的稳定偏差，真实耗材耗电运行，未启用待解锁强化模式",
+      "inputs": "I36基础运行回执、CCE基础晶体与固态约束试件",
+      "benefit": "既有I36的强化介质及后续已研究核心适配工况",
+      "no_self_lock": "初次ERA不要求空核心或约束核心；高级核心槽后续逐项检查对应核心研究"
+    },
+    {
+      "id": "RN-GSC",
+      "title": "气态崩坏能采集",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_gsc",
+      "existing": false,
+      "prerequisites": [
+        "RN-SSC",
+        "RN-MRE"
+      ],
+      "facts": [
+        "liquid_collection",
+        "solid_collection"
+      ],
+      "specimen": "research_specimen_gsc",
+      "precursor": "soulium_anchor_component",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [
+        "I01-3"
+      ],
+      "source": "前级GT制气相约束试件→I02相态对照",
+      "success": "真实完成液固记录与试件的封闭场响应对照；试验不产可用气态崩坏能",
+      "inputs": "液态与固态采集回执、前级魂钢封闭场试件、MRE后的可用供电",
+      "benefit": "I01-3控制器、气态探测器及气态采集工况",
+      "no_self_lock": "首机和首个探测器不能消耗三阶塔气态产物，不能要求PCE"
+    },
+    {
+      "id": "RN-PCE",
+      "title": "相变释能工程",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_pce",
+      "existing": false,
+      "prerequisites": [
+        "RN-GSC",
+        "RN-HLC"
+      ],
+      "facts": [
+        "gas_collection"
+      ],
+      "specimen": "research_specimen_pce",
+      "precursor": "process_gas_filter",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [
+        "I23"
+      ],
+      "source": "前级GT受控换热试件→I02量热检测",
+      "success": "封装气态样本完成受控相变与能量损耗测量，不向电网返还未定量的试验能量",
+      "inputs": "I01-3真实气态样本、HLC已掌握冷却介质与热管理记录",
+      "benefit": "I23控制器、气固转换及明确损耗的正式释能工况",
+      "no_self_lock": "不要求I23先运行；保留已能启动的冷却来源，不凭样品库存授予"
+    },
+    {
+      "id": "RN-GPR",
+      "title": "异质工艺气体净化",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_gpr",
+      "existing": false,
+      "prerequisites": [
+        "RN-GSC",
+        "RN-SMR"
+      ],
+      "facts": [
+        "gas_exhaust"
+      ],
+      "specimen": "research_specimen_gpr",
+      "precursor": "depleted_gas_filter",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT小批洗涤→I02封装气样成分检测",
+      "success": "比较真实进出气样和过滤残渣，关联生成排气的批次；新鲜气体用于工况启动",
+      "inputs": "既有工艺真实排气、前级过滤介质和新鲜洗涤介质",
+      "benefit": "分气种净化与过滤介质回用，I52职责合并候选为I05",
+      "no_self_lock": "必须先核对排气生成配方可达；不得为了GPR强加未列入前置的PCE；回收不是第一份气体来源"
+    },
+    {
+      "id": "RN-FCA",
+      "title": "仿制炎核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_fca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE"
+      ],
+      "facts": [
+        "crystal_growth"
+      ],
+      "specimen": "research_specimen_fca",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT热响应试验→I02检测",
+      "success": "试晶在受控热输入下形成可重复检测回执；消耗或封存试晶，不能直接交付正式炎核心",
+      "inputs": "I08未定性结晶样件、普通GT热源与已可得金属对照片",
+      "benefit": "I08仿制炎核心制造及其专用金属加热配方入口",
+      "no_self_lock": "测试热源不使用炎核心；高温成品的其他材料与工艺研究仍逐项保留"
+    },
+    {
+      "id": "RN-ICA",
+      "title": "仿制冰核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_ica",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-HLC"
+      ],
+      "facts": [
+        "crystal_growth"
+      ],
+      "specimen": "research_specimen_ica",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT低温试验→I02检测",
+      "success": "实际记录降温及回温响应，冷却介质收支与试晶批次对应",
+      "inputs": "I08未定性结晶样件、HLC可用冷却介质与普通GT制冷工装",
+      "benefit": "I08仿制冰核心制造及特殊金属冷却工况",
+      "no_self_lock": "初次冷却不要求冰核心；不把热量转移作为免费冷却源"
+    },
+    {
+      "id": "RN-RCA",
+      "title": "仿制理核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_rca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-CPT"
+      ],
+      "facts": [
+        "crystal_growth",
+        "circuit_packaging"
+      ],
+      "specimen": "research_specimen_rca",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT制结构对照试件→I02检测",
+      "success": "真实完成已知构件结构对照；不在试验中复制新物品或授予未掌握电路",
+      "inputs": "I08未定性结晶样件、CPT前序已掌握构件与结构对照样本",
+      "benefit": "I08仿制理核心、理构重构阵列；具体电路另需正常技术路线、样本解析和白名单",
+      "no_self_lock": "不增加VAK前置；不因持有MAX电路一键掌握全部电压；核心不逐次消耗的既定规则保留"
+    },
+    {
+      "id": "RN-VCA",
+      "title": "仿制空核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_vca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-ERA"
+      ],
+      "facts": [
+        "crystal_growth",
+        "anchor_enhanced"
+      ],
+      "specimen": "research_specimen_vca",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I36已开放场工况→I02定位误差检测",
+      "success": "同一基准下完成空间定位偏差测量，记录工装、场与试晶来源",
+      "inputs": "I08未定性结晶样件、ERA已有稳定场与前级定位工装",
+      "benefit": "I08仿制空核心制造、已定空间组件工艺入口",
+      "no_self_lock": "不使用空核心或千界一乘自证；不开放终审维度或任意传送权限"
+    },
+    {
+      "id": "RN-ECA",
+      "title": "仿制侵蚀核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_eca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-CPT"
+      ],
+      "facts": [
+        "crystal_growth",
+        "circuit_packaging"
+      ],
+      "specimen": "research_specimen_eca",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT隔离计算试件→I02执行结果检测",
+      "success": "真实完成固定测试输入、结果校验及停止指令；记录电耗和输出，异常不算成功",
+      "inputs": "I08未定性结晶样件、CPT已有封装回路与隔离载体",
+      "benefit": "I08仿制侵蚀核心制造及后续受控演算试验资格",
+      "no_self_lock": "研究完成不立即启用ERM加速；不触及真实文件，也不依赖加速模块制造首枚核心"
+    },
+    {
+      "id": "RN-GCA",
+      "title": "仿制岩核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_gca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE"
+      ],
+      "facts": [
+        "crystal_growth"
+      ],
+      "specimen": "research_specimen_gca",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT受控场试验→I02形变检测",
+      "success": "检测有场/基准条件下试件的响应差异，形成可追溯批次",
+      "inputs": "I08未定性结晶样件、前级GT场发生器与普通压缩对照试件",
+      "benefit": "I08仿制岩核心制造与引力压缩工艺入口",
+      "no_self_lock": "不用伊甸之星、黑洞或奇点产品制样；不暗加ERA为必需前置"
+    },
+    {
+      "id": "RN-BCA",
+      "title": "仿制约束核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_bca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-ERA"
+      ],
+      "facts": [
+        "crystal_growth",
+        "anchor_enhanced"
+      ],
+      "specimen": "research_specimen_bca",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I36已有场工况→I02隔离前后检测",
+      "success": "真实测量同一输入下能流传递与抑制效果，完整记录消耗与残余输出",
+      "inputs": "I08未定性结晶样件、ERA稳定场与可用能流隔离回路",
+      "benefit": "I08仿制约束核心制造及受控能流隔离工况",
+      "no_self_lock": "不要求约束核心自证；被抑制的能量不转化为免费EU/HW"
+    },
+    {
+      "id": "RN-TCA",
+      "title": "仿制雷核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_tca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-CPT"
+      ],
+      "facts": [
+        "crystal_growth",
+        "circuit_packaging"
+      ],
+      "specimen": "research_specimen_tca",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT电磁调制试验→I02电气检测",
+      "success": "真实完成既定脉冲输入和输出响应测量，输入电力照常消耗",
+      "inputs": "I08未定性结晶样件、CPT封装线圈与前级GT电磁工装",
+      "benefit": "I08仿制雷核心制造与电磁工艺模块入口",
+      "no_self_lock": "不用雷核心或后续超导电磁奇观制样；不将雷属性等同无源发电"
+    },
+    {
+      "id": "RN-WCA",
+      "title": "仿制风核心",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_wca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-GSC"
+      ],
+      "facts": [
+        "crystal_growth",
+        "gas_collection"
+      ],
+      "specimen": "research_specimen_wca",
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT封闭流路试验→I02气样及流动对照",
+      "success": "实际消耗测试介质并记录压差/流量响应；回收部分与损耗分别记账",
+      "inputs": "I08未定性结晶样件、I01-3气态样本、前级流动工装",
+      "benefit": "I08仿制风核心制造及理想流体工艺模块入口",
+      "no_self_lock": "不要求风核心、未来风之奇观或GPR已完成；不能无损返还全部介质"
+    },
+    {
+      "id": "RN-DKE",
+      "title": "神之键部件装配",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_dke",
+      "existing": false,
+      "prerequisites": [
+        "RN-CPT",
+        "RN-VCA",
+        "RN-SPM"
+      ],
+      "facts": [
+        "circuit_packaging"
+      ],
+      "specimen": "research_specimen_dke",
+      "precursor": "circuit_encapsulation_part",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [
+        "I33"
+      ],
+      "source": "前级GT/GTL装配设备→I02隔离封装检验",
+      "success": "真实完成核心封装、接口与安全停止检测；试验装配体不能当作成品神之键",
+      "inputs": "CPT封装件、SPM魂钢精密件、VCA已可造的空核心和隔离工装",
+      "benefit": "I33控制器、神之键部件装配基础工况；四把神之键分别受专项课题控制",
+      "no_self_lock": "不要求I33造自己的首份证据；使用VCA已可造核心，不额外要求全部九核"
+    },
+    {
+      "id": "RN-VAK",
+      "title": "仿制的虚空万藏",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I33",
+      "recipe": "industrial_experiment_vak",
+      "existing": false,
+      "prerequisites": [
+        "RN-DKE",
+        "RN-RCA"
+      ],
+      "facts": [
+        "divine_key_assembly"
+      ],
+      "specimen": "research_specimen_vak",
+      "precursor": "unencapsulated_reason_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I33受限构造测试工况",
+      "success": "验证既有白名单结构及控制回路，输出测试记录；不产出白名单外成品",
+      "inputs": "RCA已可造理核心、I33基础装配件、已掌握的结构档案",
+      "benefit": "仿制虚空万藏制造及前文明档案研究许可",
+      "no_self_lock": "不作为RCA阵列或普通电路重构的新增前置；档案许可不直接完成其他课题"
+    },
+    {
+      "id": "RN-CJK",
+      "title": "仿制的千界一乘",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I33",
+      "recipe": "industrial_experiment_cjk",
+      "existing": false,
+      "prerequisites": [
+        "RN-DKE",
+        "RN-VCA"
+      ],
+      "facts": [
+        "divine_key_assembly"
+      ],
+      "specimen": "research_specimen_cjk",
+      "precursor": "imitation_void_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [
+        "I44",
+        "I45"
+      ],
+      "source": "I33空间组件校准工况",
+      "success": "完成同一已知基准坐标的稳定校准与回执提交，试件不能代替正式神之键",
+      "inputs": "VCA已可造空核心、I33基础装配件、前序空间测量工装",
+      "benefit": "仿制千界一乘、I44信标和I45静止列车的控制器及相应工况",
+      "no_self_lock": "首份证据不使用I44/I45；神之键配方不逐次消耗，终审维度排除"
+    },
+    {
+      "id": "RN-SEK",
+      "title": "仿制的伊甸之星",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I33",
+      "recipe": "industrial_experiment_sek",
+      "existing": false,
+      "prerequisites": [
+        "RN-DKE",
+        "RN-GCA"
+      ],
+      "facts": [
+        "divine_key_assembly"
+      ],
+      "specimen": "research_specimen_sek",
+      "precursor": "imitation_rock_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I33受控压缩测试工况",
+      "success": "在安全范围实际完成压缩与释放对照；试验输出仅为检测件",
+      "inputs": "GCA已可造岩核心、I33隔离装配件与前级压缩试件",
+      "benefit": "仿制伊甸之星制造、对应引力模块工况；奇点和模拟世界泡仍各受后续课题控制",
+      "no_self_lock": "不授予时间加速；实验不产正式奇点，也不要求先造伊甸之星"
+    },
+    {
+      "id": "RN-JOK",
+      "title": "仿制的犹大的誓约",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I33",
+      "recipe": "industrial_experiment_jok",
+      "existing": false,
+      "prerequisites": [
+        "RN-DKE",
+        "RN-BCA"
+      ],
+      "facts": [
+        "divine_key_assembly"
+      ],
+      "specimen": "research_specimen_jok",
+      "precursor": "imitation_binding_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I33能流隔离测试工况",
+      "success": "固定输入下完成约束开启/解除的回路检测，结算实际能耗",
+      "inputs": "BCA已可造约束核心、I33装配件与既有隔离回路",
+      "benefit": "仿制犹大的誓约制造与对应约束工艺入口",
+      "no_self_lock": "不要求成品犹大；不从抑制能量创造电力或补充HW余额"
+    },
+    {
+      "id": "RN-QOM",
+      "title": "量子异常初观",
+      "lab": 2,
+      "tier": 7,
+      "executor": "I44",
+      "recipe": "industrial_beacon_calibration",
+      "existing": true,
+      "prerequisites": [
+        "RN-CJK"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_qom",
+      "precursor": "spatial_calibration_module",
+      "ticks": 1480,
+      "energy_tier": 20,
+      "provisional": false,
+      "unlocks": [
+        "I24"
+      ],
+      "source": "I44/I45已开放坐标校准工况，具体记录端待定",
+      "success": "真实完成校准并提交异常观测回执；异常事件可复现，不能只打开界面或凭物品授予",
+      "inputs": "CJK后可制造千界一乘及坐标校准设备、已知合法基准坐标",
+      "benefit": "I24控制器与首次量子观测方法",
+      "no_self_lock": "不反用I24/I25作为首份证据，不要求世界泡采掘或捕获；记录端及确定性触发办法待审"
+    },
+    {
+      "id": "RN-QLE",
+      "title": "量子研究所工程",
+      "lab": 2,
+      "tier": 7,
+      "executor": "I24",
+      "recipe": "industrial_quantum_observation",
+      "existing": true,
+      "prerequisites": [
+        "RN-QOM"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_qle",
+      "precursor": "spatial_probe",
+      "ticks": 1480,
+      "energy_tier": 20,
+      "provisional": false,
+      "unlocks": [
+        "S03"
+      ],
+      "source": "I24正式初次观测完成回调；S02随后正常研究",
+      "success": "观测实际完成并保存回执即满足该项实验来源；不另加重复观测或二次交样",
+      "inputs": "I24首次成功量子观测的原始记录与设备来源",
+      "benefit": "S03控制器及必要功能件，完整坐标解析仍在S03研究",
+      "no_self_lock": "S03首机不用世界泡采掘材料；S02必须能供给本课题用电，不能只按tier数值假定可供电"
+    },
+    {
+      "id": "RN-SSQ",
+      "title": "魂钢质量控制",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_ssq",
+      "existing": false,
+      "prerequisites": [
+        "RN-ALE",
+        "RN-SPM",
+        "RN-SPC",
+        "RN-SRA"
+      ],
+      "facts": [
+        "soulium_polymerization",
+        "soulium_reconstruction",
+        "soulium_processing"
+      ],
+      "specimen": "research_specimen_ssq",
+      "precursor": "soulium_data_substrate",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": true,
+      "unlocks": [],
+      "source": "既有加工完成记录→I02质量对照检测",
+      "success": "不同批次的检验结果可关联其生产环节；同一批回放或复制报告不增加样本数",
+      "inputs": "I14/I15/I16不同真实批次的魂钢与工艺回执，必要时附I13包覆来源",
+      "benefit": "对应I13至I16的明确质量改良工况，采用逐配方收益而非全局无限倍率",
+      "no_self_lock": "不要求改良后的工艺先产样；具体批次数、材料收率和代价未定，不凭研究名称自动减耗"
+    },
+    {
+      "id": "RN-CQS",
+      "title": "电路工况扩展",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_cqs",
+      "existing": false,
+      "prerequisites": [
+        "RN-CPT",
+        "RN-GSC"
+      ],
+      "facts": [
+        "circuit_packaging",
+        "gas_collection"
+      ],
+      "specimen": "research_specimen_cqs",
+      "precursor": "circuit_encapsulation_part",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": true,
+      "unlocks": [],
+      "source": "基础封装工况制样→I02隔离压力与电气检测",
+      "success": "真实完成封装工况扩展试验并记录样品性能；不消耗尚未能制造的高一电压种子",
+      "inputs": "CPT已开放封装件、GSC后气态隔离介质、既有电路样品",
+      "benefit": "基板、蚀刻、封装的高阶工况，合并候选为I12/I16分工",
+      "no_self_lock": "普通机器用同级电路标签；系列升级用具体上一形态；每级首枚仍需前级设备制造"
+    },
+    {
+      "id": "RN-ERM",
+      "title": "受控演算优化",
+      "lab": 2,
+      "tier": 6,
+      "executor": "S02",
+      "recipe": "LAB-ERM-AID",
+      "existing": true,
+      "prerequisites": [
+        "RN-ECA",
+        "RN-CPT",
+        "RN-ALE"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_erm",
+      "precursor": "imitation_corruption_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "S02独立隔离演算验证候选；随工程验证承载方案待定",
+      "success": "比较普通与核心辅助演算的真实结果、耗时和停止边界；通过仅记实验，不返还研究点",
+      "inputs": "ECA已可造侵蚀核心、CPT控制回路、同一固定演算任务及已有普通研究结果",
+      "benefit": "S02至S05可安装并启用侵蚀研究加速模块，具体倍率与耗能单列待审",
+      "no_self_lock": "不能用已加速研究给自己开锁；不改计算机产点；验证阶段不加速实际课题"
+    },
+    {
+      "id": "RN-WCP",
+      "title": "世界泡坐标解析",
+      "lab": 3,
+      "tier": 7,
+      "executor": "I24",
+      "recipe": "industrial_experiment_wcp",
+      "existing": false,
+      "prerequisites": [
+        "RN-QLE",
+        "RN-QOM",
+        "RN-CJK"
+      ],
+      "facts": [
+        "enhanced_beacon_signal",
+        "cocoon_authorization"
+      ],
+      "specimen": "research_specimen_wcp",
+      "precursor": "spatial_probe",
+      "ticks": 1880,
+      "energy_tier": 20,
+      "provisional": true,
+      "unlocks": [
+        "I25"
+      ],
+      "source": "I44加强观测取得原始信号→I24完成坐标误差拟合实验",
+      "success": "原始目标观测与误差拟合真实完成；输出研究用记录，不提前生成供I26使用的正式坐标",
+      "inputs": "I24初观资料、获得茧加强技术后的I44原始目标信号及误差记录",
+      "benefit": "I25控制器及正式坐标解析工况；I44仍负责实际目标锁定",
+      "no_self_lock": "不得要求I25先解析自己的证据；茧技术是独立事件授权，不能因QOM基础校准已开放而跳过"
+    },
+    {
+      "id": "RN-UAA",
+      "title": "无人作业装置装配",
+      "lab": 3,
+      "tier": 8,
+      "executor": "I02",
+      "recipe": "industrial_experiment_uaa",
+      "existing": false,
+      "prerequisites": [
+        "RN-WCP",
+        "RN-SPM",
+        "RN-CPT",
+        "RN-HSA"
+      ],
+      "facts": [
+        "soulium_processing",
+        "circuit_packaging"
+      ],
+      "specimen": "research_specimen_uaa",
+      "precursor": "unprogrammed_nanobot",
+      "ticks": 1920,
+      "energy_tier": 21,
+      "provisional": true,
+      "unlocks": [],
+      "source": "前级GT组装台架试件→I02驱动与控制检测",
+      "success": "试件实际完成执行器驱动、指令响应和停止检测；不发射任务、不取世界泡资源",
+      "inputs": "SPM已可得魂钢件、CPT电路及前级驱动件、合法观测/定位资料",
+      "benefit": "无人资源探测器与工业作业无人机制造；I51合并候选位置I11，I16供精密件；返修留给UPR",
+      "no_self_lock": "首件不要求世界泡残片、磨损无人装置或I26任务成果；不用即将制造的无人装置造自己"
+    },
+    {
+      "id": "RN-UED",
+      "title": "无人世界泡采掘",
+      "lab": 3,
+      "tier": 8,
+      "executor": "I11",
+      "recipe": "industrial_experiment_ued",
+      "existing": false,
+      "prerequisites": [
+        "RN-UAA",
+        "RN-WCP",
+        "RN-CJK"
+      ],
+      "facts": [
+        "coordinate_solution",
+        "drone_assembly"
+      ],
+      "specimen": "research_specimen_ued",
+      "precursor": "spatial_probe",
+      "ticks": 1920,
+      "energy_tier": 21,
+      "provisional": true,
+      "unlocks": [
+        "I26"
+      ],
+      "source": "无人装置装配设备的起步联调工况（合并候选I11）",
+      "success": "真实完成导航、载荷、通信及返回协议台架检查；核对服务端目标身份与有效状态，不进行采掘结算",
+      "inputs": "I25正式坐标、I44有效锁定记录、UAA制造的无人装置与测试耗材",
+      "benefit": "I26控制器和真实无人采掘任务；每个真实目标公共累计最多10次，物品/流体资源池另定",
+      "no_self_lock": "实验不要求I26先成功采掘；台架检查不占十次、不产资源；I39不是首任务的必需设备"
+    },
+    {
+      "id": "RN-LTA",
+      "title": "遗留技术解析",
+      "lab": 3,
+      "tier": 8,
+      "executor": "I02",
+      "recipe": "industrial_experiment_lta",
+      "existing": false,
+      "prerequisites": [
+        "RN-UED",
+        "RN-HSA"
+      ],
+      "facts": [
+        "first_mining_legacy"
+      ],
+      "specimen": "research_specimen_lta",
+      "precursor": "world_mining_legacy_record",
+      "ticks": 1920,
+      "energy_tier": 21,
+      "provisional": true,
+      "unlocks": [
+        "I32"
+      ],
+      "source": "前级GT制封装取样件→I02检测资料载体与工艺痕迹",
+      "success": "实际消耗检测耗材并检验任务返回资料，核验原成功任务；不能只持有古代遗产物品授予",
+      "inputs": "首次成功I26真实采掘保证带回的起步遗留资料，关联目标与任务结算回执",
+      "benefit": "I32控制器、遗留实物逆向和技术记录验证工况",
+      "no_self_lock": "首次成功任务保证资料已确认；首次检验不用I32；首次任务失败或未结算不发资料；起步资料不等同舰船工程档案"
+    },
+    {
+      "id": "RN-HBD",
+      "title": "仿制休伯利安图纸解读",
+      "lab": 3,
+      "tier": 8,
+      "executor": "I32",
+      "recipe": "industrial_ship_blueprint_analysis",
+      "existing": true,
+      "prerequisites": [
+        "RN-LTA",
+        "RN-UED"
+      ],
+      "facts": [
+        "ship_archive"
+      ],
+      "specimen": "research_specimen_hbd",
+      "precursor": "ship_engineering_archive",
+      "ticks": 2400,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "I32首次有效舰船档案解析",
+      "success": "I32实际解析有来源的档案，产出仿制休伯利安蓝图并提交HBD证据；重复回调不重复发现或授予物品",
+      "inputs": "LTA完成后I26合格真实任务发现的舰船工程档案",
+      "benefit": "仿制舰工程资料解读与后续HCC研究资格；取得后耗材复制蓝图，复制不完成研究",
+      "no_self_lock": "I26真实任务20%提前发现、第5次成功保底；模拟与终止不计入。I32在LTA/UED后解析，先发证据再正常付款研究。"
+    },
+    {
+      "id": "RN-HCC",
+      "title": "仿制舰体构件",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I02",
+      "recipe": "industrial_experiment_hcc",
+      "existing": false,
+      "prerequisites": [
+        "RN-HBD",
+        "RN-SPM",
+        "RN-UAA"
+      ],
+      "facts": [
+        "soulium_processing"
+      ],
+      "specimen": "research_specimen_hcc",
+      "precursor": "soulium_data_substrate",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I16基础加工工况制舰体连接试件→I02尺寸/承载检测",
+      "success": "实际加工并检测龙骨连接、推进接口等试件；测试件不冒充正式舰体组件",
+      "inputs": "HBD解读的图纸要求、I16魂钢件、UAA可用施工执行组件",
+      "benefit": "仿制舰龙骨段、推进组件及当前可达施工装置的正式制造工况；候选由I16和无人装置装配设备分工",
+      "no_self_lock": "不用后续阶段复合材料或成舰作为首份投入；具体材料和配方另审，不要求未来I40/I42先运行"
+    },
+    {
+      "id": "RN-HVI",
+      "title": "仿制舰系统整合",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I33",
+      "recipe": "industrial_experiment_hvi",
+      "existing": false,
+      "prerequisites": [
+        "RN-HCC",
+        "RN-SPM",
+        "RN-DKE"
+      ],
+      "facts": [
+        "ship_components"
+      ],
+      "specimen": "research_specimen_hvi",
+      "precursor": "hyperion_navigation_module",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": true,
+      "unlocks": [
+        "H01"
+      ],
+      "source": "前级装配/联调工况（候选I16/I33）",
+      "success": "供电、控制、导航接口在真实试验回路完成联调并安全停止；不要求整舰先成型",
+      "inputs": "HCC已能制造的舰体部件、控制布线和已解锁导航组件",
+      "benefit": "H01控制器/组装入口与仿制舰运行验收方法；实际建设及运行完成后另记毕业工程证据",
+      "no_self_lock": "研究完成、持有蓝图或摆放控制器都不算舰已完成；不自行加入飞行能力、十模块或新外观要求"
+    },
+    {
+      "id": "RN-BCC",
+      "title": "世界泡约束容器",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I33",
+      "recipe": "industrial_experiment_bcc",
+      "existing": false,
+      "prerequisites": [
+        "RN-WCP",
+        "RN-JOK",
+        "RN-SPM",
+        "RN-DKE"
+      ],
+      "facts": [
+        "vessel_shell"
+      ],
+      "specimen": "research_specimen_bcc",
+      "precursor": "failed_containment_shell",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I16制空载试壳→I33密封与约束场检测",
+      "success": "空载试壳完成密封和场稳定检验；仅形成检测记录，不生成封存世界泡",
+      "inputs": "SPM魂钢壳体、已解锁空间组件与JOK约束工装",
+      "benefit": "正式空世界泡收容容器；I53合并候选为I16制壳、I33装配校准",
+      "no_self_lock": "首个容器不要求捕获样本；试壳不能用于正式捕获；神之键工装不逐配方消耗"
+    },
+    {
+      "id": "RN-WBC",
+      "title": "真实世界泡整体捕获",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I33",
+      "recipe": "industrial_experiment_wbc",
+      "existing": false,
+      "prerequisites": [
+        "RN-BCC",
+        "RN-UED",
+        "RN-DKE",
+        "RN-WCP"
+      ],
+      "facts": [
+        "coordinate_solution"
+      ],
+      "specimen": "research_specimen_wbc",
+      "precursor": "empty_bubble_containment_vessel",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": true,
+      "unlocks": [
+        "I27"
+      ],
+      "source": "I33捕获边界空载验证工况",
+      "success": "真实耗电耗材完成容器容量、边界和锁定数据的校验；验证不改变真实目标状态、不占采掘次数",
+      "inputs": "BCC正式空容器、I25坐标、I44锁定及I24既有观测数据",
+      "benefit": "I27控制器与整体捕获工况；实际捕获后容器绑定原目标身份和采掘计数",
+      "no_self_lock": "不要求I27或已捕获世界泡提供首份证据；复制/换容器不得创造新目标或重置次数"
+    },
+    {
+      "id": "RN-WTR",
+      "title": "真实世界泡终止回收",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I33",
+      "recipe": "industrial_experiment_wtr",
+      "existing": false,
+      "prerequisites": [
+        "RN-WBC",
+        "RN-DKE"
+      ],
+      "facts": [
+        "real_capture"
+      ],
+      "specimen": "research_specimen_wtr",
+      "precursor": "spatial_calibration_module",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": true,
+      "unlocks": [
+        "I28"
+      ],
+      "source": "I33隔离终止控制试验，使用被捕获对象的观测副本",
+      "success": "真实执行控制试验并核对合法捕获回执；只演算安全边界，原目标保持封存，不产生终止资源",
+      "inputs": "I27实际捕获的目标与封存记录、终止控制测试件及可用观测数据",
+      "benefit": "I28控制器、真实目标终止和容器残件处理；实际终止仅能结算一次",
+      "no_self_lock": "首份试验不用I28，不暗加非祖先LTA/I32；已采资源对终止收益的核算方案待定，不能当作未采满额再发"
+    },
+    {
+      "id": "RN-LRE",
+      "title": "大型反应堆工程",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I02",
+      "recipe": "industrial_experiment_lre",
+      "existing": false,
+      "prerequisites": [
+        "RN-MRE",
+        "RN-PCE",
+        "RN-QLE",
+        "RN-HSA"
+      ],
+      "facts": [
+        "medium_reactor_load",
+        "phase_conversion"
+      ],
+      "specimen": "research_specimen_lre",
+      "precursor": "fuel_encapsulation_part",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": true,
+      "unlocks": [
+        "I21"
+      ],
+      "source": "I20/I23实际负载工况→I02核验封装检测件与关联回执",
+      "success": "实际高负载运行及热收支记录齐全，回调能追溯原设备和消耗；具体负载阈值待定",
+      "inputs": "I20真实中型发电工况、I23相变/损耗数据与前级负载耗材",
+      "benefit": "I21独立控制器与大型供能工况",
+      "no_self_lock": "不要求I21先发电；不把研究界面tier显示当作S03已能承受本课题功率的证明"
+    },
+    {
+      "id": "RN-SWC",
+      "title": "模拟世界泡构筑",
+      "lab": 3,
+      "tier": 10,
+      "executor": "I32",
+      "recipe": "industrial_experiment_swc",
+      "existing": false,
+      "prerequisites": [
+        "RN-WTR",
+        "RN-SEK",
+        "RN-LTA",
+        "RN-SPM"
+      ],
+      "facts": [
+        "real_termination"
+      ],
+      "specimen": "research_specimen_swc",
+      "precursor": "world_model_carrier",
+      "ticks": 2000,
+      "energy_tier": 23,
+      "provisional": true,
+      "unlocks": [
+        "I29"
+      ],
+      "source": "I16/I33前级制种子与载体试件→I32小尺度构筑模型验证",
+      "success": "真实制样和模型验证成功，试验本身不创建可取资世界泡；关联真实终止记录而非只完成WTR研究",
+      "inputs": "真实目标观测与I28实际终止回收记录、LTA解析资料、前序可制造的世界模型载体与物质种子试件",
+      "benefit": "I29控制器、前级可制造的正式模型载体/种子工序与模拟构筑；成功构筑建立独立模拟批次",
+      "no_self_lock": "不使用W14、文明奇点或后续虚数材料作首批种子；伊甸之星已由SEK解锁且不消耗，精确种子配方待审"
+    },
+    {
+      "id": "RN-SWS",
+      "title": "模拟世界泡稳定",
+      "lab": 3,
+      "tier": 10,
+      "executor": "I32",
+      "recipe": "world:simulation_created",
+      "existing": true,
+      "prerequisites": [
+        "RN-SWC"
+      ],
+      "facts": [
+        "simulation_created"
+      ],
+      "specimen": "research_specimen_sws",
+      "precursor": "world_maintenance_specimen",
+      "ticks": 2000,
+      "energy_tier": 23,
+      "provisional": false,
+      "unlocks": [
+        "I30"
+      ],
+      "source": "I29构筑成功回调直接提交证据，S03随后正常研究",
+      "success": "构筑真实完成且独立批次已持久化，初始状态记录完整；无需先由I30稳定",
+      "inputs": "I29实际构筑的初始模拟批次与模型误差/能流记录",
+      "benefit": "I30控制器及稳定运行工况，耗稳定介质和能量后得到可终止批次及废介质",
+      "no_self_lock": "已确认初始批次可封存等研究，期间不产资源、不推进也不因离线/等待消失；不重复要求再构筑一份样品"
+    },
+    {
+      "id": "RN-SWR",
+      "title": "模拟世界泡终止回收",
+      "lab": 3,
+      "tier": 10,
+      "executor": "I32",
+      "recipe": "industrial_experiment_swr",
+      "existing": false,
+      "prerequisites": [
+        "RN-SWS",
+        "RN-WTR",
+        "RN-LTA"
+      ],
+      "facts": [
+        "simulation_stabilized"
+      ],
+      "specimen": "research_specimen_swr",
+      "precursor": "bubble_termination_charge",
+      "ticks": 2000,
+      "energy_tier": 23,
+      "provisional": true,
+      "unlocks": [
+        "I31"
+      ],
+      "source": "I32对稳定批次观测副本做隔离终止试验",
+      "success": "真实耗材耗电执行终止控制验证，原批次保持稳定，不提前生成资源或标为已终止",
+      "inputs": "I30实际稳定的模拟批次、同批构筑和稳定回执、终止控制测试耗材",
+      "benefit": "I31控制器与模拟终止回收；正式终止只结算该模拟批次一次，输出同真实资源目录范围",
+      "no_self_lock": "不要求I31先终止来证明自己；试验演算不等于真实模拟世界泡的终止；不改变真实目标十次计数"
+    },
+    {
+      "id": "RN-VRC",
+      "title": "无人跨界航路中继",
+      "lab": 3,
+      "tier": 10,
+      "executor": "I32",
+      "recipe": "industrial_experiment_vrc",
+      "existing": false,
+      "prerequisites": [
+        "RN-UED",
+        "RN-SWS",
+        "RN-LTA"
+      ],
+      "facts": [
+        "distinct_mining_routes"
+      ],
+      "specimen": "research_specimen_vrc",
+      "precursor": "spatial_probe",
+      "ticks": 2000,
+      "energy_tier": 23,
+      "provisional": true,
+      "unlocks": [
+        "I39"
+      ],
+      "source": "I32航路对照验证，基础I26继续独立运行",
+      "success": "核验多个不同目标的独立成功任务和路由对照；同坐标多次或复制报告不能冒充多个目标",
+      "inputs": "不同真实目标的I25/I44定位记录和I26成功任务回执，SWS后的模拟稳定资料",
+      "benefit": "I39控制器与多目标组织/中继工况；不改变I26起步单任务能力",
+      "no_self_lock": "不要求I39先中继自己的证据；多目标数量、调度并发及维护成本未定，不能把中继当成无限并行"
+    },
+    {
+      "id": "RN-IOP",
+      "title": "虚数联系初观",
+      "lab": 3,
+      "tier": 11,
+      "executor": "I32",
+      "recipe": "industrial_experiment_iop",
+      "existing": false,
+      "prerequisites": [
+        "RN-SWR",
+        "RN-VRC",
+        "RN-LTA"
+      ],
+      "facts": [
+        "simulation_full_chain",
+        "distinct_mining_routes"
+      ],
+      "specimen": "research_specimen_iop",
+      "precursor": "world_model_carrier",
+      "ticks": 2040,
+      "energy_tier": 24,
+      "provisional": true,
+      "unlocks": [
+        "I34"
+      ],
+      "source": "I32稳定/衰变联系差异分析工况",
+      "success": "实际分析已有工况及终止日志，确认同批状态变化与跨目标差异，输出初观前研究记录",
+      "inputs": "同一模拟批次的构筑、稳定、I31真实终止记录，以及VRC所用跨目标观测资料",
+      "benefit": "I34控制器与首次虚数观测方法",
+      "no_self_lock": "不反用I34或I35/I37资料自证；一次模拟状态变化不能靠复制不同载体伪造"
+    },
+    {
+      "id": "RN-ILE",
+      "title": "虚数研究所工程",
+      "lab": 3,
+      "tier": 11,
+      "executor": "I34",
+      "recipe": "industrial_imaginary_observation",
+      "existing": true,
+      "prerequisites": [
+        "RN-IOP"
+      ],
+      "facts": [],
+      "specimen": "research_specimen_ile",
+      "precursor": "spatial_probe",
+      "ticks": 2040,
+      "energy_tier": 24,
+      "provisional": false,
+      "unlocks": [
+        "S04"
+      ],
+      "source": "I34正式初观成功回调；S03正常支付并研究",
+      "success": "实际观测完成后提交证据，不另加重复观察或要求提前造S04",
+      "inputs": "I34首次成功虚数观测的原始设备、工况与观测记录",
+      "benefit": "S04控制器及必要功能件，世界维系/空间锚定仍由后续课题开放",
+      "no_self_lock": "首台S04不用未开放I35/I37产物；S03的供电能力需独立验证，研究所正式命名仍不在此定案"
+    },
+    {
+      "id": "RN-UPR",
+      "title": "无人装置返修",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I11",
+      "recipe": "industrial_experiment_upr",
+      "existing": false,
+      "prerequisites": [
+        "RN-UED",
+        "RN-UAA"
+      ],
+      "facts": [
+        "drone_return"
+      ],
+      "specimen": "research_specimen_upr",
+      "precursor": "worn_work_drone",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": true,
+      "unlocks": [],
+      "source": "已开放无人装置制造设备的诊断工况（合并候选I11）",
+      "success": "实际执行故障定位与维修可行性检测，返回同一件待修装置；检测不提前恢复耐久或重复输出旧件",
+      "inputs": "I26真实返回的磨损资源探测器/作业无人机及原装置身份和任务回执",
+      "benefit": "有损耗材的正式返修工况；合并候选仍为I11，保留装置来源与已存在标识",
+      "no_self_lock": "UAA只开制造，不在UAA附送UPR维修收益；维修投入旧件后只交付修复件，具体寿命和费用待定"
+    },
+    {
+      "id": "RN-LTB",
+      "title": "异界资料交叉解析",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I32",
+      "recipe": "industrial_experiment_ltb",
+      "existing": false,
+      "prerequisites": [
+        "RN-LTA",
+        "RN-VAK"
+      ],
+      "facts": [
+        "distinct_legacy_sources"
+      ],
+      "specimen": "research_specimen_ltb",
+      "precursor": "world_mining_legacy_record",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I32交叉解析，S03按同一课题研究",
+      "success": "实际完成不同来源的资料与工艺证据对照；合作路线验证资料授权，独立路线无需合作授权，两者不必同时满足",
+      "inputs": "独立取得的遗留记录，或获许可的组织资料与同类真实实验证据",
+      "benefit": "I32档案解析改良和受研究控制的复现工况；节料/耗时收益逐配方另列待定",
+      "no_self_lock": "复制同一档案不产生新独立来源；不免费解锁其他课题、舰船保底或白名单外产物；VAK许可不等于本课题已完成"
+    },
+    {
+      "id": "RN-IAA",
+      "title": "虚数空间锚定",
+      "lab": 4,
+      "tier": 11,
+      "executor": "I33",
+      "recipe": "industrial_experiment_iaa",
+      "existing": false,
+      "prerequisites": [
+        "RN-ILE",
+        "RN-VCA",
+        "RN-SPM",
+        "RN-DKE"
+      ],
+      "facts": [
+        "imaginary_observation"
+      ],
+      "specimen": "research_specimen_iaa",
+      "precursor": "soulium_anchor_component",
+      "ticks": 2440,
+      "energy_tier": 24,
+      "provisional": true,
+      "unlocks": [
+        "I35"
+      ],
+      "source": "I16制作锚定试件→I33前级空间接口校准",
+      "success": "试件在已有空间工装中完成连接稳定性测试，关联I34观测和制样批次",
+      "inputs": "I34真实虚数初观资料、SPM魂钢加工件、VCA空间组件及普通稳定介质",
+      "benefit": "I35控制器、正式虚数锚定组件及连接试验工况",
+      "no_self_lock": "首份试件不用I35自产件，也不要求W03；不开放终审维度，不宣称操纵整棵虚数之树"
+    },
+    {
+      "id": "RN-ESC",
+      "title": "能量态崩坏能采集",
+      "lab": 4,
+      "tier": 12,
+      "executor": "I33",
+      "recipe": "industrial_experiment_esc",
+      "existing": false,
+      "prerequisites": [
+        "RN-IAA",
+        "RN-GSC",
+        "RN-DKE"
+      ],
+      "facts": [
+        "liquid_collection",
+        "solid_collection",
+        "gas_collection",
+        "imaginary_anchor"
+      ],
+      "specimen": "research_specimen_esc",
+      "precursor": "soulium_data_substrate",
+      "ticks": 2480,
+      "energy_tier": 25,
+      "provisional": true,
+      "unlocks": [
+        "I01-4"
+      ],
+      "source": "前级GT制场响应试件→I33受控能流响应检测",
+      "success": "完成前三态与虚数联系的实际对照，记录场响应；试验不产可用能量态或免费HW",
+      "inputs": "前三态采集运行回执、I34联系资料、I35实际锚定检测记录及前级探测工装",
+      "benefit": "I01-4控制器、能量态探测器及第四态采集工况",
+      "no_self_lock": "四阶塔首机和探测器不要求该塔自产能量态，也不要求尚未开放I38整流件"
+    },
+    {
+      "id": "RN-HER",
+      "title": "虚数能量整流",
+      "lab": 4,
+      "tier": 12,
+      "executor": "I33",
+      "recipe": "industrial_experiment_her",
+      "existing": false,
+      "prerequisites": [
+        "RN-ESC",
+        "RN-DKE"
+      ],
+      "facts": [
+        "energy_collection"
+      ],
+      "specimen": "research_specimen_her",
+      "precursor": "soulium_data_substrate",
+      "ticks": 2480,
+      "energy_tier": 25,
+      "provisional": true,
+      "unlocks": [
+        "I38"
+      ],
+      "source": "前级GT制整流试件→I33计量与隔离测试",
+      "success": "真实消耗测试输入并测量能流/损耗，完成安全隔离；测试不向个人账户任意充值",
+      "inputs": "I01-4实际能量态采集记录、前级整流工装和隔离负载",
+      "benefit": "I38控制器与能量态计量、整流、合法HW入账工况",
+      "no_self_lock": "不要求I38先给自身充值；保留前期HFB等已开放注入路线，HER不是全体HW余额的总开关"
+    },
+    {
+      "id": "RN-CED",
+      "title": "文明能源调度",
+      "lab": 4,
+      "tier": 12,
+      "executor": "I32",
+      "recipe": "industrial_experiment_ced",
+      "existing": false,
+      "prerequisites": [
+        "RN-HER",
+        "RN-LTA",
+        "RN-HFB"
+      ],
+      "facts": [
+        "hw_injection",
+        "hw_load"
+      ],
+      "specimen": "research_specimen_ced",
+      "precursor": "soulium_data_substrate",
+      "ticks": 2480,
+      "energy_tier": 25,
+      "provisional": true,
+      "unlocks": [
+        "I41"
+      ],
+      "source": "已可用HW负载实际耗能测试→I32收支/授权记录校核",
+      "success": "实际负载扣费与产能回执对应，核验付款UUID、有效运行量和拒绝无授权操作；余额截图不算证据",
+      "inputs": "I38成功整流及实际HW入账记录、已有可用HW负载和绑定人授权",
+      "benefit": "I41控制器及基础负载登记、状态查看、授权范围内手动开停管理",
+      "no_self_lock": "不要求I41先调度；团队研究不自动取得队友HW账户权限，GTMThings无线EU不视作HW同一账户"
+    },
+    {
+      "id": "RN-WME",
+      "title": "世界维系试验",
+      "lab": 4,
+      "tier": 13,
+      "executor": "I33",
+      "recipe": "industrial_experiment_wme",
+      "existing": false,
+      "prerequisites": [
+        "RN-IAA",
+        "RN-CED",
+        "RN-RAT",
+        "RN-LTA",
+        "RN-DKE",
+        "RN-SWS"
+      ],
+      "facts": [
+        "imaginary_anchor",
+        "anchor_enhanced",
+        "hw_injection",
+        "manual_dispatch"
+      ],
+      "specimen": "research_specimen_wme",
+      "precursor": "soulium_anchor_component",
+      "ticks": 2520,
+      "energy_tier": 26,
+      "provisional": true,
+      "unlocks": [
+        "I37"
+      ],
+      "source": "I32模型分析→I33前级局部维系试件验证",
+      "success": "真实完成局部扰动响应、停止与恢复验证并关联输入/能流记录；测试局限于装置和样件",
+      "inputs": "I35实际锚定、I36稳定场、I38产能与I41负载记录，已有模拟稳定资料",
+      "benefit": "I37控制器与世界维系原型试验工况，实际运行后产生维系报告",
+      "no_self_lock": "不要求I37先运行；不破坏玩家真实世界来制造实验事件；起步试件不用奇观材料"
+    },
+    {
+      "id": "RN-WMS",
+      "title": "文明奇观材料",
+      "lab": 4,
+      "tier": 13,
+      "executor": "I32",
+      "recipe": "industrial_experiment_wms",
+      "existing": false,
+      "prerequisites": [
+        "RN-WME",
+        "RN-SPM",
+        "RN-LTA"
+      ],
+      "facts": [
+        "world_maintenance"
+      ],
+      "specimen": "research_specimen_wms",
+      "precursor": "world_maintenance_specimen",
+      "ticks": 2520,
+      "energy_tier": 26,
+      "provisional": true,
+      "unlocks": [
+        "I40"
+      ],
+      "source": "前级GT/I16制造复合试片→I32材料工况分析",
+      "success": "试片真实制造并完成维系条件下的适配检测，不能将检测件当正式复合材料使用",
+      "inputs": "I37实际维系原型的材料工况记录、I15/I16可达魂钢、前级可得加工介质",
+      "benefit": "I40控制器及起步复合材料工况；导能、约束、重构、认知分支各自保留材料和适用核心研究条件",
+      "no_self_lock": "首机不能用I40自产复材或任一奇观自产材料；WMS不一键赠送尚未研究核心的应用，分支精确映射待审"
+    },
+    {
+      "id": "RN-WPF",
+      "title": "奇观构件预制",
+      "lab": 4,
+      "tier": 13,
+      "executor": "I32",
+      "recipe": "industrial_experiment_wpf",
+      "existing": false,
+      "prerequisites": [
+        "RN-WMS",
+        "RN-SPM",
+        "RN-LTA"
+      ],
+      "facts": [
+        "composite_production"
+      ],
+      "specimen": "research_specimen_wpf",
+      "precursor": "conducting_composite",
+      "ticks": 2520,
+      "energy_tier": 26,
+      "provisional": true,
+      "unlocks": [
+        "I42"
+      ],
+      "source": "I16连接与承载试件加工→I32分析",
+      "success": "实际完成接口、公差与承载试片检测，关联I40产物批次；试片不是奇观控制器",
+      "inputs": "I40已能制造的起步复合材料、SPM加工件、前级模具",
+      "benefit": "I42控制器、按具体奇观区分的预制工序；正式奇观建造仍受专项课题及二审控制",
+      "no_self_lock": "I42首机不用自产预制件；通用准备不等于所有奇观已可建，具体高阶配方仍核对上游研究"
+    },
+    {
+      "id": "RN-CEE",
+      "title": "文明工程验收方法",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I32",
+      "recipe": "industrial_experiment_cee",
+      "existing": false,
+      "prerequisites": [
+        "RN-WPF",
+        "RN-WME",
+        "RN-LTA"
+      ],
+      "facts": [
+        "prefabrication"
+      ],
+      "specimen": "research_specimen_cee",
+      "precursor": "world_maintenance_specimen",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": true,
+      "unlocks": [
+        "I43"
+      ],
+      "source": "I32基准件与测量方法校准",
+      "success": "真实检测已知基准件，并验证判定规则能区分合格/不合格样件；只形成验收方法证据",
+      "inputs": "I42实际预制样件、I37维系记录及前级测量工装",
+      "benefit": "I43控制器、工程测试与验收记录方法；奇观运行证明必须另核对对应已成型本体和真实工况",
+      "no_self_lock": "不要求I43检验自己；研究完成和校准报告不能代替任何奇观的运行证明，也不另开终审入口"
+    },
+    {
+      "id": "RN-URE",
+      "title": "究极反应堆工程",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I32",
+      "recipe": "industrial_experiment_ure",
+      "existing": false,
+      "prerequisites": [
+        "RN-LRE",
+        "RN-CED",
+        "RN-WMS",
+        "RN-LTA"
+      ],
+      "facts": [
+        "large_reactor_load",
+        "composite_production"
+      ],
+      "specimen": "research_specimen_ure",
+      "precursor": "extreme_casting_material",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": true,
+      "unlocks": [
+        "I22"
+      ],
+      "source": "I21受控负载试验→I32材料/热收支检测",
+      "success": "真实高负载批次和材料安全检验关联，实际耗材耗电；不依赖待开放I22",
+      "inputs": "I21真实大型供能回执、I40起步材料与已有热管理成果",
+      "benefit": "I22独立控制器与究极供能工况",
+      "no_self_lock": "首机不要求其自产能源/奇观材料；具体供能和风险参数另审，不因研究通过免除运行消耗"
+    },
+    {
+      "id": "RN-HCCO",
+      "title": "始源群星协奏工程",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_hcco",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE"
+      ],
+      "facts": [
+        "formal_communication"
+      ],
+      "specimen": "research_specimen_hcco",
+      "precursor": "soulium_data_substrate",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": true,
+      "unlocks": [
+        "W01"
+      ],
+      "source": "I43协作档案与工程来源验证",
+      "success": "核验研究和交流事件确已发生，关联资料来源并完成工程校核；独立或拒绝合作路线均可提供符合既定条件的交流记录",
+      "inputs": "前序研究档案、已真实完成的交流事件记录与文明工程资料",
+      "benefit": "W01专项建造知识与协作档案验收方法；正式建造/运行还须二审通过",
+      "no_self_lock": "不要求W01先产文明档案；不强制同意某阵营、不要求看全互斥回答；沟通完成不等于合作立场"
+    },
+    {
+      "id": "RN-AIM",
+      "title": "万象自律工业矩阵",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_aim",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-RCA",
+        "RN-SPM",
+        "RN-CPT"
+      ],
+      "facts": [
+        "soulium_processing",
+        "circuit_packaging"
+      ],
+      "specimen": "research_specimen_aim",
+      "precursor": "etched_circuit_layer",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": true,
+      "unlocks": [
+        "W02"
+      ],
+      "source": "I43工业生产链验证",
+      "success": "核验实际投入产出、批次来源与连续工况，排除复制报告和未掌握电路",
+      "inputs": "I09–I16魂钢连续生产、CPT等已开放电路路线的真实批次与RCA解析资料",
+      "benefit": "W02专项建造知识与低阶部件/电路扩产工况方法；二审后可正式建设运行",
+      "no_self_lock": "不要求W02先扩产；重构白名单、已解锁制造技术和成本继续生效，不扩大为无限复制"
+    },
+    {
+      "id": "RN-SEM",
+      "title": "鸣霆超导电磁天枢",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_sem",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-TCA"
+      ],
+      "facts": [
+        "electromagnetic_test"
+      ],
+      "specimen": "research_specimen_sem",
+      "precursor": "polarized_electromagnetic_material",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": true,
+      "unlocks": [
+        "W04"
+      ],
+      "source": "前级电磁工况实际运行→I43检测",
+      "success": "实际电磁响应及供能/冷却回执通过检测，试件不充当W04量产材料",
+      "inputs": "TCA已解锁雷核心电磁模块、前级极化试件和供电/冷却记录",
+      "benefit": "W04专项建造知识与持续电磁场/极化工况验收；二审后建设运行",
+      "no_self_lock": "首座W04不消耗仅由自身制造的极化材料；不以持有雷核心代替电磁运行记录"
+    },
+    {
+      "id": "RN-IFF",
+      "title": "长风理想流体环流",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_iff",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-WCA",
+        "RN-GPR",
+        "RN-HLC"
+      ],
+      "facts": [
+        "flow_test",
+        "gas_purification",
+        "recovery_heat"
+      ],
+      "specimen": "research_specimen_iff",
+      "precursor": "process_gas_filter",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": true,
+      "unlocks": [
+        "W05"
+      ],
+      "source": "前级流路运行→I43输运与热收支验证",
+      "success": "真实输入输出、循环补液和热交换结果可追溯，明确损耗，不靠库存差额推断来源",
+      "inputs": "WCA已开放流动工艺、GPR气体净化、HLC换热的真实记录",
+      "benefit": "W05专项建造知识及流体输运/换热验收方法；二审后建设运行",
+      "no_self_lock": "首机不用W05自产介质；理想流体不等于复制流体或零成本能源，不能虚报闭环收率"
+    },
+    {
+      "id": "RN-CCF",
+      "title": "永霜极低温凝态",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_ccf",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-ICA"
+      ],
+      "facts": [
+        "cryogenic_test"
+      ],
+      "specimen": "research_specimen_ccf",
+      "precursor": "cryogenic_condensed_material",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": true,
+      "unlocks": [
+        "W06"
+      ],
+      "source": "已有冷却工况→I43低温样件检测",
+      "success": "真实完成低温处理并核对介质和能源消耗，样品来源与温控记录对应",
+      "inputs": "ICA冰核心冷却工艺实际记录、前级材料与制冷介质",
+      "benefit": "W06专项建造知识及低温凝态工况验收；二审后建设运行",
+      "no_self_lock": "不要求W06先产深冷材料；不自定绝对零度或新的现实物理参数"
+    },
+    {
+      "id": "RN-IAR",
+      "title": "穹界虚数锚定环",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_iar",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-IAA",
+        "RN-VCA",
+        "RN-WME"
+      ],
+      "facts": [
+        "imaginary_anchor",
+        "world_maintenance"
+      ],
+      "specimen": "research_specimen_iar",
+      "precursor": "soulium_anchor_component",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": true,
+      "unlocks": [
+        "W03"
+      ],
+      "source": "I43空间连接和维系记录验证",
+      "success": "核验既有锚定设备的真实工况与局部扰动响应，不提前运行文明级锚定环",
+      "inputs": "I35锚定、I37维系实际记录、已可达空间组件",
+      "benefit": "W03专项建造知识及大范围锚定验收；二审后建设运行",
+      "no_self_lock": "首座不用W03自产空间材料；新作用范围与耗能待定，不借锚定绕过终审资格"
+    },
+    {
+      "id": "RN-MRA",
+      "title": "生息物质再生方舟",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_mra",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-SFR",
+        "RN-GPR",
+        "RN-SMR"
+      ],
+      "facts": [
+        "recovery_medium",
+        "recovery_spent_rods",
+        "gas_purification"
+      ],
+      "specimen": "research_specimen_mra",
+      "precursor": "recovered_fuel_casing_material",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": true,
+      "unlocks": [
+        "W07"
+      ],
+      "source": "I43多支线回收收支验证",
+      "success": "核验真实投入、回收与不可回收残渣，排除重复统计同一批次；试验不额外生成回收物",
+      "inputs": "既有固体后处理、液态介质再生和GPR气体净化回执及实际残渣",
+      "benefit": "W07专项建造知识及材料再生工况验收；二审后建设运行",
+      "no_self_lock": "不要求W07先回收；损坏燃料棒不恢复为可用棒，不从回收循环产生净免费能源，不新加灵魂科技"
+    },
+    {
+      "id": "RN-SFF",
+      "title": "劫焰恒星熔铸",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_sff",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-FCA",
+        "RN-URE"
+      ],
+      "facts": [
+        "flame_test",
+        "ultra_reactor_load"
+      ],
+      "specimen": "research_specimen_sff",
+      "precursor": "extreme_casting_material",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": true,
+      "unlocks": [
+        "W08"
+      ],
+      "source": "前级热工运行→I43热工及材料验证",
+      "success": "实际完成高温加工、安全冷却和能耗回执核验，试件不是W08的正式产物",
+      "inputs": "FCA已开放高温工艺、I22真实供能记录与前级铸造试件",
+      "benefit": "W08专项建造知识及极热熔铸验收；二审后建设运行",
+      "no_self_lock": "首座不用W08自产极限材料，基础魂钢仍走I09–I16；材料温度和产量不在本稿定稿"
+    },
+    {
+      "id": "RN-GSF",
+      "title": "坠星引力奇点铸造",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_gsf",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-GCA",
+        "RN-SEK",
+        "RN-SWS"
+      ],
+      "facts": [
+        "compression_test",
+        "simulation_created",
+        "simulation_stabilized"
+      ],
+      "specimen": "research_specimen_gsf",
+      "precursor": "soulium_anchor_component",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": true,
+      "unlocks": [
+        "W10"
+      ],
+      "source": "I33已有压缩工况→I43检测",
+      "success": "实际完成压缩响应并关联模拟种子工艺记录，试验不产文明工程奇点",
+      "inputs": "GCA/SEK已有引力压缩工况、同批模拟构筑稳定记录与前级高密度试件",
+      "benefit": "W10专项建造知识与高阶奇点工况验收；二审后建设运行",
+      "no_self_lock": "I29早期种子不依赖W10；首座W10不要求自产奇点；不授予伊甸之星时间加速能力"
+    },
+    {
+      "id": "RN-ECB",
+      "title": "戒律能量约束壁",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_ecb",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-BCA",
+        "RN-JOK",
+        "RN-RAT"
+      ],
+      "facts": [
+        "binding_test"
+      ],
+      "specimen": "research_specimen_ecb",
+      "precursor": "imitation_binding_core",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": true,
+      "unlocks": [
+        "W12"
+      ],
+      "source": "已有约束工况→I43能流隔离验证",
+      "success": "实际完成开启/解除约束和输入输出计量；验证不把抑制能量返充账户",
+      "inputs": "BCA/JOK已开放能流隔离、I36稳定场与前级约束样件记录",
+      "benefit": "W12专项建造知识与大范围约束工况验收；二审后建设运行",
+      "no_self_lock": "不要求W12先运行；基础I36保留用途，约束不发免费EU/HW"
+    },
+    {
+      "id": "RN-CLE",
+      "title": "文明认知穹顶工程",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_cle",
+      "existing": false,
+      "prerequisites": [
+        "RN-WME",
+        "RN-CEE",
+        "RN-HCCO",
+        "RN-ILE"
+      ],
+      "facts": [
+        "lab_four_interface",
+        "three_domains"
+      ],
+      "specimen": "research_specimen_cle",
+      "precursor": "soulium_data_substrate",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": true,
+      "unlocks": [
+        "S05"
+      ],
+      "source": "I43前级研究设施接口与资料联调验证",
+      "success": "以现有S04可提供的接口试件和真实资料完成联调，仅输出工程证据，随后在S04正常支付并研究",
+      "inputs": "崩坏能/量子/虚数三领域可追溯研究与实验、I37运行、CEE验收方法及HCCO研究成果",
+      "benefit": "S05独立研究所及必要功能件，提供16个课题槽位；不与W09共用实体",
+      "no_self_lock": "不要求W09或W01已经运行，不用S05先研究自身首机材料；CLE本身不是奇观专项，不因HCCO建造锁二审而反锁S05研究"
+    },
+    {
+      "id": "RN-ELC",
+      "title": "能源负载协调",
+      "lab": 4,
+      "tier": 13,
+      "executor": "I32",
+      "recipe": "industrial_experiment_elc",
+      "existing": false,
+      "prerequisites": [
+        "RN-CED",
+        "RN-WME",
+        "RN-LTA"
+      ],
+      "facts": [
+        "manual_dispatch_multiple"
+      ],
+      "specimen": "research_specimen_elc",
+      "precursor": "soulium_data_substrate",
+      "ticks": 2520,
+      "energy_tier": 26,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I41基础手动控制工况→I32多负载收支分析",
+      "success": "实际运行与手动开停产生可核对的多设备时间线，验证未授权/余额不足时不继续推进；不先启用待解锁自动优先级",
+      "inputs": "I41已登记负载、I37及其他已可运行设备的实际HW扣费与暂停记录",
+      "benefit": "I41负载优先级排序与告警策略；基础登记、手动开停保留",
+      "no_self_lock": "不增加账户容量/距离/吞吐上限，不制造负余额；测试限制仅属试验工况，不强制耗尽玩家全账户"
+    },
+    {
+      "id": "RN-CKV",
+      "title": "万象文明共识矩阵",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_ckv",
+      "existing": false,
+      "prerequisites": [
+        "RN-CLE",
+        "RN-IAR",
+        "RN-LTA",
+        "RN-CEE"
+      ],
+      "facts": [
+        "contradiction_retest",
+        "three_domains"
+      ],
+      "specimen": "research_specimen_ckv",
+      "precursor": "world_model_carrier",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": true,
+      "unlocks": [
+        "W09"
+      ],
+      "source": "I32复验样本→I43核对观测条件与情报来源；S05承担正常研究",
+      "success": "实际复验区分事实、推论与无法判定项，保留原文和实验来源；不靠选择预设立场获得证据",
+      "inputs": "可追溯的崩坏/量子/虚数实验证据、具有来源的相互矛盾情报及可复验样本",
+      "benefit": "W09独立控制器及知识交叉验证工况；专项研究完成且二审通过才可正式建造/运行",
+      "no_self_lock": "不要求W09先出证明，不要求看到互斥对话的全部回答；关键矛盾资料需设计可达的稳定来源，不把随机外交作为永久卡点"
+    },
+    {
+      "id": "RN-DIO",
+      "title": "千律分布式工业统御",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_dio",
+      "existing": false,
+      "prerequisites": [
+        "RN-CLE",
+        "RN-AIM",
+        "RN-CED",
+        "RN-CEE"
+      ],
+      "facts": [
+        "cross_machine_order"
+      ],
+      "specimen": "research_specimen_dio",
+      "precursor": "industrial_work_drone",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": true,
+      "unlocks": [
+        "W11"
+      ],
+      "source": "前级设备按现有方式实际完成跨机工序→I43核对交接及授权边界",
+      "success": "不同设备完成同一订单关联工序，投入、产物和权限回执对应；研究前可手动交接，不要求已有W11自动统御",
+      "inputs": "已运行的多设备生产链、I41基础登记与手动授权操作记录、可追溯实际订单与物料",
+      "benefit": "W11控制器、授权机器的订单协调与工况反馈；专项研究和二审双门槛",
+      "no_self_lock": "不要求W02先扩产、不要求W11先自动完成自身研究订单；不接管他人设备、不顺带引入AE2优化依赖"
+    },
+    {
+      "id": "RN-ASR",
+      "title": "蚀界自演算研究母机",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_asr",
+      "existing": false,
+      "prerequisites": [
+        "RN-CLE",
+        "RN-ECA",
+        "RN-CPT",
+        "RN-LTA",
+        "RN-CEE"
+      ],
+      "facts": [
+        "bounded_computation"
+      ],
+      "specimen": "research_specimen_asr",
+      "precursor": "imitation_corruption_core",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": true,
+      "unlocks": [
+        "W13"
+      ],
+      "source": "I32受控演算结果检测→I43核对停止、隔离与基准结果",
+      "success": "实际耗能运行有限基准演算，结果可重复核对并验证可停止；不先加速本课题，不重新授予已完成课题奖励",
+      "inputs": "ECA已开放侵蚀核心、CPT电路成果、已有课题运行记录与前级隔离演算工装",
+      "benefit": "W13控制器、受控优化模型与效率验证工况；正式运行需二审；与ERM研究所模块的叠加规则另审",
+      "no_self_lock": "不以ERM或W13加速作为ASR起步条件，不触及真实文件；不修改研究点计算机产点、不允许无限速度叠加"
+    },
+    {
+      "id": "RN-WCE",
+      "title": "终序世界泡轮回引擎",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_wce",
+      "existing": false,
+      "prerequisites": [
+        "RN-CLE",
+        "RN-SWR",
+        "RN-WME",
+        "RN-SWC",
+        "RN-SWS",
+        "RN-CEE"
+      ],
+      "facts": [
+        "simulation_full_chain"
+      ],
+      "specimen": "research_specimen_wce",
+      "precursor": "world_model_carrier",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": true,
+      "unlocks": [
+        "W14"
+      ],
+      "source": "I43核对模拟批次从创建至最终结算的完整链条",
+      "success": "同一批次实际耗料、耗能、稳定及终止成功且仅结算一次；封存或暂停不算完成，不拼接不同批次",
+      "inputs": "I29构筑、I30稳定、I31终止回收的同一个合法模拟批次记录及SWR成果",
+      "benefit": "W14控制器及文明规模模拟工况；专项研究和二审双门槛，保留I29–I31基础路线",
+      "no_self_lock": "不要求W14先运行，不拿真实目标十次采掘账本充当模拟实验，不把捕获真实目标记成模拟制造"
+    },
+    {
+      "id": "RN-CAV",
+      "title": "文明成果交叉验证",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_cav",
+      "existing": false,
+      "prerequisites": [
+        "RN-CKV",
+        "RN-DIO",
+        "RN-ASR",
+        "RN-WCE",
+        "RN-CEE"
+      ],
+      "facts": [
+        "wonder_W09",
+        "wonder_W11",
+        "wonder_W13",
+        "wonder_W14"
+      ],
+      "specimen": "research_specimen_cav",
+      "precursor": "soulium_data_substrate",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I43核对四座证明与工程归属→W09执行跨资料验证",
+      "success": "四座本体真实记录与档案对应，校核机器身份、来源与结算事件；复制报告物品不新增证据",
+      "inputs": "W09/W11/W13/W14的真实本体运行证明、三领域实验档案及机器来源",
+      "benefit": "文明成果交叉验证报告的正式生成工况，供TAA/W15读取；研究前校验只产CAV实验证据",
+      "no_self_lock": "四座机器各自研究已解锁即可先运行，不把CAV锁在这四座基本验收之前；交叉验证方法预检与正式报告分开"
+    },
+    {
+      "id": "RN-TAA",
+      "title": "凌霄树海朝觐圣座",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_taa",
+      "existing": false,
+      "prerequisites": [
+        "RN-CAV",
+        "RN-HCCO",
+        "RN-AIM",
+        "RN-SEM",
+        "RN-IFF",
+        "RN-CCF",
+        "RN-IAR",
+        "RN-MRA",
+        "RN-SFF",
+        "RN-GSF",
+        "RN-ECB",
+        "RN-HVI",
+        "RN-CEE"
+      ],
+      "facts": [
+        "all_fourteen_wonders",
+        "ship_acceptance",
+        "cross_domain_report"
+      ],
+      "specimen": "research_specimen_taa",
+      "precursor": "soulium_data_substrate",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": true,
+      "unlocks": [
+        "W15"
+      ],
+      "source": "I43核对十四类奇观与舰船工程记录，S05正常研究",
+      "success": "按类型核验14种不同奇观的真实成果和舰船记录，不以14台同类型机器或14个控制器代替；预检成功只给TAA研究证据",
+      "inputs": "W01至W14各自真实工程证明、CAV正式验证报告及仿制休伯利安HVI运行记录",
+      "benefit": "W15控制器、必要建造件及资格汇总功能；研究完成且二审通过方可正式建造和运行",
+      "no_self_lock": "TAA不要求W15自证或满卷轴，避免把本课题与后续交流反锁；W15首机不得依赖自身产物；HVI仍是毕业必需"
+    },
+    {
+      "id": "RN-DVC",
+      "title": "跨领域工况校验",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I32",
+      "recipe": "industrial_experiment_dvc",
+      "existing": false,
+      "prerequisites": [
+        "RN-CKV",
+        "RN-CAV",
+        "RN-LTA"
+      ],
+      "facts": [
+        "three_domain_difference"
+      ],
+      "specimen": "research_specimen_dvc",
+      "precursor": "world_model_carrier",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": true,
+      "unlocks": [],
+      "source": "I32复验有差异的样本/工况→W09交叉校验，S05正常研究",
+      "success": "实际比较崩坏、量子与虚数工况在各自条件下的差异，能追溯原始实验；不能统一删掉不同结果或用三份复制资料凑数",
+      "inputs": "CAV已验证的三领域成果、保留条件差异与来源的实际工况数据",
+      "benefit": "跨领域工艺诊断与校验资料生成工况，输出差异原因/适用边界；不凭空解锁新物料或终审维度",
+      "no_self_lock": "目录未将DVC列为TAA前置，不擅自追加；若卷轴目录要求此研究，在终审申请阶段核对，不反锁W15制造"
+    }
+  ],
+  "_history": [
+    {
+      "at": "2026-09-30 00:01:44",
+      "revision": 102,
+      "changes": "HBD实验核对已批准120秒QSV与20%/第5次保底，移除失效待批准说明。"
+    }
+  ],
+  "_comment_r155": "变更记录 #155 2026-10-01 22:50:14：删除旧电压及玩家开发说明；新增正式名称和玩家措辞；只调整文案，ID、数值与事件条件不改。逐项差异见logs/text-r155/resource-diff.json。",
+  "_changes": [
+    {
+      "revision": 161,
+      "time": "2026-10-17 14:12:15",
+      "reason": "删除活动标识的版本前缀，使用长期业务名称；物料数量、研究门槛和配方参数保持；魂钢链沿用修订160修复。"
+    }
+  ]
+}

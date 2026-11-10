@@ -1,23 +1,29 @@
 package com.sirin.hk3gtl.common.item.honkai;
 
 
-
+/**
+ * 【文件职责】
+ * - 注册或实现 HonkaiMaterialItems 物品行为。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.sirin.hk3gtl.common.item.Hk3Items;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
 
-/**
- * 崩坏能体系材料物品注册。包括崩坏能加工链、虚数核心、特殊合金、P2研究提交物等。
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>新增物品：声明 RegistryObject 字段 → 在 {@link #register()} 中注册</li>
- *   <li>修改堆叠数：在 {@code new Item.Properties()} 后链式调用 {@code .stacksTo(N)}</li>
- *   <li>贴图路径：{@code assets/hk3gtl/textures/item/<注册ID>.png}</li>
- *   <li>语言Key：{@code item.hk3gtl.<注册ID>}，需同步更新 zh_cn.json / en_us.json</li>
- *   <li>配方引用：在 Hk3RecipeAdder 中通过 {@code HonkaiMaterialItems.XXX.get()} 引用</li>
- * </ul>
- */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public class HonkaiMaterialItems {
 
     // ── 崩坏能加工链（从低级到高级）──

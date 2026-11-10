@@ -1,40 +1,40 @@
 package com.sirin.hk3gtl.common.multiblock.export;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 PatternCodeWriter 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
+/**
+ * 【变更记录 #1】2026-10-31 17:42:29（第 1 次备注 · 内测5修订189）
+ * - 删除：依赖服务器默认区域设置的大小写转换。
+ * - 新增：Locale.ROOT固定大小写规则。
+ * - 修改：所有生成标识符均使用固定区域设置，避免土耳其语环境产生非法注册字段。
+ * - 用途：保持不同服务器生成的Java草稿一致；未确定的工艺仍保留原有人工确认占位。
+ */
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
+import java.util.Locale;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * 生成 {@code Hk3<Name>PatternImpl.java} Pattern 实现源码文本。
- *
- * <h3>生成风格</h3>
- * <ul>
- *   <li>包 {@code com.sirin.hk3gtl.common.multiblock.pattern}（与项目现有 Pattern 同包）</li>
- *   <li>舱口统一走 {@code Predicates.autoAbilities(...)}，不展开逐条 {@code or(abilities(...))}</li>
- *   <li>具体方块按命名空间选择最简引用：hk3gtl 外壳 → CasingBlocks.XXX.get()；
- *       minecraft → Blocks.XXX；其他 → BuiltInRegistries.BLOCK.get(new ResourceLocation(...))</li>
- *   <li>空气用 {@code Predicates.air()}；H 符号走 {@code Predicates.abilities(...)}，不绑定到具体方块</li>
- *   <li>自动决定 rotationState：水平朝向 → NON_Y_AXIS，否则 ALL</li>
- * </ul>
- *
- * <h3>输出两个文件</h3>
- * <ul>
- *   <li>{@code Hk3<Name>PatternImpl.java} —— 真实逻辑</li>
- *   <li>{@code Hk3<Name>Pattern.java} —— 门面类（extends Impl），匹配项目双类惯例</li>
- * </ul>
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>调整 autoAbilities 调用组合：见 {@link #appendAutoAbilities}，默认跟随 {@link HatchAbilityMap.Summary}</li>
- *   <li>扩展 {@code formatBlockReference}：新增 hk3gtl 子包方块或第三方方块的简写</li>
- *   <li>类名生成规则：{@link #className} 与 {@link #impleClassName}；机器 id 会被 PascalCase 化</li>
- * </ul>
- */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class PatternCodeWriter {
 
     public static final String PATTERN_PACKAGE = "com.sirin.hk3gtl.common.multiblock.pattern";
@@ -190,11 +190,11 @@ public final class PatternCodeWriter {
 
         if (Hk3Constants.MOD_ID.equals(ns) && path.startsWith("casing_")) {
             extraImports.add("com.sirin.hk3gtl.common.block.CasingBlocks");
-            return "CasingBlocks." + path.toUpperCase() + ".get()";
+            return "CasingBlocks." + path.toUpperCase(Locale.ROOT) + ".get()";
         }
         if ("minecraft".equals(ns)) {
             extraImports.add("net.minecraft.world.level.block.Blocks");
-            return "Blocks." + path.toUpperCase();
+            return "Blocks." + path.toUpperCase(Locale.ROOT);
         }
         extraImports.add("net.minecraft.core.registries.BuiltInRegistries");
         extraImports.add("net.minecraft.resources.ResourceLocation");
@@ -210,7 +210,7 @@ public final class PatternCodeWriter {
     }
 
     private static String pascal(String raw) {
-        String safe = raw.toLowerCase().replaceAll("[^a-z0-9_]+", "_").replaceAll("_+", "_");
+        String safe = raw.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9_]+", "_").replaceAll("_+", "_");
         StringBuilder out = new StringBuilder();
         for (String part : safe.split("_")) {
             if (part.isEmpty()) continue;

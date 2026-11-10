@@ -11,7 +11,14 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-
+/**
+ * 【文件职责】
+ * - 虚数维度平台中央的「虚数裂隙」交互点：仅粒子可见，右键后触发西琳登场。
+ *
+ * 【变更记录 #1】2026-05-19 05:20:00（第 1 次备注 · 内测二第 6 次更新）
+ * - 新增：裂隙实体 + 原版粒子循环；右键调用 {@link VoidQueenSirinEntity#onRiftInteracted}。
+ * - 用途：玩家进维度先见裂隙，再见西琳，再开终局对话。
+ */
 public class ImaginaryRiftEntity extends Entity {
 
     private int particleTick;

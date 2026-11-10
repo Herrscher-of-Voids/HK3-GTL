@@ -1,0 +1,198 @@
+{
+  "key": "i23",
+  "machine": "hk3gtl:i23_honkai_phase_transition_generator",
+  "source": "data/hk3gtl/approved_architecture/i23.json",
+  "sha256": "440e29f25d7586b0cb3a35a0c97f404b0640f6a3803d2118cfa1f72b01ff435b",
+  "template_sha256": "431f7b4d81a8328be0868857b99ad662ecd531cf71b0280ccf6889eec303bfbf",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认\\I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认\\I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认\\I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024\\i23\\hk3gtl-i23-twin-lobe-phase-forge-v8-20261024.nbt",
+  "source_nbt_sha256": "08379b5c14bd49ff8b96ee0eef75ca6bfa5a9d2036106488ed34b15f44b817b8",
+  "controller": [
+    44,
+    8,
+    0
+  ],
+  "size_xyz": [
+    89,
+    57,
+    102
+  ],
+  "blocks": 58011,
+  "ports": [
+    {
+      "id": "G-IN",
+      "pos": [
+        53,
+        14,
+        0
+      ],
+      "face": "north",
+      "surface_state": "hk3gtl:voltage_machine_casing_qcv",
+      "purpose": "受控气态崩坏能输入候选",
+      "group": "fluid_input"
+    },
+    {
+      "id": "EU-IN",
+      "pos": [
+        77,
+        39,
+        45
+      ],
+      "face": "east",
+      "surface_state": "hk3gtl:voltage_machine_casing_qcv",
+      "purpose": "相变装置驱动能量输入候选",
+      "group": "energy_input"
+    },
+    {
+      "id": "C-IN",
+      "pos": [
+        0,
+        15,
+        47
+      ],
+      "face": "west",
+      "surface_state": "hk3gtl:voltage_machine_casing_qcv",
+      "purpose": "冷端循环介质输入候选",
+      "group": "fluid_input"
+    },
+    {
+      "id": "SOLID-OUT",
+      "pos": [
+        27,
+        8,
+        101
+      ],
+      "face": "south",
+      "surface_state": "gtlcore:law_filter_casing",
+      "purpose": "固态析出物输出候选",
+      "group": "item_output"
+    },
+    {
+      "id": "EU-OUT",
+      "pos": [
+        62,
+        8,
+        101
+      ],
+      "face": "south",
+      "surface_state": "hk3gtl:voltage_machine_casing_qcv",
+      "purpose": "余能回收输出候选",
+      "group": "energy_output"
+    },
+    {
+      "id": "HEAT-OUT",
+      "pos": [
+        88,
+        15,
+        47
+      ],
+      "face": "east",
+      "surface_state": "hk3gtl:voltage_machine_casing_qcv",
+      "purpose": "热端余热输出候选",
+      "group": "fluid_output"
+    }
+  ],
+  "target_voltage": "QCV",
+  "installed_hatches": {
+    "G-IN": "fluid_input",
+    "C-IN": "fluid_input",
+    "SOLID-OUT": "item_output",
+    "HEAT-OUT": "fluid_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 18,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        44,
+        8,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i23_honkai_phase_transition_generator[facing=north]",
+      "block_entity_id": "hk3gtl:i23_honkai_phase_transition_generator"
+    },
+    {
+      "pos": [
+        27,
+        8,
+        101
+      ],
+      "role": "SOLID-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        62,
+        8,
+        101
+      ],
+      "role": "EU-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        53,
+        14,
+        0
+      ],
+      "role": "G-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        0,
+        15,
+        47
+      ],
+      "role": "C-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        88,
+        15,
+        47
+      ],
+      "role": "HEAT-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        77,
+        39,
+        45
+      ],
+      "role": "EU-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i23_honkai_phase_transition_generator",
+  "controller_json_state": "hk3gtl:i23_honkai_phase_transition_generator"
+}

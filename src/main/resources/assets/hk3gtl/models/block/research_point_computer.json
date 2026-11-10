@@ -1,0 +1,13 @@
+{
+  "_comment": "Change #1 2026-09-22 15:39:00 beta5 batch5. Original Python-generated computer faces. / 原创计算机外观，无占位素材。",
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "hk3gtl:block/research_computer/side",
+    "north": "hk3gtl:block/research_computer/front",
+    "south": "hk3gtl:block/research_computer/back",
+    "east": "hk3gtl:block/research_computer/side",
+    "west": "hk3gtl:block/research_computer/side",
+    "up": "hk3gtl:block/research_computer/top",
+    "down": "hk3gtl:block/research_computer/side"
+  }
+}

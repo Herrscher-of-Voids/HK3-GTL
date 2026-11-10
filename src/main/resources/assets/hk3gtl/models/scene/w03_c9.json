@@ -1,0 +1,1809 @@
+{
+  "version": 1,
+  "title": "穹界·虚数锚定环 C9",
+  "controller": [
+    416,
+    27,
+    187
+  ],
+  "size": [
+    833,
+    636,
+    833
+  ],
+  "components": [
+    {
+      "id": "static",
+      "pivot_export": [
+        0,
+        0,
+        0
+      ],
+      "render_translation_xyz": [
+        0,
+        0,
+        0
+      ],
+      "rotations": []
+    },
+    {
+      "id": "ring:210",
+      "label": "第1莫比乌斯环",
+      "pivot_blueprint": [
+        336.0,
+        366.0,
+        264.0
+      ],
+      "pivot_export": [
+        416.0,
+        366.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        11.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "degrees_per_second": 3
+        }
+      ],
+      "blocks": 90224,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          113.63703567394887,
+          143.63703567394887,
+          41.63703567394887
+        ],
+        "max": [
+          558.3629643260512,
+          588.3629643260512,
+          486.36296432605116
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        199.42417105255822,
+        220.63091351848226
+      ],
+      "initial_normal": [
+        0,
+        -0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "ring:178",
+      "label": "第2莫比乌斯环",
+      "pivot_blueprint": [
+        336.0,
+        366.0,
+        264.0
+      ],
+      "pivot_export": [
+        416.0,
+        366.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        11.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 3
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -4
+        },
+        {
+          "axis": [
+            0,
+            0.42261826174069944,
+            0.9063077870366499
+          ],
+          "degrees_per_second": -4
+        }
+      ],
+      "blocks": 47672,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          149.58985086997168,
+          179.58985086997168,
+          77.58985086997168
+        ],
+        "max": [
+          522.4101491300283,
+          552.4101491300283,
+          450.41014913002834
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        171.26587517658035,
+        184.67809832245945
+      ],
+      "initial_normal": [
+        0,
+        0.42261826174069944,
+        0.9063077870366499
+      ]
+    },
+    {
+      "id": "ring:146",
+      "label": "第3莫比乌斯环",
+      "pivot_blueprint": [
+        336.0,
+        366.0,
+        264.0
+      ],
+      "pivot_export": [
+        416.0,
+        366.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        11.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 4
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 5
+        },
+        {
+          "axis": [
+            0,
+            -0.573576436351046,
+            0.8191520442889918
+          ],
+          "degrees_per_second": 5
+        }
+      ],
+      "blocks": 39232,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          181.49033303090044,
+          211.49033303090044,
+          109.49033303090044
+        ],
+        "max": [
+          490.50966696909956,
+          520.5096669690995,
+          418.50966696909956
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        139.31618714277246,
+        152.7776161615307
+      ],
+      "initial_normal": [
+        0,
+        -0.573576436351046,
+        0.8191520442889918
+      ]
+    },
+    {
+      "id": "ring:114",
+      "label": "第4莫比乌斯环",
+      "pivot_blueprint": [
+        336.0,
+        366.0,
+        264.0
+      ],
+      "pivot_export": [
+        416.0,
+        366.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        11.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 5
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -3
+        },
+        {
+          "axis": [
+            0,
+            0.7071067811865476,
+            0.7071067811865476
+          ],
+          "degrees_per_second": -6
+        }
+      ],
+      "blocks": 30696,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          213.56169417637986,
+          243.56169417637986,
+          141.56169417637986
+        ],
+        "max": [
+          458.4383058236201,
+          488.4383058236201,
+          386.4383058236201
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        107.35921013122255,
+        120.70625501605126
+      ],
+      "initial_normal": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ]
+    },
+    {
+      "id": "ring:82",
+      "label": "第5莫比乌斯环",
+      "pivot_blueprint": [
+        336.0,
+        366.0,
+        264.0
+      ],
+      "pivot_export": [
+        416.0,
+        366.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        11.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 6
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 4
+        },
+        {
+          "axis": [
+            0,
+            -0.3420201433256687,
+            0.9396926207859084
+          ],
+          "degrees_per_second": 7
+        }
+      ],
+      "blocks": 22102,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          245.60002940178754,
+          275.60002940178754,
+          173.60002940178754
+        ],
+        "max": [
+          426.39997059821246,
+          456.39997059821246,
+          354.39997059821246
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        75.37240874484509,
+        88.66791979064357
+      ],
+      "initial_normal": [
+        0,
+        -0.3420201433256687,
+        0.9396926207859084
+      ]
+    },
+    {
+      "id": "outer_stars",
+      "label": "外环外侧24星阵",
+      "pivot_blueprint": [
+        336.0,
+        366.0,
+        264.0
+      ],
+      "pivot_export": [
+        416.0,
+        366.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        11.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "degrees_per_second": 3
+        }
+      ],
+      "blocks": 20820,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          50.01102315543898,
+          80.01102315543898,
+          -21.988976844561023
+        ],
+        "max": [
+          621.988976844561,
+          651.988976844561,
+          549.988976844561
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        236.0,
+        284.2569260369921
+      ]
+    },
+    {
+      "id": "core",
+      "label": "中央律者核心",
+      "pivot_blueprint": [
+        336.0,
+        366.0,
+        264.0
+      ],
+      "pivot_export": [
+        416.0,
+        366.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 3
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 2
+        },
+        {
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "degrees_per_second": 1
+        }
+      ],
+      "blocks": 62072,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          275.2001914899417,
+          305.2001914899417,
+          203.2001914899417
+        ],
+        "max": [
+          396.7998085100583,
+          426.7998085100583,
+          324.7998085100583
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        0.0,
+        59.06775770248944
+      ]
+    },
+    {
+      "id": "spears",
+      "label": "六矛锁芯公转阵列",
+      "pivot_blueprint": [
+        336.0,
+        366.0,
+        264.0
+      ],
+      "pivot_export": [
+        416.0,
+        366.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0,
+        0,
+        0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 2
+        }
+      ],
+      "blocks": 48284,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          -97.8720744110301,
+          52.267949192431104,
+          -169.8720744110301
+        ],
+        "max": [
+          769.8720744110301,
+          175.73205080756887,
+          697.8720744110301
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        123.0,
+        410.0
+      ]
+    },
+    {
+      "id": "crystal:0",
+      "label": "浓缩崩坏能晶体1",
+      "pivot_blueprint": [
+        370.0,
+        32.0,
+        264.0
+      ],
+      "pivot_export": [
+        450.0,
+        32.0,
+        416.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 2
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -1
+        }
+      ],
+      "blocks": 98,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          361.33974596215563,
+          23.339745962155614,
+          255.3397459621556
+        ],
+        "max": [
+          378.66025403784437,
+          40.66025403784438,
+          272.66025403784437
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        4.0,
+        6.928203230275509
+      ]
+    },
+    {
+      "id": "crystal:1",
+      "label": "浓缩崩坏能晶体2",
+      "pivot_blueprint": [
+        290.0,
+        44.0,
+        307.0
+      ],
+      "pivot_export": [
+        370.0,
+        44.0,
+        459.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 3
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 2
+        }
+      ],
+      "blocks": 1522,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          273.3682847666798,
+          27.368284766679782,
+          290.3682847666798
+        ],
+        "max": [
+          306.6317152333202,
+          60.63171523332022,
+          323.6317152333202
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        8.06225774829855,
+        14.89966442575134
+      ]
+    },
+    {
+      "id": "crystal:2",
+      "label": "浓缩崩坏能晶体3",
+      "pivot_blueprint": [
+        370.0,
+        59.0,
+        178.0
+      ],
+      "pivot_export": [
+        450.0,
+        59.0,
+        330.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 4
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -3
+        }
+      ],
+      "blocks": 658,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          358.21807357131024,
+          47.218073571310235,
+          166.21807357131024
+        ],
+        "max": [
+          381.78192642868976,
+          70.78192642868977,
+          189.78192642868976
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        5.0990195135927845,
+        10.04987562112089
+      ]
+    },
+    {
+      "id": "crystal:3",
+      "label": "浓缩崩坏能晶体4",
+      "pivot_blueprint": [
+        370.0,
+        68.0,
+        308.0
+      ],
+      "pivot_export": [
+        450.0,
+        68.0,
+        460.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 5
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 1
+        }
+      ],
+      "blocks": 2978,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          347.82290089217025,
+          45.82290089217025,
+          285.82290089217025
+        ],
+        "max": [
+          392.17709910782975,
+          90.17709910782975,
+          330.17709910782975
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        11.180339887498949,
+        20.445048300260872
+      ]
+    },
+    {
+      "id": "crystal:4",
+      "label": "浓缩崩坏能晶体5",
+      "pivot_blueprint": [
+        252.0,
+        79.0,
+        249.0
+      ],
+      "pivot_export": [
+        332.0,
+        79.0,
+        401.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 2
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -2
+        }
+      ],
+      "blocks": 438,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          241.96132532951304,
+          68.96132532951304,
+          238.96132532951304
+        ],
+        "max": [
+          262.03867467048696,
+          89.03867467048696,
+          259.03867467048696
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        4.242640687119285,
+        8.306623862918075
+      ]
+    },
+    {
+      "id": "crystal:5",
+      "label": "浓缩崩坏能晶体6",
+      "pivot_blueprint": [
+        377.0,
+        66.0,
+        238.0
+      ],
+      "pivot_export": [
+        457.0,
+        66.0,
+        390.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 3
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 3
+        }
+      ],
+      "blocks": 2630,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          357.2401928151112,
+          46.24019281511117,
+          218.2401928151112
+        ],
+        "max": [
+          396.7598071848888,
+          85.75980718488883,
+          257.7598071848888
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        10.04987562112089,
+        18.027756377319946
+      ]
+    },
+    {
+      "id": "crystal:6",
+      "label": "浓缩崩坏能晶体7",
+      "pivot_blueprint": [
+        316.0,
+        104.0,
+        339.0
+      ],
+      "pivot_export": [
+        396.0,
+        104.0,
+        491.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 4
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -1
+        }
+      ],
+      "blocks": 864,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          302.47812306987953,
+          90.47812306987953,
+          325.47812306987953
+        ],
+        "max": [
+          329.52187693012047,
+          117.52187693012047,
+          352.52187693012047
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        6.0,
+        11.789826122551595
+      ]
+    },
+    {
+      "id": "crystal:7",
+      "label": "浓缩崩坏能晶体8",
+      "pivot_blueprint": [
+        317.0,
+        116.0,
+        227.0
+      ],
+      "pivot_export": [
+        397.0,
+        116.0,
+        379.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 5
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 2
+        }
+      ],
+      "blocks": 3334,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          293.31345079233097,
+          92.31345079233097,
+          203.31345079233097
+        ],
+        "max": [
+          340.68654920766903,
+          139.68654920766903,
+          250.68654920766903
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        12.041594578792296,
+        21.95449840010015
+      ]
+    },
+    {
+      "id": "crystal:8",
+      "label": "浓缩崩坏能晶体9",
+      "pivot_blueprint": [
+        393.0,
+        131.0,
+        306.0
+      ],
+      "pivot_export": [
+        473.0,
+        131.0,
+        458.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 2
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -3
+        }
+      ],
+      "blocks": 2874,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          370.84737133576897,
+          108.84737133576898,
+          283.84737133576897
+        ],
+        "max": [
+          415.15262866423103,
+          153.15262866423103,
+          328.15262866423103
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        11.180339887498949,
+        20.42057785666214
+      ]
+    },
+    {
+      "id": "crystal:9",
+      "label": "浓缩崩坏能晶体10",
+      "pivot_blueprint": [
+        348.0,
+        146.0,
+        231.0
+      ],
+      "pivot_export": [
+        428.0,
+        146.0,
+        383.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 3
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 1
+        }
+      ],
+      "blocks": 434,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          338.14391078779516,
+          136.14391078779516,
+          221.14391078779516
+        ],
+        "max": [
+          357.85608921220484,
+          155.85608921220484,
+          240.85608921220484
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        4.123105625617661,
+        8.12403840463596
+      ]
+    },
+    {
+      "id": "crystal:10",
+      "label": "浓缩崩坏能晶体11",
+      "pivot_blueprint": [
+        409.0,
+        148.0,
+        107.0
+      ],
+      "pivot_export": [
+        489.0,
+        148.0,
+        259.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 4
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -2
+        }
+      ],
+      "blocks": 2574,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          388.80176387981174,
+          127.80176387981173,
+          86.80176387981173
+        ],
+        "max": [
+          429.19823612018826,
+          168.19823612018826,
+          127.19823612018827
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        10.04987562112089,
+        18.466185312619388
+      ]
+    },
+    {
+      "id": "crystal:11",
+      "label": "浓缩崩坏能晶体12",
+      "pivot_blueprint": [
+        361.0,
+        156.0,
+        344.0
+      ],
+      "pivot_export": [
+        441.0,
+        156.0,
+        496.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 5
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 3
+        }
+      ],
+      "blocks": 848,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          347.6921122896409,
+          142.6921122896409,
+          330.6921122896409
+        ],
+        "max": [
+          374.3078877103591,
+          169.3078877103591,
+          357.3078877103591
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        6.164414002968976,
+        11.575836902790225
+      ]
+    },
+    {
+      "id": "crystal:12",
+      "label": "浓缩崩坏能晶体13",
+      "pivot_blueprint": [
+        231.0,
+        164.0,
+        203.0
+      ],
+      "pivot_export": [
+        311.0,
+        164.0,
+        355.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 2
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -1
+        }
+      ],
+      "blocks": 3728,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          207.26794919243113,
+          140.26794919243113,
+          179.26794919243113
+        ],
+        "max": [
+          254.73205080756887,
+          187.73205080756887,
+          226.73205080756887
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        12.041594578792296,
+        22.0
+      ]
+    },
+    {
+      "id": "crystal:13",
+      "label": "浓缩崩坏能晶体14",
+      "pivot_blueprint": [
+        490.0,
+        172.0,
+        230.0
+      ],
+      "pivot_export": [
+        570.0,
+        172.0,
+        382.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 3
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 2
+        }
+      ],
+      "blocks": 270,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          481.86482495499826,
+          163.86482495499828,
+          221.86482495499828
+        ],
+        "max": [
+          498.13517504500174,
+          180.13517504500172,
+          238.13517504500172
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        3.1622776601683795,
+        6.4031242374328485
+      ]
+    },
+    {
+      "id": "crystal:14",
+      "label": "浓缩崩坏能晶体15",
+      "pivot_blueprint": [
+        282.0,
+        168.0,
+        307.0
+      ],
+      "pivot_export": [
+        362.0,
+        168.0,
+        459.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 4
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -3
+        }
+      ],
+      "blocks": 1520,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          265.30131964533535,
+          151.30131964533535,
+          290.30131964533535
+        ],
+        "max": [
+          298.69868035466465,
+          184.69868035466465,
+          323.69868035466465
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        8.06225774829855,
+        14.966629547095765
+      ]
+    },
+    {
+      "id": "crystal:15",
+      "label": "浓缩崩坏能晶体16",
+      "pivot_blueprint": [
+        322.0,
+        188.0,
+        159.0
+      ],
+      "pivot_export": [
+        402.0,
+        188.0,
+        311.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 5
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 1
+        }
+      ],
+      "blocks": 690,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          310.4699902212984,
+          176.46999022129842,
+          147.46999022129842
+        ],
+        "max": [
+          333.5300097787016,
+          199.53000977870158,
+          170.53000977870158
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        5.0990195135927845,
+        9.797958971132712
+      ]
+    },
+    {
+      "id": "crystal:16",
+      "label": "浓缩崩坏能晶体17",
+      "pivot_blueprint": [
+        445.0,
+        196.0,
+        356.0
+      ],
+      "pivot_export": [
+        525.0,
+        196.0,
+        508.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 2
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -2
+        }
+      ],
+      "blocks": 882,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          431.6921122896409,
+          182.6921122896409,
+          342.6921122896409
+        ],
+        "max": [
+          458.3078877103591,
+          209.3078877103591,
+          369.3078877103591
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        6.164414002968976,
+        11.575836902790225
+      ]
+    },
+    {
+      "id": "crystal:17",
+      "label": "浓缩崩坏能晶体18",
+      "pivot_blueprint": [
+        181.0,
+        210.0,
+        172.0
+      ],
+      "pivot_export": [
+        261.0,
+        210.0,
+        324.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 3
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 3
+        }
+      ],
+      "blocks": 3724,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          157.22254150738252,
+          186.22254150738252,
+          148.22254150738252
+        ],
+        "max": [
+          204.77745849261748,
+          233.77745849261748,
+          195.77745849261748
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        12.041594578792296,
+        22.045407685048602
+      ]
+    },
+    {
+      "id": "crystal:18",
+      "label": "浓缩崩坏能晶体19",
+      "pivot_blueprint": [
+        401.0,
+        187.0,
+        200.0
+      ],
+      "pivot_export": [
+        481.0,
+        187.0,
+        352.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 4
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -1
+        }
+      ],
+      "blocks": 266,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          392.63469961172035,
+          178.63469961172032,
+          191.63469961172032
+        ],
+        "max": [
+          409.36530038827965,
+          195.36530038827968,
+          208.36530038827968
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        3.0,
+        6.6332495807108
+      ]
+    },
+    {
+      "id": "crystal:19",
+      "label": "浓缩崩坏能晶体20",
+      "pivot_blueprint": [
+        330.0,
+        200.0,
+        392.0
+      ],
+      "pivot_export": [
+        410.0,
+        200.0,
+        544.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 5
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 2
+        }
+      ],
+      "blocks": 1692,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          312.8407005718896,
+          182.8407005718896,
+          374.8407005718896
+        ],
+        "max": [
+          347.1592994281104,
+          217.1592994281104,
+          409.1592994281104
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        8.06225774829855,
+        15.427248620541512
+      ]
+    },
+    {
+      "id": "crystal:20",
+      "label": "浓缩崩坏能晶体21",
+      "pivot_blueprint": [
+        230.0,
+        228.0,
+        137.0
+      ],
+      "pivot_export": [
+        310.0,
+        228.0,
+        289.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 2
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -3
+        }
+      ],
+      "blocks": 678,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          218.31807482136492,
+          216.31807482136492,
+          125.31807482136492
+        ],
+        "max": [
+          241.68192517863508,
+          239.68192517863508,
+          148.68192517863508
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        5.0990195135927845,
+        9.9498743710662
+      ]
+    },
+    {
+      "id": "crystal:21",
+      "label": "浓缩崩坏能晶体22",
+      "pivot_blueprint": [
+        411.0,
+        61.0,
+        274.0
+      ],
+      "pivot_export": [
+        491.0,
+        61.0,
+        426.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 3
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 1
+        }
+      ],
+      "blocks": 2730,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          389.14333739493304,
+          39.14333739493301,
+          252.143337394933
+        ],
+        "max": [
+          432.85666260506696,
+          82.85666260506699,
+          295.85666260506696
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        11.045361017187261,
+        20.12461179749811
+      ]
+    },
+    {
+      "id": "crystal:22",
+      "label": "浓缩崩坏能晶体23",
+      "pivot_blueprint": [
+        243.0,
+        198.0,
+        329.0
+      ],
+      "pivot_export": [
+        323.0,
+        198.0,
+        481.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 4
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": -2
+        }
+      ],
+      "blocks": 462,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          233.45769951652446,
+          188.45769951652446,
+          319.4576995165245
+        ],
+        "max": [
+          252.54230048347554,
+          207.54230048347554,
+          338.5423004834755
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        4.123105625617661,
+        7.810249675906654
+      ]
+    },
+    {
+      "id": "crystal:23",
+      "label": "浓缩崩坏能晶体24",
+      "pivot_blueprint": [
+        369.0,
+        215.0,
+        118.0
+      ],
+      "pivot_export": [
+        449.0,
+        215.0,
+        270.0
+      ],
+      "render_translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotations": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "degrees_per_second": 5
+        },
+        {
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "degrees_per_second": 3
+        }
+      ],
+      "blocks": 2258,
+      "conservative_swept_bounds_blueprint": {
+        "min": [
+          348.9103894417453,
+          194.9103894417453,
+          97.91038944174531
+        ],
+        "max": [
+          389.0896105582547,
+          235.0896105582547,
+          138.0896105582547
+        ]
+      },
+      "radial_interval_from_own_pivot": [
+        9.899494936611665,
+        18.35755975068582
+      ]
+    }
+  ],
+  "quads": 517262,
+  "blocks": 6642464,
+  "cycle_seconds": 360,
+  "atlas_columns": 16,
+  "atlas_rows": 8,
+  "source_manifest_sha256": "cf4bd939577569adf7cf1e6cf85648182b06ab1c7df17c77144a337fa1e9b66a",
+  "source_motion_sha256": "26fee8049c52301bef8c304bd6f7c9a973c34182f006482dd5baec593d8fe2ca",
+  "approved_appearance": true,
+  "geometry_clearance_verified": true,
+  "game_formed_verified": false
+}

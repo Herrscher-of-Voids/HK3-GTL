@@ -44,7 +44,18 @@ import java.util.concurrent.ConcurrentHashMap;
  * - 用途：
  *   1) 让注入器持续积累超 64 位余额，并在有限 GUI 空间保持可读。
  */
-public class Hk3HonkaiNetworkInjectorMachine extends Hk3WorkableMultiblockMachine {
+/**
+ * 【变更记录 #2】2026-09-24 16:37:18（内测5修订66）
+ * 删除：按首个ID固定注入和输出前afterWorking记账；上方旧路线说明仅作历史追溯。
+ * 新增：液态工业结算入口，按批次实际并行量注入BigInteger产额。
+ * 修改：正式配方数据替代静态ID产额；用途：支持跨配方运行而不漏算或重复充能。
+ *
+ * 【变更记录 #3】2026-09-24 17:22:00（内测5修订66）
+ * 删除：方法说明中已失效的单配方和有限容量约束；旧变更记录完整保留。
+ * 新增：明确合并批次与GTL回退批处理使用统一的已扣料产额。
+ * 修改：说明与当前无限并行及无限容量实现一致；用途：防止维护者依旧说明误改行为。
+ */
+public class Hk3HonkaiNetworkInjectorMachine extends com.sirin.hk3gtl.common.machine.research.Hk3LiquidProcessMachine {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -69,35 +80,31 @@ public class Hk3HonkaiNetworkInjectorMachine extends Hk3WorkableMultiblockMachin
     }
 
     /**
-     * 注入产额按"配方原始 ID"结算，与并行/合并逻辑语义不匹配，
-     * 因此本机固定走原版单配方逻辑。
+     * 允许跨配方并行；父类把各原配方的产额乘实际并行数后汇总到运行批次。
      */
     @Override
     protected boolean enableMultiRecipe() {
-        return false;
+        return true;
     }
 
     /**
-     * 开工前预检：未绑定玩家或网络剩余容量吃不下本配方产额时拒绝开工（机器等待）。
-     * 避免跑完配方后能量无处可去被丢弃。
+     * 开工前检查在线归属、首封信资料及研究权限；无线网络使用无限容量。
      */
     @Override
     public boolean beforeWorking(GTRecipe recipe) {
         return super.beforeWorking(recipe);
     }
 
-    /** 配方完成：把产额注入绑定玩家的崩坏能无线网络 */
+    /** 只有已成功完成一次输出结算的批次才记账；归属已在开工、运行和结算前验证。 */
     @Override
-    public void afterWorking() {
-        super.afterWorking();
-        try {
-            GTRecipe last = getRecipeLogic().getLastRecipe();
-            long yield = yieldOf(last);
-            if (yield <= 0) return;
-            insertHonkaiToNetwork(yield, false);
-        } catch (Exception e) {
-            LOGGER.warn("[HK3GTL] 崩坏能网络注入失败", e);
-        }
+    protected void onProcessOutput(GTRecipe recipe) {
+        super.onProcessOutput(recipe);
+        java.math.BigInteger credit = recipe.data.contains(CREDIT,8)
+                ? new java.math.BigInteger(recipe.data.getString(CREDIT))
+                : java.math.BigInteger.valueOf(recipe.data.getLong(CREDIT));
+        if (credit.signum() <= 0 || getOwnerUUID() == null)
+            throw new IllegalStateException("注入批次缺少有效归属或产额");
+        HonkaiWirelessNetwork.insert(getOwnerUUID(), credit, false);
     }
 
     /** GUI 追加当前网络余额行 */

@@ -1,7 +1,19 @@
 package com.sirin.hk3gtl.common.dialogue;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 SirinDialogueVersion 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 新增：isBeta2OrLater() / introLineCount()，内测二使用 v0_2_0 专属短开场且无 d01~d52 回退。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraftforge.fml.ModList;
 

@@ -1,0 +1,5220 @@
+{
+  "schema": 2,
+  "revision": 196,
+  "change_note": {
+    "number": 1,
+    "time": "2026-11-04 06:12:58",
+    "deleted": "无；64个旧要求与原条件完整保留。",
+    "added": "准确单一来源、新正文与独立本人阅读回执；旧正文留历史。",
+    "modified": "按负责人授权逐条重写64事件，56研究型需本人全文，6通信及2审查读取本人完成事实。",
+    "purpose": "生产只读核验与负责人逐行审核共用数据，不宣称上游研究/建筑可通关。"
+  },
+  "policy": "保留172条目录及64ID；不依据旧展示/物品NBT授资格。研究型须准确课题完成后本人读完新版全文，个人完成历史跨队保留；通信/审查型只读精确本人经历。未接课题执行器仍明确显示尚未开放，不声称上游全可玩。",
+  "events": [
+    {
+      "event_id": "E-AE-001",
+      "title": "事件档案 E-AE-001",
+      "old_trigger": "large_honkai_reactor成型",
+      "old_text_key": "hk3gtl.event.ae001",
+      "old_text": "§9[逆熵·工程部] §f「检测到你已建成崩坏能反应堆。逆熵向你发送能源结构稳定性报告及一批基础支援物资。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "COMMUNICATION:anti_entropy",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-SRE",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:anti_entropy",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "COMMUNICATION",
+        "source": "anti_entropy"
+      },
+      "approved_title": "工程的往来",
+      "approved_body": [
+        "你亲自完成了逆熵的正式交流，阅读并确认了稳定化工程主题实际发生的往来。",
+        "答复与资料的范围按当时的记录保留。工程讨论的价值，来自双方真正能够核对的内容。"
+      ],
+      "source_boundary": "仅投影该本人已完成的现行正式交流/审查经历；不把团队决定/研究完成当作本人会面。",
+      "source_contract": {},
+      "old_narrative": [
+        {
+          "node_id": "AE-001",
+          "title_key": "hk3gtl.narrative.ae_001.title",
+          "author_key": "hk3gtl.narrative.author.anti_entropy",
+          "body_keys": [
+            "hk3gtl.narrative.ae_001.body.1",
+            "hk3gtl.narrative.ae_001.body.2",
+            "hk3gtl.narrative.ae_001.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "逆熵科研组通讯",
+              "author": "— 逆熵·科研组",
+              "paragraphs": [
+                "「恭喜。你已经把崩坏能产业做到我们都要研究一下的程度。」",
+                "「如果你有兴趣，我们可以做一次纯学术的交流——不涉及天命，不涉及世界蛇。」",
+                "「让工程师和工程师谈一谈，会比给政客写报告愉快得多。」"
+              ]
+            },
+            "en_us": {
+              "title": "Anti-Entropy Transmission",
+              "author": "— Anti-Entropy · Research Group",
+              "paragraphs": [
+                "'Congratulations. Your Honkai industry now warrants our study.'",
+                "'If you are open to it, we can do a purely academic exchange — no Schicksal, no World Serpent.'",
+                "'Engineers talking to engineers is more pleasant than writing reports to politicians.'"
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-AE-001",
+          "title_key": "hk3gtl.narrative.e_ae_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ae001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-AE-001",
+              "author": "",
+              "paragraphs": [
+                "§9[逆熵·工程部] §f「检测到你已建成崩坏能反应堆。逆熵向你发送能源结构稳定性报告及一批基础支援物资。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-AE-001",
+              "author": "",
+              "paragraphs": [
+                "§9[Anti-Entropy Engineering] §f\"Reactor online. Stability report delivered.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-AE-002",
+      "title": "事件档案 E-AE-002",
+      "old_trigger": "dual_energy_stable_supply_station成型",
+      "old_text_key": "hk3gtl.event.ae002",
+      "old_text": "§9[逆熵·系统分析部] §f「你的工业体系已转向EU+崩坏能双能源架构。逆熵确认：双能源耦合方案理论上可行。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CED",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CED",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:anti_entropy",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CED"
+      },
+      "approved_title": "能源的调度",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明能源调度》研究。",
+        "文明能源调度课题已经完成。团队开始从整体关系考虑能源如何被分配和组织。",
+        "调度需要面对各处真实的需求。研究提供了继续落实的依据，运行结果仍要由之后的系统自己回答。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-AE-002",
+          "title_key": "hk3gtl.narrative.e_ae_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ae002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-AE-002",
+              "author": "",
+              "paragraphs": [
+                "§9[逆熵·系统分析部] §f「你的工业体系已转向EU+崩坏能双能源架构。逆熵确认：双能源耦合方案理论上可行。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-AE-002",
+              "author": "",
+              "paragraphs": [
+                "§9[Anti-Entropy Systems] §f\"Dual-energy architecture verified.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-AE-003",
+      "title": "事件档案 E-AE-003",
+      "old_trigger": "quantum_entanglement_computer成型",
+      "old_text_key": "hk3gtl.event.ae003",
+      "old_text": "§9[逆熵·工程部] §f「量子纠缠计算机。这已经不是普通工程了。这是文明级的造物。逆熵向你致以工程师的敬意。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-ERM",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-ERM",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:anti_entropy",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-ERM"
+      },
+      "approved_title": "受控的演算",
+      "approved_body": [
+        "你阅读时所在的团队已完成《受控演算优化》研究。",
+        "受控演算优化课题已有结果。团队为计算过程建立了更明确的优化方向。",
+        "每一次优化都应能回到原来的问题。将条件和结果一同保留，才能使进展不只停留在一个数字上。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "S02",
+        "catalog_existing": true,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-AE-003",
+          "title_key": "hk3gtl.narrative.e_ae_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ae003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-AE-003",
+              "author": "",
+              "paragraphs": [
+                "§9[逆熵·工程部] §f「量子纠缠计算机。这已经不是普通工程了。这是文明级的造物。逆熵向你致以工程师的敬意。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-AE-003",
+              "author": "",
+              "paragraphs": [
+                "§9[Anti-Entropy Engineering] §f\"Quantum computer complete. Respect from engineers to engineers.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-AE-004",
+      "title": "事件档案 E-AE-004",
+      "old_trigger": "E-MS-010旧终焉入口",
+      "old_text_key": "hk3gtl.event.ae004",
+      "old_text": "§9[逆熵·工程部] §f「你已进入构界压至恒续压阶段。逆熵向你发送最后一批支援物资。这是我们能提供的极限了。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-ELC",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WMS",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:anti_entropy",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-ELC"
+      },
+      "approved_title": "负载之间",
+      "approved_body": [
+        "你阅读时所在的团队已完成《能源负载协调》研究。",
+        "能源负载协调课题已经完成。不同负载之间的关系，得到了一次明确的研究整理。",
+        "复杂系统需要的不只是更大的输出，也需要彼此合适的配合。此页记录团队已经完成的协调研究。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-AE-004",
+          "title_key": "hk3gtl.narrative.e_ae_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ae004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-AE-004",
+              "author": "",
+              "paragraphs": [
+                "§9[逆熵·工程部] §f「你已进入构界压至恒续压阶段。逆熵向你发送最后一批支援物资。这是我们能提供的极限了。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-AE-004",
+              "author": "",
+              "paragraphs": [
+                "§9[Anti-Entropy] §f\"Final support batch transmitted. This is our limit.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-AE-005",
+      "title": "事件档案 E-AE-005",
+      "old_trigger": "R-FN-009毕业前认证",
+      "old_text_key": "hk3gtl.event.ae005",
+      "old_text": "§9[逆熵·全体工程师] §f「你建造的不只是机器，你建造的是一个文明。这是我们见过的最伟大的工程。再见，建设者。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-DVC",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-DVC",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:anti_entropy",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-DVC"
+      },
+      "approved_title": "跨领域的校验",
+      "approved_body": [
+        "你阅读时所在的团队已完成《跨领域工况校验》研究。",
+        "跨领域工况校验课题已经完成。分属不同方向的成果，被纳入同一轮研究检视。",
+        "工作走到这里，仍需要准确区分研究结论与实际工程。留下这份记录，是为了让下一步能够继续核对。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-AE-005",
+          "title_key": "hk3gtl.narrative.e_ae_005.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ae005"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-AE-005",
+              "author": "",
+              "paragraphs": [
+                "§9[逆熵·全体工程师] §f「你建造的不只是机器，你建造的是一个文明。这是我们见过的最伟大的工程。再见，建设者。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-AE-005",
+              "author": "",
+              "paragraphs": [
+                "§9[Anti-Entropy] §f\"You built not machines, but a civilization. Farewell, builder.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-BR-001",
+      "title": "事件档案 E-BR-001",
+      "old_trigger": "quantum_entanglement_computer成型",
+      "old_text_key": "hk3gtl.event.br001",
+      "old_text": "§f[布洛妮娅] §f「量子纠缠计算机已上线。数据接口已建立。你的数据流架构不错，但还有优化空间。需要的话，随时联系我。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CQS",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-ERM",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CQS"
+      },
+      "approved_title": "扩展的工况",
+      "approved_body": [
+        "你阅读时所在的团队已完成《电路工况扩展》研究。",
+        "电路工况扩展课题已经完成。团队开始把电路研究放进更广的使用条件中考察。",
+        "接口与条件需要说清楚。只有让结论保留来处，后续系统才能准确地使用它们。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-BR-001",
+          "title_key": "hk3gtl.narrative.e_br_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.br001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-BR-001",
+              "author": "",
+              "paragraphs": [
+                "§f[布洛妮娅] §f「量子纠缠计算机已上线。数据接口已建立。你的数据流架构不错，但还有优化空间。需要的话，随时联系我。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-BR-001",
+              "author": "",
+              "paragraphs": [
+                "§f[Bronya] §f\"Quantum computer interface established. More optimization pending.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-BR-002",
+      "title": "事件档案 E-BR-002",
+      "old_trigger": "honkai_wireless_transit_hub成型",
+      "old_text_key": "hk3gtl.event.br002",
+      "old_text": "§f[布洛妮娅] §f「无线崩坏能跃迁枢纽已建成。我为你编写了一套网络优化算法，无线传输效率可提升20%。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-VRC",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-VRC",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-VRC"
+      },
+      "approved_title": "航路的中继",
+      "approved_body": [
+        "你阅读时所在的团队已完成《无人跨界航路中继》研究。",
+        "无人跨界航路中继课题已有结果。跨界路线如何衔接，成为一项明确的研究成果。",
+        "路线不只由两个端点组成。中间的连接方式与边界条件，同样值得在档案中留下位置。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-BR-002",
+          "title_key": "hk3gtl.narrative.e_br_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.br002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-BR-002",
+              "author": "",
+              "paragraphs": [
+                "§f[布洛妮娅] §f「无线崩坏能跃迁枢纽已建成。我为你编写了一套网络优化算法，无线传输效率可提升20%。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-BR-002",
+              "author": "",
+              "paragraphs": [
+                "§f[Bronya] §f\"Wireless transit hub complete. Throughput optimization uploaded.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-BR-003",
+      "title": "事件档案 E-BR-003",
+      "old_trigger": "E-MS-009旧量子完成",
+      "old_text_key": "hk3gtl.event.br003",
+      "old_text": "§f[布洛妮娅] §f「织界压解锁。我计算了一下你的文明发展轨迹……算了，有些事情不应该被提前知道。继续吧。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WTR",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WTR",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WTR"
+      },
+      "approved_title": "终止与回收",
+      "approved_body": [
+        "你阅读时所在的团队已完成《真实世界泡终止回收》研究。",
+        "真实世界泡终止回收课题已经完成。团队为对象的终止与回收过程，留下了可以继续检视的研究结果。",
+        "回收不是把过程从记录中抹去。它让开始、变化和结束都能被放回同一条可追溯的道路。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-BR-003",
+          "title_key": "hk3gtl.narrative.e_br_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.br003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-BR-003",
+              "author": "",
+              "paragraphs": [
+                "§f[布洛妮娅] §f「织界压解锁。我计算了一下你的文明发展轨迹……算了，有些事情不应该被提前知道。继续吧。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-BR-003",
+              "author": "",
+              "paragraphs": [
+                "§f[Bronya] §f\"IWV reached. Some outcomes should not be pre-read.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-BR-004",
+      "title": "事件档案 E-BR-004",
+      "old_trigger": "E-MS-010旧终焉入口",
+      "old_text_key": "hk3gtl.event.br004",
+      "old_text": "§f[布洛妮娅] §f「你即将进入构界压至恒续压阶段。这是我最后一次数据传输，包含了我所有的研究笔记。……加油。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-DVC",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WMS",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-DVC"
+      },
+      "approved_title": "轨迹的核对",
+      "approved_body": [
+        "你阅读时所在的团队已完成《跨领域工况校验》研究。",
+        "跨领域工况校验课题已有结果。不同方向的研究轨迹，在共同条件下接受了一次核对。",
+        "准确的数据不会替未来作出保证。它们让团队能够看清自己已经完成什么，再决定下一步如何前行。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-BR-004",
+          "title_key": "hk3gtl.narrative.e_br_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.br004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-BR-004",
+              "author": "",
+              "paragraphs": [
+                "§f[布洛妮娅] §f「你即将进入构界压至恒续压阶段。这是我最后一次数据传输，包含了我所有的研究笔记。……加油。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-BR-004",
+              "author": "",
+              "paragraphs": [
+                "§f[Bronya] §f\"Entering Finality. Sending final data packet. Good luck.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-EL-001",
+      "title": "事件档案 E-EL-001",
+      "old_trigger": "civilization_exchange_council_hub成型",
+      "old_text_key": "hk3gtl.event.el001",
+      "old_text": "§d[爱莉希雅] §f「你好呀，建设者。你刚刚完成了第一次文明交流呢。你不再是一个人了。这是一件很美好的事情，对吧？」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "COMMUNICATION:elysian_realm",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:elysian_realm",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "COMMUNICATION",
+        "source": "elysian_realm"
+      },
+      "approved_title": "来自乐土的问候",
+      "approved_body": [
+        "你亲自完成了往世乐土的正式交流。对方的话语与当时的答复，都成为这段真实往来的一部分。",
+        "被记住的并不只有最终的选择。你愿意停下、阅读并作出回应的过程，也为这段旅程留下了自己的位置。"
+      ],
+      "source_boundary": "仅投影该本人已完成的现行正式交流/审查经历；不把团队决定/研究完成当作本人会面。",
+      "source_contract": {},
+      "old_narrative": [
+        {
+          "node_id": "EL-001",
+          "title_key": "hk3gtl.narrative.el_001.title",
+          "author_key": "hk3gtl.narrative.author.elysia",
+          "body_keys": [
+            "hk3gtl.narrative.el_001.body.1",
+            "hk3gtl.narrative.el_001.body.2",
+            "hk3gtl.narrative.el_001.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "温柔的批注",
+              "author": "— 爱莉希雅",
+              "paragraphs": [
+                "「你做的这些机器，好吵呀。」",
+                "「但我听到的不是噪音，是心跳。每一台都像是一个小人儿在努力活着。」",
+                "「所以啊，千万别把它们当作工具看待。它们是和你一起走到这里的伙伴。」"
+              ]
+            },
+            "en_us": {
+              "title": "A Gentle Annotation",
+              "author": "— Elysia",
+              "paragraphs": [
+                "'These machines of yours, how noisy!'",
+                "'But what I hear isn't noise — it's a heartbeat. Every one like a tiny person trying hard to live.'",
+                "'So, dear — don't treat them as mere tools. They are companions who walked here with you.'"
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-EL-001",
+          "title_key": "hk3gtl.narrative.e_el_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.el001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-EL-001",
+              "author": "",
+              "paragraphs": [
+                "§d[爱莉希雅] §f「你好呀，建设者。你刚刚完成了第一次文明交流呢。你不再是一个人了。这是一件很美好的事情，对吧？」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-EL-001",
+              "author": "",
+              "paragraphs": [
+                "§d[Elysia] §f\"Your first true civilization exchange... that's a beautiful beginning.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-EL-002",
+      "title": "事件档案 E-EL-002",
+      "old_trigger": "imaginary_circuit_computation_sanctum成型",
+      "old_text_key": "hk3gtl.event.el002",
+      "old_text": "§d[爱莉希雅] §f「文明档案镜像库。你把自己的文明记忆保存下来了。记忆是文明最珍贵的东西，因为记忆证明你存在过。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CLE",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CLE",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:elysian_realm",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CLE"
+      },
+      "approved_title": "文明的记忆",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明认知穹顶工程》研究。",
+        "文明认知穹顶工程课题已经完成。关于文明如何理解和保存自身的设想，有了进一步的研究结果。",
+        "记忆需要被认真组织。让已经发生的事情保持准确，比用宏大的叙述填补空白更能说明一个文明的道路。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "EL-002",
+          "title_key": "hk3gtl.narrative.el_002.title",
+          "author_key": "hk3gtl.narrative.author.elysia",
+          "body_keys": [
+            "hk3gtl.narrative.el_002.body.1",
+            "hk3gtl.narrative.el_002.body.2",
+            "hk3gtl.narrative.el_002.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "文明的意义",
+              "author": "— 爱莉希雅",
+              "paragraphs": [
+                "「文明是什么呢？大概就是……在漫长的黑夜里，有人愿意为另一个人留一盏灯吧。」",
+                "「你的文明里，有这样的灯吗？」",
+                "「如果有，请替我，对它说一声谢谢。」"
+              ]
+            },
+            "en_us": {
+              "title": "The Meaning of Civilization",
+              "author": "— Elysia",
+              "paragraphs": [
+                "'What is civilization, I wonder? Perhaps... it is someone willing to leave a lamp on for another, in a very long night.'",
+                "'Does your civilization have such a lamp?'",
+                "'If it does, please say thank you for me.'"
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-EL-002",
+          "title_key": "hk3gtl.narrative.e_el_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.el002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-EL-002",
+              "author": "",
+              "paragraphs": [
+                "§d[爱莉希雅] §f「文明档案镜像库。你把自己的文明记忆保存下来了。记忆是文明最珍贵的东西，因为记忆证明你存在过。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-EL-002",
+              "author": "",
+              "paragraphs": [
+                "§d[Elysia] §f\"You preserved your civilization's memory. That's what makes it real.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-EL-003",
+      "title": "事件档案 E-EL-003",
+      "old_trigger": "R-FN-009毕业前认证",
+      "old_text_key": "hk3gtl.event.el003",
+      "old_text": "§d[爱莉希雅] §f「恭喜你。不管接下来发生什么，你建造的一切都是有意义的。它们共同构成了'你的文明'。祝你好运。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WMS",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-DVC",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:elysian_realm",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WMS"
+      },
+      "approved_title": "意义的材料",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明奇观材料》研究。",
+        "文明奇观材料课题已有完成记录。建设的愿望，开始与可以研究的材料条件相接。",
+        "愿望可以很远，意义也可以藏在一项具体工作里。将这一项完成的研究留下，是对已经付出努力的珍视。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-EL-003",
+          "title_key": "hk3gtl.narrative.e_el_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.el003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-EL-003",
+              "author": "",
+              "paragraphs": [
+                "§d[爱莉希雅] §f「恭喜你。不管接下来发生什么，你建造的一切都是有意义的。它们共同构成了'你的文明'。祝你好运。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-EL-003",
+              "author": "",
+              "paragraphs": [
+                "§d[Elysia] §f\"No matter what follows, what you built already has meaning.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FH-001",
+      "title": "事件档案 E-FH-001",
+      "old_trigger": "R-AB-001崩坏能基础",
+      "old_text_key": "hk3gtl.event.fh001",
+      "old_text": "§7[符华] §f「你开始接触崩坏能了。这条路，我走过。崩坏能不是工具，它是一种考验。不管准备好没有，你已经开始了。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-HED",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-HED",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-HED"
+      },
+      "approved_title": "接触崩坏能",
+      "approved_body": [
+        "你阅读时所在的团队已完成《崩坏能识别》研究。",
+        "崩坏能识别课题已经完成。陌生的现象有了第一份可以辨认和讨论的研究记录。",
+        "最初的认识还不能涵盖全部风险。保存这一步，正是为了让之后的判断能够回到真实的起点。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 1,
+        "executor": "I01-1",
+        "catalog_existing": true,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "FH-001",
+          "title_key": "hk3gtl.narrative.fh_001.title",
+          "author_key": "hk3gtl.narrative.author.fuhua",
+          "body_keys": [
+            "hk3gtl.narrative.fh_001.body.1",
+            "hk3gtl.narrative.fh_001.body.2",
+            "hk3gtl.narrative.fh_001.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "符华笔记 · 刻度",
+              "author": "— 符华",
+              "paragraphs": [
+                "历史不是直线。它是一道不断向自身折叠的刻度。",
+                "你所做的，我在漫长岁月里见过无数次——但每一次都是新的。",
+                "不要因为见过太多而失去尊重。这是我的建议。"
+              ]
+            },
+            "en_us": {
+              "title": "Fu Hua's Note · Measure",
+              "author": "— Fu Hua",
+              "paragraphs": [
+                "History is not a straight line. It is a measure forever folding upon itself.",
+                "I have seen what you do countless times — yet every instance is new.",
+                "Do not lose respect simply because you have seen much. That is my advice."
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-FH-001",
+          "title_key": "hk3gtl.narrative.e_fh_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fh001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FH-001",
+              "author": "",
+              "paragraphs": [
+                "§7[符华] §f「你开始接触崩坏能了。这条路，我走过。崩坏能不是工具，它是一种考验。不管准备好没有，你已经开始了。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FH-001",
+              "author": "",
+              "paragraphs": [
+                "§7[Fu Hua] §f\"Honkai Energy is not merely a tool. It is a test.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FH-002",
+      "title": "事件档案 E-FH-002",
+      "old_trigger": "precivilization_database_decoder成型",
+      "old_text_key": "hk3gtl.event.fh002",
+      "old_text": "§7[符华] §f「前文明数据库解码塔。你正在阅读的那些数据……我认识写下它们的人。他们很聪明，也很勇敢。希望你能做得更好。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-LTA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-LTA",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-LTA"
+      },
+      "approved_title": "遗留的线索",
+      "approved_body": [
+        "你阅读时所在的团队已完成《遗留技术解析》研究。",
+        "遗留技术解析课题已有结果。团队开始以自己的方法理解留下来的技术资料。",
+        "资料来自过去，理解却发生在现在。将可核对的研究过程留下，比把陌生的结论当成现成答案更有意义。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FH-002",
+          "title_key": "hk3gtl.narrative.e_fh_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fh002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FH-002",
+              "author": "",
+              "paragraphs": [
+                "§7[符华] §f「前文明数据库解码塔。你正在阅读的那些数据……我认识写下它们的人。他们很聪明，也很勇敢。希望你能做得更好。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FH-002",
+              "author": "",
+              "paragraphs": [
+                "§7[Fu Hua] §f\"The data you decode was written by people I once knew.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FH-003",
+      "title": "事件档案 E-FH-003",
+      "old_trigger": "E-MS-004旧海渊完成",
+      "old_text_key": "hk3gtl.event.fh003",
+      "old_text": "§7[符华] §f「致密压。你的文明已经具备了相当的深度。武道讲究'知行合一'，文明也是如此。继续深入吧。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-SPM",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-SPM",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-SPM"
+      },
+      "approved_title": "知与行的部件",
+      "approved_body": [
+        "你阅读时所在的团队已完成《魂钢精密加工》研究。",
+        "魂钢精密加工课题已经完成。对材料的认识继续走向可以加工的具体部件。",
+        "理论与工序在这里相接。团队的研究记录，使后续工作有了一处可以追溯的连接点。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 1,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FH-003",
+          "title_key": "hk3gtl.narrative.e_fh_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fh003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FH-003",
+              "author": "",
+              "paragraphs": [
+                "§7[符华] §f「致密压。你的文明已经具备了相当的深度。武道讲究'知行合一'，文明也是如此。继续深入吧。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FH-003",
+              "author": "",
+              "paragraphs": [
+                "§7[Fu Hua] §f\"HDV reached. Keep your foundation in reality.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FH-004",
+      "title": "事件档案 E-FH-004",
+      "old_trigger": "R-IM-019虚数理论实验",
+      "old_text_key": "hk3gtl.event.fh004",
+      "old_text": "§7[符华] §f「虚数理论实验完成了。虚数空间很美，也很危险。不要迷失在理论中。记住你的根基在现实。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-IAA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-IAA",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-IAA"
+      },
+      "approved_title": "锚定的方向",
+      "approved_body": [
+        "你阅读时所在的团队已完成《虚数空间锚定》研究。",
+        "虚数空间锚定课题已经完成。空间中的联系与约束，成为团队能够明确讨论的研究内容。",
+        "理论可以走得很远，记录仍要落在已经完成的工作上。下一次前行，应从这些可核对的结果开始。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FH-004",
+          "title_key": "hk3gtl.narrative.e_fh_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fh004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FH-004",
+              "author": "",
+              "paragraphs": [
+                "§7[符华] §f「虚数理论实验完成了。虚数空间很美，也很危险。不要迷失在理论中。记住你的根基在现实。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FH-004",
+              "author": "",
+              "paragraphs": [
+                "§7[Fu Hua] §f\"Imaginary theory completed. Do not lose yourself in abstractions.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FH-005",
+      "title": "事件档案 E-FH-005",
+      "old_trigger": "civilization_validation_matrix成型",
+      "old_text_key": "hk3gtl.event.fh005",
+      "old_text": "§7[符华] §f「文明验证矩阵。我活了很久，见过很多文明的兴衰。你的文明是我见过的最特别的一个。这本身就是一种奇迹。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CAV",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CAV",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CAV"
+      },
+      "approved_title": "交叉验证",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明成果交叉验证》研究。",
+        "文明成果交叉验证课题已有结果。不同方向的研究开始被放在共同的问题中检视。",
+        "一项成果的意义，需要在它与其他成果的关系里继续辨认。此页保存这次研究，不替尚未完成的工程作证。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FH-005",
+          "title_key": "hk3gtl.narrative.e_fh_005.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fh005"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FH-005",
+              "author": "",
+              "paragraphs": [
+                "§7[符华] §f「文明验证矩阵。我活了很久，见过很多文明的兴衰。你的文明是我见过的最特别的一个。这本身就是一种奇迹。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FH-005",
+              "author": "",
+              "paragraphs": [
+                "§7[Fu Hua] §f\"Validation matrix online. Your civilization is an uncommon miracle.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FM-001",
+      "title": "事件档案 E-FM-001",
+      "old_trigger": "precivilization_database_decoder成型",
+      "old_text_key": "hk3gtl.event.fm001",
+      "old_text": "§5[逐火之蛾·自动协议] §f「检测到合法解码设施。封存权限等级：C-3。部分前文明档案已解锁。——逐火之蛾，第七次封存协议。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-LTA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-LTA",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-LTA"
+      },
+      "approved_title": "理解遗留技术",
+      "approved_body": [
+        "你阅读时所在的团队已完成《遗留技术解析》研究。",
+        "遗留技术解析课题已经完成。团队用现行研究方法整理了来自过去的技术线索。",
+        "继承并不意味着照单全收。只有真正理解并能够核对的部分，才能成为继续工作的依据。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FM-001",
+          "title_key": "hk3gtl.narrative.e_fm_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fm001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FM-001",
+              "author": "",
+              "paragraphs": [
+                "§5[逐火之蛾·自动协议] §f「检测到合法解码设施。封存权限等级：C-3。部分前文明档案已解锁。——逐火之蛾，第七次封存协议。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FM-001",
+              "author": "",
+              "paragraphs": [
+                "§5[Flame-Chasers Protocol] §f\"Decoder validated. Pre-civilization archive tier C-3 unlocked.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FM-002",
+      "title": "事件档案 E-FM-002",
+      "old_trigger": "R-AB-025虚空万藏解析",
+      "old_text_key": "hk3gtl.event.fm002",
+      "old_text": "§5[逐火之蛾·封存记录] §f「这是一份关于'魂钢'的工艺记录。魂钢不是金属，是受控纳米构造集群。善用它。——记录者：梅比乌斯。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-NSP",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-SPM",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-NSP"
+      },
+      "approved_title": "魂钢的组织",
+      "approved_body": [
+        "你阅读时所在的团队已完成《纳米自组织编程》研究。",
+        "纳米自组织编程课题已经完成。材料内部的构造与组织方式，得到了更具体的研究。",
+        "魂钢的意义不止在于外观。理解组成它的细小单元如何协同，才为后续工艺留下了清楚的基础。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 1,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FM-002",
+          "title_key": "hk3gtl.narrative.e_fm_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fm002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FM-002",
+              "author": "",
+              "paragraphs": [
+                "§5[逐火之蛾·封存记录] §f「这是一份关于'魂钢'的工艺记录。魂钢不是金属，是受控纳米构造集群。善用它。——记录者：梅比乌斯。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FM-002",
+              "author": "",
+              "paragraphs": [
+                "§5[Flame-Chasers Record] §f\"Soulium is not metal, but controlled construct clusters.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FM-003",
+      "title": "事件档案 E-FM-003",
+      "old_trigger": "E-MS-007旧量子入口",
+      "old_text_key": "hk3gtl.event.fm003",
+      "old_text": "§5[逐火之蛾·封存记录] §f「封存权限等级：B-1。以下数据包含前文明巨构工程的理论基础。我们未能完成最终验证。也许你可以。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WMS",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-QOM",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WMS"
+      },
+      "approved_title": "巨构的材料问题",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明奇观材料》研究。",
+        "文明奇观材料课题已有结果。巨大的工程愿景开始面对具体而细致的用材问题。",
+        "宏大的尺度不能替代每一处条件。保存这份研究，也是在保存团队愿意认真回答细节的过程。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FM-003",
+          "title_key": "hk3gtl.narrative.e_fm_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fm003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FM-003",
+              "author": "",
+              "paragraphs": [
+                "§5[逐火之蛾·封存记录] §f「封存权限等级：B-1。以下数据包含前文明巨构工程的理论基础。我们未能完成最终验证。也许你可以。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FM-003",
+              "author": "",
+              "paragraphs": [
+                "§5[Flame-Chasers Record] §f\"Archive tier B-1 unlocked. Megastructure theories attached.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FM-004",
+      "title": "事件档案 E-FM-004",
+      "old_trigger": "E-MS-010旧终焉入口",
+      "old_text_key": "hk3gtl.event.fm004",
+      "old_text": "§5[逐火之蛾·最后的声音] §f「你的文明已进入构界压至恒续压阶段。我们曾也走到过这一步。我们失败了——不是因为技术不够，而是没有准备好面对审判。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WME",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WMS",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WME"
+      },
+      "approved_title": "维系的课题",
+      "approved_body": [
+        "你阅读时所在的团队已完成《世界维系试验》研究。",
+        "世界维系试验课题已经完成。团队把维系世界的愿望，整理成一项可以继续核对的研究成果。",
+        "过去的经验可以提醒人谨慎，却不能代替此刻的工作。已经完成的这一项研究，是继续前行的真实依据。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FM-004",
+          "title_key": "hk3gtl.narrative.e_fm_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fm004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FM-004",
+              "author": "",
+              "paragraphs": [
+                "§5[逐火之蛾·最后的声音] §f「你的文明已进入构界压至恒续压阶段。我们曾也走到过这一步。我们失败了——不是因为技术不够，而是没有准备好面对审判。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FM-004",
+              "author": "",
+              "paragraphs": [
+                "§5[Flame-Chasers Last Voice] §f\"We failed here once. You may yet succeed.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-FM-005",
+      "title": "事件档案 E-FM-005",
+      "old_trigger": "civilization_validation_matrix成型",
+      "old_text_key": "hk3gtl.event.fm005",
+      "old_text": "§5[逐火之蛾·最终记录] §f「你做到了我们没能做到的事。从这里开始，没有前人的经验可以参考。愿火焰不灭。——逐火之蛾，永别。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CAV",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CAV",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CAV"
+      },
+      "approved_title": "留下验证的道路",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明成果交叉验证》研究。",
+        "文明成果交叉验证课题已有完成记录。不同研究成果之间的关系，得到进一步检视。",
+        "前人的道路不是终点。将自己的成果放在共同条件下核对，才能知道哪些理解真正能够继续使用。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-FM-005",
+          "title_key": "hk3gtl.narrative.e_fm_005.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.fm005"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-FM-005",
+              "author": "",
+              "paragraphs": [
+                "§5[逐火之蛾·最终记录] §f「你做到了我们没能做到的事。从这里开始，没有前人的经验可以参考。愿火焰不灭。——逐火之蛾，永别。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-FM-005",
+              "author": "",
+              "paragraphs": [
+                "§5[Flame-Chasers Last Record] §f\"You reached what we could not. May the flame remain.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-HQ-001",
+      "title": "事件档案 E-HQ-001",
+      "old_trigger": "旧注视值800",
+      "old_text_key": "hk3gtl.event.hq001",
+      "old_text": "§e[空之律者·西琳] §f「……哦。你终于引起了本律者的注意。不是因为你特别，只是你的文明终于不再那么无聊了。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "REVIEW:FIRST",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "REVIEW",
+          "id": "review:FIRST",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": true,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "REVIEW",
+        "source": "FIRST"
+      },
+      "approved_title": "第一次正式会面",
+      "approved_body": [
+        "你亲自完成了一审会面。提出的问题、听过的回答与最后的收束，共同组成这次经历。",
+        "别人可以告诉你会面如何进行，却不能替你走过其中任何一步。现在，这段记忆属于你自己。"
+      ],
+      "source_boundary": "仅投影该本人已完成的现行正式交流/审查经历；不把团队决定/研究完成当作本人会面。",
+      "source_contract": {},
+      "old_narrative": [
+        {
+          "node_id": "HQ-001",
+          "title_key": "hk3gtl.narrative.hq_001.title",
+          "author_key": "hk3gtl.narrative.author.sirin",
+          "body_keys": [
+            "hk3gtl.narrative.hq_001.body.1",
+            "hk3gtl.narrative.hq_001.body.2",
+            "hk3gtl.narrative.hq_001.body.3",
+            "hk3gtl.narrative.hq_001.body.4"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "第一次注目",
+              "author": "— 空之律者·西琳",
+              "paragraphs": [
+                "……哦。",
+                "你终于引起了本律者的注意。不要误会。不是因为你有多特别。",
+                "只是因为你的文明……终于不再那么无聊了。",
+                "继续吧。让本律者看看你还能做到什么程度。"
+              ]
+            },
+            "en_us": {
+              "title": "First Attention",
+              "author": "— Herrscher of the Void, Sirin",
+              "paragraphs": [
+                "...Oh.",
+                "You have finally drawn Our attention. Do not misunderstand — not because you are special.",
+                "Only because your civilization is no longer that boring.",
+                "Continue. Let Us see how far you can go."
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-HQ-001",
+          "title_key": "hk3gtl.narrative.e_hq_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.hq001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-HQ-001",
+              "author": "",
+              "paragraphs": [
+                "§e[空之律者·西琳] §f「……哦。你终于引起了本律者的注意。不是因为你特别，只是你的文明终于不再那么无聊了。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-HQ-001",
+              "author": "",
+              "paragraphs": [
+                "§e[Void Queen Sirin] §f\"...So, you finally drew my attention.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-HQ-002",
+      "title": "事件档案 E-HQ-002",
+      "old_trigger": "R-FN-003休伯利安满阶扩展",
+      "old_text_key": "hk3gtl.event.hq002",
+      "old_text": "§e[空之律者·西琳] §f「休伯利安号，满阶扩展。本律者承认，这是一件不错的造物。你有资格继续前进。但不要得意忘形。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-HVI",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-HVI",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "REVIEW",
+          "id": "review:SECOND",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-HVI"
+      },
+      "approved_title": "舰的系统",
+      "approved_body": [
+        "你阅读时所在的团队已完成《仿制舰系统整合》研究。",
+        "仿制休伯利安的系统整合课题已有完成记录。分散的研究开始围绕同一个舰船设计目标组织起来。",
+        "一艘舰不止由外壳定义。系统之间的关系同样需要被理解，而这份研究保存了团队已经走到的位置。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "HQ-002",
+          "title_key": "hk3gtl.narrative.hq_002.title",
+          "author_key": "hk3gtl.narrative.author.sirin",
+          "body_keys": [
+            "hk3gtl.narrative.hq_002.body.1",
+            "hk3gtl.narrative.hq_002.body.2",
+            "hk3gtl.narrative.hq_002.body.3",
+            "hk3gtl.narrative.hq_002.body.4",
+            "hk3gtl.narrative.hq_002.body.5"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "杰作与资格",
+              "author": "— 空之律者·西琳",
+              "paragraphs": [
+                "休伯利安号。满阶扩展。",
+                "本律者承认，这是一件不错的造物。",
+                "不是『好』。是『不错』。在本律者见过的所有文明造物中，它至少排得上……前列。",
+                "你有资格继续前进。",
+                "但不要因此得意忘形。资格和结果是两回事。"
+              ]
+            },
+            "en_us": {
+              "title": "Masterpiece and Qualification",
+              "author": "— Herrscher of the Void, Sirin",
+              "paragraphs": [
+                "The Hyperion. Fully expanded.",
+                "We acknowledge it is a decent creation.",
+                "Not 'good'. 'Decent'. Of all creations We have seen, it ranks... respectably.",
+                "You are qualified to continue.",
+                "But do not grow arrogant. Qualification and result are two different things."
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-HQ-002",
+          "title_key": "hk3gtl.narrative.e_hq_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.hq002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-HQ-002",
+              "author": "",
+              "paragraphs": [
+                "§e[空之律者·西琳] §f「休伯利安号，满阶扩展。本律者承认，这是一件不错的造物。你有资格继续前进。但不要得意忘形。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-HQ-002",
+              "author": "",
+              "paragraphs": [
+                "§e[Void Queen Sirin] §f\"Hyperion at full expansion. Not bad.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-HQ-003",
+      "title": "事件档案 E-HQ-003",
+      "old_trigger": "R-FN-009毕业前认证",
+      "old_text_key": "hk3gtl.event.hq003",
+      "old_text": "§e[空之律者·西琳] §f「你已经完成了毕业前的最后条件。本律者全部都看到了。你已站在该被裁定的位置。门就在前方。推开它。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "REVIEW:SECOND",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-DVC",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "REVIEW",
+          "id": "review:SECOND",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": true,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "REVIEW",
+        "source": "SECOND"
+      },
+      "approved_title": "第二次正式会面",
+      "approved_body": [
+        "你亲自完成了二审会面，沿着这次对话实际走到收束。",
+        "这段经历记录了一次已经发生的审查。此后的工程与道路，仍要由各自真实完成的成果继续书写。"
+      ],
+      "source_boundary": "仅投影该本人已完成的现行正式交流/审查经历；不把团队决定/研究完成当作本人会面。",
+      "source_contract": {},
+      "old_narrative": [
+        {
+          "node_id": "HQ-003",
+          "title_key": "hk3gtl.narrative.hq_003.title",
+          "author_key": "hk3gtl.narrative.author.sirin",
+          "body_keys": [
+            "hk3gtl.narrative.hq_003.body.1",
+            "hk3gtl.narrative.hq_003.body.2",
+            "hk3gtl.narrative.hq_003.body.3",
+            "hk3gtl.narrative.hq_003.body.4",
+            "hk3gtl.narrative.hq_003.body.5"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "门前裁定",
+              "author": "— 空之律者·西琳",
+              "paragraphs": [
+                "你已经完成了毕业前的最后条件。",
+                "本律者知道你一路走来做了什么。每一台机器。每一条产线。每一次研究。每一座奇观。",
+                "本律者全部都看到了。",
+                "你已经站在了该被裁定的位置。门就在前方。",
+                "推开它。"
+              ]
+            },
+            "en_us": {
+              "title": "Verdict at the Gate",
+              "author": "— Herrscher of the Void, Sirin",
+              "paragraphs": [
+                "You have completed the final conditions before graduation.",
+                "We know what you have done along the way. Every machine. Every production line. Every research. Every wonder.",
+                "We saw all of it.",
+                "You stand where you will be judged. The gate is ahead.",
+                "Push it open."
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-HQ-003",
+          "title_key": "hk3gtl.narrative.e_hq_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.hq003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-HQ-003",
+              "author": "",
+              "paragraphs": [
+                "§e[空之律者·西琳] §f「你已经完成了毕业前的最后条件。本律者全部都看到了。你已站在该被裁定的位置。门就在前方。推开它。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-HQ-003",
+              "author": "",
+              "paragraphs": [
+                "§e[Void Queen Sirin] §f\"All final pre-graduation conditions are met. Push the gate open.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-HQ-004",
+      "title": "事件档案 E-HQ-004",
+      "old_trigger": "imaginary_dimension_gateway建成",
+      "old_text_key": "hk3gtl.event.hq004",
+      "old_text": "§e[空之律者·西琳] §f「虚数维度跃迁门已启动。……本律者在门的另一边等你。不要让本律者等太久。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-TAA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-TAA",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "REVIEW",
+          "id": "review:SECOND",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-TAA"
+      },
+      "approved_title": "朝觐的设计",
+      "approved_body": [
+        "你阅读时所在的团队已完成《凌霄树海朝觐圣座》研究。",
+        "凌霄树海朝觐圣座工程课题已经完成。通向远方的设想，获得了一份可以继续讨论的研究结果。",
+        "抵达从来不只是一句话。这份记录保存工程研究的一步，也为此后真正的建造留下明确起点。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "HQ-004",
+          "title_key": "hk3gtl.narrative.hq_004.title",
+          "author_key": "hk3gtl.narrative.author.sirin",
+          "body_keys": [
+            "hk3gtl.narrative.hq_004.body.1",
+            "hk3gtl.narrative.hq_004.body.2"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "她的等待",
+              "author": "— 空之律者·西琳",
+              "paragraphs": [
+                "虚数维度跃迁门已启动。本律者在门的另一边等你。",
+                "不要让本律者等太久。"
+              ]
+            },
+            "en_us": {
+              "title": "Her Wait",
+              "author": "— Herrscher of the Void, Sirin",
+              "paragraphs": [
+                "The Imaginary Dimension Gateway is active. We wait on the other side.",
+                "Do not keep Us waiting too long."
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-HQ-004",
+          "title_key": "hk3gtl.narrative.e_hq_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.hq004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-HQ-004",
+              "author": "",
+              "paragraphs": [
+                "§e[空之律者·西琳] §f「虚数维度跃迁门已启动。……本律者在门的另一边等你。不要让本律者等太久。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-HQ-004",
+              "author": "",
+              "paragraphs": [
+                "§e[Void Queen Sirin] §f\"The Imaginary gate is open. I am waiting on the other side.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-KI-001",
+      "title": "事件档案 E-KI-001",
+      "old_trigger": "quantum_entanglement_computer成型",
+      "old_text_key": "hk3gtl.event.ki001",
+      "old_text": "§d[琪亚娜] §f「……你建成了量子纠缠计算机。我能感觉到。你的文明已经开始在量子之海中留下痕迹了。……继续吧。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-QOM",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-ERM",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-QOM"
+      },
+      "approved_title": "在量子之海留下问题",
+      "approved_body": [
+        "你阅读时所在的团队已完成《量子异常初观》研究。",
+        "量子异常初观课题已有完成记录。团队第一次把量子异常整理为明确的研究问题。",
+        "开始往往并不喧闹。一个被认真保留下来的问题，已经足以使之后的旅程有了方向。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I44",
+        "catalog_existing": true,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-KI-001",
+          "title_key": "hk3gtl.narrative.e_ki_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ki001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-KI-001",
+              "author": "",
+              "paragraphs": [
+                "§d[琪亚娜] §f「……你建成了量子纠缠计算机。我能感觉到。你的文明已经开始在量子之海中留下痕迹了。……继续吧。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-KI-001",
+              "author": "",
+              "paragraphs": [
+                "§d[Kiana] §f\"I can feel your mark in the Sea of Quanta now.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-KI-002",
+      "title": "事件档案 E-KI-002",
+      "old_trigger": "thousand_realms_train成型",
+      "old_text_key": "hk3gtl.event.ki002",
+      "old_text": "§d[琪亚娜] §f「千界一乘。……你做到了。在我所见过的文明中，能做到这一步的……很少。我承认你的成就。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CJK",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CJK",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CJK"
+      },
+      "approved_title": "千界的起点",
+      "approved_body": [
+        "你阅读时所在的团队已完成《仿制的千界一乘》研究。",
+        "仿制的千界一乘课题已经完成。跨越的愿望，留下了此阶段研究能够支持的结果。",
+        "理解这个名字所指向的构想，是漫长道路中的一步。实际的列车仍需要在真正的工序和建造中实现。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-KI-002",
+          "title_key": "hk3gtl.narrative.e_ki_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ki002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-KI-002",
+              "author": "",
+              "paragraphs": [
+                "§d[琪亚娜] §f「千界一乘。……你做到了。在我所见过的文明中，能做到这一步的……很少。我承认你的成就。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-KI-002",
+              "author": "",
+              "paragraphs": [
+                "§d[Kiana] §f\"Thousand Realms... I acknowledge this achievement.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-KI-003",
+      "title": "事件档案 E-KI-003",
+      "old_trigger": "E-MS-012旧终焉III",
+      "old_text_key": "hk3gtl.event.ki003",
+      "old_text": "§d[琪亚娜] §f「你已经完成了构界压至恒续压阶段的大部分结构。从这里继续前行，你面对的不再只是'建造'，而是'抵达'。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WPF",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WPF",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WPF"
+      },
+      "approved_title": "走向建造的准备",
+      "approved_body": [
+        "你阅读时所在的团队已完成《奇观构件预制》研究。",
+        "奇观构件预制课题已有结果。团队开始为后续的宏大工程，整理可以落实的构件研究。",
+        "准备让远大的愿景接近具体工作。此页记录已经完成的研究，也让尚未建成的部分保持清楚。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-KI-003",
+          "title_key": "hk3gtl.narrative.e_ki_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ki003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-KI-003",
+              "author": "",
+              "paragraphs": [
+                "§d[琪亚娜] §f「你已经完成了构界压至恒续压阶段的大部分结构。从这里继续前行，你面对的不再只是'建造'，而是'抵达'。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-KI-003",
+              "author": "",
+              "paragraphs": [
+                "§d[Kiana] §f\"You're near the final gate. Keep walking.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-KI-004",
+      "title": "事件档案 E-KI-004",
+      "old_trigger": "civilization_validation_matrix成型",
+      "old_text_key": "hk3gtl.event.ki004",
+      "old_text": "§d[琪亚娜] §f「文明验证矩阵已启动。我在看着你。不是审判，只是……注视。你走过的路，我都看到了。去吧，完成它。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CAV",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CAV",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CAV"
+      },
+      "approved_title": "看清走过的路",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明成果交叉验证》研究。",
+        "文明成果交叉验证课题已经完成。团队把不同成果放在一起，重新辨认它们之间的关系。",
+        "走过的道路值得被准确看见。完成的研究各自留下痕迹，尚未发生的事情则继续由未来书写。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-KI-004",
+          "title_key": "hk3gtl.narrative.e_ki_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ki004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-KI-004",
+              "author": "",
+              "paragraphs": [
+                "§d[琪亚娜] §f「文明验证矩阵已启动。我在看着你。不是审判，只是……注视。你走过的路，我都看到了。去吧，完成它。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-KI-004",
+              "author": "",
+              "paragraphs": [
+                "§d[Kiana] §f\"Validation matrix online. I saw every step you took.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-LB-001",
+      "title": "事件档案 E-LB-001",
+      "old_trigger": "R-IM-002虚数之树观测",
+      "old_text_key": "hk3gtl.event.lb001",
+      "old_text": "§3[月球基地·权限系统] §f「身份验证：通过。文明等级：虚数。访问权限：C级。部分研究通道已开放。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-IOP",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-IOP",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-IOP"
+      },
+      "approved_title": "联系的记录",
+      "approved_body": [
+        "你阅读时所在的团队已完成《虚数联系初观》研究。",
+        "虚数联系初观课题已有结果。团队为理解虚数联系，保存了第一阶段的研究记录。",
+        "清楚的记录使后续讨论有据可循。它保存的是已经认识的一步，不替其他通道或资料作出承诺。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-LB-001",
+          "title_key": "hk3gtl.narrative.e_lb_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.lb001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-LB-001",
+              "author": "",
+              "paragraphs": [
+                "§3[月球基地·权限系统] §f「身份验证：通过。文明等级：虚数。访问权限：C级。部分研究通道已开放。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-LB-001",
+              "author": "",
+              "paragraphs": [
+                "§3[Lunar Base] §f\"Identity verified. Access tier C granted.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-LB-002",
+      "title": "事件档案 E-LB-002",
+      "old_trigger": "divine_key_gallery成型",
+      "old_text_key": "hk3gtl.event.lb002",
+      "old_text": "§3[月球基地·权限系统] §f「文明等级：量子。访问权限升级：B级。高等级研究资料库已开放。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-DKE",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-DKE",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-DKE"
+      },
+      "approved_title": "神之键的部件",
+      "approved_body": [
+        "你阅读时所在的团队已完成《神之键部件装配》研究。",
+        "神之键部件装配课题已经完成。有关部件如何组织的理解，成为团队可以继续使用的研究成果。",
+        "研究与实际装配彼此关联，却各有自己的记录。此页收录课题成果，让之后的工作能够准确衔接。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-LB-002",
+          "title_key": "hk3gtl.narrative.e_lb_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.lb002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-LB-002",
+              "author": "",
+              "paragraphs": [
+                "§3[月球基地·权限系统] §f「文明等级：量子。访问权限升级：B级。高等级研究资料库已开放。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-LB-002",
+              "author": "",
+              "paragraphs": [
+                "§3[Lunar Base] §f\"Civilization tier upgraded. Access tier B granted.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-LB-003",
+      "title": "事件档案 E-LB-003",
+      "old_trigger": "R-FN-007文明验证矩阵理论",
+      "old_text_key": "hk3gtl.event.lb003",
+      "old_text": "§3[月球基地·权限系统] §f「检测到文明验证矩阵前置条件接近完成。终局校验窗口即将开启。校验不可逆。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CEE",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CEE",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "REVIEW",
+          "id": "review:SECOND",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CEE"
+      },
+      "approved_title": "验收的方法",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明工程验收方法》研究。",
+        "文明工程验收方法课题已有结果。团队开始明确怎样核对工程，而非仅凭规模或名称判断成果。",
+        "方法为检验提供依据，真正的验收仍要面对具体工程。这一页保留二者之间清楚的边界。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-LB-003",
+          "title_key": "hk3gtl.narrative.e_lb_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.lb003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-LB-003",
+              "author": "",
+              "paragraphs": [
+                "§3[月球基地·权限系统] §f「检测到文明验证矩阵前置条件接近完成。终局校验窗口即将开启。校验不可逆。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-LB-003",
+              "author": "",
+              "paragraphs": [
+                "§3[Lunar Base] §f\"Final validation window approaching. Irreversible.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-LB-004",
+      "title": "事件档案 E-LB-004",
+      "old_trigger": "R-FN-009毕业前认证",
+      "old_text_key": "hk3gtl.event.lb004",
+      "old_text": "§3[月球基地·权限系统] §f「毕业前终局认证：已确认。所有数据通道：全部开放。祝你成功。——月球基地，自动系统。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-DVC",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-DVC",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "REVIEW",
+          "id": "review:SECOND",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-DVC"
+      },
+      "approved_title": "数据的交会",
+      "approved_body": [
+        "你阅读时所在的团队已完成《跨领域工况校验》研究。",
+        "跨领域工况校验课题已经完成。不同领域的研究数据，在共同条件中接受了核对。",
+        "数据相遇之后，结论仍应保留各自的来处。准确的边界，使此后的判断能够继续成立。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-LB-004",
+          "title_key": "hk3gtl.narrative.e_lb_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.lb004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-LB-004",
+              "author": "",
+              "paragraphs": [
+                "§3[月球基地·权限系统] §f「毕业前终局认证：已确认。所有数据通道：全部开放。祝你成功。——月球基地，自动系统。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-LB-004",
+              "author": "",
+              "paragraphs": [
+                "§3[Lunar Base] §f\"Final certification confirmed. All channels open.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-MB-001",
+      "title": "事件档案 E-MB-001",
+      "old_trigger": "imaginary_matter_weaver成型",
+      "old_text_key": "hk3gtl.event.mb001",
+      "old_text": "§2[梅比乌斯] §f「哦？虚数物质编织机。你在用虚数场编织新材料？有趣。我有一个实验方案，当然，风险自负。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WME",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WME",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WME"
+      },
+      "approved_title": "试验中的世界",
+      "approved_body": [
+        "你阅读时所在的团队已完成《世界维系试验》研究。",
+        "世界维系试验课题已经完成。团队把庞大的设想放进一项能够研究和检验的问题里。",
+        "试验的边界同结果一样重要。将二者一同记下，才能分清已经知道的内容和尚待回答的部分。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-MB-001",
+          "title_key": "hk3gtl.narrative.e_mb_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.mb001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-MB-001",
+              "author": "",
+              "paragraphs": [
+                "§2[梅比乌斯] §f「哦？虚数物质编织机。你在用虚数场编织新材料？有趣。我有一个实验方案，当然，风险自负。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-MB-001",
+              "author": "",
+              "paragraphs": [
+                "§2[Mobius] §f\"Imaginary weaving machine? Interesting.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-MB-002",
+      "title": "事件档案 E-MB-002",
+      "old_trigger": "soulium_superstructure_forge成型",
+      "old_text_key": "hk3gtl.event.mb002",
+      "old_text": "§2[梅比乌斯] §f「魂钢超结构。魂钢本质上是纳米机器人集群。你的魂钢很稳定，说明控制能力不错。但不要大意。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-SRA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-SPC",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "RESEARCH",
+          "id": "RN-SRA",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-SRA"
+      },
+      "approved_title": "材料的再构",
+      "approved_body": [
+        "你阅读时所在的团队已完成《魂钢重构退火》研究。",
+        "魂钢重构退火课题已有完成记录。材料在工序中的变化，获得了进一步研究。",
+        "结构的稳定需要具体工作来支持。研究已经留下结果，后续批次仍应沿着真实工序逐一检验。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 1,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-MB-002",
+          "title_key": "hk3gtl.narrative.e_mb_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.mb002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-MB-002",
+              "author": "",
+              "paragraphs": [
+                "§2[梅比乌斯] §f「魂钢超结构。魂钢本质上是纳米机器人集群。你的魂钢很稳定，说明控制能力不错。但不要大意。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-MB-002",
+              "author": "",
+              "paragraphs": [
+                "§2[Mobius] §f\"Soulium superstructure confirmed. Your control is better than expected.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-MB-003",
+      "title": "事件档案 E-MB-003",
+      "old_trigger": "R-QT-007旧量子II解锁",
+      "old_text_key": "hk3gtl.event.mb003",
+      "old_text": "§2[梅比乌斯] §f「耦合压。你的文明正在加速进化。有些知识太早知道反而有害。等你准备好了，空白自然会被填满。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CQS",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CQS",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CQS"
+      },
+      "approved_title": "更复杂的条件",
+      "approved_body": [
+        "你阅读时所在的团队已完成《电路工况扩展》研究。",
+        "电路工况扩展课题已经完成。团队开始在更复杂的条件中，重新考察已有设计。",
+        "新的条件会让原本不显眼的问题浮现。记录这些问题，使进展能够继续建立在理解之上。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-MB-003",
+          "title_key": "hk3gtl.narrative.e_mb_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.mb003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-MB-003",
+              "author": "",
+              "paragraphs": [
+                "§2[梅比乌斯] §f「耦合压。你的文明正在加速进化。有些知识太早知道反而有害。等你准备好了，空白自然会被填满。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-MB-003",
+              "author": "",
+              "paragraphs": [
+                "§2[Mobius] §f\"ICV reached. Dangerous knowledge, used too early, can still kill.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-MB-004",
+      "title": "事件档案 E-MB-004",
+      "old_trigger": "E-MS-010旧终焉入口",
+      "old_text_key": "hk3gtl.event.mb004",
+      "old_text": "§2[梅比乌斯] §f「构界压至恒续压阶段。呵。你走到这里了。我很好奇你最终会变成什么样。……别让我失望。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-ASR",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WMS",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-ASR"
+      },
+      "approved_title": "自演算的方向",
+      "approved_body": [
+        "你阅读时所在的团队已完成《蚀界自演算研究母机》研究。",
+        "蚀界自演算研究母机课题已有结果。团队为进一步组织研究与演算，留下了当前能够确认的成果。",
+        "演进应当保留自己的来处。准确记下这一项完成的课题，比提前描绘尚不存在的结果更有力量。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-MB-004",
+          "title_key": "hk3gtl.narrative.e_mb_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.mb004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-MB-004",
+              "author": "",
+              "paragraphs": [
+                "§2[梅比乌斯] §f「构界压至恒续压阶段。呵。你走到这里了。我很好奇你最终会变成什么样。……别让我失望。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-MB-004",
+              "author": "",
+              "paragraphs": [
+                "§2[Mobius] §f\"Finality, hm? Do not disappoint me.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-OT-001",
+      "title": "事件档案 E-OT-001",
+      "old_trigger": "首次首信/旧突破",
+      "old_text_key": "hk3gtl.event.ot001",
+      "old_text": "奥托的通讯已抵达。天命已经注意到你的文明突破。",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "COMMUNICATION:first_contact",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:first_contact",
+          "relation": "严格同义承接"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "COMMUNICATION",
+        "source": "first_contact"
+      },
+      "approved_title": "最初的联络",
+      "approved_body": [
+        "你亲自读完了奥托的首信、当时的答复，以及随信提供的观察资料。接受或拒绝都已成为这段往来的真实一部分。",
+        "联络有了明确的来处，也有了你的回应。后来发生的交流，可以从这里追溯。"
+      ],
+      "source_boundary": "仅投影该本人已完成的现行正式交流/审查经历；不把团队决定/研究完成当作本人会面。",
+      "source_contract": {},
+      "old_narrative": [
+        {
+          "node_id": "OT-001",
+          "title_key": "hk3gtl.narrative.ot_001.title",
+          "author_key": "hk3gtl.narrative.author.otto",
+          "body_keys": [
+            "hk3gtl.narrative.ot_001.body.1",
+            "hk3gtl.narrative.ot_001.body.2",
+            "hk3gtl.narrative.ot_001.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "奥托的邀请",
+              "author": "— 奥托·阿波卡利斯",
+              "paragraphs": [
+                "通讯自天命总部抵达：「你的文明已突破 MAX 的天花板。」",
+                "「天命已将部分权限开放于你，包括前文明遗留的数据片段与若干稀有材料的获取途径。」",
+                "「我们互相观察。你也在观察我们。——奥托·阿波卡利斯。」"
+              ]
+            },
+            "en_us": {
+              "title": "Otto's Invitation",
+              "author": "— Otto Apocalypse",
+              "paragraphs": [
+                "A transmission from Schicksal HQ: 'Your civilization has broken MAX's ceiling.'",
+                "'Schicksal has released partial authority to you, including fragments of pre-civilization data and rare material sources.'",
+                "'We observe each other. You observe us as well. — Otto Apocalypse.'"
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-OT-001",
+          "title_key": "hk3gtl.narrative.e_ot_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ot001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-OT-001",
+              "author": "",
+              "paragraphs": [
+                "奥托的通讯已抵达。天命已经注意到你的文明突破。"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-OT-001",
+              "author": "",
+              "paragraphs": [
+                "A transmission from Otto has arrived. Schicksal has noticed your civilization's breakthrough."
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-OT-002",
+      "title": "事件档案 E-OT-002",
+      "old_trigger": "R-AB-025虚空万藏解析",
+      "old_text_key": "hk3gtl.event.ot002",
+      "old_text": "§6[天命·档案系统] §f「虚空万藏解析完成。天命档案库已向你开放部分前文明技术记录。请谨慎使用。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "COMMUNICATION:schicksal",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-VAK",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:schicksal",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "COMMUNICATION",
+        "source": "schicksal"
+      },
+      "approved_title": "观测往来",
+      "approved_body": [
+        "你亲自走完了天命的正式交流，阅读并确认了这一主题实际发生的往来。",
+        "当时的答复保留在各自的位置。一次交流的边界，由双方真正说过和交付过的内容确定。"
+      ],
+      "source_boundary": "仅投影该本人已完成的现行正式交流/审查经历；不把团队决定/研究完成当作本人会面。",
+      "source_contract": {},
+      "old_narrative": [
+        {
+          "node_id": "OT-002",
+          "title_key": "hk3gtl.narrative.ot_002.title",
+          "author_key": "hk3gtl.narrative.author.otto",
+          "body_keys": [
+            "hk3gtl.narrative.ot_002.body.1",
+            "hk3gtl.narrative.ot_002.body.2",
+            "hk3gtl.narrative.ot_002.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "天命档案馈赠",
+              "author": "— 奥托·阿波卡利斯",
+              "paragraphs": [
+                "虚空万藏解析完成。天命档案库向你开放了一份加密数据。",
+                "它涉及前文明对崩坏能污染的早期应对方案——部分方法在当年被禁用。",
+                "「请谨慎使用。——天命·档案系统。」"
+              ]
+            },
+            "en_us": {
+              "title": "Schicksal Archive Gift",
+              "author": "— Otto Apocalypse",
+              "paragraphs": [
+                "Void Archives analysis complete. An encrypted dataset is opened to you.",
+                "It concerns pre-civilization countermeasures against Honkai pollution — some of which were banned in their era.",
+                "'Use with care. — Schicksal Archive System.'"
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-OT-002",
+          "title_key": "hk3gtl.narrative.e_ot_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ot002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-OT-002",
+              "author": "",
+              "paragraphs": [
+                "§6[天命·档案系统] §f「虚空万藏解析完成。天命档案库已向你开放部分前文明技术记录。请谨慎使用。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-OT-002",
+              "author": "",
+              "paragraphs": [
+                "§6[Schicksal Archive] §f\"Void Archives analysis complete. Partial pre-civilization records are now open to you. Use them wisely.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-OT-003",
+      "title": "事件档案 E-OT-003",
+      "old_trigger": "R-AB-011旧海渊II解锁",
+      "old_text_key": "hk3gtl.event.ot003",
+      "old_text": "§6[天命·评估部门] §f「你的文明已进入约束压。天命对你的工业体系进行了远程评估。建议优先建设抑制设施。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CPT",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CPT",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:schicksal",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CPT"
+      },
+      "approved_title": "工况与判断",
+      "approved_body": [
+        "你阅读时所在的团队已完成《电路封装与工况测试》研究。",
+        "封装完成后，电路还要接受实际工况的检验。单个部件能否使用，应由它在规定条件下的表现回答。",
+        "团队留下了这项课题的完成记录。沿着记录回看，设计与判断终于有了可以核对的依据。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "OT-003",
+          "title_key": "hk3gtl.narrative.ot_003.title",
+          "author_key": "hk3gtl.narrative.author.otto",
+          "body_keys": [
+            "hk3gtl.narrative.ot_003.body.1",
+            "hk3gtl.narrative.ot_003.body.2",
+            "hk3gtl.narrative.ot_003.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "天命技术评估",
+              "author": "— 奥托·阿波卡利斯",
+              "paragraphs": [
+                "你的文明进入约束压，天命对你的工业体系完成了远程评估。",
+                "报告措辞克制，但字里行间承认：你比他们预期的更快。",
+                "「建议优先建设崩坏能污染抑制设施。」"
+              ]
+            },
+            "en_us": {
+              "title": "Schicksal Tech Assessment",
+              "author": "— Otto Apocalypse",
+              "paragraphs": [
+                "With HCV reached, Schicksal completed a remote assessment of your industry.",
+                "The wording is restrained, but between the lines: you are faster than expected.",
+                "'Prioritize construction of Honkai pollution suppression facilities.'"
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-OT-003",
+          "title_key": "hk3gtl.narrative.e_ot_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ot003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-OT-003",
+              "author": "",
+              "paragraphs": [
+                "§6[天命·评估部门] §f「你的文明已进入约束压。天命对你的工业体系进行了远程评估。建议优先建设抑制设施。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-OT-003",
+              "author": "",
+              "paragraphs": [
+                "§6[Schicksal Assessment] §f\"Your civilization has entered HCV. Remote audit complete. Prioritize suppression facilities.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-OT-004",
+      "title": "事件档案 E-OT-004",
+      "old_trigger": "E-MS-005旧虚数入口",
+      "old_text_key": "hk3gtl.event.ot004",
+      "old_text": "§6[天命·高级权限系统] §f「你的文明已进入叠态压至锚定压阶段。天命高级资料库现向你开放。访问权限：已授予。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-IOP",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-IOP",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:schicksal",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-IOP"
+      },
+      "approved_title": "联系的初观",
+      "approved_body": [
+        "你阅读时所在的团队已完成《虚数联系初观》研究。",
+        "虚数联系已经成为一项明确的研究对象。最初的观测，为继续提出问题提供了起点。",
+        "这份进展不替未来回答。它保留的是已经完成的那一步，以及从那一步看见的新方向。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-OT-004",
+          "title_key": "hk3gtl.narrative.e_ot_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ot004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-OT-004",
+              "author": "",
+              "paragraphs": [
+                "§6[天命·高级权限系统] §f「你的文明已进入叠态压至锚定压阶段。天命高级资料库现向你开放。访问权限：已授予。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-OT-004",
+              "author": "",
+              "paragraphs": [
+                "§6[Schicksal Access Core] §f\"QSV–QAV stage authority confirmed. High-grade Schicksal database access granted.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-OT-005",
+      "title": "事件档案 E-OT-005",
+      "old_trigger": "E-MS-010旧终焉入口",
+      "old_text_key": "hk3gtl.event.ot005",
+      "old_text": "§6[奥托·阿波卡利斯] §f「你已经走到了终焉的门前。从这里开始，天命无法再为你提供什么了。祝你好运，建设者。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WMS",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WMS",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:schicksal",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WMS"
+      },
+      "approved_title": "向奇观望去",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明奇观材料》研究。",
+        "奇观材料课题完成后，团队拥有了一份关于后续文明工程用材的研究成果。",
+        "遥远的目标开始显出材料与工序的轮廓。要让轮廓成为建筑，仍需要之后的实际工作。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-OT-005",
+          "title_key": "hk3gtl.narrative.e_ot_005.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ot005"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-OT-005",
+              "author": "",
+              "paragraphs": [
+                "§6[奥托·阿波卡利斯] §f「你已经走到了终焉的门前。从这里开始，天命无法再为你提供什么了。祝你好运，建设者。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-OT-005",
+              "author": "",
+              "paragraphs": [
+                "§6[Otto Apocalypse] §f\"You stand at the gate of Finality. Schicksal can no longer guide your next step. Good luck, builder.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-SA-001",
+      "title": "事件档案 E-SA-001",
+      "old_trigger": "旧注视值500",
+      "old_text_key": "hk3gtl.event.sa001",
+      "old_text": "§4[？？？] §f「……观测已落定。你被看到了。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-QOM",
+      "waiting_reason": "",
+      "candidate_sources": [],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-QOM"
+      },
+      "approved_title": "第一次量子观测",
+      "approved_body": [
+        "你阅读时所在的团队已完成《量子异常初观》研究。",
+        "量子异常初观课题已经完成。原本难以描述的异常，成为一项有明确记录的研究对象。",
+        "看见与理解之间还有距离。这份初观的价值，在于为之后的问题留下真实而清楚的起点。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I44",
+        "catalog_existing": true,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-SA-001",
+          "title_key": "hk3gtl.narrative.e_sa_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.sa001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-SA-001",
+              "author": "",
+              "paragraphs": [
+                "§4[？？？] §f「……观测已落定。你被看到了。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-SA-001",
+              "author": "",
+              "paragraphs": [
+                "§4[???] §f\"...Observation locked. You have been seen.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-SA-002",
+      "title": "事件档案 E-SA-002",
+      "old_trigger": "R-QT-003旧量子III研究",
+      "old_text_key": "hk3gtl.event.sa002",
+      "old_text": "§4[？？？] §f「……你需要什么？我可以给你一些东西。但你需要给我一个回答——你的文明，是为了什么而存在？」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WCP",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WCP",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WCP"
+      },
+      "approved_title": "坐标的意义",
+      "approved_body": [
+        "你阅读时所在的团队已完成《世界泡坐标解析》研究。",
+        "世界泡坐标解析课题已有结果。团队开始用可以讨论的坐标关系，描述观测中的对象。",
+        "坐标说明从哪里观察，也提醒观察仍有边界。保存这些条件，才能使后来者理解当时的判断。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I24",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-SA-002",
+          "title_key": "hk3gtl.narrative.e_sa_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.sa002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-SA-002",
+              "author": "",
+              "paragraphs": [
+                "§4[？？？] §f「……你需要什么？我可以给你一些东西。但你需要给我一个回答——你的文明，是为了什么而存在？」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-SA-002",
+              "author": "",
+              "paragraphs": [
+                "§4[???] §f\"...What does your civilization exist for?\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-SA-003",
+      "title": "事件档案 E-SA-003",
+      "old_trigger": "civilization_validation_matrix成型",
+      "old_text_key": "hk3gtl.event.sa003",
+      "old_text": "§4[？？？] §f「文明验证矩阵已启动。……你已经无法后退了。继续。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WCE",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CAV",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WCE"
+      },
+      "approved_title": "轮回的研究",
+      "approved_body": [
+        "你阅读时所在的团队已完成《终序世界泡轮回引擎》研究。",
+        "终序世界泡轮回引擎课题已经完成。关于世界泡过程如何组织的设想，获得了当前研究的结果。",
+        "一个名字可以指向很远的目标。档案只保留已经完成的研究，让尚未发生的工程继续留在未来。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-SA-003",
+          "title_key": "hk3gtl.narrative.e_sa_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.sa003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-SA-003",
+              "author": "",
+              "paragraphs": [
+                "§4[？？？] §f「文明验证矩阵已启动。……你已经无法后退了。继续。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-SA-003",
+              "author": "",
+              "paragraphs": [
+                "§4[???] §f\"Validation started. There is no retreat.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-SA-004",
+      "title": "事件档案 E-SA-004",
+      "old_trigger": "imaginary_dimension_gateway成型",
+      "old_text_key": "hk3gtl.event.sa004",
+      "old_text": "§4[？？？] §f「虚数维度跃迁门已建成。……门的另一边，有人在等你。去吧。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-TAA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-TAA",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-TAA"
+      },
+      "approved_title": "面向远方的工程",
+      "approved_body": [
+        "你阅读时所在的团队已完成《凌霄树海朝觐圣座》研究。",
+        "凌霄树海朝觐圣座工程课题已有结果。团队为面向远方的工程目标，留下了一份研究记录。",
+        "远方仍需真正抵达。此刻能够确认的，是这一步理解已经完成，并可以成为之后工作的依据。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-SA-004",
+          "title_key": "hk3gtl.narrative.e_sa_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.sa004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-SA-004",
+              "author": "",
+              "paragraphs": [
+                "§4[？？？] §f「虚数维度跃迁门已建成。……门的另一边，有人在等你。去吧。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-SA-004",
+              "author": "",
+              "paragraphs": [
+                "§4[???] §f\"Gateway complete. Someone is waiting beyond.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-SF-001",
+      "title": "事件档案 E-SF-001",
+      "old_trigger": "R-AB-001崩坏能基础",
+      "old_text_key": "hk3gtl.event.sf001",
+      "old_text": "§a[圣芙蕾雅学院] §f「你好，建设者。学院注意到你正在进行崩坏能基础研究。我们准备了一批基础物资作为支援。加油。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "COMMUNICATION:st_freya",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-HED",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:st_freya",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "COMMUNICATION",
+        "source": "st_freya"
+      },
+      "approved_title": "学院的来信",
+      "approved_body": [
+        "你亲自走完了圣芙蕾雅学园的正式交流，阅读并确认了这一主题的实际往来。",
+        "每段旅程都有最初需要支持与思考的时刻。学园的声音与当时的回应，保留为你自己走过的一段经历。"
+      ],
+      "source_boundary": "仅投影该本人已完成的现行正式交流/审查经历；不把团队决定/研究完成当作本人会面。",
+      "source_contract": {},
+      "old_narrative": [
+        {
+          "node_id": "E-SF-001",
+          "title_key": "hk3gtl.narrative.e_sf_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.sf001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-SF-001",
+              "author": "",
+              "paragraphs": [
+                "§a[圣芙蕾雅学院] §f「你好，建设者。学院注意到你正在进行崩坏能基础研究。我们准备了一批基础物资作为支援。加油。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-SF-001",
+              "author": "",
+              "paragraphs": [
+                "§a[St. Freya] §f\"Basic support package delivered. Keep going.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-SF-002",
+      "title": "事件档案 E-SF-002",
+      "old_trigger": "旧注视值100",
+      "old_text_key": "hk3gtl.event.sf002",
+      "old_text": "§a[圣芙蕾雅学院·德丽莎] §f「建设者，你的终焉注视度已经开始上升了。请注意建设缓冲设施来减缓影响。不要硬撑。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-RAT",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:st_freya",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-RAT"
+      },
+      "approved_title": "现实稳定的原理",
+      "approved_body": [
+        "你阅读时所在的团队已完成《现实稳定锚原理》研究。",
+        "现实稳定锚原理课题已经完成。团队开始以明确的研究问题面对现实稳定的需要。",
+        "理解原理只是开始。将这一步准确留下，能够让后续装置和试验知道自己从哪里出发。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 1,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-SF-002",
+          "title_key": "hk3gtl.narrative.e_sf_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.sf002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-SF-002",
+              "author": "",
+              "paragraphs": [
+                "§a[圣芙蕾雅学院·德丽莎] §f「建设者，你的终焉注视度已经开始上升了。请注意建设缓冲设施来减缓影响。不要硬撑。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-SF-002",
+              "author": "",
+              "paragraphs": [
+                "§a[St. Freya · Theresa] §f\"Your gaze level is rising. Build buffers, don't brute-force it.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-SF-003",
+      "title": "事件档案 E-SF-003",
+      "old_trigger": "E-MS-005旧虚数入口",
+      "old_text_key": "hk3gtl.event.sf003",
+      "old_text": "§a[圣芙蕾雅学院] §f「你已进入叠态压至锚定压阶段。学院为你准备了一批稳定化材料。我们相信你能做到。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-ERA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-IOP",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:st_freya",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-ERA"
+      },
+      "approved_title": "进一步的稳定",
+      "approved_body": [
+        "你阅读时所在的团队已完成《强化现实稳定》研究。",
+        "强化现实稳定课题已有完成记录。稳定问题的研究继续向更严格的条件推进。",
+        "已有的认识需要在新的条件下重新检视。此页保存这一步研究，也保留继续验证的余地。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-SF-003",
+          "title_key": "hk3gtl.narrative.e_sf_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.sf003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-SF-003",
+              "author": "",
+              "paragraphs": [
+                "§a[圣芙蕾雅学院] §f「你已进入叠态压至锚定压阶段。学院为你准备了一批稳定化材料。我们相信你能做到。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-SF-003",
+              "author": "",
+              "paragraphs": [
+                "§a[St. Freya] §f\"QSV–QAV stage aid package delivered.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-SF-004",
+      "title": "事件档案 E-SF-004",
+      "old_trigger": "E-MS-010旧终焉入口",
+      "old_text_key": "hk3gtl.event.sf004",
+      "old_text": "§a[圣芙蕾雅学院] §f「你已进入构界压至恒续压阶段。学院全体师生向你发送祝福。你已经是我们见过的最了不起的建设者。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WPF",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WMS",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:st_freya",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WPF"
+      },
+      "approved_title": "构件的准备",
+      "approved_body": [
+        "你阅读时所在的团队已完成《奇观构件预制》研究。",
+        "奇观构件预制课题已经完成。远大的建设目标，开始被拆分为可以继续落实的构件工作。",
+        "准备本身值得被认真记下。研究已经完成，构件的实际制造和建筑的成型仍各有自己的道路。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I32",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-SF-004",
+          "title_key": "hk3gtl.narrative.e_sf_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.sf004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-SF-004",
+              "author": "",
+              "paragraphs": [
+                "§a[圣芙蕾雅学院] §f「你已进入构界压至恒续压阶段。学院全体师生向你发送祝福。你已经是我们见过的最了不起的建设者。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-SF-004",
+              "author": "",
+              "paragraphs": [
+                "§a[St. Freya] §f\"WFV–CEV stage confirmed. The academy sends its blessing.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-TS-001",
+      "title": "事件档案 E-TS-001",
+      "old_trigger": "large_honkai_reactor成型",
+      "old_text_key": "hk3gtl.event.ts001",
+      "old_text": "§9[特斯拉] §f「大型崩坏能反应堆？让我看看……不错嘛！」 §9[爱因斯坦] §f「能量输出曲线稳定。结构设计合理。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-LRE",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-LRE",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:anti_entropy",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-LRE"
+      },
+      "approved_title": "反应堆工程研究",
+      "approved_body": [
+        "你阅读时所在的团队已完成《大型反应堆工程》研究。",
+        "大型反应堆工程课题已有完成记录。团队围绕反应堆工程留下了当前研究所支持的结果。",
+        "研究为建造提供方向。实体结构与运行曲线仍需在实际工程中逐项核对，不能由课题名称代替。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-TS-001",
+          "title_key": "hk3gtl.narrative.e_ts_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ts001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-TS-001",
+              "author": "",
+              "paragraphs": [
+                "§9[特斯拉] §f「大型崩坏能反应堆？让我看看……不错嘛！」 §9[爱因斯坦] §f「能量输出曲线稳定。结构设计合理。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-TS-001",
+              "author": "",
+              "paragraphs": [
+                "§9[Tesla] §f\"Large reactor online? Nice work.\" §9[Einstein] §f\"Output curve stable.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-TS-002",
+      "title": "事件档案 E-TS-002",
+      "old_trigger": "R-IM-019虚数理论实验",
+      "old_text_key": "hk3gtl.event.ts002",
+      "old_text": "§9[爱因斯坦] §f「虚数理论实验完成了。数据很有趣。」 §9[特斯拉] §f「有趣？这简直是革命性的！」 §9[爱因斯坦] §f「冷静，数据还需要更多验证。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-IAA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-IAA",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:anti_entropy",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-IAA"
+      },
+      "approved_title": "理论与锚定",
+      "approved_body": [
+        "你阅读时所在的团队已完成《虚数空间锚定》研究。",
+        "虚数空间锚定课题已经完成。团队对空间中的联系和约束，形成了进一步研究。",
+        "值得继续讨论的理论，应当保留自己依据的条件。这份记录让后续试验能够回到明确的问题上。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-TS-002",
+          "title_key": "hk3gtl.narrative.e_ts_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ts002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-TS-002",
+              "author": "",
+              "paragraphs": [
+                "§9[爱因斯坦] §f「虚数理论实验完成了。数据很有趣。」 §9[特斯拉] §f「有趣？这简直是革命性的！」 §9[爱因斯坦] §f「冷静，数据还需要更多验证。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-TS-002",
+              "author": "",
+              "paragraphs": [
+                "§9[Einstein] §f\"Imaginary theory data is valid.\" §9[Tesla] §f\"It's revolutionary!\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-TS-003",
+      "title": "事件档案 E-TS-003",
+      "old_trigger": "quantum_entanglement_computer成型",
+      "old_text_key": "hk3gtl.event.ts003",
+      "old_text": "§9[特斯拉] §f「这台机器超出了我的理解范围。」 §9[爱因斯坦] §f「我也是。」 §9[特斯拉] §f「建设者，我们向你致敬。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-ERM",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-ERM",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:anti_entropy",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-ERM"
+      },
+      "approved_title": "工程中的演算",
+      "approved_body": [
+        "你阅读时所在的团队已完成《受控演算优化》研究。",
+        "受控演算优化课题已有结果。团队为改进演算过程，完成了一项明确研究。",
+        "复杂并不意味着无法解释。将方法与条件保存下来，才能让后来使用这些结果的人继续理解它们。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "S02",
+        "catalog_existing": true,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-TS-003",
+          "title_key": "hk3gtl.narrative.e_ts_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ts003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-TS-003",
+              "author": "",
+              "paragraphs": [
+                "§9[特斯拉] §f「这台机器超出了我的理解范围。」 §9[爱因斯坦] §f「我也是。」 §9[特斯拉] §f「建设者，我们向你致敬。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-TS-003",
+              "author": "",
+              "paragraphs": [
+                "§9[Tesla] §f\"This machine is beyond us.\" §9[Einstein] §f\"Agreed.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WL-001",
+      "title": "事件档案 E-WL-001",
+      "old_trigger": "首块MAX电路持物",
+      "old_text_key": "hk3gtl.event.wl001",
+      "old_text": "§b[瓦尔特·杨] §f「你制作出了第一块MAX电压电路板。我将'理之力'的一部分能力授予你——从现在起，你可以用崩坏能直接构造电路板。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-RCA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-RCA",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-RCA"
+      },
+      "approved_title": "理解与构造",
+      "approved_body": [
+        "你阅读时所在的团队已完成《仿制理核心》研究。",
+        "仿制理核心的研究已有结果。构造的可能性，开始被放进具体的课题与工序之中。",
+        "理解并不等于凭空拥有。团队完成了研究，也应继续用真实的材料与生产检验自己的设计。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "WL-001",
+          "title_key": "hk3gtl.narrative.wl_001.title",
+          "author_key": "hk3gtl.narrative.author.walter",
+          "body_keys": [
+            "hk3gtl.narrative.wl_001.body.1",
+            "hk3gtl.narrative.wl_001.body.2",
+            "hk3gtl.narrative.wl_001.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "瓦尔特的馈赠",
+              "author": "— 瓦尔特·杨",
+              "paragraphs": [
+                "你制作出了第一块 MAX 电压电路板。",
+                "「我将『理之力』的一部分能力授予你——从现在起，你可以用崩坏能直接构造电路板。」",
+                "「工具更多了，责任也更多了。——瓦尔特·杨。」"
+              ]
+            },
+            "en_us": {
+              "title": "Walter's Gift",
+              "author": "— Walter Joyce",
+              "paragraphs": [
+                "You crafted your first MAX-tier circuit board.",
+                "'I grant you a fragment of the Power of Reason — you may now construct circuit boards directly from Honkai Energy.'",
+                "'More tools mean more responsibility. — Walter Joyce.'"
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-WL-001",
+          "title_key": "hk3gtl.narrative.e_wl_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.wl001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WL-001",
+              "author": "",
+              "paragraphs": [
+                "§b[瓦尔特·杨] §f「你制作出了第一块MAX电压电路板。我将'理之力'的一部分能力授予你——从现在起，你可以用崩坏能直接构造电路板。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WL-001",
+              "author": "",
+              "paragraphs": [
+                "§b[Welt Yang] §f\"You forged your first MAX board. A part of Reason now answers to you.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WL-002",
+      "title": "事件档案 E-WL-002",
+      "old_trigger": "quantum_entanglement_computer成型",
+      "old_text_key": "hk3gtl.event.wl002",
+      "old_text": "§b[瓦尔特·杨] §f「量子纠缠计算机……你建成了。但我要提醒你：计算能力不等于智慧。你能算出答案，不代表你能承受答案。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-ERM",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-ERM",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-ERM"
+      },
+      "approved_title": "演算的尺度",
+      "approved_body": [
+        "你阅读时所在的团队已完成《受控演算优化》研究。",
+        "受控演算优化课题已经完成。计算的过程开始有了更清楚的约束与检验方式。",
+        "能算出一个结果，并不意味着问题已经结束。把结果放回它所依据的条件，是这份记录值得保留的部分。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "S02",
+        "catalog_existing": true,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "WL-002",
+          "title_key": "hk3gtl.narrative.wl_002.title",
+          "author_key": "hk3gtl.narrative.author.walter",
+          "body_keys": [
+            "hk3gtl.narrative.wl_002.body.1",
+            "hk3gtl.narrative.wl_002.body.2",
+            "hk3gtl.narrative.wl_002.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "理之律者的忠告",
+              "author": "— 瓦尔特·杨",
+              "paragraphs": [
+                "量子纠缠计算机建成当日，瓦尔特的声音在频道里短暂出现。",
+                "「计算能力不等于智慧。你能算出答案，不代表你能承受答案。」",
+                "频道很快恢复静默。"
+              ]
+            },
+            "en_us": {
+              "title": "The Reason's Warning",
+              "author": "— Walter Joyce",
+              "paragraphs": [
+                "The day the Quantum Entanglement Computer finished, Walter's voice briefly appeared on the channel.",
+                "'Computational power is not wisdom. Being able to compute an answer does not mean you can bear it.'",
+                "The channel quickly fell silent again."
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-WL-002",
+          "title_key": "hk3gtl.narrative.e_wl_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.wl002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WL-002",
+              "author": "",
+              "paragraphs": [
+                "§b[瓦尔特·杨] §f「量子纠缠计算机……你建成了。但我要提醒你：计算能力不等于智慧。你能算出答案，不代表你能承受答案。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WL-002",
+              "author": "",
+              "paragraphs": [
+                "§b[Welt Yang] §f\"You built a Quantum Entanglement Computer. Calculation is not wisdom.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WL-003",
+      "title": "事件档案 E-WL-003",
+      "old_trigger": "thousand_realms_train成型",
+      "old_text_key": "hk3gtl.event.wl003",
+      "old_text": "§b[瓦尔特·杨] §f「千界一乘。你真的建成了。在我认知中，只有极少数文明做到过这一点。……你做得很好。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CJK",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CJK",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CJK"
+      },
+      "approved_title": "千界的图景",
+      "approved_body": [
+        "你阅读时所在的团队已完成《仿制的千界一乘》研究。",
+        "仿制的千界一乘课题已经完成。这个名字所指向的构想，留下了当前研究所能支持的具体成果。",
+        "研究记录保存的是已经理解的内容。真正的部件与列车，仍需在各自的生产和建造过程中落实。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 2,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-WL-003",
+          "title_key": "hk3gtl.narrative.e_wl_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.wl003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WL-003",
+              "author": "",
+              "paragraphs": [
+                "§b[瓦尔特·杨] §f「千界一乘。你真的建成了。在我认知中，只有极少数文明做到过这一点。……你做得很好。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WL-003",
+              "author": "",
+              "paragraphs": [
+                "§b[Welt Yang] §f\"Thousand Realms train... impressive. Very few civilizations reach this far.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WL-004",
+      "title": "事件档案 E-WL-004",
+      "old_trigger": "E-MS-010旧终焉入口",
+      "old_text_key": "hk3gtl.event.wl004",
+      "old_text": "§b[瓦尔特·杨] §f「……你已经进入构界压至恒续压阶段了。从这里开始，你面对的不再是技术问题，而是存在本身的问题。保重。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-WME",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-WMS",
+          "relation": "部分相关，不能单独代替旧条件"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-WME"
+      },
+      "approved_title": "现实的根基",
+      "approved_body": [
+        "你阅读时所在的团队已完成《世界维系试验》研究。",
+        "世界维系试验课题已有完成记录。团队开始把维系世界的设想放进可以研究的问题之中。",
+        "越是庞大的目标，越需要准确说明自己已经做过什么。这一页只收录完成的课题，不替未来作答。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-WL-004",
+          "title_key": "hk3gtl.narrative.e_wl_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.wl004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WL-004",
+              "author": "",
+              "paragraphs": [
+                "§b[瓦尔特·杨] §f「……你已经进入构界压至恒续压阶段了。从这里开始，你面对的不再是技术问题，而是存在本身的问题。保重。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WL-004",
+              "author": "",
+              "paragraphs": [
+                "§b[Welt Yang] §f\"WFV–CEV stage begins. What comes next is no longer a technical problem.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WS-001",
+      "title": "事件档案 E-WS-001",
+      "old_trigger": "E-MS-003旧海渊突破",
+      "old_text_key": "hk3gtl.event.ws001",
+      "old_text": "§c[世界蛇] §f「我们注意到了你。你的崩坏能工业已经稳定运行。世界蛇评估：具备合作价值。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "COMMUNICATION:world_serpent",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-LES",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:world_serpent",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "COMMUNICATION",
+        "source": "world_serpent"
+      },
+      "approved_title": "交换的边界",
+      "approved_body": [
+        "你亲自走完了世界蛇的正式交流，阅读并确认了该主题实际发生的往来。",
+        "愿意讨论什么、保留什么，已经由当时的答复确定。这份经历不把未提交的资料写成交换成果。"
+      ],
+      "source_boundary": "仅投影该本人已完成的现行正式交流/审查经历；不把团队决定/研究完成当作本人会面。",
+      "source_contract": {},
+      "old_narrative": [
+        {
+          "node_id": "WS-001",
+          "title_key": "hk3gtl.narrative.ws_001.title",
+          "author_key": "hk3gtl.narrative.author.serpent",
+          "body_keys": [
+            "hk3gtl.narrative.ws_001.body.1",
+            "hk3gtl.narrative.ws_001.body.2",
+            "hk3gtl.narrative.ws_001.body.3"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "世界蛇的评估",
+              "author": "— 世界蛇·匿名线人",
+              "paragraphs": [
+                "匿名频道短暂接入：「你的崩坏能工业指标已达到交易标准。」",
+                "「我们有几样你会感兴趣的东西。风险自负，代价不低。」",
+                "「下次相见。」频道断开。"
+              ]
+            },
+            "en_us": {
+              "title": "Serpent's Assessment",
+              "author": "— World Serpent · Anonymous",
+              "paragraphs": [
+                "An anonymous channel briefly opens: 'Your Honkai industry has reached trade-grade numbers.'",
+                "'We have some things that would interest you. At your risk. The price will not be cheap.'",
+                "'Until next time.' The channel drops."
+              ]
+            }
+          }
+        },
+        {
+          "node_id": "E-WS-001",
+          "title_key": "hk3gtl.narrative.e_ws_001.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ws001"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WS-001",
+              "author": "",
+              "paragraphs": [
+                "§c[世界蛇] §f「我们注意到了你。你的崩坏能工业已经稳定运行。世界蛇评估：具备合作价值。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WS-001",
+              "author": "",
+              "paragraphs": [
+                "§c[World Serpent] §f\"Industrial stability confirmed. You now qualify for trade.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WS-002",
+      "title": "事件档案 E-WS-002",
+      "old_trigger": "R-AB-017旧海渊III研究",
+      "old_text_key": "hk3gtl.event.ws002",
+      "old_text": "§c[世界蛇] §f「我们有一批材料可以提供给你。交换条件：你的崩坏能稳定化数据。这笔交易有风险，但收益也很明确。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-SRA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-SRA",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:world_serpent",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-SRA"
+      },
+      "approved_title": "重构与稳定",
+      "approved_body": [
+        "你阅读时所在的团队已完成《魂钢重构退火》研究。",
+        "魂钢重构退火课题已经完成。材料如何在后续工序中保持可用，成为这一阶段研究的核心。",
+        "稳定并非一次成功就能概括。留存研究结果，是为了让后续批次仍有可以追溯和检验的起点。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 1,
+        "executor": "I02",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-WS-002",
+          "title_key": "hk3gtl.narrative.e_ws_002.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ws002"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WS-002",
+              "author": "",
+              "paragraphs": [
+                "§c[世界蛇] §f「我们有一批材料可以提供给你。交换条件：你的崩坏能稳定化数据。这笔交易有风险，但收益也很明确。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WS-002",
+              "author": "",
+              "paragraphs": [
+                "§c[World Serpent] §f\"We can offer high-risk materials. Bring equivalent data.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WS-003",
+      "title": "事件档案 E-WS-003",
+      "old_trigger": "imaginary_anchor_device成型",
+      "old_text_key": "hk3gtl.event.ws003",
+      "old_text": "§c[世界蛇] §f「虚数锚定装置。你已经开始触碰虚数空间了。……有趣。我们会继续观察。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-IAA",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-IAA",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:world_serpent",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-IAA"
+      },
+      "approved_title": "空间的约束",
+      "approved_body": [
+        "你阅读时所在的团队已完成《虚数空间锚定》研究。",
+        "虚数空间锚定课题已有结果。团队为理解空间联系与约束，留下了明确的一步。",
+        "边界应由已经掌握的条件来描述。尚未建成的装置与尚未发生的试验，都留待真实工作继续回答。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 4,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-WS-003",
+          "title_key": "hk3gtl.narrative.e_ws_003.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ws003"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WS-003",
+              "author": "",
+              "paragraphs": [
+                "§c[世界蛇] §f「虚数锚定装置。你已经开始触碰虚数空间了。……有趣。我们会继续观察。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WS-003",
+              "author": "",
+              "paragraphs": [
+                "§c[World Serpent] §f\"Imaginary anchor confirmed. We are watching.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WS-004",
+      "title": "事件档案 E-WS-004",
+      "old_trigger": "R-QT-007旧量子II解锁",
+      "old_text_key": "hk3gtl.event.ws004",
+      "old_text": "§c[世界蛇] §f「虚数压至织界压阶段的材料需求很大。我们可以提供一批虚数压至织界压级前体。交换条件：你的世界泡稳相数据。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-SWS",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-SWS",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:world_serpent",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-SWS"
+      },
+      "approved_title": "模拟中的稳态",
+      "approved_body": [
+        "你阅读时所在的团队已完成《模拟世界泡稳定》研究。",
+        "模拟世界泡稳定课题已经完成。团队对模拟对象如何保持稳定，有了进一步研究。",
+        "模型提供了观察问题的方式。保存它所依据的条件，也是在为之后识别变化留下参照。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I32",
+        "catalog_existing": true,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-WS-004",
+          "title_key": "hk3gtl.narrative.e_ws_004.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ws004"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WS-004",
+              "author": "",
+              "paragraphs": [
+                "§c[世界蛇] §f「虚数压至织界压阶段的材料需求很大。我们可以提供一批虚数压至织界压级前体。交换条件：你的世界泡稳相数据。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WS-004",
+              "author": "",
+              "paragraphs": [
+                "§c[World Serpent] §f\"IMV–IWV tier exchange request acknowledged.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WS-005",
+      "title": "事件档案 E-WS-005",
+      "old_trigger": "hyperion_flagship成型",
+      "old_text_key": "hk3gtl.event.ws005",
+      "old_text": "§c[世界蛇] §f「休伯利安号。世界蛇对你的评价已调整为'不可忽视的文明体'。这不是恭维，是事实。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-HVI",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-HVI",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:world_serpent",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-HVI"
+      },
+      "approved_title": "整合的难题",
+      "approved_body": [
+        "你阅读时所在的团队已完成《仿制舰系统整合》研究。",
+        "仿制舰系统整合课题已经完成。系统之间如何协同，成为可以进一步落实的研究成果。",
+        "整合意味着认真面对彼此的约束。研究记录保留的是这种理解，不把图纸上的关系写成已经建成的舰船。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 3,
+        "executor": "I33",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-WS-005",
+          "title_key": "hk3gtl.narrative.e_ws_005.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ws005"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WS-005",
+              "author": "",
+              "paragraphs": [
+                "§c[世界蛇] §f「休伯利安号。世界蛇对你的评价已调整为'不可忽视的文明体'。这不是恭维，是事实。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WS-005",
+              "author": "",
+              "paragraphs": [
+                "§c[World Serpent] §f\"Hyperion complete. Classification updated: non-ignorable civilization.\""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "E-WS-006",
+      "title": "事件档案 E-WS-006",
+      "old_trigger": "civilization_validation_matrix成型",
+      "old_text_key": "hk3gtl.event.ws006",
+      "old_text": "§c[世界蛇] §f「文明验证矩阵已建成。你即将接受审判。世界蛇不会参与，但我们会在远处观察结果。」",
+      "disposition": "REWRITE_WITH_EXACT_CURRENT_SOURCE",
+      "live_source": "RESEARCH:RN-CAV",
+      "waiting_reason": "",
+      "candidate_sources": [
+        {
+          "kind": "RESEARCH",
+          "id": "RN-CAV",
+          "relation": "部分相关，不能单独代替旧条件"
+        },
+        {
+          "kind": "COMMUNICATION",
+          "id": "communication:world_serpent",
+          "relation": "部分相关，不能代替对应旧人物/权限/工程事实"
+        }
+      ],
+      "required_unconnected_fact": "",
+      "personal_meeting_equivalent": false,
+      "text_rewrite_required": false,
+      "rewrite_reason": "已按负责人2026-11-04授权方向重写；旧文仅作历史，不投递、不授资格。",
+      "basis": [
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java",
+        "src/main/java/com/sirin/hk3gtl/common/event/Hk3EventManagerImpl.java",
+        "src/main/resources/assets/hk3gtl/lang/zh_cn.json",
+        "src/main/resources/data/hk3gtl/research/research_execution.json",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3TeamContactData.java",
+        "src/main/java/com/sirin/hk3gtl/common/communication/Hk3PersonalCommunicationData.java",
+        "src/main/java/com/sirin/hk3gtl/common/review/Hk3ReviewLedger.java"
+      ],
+      "approved_rule": {
+        "kind": "RESEARCH",
+        "source": "RN-CAV"
+      },
+      "approved_title": "成果的相互检验",
+      "approved_body": [
+        "你阅读时所在的团队已完成《文明成果交叉验证》研究。",
+        "文明成果交叉验证课题已经完成。团队开始检视不同成果能否在共同条件下保持一致。",
+        "一个文明的技术不能永远各说各话。这一页收录了连接它们的研究工作，后续结果仍由真实验证给出。"
+      ],
+      "source_boundary": "团队准确课题完成＋本人连续读完本条新正文；不是实体机器成型或赠物/许可。",
+      "source_contract": {
+        "lab": 5,
+        "executor": "I43",
+        "catalog_existing": false,
+        "warning": "目录existing仅为课题执行合同元数据；不作为结构审批、运行可玩性或课题完成证明。"
+      },
+      "old_narrative": [
+        {
+          "node_id": "E-WS-006",
+          "title_key": "hk3gtl.narrative.e_ws_006.title",
+          "author_key": "",
+          "body_keys": [
+            "hk3gtl.event.ws006"
+          ],
+          "locales": {
+            "zh_cn": {
+              "title": "事件档案 E-WS-006",
+              "author": "",
+              "paragraphs": [
+                "§c[世界蛇] §f「文明验证矩阵已建成。你即将接受审判。世界蛇不会参与，但我们会在远处观察结果。」"
+              ]
+            },
+            "en_us": {
+              "title": "Event Archive E-WS-006",
+              "author": "",
+              "paragraphs": [
+                "§c[World Serpent] §f\"Validation is underway. We will observe from a distance.\""
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "historical_snapshot": {
+    "time": "2026-11-04 06:18:12",
+    "description": "原摘要及全部正式长篇别名完整中英文快照，仅作历史，不参与现行资格。",
+    "nodes": 78,
+    "languages": {
+      "zh_cn": "804e9125939fcff23b0f47ead6ed5dfbf9649c6a50c1383fbd85471adf396936",
+      "en_us": "5dd62560ef3af91fcd0e94936a4f1d8c928886b3552c935e9cebcbe19e56cdd2"
+    },
+    "trigger_source": "logs/formal-archive-completion-20261104/before/src/main/java/com/sirin/hk3gtl/common/event/Hk3FactionEventChecker.java"
+  }
+}

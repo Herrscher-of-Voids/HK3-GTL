@@ -1,23 +1,24 @@
 package com.sirin.hk3gtl.common.constants;
 
 
-
 /**
- * 扩展电压数值查询的公开入口类。
+ * 【文件职责】
+ * - 维护 Hk3Values 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
  *
- * <p>职责：继承 {@link Hk3ValuesImpl}，外部统一通过本类查询电压值、颜色、显示名等数值信息。</p>
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
  *
- * <p>实现类：{@link Hk3ValuesImpl}（包含全部 31 元素数组和安全 getter 方法）</p>
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>新增数值查询方法请在 {@link Hk3ValuesImpl} 中添加，本类自动继承</li>
- *   <li>tier 15+ 的电压值超出 int 范围，必须使用 long 类型（{@code VA_LONG}）</li>
- *   <li>所有 getter 方法已内置边界检查和 fallback，Mixin 失败时不会崩溃</li>
- * </ul>
- *
- * @see Hk3ValuesImpl 数值定义与安全 getter
- * @see Hk3Tiers  tier 索引常量
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
  */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 public class Hk3Values extends Hk3ValuesImpl {
 }

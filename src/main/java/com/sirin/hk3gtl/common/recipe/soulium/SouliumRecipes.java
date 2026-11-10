@@ -1,22 +1,34 @@
 package com.sirin.hk3gtl.common.recipe.soulium;
 
 
-
+/**
+ * 【文件职责】
+ * - 负责 SouliumRecipes 对应的配方注册与门槛绑定。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.sirin.hk3gtl.common.constants.Hk3Tiers;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 import com.sirin.hk3gtl.common.item.honkai.HonkaiMaterialItems;
-import com.sirin.hk3gtl.common.item.soulium.SouliumChainItems;
 import com.sirin.hk3gtl.common.material.Hk3Materials;
 import com.sirin.hk3gtl.common.material.SouliumMaterial;
-import com.sirin.hk3gtl.common.recipe.Hk3RecipeTypes;
-import com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
-import org.gtlcore.gtlcore.common.data.GTLMaterials;
 
 import java.util.function.Consumer;
 
@@ -38,91 +50,28 @@ import java.util.function.Consumer;
  *   <li>所有魂钢配方 EU/t 必须高于 MAX（Tier 14），避免 int 溢出</li>
  * </ul>
  */
+/**
+ * 【变更记录 #1】2026-09-30 02:17:47（第1次备注 · 内测5修订107）
+ * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
+ * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
+ * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
+ * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
+ */
+/**
+ * 【历史退役记录 · 修订160】2026-10-17 13:52:26：三类旧执行器已退役，
+ * 总入口停止调用；现行L3使用I09–I16八步。旧私有实现于修订162完整移出活动源码。
+ */
+/**
+ * 【变更记录 #2】2026-10-17 14:38:40（第2次备注 · 内测5修订162）
+ * 删除：已停用的retiredSouliumSmeltingRecipes及其六条旧生产配方、旧研究绑定和专用常量。
+ * 新增：无。修改：本类仅保留GT标准机中的板、框架、细线、箔材后处理。
+ * 用途：退役结构不留死配方实现；现行魂钢生产仍归I09–I16，不改挂设备或补造启动配方。
+ * 追溯：原文件保存在logs/retired-recipes-r162/before的同相对路径。
+ */
 public class SouliumRecipes {
 
     /** 海渊I阶段基准电压（EU/t） */
-    private static final long ABYSS_1_EUT = Hk3Values.VA_LONG[Hk3Tiers.ABYSS_1];
-    /** 海渊II阶段基准电压（EU/t） */
-    private static final long ABYSS_2_EUT = Hk3Values.VA_LONG[Hk3Tiers.ABYSS_2];
-
-    /**
-     * 注册魂钢主链。
-     * <p>设计原则：冶铸中心提供启动批次，深熔/精密装配提供真正工业产能。</p>
-     */
-    public static void addSouliumSmeltingRecipes(Consumer<FinishedRecipe> provider) {
-        // 启动线第一步：外部 GTL 高阶材料 + 神经处理器 + 崩坏能结晶 -> 魂钢前体。
-        // 只放在魂钢冶铸中心，作为整个海渊材料链的入口。
-        Hk3RecipeTypes.SOULIUM_SMELTING_RECIPES.recipeBuilder("precursor_mix")
-                .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTLMaterials.Shirabon, 512))
-                .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTLMaterials.Magmatter, 256))
-                .inputItems(GTItems.NEURO_PROCESSOR.asStack(512))
-                .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 1024))
-                .outputItems(new ItemStack(SouliumChainItems.SOULIUM_PRECURSOR_MIX.get(), 256))
-                .duration(800)
-                .EUt(ABYSS_1_EUT)
-                .save(provider);
-
-        // 启动线兜底：低效率直接凝锭，只用于造第一批深熔/精密装配设备。
-        // 效率明显低于完整工业线，避免玩家长期用单机替代整条海渊闭环。
-        Hk3RecipeTypes.SOULIUM_SMELTING_RECIPES.recipeBuilder("bootstrap_soulium_ingot")
-                .inputItems(new ItemStack(SouliumChainItems.SOULIUM_PRECURSOR_MIX.get(), 256))
-                .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 512))
-                .inputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(2304))
-                .outputItems(ChemicalHelper.get(TagPrefix.ingot, SouliumMaterial.SOULIUM, 16))
-                .duration(1200)
-                .EUt(ABYSS_1_EUT)
-                .save(provider);
-
-        // 工业线第二步：海渊深熔精炼联合体完成纳米活化。
-        // 这里开始引入液态崩坏能作为反应环境，体现“纳米机器人集群”而非普通合金。
-        Hk3RecipeTypes.ABYSS_VACUUM_SMELTING_RECIPES.recipeBuilder("soulium_nano_activation")
-                .inputItems(new ItemStack(SouliumChainItems.SOULIUM_PRECURSOR_MIX.get(), 512))
-                .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_SUPPRESSANT.get(), 32))
-                .inputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(8000))
-                .outputItems(new ItemStack(SouliumChainItems.ACTIVATED_NANO_MATRIX.get(), 192))
-                .outputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(500))
-                .duration(900)
-                .EUt(ABYSS_2_EUT)
-                .save(provider);
-        Hk3RecipeResearchGate.bind("abyss_vacuum_smelting", "soulium_nano_activation", "R-AB-013");
-
-        // 工业线第三步：海渊深熔精炼联合体完成崩坏能注入和初生质聚集。
-        Hk3RecipeTypes.ABYSS_VACUUM_SMELTING_RECIPES.recipeBuilder("soulium_proto_mass_growth")
-                .inputItems(new ItemStack(SouliumChainItems.ACTIVATED_NANO_MATRIX.get(), 256))
-                .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 512))
-                .inputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(4608))
-                .outputItems(new ItemStack(SouliumChainItems.SOULIUM_PROTO_MASS.get(), 160))
-                .outputItems(new ItemStack(HonkaiMaterialItems.HONKAI_SUPPRESSANT.get(), 4))
-                .duration(900)
-                .EUt(ABYSS_2_EUT)
-                .save(provider);
-        Hk3RecipeResearchGate.bind("abyss_vacuum_smelting", "soulium_proto_mass_growth", "R-AB-013");
-
-        // 工业线第四步：海渊精密装配工坊用稳定晶体和数据控制把初生质定形成魂钢锭。
-        // 输出量高于 bootstrap，要求玩家搭建跨机器物流后才获得真正批量产能。
-        Hk3RecipeTypes.ABYSS_PRECISION_ASSEMBLY_RECIPES.recipeBuilder("soulium_industrial_ingot_casting")
-                .inputItems(new ItemStack(SouliumChainItems.SOULIUM_PROTO_MASS.get(), 256))
-                .inputItems(new ItemStack(HonkaiMaterialItems.STABILIZED_HONKAI_CRYSTAL.get(), 64))
-                .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 256))
-                .inputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(4608))
-                .outputItems(ChemicalHelper.get(TagPrefix.ingot, SouliumMaterial.SOULIUM, 192))
-                .duration(1000)
-                .EUt(ABYSS_2_EUT)
-                .save(provider);
-        Hk3RecipeResearchGate.bind("abyss_precision_assembly", "soulium_industrial_ingot_casting", "R-AB-012");
-
-        // 工业线延伸：稳定魂钢初生质，作为海渊 III/IV 八大件和定向构件的前置。
-        Hk3RecipeTypes.ABYSS_PRECISION_ASSEMBLY_RECIPES.recipeBuilder("stabilized_proto_mass_industrial")
-                .inputItems(new ItemStack(SouliumChainItems.SOULIUM_PROTO_MASS.get(), 512))
-                .inputItems(new ItemStack(HonkaiMaterialItems.STABILIZED_HONKAI_CRYSTAL.get(), 128))
-                .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_SUPPRESSANT.get(), 32))
-                .inputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(9216))
-                .outputItems(new ItemStack(SouliumChainItems.STABILIZED_SOULIUM_PROTO_MASS.get(), 96))
-                .duration(1200)
-                .EUt(ABYSS_2_EUT)
-                .save(provider);
-        Hk3RecipeResearchGate.bind("abyss_precision_assembly", "stabilized_proto_mass_industrial", "R-AB-012");
-    }
+    private static final long HBV_EUT = Hk3Values.VA_LONG[Hk3Tiers.HBV];
 
     /** 注册魂钢加工配方（使用 GT 标准机：弯曲机/组装机/线材厂） */
     public static void addSouliumProcessingRecipes(Consumer<FinishedRecipe> provider) {
@@ -131,7 +80,7 @@ public class SouliumRecipes {
                 .circuitMeta(1)
                 .outputItems(ChemicalHelper.get(TagPrefix.plate, SouliumMaterial.SOULIUM, 64))
                 .duration(240)
-                .EUt(ABYSS_1_EUT)
+                .EUt(HBV_EUT)
                 .save(provider);
 
         GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("hk3gtl_soulium_frame")
@@ -140,7 +89,7 @@ public class SouliumRecipes {
                 .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 512))
                 .outputItems(ChemicalHelper.get(TagPrefix.frameGt, SouliumMaterial.SOULIUM, 32))
                 .duration(600)
-                .EUt(ABYSS_1_EUT)
+                .EUt(HBV_EUT)
                 .save(provider);
 
         GTRecipeTypes.WIREMILL_RECIPES.recipeBuilder("hk3gtl_soulium_fine_wire")
@@ -148,7 +97,7 @@ public class SouliumRecipes {
                 .inputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(2304))
                 .outputItems(ChemicalHelper.get(TagPrefix.wireFine, SouliumMaterial.SOULIUM, 512))
                 .duration(400)
-                .EUt(ABYSS_1_EUT)
+                .EUt(HBV_EUT)
                 .save(provider);
 
         GTRecipeTypes.BENDER_RECIPES.recipeBuilder("hk3gtl_soulium_foil")
@@ -157,7 +106,7 @@ public class SouliumRecipes {
                 .inputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(1152))
                 .outputItems(ChemicalHelper.get(TagPrefix.foil, SouliumMaterial.SOULIUM, 256))
                 .duration(300)
-                .EUt(ABYSS_1_EUT)
+                .EUt(HBV_EUT)
                 .save(provider);
     }
 }

@@ -1,0 +1,821 @@
+{
+  "key": "i22",
+  "machine": "hk3gtl:i22_ultimate_honkai_reactor",
+  "source": "data/hk3gtl/approved_architecture/i22.json",
+  "sha256": "af624aa7a4cb6160b0a73620ed8766a51d22d45f686362d5870f414721db840d",
+  "template_sha256": "6eefdc1662f98da0ed813e770e683dfb23b1b9b4dd781440cd4348e17a206a07",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261024_010011_626135_batch-07_01of05_I22_WSV_已确认\\I22_究极崩坏能反应堆_四堆隔离外场候选_V1_20261023",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261024_010011_626135_batch-07_01of05_I22_WSV_已确认\\I22_究极崩坏能反应堆_四堆隔离外场候选_V1_20261023\\i22\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261024_010011_626135_batch-07_01of05_I22_WSV_已确认\\I22_究极崩坏能反应堆_四堆隔离外场候选_V1_20261023\\i22\\i22-wsv-ultimate-isolated-field-v1.nbt",
+  "source_nbt_sha256": "100a407d862edb63f89d0305b9a031feac6f46519f0620f6de3dba15d6867aa5",
+  "controller": [
+    95,
+    3,
+    20
+  ],
+  "size_xyz": [
+    402,
+    250,
+    346
+  ],
+  "blocks": 1408427,
+  "ports": [
+    {
+      "id": "F1",
+      "pos": [
+        190,
+        3,
+        108
+      ],
+      "face": "east",
+      "purpose": "普通燃料棒输入候选",
+      "group": "item_input"
+    },
+    {
+      "id": "F2",
+      "pos": [
+        190,
+        3,
+        139
+      ],
+      "face": "east",
+      "purpose": "乏燃料棒输出候选",
+      "group": "item_output"
+    },
+    {
+      "id": "C1",
+      "pos": [
+        8,
+        3,
+        37
+      ],
+      "face": "west",
+      "purpose": "崩坏冷却剂输入候选",
+      "group": "fluid_input"
+    },
+    {
+      "id": "C2",
+      "pos": [
+        8,
+        3,
+        53
+      ],
+      "face": "west",
+      "purpose": "热崩坏冷却剂输出候选",
+      "group": "fluid_output"
+    },
+    {
+      "id": "E1",
+      "pos": [
+        116,
+        4,
+        8
+      ],
+      "face": "north",
+      "purpose": "电力送出候选分组1",
+      "group": "energy_output"
+    },
+    {
+      "id": "E2",
+      "pos": [
+        134,
+        4,
+        8
+      ],
+      "face": "north",
+      "purpose": "电力送出候选分组2",
+      "group": "energy_output"
+    },
+    {
+      "id": "E3",
+      "pos": [
+        152,
+        4,
+        8
+      ],
+      "face": "north",
+      "purpose": "电力送出候选分组3",
+      "group": "energy_output"
+    },
+    {
+      "id": "E4",
+      "pos": [
+        170,
+        4,
+        8
+      ],
+      "face": "north",
+      "purpose": "电力送出候选分组4",
+      "group": "energy_output"
+    },
+    {
+      "id": "F3",
+      "pos": [
+        200,
+        3,
+        99
+      ],
+      "face": "west",
+      "purpose": "浓缩燃料棒输入候选",
+      "group": "item_input"
+    },
+    {
+      "id": "F4",
+      "pos": [
+        200,
+        3,
+        106
+      ],
+      "face": "west",
+      "purpose": "浓缩乏燃料棒输出候选",
+      "group": "item_output"
+    },
+    {
+      "id": "C3",
+      "pos": [
+        265,
+        3,
+        93
+      ],
+      "face": "east",
+      "purpose": "QSV崩坏冷却剂输入候选",
+      "group": "fluid_input"
+    },
+    {
+      "id": "C4",
+      "pos": [
+        265,
+        3,
+        101
+      ],
+      "face": "east",
+      "purpose": "QSV热崩坏冷却剂输出候选",
+      "group": "fluid_output"
+    },
+    {
+      "id": "E5",
+      "pos": [
+        264,
+        3,
+        188
+      ],
+      "face": "east",
+      "purpose": "QSV电力送出候选分组",
+      "group": "energy_output"
+    },
+    {
+      "id": "E6",
+      "pos": [
+        264,
+        3,
+        198
+      ],
+      "face": "east",
+      "purpose": "QSV电力送出候选分组",
+      "group": "energy_output"
+    },
+    {
+      "id": "E7",
+      "pos": [
+        264,
+        3,
+        208
+      ],
+      "face": "east",
+      "purpose": "QSV电力送出候选分组",
+      "group": "energy_output"
+    },
+    {
+      "id": "E8",
+      "pos": [
+        264,
+        3,
+        216
+      ],
+      "face": "east",
+      "purpose": "QSV电力送出候选分组",
+      "group": "energy_output"
+    },
+    {
+      "id": "C5",
+      "pos": [
+        317,
+        3,
+        84
+      ],
+      "face": "east",
+      "purpose": "IMV第三回路冷却介质入口（计划）",
+      "group": "fluid_input"
+    },
+    {
+      "id": "C6",
+      "pos": [
+        317,
+        3,
+        94
+      ],
+      "face": "east",
+      "purpose": "IMV第三回路热排流出口（计划）",
+      "group": "fluid_output"
+    },
+    {
+      "id": "F5",
+      "pos": [
+        24,
+        3,
+        241
+      ],
+      "face": "north",
+      "purpose": "IMV批量燃料棒送入分配设备（计划）",
+      "group": "item_input"
+    },
+    {
+      "id": "F6",
+      "pos": [
+        80,
+        3,
+        241
+      ],
+      "face": "north",
+      "purpose": "IMV乏棒与损坏棒分类交付（计划）",
+      "group": "item_output"
+    },
+    {
+      "id": "E9",
+      "pos": [
+        155,
+        3,
+        273
+      ],
+      "face": "south",
+      "purpose": "IMV第1列一体发电机电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "E10",
+      "pos": [
+        202,
+        3,
+        273
+      ],
+      "face": "south",
+      "purpose": "IMV第2列一体发电机电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "E11",
+      "pos": [
+        249,
+        3,
+        273
+      ],
+      "face": "south",
+      "purpose": "IMV第3列一体发电机电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "E12",
+      "pos": [
+        296,
+        3,
+        273
+      ],
+      "face": "south",
+      "purpose": "IMV第4列一体发电机电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "C7",
+      "pos": [
+        392,
+        3,
+        132
+      ],
+      "face": "east",
+      "purpose": "WSV强冷却介质入口（计划）",
+      "group": "fluid_input"
+    },
+    {
+      "id": "C8",
+      "pos": [
+        392,
+        3,
+        155
+      ],
+      "face": "east",
+      "purpose": "WSV降载热排流出口（计划）",
+      "group": "fluid_output"
+    },
+    {
+      "id": "F7",
+      "pos": [
+        24,
+        3,
+        296
+      ],
+      "face": "north",
+      "purpose": "WSV高阶燃料棒批量装入（计划）",
+      "group": "item_input"
+    },
+    {
+      "id": "F8",
+      "pos": [
+        102,
+        3,
+        296
+      ],
+      "face": "north",
+      "purpose": "WSV废棒长周期分类交付（计划）",
+      "group": "item_output"
+    },
+    {
+      "id": "E13",
+      "pos": [
+        185,
+        3,
+        333
+      ],
+      "face": "south",
+      "purpose": "WSV第1列协同电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "E14",
+      "pos": [
+        225,
+        3,
+        333
+      ],
+      "face": "south",
+      "purpose": "WSV第2列协同电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "E15",
+      "pos": [
+        265,
+        3,
+        333
+      ],
+      "face": "south",
+      "purpose": "WSV第3列协同电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "E16",
+      "pos": [
+        305,
+        3,
+        333
+      ],
+      "face": "south",
+      "purpose": "WSV第4列协同电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "E17",
+      "pos": [
+        345,
+        3,
+        333
+      ],
+      "face": "south",
+      "purpose": "WSV第5列协同电能输出（计划）",
+      "group": "energy_output"
+    },
+    {
+      "id": "E18",
+      "pos": [
+        385,
+        3,
+        333
+      ],
+      "face": "south",
+      "purpose": "WSV第6列协同电能输出（计划）",
+      "group": "energy_output"
+    }
+  ],
+  "target_voltage": "WSV",
+  "installed_hatches": {
+    "F1": "item_input",
+    "F2": "item_output",
+    "C1": "fluid_input",
+    "C2": "fluid_output",
+    "F3": "item_input",
+    "F4": "item_output",
+    "C3": "fluid_input",
+    "C4": "fluid_output",
+    "C5": "fluid_input",
+    "C6": "fluid_output",
+    "F5": "item_input",
+    "F6": "item_output",
+    "C7": "fluid_input",
+    "C8": "fluid_output",
+    "F7": "item_input",
+    "F8": "item_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 15,
+  "source_diamond_count": 8,
+  "preserved_other_diamonds": 7,
+  "changes": [
+    {
+      "pos": [
+        95,
+        3,
+        20
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i22_ultimate_honkai_reactor[facing=north]",
+      "block_entity_id": "hk3gtl:i22_ultimate_honkai_reactor"
+    },
+    {
+      "pos": [
+        8,
+        3,
+        37
+      ],
+      "role": "C1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        8,
+        3,
+        53
+      ],
+      "role": "C2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        317,
+        3,
+        84
+      ],
+      "role": "C5",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        265,
+        3,
+        93
+      ],
+      "role": "C3",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        317,
+        3,
+        94
+      ],
+      "role": "C6",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        200,
+        3,
+        99
+      ],
+      "role": "F3",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        265,
+        3,
+        101
+      ],
+      "role": "C4",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        200,
+        3,
+        106
+      ],
+      "role": "F4",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=west]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        190,
+        3,
+        108
+      ],
+      "role": "F1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=east]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        392,
+        3,
+        132
+      ],
+      "role": "C7",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        190,
+        3,
+        139
+      ],
+      "role": "F2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        392,
+        3,
+        155
+      ],
+      "role": "C8",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        264,
+        3,
+        188
+      ],
+      "role": "E5",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        264,
+        3,
+        198
+      ],
+      "role": "E6",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        264,
+        3,
+        208
+      ],
+      "role": "E7",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        264,
+        3,
+        216
+      ],
+      "role": "E8",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        24,
+        3,
+        241
+      ],
+      "role": "F5",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        80,
+        3,
+        241
+      ],
+      "role": "F6",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        155,
+        3,
+        273
+      ],
+      "role": "E9",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        202,
+        3,
+        273
+      ],
+      "role": "E10",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        249,
+        3,
+        273
+      ],
+      "role": "E11",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        296,
+        3,
+        273
+      ],
+      "role": "E12",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        24,
+        3,
+        296
+      ],
+      "role": "F7",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        102,
+        3,
+        296
+      ],
+      "role": "F8",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        185,
+        3,
+        333
+      ],
+      "role": "E13",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        225,
+        3,
+        333
+      ],
+      "role": "E14",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        265,
+        3,
+        333
+      ],
+      "role": "E15",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        305,
+        3,
+        333
+      ],
+      "role": "E16",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        345,
+        3,
+        333
+      ],
+      "role": "E17",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        385,
+        3,
+        333
+      ],
+      "role": "E18",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        116,
+        4,
+        8
+      ],
+      "role": "E1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        134,
+        4,
+        8
+      ],
+      "role": "E2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        152,
+        4,
+        8
+      ],
+      "role": "E3",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        170,
+        4,
+        8
+      ],
+      "role": "E4",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i22_ultimate_honkai_reactor",
+  "controller_json_state": "hk3gtl:i22_ultimate_honkai_reactor"
+}

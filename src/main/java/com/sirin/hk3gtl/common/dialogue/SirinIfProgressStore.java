@@ -1,7 +1,32 @@
 package com.sirin.hk3gtl.common.dialogue;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 SirinIfProgressStore 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【变更记录 #2】2026-05-31 22:45:00（第 2 次备注 · 内测三第 2 次更新）
+ * - 修改：
+ *   1) ALL_MASK 由固定 0b1_1111(5 位) 改为 (1 << SirinDialogueDefinitions.IF_BRANCH_COUNT)-1，随 IF 分支数(现 10)动态生成。
+ *   2) markUsed 越界判定 optionIndex>=5 改为 >=IF_BRANCH_COUNT，支持后 5 条新增 IF 线的去重位。
+ * - 用途：
+ *   1) 配合终局对话扩展到 10 条 IF 线，保证单人模式跨存档去读进度覆盖全部 10 位。
+ *   2) 风险点：掩码位数须与 SirinDialogueDefinitions.IF_BRANCH_COUNT 严格一致，否则后段 IF 不可选或越界。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;

@@ -1,36 +1,46 @@
 package com.sirin.hk3gtl.common.multiblock.export;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 MachineCodeWriter 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
+/**
+ * 【变更记录 #3】2026-10-31 17:42:29（第 3 次备注 · 内测5修订189）
+ * - 删除：依赖服务器默认区域设置的大小写转换。
+ * - 新增：Locale.ROOT固定大小写规则。
+ * - 修改：所有生成标识符均使用固定区域设置，避免土耳其语环境产生非法注册字段。
+ * - 用途：保持不同服务器生成的Java草稿一致；未确定的工艺仍保留原有人工确认占位。
+ */
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
+import java.util.Locale;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.Map;
 
+/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 /**
- * 生成 Hk3MachinesXxxStage 中用得到的"字段声明 + init() 注册片段"代码文本。
+ * 变更记录 #1 · 2026-09-24 16:45:00 · 内测5修订66。
+ * 删除：稳定、再生、浓缩被推断为通用精炼。新增：正式工艺类型映射。
+ * 修改：按注册ID顺序匹配；用途：防止后续手动结构导出重新引入错误配方关联。
  *
- * <h3>输出结构</h3>
- * 两段代码：
- * <ol>
- *   <li>常量声明：{@code public static MultiblockMachineDefinition XXX;}</li>
- *   <li>init 片段：{@code XXX = registrate().multiblock(...) ... .register();}</li>
- * </ol>
- * 生成到单个 {@code .txt} 文件中，玩家复制到对应 Stage 类即可。
- *
- * <h3>推断规则</h3>
- * <ul>
- *   <li>机器 id：沿用导出名（小写下划线规范化）</li>
- *   <li>recipeType：尝试按 id 关键字匹配已知 RecipeType，否则留 {@code TODO_RECIPE_TYPE}</li>
- *   <li>appearanceBlock：优先挑选 X（机壳）对应的方块 id，否则 {@code TODO_APPEARANCE_BLOCK}</li>
- *   <li>rotationState：沿用扫描到的朝向；水平 → NON_Y_AXIS</li>
- * </ul>
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>扩展 {@link #guessRecipeType} 以支持更多机器 id → RecipeType 映射</li>
- *   <li>若机壳命名惯例变更：同步修改 {@link #resolveAppearance}</li>
- * </ul>
+ * 变更记录 #2 · 2026-09-24 19:40:00 · 内测5修订68。
+ * 修改：生成的控制器渲染路径统一指向新版 default_set overlay，避免新旧贴图风格回退。
  */
 public final class MachineCodeWriter {
 
@@ -38,7 +48,7 @@ public final class MachineCodeWriter {
 
     public static String render(ExportContext ctx) {
         String machineId = sanitizeMachineId(ctx.exportName);
-        String constant = machineId.toUpperCase();
+        String constant = machineId.toUpperCase(Locale.ROOT);
         String patternClass = PatternCodeWriter.className(ctx.exportName);
         String recipeType = guessRecipeType(machineId);
         String appearance = resolveAppearance(ctx.legend);
@@ -59,13 +69,13 @@ public final class MachineCodeWriter {
         sb.append(constant).append(" = registrate()\n");
         sb.append("        .multiblock(\"").append(machineId).append("\", Hk3WorkableMultiblockMachine::new)\n");
         sb.append("        .rotationState(RotationState.").append(rotationState).append(")\n");
-        sb.append("        .recipeType(Hk3RecipeTypes.").append(recipeType).append(")\n");
+        sb.append("        .recipeType(").append(recipeType).append(")\n");
         sb.append("        .appearanceBlock(").append(appearance).append(")\n");
         sb.append("        .pattern(").append(patternClass).append("::createPattern)\n");
         sb.append("        .workableCasingRenderer(\n");
         sb.append("                new ResourceLocation(Hk3Constants.MOD_ID, \"block/casings/")
                 .append(extractCasingPath(ctx.legend)).append("\"),\n");
-        sb.append("                new ResourceLocation(Hk3Constants.MOD_ID, \"block/overlay/default\"))\n");
+        sb.append("                new ResourceLocation(Hk3Constants.MOD_ID, \"block/overlay/default_set\"))\n");
         sb.append("        .tooltips(\n");
         sb.append("                Component.translatable(\"hk3gtl.machine.")
                 .append(machineId).append(".tooltip.0\"),\n");
@@ -89,12 +99,28 @@ public final class MachineCodeWriter {
         return sb.toString();
     }
 
-    /** 按机器 id 关键字推断 RecipeType；未命中时返回 TODO 占位 */
+    /** 按机器 ID 推断完整配方类型引用；未命中时保留待人工确认的占位符。 */
     private static String guessRecipeType(String machineId) {
-        if (machineId.contains("absorption")) return "HONKAI_ABSORPTION_RECIPES";
-        if (machineId.contains("condenser")) return "HONKAI_CONDENSATION_RECIPES";
-        if (machineId.contains("smeltery")) return "SOULIUM_SMELTING_RECIPES";
-        if (machineId.contains("research") && machineId.contains("matrix")) return "ABYSS_RESEARCH_ANALYSIS_RECIPES";
+        if (machineId.contains("absorption") || machineId.contains("collection")) {
+            return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.COLLECTION";
+        }
+        if (machineId.contains("regeneration")) return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.REGENERATION";
+        if (machineId.contains("stabilization")) return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.STABILIZATION";
+        if (machineId.contains("fuel_blending")) return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.FUEL_BLENDING";
+        if (machineId.contains("calibration")) return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.CALIBRATION";
+        if (machineId.contains("concentration")) return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.CONCENTRATION";
+        if (machineId.contains("fractionation")) {
+            return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.LIQUID_REFINING";
+        }
+        if (machineId.contains("spectrum") || machineId.contains("analysis")) {
+            return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.SPECTRUM_ANALYSIS";
+        }
+        if (machineId.contains("network") || machineId.contains("injector")) {
+            return "com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.NETWORK_INJECTION";
+        }
+        if (machineId.contains("research") && machineId.contains("matrix")) {
+            return "Hk3RecipeTypes.ABYSS_RESEARCH_ANALYSIS_RECIPES";
+        }
         return "/* TODO_RECIPE_TYPE */";
     }
 
@@ -105,7 +131,7 @@ public final class MachineCodeWriter {
             return "/* TODO_APPEARANCE_BLOCK */";
         }
         if (Hk3Constants.MOD_ID.equals(casing.getNamespace()) && casing.getPath().startsWith("casing_")) {
-            return "CasingBlocks." + casing.getPath().toUpperCase() + ".get()";
+            return "CasingBlocks." + casing.getPath().toUpperCase(Locale.ROOT) + ".get()";
         }
         return "() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(\""
                 + casing.getNamespace() + "\", \"" + casing.getPath() + "\"))";
@@ -122,7 +148,7 @@ public final class MachineCodeWriter {
     }
 
     private static String sanitizeMachineId(String raw) {
-        String id = raw.toLowerCase()
+        String id = raw.toLowerCase(Locale.ROOT)
                 .replaceAll("[^a-z0-9_]+", "_")
                 .replaceAll("_+", "_")
                 .replaceAll("^_+|_+$", "");
@@ -131,3 +157,7 @@ public final class MachineCodeWriter {
         return id;
     }
 }
+
+// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+
+// 【变更记录 · 修订162】2026-10-17 14:40:05：删除导出器对旧魂钢冶炼类型的自动推断，未确定工艺继续留人工待确认占位。

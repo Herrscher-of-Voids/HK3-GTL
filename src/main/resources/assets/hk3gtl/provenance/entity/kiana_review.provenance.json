@@ -1,0 +1,130 @@
+{
+  "revision": 145,
+  "recorded": "2026-10-01T19:48:19",
+  "source": "按用户桌面新参考手工描录：紧凑翼根、宽中翼、短下翼、局部白骨架；保留人物原皮肤",
+  "description": "两侧各五层item/generated；中心Z=-0.3/-0.15/0/0.15/0.3模型像素，厚度0.06/0.04/0.04/0.04/0.06；星海alpha112/255；星海32帧×3tick，星点48帧×2tick，均为4.8秒循环。星点alpha掩模固定，避免首帧挤出遗漏。",
+  "star_count_per_side": 417,
+  "texture_size": 256,
+  "layout": {
+    "width": 38.4,
+    "center_x": 21.2,
+    "center_y": 4.8,
+    "root_x": 2,
+    "cell": 0.15
+  },
+  "layers": [
+    {
+      "side": "left",
+      "name": "frame1",
+      "texture": "kiana_left_frame1.png",
+      "frames": 1,
+      "ticks": 1,
+      "depth": 0.06,
+      "z": -0.3,
+      "translucent": false
+    },
+    {
+      "side": "left",
+      "name": "galaxy1",
+      "texture": "kiana_left_galaxy1.png",
+      "frames": 32,
+      "ticks": 3,
+      "depth": 0.04,
+      "z": -0.15,
+      "translucent": true
+    },
+    {
+      "side": "left",
+      "name": "stars",
+      "texture": "kiana_left_stars.png",
+      "frames": 48,
+      "ticks": 2,
+      "depth": 0.04,
+      "z": 0,
+      "translucent": false
+    },
+    {
+      "side": "left",
+      "name": "galaxy2",
+      "texture": "kiana_left_galaxy2.png",
+      "frames": 32,
+      "ticks": 3,
+      "depth": 0.04,
+      "z": 0.15,
+      "translucent": true
+    },
+    {
+      "side": "left",
+      "name": "frame2",
+      "texture": "kiana_left_frame2.png",
+      "frames": 1,
+      "ticks": 1,
+      "depth": 0.06,
+      "z": 0.3,
+      "translucent": false
+    },
+    {
+      "side": "right",
+      "name": "frame1",
+      "texture": "kiana_right_frame1.png",
+      "frames": 1,
+      "ticks": 1,
+      "depth": 0.06,
+      "z": -0.3,
+      "translucent": false
+    },
+    {
+      "side": "right",
+      "name": "galaxy1",
+      "texture": "kiana_right_galaxy1.png",
+      "frames": 32,
+      "ticks": 3,
+      "depth": 0.04,
+      "z": -0.15,
+      "translucent": true
+    },
+    {
+      "side": "right",
+      "name": "stars",
+      "texture": "kiana_right_stars.png",
+      "frames": 48,
+      "ticks": 2,
+      "depth": 0.04,
+      "z": 0,
+      "translucent": false
+    },
+    {
+      "side": "right",
+      "name": "galaxy2",
+      "texture": "kiana_right_galaxy2.png",
+      "frames": 32,
+      "ticks": 3,
+      "depth": 0.04,
+      "z": 0.15,
+      "translucent": true
+    },
+    {
+      "side": "right",
+      "name": "frame2",
+      "texture": "kiana_right_frame2.png",
+      "frames": 1,
+      "ticks": 1,
+      "depth": 0.06,
+      "z": 0.3,
+      "translucent": false
+    }
+  ],
+  "change_records": [
+    {
+      "record": 1,
+      "date": "2026-10-15",
+      "time": "02:01:30",
+      "timezone": "Asia/Hong_Kong",
+      "revision": 157,
+      "removed": "来源记录位于models/entity目录的旧路径。",
+      "added": "独立provenance/entity资源目录。",
+      "modified": "仅移动来源清单，保留修订145的翼形、帧数、颜色和源信息；生成器改写目标目录。",
+      "purpose": "避免TextureScaler按模型读取texture_size标量而中止首次资源重载。"
+    }
+  ]
+}

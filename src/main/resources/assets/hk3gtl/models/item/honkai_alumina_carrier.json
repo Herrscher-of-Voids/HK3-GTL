@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/energy_fuel/honkai_alumina_carrier/layer0",
+    "layer1": "hk3gtl:item/energy_fuel/honkai_alumina_carrier/layer1"
+  }
+}

@@ -1,0 +1,346 @@
+{
+  "key": "i40",
+  "machine": "hk3gtl:i40_civilization_wonder_material_synthesis_center",
+  "source": "data/hk3gtl/approved_architecture/i40.json",
+  "sha256": "c98c0a5d35f17dea9fba3b8af4f7cf633f53a56e69a7cd597fbf7ee124b7dbfc",
+  "template_sha256": "3e0f1e79e0acf3dc8893ab8c98524f30ba27ac83374ea9b43f6890188a9989fa",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_175453_488990_batch-10_01of05_I40_V1_WFV_外观已确认\\I40_文明奇观材料合成中心_四系贯流合成工场_V1_20261028",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_175453_488990_batch-10_01of05_I40_V1_WFV_外观已确认\\I40_文明奇观材料合成中心_四系贯流合成工场_V1_20261028\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_175453_488990_batch-10_01of05_I40_V1_WFV_外观已确认\\I40_文明奇观材料合成中心_四系贯流合成工场_V1_20261028\\i40\\hk3gtl-i40-cascade-foundry-v1-20261028.nbt",
+  "source_nbt_sha256": "482c3828af91a301204126c70906c1fb095a14a22a986d43cf6cf199c03b0a5a",
+  "controller": [
+    300,
+    27,
+    0
+  ],
+  "size_xyz": [
+    601,
+    291,
+    481
+  ],
+  "blocks": 12697362,
+  "ports": [
+    {
+      "id": "导能晶片与带材进料",
+      "pos": [
+        18,
+        28,
+        65
+      ],
+      "face": "west",
+      "purpose": "该系独立接口占位；实际能力待验",
+      "group": "item_input"
+    },
+    {
+      "id": "导能晶片与带材成品交接",
+      "pos": [
+        138,
+        28,
+        200
+      ],
+      "face": "east",
+      "purpose": "该系独立接口占位；实际能力待验",
+      "group": "item_output"
+    },
+    {
+      "id": "约束陶瓷与隔离件进料",
+      "pos": [
+        166,
+        28,
+        65
+      ],
+      "face": "west",
+      "purpose": "该系独立接口占位；实际能力待验",
+      "group": "item_input"
+    },
+    {
+      "id": "约束陶瓷与隔离件成品交接",
+      "pos": [
+        286,
+        28,
+        200
+      ],
+      "face": "east",
+      "purpose": "该系独立接口占位；实际能力待验",
+      "group": "item_output"
+    },
+    {
+      "id": "自组织复材与预制件进料",
+      "pos": [
+        314,
+        28,
+        65
+      ],
+      "face": "west",
+      "purpose": "该系独立接口占位；实际能力待验",
+      "group": "item_input"
+    },
+    {
+      "id": "自组织复材与预制件成品交接",
+      "pos": [
+        434,
+        28,
+        200
+      ],
+      "face": "east",
+      "purpose": "该系独立接口占位；实际能力待验",
+      "group": "fluid_output"
+    },
+    {
+      "id": "认知信息载体与传感阵列进料",
+      "pos": [
+        462,
+        28,
+        65
+      ],
+      "face": "west",
+      "purpose": "该系独立接口占位；实际能力待验",
+      "group": "item_input"
+    },
+    {
+      "id": "认知信息载体与传感阵列成品交接",
+      "pos": [
+        582,
+        28,
+        200
+      ],
+      "face": "east",
+      "purpose": "该系独立接口占位；实际能力待验",
+      "group": "item_output"
+    },
+    {
+      "id": "合法供能",
+      "pos": [
+        228,
+        27,
+        0
+      ],
+      "face": "north",
+      "purpose": "共享质检与设备服务接口占位",
+      "group": "energy_input"
+    },
+    {
+      "id": "稳定介质",
+      "pos": [
+        252,
+        27,
+        0
+      ],
+      "face": "north",
+      "purpose": "共享质检与设备服务接口占位",
+      "group": "fluid_input"
+    },
+    {
+      "id": "质检记录",
+      "pos": [
+        348,
+        27,
+        0
+      ],
+      "face": "north",
+      "purpose": "共享质检与设备服务接口占位",
+      "group": "item_output"
+    },
+    {
+      "id": "维护回执",
+      "pos": [
+        372,
+        27,
+        0
+      ],
+      "face": "north",
+      "purpose": "共享质检与设备服务接口占位",
+      "group": "maintenance"
+    }
+  ],
+  "target_voltage": "WFV",
+  "installed_hatches": {
+    "导能晶片与带材进料": "item_input",
+    "导能晶片与带材成品交接": "item_output",
+    "约束陶瓷与隔离件进料": "item_input",
+    "约束陶瓷与隔离件成品交接": "item_output",
+    "自组织复材与预制件进料": "item_input",
+    "自组织复材与预制件成品交接": "fluid_output",
+    "认知信息载体与传感阵列进料": "item_input",
+    "认知信息载体与传感阵列成品交接": "item_output",
+    "稳定介质": "fluid_input",
+    "质检记录": "item_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 182,
+  "materials": 44,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        228,
+        27,
+        0
+      ],
+      "role": "合法供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        252,
+        27,
+        0
+      ],
+      "role": "稳定介质",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        300,
+        27,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i40_civilization_wonder_material_synthesis_center[facing=north]",
+      "block_entity_id": "hk3gtl:i40_civilization_wonder_material_synthesis_center"
+    },
+    {
+      "pos": [
+        348,
+        27,
+        0
+      ],
+      "role": "质检记录",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        372,
+        27,
+        0
+      ],
+      "role": "维护回执",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        18,
+        28,
+        65
+      ],
+      "role": "导能晶片与带材进料",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        166,
+        28,
+        65
+      ],
+      "role": "约束陶瓷与隔离件进料",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        314,
+        28,
+        65
+      ],
+      "role": "自组织复材与预制件进料",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        462,
+        28,
+        65
+      ],
+      "role": "认知信息载体与传感阵列进料",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        138,
+        28,
+        200
+      ],
+      "role": "导能晶片与带材成品交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        286,
+        28,
+        200
+      ],
+      "role": "约束陶瓷与隔离件成品交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        434,
+        28,
+        200
+      ],
+      "role": "自组织复材与预制件成品交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        582,
+        28,
+        200
+      ],
+      "role": "认知信息载体与传感阵列成品交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i40_civilization_wonder_material_synthesis_center",
+  "approved_version": "V1",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "actual_bounds_xyz": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      600,
+      290,
+      480
+    ]
+  },
+  "process_scope": "完整批准建筑、主控、原位物品流体仓与全高JEI预览；能源、维护和研究接口保留占位，不声明能源调度或旅行逻辑已实现。"
+}

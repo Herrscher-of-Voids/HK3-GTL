@@ -1,0 +1,284 @@
+{
+  "key": "i38",
+  "machine": "hk3gtl:i38_imaginary_energy_rectification_hub",
+  "source": "data/hk3gtl/approved_architecture/i38.json",
+  "sha256": "26ed472dd104195366343e12562a0db2a2757f2001e982f4661523d60122691b",
+  "template_sha256": "81070e5e0f5f61393cee4016dfbe8d00c6b7e77dc1bc3e3889e37a62e1e6abc0",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_213132_527287_batch-09_04of05_I38_V1_IWV_外观已确认\\I38_虚数能量整流中枢_双极脉冲换流站_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_213132_527287_batch-09_04of05_I38_V1_IWV_外观已确认\\I38_虚数能量整流中枢_双极脉冲换流站_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_213132_527287_batch-09_04of05_I38_V1_IWV_外观已确认\\I38_虚数能量整流中枢_双极脉冲换流站_V1_20261027\\i38\\hk3gtl-i38-imaginary-rectifier-v1-20261027.nbt",
+  "source_nbt_sha256": "ec9cac49c896b40d306e2a15424fbe65116c460f173c92c136318504960c6d27",
+  "controller": [
+    280,
+    20,
+    0
+  ],
+  "size_xyz": [
+    561,
+    283,
+    501
+  ],
+  "blocks": 10992374,
+  "ports": [
+    {
+      "id": "西侧能量态崩坏能输入",
+      "pos": [
+        224,
+        20,
+        0
+      ],
+      "face": "north",
+      "purpose": "西侧能量态崩坏能输入候选；正式能力、供能合同与合法记账另验",
+      "group": "honkai_input"
+    },
+    {
+      "id": "东侧能量态崩坏能输入",
+      "pos": [
+        336,
+        20,
+        0
+      ],
+      "face": "north",
+      "purpose": "东侧能量态崩坏能输入候选；正式能力、供能合同与合法记账另验",
+      "group": "honkai_input"
+    },
+    {
+      "id": "稳定介质供给",
+      "pos": [
+        238,
+        20,
+        0
+      ],
+      "face": "north",
+      "purpose": "稳定介质供给候选；正式能力、供能合同与合法记账另验",
+      "group": "fluid_input"
+    },
+    {
+      "id": "用后介质回流",
+      "pos": [
+        322,
+        20,
+        0
+      ],
+      "face": "north",
+      "purpose": "用后介质回流候选；正式能力、供能合同与合法记账另验",
+      "group": "fluid_output"
+    },
+    {
+      "id": "整流参数与来源凭据输入",
+      "pos": [
+        252,
+        20,
+        0
+      ],
+      "face": "north",
+      "purpose": "整流参数与来源凭据输入候选；正式能力、供能合同与合法记账另验",
+      "group": "item_input"
+    },
+    {
+      "id": "合法记账与测量记录输出",
+      "pos": [
+        308,
+        20,
+        0
+      ],
+      "face": "north",
+      "purpose": "合法记账与测量记录输出候选；正式能力、供能合同与合法记账另验",
+      "group": "item_output"
+    },
+    {
+      "id": "西侧已整流HKE交付",
+      "pos": [
+        266,
+        20,
+        0
+      ],
+      "face": "north",
+      "purpose": "西侧已整流HKE交付候选；正式能力、供能合同与合法记账另验",
+      "group": "honkai_output"
+    },
+    {
+      "id": "东侧已整流HKE交付",
+      "pos": [
+        294,
+        20,
+        0
+      ],
+      "face": "north",
+      "purpose": "东侧已整流HKE交付候选；正式能力、供能合同与合法记账另验",
+      "group": "honkai_output"
+    },
+    {
+      "id": "辅助供能西端",
+      "pos": [
+        210,
+        20,
+        42
+      ],
+      "face": "west",
+      "purpose": "辅助供能西端候选；正式能力、供能合同与合法记账另验",
+      "group": "energy_input"
+    },
+    {
+      "id": "辅助供能东端",
+      "pos": [
+        350,
+        20,
+        42
+      ],
+      "face": "east",
+      "purpose": "辅助供能东端候选；正式能力、供能合同与合法记账另验",
+      "group": "energy_input"
+    }
+  ],
+  "target_voltage": "IWV",
+  "installed_hatches": {
+    "稳定介质供给": "fluid_input",
+    "用后介质回流": "fluid_output",
+    "整流参数与来源凭据输入": "item_input",
+    "合法记账与测量记录输出": "item_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 181,
+  "materials": 42,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        224,
+        20,
+        0
+      ],
+      "role": "西侧能量态崩坏能输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        238,
+        20,
+        0
+      ],
+      "role": "稳定介质供给",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        252,
+        20,
+        0
+      ],
+      "role": "整流参数与来源凭据输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        266,
+        20,
+        0
+      ],
+      "role": "西侧已整流HKE交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        280,
+        20,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i38_imaginary_energy_rectification_hub[facing=north]",
+      "block_entity_id": "hk3gtl:i38_imaginary_energy_rectification_hub"
+    },
+    {
+      "pos": [
+        294,
+        20,
+        0
+      ],
+      "role": "东侧已整流HKE交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        308,
+        20,
+        0
+      ],
+      "role": "合法记账与测量记录输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        322,
+        20,
+        0
+      ],
+      "role": "用后介质回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        336,
+        20,
+        0
+      ],
+      "role": "东侧能量态崩坏能输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        210,
+        20,
+        42
+      ],
+      "role": "辅助供能西端",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        350,
+        20,
+        42
+      ],
+      "role": "辅助供能东端",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i38_imaginary_energy_rectification_hub",
+  "approved_version": "V1",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "process_scope": "正式建筑、控制器、原位物品流体仓及完整预览；崩坏能、能源与维护接口允许位置保留，不虚称未实现能力或工艺已运行。"
+}

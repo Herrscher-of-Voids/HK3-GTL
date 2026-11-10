@@ -1,0 +1,29 @@
+{
+  "_comment": "【变更记录 #1】2026-10-01 14:16:54（修订129）：服务端账本补授，无物品触发或奖励。",
+  "display": {
+    "icon": {
+      "item": "hk3gtl:stabilized_soulium_proto_mass"
+    },
+    "title": {
+      "translate": "hk3gtl.guide.research.rn-sra.title"
+    },
+    "description": {
+      "translate": "hk3gtl.guide.research.rn-sra.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "verified": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "verified"
+    ]
+  ],
+  "parent": "hk3gtl:guide/research/rn-spc"
+}

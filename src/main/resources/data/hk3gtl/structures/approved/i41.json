@@ -1,0 +1,206 @@
+{
+  "key": "i41",
+  "machine": "hk3gtl:i41_civilization_energy_dispatch_hub",
+  "source": "data/hk3gtl/approved_architecture/i41.json",
+  "sha256": "cca2adf2f48b6f2a63979bea8021b166d9560f98abcc968bc6307686df13713e",
+  "template_sha256": "a7d0e8b34c3533ea334864fb04a478cae14a9b7f551efe76bd75f4a6b2de0076",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_232846_136837_batch-10_02of05_I41_V3_IWV_外观已确认\\I41_文明能源调度中枢_宇宙海关与十二港约束环城_V3_20261028",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_232846_136837_batch-10_02of05_I41_V3_IWV_外观已确认\\I41_文明能源调度中枢_宇宙海关与十二港约束环城_V3_20261028\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_232846_136837_batch-10_02of05_I41_V3_IWV_外观已确认\\I41_文明能源调度中枢_宇宙海关与十二港约束环城_V3_20261028\\i41\\hk3gtl-i41-cosmic-customs-v3-20261028.nbt",
+  "source_nbt_sha256": "c5a5eccb3fa7bd65ba35613ca584eca360cfa3b2ed8b5aac1d4f51587509862b",
+  "controller": [
+    264,
+    24,
+    0
+  ],
+  "size_xyz": [
+    529,
+    289,
+    529
+  ],
+  "blocks": 12119638,
+  "ports": [
+    {
+      "id": "I38合法入账记录",
+      "pos": [
+        198,
+        24,
+        0
+      ],
+      "face": "north",
+      "purpose": "外观占位；正式能力另行验收",
+      "group": "item_input"
+    },
+    {
+      "id": "绑定人授权输入",
+      "pos": [
+        220,
+        24,
+        0
+      ],
+      "face": "north",
+      "purpose": "外观占位；正式能力另行验收",
+      "group": "item_input"
+    },
+    {
+      "id": "已登记负载输入",
+      "pos": [
+        242,
+        24,
+        0
+      ],
+      "face": "north",
+      "purpose": "外观占位；正式能力另行验收",
+      "group": "item_input"
+    },
+    {
+      "id": "授权调度回执",
+      "pos": [
+        286,
+        24,
+        0
+      ],
+      "face": "north",
+      "purpose": "外观占位；正式能力另行验收",
+      "group": "item_output"
+    },
+    {
+      "id": "告警与历史查询",
+      "pos": [
+        308,
+        24,
+        0
+      ],
+      "face": "north",
+      "purpose": "外观占位；正式能力另行验收",
+      "group": "research"
+    },
+    {
+      "id": "维护物资交接",
+      "pos": [
+        330,
+        24,
+        0
+      ],
+      "face": "north",
+      "purpose": "外观占位；正式能力另行验收",
+      "group": "maintenance"
+    }
+  ],
+  "target_voltage": "IWV",
+  "installed_hatches": {
+    "I38合法入账记录": "item_input",
+    "绑定人授权输入": "item_input",
+    "已登记负载输入": "item_input",
+    "授权调度回执": "item_output"
+  },
+  "required_abilities": [
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 182,
+  "materials": 43,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        198,
+        24,
+        0
+      ],
+      "role": "I38合法入账记录",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        220,
+        24,
+        0
+      ],
+      "role": "绑定人授权输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        242,
+        24,
+        0
+      ],
+      "role": "已登记负载输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        264,
+        24,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i41_civilization_energy_dispatch_hub[facing=north]",
+      "block_entity_id": "hk3gtl:i41_civilization_energy_dispatch_hub"
+    },
+    {
+      "pos": [
+        286,
+        24,
+        0
+      ],
+      "role": "授权调度回执",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        308,
+        24,
+        0
+      ],
+      "role": "告警与历史查询",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        330,
+        24,
+        0
+      ],
+      "role": "维护物资交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i41_civilization_energy_dispatch_hub",
+  "approved_version": "V3",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "actual_bounds_xyz": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      528,
+      288,
+      528
+    ]
+  },
+  "process_scope": "完整批准建筑、主控、原位物品流体仓与全高JEI预览；能源、维护和研究接口保留占位，不声明能源调度或旅行逻辑已实现。"
+}

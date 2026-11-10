@@ -1,0 +1,242 @@
+{
+  "key": "i36",
+  "machine": "hk3gtl:i36_honkai_reality_stability_anchor",
+  "source": "data/hk3gtl/approved_architecture/i36.json",
+  "sha256": "06ae739d41910277253f0a8b5fe0b8553aaefebd0988aed1376c628a048a488d",
+  "template_sha256": "cff864bacef709b991721d36ce901032a298580617eac206a3acc9212c6e8d67",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_101520_065120_batch-09_03of05_I36_V1_QSV_外观已确认\\I36_崩坏能现实稳定锚_双叉谐振稳相井_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_101520_065120_batch-09_03of05_I36_V1_QSV_外观已确认\\I36_崩坏能现实稳定锚_双叉谐振稳相井_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_101520_065120_batch-09_03of05_I36_V1_QSV_外观已确认\\I36_崩坏能现实稳定锚_双叉谐振稳相井_V1_20261027\\i36\\hk3gtl-i36-reality-anchor-v1-20261027.nbt",
+  "source_nbt_sha256": "43e4d2932e72c3d758ea295ea7602576580a26754b1cb19a04e6d076c0ec8cf1",
+  "controller": [
+    100,
+    18,
+    8
+  ],
+  "size_xyz": [
+    201,
+    151,
+    181
+  ],
+  "blocks": 1161419,
+  "ports": [
+    {
+      "id": "基础稳定耗材补充",
+      "pos": [
+        84,
+        18,
+        8
+      ],
+      "face": "north",
+      "purpose": "基础稳定耗材补充候选；正式能力和运行链另验",
+      "group": "item_input"
+    },
+    {
+      "id": "用后耗材回收",
+      "pos": [
+        116,
+        18,
+        8
+      ],
+      "face": "north",
+      "purpose": "用后耗材回收候选；正式能力和运行链另验",
+      "group": "item_output"
+    },
+    {
+      "id": "标定与工况资料输入",
+      "pos": [
+        76,
+        18,
+        8
+      ],
+      "face": "north",
+      "purpose": "标定与工况资料输入候选；正式能力和运行链另验",
+      "group": "item_input"
+    },
+    {
+      "id": "覆盖状态与记录输出",
+      "pos": [
+        124,
+        18,
+        8
+      ],
+      "face": "north",
+      "purpose": "覆盖状态与记录输出候选；正式能力和运行链另验",
+      "group": "item_output"
+    },
+    {
+      "id": "西侧持续供能",
+      "pos": [
+        64,
+        18,
+        12
+      ],
+      "face": "west",
+      "purpose": "西侧持续供能候选；正式能力和运行链另验",
+      "group": "energy_input"
+    },
+    {
+      "id": "东侧持续供能",
+      "pos": [
+        136,
+        18,
+        12
+      ],
+      "face": "east",
+      "purpose": "东侧持续供能候选；正式能力和运行链另验",
+      "group": "energy_input"
+    },
+    {
+      "id": "稳定介质补给",
+      "pos": [
+        64,
+        18,
+        39
+      ],
+      "face": "west",
+      "purpose": "稳定介质补给候选；正式能力和运行链另验",
+      "group": "fluid_input"
+    },
+    {
+      "id": "用后介质回流",
+      "pos": [
+        136,
+        18,
+        39
+      ],
+      "face": "east",
+      "purpose": "用后介质回流候选；正式能力和运行链另验",
+      "group": "fluid_output"
+    }
+  ],
+  "target_voltage": "QSV",
+  "installed_hatches": {
+    "基础稳定耗材补充": "item_input",
+    "用后耗材回收": "item_output",
+    "标定与工况资料输入": "item_input",
+    "覆盖状态与记录输出": "item_output",
+    "稳定介质补给": "fluid_input",
+    "用后介质回流": "fluid_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 181,
+  "materials": 24,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        76,
+        18,
+        8
+      ],
+      "role": "标定与工况资料输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        84,
+        18,
+        8
+      ],
+      "role": "基础稳定耗材补充",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        100,
+        18,
+        8
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i36_honkai_reality_stability_anchor[facing=north]",
+      "block_entity_id": "hk3gtl:i36_honkai_reality_stability_anchor"
+    },
+    {
+      "pos": [
+        116,
+        18,
+        8
+      ],
+      "role": "用后耗材回收",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        124,
+        18,
+        8
+      ],
+      "role": "覆盖状态与记录输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        64,
+        18,
+        12
+      ],
+      "role": "西侧持续供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        136,
+        18,
+        12
+      ],
+      "role": "东侧持续供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        64,
+        18,
+        39
+      ],
+      "role": "稳定介质补给",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        136,
+        18,
+        39
+      ],
+      "role": "用后介质回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i36_honkai_reality_stability_anchor",
+  "approved_version": "V1",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "process_scope": "正式建筑、控制器、原位物品流体仓及完整预览；崩坏能、能源与维护接口允许位置保留，不虚称未实现能力或工艺已运行。"
+}

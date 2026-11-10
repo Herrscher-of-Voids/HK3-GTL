@@ -1,7 +1,31 @@
 package com.sirin.hk3gtl.common.machine.research;
 
 
-
+/**
+ * 【文件职责】
+ * - 定义 Hk3ResearchMatrixMachine 机器行为与结构逻辑。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【变更记录 #2】2026-06-28 02:45:00（第 2 次备注 · 内测三第 23 次更新）
+ * - 删除：无。
+ * - 新增：重写 enableMultiRecipe() 返回 false。
+ * - 修改：无业务逻辑改动。
+ * - 用途：研究矩阵由 onServerTick 全局驱动、不跑标准配方，需排除基类新增的“多配方同时运行”逻辑，
+ *   避免挂载无意义/可能干扰研究扣电的 RecipeLogic。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
@@ -32,45 +56,13 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.WeakHashMap;
 
-/**
- * 海渊研究分析矩阵专用机器 —— 不走 GT RecipeType，自管研究流程。
- *
- * <h3>运行模型</h3>
- * <ol>
- *   <li><b>待机</b>：机器成型后，即使无研究任务也每 tick 消耗 {@link Hk3Constants#RESEARCH_MATRIX_IDLE_EUT_PER_TICK}</li>
- *   <li><b>研究中</b>：玩家通过 {@link Hk3ResearchManager} 的 {@code submitResearchById} 远程触发，
- *       机器记录 {@link #activeResearch}，每 tick 扣 IDLE + 额外能耗并推进进度</li>
- *   <li><b>玩家离线兜底</b>：启动研究的玩家离线时，研究进度与能耗整体暂停；上线后自动恢复</li>
- *   <li><b>进度到达</b>：直接消耗启动玩家背包中的提交物，标记研究完成</li>
- * </ol>
- *
- * <h3>与 Pattern 的约束</h3>
- * <ul>
- *   <li>Pattern 中不得包含 {@code autoAbilities(recipeTypes)} —— 机器无输入/输出舱</li>
- *   <li>Pattern 中不得包含 {@code PARALLEL_HATCH} —— 每台机器同时只能研究 1 个节点</li>
- *   <li>仅允许 GT 原生能源输入仓和崩坏能输入仓用于供电</li>
- * </ul>
- *
- * <h3>能量获取策略</h3>
- * 因 GT {@code WorkableElectricMultiblockMachine} 的 {@code getEnergyContainer()} 接口在不同版本
- * 中签名不稳定，此处采用 {@link #consumeEnergy} 统一走反射 fallback + 捕获异常：
- * 扣不到电就暂停推进、不抛异常、不崩溃。
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>新增研究类型门槛：在 {@link #tryStart} 前置条件处增加判定</li>
- *   <li>改动待机/研究能耗：去改 {@link Hk3Constants}（集中常量，不硬编码到机器内部）</li>
- *   <li>改动难度曲线：去改 {@link ResearchDifficulty}</li>
- *   <li>想支持研究物品回退（中断时返还）：在 {@link #cancel} 与 {@link #saveActiveResearchDraft}
- *       中增加快照 NBT</li>
- *   <li>不要在本机器内做"给玩家发许可物"之类副作用 —— 那是 {@link Hk3ResearchManager} 的事</li>
- * </ul>
- *
- * <h3>NBT 持久化</h3>
- * activeResearch 必须持久化到 BlockEntity NBT，否则玩家离开区块 / 重启游戏后研究进度丢失。
- * 使用 {@link #saveCustomData} / {@link #loadCustomData} 挂到 GT 的 persistent 存储。
- */
+/** 中文说明：该处说明已按当前代码行为整理。*/
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+/**
+ * 【变更记录 #3】2026-09-30 15:50:54（内测5修订109）
+ * 删除：旧线性压力与旁置设施加速。新增：机器位置的同队真实锚查询。
+ * 修改：旧课题仍是原个人归属，采用非S01复合压力；用途：不以旧入口绕过新公式。
+ */
 public class Hk3ResearchMatrixMachine extends Hk3WorkableMultiblockMachine {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -227,9 +219,10 @@ public class Hk3ResearchMatrixMachine extends Hk3WorkableMultiblockMachine {
             return;
         }
 
-        double gazeFactor = Hk3GazeManager.getResearchSpeedFactor(starter);
-        double facilityFactor = Hk3GazeManager.getFacilityFactor(starter);
-        double speedFactor = Math.max(0.01D, gazeFactor * facilityFactor);
+        var team = com.sirin.hk3gtl.common.research.Hk3ResearchTeams.scope(starter.server, starter.getUUID());
+        double gaze = com.sirin.hk3gtl.common.research.Hk3ResearchTeams.gaze(starter.server, team);
+        double suppression = com.sirin.hk3gtl.common.gaze.Hk3ResearchSuppression.at(serverLevel, getPos(), team);
+        double speedFactor = com.sirin.hk3gtl.common.research.Hk3ResearchMath.speed(2, gaze, suppression, false, false);
 
         activeResearch = activeResearch.withSpeedFactor(speedFactor).advance(speedFactor);
         if (activeResearch.progress >= activeResearch.totalTicks) {
@@ -379,13 +372,7 @@ public class Hk3ResearchMatrixMachine extends Hk3WorkableMultiblockMachine {
         return null;
     }
 
-    /**
-     * 尝试从能源仓扣除指定能量。失败返回 false 且不扣一分能量（all-or-nothing）。
-     *
-     * <p>为什么反射 fallback：GTCEu 在 1.4.x 范围内 {@code getEnergyContainer()} 方法存在，
-     * 但返回类型在不同子版本的签名偶尔会变化（子接口继承链调整）。直接在编译期引用具体类型
-     * 可能跨版本不兼容。此处先尝试反射调用，失败时返回 true 让流程继续（避免卡死）。</p>
-     */
+    /** 中文说明：该处说明已按当前代码行为整理。*/
     private boolean consumeEnergy(long amount) {
         // 只使用 GT 原生能源仓；本模组不再注册自定义 EU/激光/并行仓。
         try {

@@ -9,6 +9,11 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.content.Content;
 import com.gregtechceu.gtceu.api.recipe.content.ContentModifier;
 import com.gregtechceu.gtceu.api.recipe.modifier.ParallelLogic;
+import com.sirin.hk3gtl.common.recipe.power.Hk3RecipePower;
+import com.sirin.hk3gtl.common.research.Hk3RecipeAccess;
+import com.sirin.hk3gtl.common.research.Hk3ResearchRequirementPolicy;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
 import it.unimi.dsi.fastutil.longs.LongArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import org.slf4j.Logger;
@@ -18,7 +23,19 @@ import org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper;
 import java.math.BigInteger;
 import java.util.*;
 
-
+/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
+/**
+ * 【变更记录 #1】2026-10-17 16:27:36（第1次备注 · 修订165）
+ * 删除：高阶标记工况EU倍乘依赖double与合并仅保留首配方数据的路径。
+ * 新增：精确EU倍乘、超long标记拒绝、最高额定要求和全部费用合并。
+ * 修改：未标记配方沿用原算法；用途：规划失败不投料，不让饱和少付或首配方低电压掩盖高阶工况。
+ */
+/**
+ * 【变更记录 #2】2026-11-04 00:11:25（第2次备注 · 内测5修订193）
+ * 删除：合并批次只保留首配方研究权限的路径。
+ * 新增：原方及实际处理副本的全部门槛去重快照，非法元数据直接拒绝规划。
+ * 修改：单方与多方均复制数据后写入权限；用途：运行、续跑及重启复检不能漏掉后续配方，不改能源和工业审批。
+ */
 public final class Hk3RecipeCalculationHelper {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -52,6 +69,7 @@ public final class Hk3RecipeCalculationHelper {
         copyContentsInPlace(copy.outputs, mod);
         copyContentsInPlace(copy.tickInputs, mod);
         copyContentsInPlace(copy.tickOutputs, mod);
+        Hk3RecipePower.scale(recipe, copy, multiplier);
         return copy;
     }
 
@@ -335,18 +353,32 @@ public final class Hk3RecipeCalculationHelper {
         List<GTRecipe> processed = parallelData.getProcessedRecipeList();
         if (processed == null || processed.isEmpty()) return null;
 
-        if (processed.size() == 1) return processed.get(0);
+        var requirements = new LinkedHashSet<String>();
+        for (var recipes : List.of(parallelData.getOriginRecipeList(), processed)) {
+            for (var recipe : recipes) {
+                var effective = Hk3RecipeAccess.effectiveRequirements(recipe);
+                if (!effective.valid()) return null;
+                requirements.addAll(effective.requirements());
+            }
+        }
 
         GTRecipe merged = processed.get(0).copy();
         for (int i = 1; i < processed.size(); i++) {
             mergeRecipeInto(merged, processed.get(i));
         }
 
+        // GT配方副本可能共享data，权限快照不得写回注册原方。
+        merged.data = merged.data.copy();
+        var gates = new ListTag();
+        requirements.forEach(id -> gates.add(StringTag.valueOf(id)));
+        merged.data.put(Hk3ResearchRequirementPolicy.METADATA_KEY, gates);
+
         return merged;
     }
 
     /** 将 other 配方的所有 Content 合并到 base 配方 */
     private static void mergeRecipeInto(GTRecipe base, GTRecipe other) {
+        Hk3RecipePower.merge(base, other);
         mergeContentMap(base.inputs, other.inputs);
         mergeContentMap(base.outputs, other.outputs);
         mergeContentMap(base.tickInputs, other.tickInputs);

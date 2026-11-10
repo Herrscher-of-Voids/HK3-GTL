@@ -1,0 +1,7 @@
+{
+  "_comment": "变更记录 #1 2026-09-27 01:54:24（内测5修订86）：删除无；新增封装试验样件；复用已确认棒壳贴图，不新增美术候选。",
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/honkai_fuel_rod_casing"
+  }
+}

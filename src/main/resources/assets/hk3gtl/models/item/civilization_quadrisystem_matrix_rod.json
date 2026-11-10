@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/civilization_quadrisystem_matrix_rod/layer0",
+    "layer1": "hk3gtl:item/main_material/civilization_quadrisystem_matrix_rod/layer1"
+  }
+}

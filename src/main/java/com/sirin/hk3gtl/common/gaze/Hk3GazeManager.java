@@ -1,34 +1,40 @@
 package com.sirin.hk3gtl.common.gaze;
 
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 
-
+/**
+ * 【文件职责】
+ * - 注视度统一入口：负责注视读写、增长修正、缓冲单元、研究速度与设施加成。
+ * - 调用链：事件系统/研究系统 -> Hk3GazeManager -> Hk3GazeThresholdWatcher。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 删除“只做简单加减、不处理缓冲与阈值”的旧实现。
+ * - 新增：
+ *   1) 新增注视缓冲单元 10 分钟状态与立即 -50 效果。
+ *   2) 新增注视增长修正（抑制穹顶等效设施 -30%、缓冲激活时增长减半）。
+ *   3) 新增设施加成扩展：舰载科研 2.0x、神之键展示 1.1~1.3x。
+ * - 修改：
+ *   1) 研究速度改用有效注视值（缓冲状态可缓解速度衰减）。
+ *   2) 注视变化后统一触发阈值观察器，避免阈值消息散落在各系统。
+ * - 用途：
+ *   1) 保证注视系统可完整闭环并与研究/事件/机器效率联动。
+ */
+/**
+ * 【变更记录 #1】2026-09-30 15:49:23（第1次编号备注 · 内测5修订109）
+ * 删除：过期的计算或无运行依据的分支；保留历史备注。
+ * 新增／修改：记录来源与峰值，里程碑去重、安全加减、统一主世界计时；同步个人有效值和在线团队最高值；旧研究改用批准公式。
+ * 用途：统一注视与研究联动，服务端判定；不新增结构或贴图。
+ */
+/** 【变更记录 #2】2026-10-01 04:09:54（修订128）：删除：旧固定上限或被替代的分支；新增/修改：彩蛋改读非手工注视结算的前后值，缓冲降零有明确来源；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #3】2026-10-01 04:58:34（修订128）：删除：旧固定上限或被替代的分支；新增/修改：实际降低注视度的有效缓冲计数；搬运、无效果使用、管理员改值不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
 public final class Hk3GazeManager {
 
     public static final String TAG_GAZE_LEVEL = "hk3gtl_gaze_level";
     public static final String TAG_GAZE_BUFFER_UNTIL = "hk3gtl_gaze_buffer_until";
     private static final int BUFFER_OFFSET = 50;
-
-    private static final ResourceLocation FINALITY_BUFFER_ID =
-            new ResourceLocation(Hk3Constants.MOD_ID, "finality_pressure_buffer_array");
-    private static final ResourceLocation QUANTUM_COMPUTER_ID =
-            new ResourceLocation(Hk3Constants.MOD_ID, "quantum_entanglement_computer");
-    private static final ResourceLocation SHIPBOARD_RESEARCH_ID =
-            new ResourceLocation(Hk3Constants.MOD_ID, "shipboard_finality_observation");
-    private static final ResourceLocation DIVINE_KEY_GALLERY_ID =
-            new ResourceLocation(Hk3Constants.MOD_ID, "divine_key_gallery");
-    private static final ResourceLocation SHIPBOARD_DIVINE_KEY_ID =
-            new ResourceLocation(Hk3Constants.MOD_ID, "shipboard_divine_key_shrine");
-    private static final ResourceLocation SUPPRESSION_ID =
-            new ResourceLocation(Hk3Constants.MOD_ID, "honkai_phase_purification_plant");
 
     private Hk3GazeManager() {}
 
@@ -37,10 +43,21 @@ public final class Hk3GazeManager {
     }
 
     public static void setGaze(ServerPlayer player, int level) {
+        setGaze(player, level, "manual");
+    }
+
+    private static void setGaze(ServerPlayer player, int level, String source) {
         int old = getGaze(player);
         int clamped = Math.max(Hk3Constants.GAZE_MIN, Math.min(Hk3Constants.GAZE_MAX, level));
         player.getPersistentData().putInt(TAG_GAZE_LEVEL, clamped);
+        Hk3GazeJournal.record(player.getPersistentData(), source, old, clamped, getGameTime(player));
         Hk3GazeThresholdWatcher.onGazeChanged(player, old, clamped);
+        if(!source.equals("manual")) com.sirin.hk3gtl.common.easter.Hk3EggRuntime.observe(player,"gaze",
+            com.sirin.hk3gtl.common.easter.Hk3EggRuntime.fields("gaze",Integer.toString(clamped),"old",Integer.toString(old),"source",source));
+        if(source.equals("buffer-unit")&&clamped<old){
+            long uses=com.sirin.hk3gtl.common.easter.Hk3EggVanilla.increment(player,"effectiveBuffers",20);
+            com.sirin.hk3gtl.common.easter.Hk3EggRuntime.observe(player,"effective_buffer",java.util.Map.of("count",Long.toString(uses)));
+        }
         syncToClient(player);
     }
 
@@ -53,7 +70,9 @@ public final class Hk3GazeManager {
             com.sirin.hk3gtl.common.network.Hk3Network.CHANNEL.send(
                     net.minecraftforge.network.PacketDistributor.PLAYER.with(() -> player),
                     new com.sirin.hk3gtl.common.network.GazeSyncS2CPacket(
-                            getGaze(player), Hk3Constants.GAZE_MAX, isBufferActive(player)));
+                            getGaze(player), Hk3Constants.GAZE_MAX, isBufferActive(player), getEffectiveGaze(player),
+                            (int) com.sirin.hk3gtl.common.research.Hk3ResearchTeams.gaze(player.server,
+                                    com.sirin.hk3gtl.common.research.Hk3ResearchTeams.scope(player.server,player.getUUID()))));
         } catch (Throwable ignored) {
             // HUD 同步失败不影响服务端注视逻辑
         }
@@ -65,18 +84,21 @@ public final class Hk3GazeManager {
 
     public static int addGaze(ServerPlayer player, int amount, String reason) {
         int delta = Hk3GazeGrowth.adjustGrowth(player, amount, reason);
-        int next = getGaze(player) + delta;
-        setGaze(player, next);
+        int next = Hk3GazeRules.add(getGaze(player), delta, Hk3Constants.GAZE_MAX);
+        setGaze(player, next, reason);
+        return getGaze(player);
+    }
+
+    /** 一次性来源先登记再增长，阈值回调重入也不会重复收费；不追补旧事件。 */
+    public static int addGazeOnce(ServerPlayer player, int amount, String source) {
+        if (Hk3GazeJournal.claim(player.getPersistentData(), source)) return addGaze(player, amount, source);
         return getGaze(player);
     }
 
     /** 有效注视值：缓冲状态期间按 offset 抵消，用于研究/机器效率计算。 */
     public static int getEffectiveGaze(Player player) {
-        int raw = getGaze(player);
-        if (player instanceof ServerPlayer serverPlayer && isBufferActive(serverPlayer)) {
-            return Math.max(Hk3Constants.GAZE_MIN, raw - BUFFER_OFFSET);
-        }
-        return raw;
+        return Hk3GazeRules.effective(getGaze(player),
+                player instanceof ServerPlayer sp && isBufferActive(sp));
     }
 
     /**
@@ -86,13 +108,13 @@ public final class Hk3GazeManager {
         long now = getGameTime(player);
         long until = Math.max(now + durationTicks, player.getPersistentData().getLong(TAG_GAZE_BUFFER_UNTIL));
         player.getPersistentData().putLong(TAG_GAZE_BUFFER_UNTIL, until);
-        setGaze(player, getGaze(player) - BUFFER_OFFSET);
+        setGaze(player, getGaze(player) - BUFFER_OFFSET, "buffer-unit");
     }
 
     public static boolean isBufferActive(ServerPlayer player) {
         long until = player.getPersistentData().getLong(TAG_GAZE_BUFFER_UNTIL);
         long now = getGameTime(player);
-        if (until <= now) {
+        if (!Hk3GazeRules.bufferActive(until, now)) {
             if (until != 0L) {
                 player.getPersistentData().remove(TAG_GAZE_BUFFER_UNTIL);
             }
@@ -101,77 +123,20 @@ public final class Hk3GazeManager {
         return true;
     }
 
-    /**
-     * 研究速度衰减：max(floor, 1 - gaze / divisor)。
-     * 若玩家附近有终焉压力缓冲阵，floor 至少提升到 0.4。
-     */
+    /** 兼容旧研究入口：使用在线团队最高有效值与已批准复合压力，不扫描控制器加速。 */
     public static double getResearchSpeedFactor(Player player) {
-        double floor = Hk3Constants.RESEARCH_SPEED_FLOOR;
-        if (player instanceof ServerPlayer serverPlayer && hasControllerNearby(serverPlayer, FINALITY_BUFFER_ID, 16)) {
-            floor = Math.max(floor, 0.4D);
+        double gaze = getEffectiveGaze(player);
+        if (player instanceof ServerPlayer sp) {
+            gaze = com.sirin.hk3gtl.common.research.Hk3ResearchTeams.gaze(sp.server,
+                    com.sirin.hk3gtl.common.research.Hk3ResearchTeams.scope(sp.server, sp.getUUID()));
         }
-        double base = 1.0D - getEffectiveGaze(player) / Hk3Constants.GAZE_DECAY_DIVISOR;
-        return Math.max(floor, base);
+        return com.sirin.hk3gtl.common.research.Hk3ResearchMath.speed(2, gaze, 0, false, false);
     }
 
-    /**
-     * 研究设施协作加成：
-     * - 量子纠缠计算机：1.5x
-     * - 舰载终焉观测：2.0x（覆盖前者）
-     * - 神之键展示设施：每台 +0.1，最多 +0.3
-     */
-    public static double getFacilityFactor(ServerPlayer player) {
-        double factor = 1.0D;
-        if (hasControllerNearby(player, QUANTUM_COMPUTER_ID, 16)) {
-            factor = Math.max(factor, 1.5D);
-        }
-        if (hasControllerNearby(player, SHIPBOARD_RESEARCH_ID, 16)) {
-            factor = Math.max(factor, 2.0D);
-        }
-
-        int divineKeyDisplays = countControllersNearby(player, 16, DIVINE_KEY_GALLERY_ID, SHIPBOARD_DIVINE_KEY_ID);
-        if (divineKeyDisplays > 0) {
-            factor *= 1.0D + Math.min(0.3D, divineKeyDisplays * 0.1D);
-        }
-        return factor;
-    }
-
-    static boolean hasSuppressionNearby(ServerPlayer player) {
-        return hasControllerNearby(player, SUPPRESSION_ID, 16);
-    }
-
-    private static boolean hasControllerNearby(ServerPlayer player, ResourceLocation blockId, int radius) {
-        return countControllersNearby(player, radius, blockId) > 0;
-    }
-
-    private static int countControllersNearby(ServerPlayer player, int radius, ResourceLocation... blockIds) {
-        Level level = player.level();
-        BlockPos center = player.blockPosition();
-        int chunkRadius = (radius >> 4) + 1;
-        int chunkX = center.getX() >> 4;
-        int chunkZ = center.getZ() >> 4;
-        long radiusSq = (long) radius * radius;
-        int count = 0;
-        for (int dx = -chunkRadius; dx <= chunkRadius; dx++) {
-            for (int dz = -chunkRadius; dz <= chunkRadius; dz++) {
-                var chunk = level.getChunkSource().getChunkNow(chunkX + dx, chunkZ + dz);
-                if (chunk == null) continue;
-                for (BlockEntity blockEntity : chunk.getBlockEntities().values()) {
-                    BlockPos pos = blockEntity.getBlockPos();
-                    if (pos.distSqr(center) > radiusSq) continue;
-                    ResourceLocation currentId = BuiltInRegistries.BLOCK.getKey(blockEntity.getBlockState().getBlock());
-                    for (ResourceLocation blockId : blockIds) {
-                        if (blockId.equals(currentId)) {
-                            count++;
-                        }
-                    }
-                }
-            }
-        }
-        return count;
-    }
+    /** 旧设施旁置加成已停用；ERM/W13须走实际供能与授权路径。 */
+    public static double getFacilityFactor(ServerPlayer player) { return 1.0D; }
 
     private static long getGameTime(ServerPlayer player) {
-        return player.level() instanceof ServerLevel level ? level.getGameTime() : 0L;
+        return player.server.overworld().getGameTime();
     }
 }

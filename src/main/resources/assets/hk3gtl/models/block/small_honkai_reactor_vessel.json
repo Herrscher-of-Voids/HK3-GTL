@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "hk3gtl:block/small_honkai_reactor_vessel"
+  }
+}

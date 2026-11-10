@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/paired_entangled_lattice_frame"
+  },
+  "_comment": "【变更记录 #1】2026-10-17 16:46:30（修订165）：删除无；新增用户已确认的主材物品模型；修改使用GT原图整体染色候选原字节；用途：对应hk3gtl:paired_entangled_lattice_frame，审批见主材资产清单。"
+}

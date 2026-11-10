@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:cev_processor_mainframe"
+  ],
+  "_comment_revision75": "变更记录 #1 2026-09-26 22:06:33：补入本电压新系列，禁止跨级替代。"
+}

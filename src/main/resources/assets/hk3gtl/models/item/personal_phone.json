@@ -1,0 +1,7 @@
+{
+  "_comment": "变更记录 #1 2026-09-30 18:18:05 修订112：不再借用导航模块，新增独立16像素金属紫金手机图标。",
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/personal_phone"
+  }
+}

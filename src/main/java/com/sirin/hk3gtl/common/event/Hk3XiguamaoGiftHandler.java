@@ -1,6 +1,29 @@
 package com.sirin.hk3gtl.common.event;
 
-
+/**
+ * 【文件职责】
+ * - 为特定玩家 ID（xiguamao）发放“专属首次进入世界礼物”的隐藏彩蛋处理器。
+ * - 核心输入：玩家登录事件 PlayerLoggedInEvent。
+ * - 核心输出：向匹配玩家背包发放礼物物品，并在聊天栏弹出西琳台词。
+ * - 关键调用链：Forge 事件总线 -> onPlayerLoggedIn -> 名称匹配/去重标记 -> 发放物品 + 发送消息。
+ *
+ * 【变更记录 #1】2026-05-31 22:10:00（第 1 次备注 · 内测二第 1 次更新）
+ * - 删除：
+ *   1) 无（新建文件）。
+ * - 新增：
+ *   1) 新增 Hk3XiguamaoGiftHandler：监听 PlayerLoggedInEvent，对玩家名 xiguamao 发放首次入世礼物。
+ *   2) 触发条件：玩家名等于 xiguamao（忽略大小写）且当前存档该玩家未触发过本彩蛋。
+ *   3) 去重机制：写入 player.getPersistentData() 标记 GIFT_FLAG（与版本欢迎/事件标记同一持久化层），
+ *      该数据随存档内玩家档案保存，故“每个世界仅触发一次”。
+ *   4) 失败处理：礼物物品 ID 通过 ForgeRegistries 动态解析（wmp/sov 为外部模组），缺失时跳过并记 warn，
+ *      不抛异常、不阻塞登录；超过最大堆叠数的数量按 maxStackSize 拆分发放，背包满则掉落地面。
+ * - 修改：
+ *   1) 无（新建文件，不改动既有彩蛋逻辑，避免污染 E-EG 事件/研究/叙事链）。
+ * - 用途：
+ *   1) 业务目标：给“多次站在西琳面前的文明建造者”的一次性礼物彩蛋。
+ *   2) 系统位置：独立于 Hk3EasterEggChecker 的轻量登录处理器（SRP），不参与研究/叙事桥接。
+ *   3) 风险点：仅服务端执行（ServerPlayer），动态解析外部模组物品需 null 兜底，避免硬依赖导致缺模组时崩溃。
+ */
 
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraft.core.registries.BuiltInRegistries;

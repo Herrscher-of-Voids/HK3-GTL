@@ -1,7 +1,34 @@
 package com.sirin.hk3gtl.common.network;
 
 
-
+/**
+ * 【文件职责】
+ * - 处理 ResearchStateSyncS2CPacket 网络同步与通信。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ *
+ * 【变更记录 #2】2026-07-19 21:49:23（第 2 次备注 · revision 35）
+ * - 删除：
+ *   1) 删除 common 网络包对 Minecraft、LocalPlayer 客户端类的直接导入和客户端状态覆盖实现。
+ * - 新增：
+ *   1) 新增 ClientResearchStateSyncHandler 客户端执行器，集中处理玩家 persistentData 覆盖。
+ * - 修改：
+ *   1) handle 仍通过 DistExecutor 限制物理客户端，但只转发 NBT，不再让 common 包常量池引用客户端类。
+ * - 用途：
+ *   1) 隔离 S2C 数据包的编解码与客户端应用逻辑，降低专用服务器类加载客户端类的风险。
+ */
 import com.sirin.hk3gtl.client.network.ClientResearchStateSyncHandler;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;

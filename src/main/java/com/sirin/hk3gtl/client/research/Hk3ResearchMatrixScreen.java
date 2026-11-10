@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.client.research;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 Hk3ResearchMatrixScreen 研究流程与状态。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.sirin.hk3gtl.common.network.Hk3Network;
 import com.sirin.hk3gtl.common.network.ResearchSubmitPacket;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
@@ -23,22 +40,15 @@ import net.minecraft.world.item.Items;
 import java.util.ArrayList;
 import java.util.List;
 
+/** 中文说明：该处说明已按当前代码行为整理。*/
+/** 中文说明：该处说明已按当前代码行为整理。*/
 /**
- * 海渊研究终端 GUI（v0.4 重构）。
- *
- * <h3>本轮重构点</h3>
- * <ol>
- *   <li>删除左上角搜索栏（项目并未实装搜索逻辑，纯占位）。</li>
- *   <li>所有节点显示名都剥掉 {@code R-XX-NNN} 内部编号，仅显示中文名。</li>
- *   <li>"终端状态"块的"需要"那一行：有前置时显示"前置研究：xxx"；
- *       无前置时回退为"海渊研究解析矩阵已激活"。</li>
- *   <li>提交按钮每帧重算 {@code active}，避免选中后偶发失活；
- *       同时把列表点击的 {@code listMaxY} 收口到实际可见行末，
- *       不再吃掉下方区域防止误选影响按钮判定。</li>
- *   <li>底栏原本写死的"终端：在线/在线"那一行换成"研究时间 / 剩余时间"实时倒计时。</li>
- * </ol>
+ * 【变更记录 #1】2026-09-30 03:24:34（内测5修订108）
+ * 删除：无。新增：批准色卡接线及版本追溯。
+ * 修改：研究矩阵电压标签保留Component样式，截取首行不丢失RGB。
+ * 用途：正确显示与核验，不修改研究逻辑。
  */
-public class Hk3ResearchMatrixScreen extends Screen {
+public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int ROOT_BG = 0xE0101016;
     private static final int FRAME_BG = 0xF01D1D23;
@@ -78,7 +88,7 @@ public class Hk3ResearchMatrixScreen extends Screen {
     private int footerButtonWidth;
 
     public Hk3ResearchMatrixScreen() {
-        super(Component.translatable("hk3gtl.gui.research_matrix.title"));
+        super(Component.translatable("hk3gtl.gui.research_matrix.title"), 620, 360);
         this.allNodes = Hk3ResearchNodes.allNodes();
         this.selectedNode = this.allNodes.isEmpty() ? null : this.allNodes.get(0);
     }
@@ -89,7 +99,7 @@ public class Hk3ResearchMatrixScreen extends Screen {
     }
 
     @Override
-    protected void init() {
+    protected void initFitted() {
         guiWidth = clamp(this.width - 24, Math.min(MIN_GUI_WIDTH, this.width - 12), MAX_GUI_WIDTH);
         guiHeight = clamp(this.height - 24, Math.min(MIN_GUI_HEIGHT, this.height - 12), MAX_GUI_HEIGHT);
         guiLeft = (this.width - guiWidth) / 2;
@@ -109,6 +119,7 @@ public class Hk3ResearchMatrixScreen extends Screen {
                     .bounds(submitX, submitY, submitWidth, 20)
                     .build());
         } else {
+            this.addRenderableWidget(submitButton);
             submitButton.setX(submitX);
             submitButton.setY(submitY);
             submitButton.setWidth(submitWidth);
@@ -119,7 +130,7 @@ public class Hk3ResearchMatrixScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics gfx, int mouseX, int mouseY, float partialTick) {
+    public void renderFitted(GuiGraphics gfx, int mouseX, int mouseY, float partialTick) {
         // 每帧重新计算按钮可用状态，防止选中后偶发失活。
         refreshSubmitButton();
 
@@ -132,7 +143,7 @@ public class Hk3ResearchMatrixScreen extends Screen {
         renderDetailPanel(gfx);
         renderFooter(gfx);
 
-        super.render(gfx, mouseX, mouseY, partialTick);
+        super.renderFitted(gfx, mouseX, mouseY, partialTick);
     }
 
     private void renderHeader(GuiGraphics gfx) {
@@ -215,10 +226,12 @@ public class Hk3ResearchMatrixScreen extends Screen {
         int cursorY = y + 8;
 
         gfx.drawString(font, trimToWidth(displayName(node), detailWidth - 130), x + 10, cursorY, ACCENT, false);
-        String tier = Component.translatable("hk3gtl.gui.research_matrix.voltage_level", voltageLabel(node)).getString();
-        gfx.drawString(font, trimToWidth(tier, Math.max(70, detailWidth / 3)),
-                x + detailWidth - font.width(trimToWidth(tier, Math.max(70, detailWidth / 3))) - 10,
-                cursorY, TEXT_DIM, false);
+        Component tier = Component.translatable("hk3gtl.gui.research_matrix.voltage_level", voltageLabel(node));
+        var tierLines = font.split(tier, Math.max(70, detailWidth / 3));
+        if (!tierLines.isEmpty()) {
+            var shownTier = tierLines.get(0);
+            gfx.drawString(font, shownTier, x + detailWidth - font.width(shownTier) - 10, cursorY, TEXT_DIM, false);
+        }
         cursorY += 14;
         gfx.fill(x + 10, cursorY, x + detailWidth - 10, cursorY + 1, ACCENT_DIM);
         cursorY += 8;
@@ -362,9 +375,9 @@ public class Hk3ResearchMatrixScreen extends Screen {
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean clickFitted(double mouseX, double mouseY, int button) {
         // 优先把点击交给 widget（含提交按钮），避免被自定义列表区误吞。
-        if (super.mouseClicked(mouseX, mouseY, button)) return true;
+        if (super.clickFitted(mouseX, mouseY, button)) return true;
 
         int listX = guiLeft + 6;
         int listY = guiTop + HEADER_HEIGHT + 4 + LIST_TOP_PADDING;
@@ -384,7 +397,7 @@ public class Hk3ResearchMatrixScreen extends Screen {
     }
 
     @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+    public boolean scrollFitted(double mouseX, double mouseY, double delta) {
         int listX = guiLeft + 6;
         int listY = guiTop + HEADER_HEIGHT + 4;
         int listH = guiHeight - HEADER_HEIGHT - FOOTER_HEIGHT - 8;
@@ -393,7 +406,7 @@ public class Hk3ResearchMatrixScreen extends Screen {
             scrollOffset = Math.max(0, Math.min(scrollOffset - (int) delta, maxOffset));
             return true;
         }
-        return super.mouseScrolled(mouseX, mouseY, delta);
+        return super.scrollFitted(mouseX, mouseY, delta);
     }
 
     @Override
@@ -475,9 +488,11 @@ public class Hk3ResearchMatrixScreen extends Screen {
         return Component.translatable("hk3gtl.gui.research_matrix.matrix.online").getString();
     }
 
-    private static String voltageLabel(Hk3ResearchNode node) {
+    private static Component voltageLabel(Hk3ResearchNode node) {
         int tier = clamp((int) Math.floor(node.tier()), 0, 30);
-        return Hk3Values.getVNF(tier).replace("§", "\u00a7");
+        return tier >= 15 ? Component.literal(Hk3Values.getVN(tier)).withStyle(style ->
+                style.withColor(com.sirin.hk3gtl.common.constants.Hk3VoltagePalette.text(tier)).withBold(true))
+                : Component.literal(Hk3Values.getVNF(tier));
     }
 
     /** 剥掉节点中文名中可能存在的 "R-AB-001 " 等内部编号前缀。 */

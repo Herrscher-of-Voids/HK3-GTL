@@ -1,0 +1,288 @@
+{
+  "key": "i34",
+  "machine": "hk3gtl:i34_imaginary_tree_observation_array",
+  "source": "data/hk3gtl/approved_architecture/i34.json",
+  "sha256": "7d4886802fcc56c4666331b6ecb3948cdce334b62626bafb2fb072abb3e91a14",
+  "template_sha256": "ae993cda7a1c08979125c72746e8e338ec9fca938b8b001fa3fbdd9357e2894f",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_064738_136334_batch-09_01of05_I34_V2_IRV_外观已确认\\I34_虚数之树观测阵列_开穹悬弦观测仪_V2_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_064738_136334_batch-09_01of05_I34_V2_IRV_外观已确认\\I34_虚数之树观测阵列_开穹悬弦观测仪_V2_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_064738_136334_batch-09_01of05_I34_V2_IRV_外观已确认\\I34_虚数之树观测阵列_开穹悬弦观测仪_V2_20261027\\i34\\hk3gtl-i34-open-observatory-v2-20261027.nbt",
+  "source_nbt_sha256": "0e0b829962505e08c2802acedab6d99c40f78f2ec43dcfeb9e2949f366cc05e6",
+  "controller": [
+    240,
+    43,
+    18
+  ],
+  "size_xyz": [
+    481,
+    251,
+    381
+  ],
+  "blocks": 7464621,
+  "ports": [
+    {
+      "id": "世界泡对照档案输入",
+      "pos": [
+        216,
+        43,
+        18
+      ],
+      "face": "north",
+      "purpose": "世界泡对照档案输入候选；实际能力按正式Pattern另验",
+      "group": "item_input"
+    },
+    {
+      "id": "空间探针输入",
+      "pos": [
+        264,
+        43,
+        18
+      ],
+      "face": "north",
+      "purpose": "空间探针输入候选；实际能力按正式Pattern另验",
+      "group": "item_input"
+    },
+    {
+      "id": "西侧观测供能",
+      "pos": [
+        200,
+        43,
+        18
+      ],
+      "face": "north",
+      "purpose": "西侧观测供能候选；实际能力按正式Pattern另验",
+      "group": "energy_input"
+    },
+    {
+      "id": "东侧观测供能",
+      "pos": [
+        280,
+        43,
+        18
+      ],
+      "face": "north",
+      "purpose": "东侧观测供能候选；实际能力按正式Pattern另验",
+      "group": "energy_input"
+    },
+    {
+      "id": "西侧冷却输入",
+      "pos": [
+        192,
+        43,
+        355
+      ],
+      "face": "south",
+      "purpose": "西侧冷却输入候选；实际能力按正式Pattern另验",
+      "group": "fluid_input"
+    },
+    {
+      "id": "东侧冷却回流",
+      "pos": [
+        288,
+        43,
+        355
+      ],
+      "face": "south",
+      "purpose": "东侧冷却回流候选；实际能力按正式Pattern另验",
+      "group": "fluid_output"
+    },
+    {
+      "id": "树与世界联系图输出",
+      "pos": [
+        216,
+        43,
+        355
+      ],
+      "face": "south",
+      "purpose": "树与世界联系图输出候选；实际能力按正式Pattern另验",
+      "group": "item_output"
+    },
+    {
+      "id": "虚数观测资料输出",
+      "pos": [
+        264,
+        43,
+        355
+      ],
+      "face": "south",
+      "purpose": "虚数观测资料输出候选；实际能力按正式Pattern另验",
+      "group": "item_output"
+    },
+    {
+      "id": "观测探针回收",
+      "pos": [
+        180,
+        43,
+        355
+      ],
+      "face": "south",
+      "purpose": "观测探针回收候选；实际能力按正式Pattern另验",
+      "group": "item_output"
+    },
+    {
+      "id": "复测档案交付",
+      "pos": [
+        300,
+        43,
+        355
+      ],
+      "face": "south",
+      "purpose": "复测档案交付候选；实际能力按正式Pattern另验",
+      "group": "item_output"
+    }
+  ],
+  "target_voltage": "IRV",
+  "installed_hatches": {
+    "世界泡对照档案输入": "item_input",
+    "空间探针输入": "item_input",
+    "西侧冷却输入": "fluid_input",
+    "东侧冷却回流": "fluid_output",
+    "树与世界联系图输出": "item_output",
+    "虚数观测资料输出": "item_output",
+    "观测探针回收": "item_output",
+    "复测档案交付": "item_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 181,
+  "materials": 40,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        200,
+        43,
+        18
+      ],
+      "role": "西侧观测供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        216,
+        43,
+        18
+      ],
+      "role": "世界泡对照档案输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        240,
+        43,
+        18
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i34_imaginary_tree_observation_array[facing=north]",
+      "block_entity_id": "hk3gtl:i34_imaginary_tree_observation_array"
+    },
+    {
+      "pos": [
+        264,
+        43,
+        18
+      ],
+      "role": "空间探针输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        280,
+        43,
+        18
+      ],
+      "role": "东侧观测供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        180,
+        43,
+        355
+      ],
+      "role": "观测探针回收",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        192,
+        43,
+        355
+      ],
+      "role": "西侧冷却输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        216,
+        43,
+        355
+      ],
+      "role": "树与世界联系图输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        264,
+        43,
+        355
+      ],
+      "role": "虚数观测资料输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        288,
+        43,
+        355
+      ],
+      "role": "东侧冷却回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        300,
+        43,
+        355
+      ],
+      "role": "复测档案交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i34_imaginary_tree_observation_array",
+  "approved_version": "V2",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "process_scope": "正式建筑、控制器、原位物品流体仓及完整预览；崩坏能、能源与维护接口允许位置保留，不虚称未实现能力或工艺已运行。"
+}

@@ -125,23 +125,23 @@ dependencies {
     modImplementation("curse.maven:configuration-444699:4608425") { transitive = false }
 
     // ── GTLCore（前置依赖：磁物质、调律源金等） ──
-    modImplementation("dev:gtlcore-1.2.2.8-fix5") { transitive = false }
+    modImplementation("dev:gtlcore-1.2.3.2-fix2") { transitive = false }
 
     // ── GTMThings ──
-    modImplementation("dev:gtmthings-1.3.5.fix") { transitive = false }
+    modImplementation("dev:gtmthings-1.3.5.b") { transitive = false }
 
     // ── GTL 模组包特有模组 ──
-    modImplementation("dev:gtladditions-2.6.5Custom") { transitive = false }
-    modImplementation("dev:gtl_extend-3.2.1-NoPlanetaryEngine-beta2") { transitive = false }
+    modImplementation("dev:gtladditions-3.3") { transitive = false }
+    // 内测5更新：使用负责人指定的 GTLsupb 3.5；旧版 3.4.beta.9 只保留在外部实例历史环境，不再作为开发运行依赖。
+    // Beta5 update: use the owner-specified GTLsupb 3.5; the former 3.4.beta.9 remains historical only.
+    modImplementation(files("libs/GTLsupb-3.5.jar"))
 
     // ── Re-Avaritia + Placebo ──
     modImplementation("dev:Re-Avaritia-forged-1.20.1-1.3.8.3") { transitive = false }
     modImplementation("dev:Placebo-1.20.1-8.6.3") { transitive = false }
 
-    // ── Kotlin 标准库（GTLAdditions 依赖） ──
-    forgeRuntimeLibrary("org.jetbrains.kotlin:kotlin-stdlib:1.9.22")
-    forgeRuntimeLibrary("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.22")
-    forgeRuntimeLibrary("org.jetbrains.kotlin:kotlin-reflect:1.9.22")
+    // GTLAdditions 3.3 requires the KFF language provider and bundled Kotlin runtime.
+    modRuntimeOnly(files("libs/kotlinforforge-4.11.0-all.jar"))
 
     // ── Caffeine 缓存库（GTCEu Mixin 依赖） ──
     forgeRuntimeLibrary("com.github.ben-manes.caffeine:caffeine:3.2.1")
@@ -150,21 +150,25 @@ dependencies {
     modImplementation(files("libs/Spear_of_Void-1.3.0fix4.jar"))
 
     // ── KubeJS + Rhino ──
-    modImplementation(files("libs/kubejs-forge-2001.6.5-build.16.jar"))
+    modImplementation(files("libs/kubejs-forge-2001.6.5-build.26.jar"))
     modImplementation(files("libs/rhino-forge-2001.2.3-build.10.jar"))
 
     // ── FTB 系列已彻底移除（设定上无引路者，与世界观冲突）──
     // 如需恢复，jar 文件仍保留在 libs/，从 archive/removed_ftbquests/ 拷回集成代码即可。
     // polylib 与 constructionwand 已确认无 src/ 引用，一并移除以保持依赖图整洁。
     // 注意：GTLCore 1.2.2.8-fix5 在初始化阶段会硬引用 ftb-ultimine 的类，因此开发环境必须提供该模组（否则直接 NoClassDefFoundError）。
-    modRuntimeOnly(files("libs/ftb-library-forge-2001.2.12.jar"))
+    modRuntimeOnly(files("libs/ftb-library-forge-2001.2.13.jar"))
     modRuntimeOnly(files("libs/ftb-teams-forge-2001.3.2.jar"))
-    modRuntimeOnly(files("libs/ftb-ultimine-forge-2001.1.7.jar"))
+    // 修订100：只添加编译API，不替换两个游戏实例中的定制依赖。
+    modCompileOnly(files("libs/ftb-teams-forge-2001.3.2.jar", "libs/ftb-library-forge-2001.2.13.jar"))
+    modRuntimeOnly(files("libs/ftb-ultimine-forge-2001.1.8.jar"))
     // 注意：GTMThings 的部分 mixin 会引用 FTBChunks API 元数据，未加载 ftb-chunks 时会在类转换阶段直接崩溃。
-    modRuntimeOnly(files("libs/ftb-chunks-forge-2001.3.6.jar"))
+    modRuntimeOnly(files("libs/ftb-chunks-forge-2001.3.8.jar"))
     modRuntimeOnly(files("libs/ftb-xmod-compat-forge-2.1.3.jar"))
     // FTB Quests：任务线数据集成（纯 SNBT 同步，Java 侧零 API 依赖，见 FtbQuestsIntegration）
-    modRuntimeOnly(files("libs/ftb-quests-forge-2001.4.18.jar"))
+    modRuntimeOnly(files("libs/ftb-quests-forge-2001.4.22.jar"))
+    // 修订129：以当前本地FTB实际接口编译可选任务投影桥，不打包第三方库。
+    modCompileOnly(files("libs/ftb-quests-forge-2001.4.22.jar"))
 
     // ── Architectury API ──
     modImplementation("dev.architectury:architectury-forge:${project.architectury_version}")
@@ -174,10 +178,10 @@ dependencies {
     modImplementation("curse.maven:guideme-1173950:7127447") { transitive = false }
 
     // ── Stargate Journey ──
-    modImplementation("dev:sgjourney-1.20.1-0.6.44") { transitive = false }
+    modImplementation(files("libs/[星门之旅] Stargate Journey-1.20.1-0.6.44.jar"))
 
     // ── Extended AE + Glodium ──
-    modImplementation("dev:ExtendedAE-1.20-1.4.13-forge") { transitive = false }
+    modImplementation("dev:ExtendedAE-1.20-1.4.19-forge") { transitive = false }
     modImplementation("curse.maven:glodium-957920:5006780")
 
     // ── Ad Astra 相关 ──
@@ -191,14 +195,14 @@ dependencies {
     // ── JEI ──
     modCompileOnly("mezz.jei:jei-${project.minecraft_version}-forge-api:${project.jei_version}") { transitive = false }
     modCompileOnly("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}") { transitive = false }
-    modRuntimeOnly("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}") { transitive = false }
+    modImplementation("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}") { transitive = false }
 
     // ── JEI Integration（JEI 补充 tooltip 等；仅运行时，无需编译进 hk3gtl）──
     modRuntimeOnly("curse.maven:jei-integration-265917:${project.jei_integration_curse_file}") { transitive = false }
 
     // ── Jade（WTHIT 类信息显示模组）──
-    // 11.13.2 的 StringRenderOutputMixin 与 1.20.1 不兼容，回退到 11.12.2
-    modRuntimeOnly("curse.maven:jade-324717:5876199")
+    // 对应原Jade依赖更新至实例11.13.3；旧配置保留于archive。 / Match the existing Jade dependency to the instance.
+    modRuntimeOnly(files("libs/Jade-1.20.1-Forge-11.13.3.jar"))
 
     // ── WMP（可选联动：电路板驱动西瓜发电机 GT 模式）──
     modCompileOnly(files("libs/wmp-1.7.0.jar"))
@@ -233,7 +237,39 @@ def hk3ModsTomlProps = [
         "ad_astra_version" : ad_astra_version,
 ]
 
+def hk3SourceBlueprintManifest = file("source_archives/approved_architecture/manifest.json")
+tasks.register("hk3gtlRestoreSourceBlueprints", Exec) {
+    group = "build setup"
+    description = "校验并恢复源码蓝图归档，不覆盖本地修改"
+    inputs.files(file("tools/restore_source_blueprints.py"),
+            fileTree("source_archives/approved_architecture") {
+                include("manifest.json", "*.json.gz")
+            })
+    outputs.files(provider {
+        if (!hk3SourceBlueprintManifest.isFile()) return []
+        def manifest = new groovy.json.JsonSlurper().parse(hk3SourceBlueprintManifest)
+        manifest.files.collect { file(it.path) }
+    })
+    onlyIf { hk3SourceBlueprintManifest.isFile() }
+    commandLine("python", "tools/restore_source_blueprints.py")
+}
+
+tasks.register("hk3gtlCompactStructures", Exec) {
+    dependsOn("hk3gtlRestoreSourceBlueprints")
+    inputs.files(fileTree("src/main/resources/data/hk3gtl/approved_architecture"),
+            fileTree("src/main/resources/data/hk3gtl/structures/approved"),
+            fileTree("src/main/resources/data/hk3gtl/structures/approved_preview"),
+            file("tools/structure_delivery/compact_runtime_structures.py"),
+            file("tools/structure_delivery/build_late_approved_resources_20261026.py"))
+    outputs.dir(layout.buildDirectory.dir("generated/compactResources"))
+    commandLine("python", "tools/structure_delivery/compact_runtime_structures.py")
+}
+
 processResources {
+    dependsOn("hk3gtlCompactStructures")
+    from(layout.buildDirectory.dir("generated/compactResources"))
+    exclude("data/hk3gtl/approved_architecture/**", "data/hk3gtl/structures/approved/*.nbt",
+            "data/hk3gtl/structures/approved_preview/**")
     inputs.properties(hk3ModsTomlProps)
     filteringCharset = "UTF-8"
 
@@ -243,6 +279,9 @@ processResources {
 
     exclude("META-INF/mods.toml")
 }
+
+// Independent tests may read reviewed originals; neither development runtime nor JAR copies them.
+sourceSets.test.runtimeClasspath += files("src/main/resources")
 
 tasks.register("hk3gtlWriteModsTomlToClasses", Copy) {
     // 必须把展开属性登记为任务输入：否则改 gradle.properties 版本号后任务被判 UP-TO-DATE，
@@ -314,6 +353,9 @@ java {
 
 jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    // Reviewed originals remain in the workspace; production uses one lossless stream per structure.
+    exclude("data/hk3gtl/approved_architecture/**", "data/hk3gtl/structures/approved/*.nbt",
+            "data/hk3gtl/structures/approved_preview/**")
     manifest {
         attributes([
                 "Specification-Title"     : mod_id,
@@ -324,6 +366,58 @@ jar {
                 "Implementation-Vendor"   : mod_authors
         ])
     }
+}
+
+tasks.register("nativeFarViewTest", JavaExec) {
+    dependsOn("testClasses")
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass="com.sirin.hk3gtl.test.industry.NativeFarViewTest"
+    maxHeapSize="2G"
+}
+
+tasks.register("nativeW03EffectsTest", JavaExec) {
+    dependsOn("testClasses")
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass="com.sirin.hk3gtl.test.industry.NativeW03EffectsTest"
+}
+tasks.register("w03BlueprintTest", JavaExec) {
+    dependsOn("testClasses")
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass="com.sirin.hk3gtl.test.industry.W03BlueprintTest"
+    maxHeapSize="512M"
+}
+
+tasks.register("snowClearanceTest", JavaExec) {
+    dependsOn("testClasses")
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass="com.sirin.hk3gtl.common.multiblock.pattern.Hk3SnowClearanceTest"
+}
+
+tasks.named("check").configure { dependsOn("snowClearanceTest") }
+tasks.register("asyncBuildPreparationTest", JavaExec) {
+    dependsOn("testClasses")
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass="com.sirin.hk3gtl.common.multiblock.build.Hk3BuildPreparationTest"
+    jvmArgs("-Dfile.encoding=UTF-8")
+}
+tasks.register("nativeFarViewMaskTest", JavaExec) {
+    dependsOn("testClasses")
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass="com.sirin.hk3gtl.common.farview.Hk3FarViewMaskTest"
+    jvmArgs("-Dfile.encoding=UTF-8")
+}
+tasks.named("check").configure { dependsOn("asyncBuildPreparationTest", "nativeFarViewMaskTest") }
+tasks.register("nativeFarExactTest", JavaExec) {
+    dependsOn("testClasses")
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass="com.sirin.hk3gtl.common.farview.Hk3FarExactTest"
+    jvmArgs("-Dfile.encoding=UTF-8")
+}
+tasks.named("check").configure { dependsOn("nativeFarExactTest") }
+tasks.named("check").configure { dependsOn("nativeFarViewTest") }
+tasks.named("sourcesJar").configure {
+    exclude("data/hk3gtl/approved_architecture/**", "data/hk3gtl/structures/approved/*.nbt",
+            "data/hk3gtl/structures/approved_preview/**")
 }
 
 publishing {
@@ -345,6 +439,20 @@ tasks.register("runResearchGraphTest", JavaExec) {
     errorOutput = System.err
 }
 
+// 变更记录 · 2026-10-18 21:46:33 · 修订167：新增I19-I22能源公共核心隔离回归；不启动游戏世界，不注册未批准结构。
+tasks.register("runReactorEnergyExecutorTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    description = "运行I19-I22能源合同、BigInteger产电、失败重试和NBT持久化回归"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.energy.ReactorEnergyExecutorTest"
+    standardOutput = System.out
+    errorOutput = System.err
+}
+tasks.named("check").configure {
+    dependsOn("runReactorEnergyExecutorTest")
+}
+
 // 终焉注视度系统核心公式回归测试运行器。
 tasks.register("runGazeSystemTest", JavaExec) {
     dependsOn("compileTestJava", "classes")
@@ -358,15 +466,18 @@ tasks.register("runGazeSystemTest", JavaExec) {
 
 // 本地文件依赖不会由 Maven 解析，必须在 check 阶段主动校验，避免缺包延迟到启动时崩溃。
 def requiredLocalModJars = [
+        "kotlinforforge-4.11.0-all.jar",
+        "gtladditions-3.3.jar",
+        "gtlcore-1.2.3.2-fix2.jar",
         "Spear_of_Void-1.3.0fix4.jar",
         "kubejs-forge-${project.kubejs_version}.jar",
         "rhino-forge-2001.2.3-build.10.jar",
-        "ftb-library-forge-2001.2.12.jar",
+        "ftb-library-forge-2001.2.13.jar",
         "ftb-teams-forge-2001.3.2.jar",
-        "ftb-ultimine-forge-2001.1.7.jar",
-        "ftb-chunks-forge-2001.3.6.jar",
+        "ftb-ultimine-forge-2001.1.8.jar",
+        "ftb-chunks-forge-2001.3.8.jar",
         "ftb-xmod-compat-forge-2.1.3.jar",
-        "ftb-quests-forge-2001.4.18.jar",
+        "ftb-quests-forge-2001.4.22.jar",
         "wmp-1.7.0.jar"
 ]
 
@@ -386,3 +497,774 @@ tasks.named("check").configure {
     // 研究图测试依赖完整 Forge 游戏引导，保留为独立验证任务；纯 JVM 注视度测试可纳入标准门禁。
     dependsOn("verifyLocalModJars", "runGazeSystemTest")
 }
+
+// 变更记录 #1 · 2026-09-22 13:40:00 · 内测5第1次代码更新。
+// 新增安全迁移测试并纳入check；不删除旧任务。只测试临时目录，不接触玩家配置。
+// Add quest migration regressions to check; retain existing tasks and use isolated temporary fixtures.
+tasks.register("runQuestFileInstallerTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    description = "Verify quest archival, interrupted migration recovery and missing-resource handling"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.integration.QuestFileInstallerTest"
+}
+tasks.named("check").configure {
+    dependsOn("runQuestFileInstallerTest")
+}
+
+// 变更记录 #2 · 2026-09-22 14:01:00 · 内测5第2次代码更新。
+// 新增首信状态机与NBT往返验证，不读取实际玩家存档。 / Add isolated first-contact state and NBT round-trip verification.
+tasks.register("runFirstContactTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.communication.FirstContactTest"
+}
+tasks.named("check").configure {
+    dependsOn("runFirstContactTest")
+}
+
+// 变更记录 #3 · 2026-09-22 14:55:00 · 内测5第3次代码更新。
+// 新增RN目录/前置/独立电路权限/NBT回归；不启动游戏，不读玩家世界。 / Add isolated RN graph and ledger regression checks.
+tasks.register("runResearchCatalogTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchCatalogTest"
+}
+tasks.named("check").configure { dependsOn("runResearchCatalogTest") }
+
+// 变更记录 #4 · 2026-09-22 15:23:00 · 内测5第4次代码更新。
+// 新增付费任务/并行/重启/暂停/公式回归，不改旧测试。 / Add execution regressions without replacing existing checks.
+tasks.register("runResearchExecutionTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchExecutionTest"
+}
+tasks.named("check").configure { dependsOn("runResearchExecutionTest") }
+
+// 变更记录 #5 · 2026-09-22 15:39:00 · 内测5第5次代码更新。
+// 新增实际研究点账本生产与支付回归；不启动游戏。 / Verify point production and payment without game startup.
+tasks.register("runResearchComputerTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchComputerTest"
+}
+tasks.named("check").configure { dependsOn("runResearchComputerTest") }
+
+// 变更记录 #6 · 2026-09-22 15:56:00 · 内测5第6次代码更新。
+// 新增材料分配穷举对照及真实NBT支付回归，不启动游戏世界。 / Check material allocation and real NBT receipts in isolation.
+tasks.register("runResearchMaterialTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchMaterialTest"
+}
+tasks.named("check").configure { dependsOn("runResearchMaterialTest") }
+
+// Change #8 2026-09-23_03-36-16 revision56: revert bulk dependency mirroring; remove GTLExtend; retain corresponding updates only.
+
+// 变更记录 #9 · 2026-09-23 12:11:02 · 内测5修订61：新增GUI视窗与输入坐标回归，无旧任务删除。
+// Add viewport and pointer-transform regression coverage without replacing existing verification.
+tasks.register("runGuiFitTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.gui.GuiFitTest"
+}
+tasks.named("check").configure { dependsOn("runGuiFitTest") }
+
+// 变更记录 #10 · 2026-09-24 16:42:00 · 内测5修订66：新增液态七机逐格布局校验；无任务删除，不启动开发游戏实例。
+tasks.register("runLiquidLineLayoutTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    description = "校验液态工业线七台正式结构的尺寸、材料、通道与连通性"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.LiquidLineLayoutTest"
+    if (project.hasProperty("injectorExport")) args(project.property("injectorExport"))
+}
+tasks.named("check").configure { dependsOn("runLiquidLineLayoutTest") }
+
+// 变更记录 #11 · 2026-09-25 02:24:00 · 修订70：四台正式建筑坐标与接口回归，无游戏实例启动。
+tasks.register("runApprovedArchitectureTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.ApprovedArchitectureTest"
+}
+tasks.named("check").configure { dependsOn("runApprovedArchitectureTest") }
+
+// 变更记录 #12 · 2026-09-27 04:18:23 · 内测5修订90。
+// 删除：无。新增：世界泡公共账本测试；修改：纳入check；用途：独立验证状态与NBT，未启动游戏。
+tasks.register("runWorldBubbleLedgerTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.worldbubble.WorldBubbleLedgerTest"
+}
+tasks.named("check").configure { dependsOn("runWorldBubbleLedgerTest") }
+
+// 变更记录 #13 · 2026-09-27 04:23:52 · 内测5修订90。
+// 删除：无。新增：52电路映射与192等级标签回归；修改：纳入check；用途：防止跨系列替代回退为具体物品。
+tasks.register("runCircuitConsistencyTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.circuit.CircuitConsistencyTest"
+}
+tasks.named("check").configure { dependsOn("runCircuitConsistencyTest") }
+
+// 变更记录 #14 · 2026-09-27 04:27:05 · 修订90：第13条备注标签数量校正为96（16×2×3）；无任务删除或执行逻辑修改。
+
+// 变更记录 #15 · 2026-09-27 04:32:38 · 内测5修订90。
+// 删除：无。新增：损坏账本不得回退为空的验证；修改：纳入check；用途：保护研究与世界泡持久记录。
+tasks.register("runSavedLedgerGuardTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.SavedLedgerGuardTest"
+}
+tasks.named("check").configure { dependsOn("runSavedLedgerGuardTest") }
+
+// 终审IF账本：个人五选、同条重读、世界隔离及损坏数据拒绝。
+tasks.register("runFinaleIfDataTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.dialogue.FinaleIfDataTest"
+}
+tasks.named("check").configure { dependsOn("runFinaleIfDataTest") }
+
+tasks.register("runFinaleAttackDataTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.dialogue.FinaleAttackDataTest"
+}
+tasks.named("check").configure { dependsOn("runFinaleAttackDataTest") }
+
+// 变更记录 #16 · 2026-09-27 23:59:03 · 内测5修订91：新增紧凑建筑逐格、缓存并发及64MiB纯数据压力检查，不启动游戏。
+tasks.register("runPackedArchitectureTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.PackedArchitectureTest"
+}
+tasks.register("runPackedArchitectureStressTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.PackedArchitectureTest"
+    args "packed"
+    maxHeapSize = "64m"
+}
+
+// 2026-10-29：W01完整礼堂紧凑资源及非法记录拒绝，不代表实机验收。
+tasks.register("runW01HallLayoutTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.W01HallLayoutTest"
+    maxHeapSize = "128m"
+}
+tasks.named("check").configure { dependsOn("runW01HallLayoutTest") }
+// 【变更记录 #70】2026-10-30 00:26:34（修订183）：删除无；新增W01真实预览索引和终端稀疏阶段排序/自适应预算回归；修改check依赖；用途：逐实体守恒及准备/放置顺序检查，不代替游戏搭建与性能验收。
+tasks.register("runW01PreviewIndexTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.W01PreviewIndexTest"
+    maxHeapSize = "128m"
+}
+tasks.register("runW01BuildOrderTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.common.multiblock.build.Hk3W01BuildOrderTest"
+    maxHeapSize = "128m"
+}
+tasks.named("check").configure { dependsOn("runW01PreviewIndexTest", "runW01BuildOrderTest") }
+
+// 2026-10-30：显式原型测试，以受限堆逐格比对两份完整资源，不冒充整包游戏内存验收。
+["i34", "w01"].each { id ->
+    tasks.register("runSparsePreviewPrototype" + id.toUpperCase(), JavaExec) {
+        dependsOn("compileTestJava", "classes")
+        group = "verification"
+        classpath = sourceSets.test.runtimeClasspath
+        mainClass = "com.sirin.hk3gtl.test.industry.SparsePreviewPrototypeTest"
+        args id
+        maxHeapSize = "192m"
+    }
+}
+tasks.named("check").configure { dependsOn("runPackedArchitectureTest", "runPackedArchitectureStressTest") }
+
+// 变更记录 #17：2026-09-29 · 修订93；新增已审核正文与正式对白图检查，保留原有检查任务。
+tasks.register("runApprovedProseTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.dialogue.ApprovedProseTest"
+}
+tasks.named("check").configure { dependsOn("runApprovedProseTest") }
+
+// 变更记录 #18：2026-09-29 18:09:58，修订94。新增贸易状态、数量、异常恢复检查，保留既有任务。
+// 变更记录 #19：2026-09-29 19:50:20，修订99。删除贸易专用任务与check依赖；保留其他回归。
+
+// 修订100 · 2026-09-29：个人点数与团队研究、原付款人退款回归。
+tasks.register("runResearchTeamTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchTeamTest"
+}
+tasks.named("check").configure { dependsOn("runResearchTeamTest") }
+tasks.register("runLabExperimentTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.LabExperimentTest"
+}
+tasks.named("check").configure { dependsOn("runLabExperimentTest") }
+
+// 变更记录 #20 · 2026-09-29 21:06:40 · 内测5修订100 · R100_FINAL_RECORD。
+// 删除：无。新增：可选FTB编译接口及团队、实验两项检查。修改：纳入check；用途：验证真实账本，不更换实例依赖。
+
+// 修订101 · 2026-09-29：执行契约及真实批次回归，不启动游戏实例。
+tasks.register("runResearchMainlineTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchMainlineTest"
+}
+tasks.named("check").configure { dependsOn("runResearchMainlineTest") }
+
+// 变更记录 #22 · 2026-09-29 23:54:00 · 修订102：新增资源冻结与预算回归，保留既有检查。
+tasks.register("runWorldResourceBatchesTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.worldbubble.WorldResourceBatchesTest"
+}
+tasks.named("check").configure { dependsOn("runWorldResourceBatchesTest") }
+
+// 变更记录 #21 · 2026-09-29 23:37:35 · 修订101 · R101_FINAL_RECORD。
+// 删除：无。新增：100题契约与批次检查。修改：加入check；用途：纯代码回归，不冒充实例验收。
+
+// 变更记录 #23 · 2026-09-30 00:57:59 · 内测5修订103。
+// 删除：无；新增：真实配方快照差异检查；修改：纳入check；用途：阻止缺门槛、缺耗能或空标签被误判通过。
+tasks.register("runResearchRuntimeComparisonTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchRuntimeComparisonTest"
+}
+tasks.named("check").configure { dependsOn("runResearchRuntimeComparisonTest") }
+
+// 变更记录 #24：2026-09-30 01:28:26，修订105。
+// 删除：无；新增：JEI复制监听生命周期回归；修改：纳入check；用途：验证启动保护与恢复放行。
+tasks.register("runJeiCopyLifecycleTest", JavaExec) {
+    group = "verification"
+    dependsOn(tasks.named("testClasses"))
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.compat.JeiCopyLifecycleTest"
+}
+tasks.named("check").configure { dependsOn("runJeiCopyLifecycleTest") }
+
+// 变更记录 #25：2026-09-30 02:21:00，修订107。
+// 删除：无；新增：正式电压注册键回归；修改：纳入check；用途：拦截错位映射及旧标签回流。
+tasks.register("runVoltageRegistryKeyTest", JavaExec) {
+    group = "verification"
+    dependsOn(tasks.named("testClasses"))
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.circuit.VoltageRegistryKeyTest"
+}
+tasks.named("check").configure { dependsOn("runVoltageRegistryKeyTest") }
+
+// 变更记录 #26：2026-09-30 03:25:21，修订108。
+// 删除：无。新增：批准配色与实际PNG回归。修改：纳入check；用途：防止错位或丢失动画。
+tasks.register("runVoltagePaletteTest", JavaExec) {
+    group = "verification"
+    dependsOn(tasks.named("testClasses"))
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.circuit.VoltagePaletteTest"
+}
+tasks.named("check").configure { dependsOn("runVoltagePaletteTest") }
+
+// 变更记录 #1 2026-09-30 16:23:15（修订110）：新增通知持久化与排队验证；删除无，读取生产逻辑，纳入check。
+tasks.register("runPhoneSystemTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.phone.PhoneSystemTest"
+}
+tasks.named("check").configure { dependsOn("runPhoneSystemTest") }
+
+// 变更记录 #1 2026-09-30 17:53:52（修订111）：新增实际Avaritia字节码和生产补丁并发验证；删除无，不替代实机注入。
+tasks.register("runAvaritiaAbilityConcurrencyTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.compat.AvaritiaAbilityConcurrencyTest"
+}
+tasks.named("check").configure { dependsOn("runAvaritiaAbilityConcurrencyTest") }
+
+// 变更记录 #2 2026-09-30 18:18:05（修订112）：新增整页阅读/拖动定位/纯消息测试，删除无，纳入check，不冒充实机验收。
+tasks.register("runPhoneLayoutTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.phone.PhoneLayoutTest"
+}
+tasks.named("check").configure { dependsOn("runPhoneLayoutTest") }
+
+// 变更记录 #3 2026-09-30 18:44:46（修订113）：新增物品电池、一次补发与App交换验证；删除无；用途：纳入check，不代替实机。
+tasks.register("runPhoneDesktopPowerTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.phone.PhoneDesktopPowerTest"
+}
+tasks.named("check").configure { dependsOn("runPhoneDesktopPowerTest") }
+
+// 变更记录 #4 2026-09-30 19:06:42（修订114）：删除无；新增手机小游戏、笔记所有权/版本/持久化与搜索验证，纳入check。
+tasks.register("runPhoneAppsTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.phone.PhoneAppsTest"
+}
+tasks.named("check").configure { dependsOn("runPhoneAppsTest") }
+
+// 变更记录 #5 2026-09-30 19:20:11（修订115）：删除无；新增注视HUD定位回归纳入check；用途：避免多比例越界。
+tasks.register("runPhoneHudPlacementTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.phone.PhoneHudPlacementTest"
+}
+tasks.named("check").configure { dependsOn("runPhoneHudPlacementTest") }
+
+// 变更记录 #6 2026-09-30 19:56:03（修订116）：删除无；新增微讯息语料、阶段、私有账本、本机模拟API检查；修改check依赖；用途：不使用真实Key或付费请求。
+tasks.register("runPhoneSocialTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.phone.PhoneSocialTest"
+}
+tasks.named("check").configure { dependsOn("runPhoneSocialTest") }
+
+// 变更记录 #7 2026-09-30 20:31:18（修订117）：删除无；新增审查状态/私人补行/正常结束检查；修改check依赖；用途：不将纯逻辑测试当作场景验收。
+tasks.register("runReviewLedgerTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.review.ReviewLedgerTest"
+}
+tasks.named("check").configure { dependsOn("runReviewLedgerTest") }
+
+// 变更记录 #140 2026-10-01 18:48:33：新增正式审查流程图、阅读屏障、令牌与返程账本检查；删除无，不代替真实传送/渲染验收。
+tasks.register("runReviewFlowTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.review.ReviewFlowTest"
+}
+tasks.named("check").configure { dependsOn("runReviewFlowTest") }
+
+// 变更记录 #8 2026-09-30 23:46:03（修订120）：删除无；新增文明等级与团队历史检查；修改check依赖；用途：真实记录投影不等于工程实机验收。
+tasks.register("runCivilizationTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.civ.CivilizationTest"
+}
+tasks.named("check").configure { dependsOn("runCivilizationTest") }
+
+// 变更记录 #64 · 2026-10-19 02:05:22 · 修订171：删除无；新增机器总览团队隔离、八态和重启账本回归；修改check依赖；用途：不以纯逻辑通过代替GT生命周期或整包GUI验收。
+tasks.register("runMachineOverviewTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.overview.MachineOverviewTest"
+}
+tasks.named("check").configure { dependsOn("runMachineOverviewTest") }
+
+// 变更记录 #42 · 2026-10-01 00:00:53 · 修订121：删除无；新增团队首信、授权与个人补谈验证；修改check依赖；用途：防止外交多人竞态与旧投影回归。
+tasks.register("runTeamContactTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.communication.TeamContactTest"
+}
+tasks.named("check").configure { dependsOn("runTeamContactTest") }
+
+// 变更记录 #43 · 2026-10-01 00:17:25 · 修订122：删除无；新增五方流程与公开资料测试；修改check依赖；用途：防漏组织、错误署名及越权公开。
+tasks.register("runDiplomacyTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.communication.DiplomacyTest"
+}
+tasks.named("check").configure { dependsOn("runDiplomacyTest") }
+
+// 变更记录 #44 · 2026-10-01 00:44:40 · 修订123：新增个人交流断点与隔离测试，挂入check；删除无。
+ tasks.register("runPersonalCommunicationTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.communication.PersonalCommunicationTest"
+}
+tasks.named("check").configure { dependsOn("runPersonalCommunicationTest") }
+
+// 变更记录 #45 · 2026-10-01 00:59:10 · 修订124：新增整条通信流程集成测试，复用生产投递/权限/档案；删除无。
+ tasks.register("runCommunicationSystemTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.communication.CommunicationSystemTest"
+}
+tasks.named("check").configure { dependsOn("runCommunicationSystemTest") }
+
+// 变更记录 #46 · 2026-10-01 01:30:10 · 修订125：新增一二审真实准入与防自锁检查；删除无，修改check依赖；用途：多人实测延期不等于跳过代码验证。
+tasks.register("runReviewQualificationTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.review.ReviewQualificationTest"
+}
+tasks.named("check").configure { dependsOn("runReviewQualificationTest") }
+
+// 变更记录 #47 · 2026-10-01 01:36:39 · 修订126：新增专属登录礼物逐件发放、存档去重与缺物品恢复检查；删除无；修改check依赖。
+tasks.register("runVoidGiftTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.phone.VoidGiftTest"
+}
+tasks.named("check").configure { dependsOn("runVoidGiftTest") }
+
+// 变更记录 #48 · 2026-10-01 01:56:49 · 修订127：删除无；新增整套收藏分类、通知、存档重生与时间边界回归；修改check依赖；用途：游戏验收前验证完整个人记录流程。
+tasks.register("runCollectionSystemTest", JavaExec) {
+    dependsOn("compileTestJava", "classes")
+    group = "verification"
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.narrative.CollectionSystemTest"
+}
+tasks.named("check").configure { dependsOn("runCollectionSystemTest") }
+
+// 修订128：规则评估检查单独报告已绑定数，不代替游戏触发覆盖。
+tasks.register("runEasterRuleTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.narrative.EasterRuleTest"
+}
+
+// 【变更记录 #49】2026-10-01 06:36:54（修订128）：删除无；新增正式check包含彩蛋规则及注入契约；修改测试依赖；用途：打包不漏本轮验证。
+tasks.named("check").configure { dependsOn("runEasterRuleTest") }
+
+// 2026-10-01 12:14:23 修订128：已有JEI运行依赖同时供客户端观察钩子编译，不打包JEI。
+
+// 【变更记录 #50】2026-10-01 14:12:23 修订129：任务目录与真实进度投影回归加入check。
+tasks.register("runQuestCatalogTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.integration.QuestCatalogTest"
+}
+tasks.named("check").configure { dependsOn("runQuestCatalogTest") }
+
+// 【变更记录 #51】2026-10-01 16:14:20（修订133）：删除无；新增更新详情整系统回归；修改check依赖；用途：覆盖版本/个人保存、弹窗排队与摘要包边界，不替代游戏显示验收。
+tasks.register("runWelcomeSystemTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.bootstrap.WelcomeSystemTest"
+}
+tasks.named("check").configure { dependsOn("runWelcomeSystemTest") }
+
+// 【变更记录 #52】2026-10-01 16:31:00（修订134）：删除无；新增三条SCP用户复现场景回归；修改check依赖；用途：检验真实几何、笔记账本和调用链，实机需复测。
+tasks.register("runScpSceneRegressionTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.narrative.ScpSceneRegressionTest"
+}
+tasks.named("check").configure { dependsOn("runScpSceneRegressionTest") }
+
+// 【变更记录 #53】2026-10-01 16:49:18（修订135）：删除无；新增终审准入及恢复回归；修改check接线；用途：工程未接入必须拒绝，测试不代替真实结构或实机验收。
+tasks.register("runFinaleAdmissionTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.dialogue.FinaleAdmissionTest"
+}
+tasks.named("check").configure { dependsOn("runFinaleAdmissionTest") }
+
+// 【变更记录 #54】2026-10-01 17:04:49（修订136）：删除无；新增个人账本持久化/重连回归；修改check接线；用途：可选只读指定实例兼容核验，正常构建不访问玩家存档。
+tasks.register("runPersonalPersistenceTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.persistence.PersonalPersistenceTest"
+    if (project.hasProperty("hk3PersistenceAuditRoot")) args(project.property("hk3PersistenceAuditRoot"))
+}
+tasks.named("check").configure { dependsOn("runPersonalPersistenceTest") }
+
+// 【变更记录 #55】2026-10-01 17:17:43（修订137）：删除无；新增无线HW账户与并发/存盘回归；修改check接线；用途：完整账户验证及可选实例只读核验。
+tasks.register("runWirelessAccountTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.persistence.WirelessAccountTest"
+    if (project.hasProperty("hk3WirelessAuditRoot")) args(project.property("hk3WirelessAuditRoot"))
+}
+tasks.named("check").configure { dependsOn("runWirelessAccountTest") }
+
+// 【变更记录 #56】2026-10-01 17:33:35（修订138）：删除无；新增EU适配金额守恒、失败和生产接线回归；修改check依赖；用途：避免构建遗漏三条实际支付入口。
+tasks.register("runGridEnergyPaymentTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.persistence.GridEnergyPaymentTest"
+}
+tasks.named("check").configure { dependsOn("runGridEnergyPaymentTest") }
+
+// 【变更记录 #57】2026-10-01 17:44:16（修订139）：删除无；新增双能源工作票据回归；修改check接线；用途：核验失败退能、真实推进确认与生产接线。
+tasks.register("runDualEnergyTickTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.persistence.DualEnergyTickTest"
+}
+tasks.named("check").configure { dependsOn("runDualEnergyTickTest") }
+
+// 【变更记录 #58】2026-10-17 13:57:36（修订160）：删除无；新增工业依赖闭包、HTML报告及魂钢八步链反旁路回归；修改check接线；用途：整套核验纳入发布构建，不以注册配方冒充游戏验收。
+tasks.register("runRecipeReachabilityTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.RecipeReachabilityTest"
+}
+tasks.register("runIndustrialAuditReportTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.IndustrialAuditReportTest"
+}
+tasks.register("runSouliumChainContractTest", Exec) {
+    workingDir projectDir
+    environment "PYTHONIOENCODING", "utf-8"
+    commandLine "python", "tools/test_soulium_chain_contract.py"
+}
+tasks.named("check").configure {
+    dependsOn("runRecipeReachabilityTest", "runIndustrialAuditReportTest", "runSouliumChainContractTest")
+}
+
+// 【变更记录 #59】2026-10-17 14:12:15（修订161）：删除活动测试任务和主类的版本前缀；新增长期研究/任务目录命名；修改check引用；用途：同步应用、资源和测试的整体命名迁移，保留历史构建备注。
+
+// 【变更记录 #60】2026-10-17 14:40:05（修订162）：新增退役配方与类型反恢复检查，核对现行研究所、工业计划及MAX首制保留边界。
+tasks.register("runRetiredRecipeContractTest", Exec) {
+    workingDir projectDir
+    environment "PYTHONIOENCODING", "utf-8"
+    commandLine "python", "tools/check_retired_recipe_contract.py"
+}
+tasks.named("check").configure { dependsOn("runRetiredRecipeContractTest") }
+
+tasks.register("runRetiredRecipeNegativeTest", Exec) {
+    workingDir projectDir
+    environment "PYTHONIOENCODING", "utf-8"
+    commandLine "python", "tools/test_retired_recipe_contract.py"
+}
+tasks.named("check").configure { dependsOn("runRetiredRecipeNegativeTest") }
+
+// 【变更记录 #61】2026-10-17 15:10:00（修订163）：新增整套配方研究注册、批次权限与104条迁移合同回归；反例必须拒绝旧节点、遗漏前置和内容篡改。
+tasks.register("runResearchGateRegistryTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchGateRegistryTest"
+}
+tasks.register("runResearchRequirementPolicyTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchRequirementPolicyTest"
+}
+tasks.register("runRecipeResearchContractTest", Exec) {
+    workingDir projectDir
+    environment "PYTHONIOENCODING", "utf-8"
+    commandLine "python", "tools/check_recipe_research_contract.py"
+}
+tasks.register("runRecipeResearchNegativeTest", Exec) {
+    workingDir projectDir
+    environment "PYTHONIOENCODING", "utf-8"
+    commandLine "python", "tools/test_recipe_research_contract.py"
+}
+tasks.named("check").configure {
+    dependsOn("runResearchGateRegistryTest", "runResearchRequirementPolicyTest", "runRecipeResearchContractTest", "runRecipeResearchNegativeTest")
+}
+
+// 【变更记录 #62】2026-10-17 16:31:36（修订165）：删除无；新增主材目录/物质守恒/高阶支付回归；修改check依赖；用途：验证身份、反复制和精确扣能，不代替游戏验收。
+tasks.register("runMainMaterialCatalogTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.MainMaterialCatalogTest"
+}
+tasks.named("check").configure { dependsOn("runMainMaterialCatalogTest") }
+tasks.register("runRecipePowerTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.persistence.RecipePowerTest"
+}
+tasks.named("check").configure { dependsOn("runRecipePowerTest") }
+
+tasks.register("runMainMaterialUnitTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.MainMaterialUnitTest"
+}
+tasks.named("check").configure { dependsOn("runMainMaterialUnitTest") }
+
+// 【变更记录 #63】2026-10-17 21:50:18（修订166）：删除无；新增高度合同回归；修改check依赖；用途：验证编码范围、冻结持久化和拒绝损坏合同，不代替实际世界验收。
+tasks.register("runHeightContractTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.common.dimension.height.Hk3HeightContractTest"
+}
+tasks.named("check").configure { dependsOn("runHeightContractTest") }
+
+// 【变更记录 #65】2026-10-19 02:13:37（修订171）：删除无；新增GT总览等待原因保守分类回归；修改check依赖；用途：防止空闲、输出阻塞或字面文本误报缺电，不代替实例Mixin验收。
+tasks.register("runMachineOverviewAdapterTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.overview.MachineOverviewAdapterTest"
+}
+tasks.named("check").configure { dependsOn("runMachineOverviewAdapterTest") }
+
+// 【变更记录 #66】2026-10-23 13:43:32（修订175）：删除无；新增五台工业扩展来源、真实仓容量及32项暂定工单关闭回归；修改check依赖；用途为区分结构接入与工艺开放，不代替实机验收。
+tasks.register("runIndustrialExtensionAdoptionTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.IndustrialExtensionAdoptionTest"
+}
+tasks.named("check").configure { dependsOn("runIndustrialExtensionAdoptionTest") }
+
+// 【变更记录 #67】2026-10-26 20:48:30（修订177）：新增十台后期正式模板逐格身份与紧凑巨构边界回归，单台释放大NBT；实机验收另计。
+tasks.register("runLateIndustrialArchitectureTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.LateIndustrialArchitectureTest"
+    maxHeapSize = "3g"
+}
+tasks.named("check").configure { dependsOn("runLateIndustrialArchitectureTest") }
+
+// 【变更记录 #68】2026-10-26 22:01:47（修订178）：新增机器名称、静态与动态说明的双语完整性检查；接入check，防止原始语言键再次交付。
+tasks.register("runMachineLocalizationContract", Exec) {
+    workingDir projectDir
+    // 修订180：构建输出进入build，避免覆盖修订178的历史核验收据。
+    commandLine "python", "tools/check_machine_localization.py", "--output", "build/reports/hk3gtl/machine-localization.json"
+}
+tasks.named("check").configure { dependsOn("runMachineLocalizationContract") }
+
+// 【变更记录 #69】2026-10-27（修订180）：第8批五台流式逐格预览、正式仓室及暂定工艺边界纳入构建。
+tasks.register("runBatchEightArchitectureTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.BatchEightArchitectureTest"
+    maxHeapSize = "768m"
+}
+tasks.named("check").configure { dependsOn("runBatchEightArchitectureTest") }
+
+// 【变更记录 #70】2026-10-30（修订184）：统一分批建造的支撑顺序与单步预算回归，不启动世界。
+tasks.register("runUniversalBuildOrderTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.common.multiblock.build.Hk3BuildOrderTest"
+}
+
+tasks.named("check").configure { dependsOn("runUniversalBuildOrderTest") }
+
+// 修订186：第10批及额外授权I45完整结构、终端拆除回归；实机验收另计。
+tasks.register("runTerminalDismantleTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.common.multiblock.build.Hk3TerminalDismantleTest"
+}
+
+tasks.register("runBatchTenArchitectureTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.BatchTenArchitectureTest"
+    maxHeapSize = "1536m"
+}
+
+tasks.named("check").configure { dependsOn("runTerminalDismantleTest", "runBatchTenArchitectureTest") }
+
+// 【变更记录 #71】2026-10-31 02:11:26（修订187）：新增专服缺译表正文回归并接入check；防止翻译键冒充批准原文及完整阅读回执正文。
+tasks.register("runServerCanonicalTextTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.common.communication.Hk3ServerCanonicalTextTest"
+    jvmArgs("-Dfile.encoding=UTF-8")
+}
+tasks.named("check").configure { dependsOn("runServerCanonicalTextTest") }
+
+// 【变更记录 #72】2026-10-31 17:51:07（修订189）：删除无；新增导出坐标、文件保全及只读API契约回归；修改check依赖；用途：把本轮边界纳入正式构建。
+tasks.register("runExportScanBoundsTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.common.multiblock.export.ExportScanBoundsTest"
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+tasks.register("runExportFilesTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.export.ExportFilesTest"
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+tasks.register("runPublicApiContractTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.api.PublicApiContractTest"
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+tasks.named("check").configure { dependsOn("runExportScanBoundsTest", "runExportFilesTest", "runPublicApiContractTest") }
+
+// 【变更记录 #73】2026-11-04 01:36:48（修订194）：新增支付日志四断点与重放幂等测试并接入check；不替代真实专服强停验收。
+tasks.register("runResearchPaymentJournalTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.research.ResearchPaymentJournalTest"
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+tasks.named("check").configure { dependsOn("runResearchPaymentJournalTest") }
+
+tasks.register("runBuildHeightPlacementTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.common.multiblock.build.Hk3BuildHeightPlacementTest"
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+tasks.named("check").configure { dependsOn("runBuildHeightPlacementTest") }
+
+// 已确认I34树影资源完整性；客户端画面仍须独立实测。
+tasks.register("i34TreeProjectionTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.I34TreeProjectionTest"
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+
+// W02完整蓝图必须包含真实主控与通用接口；不代替客户端成型验收。
+tasks.register("w02BlueprintTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.W02BlueprintTest"
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+tasks.named("check").configure { dependsOn("w02BlueprintTest") }
+
+// 修订242：后台批次与十次进度，完整自家预览资源回读；不代替客户端测试。
+tasks.register("buildPipelineTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.common.multiblock.build.Hk3BuildPipelineTest"
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+tasks.register("sparseMachinePreviewTest", JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "com.sirin.hk3gtl.test.industry.Hk3SparsePreviewDataTest"
+    jvmArgs "-Dfile.encoding=UTF-8", "-Xmx768m"
+}
+tasks.named("check").configure { dependsOn("buildPipelineTest", "sparseMachinePreviewTest") }

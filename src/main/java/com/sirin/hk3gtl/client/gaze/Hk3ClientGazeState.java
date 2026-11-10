@@ -9,11 +9,18 @@ import net.minecraftforge.api.distmarker.OnlyIn;
  * <p>纯客户端状态，不参与任何业务计算；所有权威数据以服务端 {@code Hk3GazeManager} 为准。
  * 字段用 volatile 保证网络线程写入、渲染线程读取的可见性。</p>
  */
+/**
+ * 【变更记录 #1】2026-09-30 15:49:23（第1次编号备注 · 内测5修订109）
+ * 删除：过期的计算或无运行依据的分支；保留历史备注。
+ * 新增／修改：缓存服务端有效注视及团队研究口径，退出清空，防止跨存档残留。
+ * 用途：统一注视与研究联动，服务端判定；不新增结构或贴图。
+ */
 @OnlyIn(Dist.CLIENT)
 public final class Hk3ClientGazeState {
 
     /** 当前原始注视度（0~GAZE_MAX） */
     private static volatile int gaze = 0;
+    private static volatile int effectiveGaze = 0, teamGaze = 0;
     /** 注视度上限，随包同步以便 HUD 计算进度比例 */
     private static volatile int gazeMax = 1000;
     /** 缓冲单元是否激活（HUD 显示缓冲提示） */
@@ -23,8 +30,9 @@ public final class Hk3ClientGazeState {
 
     private Hk3ClientGazeState() {}
 
-    public static void update(int newGaze, int newMax, boolean newBufferActive) {
+    public static void update(int newGaze, int newMax, boolean newBufferActive, int effective, int team) {
         gaze = newGaze;
+        effectiveGaze = effective; teamGaze = team;
         gazeMax = Math.max(1, newMax);
         bufferActive = newBufferActive;
         synced = true;
@@ -33,10 +41,14 @@ public final class Hk3ClientGazeState {
     /** 玩家断开连接时复位，避免残留数据串档。 */
     public static void reset() {
         gaze = 0;
+        effectiveGaze = 0; teamGaze = 0;
         gazeMax = 1000;
         bufferActive = false;
         synced = false;
     }
+
+    public static int getEffectiveGaze() { return effectiveGaze; }
+    public static int getTeamGaze() { return teamGaze; }
 
     public static int getGaze() {
         return gaze;

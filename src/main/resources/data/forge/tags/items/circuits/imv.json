@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:quantum_interference_processor_mainframe",
+    "hk3gtl:entanglement_anchor_computer",
+    "hk3gtl:imaginary_anchoring_assembly",
+    "hk3gtl:imv_processor"
+  ],
+  "_comment_revision75": "变更记录 #1 2026-09-26 22:06:33：补入本电压新系列，禁止跨级替代。"
+}

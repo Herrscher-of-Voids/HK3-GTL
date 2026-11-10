@@ -1,0 +1,200 @@
+{
+  "key": "i05",
+  "machine": "hk3gtl:stabilization_medium_regeneration_tower",
+  "source": "data/hk3gtl/approved_architecture/i05.json",
+  "sha256": "f7e9fbd6762ee60704f20aa6549aafec978e9171e78bbd00fb9373f7288a5f2b",
+  "template_sha256": "7a18bac724f7232c2f65e9107301df8c775720924c443f55928df411920cb60e",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_004242_968234_I05_V5_HBV_外观已确认未接入\\I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_004242_968234_I05_V5_HBV_外观已确认未接入\\I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_004242_968234_I05_V5_HBV_外观已确认未接入\\I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026\\i05-regeneration-hbv-crown-v5.nbt",
+  "source_nbt_sha256": "ec30d0483b2b44cf3f4d1b34d153b554b385cb8f3f356c5568ab95bc52e70719",
+  "controller": [
+    20,
+    3,
+    16
+  ],
+  "size_xyz": [
+    43,
+    49,
+    37
+  ],
+  "blocks": 7519,
+  "ports": [
+    {
+      "id": "FEED",
+      "pos": [
+        16,
+        3,
+        16
+      ],
+      "face": "north",
+      "purpose": "待再生介质/工况输入候选",
+      "integration_host": "再生塔下裙座",
+      "group": "fluid_input"
+    },
+    {
+      "id": "FILTER",
+      "pos": [
+        6,
+        3,
+        16
+      ],
+      "face": "north",
+      "purpose": "替换滤材或屏蔽试件输入候选",
+      "integration_host": "再生塔滤芯输送下端",
+      "group": "item_input"
+    },
+    {
+      "id": "POWER",
+      "pos": [
+        24,
+        3,
+        16
+      ],
+      "face": "north",
+      "purpose": "回热与再生供能候选",
+      "integration_host": "再生塔下裙座",
+      "group": "service"
+    },
+    {
+      "id": "RESIDUE",
+      "pos": [
+        21,
+        3,
+        33
+      ],
+      "face": "north",
+      "purpose": "固化残留物输出候选",
+      "integration_host": "后侧屏蔽回收坞北壁",
+      "group": "item_output"
+    },
+    {
+      "id": "COOLANT",
+      "pos": [
+        33,
+        4,
+        15
+      ],
+      "face": "north",
+      "purpose": "换热循环介质接口候选",
+      "integration_host": "回热冷凝器固定北端封头",
+      "group": "fluid_input"
+    },
+    {
+      "id": "PRODUCT",
+      "pos": [
+        37,
+        4,
+        15
+      ],
+      "face": "north",
+      "purpose": "再生稳定介质输出候选",
+      "integration_host": "回热冷凝器固定北端封头",
+      "group": "fluid_output"
+    }
+  ],
+  "target_voltage": "HBV",
+  "installed_hatches": {
+    "FEED": "fluid_input",
+    "FILTER": "item_input",
+    "RESIDUE": "item_output",
+    "COOLANT": "fluid_input",
+    "PRODUCT": "fluid_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 13,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        6,
+        3,
+        16
+      ],
+      "role": "FILTER",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        16,
+        3,
+        16
+      ],
+      "role": "FEED",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        20,
+        3,
+        16
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:stabilization_medium_regeneration_tower[facing=north]",
+      "block_entity_id": "hk3gtl:stabilization_medium_regeneration_tower"
+    },
+    {
+      "pos": [
+        24,
+        3,
+        16
+      ],
+      "role": "POWER",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        21,
+        3,
+        33
+      ],
+      "role": "RESIDUE",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        33,
+        4,
+        15
+      ],
+      "role": "COOLANT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        37,
+        4,
+        15
+      ],
+      "role": "PRODUCT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:stabilization_medium_regeneration_tower",
+  "controller_json_state": "hk3gtl:stabilization_medium_regeneration_tower"
+}

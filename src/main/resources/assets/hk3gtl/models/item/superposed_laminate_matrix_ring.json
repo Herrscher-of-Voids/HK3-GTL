@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/superposed_laminate_matrix_ring/layer0",
+    "layer1": "hk3gtl:item/main_material/superposed_laminate_matrix_ring/layer1",
+    "layer2": "hk3gtl:item/main_material/superposed_laminate_matrix_ring/layer2"
+  }
+}

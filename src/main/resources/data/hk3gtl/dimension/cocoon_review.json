@@ -1,0 +1,5 @@
+{
+  "_comment_r140": "2026-10-01 18:42:57：新增隔离的一审会面空间，复用现有维度类型及原版屏障地面，不生成新机器、多方块或终审实体。",
+  "type": "hk3gtl:imaginary_dimension",
+  "generator": {"type":"minecraft:flat","settings":{"biome":"minecraft:the_void","layers":[{"height":1,"block":"minecraft:barrier"}],"structure_overrides":[],"lakes":false,"features":false}}
+}

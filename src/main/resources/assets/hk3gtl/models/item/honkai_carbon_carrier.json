@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/energy_fuel/honkai_carbon_carrier/layer0"
+  }
+}

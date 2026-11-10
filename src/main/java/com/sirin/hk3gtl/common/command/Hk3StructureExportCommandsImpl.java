@@ -1,9 +1,35 @@
 package com.sirin.hk3gtl.common.command;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 Hk3StructureExportCommandsImpl 的核心功能实现。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
+/**
+ * 【变更记录 #1】2026-10-31 17:42:29（第 1 次备注 · 内测5修订189）
+ * - 删除：任意含选区NBT物品的导出棒兜底、逐份覆盖磁盘文件的路径。
+ * - 新增：save的OP2命令树与执行双重检查、安全名称、选区维度校验及异常根因日志。
+ * - 修改：info/clear仍面向持棒玩家；仅注册导出棒可被识别，四份文本先生成后交ExportFiles独占写入。
+ * - 用途：让服务器写文件权限由服务端决定，并避免跨维度误读和同名导出数据损坏。
+ */
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.logging.LogUtils;
+import com.sirin.hk3gtl.common.multiblock.export.ExportFiles;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.item.Hk3Items;
 import com.sirin.hk3gtl.common.item.StructureExportWand;
@@ -16,6 +42,8 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+import org.slf4j.Logger;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -24,9 +52,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.FileAlreadyExistsException;
+import java.util.List;
 
 /**
  * {@code /hk3export} 命令的真实实现，整体只做三件事：
@@ -46,7 +73,6 @@ import java.nio.file.Path;
  *
  * <h3>为什么不直接写入 src/</h3>
  * 开发场景下要避免命令直接篡改源码树（防止覆盖同名文件 / 脏工作区），改为写文本让玩家手动挪。
- * 需求变更时，只需在 {@link #writeFiles} 中追加直接写入 src 的支路即可。
  *
  * <h3>修改指南</h3>
  * <ul>
@@ -60,7 +86,8 @@ import java.nio.file.Path;
 public class Hk3StructureExportCommandsImpl {
 
     /** 输出目录名（相对 server 根目录）。修改会让历史导出失散，谨慎 */
-    private static final String EXPORT_DIR = "hk3gtl_exports";
+    private static final String EXPORT_DIR = ExportFiles.DIRECTORY;
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     @SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
@@ -82,6 +109,7 @@ public class Hk3StructureExportCommandsImpl {
                 .then(Commands.literal("clear")
                         .executes(ctx -> doClear(ctx.getSource())))
                 .then(Commands.literal("save")
+                        .requires(source -> source.hasPermission(2))
                         .then(Commands.argument("name", StringArgumentType.word())
                                 .executes(ctx -> doSave(
                                         ctx.getSource(),
@@ -117,11 +145,20 @@ public class Hk3StructureExportCommandsImpl {
         tag.remove(StructureExportWand.NBT_POS1);
         tag.remove(StructureExportWand.NBT_POS2);
         tag.remove(StructureExportWand.NBT_CTRL);
+        tag.remove(StructureExportWand.NBT_DIMENSION);
         reply(source, "§a[HK3] 已清空选区");
         return 1;
     }
 
     private static int doSave(CommandSourceStack source, String name) {
+        if (!source.hasPermission(2)) {
+            reply(source, "§c[HK3] 结构导出需要OP2权限");
+            return 0;
+        }
+        if (!ExportFiles.validName(name)) {
+            reply(source, "§c[HK3] 名称须为1至64位小写字母、数字或下划线，以字母开头且不是系统保留名");
+            return 0;
+        }
         ServerPlayer player = source.getPlayer();
         if (player == null) return 0;
 
@@ -131,6 +168,12 @@ public class Hk3StructureExportCommandsImpl {
             return 0;
         }
 
+        CompoundTag selection = wand.getTag();
+        if (selection == null || !selection.contains(StructureExportWand.NBT_DIMENSION, Tag.TAG_STRING)
+                || !player.level().dimension().location().toString().equals(selection.getString(StructureExportWand.NBT_DIMENSION))) {
+            reply(source, "§c[HK3] 选区维度不匹配或旧选区缺少维度，请在当前维度重新选点");
+            return 0;
+        }
         BlockPos pos1 = StructureExportWand.readPos(wand, StructureExportWand.NBT_POS1);
         BlockPos pos2 = StructureExportWand.readPos(wand, StructureExportWand.NBT_POS2);
         BlockPos ctrl = StructureExportWand.readPos(wand, StructureExportWand.NBT_CTRL);
@@ -144,15 +187,16 @@ public class Hk3StructureExportCommandsImpl {
         ExportContext ctx;
         try {
             ctx = StructureScanner.scan(player.level(), pos1, pos2, ctrl, name);
+            writeFiles(player, ctx);
         } catch (StructureScanner.ScanException e) {
             reply(source, "§c[HK3] 扫描失败：" + e.getMessage());
             return 0;
-        }
-
-        try {
-            writeFiles(player, ctx);
-        } catch (IOException e) {
-            reply(source, "§c[HK3] 写入失败：" + e.getMessage());
+        } catch (FileAlreadyExistsException e) {
+            reply(source, "§c[HK3] 导出名称已存在，请另取名称；旧文件保持不变");
+            return 0;
+        } catch (IOException | RuntimeException e) {
+            LOGGER.error("结构导出失败：玩家={}，名称={}", player.getGameProfile().getName(), name, e);
+            reply(source, "§c[HK3] 导出失败（同名文件不会覆盖）：" + e.getMessage());
             return 0;
         }
 
@@ -164,52 +208,25 @@ public class Hk3StructureExportCommandsImpl {
         return 1;
     }
 
-    /**
-     * 把四份产物写到 {@code <serverDir>/hk3gtl_exports/} 下。
-     * 存在同名文件会被覆盖（符合命令语义，避免静默失败）。
-     */
+    /** 四份内容全部渲染成功后才创建文件；失败清理由ExportFiles负责。 */
     private static void writeFiles(ServerPlayer player, ExportContext ctx) throws IOException {
-        Path dir = player.server.getServerDirectory().toPath().resolve(EXPORT_DIR);
-        Files.createDirectories(dir);
-
-        String name = ctx.exportName;
-        Files.writeString(dir.resolve(name + ".txt"),
-                PlainTextWriter.render(ctx), StandardCharsets.UTF_8);
-        Files.writeString(dir.resolve(name + "_pattern_impl.txt"),
-                PatternCodeWriter.renderImpl(ctx), StandardCharsets.UTF_8);
-        Files.writeString(dir.resolve(name + "_pattern_facade.txt"),
-                PatternCodeWriter.renderFacade(ctx), StandardCharsets.UTF_8);
-        Files.writeString(dir.resolve(name + "_machine.txt"),
-                MachineCodeWriter.render(ctx), StandardCharsets.UTF_8);
+        ExportFiles.write(player.server.getServerDirectory().toPath(), ctx.exportName, List.of(
+                PlainTextWriter.render(ctx), PatternCodeWriter.renderImpl(ctx),
+                PatternCodeWriter.renderFacade(ctx), MachineCodeWriter.render(ctx)));
     }
 
-    /**
-     * 定位玩家背包中第一把结构导出棒：
-     * <ol>
-     *   <li>优先匹配物品 = {@link Hk3Items#STRUCTURE_EXPORT_WAND}</li>
-     *   <li>兜底匹配：含 NBT 键 {@code hk3gtl_export_pos1/2/ctrl} 的任意物品（兼容重命名 / 调试场景）</li>
-     * </ol>
-     */
+    /** 只匹配正式注册的导出棒，任意物品携带选区NBT不获得工具身份。 */
     private static ItemStack findWand(ServerPlayer player) {
         if (Hk3Items.STRUCTURE_EXPORT_WAND != null) {
             for (ItemStack stack : player.getInventory().items) {
                 if (stack.is(Hk3Items.STRUCTURE_EXPORT_WAND.get())) return stack;
             }
         }
-        for (ItemStack stack : player.getInventory().items) {
-            CompoundTag tag = stack.getTag();
-            if (tag == null) continue;
-            if (tag.contains(StructureExportWand.NBT_POS1)
-                    || tag.contains(StructureExportWand.NBT_POS2)
-                    || tag.contains(StructureExportWand.NBT_CTRL)) {
-                return stack;
-            }
-        }
         return ItemStack.EMPTY;
     }
 
     private static String readOrDash(CompoundTag tag, String key) {
-        if (!tag.contains(key)) return "§7— (未设置)";
+        if (!tag.contains(key, Tag.TAG_LONG)) return "§7— (未设置)";
         return "§f" + BlockPos.of(tag.getLong(key)).toShortString();
     }
 

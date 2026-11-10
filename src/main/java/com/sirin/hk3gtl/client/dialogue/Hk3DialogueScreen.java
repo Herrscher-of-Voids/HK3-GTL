@@ -1,7 +1,38 @@
 package com.sirin.hk3gtl.client.dialogue;
 
 
-
+/**
+ * 【文件职责】
+ * - 负责 Hk3DialogueScreen 客户端渲染或 UI 逻辑。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【变更记录 #2】2026-05-31 22:45:00（第 2 次备注 · 内测三第 2 次更新）
+ * - 修改：
+ *   1) buildFilteredChoiceRows 中西琳终局掩码默认值由 0b11111(5 位) 改为 (1<<IF_BRANCH_COUNT)-1。
+ *   2) showChoices 选项布局由单列改为“每列最多 5 行”的多列布局：≤5 个仍单列满宽，6~10 个自动分 2 列。
+ * - 用途：
+ *   1) 客户端按掩码渲染可选 IF 选项；扩展到 10 条后，无掩码兜底也应放行全部 10 个，避免后 5 条不显示。
+ *   2) 10 个按钮单列高 260px 会溢出 240px 面板，分列后控制在 5 行(130px)内，保证全部可见可点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
+/**
+ * 【变更记录 #3】2026-09-29 17:51:46（内测5修订93）
+ * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
+ * - 新增／修改：逐句显示；IF分页保留选项索引，满五选只禁用未选分支；ESC暂停，正常读完才发送完成标记；校对显示只读状态。
+ * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
+ */
 import com.sirin.hk3gtl.common.dialogue.*;
 import com.sirin.hk3gtl.common.dialogue.definition.SirinDialogueDefinitions;
 import com.sirin.hk3gtl.common.network.DialogueCloseC2SPacket;
@@ -27,7 +58,14 @@ import java.util.List;
  * 布局：全屏暗幕 + 底部面板(文本) + 角色名牌 + 选项按钮。
  * 支持逐字显示、多 segment 跳转、动态选项过滤。
  */
-public class Hk3DialogueScreen extends Screen {
+/** 中文说明：该处说明已按当前代码行为整理。*/
+/** 【变更记录 #4】2026-10-01 04:34:58（修订128）：删除：旧固定上限或被替代的分支；新增/修改：已逐字完整显示后才发送本句阅读片段，不调整任何句子与演出节奏；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #5】2026-10-01 04:35:52（修订128）：删除：旧固定上限或被替代的分支；新增/修改：鼠标在完整显示当帧快速继续时先提交阅读，再推进下一句，避免漏记；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #6】2026-10-01 05:33:27（修订128）：删除：旧固定上限或被替代的分支；新增/修改：只有已展开可操作终审页回报按键与待选心跳；关闭先清理等待，仍由原界面处理选项；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #7】2026-10-01 05:33:55（修订128）：删除：旧固定上限或被替代的分支；新增/修改：遵循现有缩放屏幕clickFitted扩展点，不覆盖final坐标转换方法；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #8】2026-10-01 05:34:21（修订128）：删除：旧固定上限或被替代的分支；新增/修改：合并到已有鼠标处理方法，保留文字推进与选项点击原控制逻辑；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+/** 【变更记录 #9】2026-10-01 18:42:57（修订140）：删除正式审查沿通用结束包结算的可能；新增独立审查令牌包；修改逐句界面保留、关闭只请求暂停；用途：预览与真实经历隔离。 */
+public class Hk3DialogueScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int CHARS_PER_TICK = 2;
     private static final int PANEL_HEIGHT = 240;
@@ -37,7 +75,8 @@ public class Hk3DialogueScreen extends Screen {
     private static final int NAME_TAG_OFFSET_Y = 24;
 
     private final String dialogueId;
-    private final int extraData;
+    private int extraData;
+    private long nonce;
     private final DialogueDefinition definition;
     private final boolean closableByEsc;
 
@@ -56,10 +95,11 @@ public class Hk3DialogueScreen extends Screen {
     private int animTick = 0;
     private static final int ANIM_DURATION = 4;
 
-    public Hk3DialogueScreen(String dialogueId, String startSegmentId, int extraData) {
-        super(Component.empty());
+    public Hk3DialogueScreen(String dialogueId, String startSegmentId, int extraData, long nonce) {
+        super(Component.empty(), 640, 320);
         this.dialogueId = dialogueId;
         this.extraData = extraData;
+        this.nonce = nonce;
         this.definition = DialogueRegistry.getDialogue(dialogueId);
         this.closableByEsc = definition != null && definition.closableByEsc();
         this.currentSegmentId = startSegmentId;
@@ -67,16 +107,18 @@ public class Hk3DialogueScreen extends Screen {
 
     // ═══════════════ 静态入口（网络包调用） ═══════════════
 
-    public static void openFromPacket(String dialogueId, String startSegmentId, int extraData) {
+    public static void openFromPacket(String dialogueId, String startSegmentId, int extraData, long nonce) {
         Minecraft mc = Minecraft.getInstance();
-        mc.execute(() -> mc.setScreen(new Hk3DialogueScreen(dialogueId, startSegmentId, extraData)));
+        mc.execute(() -> mc.setScreen(new Hk3DialogueScreen(dialogueId, startSegmentId, extraData, nonce)));
     }
 
-    public static void advanceFromPacket(String dialogueId, String nextSegmentId, int extraData) {
+    public static void advanceFromPacket(String dialogueId, String nextSegmentId, int extraData, long nonce) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.screen instanceof Hk3DialogueScreen screen && screen.dialogueId.equals(dialogueId)) {
             mc.execute(() -> {
                 screen.awaitingChoiceAck = false;
+                screen.extraData = extraData;
+                screen.nonce = nonce;
                 screen.advanceToSegment(nextSegmentId);
             });
         }
@@ -99,13 +141,14 @@ public class Hk3DialogueScreen extends Screen {
     // ═══════════════ 生命周期 ═══════════════
 
     @Override
-    protected void init() {
-        super.init();
+    protected void initFitted() {
+        super.initFitted();
         if (definition == null) {
             closeDialogue();
             return;
         }
-        loadSegment(currentSegmentId);
+        if (currentLines.isEmpty()) loadSegment(currentSegmentId);
+        else if (showingChoices && lineIndex < currentLines.size()) showChoices(currentLines.get(lineIndex).choices());
     }
 
     @Override
@@ -120,10 +163,6 @@ public class Hk3DialogueScreen extends Screen {
 
     @Override
     public void onClose() {
-        if (isSirinFinale() && !finaleNaturalEnd) {
-            Minecraft.getInstance().setScreen(this);
-            return;
-        }
         closeDialogue();
     }
 
@@ -131,13 +170,14 @@ public class Hk3DialogueScreen extends Screen {
     public void tick() {
         super.tick();
         if (animTick < ANIM_DURATION) animTick++;
-        if (showingChoices) return;
+        if (showingChoices) {if(Minecraft.getInstance().player!=null&&Minecraft.getInstance().player.tickCount%20==0)eggAction("choice");return;}
 
         if (lineIndex >= currentLines.size()) {
             onSegmentFinished();
             return;
         }
 
+        if(textFullyRevealed&&lineIndex<currentLines.size())Hk3EggDialogueClient.revealed(dialogueId,currentSegmentId,lineIndex,I18n.get(resolveDisplayedTextKey(currentLines.get(lineIndex))));
         if (!textFullyRevealed) {
             DialogueLine line = currentLines.get(lineIndex);
             String text = I18n.get(resolveDisplayedTextKey(line));
@@ -152,12 +192,12 @@ public class Hk3DialogueScreen extends Screen {
     // ═══════════════ 渲染 ═══════════════
 
     @Override
-    public void render(GuiGraphics gui, int mouseX, int mouseY, float partialTick) {
+    public void renderFitted(GuiGraphics gui, int mouseX, int mouseY, float partialTick) {
         // 全屏暗幕
         gui.fill(0, 0, width, height, OVERLAY_COLOR);
 
         if (definition == null) {
-            super.render(gui, mouseX, mouseY, partialTick);
+            super.renderFitted(gui, mouseX, mouseY, partialTick);
             return;
         }
 
@@ -201,31 +241,40 @@ public class Hk3DialogueScreen extends Screen {
             }
         }
 
+        if (dialogueId.equals(com.sirin.hk3gtl.common.dialogue.definition.Hk3ApprovedDialogues.LIBRARY)
+                || dialogueId.equals(com.sirin.hk3gtl.common.dialogue.definition.Hk3ApprovedDialogues.REVIEW_PREVIEW)
+                || dialogueId.equals(com.sirin.hk3gtl.common.dialogue.definition.Hk3ApprovedDialogues.FINALE_PREVIEW))
+            gui.drawCenteredString(font,Component.translatable("hk3gtl.prose.preview"),width/2,12,0xFFC39B);
+        if (isSirinFinale() && currentSegmentId.startsWith("IF_MENU"))
+            gui.drawCenteredString(font,Component.translatable("hk3gtl.prose.if_count",Integer.bitCount(extraData)),width/2,12,0xDFC7FF);
         // 底部提示
         if (!showingChoices) {
             String hint = I18n.get("hk3gtl.dialogue.hint.continue");
             gui.drawCenteredString(font, "§8" + hint, width / 2, height - 16, 0x888888);
         }
 
-        super.render(gui, mouseX, mouseY, partialTick);
+        super.renderFitted(gui, mouseX, mouseY, partialTick);
     }
 
     // ═══════════════ 输入处理 ═══════════════
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean clickFitted(double mouseX, double mouseY, int button) {
+        if(showingChoices||textFullyRevealed)eggAction("press_m"+button);
         if (awaitingChoiceAck) return true;
-        if (showingChoices) return super.mouseClicked(mouseX, mouseY, button);
+        if (showingChoices) return super.clickFitted(mouseX, mouseY, button);
         if (button == 0 && textFullyRevealed) {
             advanceText();
             return true;
         }
-        return isSirinFinale() || super.mouseClicked(mouseX, mouseY, button);
+        return isSirinFinale() || super.clickFitted(mouseX, mouseY, button);
     }
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if(showingChoices||textFullyRevealed)eggAction("press_k"+keyCode);
         if (awaitingChoiceAck) return true;
+        if (closableByEsc && keyCode == GLFW.GLFW_KEY_ESCAPE) { closeDialogue(); return true; }
         if (showingChoices) return super.keyPressed(keyCode, scanCode, modifiers);
         if (isSirinFinale() && !textFullyRevealed) {
             return true;
@@ -257,6 +306,8 @@ public class Hk3DialogueScreen extends Screen {
             return;
         }
 
+        Hk3EggDialogueClient.revealed(dialogueId,currentSegmentId,lineIndex,fullText);
+
         // 若当前行有选项，显示选项
         if (line.choices() != null && !line.choices().isEmpty()) {
             showChoices(line.choices());
@@ -270,7 +321,7 @@ public class Hk3DialogueScreen extends Screen {
     }
 
     private void showChoices(List<DialogueChoice> choices) {
-        showingChoices = true;
+        showingChoices = true;eggAction("choice");
         clearWidgets();
 
         int panelW = Mth.clamp((int) (width * 0.86), 520, 820);
@@ -285,7 +336,7 @@ public class Hk3DialogueScreen extends Screen {
         List<FilteredChoice> filtered = buildFilteredChoiceRows(choices);
 
         // 选项过多时(如内测三 10 条 IF)单列会溢出面板，按每列最多 MAX_ROWS_PER_COL 行分多列布局
-        int maxRowsPerCol = 5;
+        int maxRowsPerCol = 8;
         int cols = Math.max(1, (filtered.size() + maxRowsPerCol - 1) / maxRowsPerCol);
         int colGap = 8;
         int colW = (panelW - 32 - (cols - 1) * colGap) / cols;
@@ -297,24 +348,19 @@ public class Hk3DialogueScreen extends Screen {
             int rowInCol = i % maxRowsPerCol;
             int x = startX + col * (colW + colGap);
             int y = startY + rowInCol * (btnH + gap);
-            addRenderableWidget(Button.builder(Component.literal(label), b -> onChoiceSelected(row.originalIndex(), row.choice()))
+            Button button = Button.builder(Component.literal(font.plainSubstrByWidth(label,colW-12)), b -> onChoiceSelected(row.originalIndex(), row.choice()))
                     .bounds(x, y, colW, btnH)
-                    .build());
+                    .tooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal(label))).build();
+            int index = com.sirin.hk3gtl.common.dialogue.definition.Hk3ApprovedDialogues.ifIndex(row.choice().targetSegmentId());
+            if (isSirinFinale() && index >= 0 && Integer.bitCount(extraData) >= 5 && (extraData & (1 << index)) == 0)
+                button.active = false;
+            addRenderableWidget(button);
         }
     }
 
     /** 与 {@link #filterChoices} 一致，但保留原始选项下标供 C2S 包与服务端会话对齐 */
     private List<FilteredChoice> buildFilteredChoiceRows(List<DialogueChoice> choices) {
         List<FilteredChoice> rows = new ArrayList<>();
-        if ("sirin_finale".equals(dialogueId)) {
-            int mask = extraData != 0 ? extraData : (1 << SirinDialogueDefinitions.IF_BRANCH_COUNT) - 1;
-            for (int i = 0; i < choices.size(); i++) {
-                if (((mask >> i) & 1) != 0) {
-                    rows.add(new FilteredChoice(i, choices.get(i)));
-                }
-            }
-            return rows;
-        }
         for (int i = 0; i < choices.size(); i++) {
             rows.add(new FilteredChoice(i, choices.get(i)));
         }
@@ -329,7 +375,9 @@ public class Hk3DialogueScreen extends Screen {
         awaitingChoiceAck = true;
 
         // 仅发 C2S；segment 由服务端校验后通过 DialogueAdvanceS2CPacket 推进，避免过滤下标漂移
-        Hk3Network.CHANNEL.sendToServer(new DialoguePlayerChoiceC2SPacket(dialogueId, originalChoiceIndex));
+        if(com.sirin.hk3gtl.common.review.Hk3ReviewDialogues.formal(dialogueId))
+            Hk3Network.CHANNEL.sendToServer(new com.sirin.hk3gtl.common.review.Hk3ReviewActionPacket(dialogueId,currentSegmentId,extraData,originalChoiceIndex));
+        else Hk3Network.CHANNEL.sendToServer(new DialoguePlayerChoiceC2SPacket(dialogueId, currentSegmentId, originalChoiceIndex, nonce));
     }
 
     private void advanceToSegment(String segmentId) {
@@ -370,22 +418,22 @@ public class Hk3DialogueScreen extends Screen {
                 return;
             }
         }
-        if (isSirinFinale() && (currentSegmentId == null || !currentSegmentId.startsWith("if_"))) {
-            return;
-        }
         finaleNaturalEnd = true;
         closeDialogue();
     }
 
     private void closeDialogue() {
-        if (isSirinFinale() && !finaleNaturalEnd) {
-            return;
-        }
-        awaitingChoiceAck = false;
-        Hk3Network.CHANNEL.sendToServer(new DialogueCloseC2SPacket(dialogueId));
+        // 修订198：等推进回包更新令牌后再关闭，避免旧令牌被拒后遗留服务端占用。
+        if (awaitingChoiceAck) return;
+        eggAction("close");awaitingChoiceAck = false;
+        if(com.sirin.hk3gtl.common.review.Hk3ReviewDialogues.formal(dialogueId))
+            Hk3Network.CHANNEL.sendToServer(new com.sirin.hk3gtl.common.review.Hk3ReviewActionPacket(dialogueId,currentSegmentId,extraData,-1));
+        else Hk3Network.CHANNEL.sendToServer(new DialogueCloseC2SPacket(dialogueId, finaleNaturalEnd, nonce));
         Minecraft mc = Minecraft.getInstance();
         mc.execute(() -> mc.setScreen(null));
     }
+
+    private void eggAction(String action){if(isSirinFinale())com.sirin.hk3gtl.client.phone.Hk3EggUiClient.send("dialogue",action+"|"+dialogueId+"|"+currentSegmentId);}
 
     private boolean isSirinFinale() {
         return SirinDialogueDefinitions.DIALOGUE_ID.equals(dialogueId);

@@ -1,0 +1,474 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "hbv_processor",
+      "tier": 15,
+      "family": "soulium_lattice",
+      "form": 0,
+      "primary": true,
+      "zh": "魂钢晶格处理器",
+      "en": "Soulium Lattice Processor"
+    },
+    {
+      "id": "hcv_assembly",
+      "tier": 16,
+      "family": "soulium_lattice",
+      "form": 1,
+      "primary": true,
+      "zh": "魂钢晶格处理器组装件",
+      "en": "Soulium Lattice Processor Assembly"
+    },
+    {
+      "id": "hrv_computer",
+      "tier": 17,
+      "family": "soulium_lattice",
+      "form": 2,
+      "primary": true,
+      "zh": "魂钢晶格超级计算机",
+      "en": "Soulium Lattice Supercomputer"
+    },
+    {
+      "id": "hdv_processor_mainframe",
+      "tier": 18,
+      "family": "soulium_lattice",
+      "form": 3,
+      "primary": true,
+      "zh": "魂钢晶格处理器主机",
+      "en": "Soulium Lattice Mainframe"
+    },
+    {
+      "id": "rhythmic_coupling_processor",
+      "tier": 16,
+      "family": "rhythmic_coupling",
+      "form": 0,
+      "primary": false,
+      "zh": "律动耦合处理器",
+      "en": "Rhythmic Coupling Processor"
+    },
+    {
+      "id": "rhythmic_coupling_assembly",
+      "tier": 17,
+      "family": "rhythmic_coupling",
+      "form": 1,
+      "primary": false,
+      "zh": "律动耦合处理器组装件",
+      "en": "Rhythmic Coupling Processor Assembly"
+    },
+    {
+      "id": "rhythmic_coupling_computer",
+      "tier": 18,
+      "family": "rhythmic_coupling",
+      "form": 2,
+      "primary": false,
+      "zh": "律动耦合超级计算机",
+      "en": "Rhythmic Coupling Supercomputer"
+    },
+    {
+      "id": "rhythmic_coupling_processor_mainframe",
+      "tier": 19,
+      "family": "rhythmic_coupling",
+      "form": 3,
+      "primary": false,
+      "zh": "律动耦合处理器主机",
+      "en": "Rhythmic Coupling Processor Mainframe"
+    },
+    {
+      "id": "honkai_resonance_processor",
+      "tier": 17,
+      "family": "honkai_resonance",
+      "form": 0,
+      "primary": false,
+      "zh": "崩能谐振处理器",
+      "en": "Honkai Resonance Processor"
+    },
+    {
+      "id": "honkai_resonance_assembly",
+      "tier": 18,
+      "family": "honkai_resonance",
+      "form": 1,
+      "primary": false,
+      "zh": "崩能谐振处理器组装件",
+      "en": "Honkai Resonance Processor Assembly"
+    },
+    {
+      "id": "honkai_resonance_computer",
+      "tier": 19,
+      "family": "honkai_resonance",
+      "form": 2,
+      "primary": false,
+      "zh": "崩能谐振超级计算机",
+      "en": "Honkai Resonance Supercomputer"
+    },
+    {
+      "id": "honkai_resonance_processor_mainframe",
+      "tier": 20,
+      "family": "honkai_resonance",
+      "form": 3,
+      "primary": false,
+      "zh": "崩能谐振处理器主机",
+      "en": "Honkai Resonance Mainframe"
+    },
+    {
+      "id": "quantum_bridge_processor",
+      "tier": 18,
+      "family": "quantum_bridge",
+      "form": 0,
+      "primary": false,
+      "zh": "量子桥接处理器",
+      "en": "Quantum Bridge Processor"
+    },
+    {
+      "id": "quantum_bridge_assembly",
+      "tier": 19,
+      "family": "quantum_bridge",
+      "form": 1,
+      "primary": false,
+      "zh": "量子桥接处理器组装件",
+      "en": "Quantum Bridge Processor Assembly"
+    },
+    {
+      "id": "quantum_bridge_computer",
+      "tier": 20,
+      "family": "quantum_bridge",
+      "form": 2,
+      "primary": false,
+      "zh": "量子桥接超级计算机",
+      "en": "Quantum Bridge Supercomputer"
+    },
+    {
+      "id": "quantum_bridge_processor_mainframe",
+      "tier": 21,
+      "family": "quantum_bridge",
+      "form": 3,
+      "primary": false,
+      "zh": "量子桥接处理器主机",
+      "en": "Quantum Bridge Processor Mainframe"
+    },
+    {
+      "id": "qsv_processor",
+      "tier": 19,
+      "family": "quantum_coherence",
+      "form": 0,
+      "primary": true,
+      "zh": "量子相干处理器",
+      "en": "Quantum Coherence Processor"
+    },
+    {
+      "id": "qcv_assembly",
+      "tier": 20,
+      "family": "quantum_coherence",
+      "form": 1,
+      "primary": true,
+      "zh": "量子相干处理器组装件",
+      "en": "Quantum Coherence Processor Assembly"
+    },
+    {
+      "id": "qev_computer",
+      "tier": 21,
+      "family": "quantum_coherence",
+      "form": 2,
+      "primary": true,
+      "zh": "量子相干超级计算机",
+      "en": "Quantum Coherence Supercomputer"
+    },
+    {
+      "id": "qav_processor_mainframe",
+      "tier": 22,
+      "family": "quantum_coherence",
+      "form": 3,
+      "primary": true,
+      "zh": "量子相干处理器主机",
+      "en": "Quantum Coherence Mainframe"
+    },
+    {
+      "id": "quantum_interference_processor",
+      "tier": 20,
+      "family": "quantum_interference",
+      "form": 0,
+      "primary": false,
+      "zh": "量子干涉处理器",
+      "en": "Quantum Interference Processor"
+    },
+    {
+      "id": "quantum_interference_assembly",
+      "tier": 21,
+      "family": "quantum_interference",
+      "form": 1,
+      "primary": false,
+      "zh": "量子干涉处理器组装件",
+      "en": "Quantum Interference Processor Assembly"
+    },
+    {
+      "id": "quantum_interference_computer",
+      "tier": 22,
+      "family": "quantum_interference",
+      "form": 2,
+      "primary": false,
+      "zh": "量子干涉超级计算机",
+      "en": "Quantum Interference Supercomputer"
+    },
+    {
+      "id": "quantum_interference_processor_mainframe",
+      "tier": 23,
+      "family": "quantum_interference",
+      "form": 3,
+      "primary": false,
+      "zh": "量子干涉处理器主机",
+      "en": "Quantum Interference Processor Mainframe"
+    },
+    {
+      "id": "entanglement_anchor_processor",
+      "tier": 21,
+      "family": "entanglement_anchor",
+      "form": 0,
+      "primary": false,
+      "zh": "纠缠锚定处理器",
+      "en": "Entanglement Anchor Processor"
+    },
+    {
+      "id": "entanglement_anchor_assembly",
+      "tier": 22,
+      "family": "entanglement_anchor",
+      "form": 1,
+      "primary": false,
+      "zh": "纠缠锚定处理器组装件",
+      "en": "Entanglement Anchor Processor Assembly"
+    },
+    {
+      "id": "entanglement_anchor_computer",
+      "tier": 23,
+      "family": "entanglement_anchor",
+      "form": 2,
+      "primary": false,
+      "zh": "纠缠锚定超级计算机",
+      "en": "Entanglement Anchor Supercomputer"
+    },
+    {
+      "id": "entanglement_anchor_processor_mainframe",
+      "tier": 24,
+      "family": "entanglement_anchor",
+      "form": 3,
+      "primary": false,
+      "zh": "纠缠锚定处理器主机",
+      "en": "Entanglement Anchor Mainframe"
+    },
+    {
+      "id": "imaginary_anchoring_processor",
+      "tier": 22,
+      "family": "imaginary_anchoring",
+      "form": 0,
+      "primary": false,
+      "zh": "虚数锚定处理器",
+      "en": "Imaginary Anchoring Processor"
+    },
+    {
+      "id": "imaginary_anchoring_assembly",
+      "tier": 23,
+      "family": "imaginary_anchoring",
+      "form": 1,
+      "primary": false,
+      "zh": "虚数锚定处理器组装件",
+      "en": "Imaginary Anchoring Processor Assembly"
+    },
+    {
+      "id": "imaginary_anchoring_computer",
+      "tier": 24,
+      "family": "imaginary_anchoring",
+      "form": 2,
+      "primary": false,
+      "zh": "虚数锚定超级计算机",
+      "en": "Imaginary Anchoring Supercomputer"
+    },
+    {
+      "id": "imaginary_anchoring_processor_mainframe",
+      "tier": 25,
+      "family": "imaginary_anchoring",
+      "form": 3,
+      "primary": false,
+      "zh": "虚数锚定处理器主机",
+      "en": "Imaginary Anchoring Processor Mainframe"
+    },
+    {
+      "id": "imv_processor",
+      "tier": 23,
+      "family": "imaginary_reconstruction",
+      "form": 0,
+      "primary": true,
+      "zh": "虚数重构处理器",
+      "en": "Imaginary Reconstruction Processor"
+    },
+    {
+      "id": "icv_assembly",
+      "tier": 24,
+      "family": "imaginary_reconstruction",
+      "form": 1,
+      "primary": true,
+      "zh": "虚数重构处理器组装件",
+      "en": "Imaginary Reconstruction Processor Assembly"
+    },
+    {
+      "id": "irv_computer",
+      "tier": 25,
+      "family": "imaginary_reconstruction",
+      "form": 2,
+      "primary": true,
+      "zh": "虚数重构超级计算机",
+      "en": "Imaginary Reconstruction Supercomputer"
+    },
+    {
+      "id": "iwv_processor_mainframe",
+      "tier": 26,
+      "family": "imaginary_reconstruction",
+      "form": 3,
+      "primary": true,
+      "zh": "虚数重构处理器主机",
+      "en": "Imaginary Reconstruction Mainframe"
+    },
+    {
+      "id": "causal_reconstruction_processor",
+      "tier": 24,
+      "family": "causal_reconstruction",
+      "form": 0,
+      "primary": false,
+      "zh": "因果重构处理器",
+      "en": "Causal Reconstruction Processor"
+    },
+    {
+      "id": "causal_reconstruction_assembly",
+      "tier": 25,
+      "family": "causal_reconstruction",
+      "form": 1,
+      "primary": false,
+      "zh": "因果重构处理器组装件",
+      "en": "Causal Reconstruction Processor Assembly"
+    },
+    {
+      "id": "causal_reconstruction_computer",
+      "tier": 26,
+      "family": "causal_reconstruction",
+      "form": 2,
+      "primary": false,
+      "zh": "因果重构超级计算机",
+      "en": "Causal Reconstruction Supercomputer"
+    },
+    {
+      "id": "causal_reconstruction_processor_mainframe",
+      "tier": 27,
+      "family": "causal_reconstruction",
+      "form": 3,
+      "primary": false,
+      "zh": "因果重构处理器主机",
+      "en": "Causal Reconstruction Processor Mainframe"
+    },
+    {
+      "id": "world_weaving_processor",
+      "tier": 25,
+      "family": "world_weaving",
+      "form": 0,
+      "primary": false,
+      "zh": "世界织构处理器",
+      "en": "World Weaving Processor"
+    },
+    {
+      "id": "world_weaving_assembly",
+      "tier": 26,
+      "family": "world_weaving",
+      "form": 1,
+      "primary": false,
+      "zh": "世界织构处理器组装件",
+      "en": "World Weaving Processor Assembly"
+    },
+    {
+      "id": "world_weaving_computer",
+      "tier": 27,
+      "family": "world_weaving",
+      "form": 2,
+      "primary": false,
+      "zh": "世界织构超级计算机",
+      "en": "World Weaving Supercomputer"
+    },
+    {
+      "id": "world_weaving_processor_mainframe",
+      "tier": 28,
+      "family": "world_weaving",
+      "form": 3,
+      "primary": false,
+      "zh": "世界织构处理器主机",
+      "en": "World Weaving Mainframe"
+    },
+    {
+      "id": "terminal_computation_processor",
+      "tier": 26,
+      "family": "terminal_computation",
+      "form": 0,
+      "primary": false,
+      "zh": "终序演算处理器",
+      "en": "Terminal Computation Processor"
+    },
+    {
+      "id": "terminal_computation_assembly",
+      "tier": 27,
+      "family": "terminal_computation",
+      "form": 1,
+      "primary": false,
+      "zh": "终序演算处理器组装件",
+      "en": "Terminal Computation Processor Assembly"
+    },
+    {
+      "id": "terminal_computation_computer",
+      "tier": 28,
+      "family": "terminal_computation",
+      "form": 2,
+      "primary": false,
+      "zh": "终序演算超级计算机",
+      "en": "Terminal Computation Supercomputer"
+    },
+    {
+      "id": "terminal_computation_processor_mainframe",
+      "tier": 29,
+      "family": "terminal_computation",
+      "form": 3,
+      "primary": false,
+      "zh": "终序演算处理器主机",
+      "en": "Terminal Computation Processor Mainframe"
+    },
+    {
+      "id": "wfv_processor",
+      "tier": 27,
+      "family": "civilization_endurance",
+      "form": 0,
+      "primary": true,
+      "zh": "文明恒续处理器",
+      "en": "Civilization Endurance Processor"
+    },
+    {
+      "id": "wsv_assembly",
+      "tier": 28,
+      "family": "civilization_endurance",
+      "form": 1,
+      "primary": true,
+      "zh": "文明恒续处理器组装件",
+      "en": "Civilization Endurance Processor Assembly"
+    },
+    {
+      "id": "civ_computer",
+      "tier": 29,
+      "family": "civilization_endurance",
+      "form": 2,
+      "primary": true,
+      "zh": "文明恒续超级计算机",
+      "en": "Civilization Endurance Supercomputer"
+    },
+    {
+      "id": "cev_processor_mainframe",
+      "tier": 30,
+      "family": "civilization_endurance",
+      "form": 3,
+      "primary": true,
+      "zh": "文明恒续处理器主机",
+      "en": "Civilization Endurance Mainframe"
+    }
+  ],
+  "_comment_revision75": "变更记录 #1 2026-09-26 22:06:33：六系列补入七系列间隙，13系列逐级交叠；低系列主机与相邻高系列超级计算机同级。"
+}

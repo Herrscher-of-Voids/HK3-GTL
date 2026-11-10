@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.common.research;
 
 
-
+/**
+ * 【文件职责】
+ * - 维护 Hk3ResearchNodes 研究流程与状态。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
@@ -44,6 +61,13 @@ import java.util.stream.Collectors;
  * </ul>
  *
  * 依赖图参见设计文档：06_科技树与研究系统/研究节点依赖图与卡关检查表.md
+ */
+/**
+ * 【变更记录 #1】2026-09-30 02:17:47（第1次备注 · 内测5修订107）
+ * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
+ * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
+ * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
+ * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
  */
 public class Hk3ResearchNodes {
 
@@ -109,7 +133,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_AB_006 = reg("R-AB-006", Hk3ResearchType.STRUCTURE, 15.3,
             "hk3gtl.research.r_ab_006.name", "hk3gtl.research.r_ab_006.effect", "hk3gtl.research.r_ab_006.unlock",
             List.of("R-AB-004", "R-AB-005"), "E-FB-007", null, List.of(
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_1.get(), 1), "hk3gtl.research.requirement.abyss_circuit_1"),
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HBV.get(), 1), "hk3gtl.research.requirement.abyss_circuit_1"),
                     req(() -> ChemicalHelper.get(TagPrefix.plate, SouliumMaterial.SOULIUM, 8), "hk3gtl.research.requirement.soulium_plate"),
                     req(() -> new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 4), "hk3gtl.research.requirement.honkai_energy_crystal")
             ));
@@ -157,7 +181,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_AB_011 = reg("R-AB-011", Hk3ResearchType.VOLTAGE, 16.0,
             "hk3gtl.research.r_ab_011.name", "hk3gtl.research.r_ab_011.effect", "hk3gtl.research.r_ab_011.unlock",
             List.of("R-AB-004"), "E-FB-007", null, List.of(
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_1.get(), 8), "hk3gtl.research.requirement.abyss_circuit_1"),
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HBV.get(), 8), "hk3gtl.research.requirement.abyss_circuit_1"),
                     req(() -> new ItemStack(HonkaiMaterialItems.STABILIZED_HONKAI_CRYSTAL.get(), 4), "hk3gtl.research.requirement.stabilized_honkai_crystal")
             ));
 
@@ -167,7 +191,7 @@ public class Hk3ResearchNodes {
             List.of("R-AB-011"), "E-FB-007", null, List.of(
                     req(() -> new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 8), "hk3gtl.research.requirement.honkai_energy_crystal"),
                     req(() -> ChemicalHelper.get(TagPrefix.foil, SouliumMaterial.SOULIUM, 16), "hk3gtl.research.requirement.soulium_foil"),
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_1.get(), 4), "hk3gtl.research.requirement.abyss_circuit_1")
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HBV.get(), 4), "hk3gtl.research.requirement.abyss_circuit_1")
             ));
 
     /** R-AB-013: 材料型 | tier=16.3 | 前置 R-AB-011 | 提交: 崩坏能结晶×16 + 魂钢板×8 */
@@ -200,7 +224,7 @@ public class Hk3ResearchNodes {
             "hk3gtl.research.r_ab_016.name", "hk3gtl.research.r_ab_016.effect", "hk3gtl.research.r_ab_016.unlock",
             List.of("R-AB-003"), "E-FB-007", null, List.of(
                     req(() -> ChemicalHelper.get(TagPrefix.wireFine, SouliumMaterial.SOULIUM, 32), "hk3gtl.research.requirement.soulium_fine_wire"),
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_1.get(), 4), "hk3gtl.research.requirement.abyss_circuit_1")
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HBV.get(), 4), "hk3gtl.research.requirement.abyss_circuit_1")
             ));
 
     // ══════════════════════════════════════
@@ -211,7 +235,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_AB_017 = reg("R-AB-017", Hk3ResearchType.VOLTAGE, 17.0,
             "hk3gtl.research.r_ab_017.name", "hk3gtl.research.r_ab_017.effect", "hk3gtl.research.r_ab_017.unlock",
             List.of("R-AB-011"), "E-FB-007", null, List.of(
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_1.get(), 16), "hk3gtl.research.requirement.abyss_circuit_1"),
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HBV.get(), 16), "hk3gtl.research.requirement.abyss_circuit_1"),
                     req(() -> new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 16), "hk3gtl.research.requirement.honkai_energy_crystal")
             ));
 
@@ -221,7 +245,7 @@ public class Hk3ResearchNodes {
             List.of("R-AB-017"), "E-FB-007", null, List.of(
                     req(() -> new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 16), "hk3gtl.research.requirement.honkai_energy_crystal"),
                     req(() -> ChemicalHelper.get(TagPrefix.plate, SouliumMaterial.SOULIUM, 16), "hk3gtl.research.requirement.soulium_plate"),
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_1.get(), 8), "hk3gtl.research.requirement.abyss_circuit_1")
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HBV.get(), 8), "hk3gtl.research.requirement.abyss_circuit_1")
             ));
 
     // ══════════════════════════════════════
@@ -262,7 +286,7 @@ public class Hk3ResearchNodes {
             List.of("R-AB-017"), "E-FB-007", null, List.of(
                     req(() -> new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 32), "hk3gtl.research.requirement.honkai_energy_crystal"),
                     req(() -> new ItemStack(HonkaiMaterialItems.STABILIZED_HONKAI_CRYSTAL.get(), 8), "hk3gtl.research.requirement.stabilized_honkai_crystal"),
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_1.get(), 16), "hk3gtl.research.requirement.abyss_circuit_1")
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HBV.get(), 16), "hk3gtl.research.requirement.abyss_circuit_1")
             ));
 
     /** R-AB-022: 电路型 | tier=18.2 | 前置 R-AB-021 | 提交: 崩坏能结晶×32 + 魂钢箔×32 + 海渊I电路×16 → 解锁海渊4电路(绑定 hk3gtl_circuit_abyss_4) */
@@ -271,7 +295,7 @@ public class Hk3ResearchNodes {
             List.of("R-AB-021"), "E-FB-007", null, List.of(
                     req(() -> new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(), 32), "hk3gtl.research.requirement.honkai_energy_crystal"),
                     req(() -> ChemicalHelper.get(TagPrefix.foil, SouliumMaterial.SOULIUM, 32), "hk3gtl.research.requirement.soulium_foil"),
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_1.get(), 16), "hk3gtl.research.requirement.abyss_circuit_1")
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HBV.get(), 16), "hk3gtl.research.requirement.abyss_circuit_1")
             ));
 
     // ══════════════════════════════════════
@@ -294,7 +318,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_001 = reg("R-IM-001", Hk3ResearchType.CIRCUIT, 19.0,
             "hk3gtl.research.r_im_001.name", "hk3gtl.research.r_im_001.effect", "hk3gtl.research.r_im_001.unlock",
             List.of("R-AB-024"), "E-FB-009", null, List.of(
-                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_ABYSS_4.get(), 16), "hk3gtl.research.requirement.abyss_circuit_4"),
+                    req(() -> new ItemStack(AbyssCircuitItems.CIRCUIT_HDV.get(), 16), "hk3gtl.research.requirement.abyss_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.NANO_CERAMIC.get(), 32), "hk3gtl.research.requirement.nano_ceramic"),
                     req(() -> new ItemStack(HonkaiMaterialItems.COMPRESSED_HONKAI_CORE.get(), 16), "hk3gtl.research.requirement.compressed_honkai_core"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 1), "hk3gtl.research.requirement.world_bubble_sample")
@@ -314,7 +338,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_003 = reg("R-IM-003", Hk3ResearchType.THEORY, 21.0,
             "hk3gtl.research.r_im_003.name", "hk3gtl.research.r_im_003.effect", "hk3gtl.research.r_im_003.unlock",
             List.of("R-IM-002"), "E-FB-010", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_2.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_2"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QCV.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_2"),
                     req(() -> new ItemStack(HonkaiMaterialItems.EINSTEIN_RINGMAGNET.get(), 24), "hk3gtl.research.requirement.einstein_ringmagnet"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_LEGACY.get(), 12), "hk3gtl.research.requirement.ancient_legacy"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ADVANCED_GAZE_BUFFER_UNIT.get(), 4), "hk3gtl.research.requirement.advanced_gaze_buffer_unit")
@@ -324,7 +348,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_004 = reg("R-IM-004", Hk3ResearchType.CERTIFICATION, 22.0,
             "hk3gtl.research.r_im_004.name", "hk3gtl.research.r_im_004.effect", "hk3gtl.research.r_im_004.unlock",
             List.of("R-IM-003"), "E-FB-011", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_3.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_3"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QEV.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_3"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 16), "hk3gtl.research.requirement.ancient_will"),
                     req(() -> new ItemStack(HonkaiMaterialItems.FLUID_ALLOY_BLOCK.get(), 24), "hk3gtl.research.requirement.fluid_alloy_block"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 2), "hk3gtl.research.requirement.world_bubble_sample")
@@ -364,7 +388,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_008 = reg("R-IM-008", Hk3ResearchType.STRUCTURE, 19.8,
             "hk3gtl.research.r_im_008.name", "hk3gtl.research.r_im_008.effect", "hk3gtl.research.r_im_008.unlock",
             List.of("R-IM-007"), "E-FB-009", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_2.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_2"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QCV.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_2"),
                     req(() -> ChemicalHelper.get(TagPrefix.foil, SouliumMaterial.SOULIUM, 32), "hk3gtl.research.requirement.soulium_foil")
             ));
 
@@ -415,7 +439,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_014 = reg("R-IM-014", Hk3ResearchType.MATERIAL, 21.0,
             "hk3gtl.research.r_im_014.name", "hk3gtl.research.r_im_014.effect", "hk3gtl.research.r_im_014.unlock",
             List.of("R-IM-011"), "E-FB-035", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_3.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_3"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QEV.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_3"),
                     req(() -> new ItemStack(HonkaiMaterialItems.FLUID_ALLOY_BLOCK.get(), 16), "hk3gtl.research.requirement.fluid_alloy_block"),
                     req(() -> new ItemStack(HonkaiMaterialItems.PHASE_TRANSFER_MIRROR.get(), 8), "hk3gtl.research.requirement.phase_transfer_mirror")
             ));
@@ -424,7 +448,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_015 = reg("R-IM-015", Hk3ResearchType.VOLTAGE, 21.2,
             "hk3gtl.research.r_im_015.name", "hk3gtl.research.r_im_015.effect", "hk3gtl.research.r_im_015.unlock",
             List.of("R-IM-011"), "E-FB-009", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_3.get(), 16), "hk3gtl.research.requirement.imaginary_circuit_3"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QEV.get(), 16), "hk3gtl.research.requirement.imaginary_circuit_3"),
                     req(() -> new ItemStack(HonkaiMaterialItems.COMPRESSED_HONKAI_CORE.get(), 16), "hk3gtl.research.requirement.compressed_honkai_core")
             ));
 
@@ -432,7 +456,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_016 = reg("R-IM-016", Hk3ResearchType.STRUCTURE, 21.4,
             "hk3gtl.research.r_im_016.name", "hk3gtl.research.r_im_016.effect", "hk3gtl.research.r_im_016.unlock",
             List.of("R-IM-015"), "E-FB-009", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_4"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QAV.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_4"),
                     req(() -> ChemicalHelper.get(TagPrefix.frameGt, SouliumMaterial.SOULIUM, 32), "hk3gtl.research.requirement.soulium_frame")
             ));
 
@@ -445,7 +469,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_018 = reg("R-IM-018", Hk3ResearchType.THEORY, 21.6,
             "hk3gtl.research.r_im_018.name", "hk3gtl.research.r_im_018.effect", "hk3gtl.research.r_im_018.unlock",
             List.of("R-IM-017"), "E-FB-023", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get(), 2), "hk3gtl.research.requirement.imaginary_circuit_4"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QAV.get(), 2), "hk3gtl.research.requirement.imaginary_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 8), "hk3gtl.research.requirement.ancient_will")
             ));
 
@@ -453,7 +477,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_019 = reg("R-IM-019", Hk3ResearchType.THEORY, 21.8,
             "hk3gtl.research.r_im_019.name", "hk3gtl.research.r_im_019.effect", "hk3gtl.research.r_im_019.unlock",
             List.of("R-IM-016"), "E-FB-009", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_4"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QAV.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.EINSTEIN_RINGMAGNET.get(), 16), "hk3gtl.research.requirement.einstein_ringmagnet"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ADVANCED_GAZE_BUFFER_UNIT.get(), 8), "hk3gtl.research.requirement.advanced_gaze_buffer_unit")
             ));
@@ -464,14 +488,14 @@ public class Hk3ResearchNodes {
             List.of("R-IM-010", "R-IM-013"), "E-FB-004", null, List.of(
                     req(() -> new ItemStack(HonkaiMaterialItems.DATA_RESEARCH_PACKAGE.get(), 32), "hk3gtl.research.requirement.data_research_package"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 2), "hk3gtl.research.requirement.world_bubble_sample"),
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_2.get(), 8), "hk3gtl.research.requirement.imaginary_circuit_2")
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QCV.get(), 8), "hk3gtl.research.requirement.imaginary_circuit_2")
             ));
 
     /** R-IM-021: 虚数阶段出口认证 — 毕业必需 */
     public static final Hk3ResearchNode R_IM_021 = reg("R-IM-021", Hk3ResearchType.CERTIFICATION, 22.2,
             "hk3gtl.research.r_im_021.name", "hk3gtl.research.r_im_021.effect", "hk3gtl.research.r_im_021.unlock",
             List.of("R-IM-016", "R-IM-017", "R-IM-020"), "E-FB-009", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get(), 8), "hk3gtl.research.requirement.imaginary_circuit_4"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QAV.get(), 8), "hk3gtl.research.requirement.imaginary_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 4), "hk3gtl.research.requirement.world_bubble_sample"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 16), "hk3gtl.research.requirement.ancient_will")
             ));
@@ -480,7 +504,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_IM_022 = reg("R-IM-022", Hk3ResearchType.THEORY, 22.4,
             "hk3gtl.research.r_im_022.name", "hk3gtl.research.r_im_022.effect", "hk3gtl.research.r_im_022.unlock",
             List.of("R-IM-021"), "E-FB-004", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_4"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QAV.get(), 4), "hk3gtl.research.requirement.imaginary_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 8), "hk3gtl.research.requirement.ancient_will")
             ));
 
@@ -493,7 +517,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_001 = reg("R-QT-001", Hk3ResearchType.THEORY, 22.6,
             "hk3gtl.research.r_qt_001.name", "hk3gtl.research.r_qt_001.effect", "hk3gtl.research.r_qt_001.unlock",
             List.of("R-IM-021"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get(), 8), "hk3gtl.research.requirement.imaginary_circuit_4"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QAV.get(), 8), "hk3gtl.research.requirement.imaginary_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 2), "hk3gtl.research.requirement.world_bubble_sample"),
                     req(() -> new ItemStack(HonkaiMaterialItems.SUPERCONDUCTIVE_METAL_HYDROGEN.get(), 16), "hk3gtl.research.requirement.superconductive_metal_hydrogen")
             ));
@@ -502,7 +526,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_002 = reg("R-QT-002", Hk3ResearchType.VOLTAGE, 22.8,
             "hk3gtl.research.r_qt_002.name", "hk3gtl.research.r_qt_002.effect", "hk3gtl.research.r_qt_002.unlock",
             List.of("R-QT-001"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_IMAGINARY_4.get(), 16), "hk3gtl.research.requirement.imaginary_circuit_4"),
+                    req(() -> new ItemStack(ImaginaryCircuitItems.CIRCUIT_QAV.get(), 16), "hk3gtl.research.requirement.imaginary_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.SUPERCONDUCTIVE_METAL_HYDROGEN.get(), 32), "hk3gtl.research.requirement.superconductive_metal_hydrogen")
             ));
 
@@ -510,7 +534,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_003 = reg("R-QT-003", Hk3ResearchType.CIRCUIT, 23.0,
             "hk3gtl.research.r_qt_003.name", "hk3gtl.research.r_qt_003.effect", "hk3gtl.research.r_qt_003.unlock",
             List.of("R-QT-002"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_1.get(), 4), "hk3gtl.research.requirement.quantum_circuit_1"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IMV.get(), 4), "hk3gtl.research.requirement.quantum_circuit_1"),
                     req(() -> new ItemStack(HonkaiMaterialItems.SUPERCONDUCTIVE_METAL_HYDROGEN.get(), 16), "hk3gtl.research.requirement.superconductive_metal_hydrogen")
             ));
 
@@ -520,7 +544,7 @@ public class Hk3ResearchNodes {
             List.of("R-QT-001"), "E-FB-012", null, List.of(
                     req(() -> new ItemStack(HonkaiMaterialItems.EINSTEIN_RINGMAGNET.get(), 16), "hk3gtl.research.requirement.einstein_ringmagnet"),
                     req(() -> new ItemStack(HonkaiMaterialItems.PHASE_TRANSFER_MIRROR.get(), 16), "hk3gtl.research.requirement.phase_transfer_mirror"),
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_1.get(), 4), "hk3gtl.research.requirement.quantum_circuit_1")
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IMV.get(), 4), "hk3gtl.research.requirement.quantum_circuit_1")
             ));
 
     /** R-QT-005: 量子超导晶格学
@@ -530,7 +554,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_005 = reg("R-QT-005", Hk3ResearchType.MATERIAL, 23.4,
             "hk3gtl.research.r_qt_005.name", "hk3gtl.research.r_qt_005.effect", "hk3gtl.research.r_qt_005.unlock",
             List.of("R-QT-004"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_1.get(), 8), "hk3gtl.research.requirement.quantum_circuit_1"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IMV.get(), 8), "hk3gtl.research.requirement.quantum_circuit_1"),
                     req(() -> new ItemStack(HonkaiMaterialItems.SUPERCONDUCTIVE_METAL_HYDROGEN.get(), 64), "hk3gtl.research.requirement.superconductive_metal_hydrogen")
             ));
 
@@ -538,7 +562,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_006 = reg("R-QT-006", Hk3ResearchType.STRUCTURE, 23.6,
             "hk3gtl.research.r_qt_006.name", "hk3gtl.research.r_qt_006.effect", "hk3gtl.research.r_qt_006.unlock",
             List.of("R-QT-004"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_1.get(), 16), "hk3gtl.research.requirement.quantum_circuit_1"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IMV.get(), 16), "hk3gtl.research.requirement.quantum_circuit_1"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 8), "hk3gtl.research.requirement.world_bubble_sample"),
                     req(() -> ChemicalHelper.get(TagPrefix.frameGt, SouliumMaterial.SOULIUM, 32), "hk3gtl.research.requirement.soulium_frame")
             ));
@@ -547,7 +571,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_007 = reg("R-QT-007", Hk3ResearchType.VOLTAGE, 23.8,
             "hk3gtl.research.r_qt_007.name", "hk3gtl.research.r_qt_007.effect", "hk3gtl.research.r_qt_007.unlock",
             List.of("R-QT-002"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_1.get(), 16), "hk3gtl.research.requirement.quantum_circuit_1"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IMV.get(), 16), "hk3gtl.research.requirement.quantum_circuit_1"),
                     req(() -> new ItemStack(HonkaiMaterialItems.COMPRESSED_HONKAI_CORE.get(), 16), "hk3gtl.research.requirement.compressed_honkai_core")
             ));
 
@@ -555,7 +579,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_008 = reg("R-QT-008", Hk3ResearchType.CIRCUIT, 24.0,
             "hk3gtl.research.r_qt_008.name", "hk3gtl.research.r_qt_008.effect", "hk3gtl.research.r_qt_008.unlock",
             List.of("R-QT-007"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_2.get(), 4), "hk3gtl.research.requirement.quantum_circuit_2"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_ICV.get(), 4), "hk3gtl.research.requirement.quantum_circuit_2"),
                     req(() -> new ItemStack(HonkaiMaterialItems.COMPRESSED_HONKAI_CORE.get(), 32), "hk3gtl.research.requirement.compressed_honkai_core")
             ));
 
@@ -566,7 +590,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_009 = reg("R-QT-009", Hk3ResearchType.CERTIFICATION, 24.2,
             "hk3gtl.research.r_qt_009.name", "hk3gtl.research.r_qt_009.effect", "hk3gtl.research.r_qt_009.unlock",
             List.of("R-QT-008"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_2.get(), 8), "hk3gtl.research.requirement.quantum_circuit_2"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_ICV.get(), 8), "hk3gtl.research.requirement.quantum_circuit_2"),
                     req(() -> new ItemStack(HonkaiMaterialItems.DATA_RESEARCH_PACKAGE.get(), 64), "hk3gtl.research.requirement.data_research_package")
             ));
 
@@ -574,7 +598,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_010 = reg("R-QT-010", Hk3ResearchType.VOLTAGE, 24.4,
             "hk3gtl.research.r_qt_010.name", "hk3gtl.research.r_qt_010.effect", "hk3gtl.research.r_qt_010.unlock",
             List.of("R-QT-007"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_2.get(), 16), "hk3gtl.research.requirement.quantum_circuit_2"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_ICV.get(), 16), "hk3gtl.research.requirement.quantum_circuit_2"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ADVANCED_GAZE_BUFFER_UNIT.get(), 16), "hk3gtl.research.requirement.advanced_gaze_buffer_unit")
             ));
 
@@ -582,7 +606,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_011 = reg("R-QT-011", Hk3ResearchType.VOLTAGE, 24.6,
             "hk3gtl.research.r_qt_011.name", "hk3gtl.research.r_qt_011.effect", "hk3gtl.research.r_qt_011.unlock",
             List.of("R-QT-010"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_3.get(), 16), "hk3gtl.research.requirement.quantum_circuit_3"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IRV.get(), 16), "hk3gtl.research.requirement.quantum_circuit_3"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ADVANCED_GAZE_BUFFER_UNIT.get(), 32), "hk3gtl.research.requirement.advanced_gaze_buffer_unit")
             ));
 
@@ -590,7 +614,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_QT_012 = reg("R-QT-012", Hk3ResearchType.CERTIFICATION, 24.8,
             "hk3gtl.research.r_qt_012.name", "hk3gtl.research.r_qt_012.effect", "hk3gtl.research.r_qt_012.unlock",
             List.of("R-QT-011", "R-QT-006", "R-QT-009"), "E-FB-012", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_4.get(), 8), "hk3gtl.research.requirement.quantum_circuit_4"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IWV.get(), 8), "hk3gtl.research.requirement.quantum_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 8), "hk3gtl.research.requirement.world_bubble_sample"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 16), "hk3gtl.research.requirement.ancient_will")
             ));
@@ -599,7 +623,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_001 = reg("R-FN-001", Hk3ResearchType.THEORY, 25.0,
             "hk3gtl.research.r_fn_001.name", "hk3gtl.research.r_fn_001.effect", "hk3gtl.research.r_fn_001.unlock",
             List.of("R-QT-012"), "E-FB-013", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_4.get(), 16), "hk3gtl.research.requirement.quantum_circuit_4"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IWV.get(), 16), "hk3gtl.research.requirement.quantum_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 32), "hk3gtl.research.requirement.ancient_will")
             ));
 
@@ -607,7 +631,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_002 = reg("R-FN-002", Hk3ResearchType.STRUCTURE, 25.2,
             "hk3gtl.research.r_fn_002.name", "hk3gtl.research.r_fn_002.effect", "hk3gtl.research.r_fn_002.unlock",
             List.of("R-FN-001"), "E-FB-013", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_4.get(), 16), "hk3gtl.research.requirement.quantum_circuit_4"),
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IWV.get(), 16), "hk3gtl.research.requirement.quantum_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 16), "hk3gtl.research.requirement.world_bubble_sample"),
                     req(() -> ChemicalHelper.get(TagPrefix.frameGt, SouliumMaterial.SOULIUM, 64), "hk3gtl.research.requirement.soulium_frame")
             ));
@@ -616,7 +640,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_003 = reg("R-FN-003", Hk3ResearchType.STRUCTURE, 25.4,
             "hk3gtl.research.r_fn_003.name", "hk3gtl.research.r_fn_003.effect", "hk3gtl.research.r_fn_003.unlock",
             List.of("R-FN-002"), "E-FB-015", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_1.get(), 4), "hk3gtl.research.requirement.finality_circuit_1"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_WFV.get(), 4), "hk3gtl.research.requirement.finality_circuit_1"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 16), "hk3gtl.research.requirement.ancient_will")
             ));
 
@@ -624,7 +648,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_004 = reg("R-FN-004", Hk3ResearchType.THEORY, 25.6,
             "hk3gtl.research.r_fn_004.name", "hk3gtl.research.r_fn_004.effect", "hk3gtl.research.r_fn_004.unlock",
             List.of("R-FN-003"), "E-FB-013", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_1.get(), 8), "hk3gtl.research.requirement.finality_circuit_1"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_WFV.get(), 8), "hk3gtl.research.requirement.finality_circuit_1"),
                     req(() -> new ItemStack(HonkaiMaterialItems.COMPRESSED_HONKAI_CORE.get(), 32), "hk3gtl.research.requirement.compressed_honkai_core")
             ));
 
@@ -632,7 +656,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_005 = reg("R-FN-005", Hk3ResearchType.MATERIAL, 25.8,
             "hk3gtl.research.r_fn_005.name", "hk3gtl.research.r_fn_005.effect", "hk3gtl.research.r_fn_005.unlock",
             List.of("R-FN-004"), "E-FB-054", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_2.get(), 4), "hk3gtl.research.requirement.finality_circuit_2"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_WSV.get(), 4), "hk3gtl.research.requirement.finality_circuit_2"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 32), "hk3gtl.research.requirement.ancient_will")
             ));
 
@@ -640,7 +664,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_006 = reg("R-FN-006", Hk3ResearchType.THEORY, 26.0,
             "hk3gtl.research.r_fn_006.name", "hk3gtl.research.r_fn_006.effect", "hk3gtl.research.r_fn_006.unlock",
             List.of("R-FN-005"), "E-FB-020", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_2.get(), 8), "hk3gtl.research.requirement.finality_circuit_2"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_WSV.get(), 8), "hk3gtl.research.requirement.finality_circuit_2"),
                     req(() -> new ItemStack(HonkaiMaterialItems.COMPRESSED_HONKAI_CORE.get(), 64), "hk3gtl.research.requirement.compressed_honkai_core")
             ));
 
@@ -648,7 +672,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_007 = reg("R-FN-007", Hk3ResearchType.CERTIFICATION, 26.2,
             "hk3gtl.research.r_fn_007.name", "hk3gtl.research.r_fn_007.effect", "hk3gtl.research.r_fn_007.unlock",
             List.of("R-FN-006"), "E-FB-016", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_3.get(), 4), "hk3gtl.research.requirement.finality_circuit_3"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_CIV.get(), 4), "hk3gtl.research.requirement.finality_circuit_3"),
                     req(() -> new ItemStack(HonkaiMaterialItems.DATA_RESEARCH_PACKAGE.get(), 64), "hk3gtl.research.requirement.data_research_package")
             ));
 
@@ -656,7 +680,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_008 = reg("R-FN-008", Hk3ResearchType.CERTIFICATION, 26.4,
             "hk3gtl.research.r_fn_008.name", "hk3gtl.research.r_fn_008.effect", "hk3gtl.research.r_fn_008.unlock",
             List.of("R-FN-007"), "E-FB-018", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_3.get(), 8), "hk3gtl.research.requirement.finality_circuit_3"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_CIV.get(), 8), "hk3gtl.research.requirement.finality_circuit_3"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 32), "hk3gtl.research.requirement.ancient_will")
             ));
 
@@ -664,7 +688,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_009 = reg("R-FN-009", Hk3ResearchType.CERTIFICATION, 26.6,
             "hk3gtl.research.r_fn_009.name", "hk3gtl.research.r_fn_009.effect", "hk3gtl.research.r_fn_009.unlock",
             List.of("R-FN-008"), "E-FB-055", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_4.get(), 4), "hk3gtl.research.requirement.finality_circuit_4"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_CEV.get(), 4), "hk3gtl.research.requirement.finality_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.DATA_RESEARCH_PACKAGE.get(), 128), "hk3gtl.research.requirement.data_research_package")
             ));
 
@@ -672,15 +696,15 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_010 = reg("R-FN-010", Hk3ResearchType.VOLTAGE, 26.8,
             "hk3gtl.research.r_fn_010.name", "hk3gtl.research.r_fn_010.effect", "hk3gtl.research.r_fn_010.unlock",
             List.of("R-FN-001"), "E-FB-013", null, List.of(
-                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_QUANTUM_4.get(), 16), "hk3gtl.research.requirement.quantum_circuit_4"),
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_1.get(), 4), "hk3gtl.research.requirement.finality_circuit_1")
+                    req(() -> new ItemStack(QuantumCircuitItems.CIRCUIT_IWV.get(), 16), "hk3gtl.research.requirement.quantum_circuit_4"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_WFV.get(), 4), "hk3gtl.research.requirement.finality_circuit_1")
             ));
 
     /** R-FN-011: 终焉 II 电路设计 */
     public static final Hk3ResearchNode R_FN_011 = reg("R-FN-011", Hk3ResearchType.CIRCUIT, 27.0,
             "hk3gtl.research.r_fn_011.name", "hk3gtl.research.r_fn_011.effect", "hk3gtl.research.r_fn_011.unlock",
             List.of("R-FN-010"), "E-FB-013", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_2.get(), 8), "hk3gtl.research.requirement.finality_circuit_2"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_WSV.get(), 8), "hk3gtl.research.requirement.finality_circuit_2"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 32), "hk3gtl.research.requirement.ancient_will")
             ));
 
@@ -688,7 +712,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_FN_012 = reg("R-FN-012", Hk3ResearchType.CERTIFICATION, 27.2,
             "hk3gtl.research.r_fn_012.name", "hk3gtl.research.r_fn_012.effect", "hk3gtl.research.r_fn_012.unlock",
             List.of("R-FN-007", "R-FN-008", "R-FN-009"), "E-FB-013", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_4.get(), 8), "hk3gtl.research.requirement.finality_circuit_4"),
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_CEV.get(), 8), "hk3gtl.research.requirement.finality_circuit_4"),
                     req(() -> new ItemStack(HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get(), 16), "hk3gtl.research.requirement.world_bubble_sample"),
                     req(() -> new ItemStack(HonkaiMaterialItems.ANCIENT_WILL.get(), 64), "hk3gtl.research.requirement.ancient_will")
             ));
@@ -697,7 +721,7 @@ public class Hk3ResearchNodes {
     public static final Hk3ResearchNode R_GR_001 = reg("R-GR-001", Hk3ResearchType.CERTIFICATION, 27.4,
             "hk3gtl.research.r_gr_001.name", "hk3gtl.research.r_gr_001.effect", "hk3gtl.research.r_gr_001.unlock",
             List.of("R-FN-012"), "E-FB-016", null, List.of(
-                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_FINALITY_4.get(), 16), "hk3gtl.research.requirement.finality_circuit_4")
+                    req(() -> new ItemStack(FinalityCircuitItems.CIRCUIT_CEV.get(), 16), "hk3gtl.research.requirement.finality_circuit_4")
             ));
 
     /** R-GR-002: 研究完整性校验 */

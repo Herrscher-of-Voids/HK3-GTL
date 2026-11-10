@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/constraint_gradient_composite_foil/layer0",
+    "layer1": "hk3gtl:item/main_material/constraint_gradient_composite_foil/layer1",
+    "layer2": "hk3gtl:item/main_material/constraint_gradient_composite_foil/layer2"
+  }
+}

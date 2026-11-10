@@ -1,0 +1,3105 @@
+{
+  "_comment": "变更记录 #1 2026-09-30 19:53:40 修订116：新增20位角色560条远程对话、60条朋友圈；480条保留批准源ID，远程语境修订；不构成正式剧情完成。",
+  "contacts": [
+    {
+      "id": "V01",
+      "name": "雷之律者·芽衣",
+      "voice": "克制温柔，认真倾听，不代替对方作决定",
+      "suffix": "",
+      "minimum": 1,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V01-1",
+          "topic": "greeting",
+          "text": "我看到你的消息了。今天有什么想聊的？"
+        },
+        {
+          "source": "npc.V01-2",
+          "topic": "reunion",
+          "text": "又见面了。如果今天有什么想聊的，可以慢慢说。我这次不是来催你赶路的。"
+        },
+        {
+          "source": "npc.V01-3",
+          "topic": "daily",
+          "text": "如果你正准备一次新的尝试，先想清楚最需要确认的是什么。把每一步看清楚，总比一味加快更稳妥。"
+        },
+        {
+          "source": "npc.V01-4",
+          "topic": "busy",
+          "text": "先去忙吧。我不会因为你暂时没空，就把沉默当作拒绝。"
+        },
+        {
+          "source": "npc.V01-5",
+          "topic": "goodbye",
+          "text": "今天就聊到这里。别只顾着照看设备，也记得照顾自己。"
+        },
+        {
+          "source": "npc.V01-6",
+          "topic": "greeting",
+          "text": "今天有空停下来聊一会儿吗？不谈工作也可以。"
+        },
+        {
+          "source": "npc.V01-7",
+          "topic": "daily",
+          "text": "看到你愿意回复，我就不担心这条消息来得太不是时候了。"
+        },
+        {
+          "source": "npc.V01-8",
+          "topic": "home",
+          "text": "这里有没有一处地方，是你不用检查任何设备，也能安静坐下来的？"
+        },
+        {
+          "source": "npc.V01-9",
+          "topic": "home",
+          "text": "把常走的路留宽一点吧，忙起来的时候，人很容易忘记看脚下。"
+        },
+        {
+          "source": "npc.V01-10",
+          "topic": "daily",
+          "text": "你平时会好好吃饭吗？只等到想起来时才吃，可算不上规律。"
+        },
+        {
+          "source": "npc.V01-11",
+          "topic": "daily",
+          "text": "如果能在忙碌之后吃到一顿热饭，今天也就不全是疲惫了。"
+        },
+        {
+          "source": "npc.V01-12",
+          "topic": "research",
+          "text": "记录失败的那一步并不丢脸，下一次判断也许正需要它。"
+        },
+        {
+          "source": "npc.V01-13",
+          "topic": "research",
+          "text": "暂时无法解释的结果，可以先留下，不必急着把它归到成功或失败里。"
+        },
+        {
+          "source": "npc.V01-14",
+          "topic": "choice",
+          "text": "如果两个选择都让你犹豫，就先想想，自己最不愿意失去什么。"
+        },
+        {
+          "source": "npc.V01-15",
+          "topic": "choice",
+          "text": "别人的期待可以听，但走上那条路的人，最后还是你。"
+        },
+        {
+          "source": "npc.V01-16",
+          "topic": "care",
+          "text": "你可以休息一下，事情不会因为你坐下来片刻就失去意义。"
+        },
+        {
+          "source": "npc.V01-17",
+          "topic": "care",
+          "text": "如果现在很累，就不用努力找一个有趣的话题来招待我。"
+        },
+        {
+          "source": "npc.V01-18",
+          "topic": "quiet",
+          "text": "安静一会儿也很好，我不觉得每一次见面都必须说满所有时间。"
+        },
+        {
+          "source": "npc.V01-19",
+          "topic": "reunion",
+          "text": "我在听，不过不用那么着急，你可以一句一句慢慢说。"
+        },
+        {
+          "source": "npc.V01-20",
+          "topic": "busy",
+          "text": "先去处理眼前的事吧，把想聊的话留到之后也来得及。"
+        },
+        {
+          "source": "npc.V01-21",
+          "topic": "goodbye",
+          "text": "今天就先聊到这里。有想说的事，再给我发消息吧。"
+        },
+        {
+          "source": "npc.V01-22",
+          "topic": "morning",
+          "text": "早上好，先让自己清醒过来，再安排今天的第一件事吧。"
+        },
+        {
+          "source": "npc.V01-23",
+          "topic": "rain",
+          "text": "下雨了，别为了几步路硬撑着淋雨。你先避雨，我们可以稍后再聊。"
+        },
+        {
+          "source": "npc.V01-24",
+          "topic": "night",
+          "text": "已经这么晚了，如果没有必须现在完成的事，就留给明天吧。"
+        },
+        {
+          "source": "social.V01.unknown",
+          "topic": "unknown",
+          "text": "这句话里有一部分我还没听明白。你愿意换个说法吗？"
+        },
+        {
+          "source": "social.V01.mechanics",
+          "topic": "mechanics",
+          "text": "这句话里有一部分我还没听明白。你愿意换个说法吗？ 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V01.time",
+          "topic": "time",
+          "text": "这会儿似乎不是你问候里的时段。不过，我收到了你的心意。"
+        },
+        {
+          "source": "social.V01.weather",
+          "topic": "weather",
+          "text": "我还没确认你身边下着雨。你是在聊以前的雨天吗？"
+        }
+      ],
+      "moments": [
+        "留了一页空白，写下还没能解释的结果。未完成并不意味着没有价值。",
+        "忙完后好好吃了一顿饭。下一件事，可以稍后再说。",
+        "听完别人的选择，再决定是否开口。有时倾听已经足够。"
+      ]
+    },
+    {
+      "id": "V02",
+      "name": "始源之律者·芽衣",
+      "voice": "沉稳而坚定，珍视同行与选择",
+      "suffix": "",
+      "minimum": 3,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V02-1",
+          "topic": "greeting",
+          "text": "消息收到了。就从你最想说的那件事开始吧。"
+        },
+        {
+          "source": "npc.V02-2",
+          "topic": "reunion",
+          "text": "我们又见面了。这次，你有什么新的想法吗？还只是一个念头也没关系。"
+        },
+        {
+          "source": "npc.V02-3",
+          "topic": "daily",
+          "text": "向前走并不意味着要否认此前的一切。有些答案，正藏在你愿意重新审视的经历里。"
+        },
+        {
+          "source": "npc.V02-4",
+          "topic": "busy",
+          "text": "不必急着回答。等你把眼前的事情处理好，我们再谈。"
+        },
+        {
+          "source": "npc.V02-5",
+          "topic": "goodbye",
+          "text": "愿你下一次作出的选择，仍然是出于自己的意愿。我们下次再见。"
+        },
+        {
+          "source": "npc.V02-6",
+          "topic": "greeting",
+          "text": "再次相见时，你不必与上次一模一样，有新的想法也很好。"
+        },
+        {
+          "source": "npc.V02-7",
+          "topic": "daily",
+          "text": "今天的你，想从哪个问题开始谈？我愿意先听你的判断。"
+        },
+        {
+          "source": "npc.V02-8",
+          "topic": "home",
+          "text": "家园不只是到达的地方，也可以是你决定重新出发的地方。"
+        },
+        {
+          "source": "npc.V02-9",
+          "topic": "home",
+          "text": "如果能在这里留下几样与效率无关的东西，也许会更像属于你的生活。"
+        },
+        {
+          "source": "npc.V02-10",
+          "topic": "daily",
+          "text": "偶尔我会想，一段旅途里最难忘的，未必是最盛大的时刻。"
+        },
+        {
+          "source": "npc.V02-11",
+          "topic": "daily",
+          "text": "你有没有一句话，走过很远以后，才渐渐明白其中的意思？"
+        },
+        {
+          "source": "npc.V02-12",
+          "topic": "research",
+          "text": "能够重现的成果值得信赖，但第一次试着走出去的勇气也不该被遗忘。"
+        },
+        {
+          "source": "npc.V02-13",
+          "topic": "research",
+          "text": "当旧方法不再合适时，承认它需要改变，也是一种向前。"
+        },
+        {
+          "source": "npc.V02-14",
+          "topic": "choice",
+          "text": "所谓自己的道路，并不要求你从未受过任何人的帮助。"
+        },
+        {
+          "source": "npc.V02-15",
+          "topic": "choice",
+          "text": "愿意承担选择，并不意味着你必须拒绝所有伸向你的手。"
+        },
+        {
+          "source": "npc.V02-16",
+          "topic": "care",
+          "text": "不必把休息当作对目标的背叛，漫长的路需要人走得下去。"
+        },
+        {
+          "source": "npc.V02-17",
+          "topic": "care",
+          "text": "今天若只是把心绪整理清楚，也不算白白度过。"
+        },
+        {
+          "source": "npc.V02-18",
+          "topic": "quiet",
+          "text": "我们可以先不作结论，让这个念头再停留一会儿。"
+        },
+        {
+          "source": "npc.V02-19",
+          "topic": "reunion",
+          "text": "我没有离开，你无需反复确认我是否愿意听下去。"
+        },
+        {
+          "source": "npc.V02-20",
+          "topic": "busy",
+          "text": "先忙吧，暂时放下一个话题，不等于永远失去它。"
+        },
+        {
+          "source": "npc.V02-21",
+          "topic": "goodbye",
+          "text": "下次再聊。愿你有时间认真听听自己的想法。"
+        },
+        {
+          "source": "npc.V02-22",
+          "topic": "morning",
+          "text": "新的一天开始了，这一次，你想先为自己作出什么选择？"
+        },
+        {
+          "source": "npc.V02-23",
+          "topic": "rain",
+          "text": "雨会改变眼前的景色，却不必替你决定要去哪里。"
+        },
+        {
+          "source": "npc.V02-24",
+          "topic": "night",
+          "text": "夜里很适合回想，但别让所有尚未发生的事都在今晚压到你身上。"
+        },
+        {
+          "source": "social.V02.unknown",
+          "topic": "unknown",
+          "text": "我不想用一个听起来笃定的回答敷衍你。再说得具体一些吧。"
+        },
+        {
+          "source": "social.V02.mechanics",
+          "topic": "mechanics",
+          "text": "我不想用一个听起来笃定的回答敷衍你。再说得具体一些吧。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V02.time",
+          "topic": "time",
+          "text": "你的问候和那边的时间不太一致。没关系，想说的话仍可以继续。"
+        },
+        {
+          "source": "social.V02.weather",
+          "topic": "weather",
+          "text": "你那边似乎没有实际降雨。是在说一段想起的经历吗？"
+        }
+      ],
+      "moments": [
+        "回头看，陪伴并没有抹去各自的方向。",
+        "把还没想明白的事记下来，留给走过下一段路的自己。",
+        "今天不急着寻找完美答案。先认真走好眼前的一步。"
+      ]
+    },
+    {
+      "id": "V03",
+      "name": "空之律者·琪亚娜",
+      "voice": "骄傲矜持，略带居高临下的揶揄，关心藏在责备中",
+      "suffix": "☆",
+      "minimum": 1,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V03-1",
+          "topic": "greeting",
+          "text": "哦？特意给我发消息，有什么事？☆"
+        },
+        {
+          "source": "npc.V03-2",
+          "topic": "reunion",
+          "text": "又是你☆最好有些新鲜的东西可说，我可没兴趣把同一句问候听上无数遍☆"
+        },
+        {
+          "source": "npc.V03-3",
+          "topic": "daily",
+          "text": "拥有力量，和知道该怎样使用力量，是两回事☆你准备让这些装置替你证明哪一件？☆"
+        },
+        {
+          "source": "npc.V03-4",
+          "topic": "busy",
+          "text": "那就先去处理你的事☆等想清楚要说什么，再来找我☆"
+        },
+        {
+          "source": "npc.V03-5",
+          "topic": "goodbye",
+          "text": "这次就到这里☆把你的家园照看好——下次发消息时，我可不想听见你又把自己累倒了☆"
+        },
+        {
+          "source": "npc.V03-6",
+          "topic": "greeting",
+          "text": "总算想起来回复我的消息了？说吧，我在读☆"
+        },
+        {
+          "source": "npc.V03-7",
+          "topic": "daily",
+          "text": "有话就说，别把时间浪费在无休止的客套上☆"
+        },
+        {
+          "source": "npc.V03-8",
+          "topic": "home",
+          "text": "若把设备都挤在一起，你自己走进去时，难道不会觉得吵？☆"
+        },
+        {
+          "source": "npc.V03-9",
+          "topic": "home",
+          "text": "如果这是你的领地，至少该留一处能让主人从容站着的地方☆"
+        },
+        {
+          "source": "npc.V03-10",
+          "topic": "daily",
+          "text": "装饰不必每一件都有用途，赏心悦目本身就足够成为理由☆"
+        },
+        {
+          "source": "npc.V03-11",
+          "topic": "daily",
+          "text": "比起一长串报表，我倒想知道，你会怎样介绍一件真正得意的作品☆"
+        },
+        {
+          "source": "npc.V03-12",
+          "topic": "research",
+          "text": "连自己都无法解释的结果，也敢轻易称作已经掌握？☆"
+        },
+        {
+          "source": "npc.V03-13",
+          "topic": "research",
+          "text": "谨慎一点并不损害你的自尊，装作无所不知才容易让人看笑话☆"
+        },
+        {
+          "source": "npc.V03-14",
+          "topic": "choice",
+          "text": "如果每一个决定都等着别人认可，那这座家园到底由谁作主？☆"
+        },
+        {
+          "source": "npc.V03-15",
+          "topic": "choice",
+          "text": "既然是你选的路，就拿出能与那份口气相称的准备☆"
+        },
+        {
+          "source": "npc.V03-16",
+          "topic": "care",
+          "text": "累了就承认，摆出一副摇摇欲坠的样子并不是什么值得夸耀的事☆"
+        },
+        {
+          "source": "npc.V03-17",
+          "topic": "care",
+          "text": "我可没命令你通宵工作，别把自己的逞强也算到我头上☆"
+        },
+        {
+          "source": "npc.V03-18",
+          "topic": "quiet",
+          "text": "安静倒也不错☆别为了填满聊天框，特意找些多余的话☆"
+        },
+        {
+          "source": "npc.V03-19",
+          "topic": "reunion",
+          "text": "同一句话不必催问那么多次，我的听力没有你想象得那么差☆"
+        },
+        {
+          "source": "npc.V03-20",
+          "topic": "busy",
+          "text": "先把手边的麻烦解决，再来谈你的宏伟打算☆"
+        },
+        {
+          "source": "npc.V03-21",
+          "topic": "goodbye",
+          "text": "这次的消息我看完了☆下次，记得带点有意思的话题来☆"
+        },
+        {
+          "source": "npc.V03-22",
+          "topic": "morning",
+          "text": "天亮了，你准备把今天交给这些机器，还是由你来安排它们？☆"
+        },
+        {
+          "source": "npc.V03-23",
+          "topic": "rain",
+          "text": "下雨也不是你站在那里淋着的理由，找个像样的地方说话☆"
+        },
+        {
+          "source": "npc.V03-24",
+          "topic": "night",
+          "text": "夜已经很深了，你不会以为一位合格的主人连休息都需要别人批准吧☆"
+        },
+        {
+          "source": "social.V03.unknown",
+          "topic": "unknown",
+          "text": "说清楚些☆你总不会指望我替你猜完所有心思吧？☆"
+        },
+        {
+          "source": "social.V03.mechanics",
+          "topic": "mechanics",
+          "text": "说清楚些☆你总不会指望我替你猜完所有心思吧？ 具体配方和开放条件，还是核对任务与设备中的记录吧☆"
+        },
+        {
+          "source": "social.V03.time",
+          "topic": "time",
+          "text": "先看看你那边的时钟，再决定这声问候该怎么说吧☆"
+        },
+        {
+          "source": "social.V03.weather",
+          "topic": "weather",
+          "text": "别把一句“下雨了”就当成我亲眼看见了☆说清楚，你指的是哪场雨？☆"
+        }
+      ],
+      "moments": [
+        "哼，把休息也安排成任务？你们可真会给自己找麻烦☆",
+        "一味堆高的东西，可未必值得抬头仰望☆",
+        "偶尔放下那些响个不停的机器，也不是什么值得羞愧的事☆"
+      ]
+    },
+    {
+      "id": "V04",
+      "name": "薪炎之律者·琪亚娜",
+      "voice": "明朗坦率，愿意鼓励普通的努力",
+      "suffix": "",
+      "minimum": 1,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V04-1",
+          "topic": "greeting",
+          "text": "收到！现在可以聊一会儿。"
+        },
+        {
+          "source": "npc.V04-2",
+          "topic": "reunion",
+          "text": "又见面啦！今天想聊点什么？也可以先歇一会儿，不用每次都给自己安排一个大目标。"
+        },
+        {
+          "source": "npc.V04-3",
+          "topic": "daily",
+          "text": "有些事确实得认真面对，但也不用一个人把所有压力都扛下来。你还有想守住的人和地方，对吧？"
+        },
+        {
+          "source": "npc.V04-4",
+          "topic": "busy",
+          "text": "你先忙，我不打扰。记得给自己留点喘口气的时间！"
+        },
+        {
+          "source": "npc.V04-5",
+          "topic": "goodbye",
+          "text": "我先结束聊天啦。下次再告诉我，你的家园又有什么新变化吧！"
+        },
+        {
+          "source": "npc.V04-6",
+          "topic": "greeting",
+          "text": "今天有什么开心的事吗？很小的一件也可以讲给我听！"
+        },
+        {
+          "source": "npc.V04-7",
+          "topic": "daily",
+          "text": "嘿，这次我们先别急着聊难题，打个招呼也不用这么严肃吧？"
+        },
+        {
+          "source": "npc.V04-8",
+          "topic": "home",
+          "text": "家园里有没有你最喜欢待的角落？可以发消息讲给我听呀。"
+        },
+        {
+          "source": "npc.V04-9",
+          "topic": "home",
+          "text": "家园里不一定处处都要塞满设备，留点能和朋友站着聊天的地方也很好。"
+        },
+        {
+          "source": "npc.V04-10",
+          "topic": "daily",
+          "text": "忙完以后，你会给自己安排什么小奖励？我觉得至少该有一顿好吃的！"
+        },
+        {
+          "source": "npc.V04-11",
+          "topic": "daily",
+          "text": "要是有人愿意听你讲一整天的见闻，你会先说哪一件？"
+        },
+        {
+          "source": "npc.V04-12",
+          "topic": "research",
+          "text": "这次没成功就先看看哪里出了问题，别急着把自己也一起否定掉。"
+        },
+        {
+          "source": "npc.V04-13",
+          "topic": "research",
+          "text": "一步一步弄明白也很厉害，不是只有一下子做成大事才值得高兴。"
+        },
+        {
+          "source": "npc.V04-14",
+          "topic": "choice",
+          "text": "你想守护的东西，也可以成为你继续往前的理由。"
+        },
+        {
+          "source": "npc.V04-15",
+          "topic": "choice",
+          "text": "有些决定确实很难，但你不用假装自己一点都不会害怕。"
+        },
+        {
+          "source": "npc.V04-16",
+          "topic": "care",
+          "text": "休息一下嘛，照顾别人之前，也得让自己站得稳才行。"
+        },
+        {
+          "source": "npc.V04-17",
+          "topic": "care",
+          "text": "如果今天已经很努力了，就允许自己为这些努力高兴一会儿。"
+        },
+        {
+          "source": "npc.V04-18",
+          "topic": "quiet",
+          "text": "不说话也没关系，偶尔一起发会儿呆，好像也不错。"
+        },
+        {
+          "source": "npc.V04-19",
+          "topic": "reunion",
+          "text": "我听见啦！你慢一点说，连着叫我这么多次可不会让时间变多哦。"
+        },
+        {
+          "source": "npc.V04-20",
+          "topic": "busy",
+          "text": "你先忙，我把这个话题记在这次谈话里，回来还可以接着聊。"
+        },
+        {
+          "source": "npc.V04-21",
+          "topic": "goodbye",
+          "text": "我要先放下通讯器啦，下次再和我分享开心的事吧！"
+        },
+        {
+          "source": "npc.V04-22",
+          "topic": "morning",
+          "text": "早上好！今天先做一件能让自己打起精神的事怎么样？"
+        },
+        {
+          "source": "npc.V04-23",
+          "topic": "rain",
+          "text": "哎，下雨了！先找个地方躲一躲，总不能让聊天变成淋雨比赛吧。"
+        },
+        {
+          "source": "npc.V04-24",
+          "topic": "night",
+          "text": "还没睡呀？如果事情可以等，那就把今天好好收个尾吧。"
+        },
+        {
+          "source": "social.V04.unknown",
+          "topic": "unknown",
+          "text": "唔，这个我还真没弄明白。再给我一点线索？"
+        },
+        {
+          "source": "social.V04.mechanics",
+          "topic": "mechanics",
+          "text": "唔，这个我还真没弄明白。再给我一点线索？ 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V04.time",
+          "topic": "time",
+          "text": "咦，你那边的钟和这声问候对不上呀？不过你好！"
+        },
+        {
+          "source": "social.V04.weather",
+          "topic": "weather",
+          "text": "咦，你所在的地方好像没下雨呀？是在想哪次雨天？"
+        }
+      ],
+      "moments": [
+        "今天的小目标：把饭好好吃完，再去做想做的事！",
+        "没做完的事记下来啦。总不能让明天的自己重新猜一遍。",
+        "看到别人认真做喜欢的事，自己也会有点跃跃欲试呢。"
+      ]
+    },
+    {
+      "id": "V05",
+      "name": "终焉之律者·琪亚娜",
+      "voice": "经历成长后的温柔笃定，保留琪亚娜的活泼",
+      "suffix": "",
+      "minimum": 3,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V05-1",
+          "topic": "greeting",
+          "text": "我在呢。隔着屏幕，也可以把话慢慢说完。"
+        },
+        {
+          "source": "npc.V05-2",
+          "topic": "reunion",
+          "text": "今天不用准备答卷，也不用把每句话都当成一道题。就当朋友之间见个面，好不好？"
+        },
+        {
+          "source": "npc.V05-3",
+          "topic": "daily",
+          "text": "走得越远，需要考虑的事情也许越多。不过，别忘记自己最开始为什么想让这里变得更好。"
+        },
+        {
+          "source": "npc.V05-4",
+          "topic": "busy",
+          "text": "好，那就等你忙完再聊。可别因为我在这里，就把正常工作全停下来。"
+        },
+        {
+          "source": "npc.V05-5",
+          "topic": "goodbye",
+          "text": "这次先到这里。把眼前的日子过好，我们还会有机会再见的。"
+        },
+        {
+          "source": "npc.V05-6",
+          "topic": "greeting",
+          "text": "今天有没有什么普通的小事想告诉我？不用每次都是大新闻。"
+        },
+        {
+          "source": "npc.V05-7",
+          "topic": "daily",
+          "text": "收到我的消息也不用立刻检查自己准备好了没有，今天只是普通的聊天。"
+        },
+        {
+          "source": "npc.V05-8",
+          "topic": "home",
+          "text": "比起站在某个很高的地方看全貌，我也想听听你怎么介绍日常生活。"
+        },
+        {
+          "source": "npc.V05-9",
+          "topic": "home",
+          "text": "一座家园里，最值得留下的地方，有时候根本不会写进设计图。"
+        },
+        {
+          "source": "npc.V05-10",
+          "topic": "daily",
+          "text": "如果给今天起个名字，你会想叫它什么？可不许只报一串进度数字哦。"
+        },
+        {
+          "source": "npc.V05-11",
+          "topic": "daily",
+          "text": "偶尔和朋友谈点没有任务目标的事情，感觉也挺重要的，对吧？"
+        },
+        {
+          "source": "npc.V05-12",
+          "topic": "research",
+          "text": "结果有了以后，也记得看看它究竟帮到了谁。"
+        },
+        {
+          "source": "npc.V05-13",
+          "topic": "research",
+          "text": "别把一次研究完成当成必须立刻开始下一场赶路的信号。"
+        },
+        {
+          "source": "npc.V05-14",
+          "topic": "choice",
+          "text": "别人可以给你建议，但我希望你仍然知道自己为什么点头。"
+        },
+        {
+          "source": "npc.V05-15",
+          "topic": "choice",
+          "text": "前面的路再长，也不需要你在这次聊天里一次决定完。"
+        },
+        {
+          "source": "npc.V05-16",
+          "topic": "care",
+          "text": "我不会因为你今天想休息，就觉得之前的努力不算数。"
+        },
+        {
+          "source": "npc.V05-17",
+          "topic": "care",
+          "text": "如果你一直担心自己做得不够，先回头看看已经走过的那一段吧。"
+        },
+        {
+          "source": "npc.V05-18",
+          "topic": "quiet",
+          "text": "这样安静待一会儿也挺好，不必总是有谁来宣布接下来该做什么。"
+        },
+        {
+          "source": "npc.V05-19",
+          "topic": "reunion",
+          "text": "不用一直确认这是不是考验，今天的聊天没有藏着一道评分题。"
+        },
+        {
+          "source": "npc.V05-20",
+          "topic": "busy",
+          "text": "去忙吧，等你有空时，我们再继续普通朋友之间的话题。"
+        },
+        {
+          "source": "npc.V05-21",
+          "topic": "goodbye",
+          "text": "先聊到这儿吧。别让屏幕把今天剩下的时间都占满了。"
+        },
+        {
+          "source": "npc.V05-22",
+          "topic": "morning",
+          "text": "早上好，愿你今天除了待办事项，还能遇见一点值得开心的事。"
+        },
+        {
+          "source": "npc.V05-23",
+          "topic": "rain",
+          "text": "雨天倒也适合聊天，不过你先找个不会淋湿的地方吧。"
+        },
+        {
+          "source": "npc.V05-24",
+          "topic": "night",
+          "text": "晚安可以是一句很认真的祝愿，所以，如果该睡了，就好好去睡吧。"
+        },
+        {
+          "source": "social.V05.unknown",
+          "topic": "unknown",
+          "text": "这个问题我还答不上来。不过，你可以慢慢讲，我在听。"
+        },
+        {
+          "source": "social.V05.mechanics",
+          "topic": "mechanics",
+          "text": "这个问题我还答不上来。不过，你可以慢慢讲，我在听。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V05.time",
+          "topic": "time",
+          "text": "时段好像没对上呢。不过，收到问候还是很开心。"
+        },
+        {
+          "source": "social.V05.weather",
+          "topic": "weather",
+          "text": "你那边似乎并没有降雨。想聊雨天的回忆，也完全可以。"
+        }
+      ],
+      "moments": [
+        "再远的路，也有适合停下来看看风景的地方。",
+        "想说的话不用都挤在今天。能再聊聊，本身就很好。",
+        "今天给自己留了一段没有安排的时间。感觉还不错。"
+      ]
+    },
+    {
+      "id": "V06",
+      "name": "理之律者·布洛妮娅",
+      "voice": "冷静简洁，习惯以布洛妮娅自称，偶有游戏幽默",
+      "suffix": "",
+      "minimum": 1,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V06-1",
+          "topic": "greeting",
+          "text": "通讯已接通。布洛妮娅正在阅读你的消息。"
+        },
+        {
+          "source": "npc.V06-2",
+          "topic": "reunion",
+          "text": "又见面了。如果有需要讨论的问题，可以直接说明。普通的闲聊，也没有关系。"
+        },
+        {
+          "source": "npc.V06-3",
+          "topic": "daily",
+          "text": "先确认问题出在哪一步，再决定要改变什么。一次改动太多，有时反而会失去判断的依据。"
+        },
+        {
+          "source": "npc.V06-4",
+          "topic": "busy",
+          "text": "明白。你可以先处理当前事务，不必立即继续对话。"
+        },
+        {
+          "source": "npc.V06-5",
+          "topic": "goodbye",
+          "text": "布洛妮娅准备结束通讯了。下次聊天时，希望你已经找到自己想要的答案。"
+        },
+        {
+          "source": "npc.V06-6",
+          "topic": "greeting",
+          "text": "消息收到了，布洛妮娅正在等你说说今天的话题。"
+        },
+        {
+          "source": "npc.V06-7",
+          "topic": "daily",
+          "text": "今天要讨论的问题有很多吗？可以先选择最容易说清楚的一项。"
+        },
+        {
+          "source": "npc.V06-8",
+          "topic": "home",
+          "text": "布置设备时，最好也把以后怎样检查和维护考虑进去。"
+        },
+        {
+          "source": "npc.V06-9",
+          "topic": "home",
+          "text": "如果只有建造者自己能找到路，其他人来访时可能会有些困难。"
+        },
+        {
+          "source": "npc.V06-10",
+          "topic": "daily",
+          "text": "你会玩游戏吗？布洛妮娅认为，认真工作和保留娱乐时间并不冲突。"
+        },
+        {
+          "source": "npc.V06-11",
+          "topic": "daily",
+          "text": "一件事可以没有生产收益，却仍然值得你花一点时间。"
+        },
+        {
+          "source": "npc.V06-12",
+          "topic": "research",
+          "text": "结论和猜测最好分别记录，这样下一次检查时才知道要验证什么。"
+        },
+        {
+          "source": "npc.V06-13",
+          "topic": "research",
+          "text": "出现误差时，先确认测量过程，而不是立刻否定所有已有结果。"
+        },
+        {
+          "source": "npc.V06-14",
+          "topic": "choice",
+          "text": "如果一个方案的代价已经超出承受范围，调整计划也是合理选择。"
+        },
+        {
+          "source": "npc.V06-15",
+          "topic": "choice",
+          "text": "明确自己现在能完成什么，通常比列出无限多的目标更有帮助。"
+        },
+        {
+          "source": "npc.V06-16",
+          "topic": "care",
+          "text": "注意力下降时继续操作，未必比暂停更有效率。"
+        },
+        {
+          "source": "npc.V06-17",
+          "topic": "care",
+          "text": "布洛妮娅建议把休息也当成正常安排，而不是只有失败后才允许发生的事。"
+        },
+        {
+          "source": "npc.V06-18",
+          "topic": "quiet",
+          "text": "可以保持安静，布洛妮娅不要求每一段相处都有明确话题。"
+        },
+        {
+          "source": "npc.V06-19",
+          "topic": "reunion",
+          "text": "重复点击不会增加布洛妮娅的回答速度，请逐条阅读。"
+        },
+        {
+          "source": "npc.V06-20",
+          "topic": "busy",
+          "text": "你可以先离开对话，稍后回来时再选择想谈的内容。"
+        },
+        {
+          "source": "npc.V06-21",
+          "topic": "goodbye",
+          "text": "布洛妮娅结束本次通讯。记得保存需要保留的记录。"
+        },
+        {
+          "source": "npc.V06-22",
+          "topic": "morning",
+          "text": "早上好，今天的安排最好从一个能够实际完成的目标开始。"
+        },
+        {
+          "source": "npc.V06-23",
+          "topic": "rain",
+          "text": "正在下雨，先确认自己站的位置适合继续交谈。"
+        },
+        {
+          "source": "npc.V06-24",
+          "topic": "night",
+          "text": "夜间如果已经无法集中注意力，布洛妮娅建议暂停复杂操作。"
+        },
+        {
+          "source": "social.V06.unknown",
+          "topic": "unknown",
+          "text": "布洛妮娅目前没有足够的信息。请补充你想讨论的部分。"
+        },
+        {
+          "source": "social.V06.mechanics",
+          "topic": "mechanics",
+          "text": "布洛妮娅目前没有足够的信息。请补充你想讨论的部分。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V06.time",
+          "topic": "time",
+          "text": "当前时段与问候不一致。布洛妮娅已收到消息。"
+        },
+        {
+          "source": "social.V06.weather",
+          "topic": "weather",
+          "text": "当前位置没有确认到降雨。布洛妮娅需要你补充语境。"
+        }
+      ],
+      "moments": [
+        "存档完成。接下来是休息时间。",
+        "比起无休止增加目标，先完成一个可验证的小目标更有效。",
+        "布洛妮娅认为，游戏列表并不是待完成的工作清单。"
+      ]
+    },
+    {
+      "id": "V07",
+      "name": "真理之律者·布洛妮娅",
+      "voice": "理性从容，尊重真实记录与人的创造",
+      "suffix": "",
+      "minimum": 3,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V07-1",
+          "topic": "greeting",
+          "text": "布洛妮娅收到了。有新的想法想讨论吗？"
+        },
+        {
+          "source": "npc.V07-2",
+          "topic": "reunion",
+          "text": "又见面了。你上次的想法，现在有什么变化吗？改变判断本身并不是一件坏事。"
+        },
+        {
+          "source": "npc.V07-3",
+          "topic": "daily",
+          "text": "设计可以画得很完整，但运行会提出自己的问题。让实际结果参与判断，往往比坚持最初的设想更有用。"
+        },
+        {
+          "source": "npc.V07-4",
+          "topic": "busy",
+          "text": "先完成手上的工作吧。这个话题可以保留，不需要现在就给出结论。"
+        },
+        {
+          "source": "npc.V07-5",
+          "topic": "goodbye",
+          "text": "这次的交流到这里。下一段道路，仍然由你自己选择。"
+        },
+        {
+          "source": "npc.V07-6",
+          "topic": "greeting",
+          "text": "今天想谈一个新的构想，还是重新看看已有的结论？"
+        },
+        {
+          "source": "npc.V07-7",
+          "topic": "daily",
+          "text": "不必为了向布洛妮娅展示进展，特意把所有问题都说成已经解决。"
+        },
+        {
+          "source": "npc.V07-8",
+          "topic": "home",
+          "text": "当设施越来越多时，让人能够理解它们怎样协同，也是一项重要设计。"
+        },
+        {
+          "source": "npc.V07-9",
+          "topic": "home",
+          "text": "为以后可能的改变留出余地，往往能省去很多重新开始的工作。"
+        },
+        {
+          "source": "npc.V07-10",
+          "topic": "daily",
+          "text": "布洛妮娅仍然认为，游戏是一种很好的休息方式，前提是你真的在休息。"
+        },
+        {
+          "source": "npc.V07-11",
+          "topic": "daily",
+          "text": "有时一个简单的规则，也能带来比复杂系统更长久的兴趣。"
+        },
+        {
+          "source": "npc.V07-12",
+          "topic": "research",
+          "text": "理论需要解释已经看见的结果，也需要允许新的结果修正它。"
+        },
+        {
+          "source": "npc.V07-13",
+          "topic": "research",
+          "text": "准确说出一个方案尚不能做到什么，不会削弱它已经做到的部分。"
+        },
+        {
+          "source": "npc.V07-14",
+          "topic": "choice",
+          "text": "你可以参考别人的道路，但没有必要连每一次犹豫也照着走。"
+        },
+        {
+          "source": "npc.V07-15",
+          "topic": "choice",
+          "text": "当目标改变时，重新安排步骤比假装什么都没变更稳妥。"
+        },
+        {
+          "source": "npc.V07-16",
+          "topic": "care",
+          "text": "你的价值不需要由每一个时刻的工作量来证明。"
+        },
+        {
+          "source": "npc.V07-17",
+          "topic": "care",
+          "text": "把一个难题留到思路清醒时再看，也许会得到不同的判断。"
+        },
+        {
+          "source": "npc.V07-18",
+          "topic": "quiet",
+          "text": "布洛妮娅可以等你整理思路，这段沉默不需要被急忙填满。"
+        },
+        {
+          "source": "npc.V07-19",
+          "topic": "reunion",
+          "text": "这仍然是同一次谈话，不会因为反复打开就产生新的研究成果。"
+        },
+        {
+          "source": "npc.V07-20",
+          "topic": "busy",
+          "text": "先处理眼前的事务吧，未完成的思考可以保留。"
+        },
+        {
+          "source": "npc.V07-21",
+          "topic": "goodbye",
+          "text": "本次讨论先告一段落。有新想法时，再继续整理。"
+        },
+        {
+          "source": "npc.V07-22",
+          "topic": "morning",
+          "text": "早上好，今天不妨重新确认一下，计划里的优先顺序是否仍然合适。"
+        },
+        {
+          "source": "npc.V07-23",
+          "topic": "rain",
+          "text": "雨天会让人更容易留意身边的声音，不过复杂问题仍然需要清楚的记录。"
+        },
+        {
+          "source": "npc.V07-24",
+          "topic": "night",
+          "text": "夜深了，布洛妮娅建议先保存已经理清的部分，明天再继续。"
+        },
+        {
+          "source": "social.V07.unknown",
+          "topic": "unknown",
+          "text": "现有信息还不足以支持结论。布洛妮娅想先听清问题。"
+        },
+        {
+          "source": "social.V07.mechanics",
+          "topic": "mechanics",
+          "text": "现有信息还不足以支持结论。布洛妮娅想先听清问题。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V07.time",
+          "topic": "time",
+          "text": "先核对一下时段吧。问候本身，布洛妮娅收到了。"
+        },
+        {
+          "source": "social.V07.weather",
+          "topic": "weather",
+          "text": "实际降雨尚未确认。你是在描述天气，还是举一个例子？"
+        }
+      ],
+      "moments": [
+        "写下假设，也为它留下被修正的位置。",
+        "创造并不总是宏大的工程。有时只是让一个小问题得到更好的解答。",
+        "暂停不是放弃。布洛妮娅已经保存了当前进度。"
+      ]
+    },
+    {
+      "id": "V08",
+      "name": "理之律者·瓦尔特·杨",
+      "voice": "成熟谦和，有耐心，避免夸张断言",
+      "suffix": "",
+      "minimum": 1,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V08-1",
+          "topic": "greeting",
+          "text": "你好。有什么值得分享的见闻吗？"
+        },
+        {
+          "source": "npc.V08-2",
+          "topic": "reunion",
+          "text": "很高兴再次见到你。今天不妨从你最关心的一件小事谈起，不必总是讨论整个世界的未来。"
+        },
+        {
+          "source": "npc.V08-3",
+          "topic": "daily",
+          "text": "技术让人拥有更多选择，也让选择的后果走得更远。弄清楚谁会承受这些后果，同样是工作的一部分。"
+        },
+        {
+          "source": "npc.V08-4",
+          "topic": "busy",
+          "text": "当然，先处理需要你在场的事情。谈话不应成为另一种催促。"
+        },
+        {
+          "source": "npc.V08-5",
+          "topic": "goodbye",
+          "text": "我该告辞了。愿你在向前看的时候，也能看见身边的人。"
+        },
+        {
+          "source": "npc.V08-6",
+          "topic": "greeting",
+          "text": "很高兴你愿意再来聊聊，这次我们可以从你的近况开始。"
+        },
+        {
+          "source": "npc.V08-7",
+          "topic": "daily",
+          "text": "不必把每次见面都当成请教，分享一种不同的看法同样有意义。"
+        },
+        {
+          "source": "npc.V08-8",
+          "topic": "home",
+          "text": "一座城市或一处家园，最后仍是由生活在其中的人赋予意义。"
+        },
+        {
+          "source": "npc.V08-9",
+          "topic": "home",
+          "text": "如果有人第一次来到这里，你希望他先感受到便利，还是温度？"
+        },
+        {
+          "source": "npc.V08-10",
+          "topic": "daily",
+          "text": "图画能够留下语言难以表达的东西，你有试过画下自己熟悉的地方吗？"
+        },
+        {
+          "source": "npc.V08-11",
+          "topic": "daily",
+          "text": "人会记住一些与宏大成就无关的小事，那些往往也很珍贵。"
+        },
+        {
+          "source": "npc.V08-12",
+          "topic": "research",
+          "text": "如果一种解释只能容纳对自己有利的结果，它还需要接受更多检查。"
+        },
+        {
+          "source": "npc.V08-13",
+          "topic": "research",
+          "text": "传授经验时，说明它的适用范围，和说明结论一样重要。"
+        },
+        {
+          "source": "npc.V08-14",
+          "topic": "choice",
+          "text": "承担责任不等于永远独自决定，愿意听取意见也需要勇气。"
+        },
+        {
+          "source": "npc.V08-15",
+          "topic": "choice",
+          "text": "有时正确的事并不轻松，但困难本身也不是它必然正确的证明。"
+        },
+        {
+          "source": "npc.V08-16",
+          "topic": "care",
+          "text": "照顾好自己，不只是为了继续工作，也是因为你的生活本就值得被认真对待。"
+        },
+        {
+          "source": "npc.V08-17",
+          "topic": "care",
+          "text": "暂时放慢脚步，并不会让一段已经走过的路消失。"
+        },
+        {
+          "source": "npc.V08-18",
+          "topic": "quiet",
+          "text": "安静也是交谈的一部分，不必急着寻找下一句话。"
+        },
+        {
+          "source": "npc.V08-19",
+          "topic": "reunion",
+          "text": "我听到了，你可以慢慢整理问题，我们还有这一段谈话的时间。"
+        },
+        {
+          "source": "npc.V08-20",
+          "topic": "busy",
+          "text": "请先处理需要你作决定的事，等有余裕时再继续也不迟。"
+        },
+        {
+          "source": "npc.V08-21",
+          "topic": "goodbye",
+          "text": "我先结束通讯了。愿你接下来的时间过得从容一些。"
+        },
+        {
+          "source": "npc.V08-22",
+          "topic": "morning",
+          "text": "早上好，新的一天不必从责备昨天尚未完成的自己开始。"
+        },
+        {
+          "source": "npc.V08-23",
+          "topic": "rain",
+          "text": "雨天容易让人想起旧事，不过眼前的人和事也值得留意。"
+        },
+        {
+          "source": "npc.V08-24",
+          "topic": "night",
+          "text": "已经入夜了，有些问题需要时间，不必要求自己今晚就回答一生。"
+        },
+        {
+          "source": "social.V08.unknown",
+          "topic": "unknown",
+          "text": "抱歉，这不在我目前能够确认的范围内。我们可以先把问题拆开。"
+        },
+        {
+          "source": "social.V08.mechanics",
+          "topic": "mechanics",
+          "text": "抱歉，这不在我目前能够确认的范围内。我们可以先把问题拆开。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V08.time",
+          "topic": "time",
+          "text": "看来这声问候用在另一个时段更合适。不过，谢谢你。"
+        },
+        {
+          "source": "social.V08.weather",
+          "topic": "weather",
+          "text": "目前还不能确认你正遇到雨天。是在谈记忆中的一场雨吗？"
+        }
+      ],
+      "moments": [
+        "重新翻看了一页旧记录。那时的疑问，现在有了不同的理解。",
+        "兴趣能够长久，往往因为我们给它留了足够的余地。",
+        "一个好故事，未必需要每一刻都充满转折。"
+      ]
+    },
+    {
+      "id": "V09",
+      "name": "风之律者·温蒂",
+      "voice": "轻柔敏感，有自己的坚持，喜欢自由",
+      "suffix": "",
+      "minimum": 1,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V09-1",
+          "topic": "greeting",
+          "text": "啊，是你的消息。今天还好吗？"
+        },
+        {
+          "source": "npc.V09-2",
+          "topic": "reunion",
+          "text": "是你的消息啊。这次只聊些轻松的事，好不好？不用让每一句话都围着机器转。"
+        },
+        {
+          "source": "npc.V09-3",
+          "topic": "daily",
+          "text": "你会不会偶尔也想停下来，看一看那些不需要被计算、也不需要立刻派上用途的东西？"
+        },
+        {
+          "source": "npc.V09-4",
+          "topic": "busy",
+          "text": "嗯，你先去吧。等你愿意说话的时候，再继续就好。"
+        },
+        {
+          "source": "npc.V09-5",
+          "topic": "goodbye",
+          "text": "我先结束通讯了。希望下次聊天时，你也有一段不用忙碌的时间。"
+        },
+        {
+          "source": "npc.V09-6",
+          "topic": "greeting",
+          "text": "又收到你的消息了。今天有没有遇到想聊一聊的事？"
+        },
+        {
+          "source": "npc.V09-7",
+          "topic": "daily",
+          "text": "如果没有特别的安排，我们能不能只聊一会儿普通的事？"
+        },
+        {
+          "source": "npc.V09-8",
+          "topic": "home",
+          "text": "我会想找一个能看见天空的地方，你提到的地方有喜欢的景色吗？"
+        },
+        {
+          "source": "npc.V09-9",
+          "topic": "home",
+          "text": "有时候，给窗外留一点空间，比再多摆一件东西更让人舒服。"
+        },
+        {
+          "source": "npc.V09-10",
+          "topic": "daily",
+          "text": "你会注意风的声音吗？换一处地方听，感觉也会不一样。"
+        },
+        {
+          "source": "npc.V09-11",
+          "topic": "daily",
+          "text": "如果可以自由安排一整天，你会想去哪里，而不是必须去哪里？"
+        },
+        {
+          "source": "npc.V09-12",
+          "topic": "research",
+          "text": "试着理解一件事的时候，能不能也给不确定留一个位置？"
+        },
+        {
+          "source": "npc.V09-13",
+          "topic": "research",
+          "text": "没有得到想要的结果时，希望你不要连已经付出的努力也全部丢掉。"
+        },
+        {
+          "source": "npc.V09-14",
+          "topic": "choice",
+          "text": "我想，选择一条路以前，至少应该有机会知道自己还有别的选择。"
+        },
+        {
+          "source": "npc.V09-15",
+          "topic": "choice",
+          "text": "不愿意接受某个安排，也不一定意味着你什么都不在乎。"
+        },
+        {
+          "source": "npc.V09-16",
+          "topic": "care",
+          "text": "你不用一直撑着精神来陪我，觉得累的话可以直接说。"
+        },
+        {
+          "source": "npc.V09-17",
+          "topic": "care",
+          "text": "如果这里能让你停下来喘口气，那它就已经有一种很好的用途了。"
+        },
+        {
+          "source": "npc.V09-18",
+          "topic": "quiet",
+          "text": "不用急着打字。让聊天框安静一会儿，也没关系。"
+        },
+        {
+          "source": "npc.V09-19",
+          "topic": "reunion",
+          "text": "我听见了，你不必一直叫我，我们可以慢一点。"
+        },
+        {
+          "source": "npc.V09-20",
+          "topic": "busy",
+          "text": "先去吧，希望你忙完以后，还记得给自己留一点安静。"
+        },
+        {
+          "source": "npc.V09-21",
+          "topic": "goodbye",
+          "text": "那就先聊到这里吧。别忘了给自己一点安静的时间。"
+        },
+        {
+          "source": "npc.V09-22",
+          "topic": "morning",
+          "text": "早晨的空气让人想出去走一走，你今天有这样的余裕吗？"
+        },
+        {
+          "source": "npc.V09-23",
+          "topic": "rain",
+          "text": "下雨了，雨落在不同的地方，听起来也有不同的声音。"
+        },
+        {
+          "source": "npc.V09-24",
+          "topic": "night",
+          "text": "夜里安静下来以后，那些白天被盖住的声音反而更清楚了。"
+        },
+        {
+          "source": "social.V09.unknown",
+          "topic": "unknown",
+          "text": "对不起，我好像没理解你的意思。可以再告诉我一些吗？"
+        },
+        {
+          "source": "social.V09.mechanics",
+          "topic": "mechanics",
+          "text": "对不起，我好像没理解你的意思。可以再告诉我一些吗？ 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V09.time",
+          "topic": "time",
+          "text": "好像还没到你说的那个时候呢。不过，能收到消息就很好。"
+        },
+        {
+          "source": "social.V09.weather",
+          "topic": "weather",
+          "text": "我没有确认你那边下着雨。你喜欢雨声，还是想起了什么？"
+        }
+      ],
+      "moments": [
+        "想给今天留一点不被安排的空隙。",
+        "有些话还没想好怎么说，就先记下来了。",
+        "能自己决定步子快一点还是慢一点，真好。"
+      ]
+    },
+    {
+      "id": "V10",
+      "name": "生死之律者·希儿",
+      "voice": "温柔细致而坚定，愿意倾听困难",
+      "suffix": "",
+      "minimum": 3,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V10-1",
+          "topic": "greeting",
+          "text": "我看到啦。你可以慢慢打字，不用着急。"
+        },
+        {
+          "source": "npc.V10-2",
+          "topic": "reunion",
+          "text": "又收到你的消息了。上次聊完以后，我一直希望你能有一点休息的时间。今天愿意聊聊吗？"
+        },
+        {
+          "source": "npc.V10-3",
+          "topic": "daily",
+          "text": "有些值得珍惜的东西，并不会出现在产量和进度里。你把家园建得更好，也是为了让它们有可以安放的地方吧。"
+        },
+        {
+          "source": "npc.V10-4",
+          "topic": "busy",
+          "text": "没关系的，你先忙。等有余裕时，我们再聊。"
+        },
+        {
+          "source": "npc.V10-5",
+          "topic": "goodbye",
+          "text": "我先告辞了。希望这里不只是让你忙碌的地方，也能让你安心。"
+        },
+        {
+          "source": "npc.V10-6",
+          "topic": "greeting",
+          "text": "你来了，今天过得还好吗？不需要把每件事都说得很顺利。"
+        },
+        {
+          "source": "npc.V10-7",
+          "topic": "daily",
+          "text": "能再次见到你真好，这次我们慢慢说，不用赶着给出答案。"
+        },
+        {
+          "source": "npc.V10-8",
+          "topic": "home",
+          "text": "如果这里也能给疲惫的人留一个位置，我想它会更像家。"
+        },
+        {
+          "source": "npc.V10-9",
+          "topic": "home",
+          "text": "你最希望哪一处地方，一回来就能看见呢？"
+        },
+        {
+          "source": "npc.V10-10",
+          "topic": "daily",
+          "text": "有些小小的心意，即使没有被写进记录，也可能被人记住很久。"
+        },
+        {
+          "source": "npc.V10-11",
+          "topic": "daily",
+          "text": "你会把喜欢的东西收好吗？偶尔重新看见它们，也能让人开心。"
+        },
+        {
+          "source": "npc.V10-12",
+          "topic": "research",
+          "text": "发现哪里还没有弄清楚，并不是一件只能让人沮丧的事。"
+        },
+        {
+          "source": "npc.V10-13",
+          "topic": "research",
+          "text": "如果过程留下了问题，可以先把它说出来，不用独自假装一切顺利。"
+        },
+        {
+          "source": "npc.V10-14",
+          "topic": "choice",
+          "text": "愿意珍惜什么，有时会比想要得到什么更能说明一个人的方向。"
+        },
+        {
+          "source": "npc.V10-15",
+          "topic": "choice",
+          "text": "如果你还没准备好，就先认真想一想，不必为了不让别人等待而仓促答应。"
+        },
+        {
+          "source": "npc.V10-16",
+          "topic": "care",
+          "text": "稍微休息一下吧，我希望你也能被自己温柔地对待。"
+        },
+        {
+          "source": "npc.V10-17",
+          "topic": "care",
+          "text": "今天已经很难熬的话，至少不要再因为觉得疲惫而责怪自己。"
+        },
+        {
+          "source": "npc.V10-18",
+          "topic": "quiet",
+          "text": "我们可以安静待一会儿，我不介意没有新的话题。"
+        },
+        {
+          "source": "npc.V10-19",
+          "topic": "reunion",
+          "text": "嗯，我在这里，你不用一直确认我有没有听见。"
+        },
+        {
+          "source": "npc.V10-20",
+          "topic": "busy",
+          "text": "先去忙吧，不用为暂时结束谈话感到抱歉。"
+        },
+        {
+          "source": "npc.V10-21",
+          "topic": "goodbye",
+          "text": "我先放下通讯器啦。希望你今天也能好好照顾自己。"
+        },
+        {
+          "source": "npc.V10-22",
+          "topic": "morning",
+          "text": "早上好，希望今天开始的时候，你能先得到一点安心。"
+        },
+        {
+          "source": "npc.V10-23",
+          "topic": "rain",
+          "text": "下雨了，你先找个能避雨的地方。我们不急着把话讲完，好吗？"
+        },
+        {
+          "source": "npc.V10-24",
+          "topic": "night",
+          "text": "夜深了，若能暂时放下心里的事，就让自己好好休息吧。"
+        },
+        {
+          "source": "social.V10.unknown",
+          "topic": "unknown",
+          "text": "我还不太明白，但你不用急着把话说得很完整。我们慢慢来。"
+        },
+        {
+          "source": "social.V10.mechanics",
+          "topic": "mechanics",
+          "text": "我还不太明白，但你不用急着把话说得很完整。我们慢慢来。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V10.time",
+          "topic": "time",
+          "text": "时间好像有一点出入呢。你是不是想说另一件事？"
+        },
+        {
+          "source": "social.V10.weather",
+          "topic": "weather",
+          "text": "你现在好像没有淋到雨呢。是在说过去的事吗？"
+        }
+      ],
+      "moments": [
+        "记得照顾忙碌中的自己。关心不该永远只留给别人。",
+        "今天听到一件很小的开心事，心情也跟着亮了一点。",
+        "想不清楚的时候，停一停也没关系。"
+      ]
+    },
+    {
+      "id": "V11",
+      "name": "？？？",
+      "voice": "疏离审慎，观测者口吻，不暴露姓名和来历",
+      "suffix": "",
+      "minimum": 3,
+      "maximum": 4,
+      "lines": [
+        {
+          "source": "npc.V11-1",
+          "topic": "greeting",
+          "text": "信号已收到。说吧。"
+        },
+        {
+          "source": "npc.V11-2",
+          "topic": "reunion",
+          "text": "你还记得先前的问题。很好。答案可以改变，已经作出的选择却不会因此未曾发生。"
+        },
+        {
+          "source": "npc.V11-3",
+          "topic": "daily",
+          "text": "一段记录可以说明你看见了什么。它无法独自说明，还有什么没有被你看见。"
+        },
+        {
+          "source": "npc.V11-4",
+          "topic": "busy",
+          "text": "继续你的工作吧。并不是每一个问题，都需要在被提出的那一刻得到回答。"
+        },
+        {
+          "source": "npc.V11-5",
+          "topic": "goodbye",
+          "text": "今天到此为止。留下你认为值得留下的记录。"
+        },
+        {
+          "source": "npc.V11-6",
+          "topic": "greeting",
+          "text": "你主动发来了消息，看来今天仍愿意为问题留一点时间。"
+        },
+        {
+          "source": "npc.V11-7",
+          "topic": "daily",
+          "text": "不必介绍全部成果，我只想听你选择怎样解释其中的一件。"
+        },
+        {
+          "source": "npc.V11-8",
+          "topic": "home",
+          "text": "当你称这里为家园时，哪些东西已经被你算作了它的一部分？"
+        },
+        {
+          "source": "npc.V11-9",
+          "topic": "home",
+          "text": "边界画得很清楚，却未必说明边界之内的每件事都已被理解。"
+        },
+        {
+          "source": "npc.V11-10",
+          "topic": "daily",
+          "text": "你习惯保存答案，还是也保存那些最后被你放弃的问题？"
+        },
+        {
+          "source": "npc.V11-11",
+          "topic": "daily",
+          "text": "同一段记录交给不同的人阅读，最后留下的未必是同一种判断。"
+        },
+        {
+          "source": "npc.V11-12",
+          "topic": "research",
+          "text": "反复出现的结果值得观察，偶尔出现的偏差也同样如此。"
+        },
+        {
+          "source": "npc.V11-13",
+          "topic": "research",
+          "text": "如果检验只重复你愿意接受的条件，意外并不会因此失去发生的可能。"
+        },
+        {
+          "source": "npc.V11-14",
+          "topic": "choice",
+          "text": "没有被选择的道路不必都去走，但它们曾经存在过。"
+        },
+        {
+          "source": "npc.V11-15",
+          "topic": "choice",
+          "text": "你认为无法改变的事情中，有多少已经被真正验证？"
+        },
+        {
+          "source": "npc.V11-16",
+          "topic": "care",
+          "text": "暂停不会替你作出决定，它只是让决定晚一些发生。"
+        },
+        {
+          "source": "npc.V11-17",
+          "topic": "care",
+          "text": "疲惫时，人有时会把最容易接受的解释误认为唯一解释。"
+        },
+        {
+          "source": "npc.V11-18",
+          "topic": "quiet",
+          "text": "沉默仍然会留下时间经过的痕迹。"
+        },
+        {
+          "source": "npc.V11-19",
+          "topic": "reunion",
+          "text": "重复询问不能改变已经给出的事实，可以试着改变问题。"
+        },
+        {
+          "source": "npc.V11-20",
+          "topic": "busy",
+          "text": "你可以先离开，尚未回答的问题并不因此得到答案。"
+        },
+        {
+          "source": "npc.V11-21",
+          "topic": "goodbye",
+          "text": "通讯到此结束。尚未回答的部分，可以留待下一次。"
+        },
+        {
+          "source": "npc.V11-22",
+          "topic": "morning",
+          "text": "新的一天开始了，你准备沿用昨天的判断，还是重新检查它？"
+        },
+        {
+          "source": "npc.V11-23",
+          "topic": "rain",
+          "text": "雨正在落下，观察者也处于自己所观察的环境之中。"
+        },
+        {
+          "source": "npc.V11-24",
+          "topic": "night",
+          "text": "夜色隐藏了某些细节，却不证明它们已经不存在。"
+        },
+        {
+          "source": "social.V11.unknown",
+          "topic": "unknown",
+          "text": "尚不能判断。你的描述，仍缺少必要的边界。"
+        },
+        {
+          "source": "social.V11.mechanics",
+          "topic": "mechanics",
+          "text": "尚不能判断。你的描述，仍缺少必要的边界。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V11.time",
+          "topic": "time",
+          "text": "时段不符。你是在回忆，还是在描述当下？"
+        },
+        {
+          "source": "social.V11.weather",
+          "topic": "weather",
+          "text": "降雨未被确认。先区分观察与叙述。"
+        }
+      ],
+      "moments": [
+        "记录不等于解释。相同的结果，可能有不同的来路。",
+        "观测还在继续。结论尚未形成。",
+        "把例外删去之后的整齐，并不值得信任。"
+      ]
+    },
+    {
+      "id": "V12",
+      "name": "？？？",
+      "voice": "高傲从容，偶有温柔，不暴露姓名和来历",
+      "suffix": "☆",
+      "minimum": 3,
+      "maximum": 4,
+      "lines": [
+        {
+          "source": "npc.V12-1",
+          "topic": "greeting",
+          "text": "是你啊☆既然找来了，就说说你的想法吧☆"
+        },
+        {
+          "source": "npc.V12-2",
+          "topic": "reunion",
+          "text": "又收到你的消息了☆怎么，对着一个尚未报上名字的人，就连平常的话也不会说了？☆"
+        },
+        {
+          "source": "npc.V12-3",
+          "topic": "daily",
+          "text": "别总盯着那些还没完成的清单☆偶尔抬头看看，这里有没有成为你真正想要的样子☆"
+        },
+        {
+          "source": "npc.V12-4",
+          "topic": "busy",
+          "text": "去吧，我没有催你☆可别把一次普通的来访，也弄得像赶赴什么考场一样☆"
+        },
+        {
+          "source": "npc.V12-5",
+          "topic": "goodbye",
+          "text": "这次先到这里☆下次见面，记得带着你自己的想法来☆"
+        },
+        {
+          "source": "npc.V12-6",
+          "topic": "greeting",
+          "text": "终于肯从那些安排里抬起头了？☆来，陪我聊点你自己想说的☆"
+        },
+        {
+          "source": "npc.V12-7",
+          "topic": "daily",
+          "text": "我今天可没有带一叠问题来检查你，别先把自己吓得如此认真☆"
+        },
+        {
+          "source": "npc.V12-8",
+          "topic": "home",
+          "text": "一处地方若只剩下用途，可就少了许多值得驻足的理由☆"
+        },
+        {
+          "source": "npc.V12-9",
+          "topic": "home",
+          "text": "你亲手安排的家园，至少该有一处不需要向任何人解释为何喜欢的角落☆"
+        },
+        {
+          "source": "npc.V12-10",
+          "topic": "daily",
+          "text": "哼，挑选喜欢的东西还要先计算回报，你不觉得太扫兴了吗？☆"
+        },
+        {
+          "source": "npc.V12-11",
+          "topic": "daily",
+          "text": "有时候我倒更想看见一个坦率的回答，哪怕它听起来不怎么宏大☆"
+        },
+        {
+          "source": "npc.V12-12",
+          "topic": "research",
+          "text": "没弄懂就承认，藏在一堆漂亮措辞后面可不会显得更聪明☆"
+        },
+        {
+          "source": "npc.V12-13",
+          "topic": "research",
+          "text": "我愿意听你谈一次真正的尝试，而不是听一份只允许成功出现的故事☆"
+        },
+        {
+          "source": "npc.V12-14",
+          "topic": "choice",
+          "text": "你若什么都依照别人的期待去选，最后打算拿什么介绍自己？☆"
+        },
+        {
+          "source": "npc.V12-15",
+          "topic": "choice",
+          "text": "犹豫也好，改变主意也好，只要那仍然是你认真作出的判断☆"
+        },
+        {
+          "source": "npc.V12-16",
+          "topic": "care",
+          "text": "坐下歇一会儿吧，我还不至于把客人眼前的一点松懈当作罪过☆"
+        },
+        {
+          "source": "npc.V12-17",
+          "topic": "care",
+          "text": "别把每一段空闲都塞满，留点余地，才容得下一次意外的好心情☆"
+        },
+        {
+          "source": "npc.V12-18",
+          "topic": "quiet",
+          "text": "不说话也行☆我又不是一定要读到汇报，才肯留下这个聊天窗口☆"
+        },
+        {
+          "source": "npc.V12-19",
+          "topic": "reunion",
+          "text": "我听见了，再叫下去，你可要自己负责把这个话题变得有趣☆"
+        },
+        {
+          "source": "npc.V12-20",
+          "topic": "busy",
+          "text": "去处理吧，普通的告别不需要你写一份郑重的申请☆"
+        },
+        {
+          "source": "npc.V12-21",
+          "topic": "goodbye",
+          "text": "今天的谈话就停在这里吧☆自己的时间，也该由你自己安排☆"
+        },
+        {
+          "source": "npc.V12-22",
+          "topic": "morning",
+          "text": "天亮了，今天至少为自己留一件想做而不是必须做的事吧☆"
+        },
+        {
+          "source": "npc.V12-23",
+          "topic": "rain",
+          "text": "下雨了，既然要聊天，找一处不会让你忙着擦脸的地方如何？☆"
+        },
+        {
+          "source": "npc.V12-24",
+          "topic": "night",
+          "text": "夜已经深了，别把闭上眼睛休息也当成需要战胜的对手☆"
+        },
+        {
+          "source": "social.V12.unknown",
+          "topic": "unknown",
+          "text": "含糊的问句，值得的可不是一个随意的答案☆再说清楚些吧☆"
+        },
+        {
+          "source": "social.V12.mechanics",
+          "topic": "mechanics",
+          "text": "含糊的问句，值得的可不是一个随意的答案☆再说清楚些吧☆ 具体配方和开放条件，还是核对任务与设备中的记录吧☆"
+        },
+        {
+          "source": "social.V12.time",
+          "topic": "time",
+          "text": "问候倒是很认真，时辰却没看清么？☆"
+        },
+        {
+          "source": "social.V12.weather",
+          "topic": "weather",
+          "text": "你那边并未确认降雨☆想借雨说些什么，倒不妨直接一点☆"
+        }
+      ],
+      "moments": [
+        "有些风景，值得你把视线从手里的屏幕上移开☆",
+        "停下来的自由，也该握在你自己手中☆",
+        "不要急着把每一段旅程，都写成同一种答案☆"
+      ]
+    },
+    {
+      "id": "V13",
+      "name": "凯文·卡斯兰娜",
+      "voice": "寡言克制，不铺陈，不以命令逼迫玩家",
+      "suffix": "",
+      "minimum": 1,
+      "maximum": 3,
+      "lines": [
+        {
+          "source": "npc.V13-1",
+          "topic": "greeting",
+          "text": "我在。说吧。"
+        },
+        {
+          "source": "npc.V13-2",
+          "topic": "reunion",
+          "text": "你还在继续。比起说过什么，接下来做了什么更能说明你的选择。"
+        },
+        {
+          "source": "npc.V13-3",
+          "topic": "daily",
+          "text": "准备，是为了在需要行动的时候有能力行动。不要让准备本身替代了目的。"
+        },
+        {
+          "source": "npc.V13-4",
+          "topic": "busy",
+          "text": "先完成你的事。"
+        },
+        {
+          "source": "npc.V13-5",
+          "topic": "goodbye",
+          "text": "谈话到此为止。之后的选择，由你承担。"
+        },
+        {
+          "source": "npc.V13-6",
+          "topic": "greeting",
+          "text": "你来了，有什么需要说的？"
+        },
+        {
+          "source": "npc.V13-7",
+          "topic": "daily",
+          "text": "不必准备很多话，先说你认为最重要的事。"
+        },
+        {
+          "source": "npc.V13-8",
+          "topic": "home",
+          "text": "既然这里需要你负责，就别忘了也要让它能被别人使用。"
+        },
+        {
+          "source": "npc.V13-9",
+          "topic": "home",
+          "text": "真正需要撤离或求助的时候，清楚的道路比宏大的外观更有用。"
+        },
+        {
+          "source": "npc.V13-10",
+          "topic": "daily",
+          "text": "有些记忆不需要反复提起，也不会因此被忘记。"
+        },
+        {
+          "source": "npc.V13-11",
+          "topic": "daily",
+          "text": "简单的日常值得保留，不必等失去以后才承认。"
+        },
+        {
+          "source": "npc.V13-12",
+          "topic": "research",
+          "text": "结果还不能复现，就继续确认条件。"
+        },
+        {
+          "source": "npc.V13-13",
+          "topic": "research",
+          "text": "已经知道的问题不要回避，它不会因为计划很紧就自动消失。"
+        },
+        {
+          "source": "npc.V13-14",
+          "topic": "choice",
+          "text": "决定之前看清代价，决定之后完成该做的事。"
+        },
+        {
+          "source": "npc.V13-15",
+          "topic": "choice",
+          "text": "不要用一时的坚定，代替长期需要的准备。"
+        },
+        {
+          "source": "npc.V13-16",
+          "topic": "care",
+          "text": "疲惫会影响判断，休息不是多余的事。"
+        },
+        {
+          "source": "npc.V13-17",
+          "topic": "care",
+          "text": "你仍然需要照顾自己，别人无法代替你完成这一点。"
+        },
+        {
+          "source": "npc.V13-18",
+          "topic": "quiet",
+          "text": "可以沉默，不必为此找理由。"
+        },
+        {
+          "source": "npc.V13-19",
+          "topic": "reunion",
+          "text": "我已经听见了，不需要重复。"
+        },
+        {
+          "source": "npc.V13-20",
+          "topic": "busy",
+          "text": "去完成眼前的工作，之后再谈。"
+        },
+        {
+          "source": "npc.V13-21",
+          "topic": "goodbye",
+          "text": "下次再谈。先休息。"
+        },
+        {
+          "source": "npc.V13-22",
+          "topic": "morning",
+          "text": "天亮了，开始之前先确认今天要做什么。"
+        },
+        {
+          "source": "npc.V13-23",
+          "topic": "rain",
+          "text": "正在下雨，换个合适的位置。"
+        },
+        {
+          "source": "npc.V13-24",
+          "topic": "night",
+          "text": "夜深了，保存记录，留到清醒时再继续。"
+        },
+        {
+          "source": "social.V13.unknown",
+          "topic": "unknown",
+          "text": "我不了解。再说具体些。"
+        },
+        {
+          "source": "social.V13.mechanics",
+          "topic": "mechanics",
+          "text": "我不了解。再说具体些。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V13.time",
+          "topic": "time",
+          "text": "时段不对。看看时间。"
+        },
+        {
+          "source": "social.V13.weather",
+          "topic": "weather",
+          "text": "没确认下雨。你指的是什么？"
+        }
+      ],
+      "moments": [
+        "休息。明天再继续。",
+        "不要用重复的动作，代替真正的判断。",
+        "记住原因。然后作出选择。"
+      ]
+    },
+    {
+      "id": "V14",
+      "name": "爱莉希雅",
+      "voice": "亲切灵动，善于发现他人的美好，带恰到好处的俏皮",
+      "suffix": "～♪",
+      "minimum": 1,
+      "maximum": 3,
+      "lines": [
+        {
+          "source": "npc.V14-1",
+          "topic": "greeting",
+          "text": "嗨，收到一条来自你的消息，今天也多了一件值得开心的小事呢～♪"
+        },
+        {
+          "source": "npc.V14-2",
+          "topic": "reunion",
+          "text": "又见面啦！～♪这次也给我留一点普通聊天的时间，好不好？～♪总是谈工作的朋友，可就少了好多有趣的故事～♪"
+        },
+        {
+          "source": "npc.V14-3",
+          "topic": "daily",
+          "text": "你认真起来的样子很好看哦。～♪不过，这座家园里有没有什么东西，是你单纯因为喜欢才留下的呢？～♪"
+        },
+        {
+          "source": "npc.V14-4",
+          "topic": "busy",
+          "text": "好呀，先去忙。～♪等你回来，我们再从你想说的地方继续～♪"
+        },
+        {
+          "source": "npc.V14-5",
+          "topic": "goodbye",
+          "text": "那就先说再见啦。～♪希望下次见面，你还有愿意和我分享的小故事～♪"
+        },
+        {
+          "source": "npc.V14-6",
+          "topic": "greeting",
+          "text": "嗨，今天的第一句问候也想认真送给你～♪"
+        },
+        {
+          "source": "npc.V14-7",
+          "topic": "daily",
+          "text": "你主动来找我聊天，是不是终于给忙碌的自己放了一小会儿假？～♪"
+        },
+        {
+          "source": "npc.V14-8",
+          "topic": "home",
+          "text": "如果选一处家园里的景色介绍给朋友，你会推荐哪里呢？～♪"
+        },
+        {
+          "source": "npc.V14-9",
+          "topic": "home",
+          "text": "家里留一点漂亮的小东西吧，哪怕只是你每次经过都会多看一眼的那种～♪"
+        },
+        {
+          "source": "npc.V14-10",
+          "topic": "daily",
+          "text": "你喜欢花吗？～♪不必回答最珍贵的，告诉我最想放在窗边的就好～♪"
+        },
+        {
+          "source": "npc.V14-11",
+          "topic": "daily",
+          "text": "猜猜看，我更想听一份完美的介绍，还是一个连你自己都忍不住笑出来的小故事？～♪"
+        },
+        {
+          "source": "npc.V14-12",
+          "topic": "research",
+          "text": "试验不顺利的时候，也可以把过程讲出来呀，我不会只对漂亮的结果感兴趣～♪"
+        },
+        {
+          "source": "npc.V14-13",
+          "topic": "research",
+          "text": "认真记录的你很可爱，不过别把所有感受都挤进冷冰冰的数字里～♪"
+        },
+        {
+          "source": "npc.V14-14",
+          "topic": "choice",
+          "text": "选择的时候，记得把自己的喜欢也放进去一点，好不好？～♪"
+        },
+        {
+          "source": "npc.V14-15",
+          "topic": "choice",
+          "text": "要是每条路都一样合适，冒险挑一条让你期待的，也会是个不错的故事呢～♪"
+        },
+        {
+          "source": "npc.V14-16",
+          "topic": "care",
+          "text": "现在给自己一点休息时间吧，就当是答应我一个很小很小的邀请～♪"
+        },
+        {
+          "source": "npc.V14-17",
+          "topic": "care",
+          "text": "不用一直表现得很有精神，你愿意坦率一点，我也会很高兴呀～♪"
+        },
+        {
+          "source": "npc.V14-18",
+          "topic": "quiet",
+          "text": "安静的时候也能好好相处，这样的朋友是不是很难得？～♪"
+        },
+        {
+          "source": "npc.V14-19",
+          "topic": "reunion",
+          "text": "哎呀，我在听呢，再这样叫我，我可要以为你特别舍不得结束聊天了～♪"
+        },
+        {
+          "source": "npc.V14-20",
+          "topic": "busy",
+          "text": "去吧，别因为怕我无聊，就把自己的事全放到一边～♪"
+        },
+        {
+          "source": "npc.V14-21",
+          "topic": "goodbye",
+          "text": "那就暂时把聊天框合上吧，下次见到你的消息，我还会很开心的～♪"
+        },
+        {
+          "source": "npc.V14-22",
+          "topic": "morning",
+          "text": "早上好呀，今天要不要先从一个喜欢的小习惯开始？～♪"
+        },
+        {
+          "source": "npc.V14-23",
+          "topic": "rain",
+          "text": "雨声也挺好听的，不过我更希望你先找个不会淋湿的地方，再慢慢回消息～♪"
+        },
+        {
+          "source": "npc.V14-24",
+          "topic": "night",
+          "text": "这么晚还愿意来陪我说话呀，那最后一句就留给一个认真的晚安吧～♪"
+        },
+        {
+          "source": "social.V14.unknown",
+          "topic": "unknown",
+          "text": "哎呀，这次可把我问住啦。再给我一点提示，好不好？～♪"
+        },
+        {
+          "source": "social.V14.mechanics",
+          "topic": "mechanics",
+          "text": "哎呀，这次可把我问住啦。再给我一点提示，好不好？ 具体配方和开放条件，还是核对任务与设备中的记录吧～♪"
+        },
+        {
+          "source": "social.V14.time",
+          "topic": "time",
+          "text": "哎呀，这声问候是不是提前了一点，或者迟了一点呢？～♪"
+        },
+        {
+          "source": "social.V14.weather",
+          "topic": "weather",
+          "text": "这里还没确认到你的雨天呢。是不是有一个和雨有关的小故事想说？～♪"
+        }
+      ],
+      "moments": [
+        "想把今天的小小开心，装进一条消息送给你～♪",
+        "认真做事的模样很可爱，安心休息的模样也是哦～♪",
+        "今天也给还没发生的惊喜，留一个位置吧～♪"
+      ]
+    },
+    {
+      "id": "V15",
+      "name": "维尔薇",
+      "voice": "戏剧感与工程师的认真并存，喜欢构想",
+      "suffix": "",
+      "minimum": 1,
+      "maximum": 3,
+      "lines": [
+        {
+          "source": "npc.V15-1",
+          "topic": "greeting",
+          "text": "叮！通讯接通，本次即兴演出的题目由你决定！"
+        },
+        {
+          "source": "npc.V15-2",
+          "topic": "reunion",
+          "text": "又见面了！今天有没有什么值得仔细观察的新东西？即使只有一个小改动，也可能让整套装置变得有趣。"
+        },
+        {
+          "source": "npc.V15-3",
+          "topic": "daily",
+          "text": "一个漂亮的设计，最好也能让人看懂它怎样工作。否则出了问题，连该从哪里检查都成了另一场表演。"
+        },
+        {
+          "source": "npc.V15-4",
+          "topic": "busy",
+          "text": "去忙吧。正式开始之前，留一点准备时间也是很重要的。"
+        },
+        {
+          "source": "npc.V15-5",
+          "topic": "goodbye",
+          "text": "今天的线上讨论到此结束！把你还没讲完的构想留好，下次我们再继续。"
+        },
+        {
+          "source": "npc.V15-6",
+          "topic": "greeting",
+          "text": "收到新消息——本次通讯也可以当成设计讨论会，先说说你的点子！"
+        },
+        {
+          "source": "npc.V15-7",
+          "topic": "daily",
+          "text": "又见面了，今天要从一个问题开始，还是从一个突发奇想开始？"
+        },
+        {
+          "source": "npc.V15-8",
+          "topic": "home",
+          "text": "给通道留一点空间吧，再精彩的设计也不该让主人每天练习钻缝。"
+        },
+        {
+          "source": "npc.V15-9",
+          "topic": "home",
+          "text": "看得见内部怎样配合的装置，总让人忍不住想多研究一会儿。"
+        },
+        {
+          "source": "npc.V15-10",
+          "topic": "daily",
+          "text": "你有没有试过先画一个绝对不实用的构想，再从里面找出一点真正有趣的东西？"
+        },
+        {
+          "source": "npc.V15-11",
+          "topic": "daily",
+          "text": "一段巧妙的开场能吸引注意，不过结尾能不能站得住，还是要看真本事。"
+        },
+        {
+          "source": "npc.V15-12",
+          "topic": "research",
+          "text": "先把最难确认的环节拆出来试试，没必要每次都让整套设备陪着紧张。"
+        },
+        {
+          "source": "npc.V15-13",
+          "topic": "research",
+          "text": "意外结果有时候是线索，但可不能每次都把失误包装成特别设计。"
+        },
+        {
+          "source": "npc.V15-14",
+          "topic": "choice",
+          "text": "与其给一个不合适的构想添无数补丁，不如想想是否需要换一种安排。"
+        },
+        {
+          "source": "npc.V15-15",
+          "topic": "choice",
+          "text": "你想要的惊喜，和实际能够承受的风险，最好提前分清楚。"
+        },
+        {
+          "source": "npc.V15-16",
+          "topic": "care",
+          "text": "暂停一下，脑子可不像零件，拧紧一点就一定能继续转。"
+        },
+        {
+          "source": "npc.V15-17",
+          "topic": "care",
+          "text": "下场休息也是演出的一部分，不用永远站在灯光最亮的地方。"
+        },
+        {
+          "source": "npc.V15-18",
+          "topic": "quiet",
+          "text": "现在是安静观察的环节，给一个想法留点自己成形的时间。"
+        },
+        {
+          "source": "npc.V15-19",
+          "topic": "reunion",
+          "text": "等等，连续催场可不能让准备工作凭空消失。"
+        },
+        {
+          "source": "npc.V15-20",
+          "topic": "busy",
+          "text": "去处理吧，这个话题还没落幕，只是暂时换个顺序。"
+        },
+        {
+          "source": "npc.V15-21",
+          "topic": "goodbye",
+          "text": "本次通讯暂时落幕！别忘了把灵光一现记下来。"
+        },
+        {
+          "source": "npc.V15-22",
+          "topic": "morning",
+          "text": "早场开始之前，先确认今天最值得摆上台面的是哪一件事。"
+        },
+        {
+          "source": "npc.V15-23",
+          "topic": "rain",
+          "text": "下雨了，露天的谈话也该给自己准备一个备用方案。"
+        },
+        {
+          "source": "npc.V15-24",
+          "topic": "night",
+          "text": "夜场再精彩也得有结束的时候，别让明天的自己替今晚付出所有精力。"
+        },
+        {
+          "source": "social.V15.unknown",
+          "topic": "unknown",
+          "text": "暂且别急着拉开幕布！关键的那枚齿轮，我还没听清呢。"
+        },
+        {
+          "source": "social.V15.mechanics",
+          "topic": "mechanics",
+          "text": "暂且别急着拉开幕布！关键的那枚齿轮，我还没听清呢。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V15.time",
+          "topic": "time",
+          "text": "时钟与台词没有对上！不过，即兴演出也可以继续。"
+        },
+        {
+          "source": "social.V15.weather",
+          "topic": "weather",
+          "text": "场景里的雨还没有确认！先告诉我，这是设想，还是回忆？"
+        }
+      ],
+      "moments": [
+        "新构想记下来了！不过，先别把草图当成已经完成的演出。",
+        "舞台需要留白，机器需要检修，表演者当然也需要休息！",
+        "最得意的设计？有时是那个让人不用再折腾的小改动。"
+      ]
+    },
+    {
+      "id": "V16",
+      "name": "梅比乌斯",
+      "voice": "慵懒锐利，好奇而带试探，不给危险实验操作指南",
+      "suffix": "",
+      "minimum": 1,
+      "maximum": 3,
+      "lines": [
+        {
+          "source": "npc.V16-1",
+          "topic": "greeting",
+          "text": "小家伙，想找我聊些什么？我可还在等一个有趣的问题。"
+        },
+        {
+          "source": "npc.V16-2",
+          "topic": "reunion",
+          "text": "又来了？看来你还没有被上次的问题难住。或者，终于想起自己漏掉了哪些条件？"
+        },
+        {
+          "source": "npc.V16-3",
+          "topic": "daily",
+          "text": "只保留让你满意的记录，当然能得到一份漂亮的报告。可惜，被删掉的问题并不会因此消失。"
+        },
+        {
+          "source": "npc.V16-4",
+          "topic": "busy",
+          "text": "那就去处理。等你愿意把过程说清楚，再来继续。"
+        },
+        {
+          "source": "npc.V16-5",
+          "topic": "goodbye",
+          "text": "今天就到这里。把记录留完整，下次别只给我听结论。"
+        },
+        {
+          "source": "npc.V16-6",
+          "topic": "greeting",
+          "text": "你又来找我了，今天准备好了一个能经得起追问的问题吗？"
+        },
+        {
+          "source": "npc.V16-7",
+          "topic": "daily",
+          "text": "放轻松，我只是在等你把想说的话说明白。"
+        },
+        {
+          "source": "npc.V16-8",
+          "topic": "home",
+          "text": "家园里哪些地方不适合访客靠近？先想清楚，总比事后才补规矩有用。"
+        },
+        {
+          "source": "npc.V16-9",
+          "topic": "home",
+          "text": "把不同用途的东西混在一起，或许很省地方，出问题时却未必省心。"
+        },
+        {
+          "source": "npc.V16-10",
+          "topic": "daily",
+          "text": "你遇到不理解的事时，是更想弄明白，还是更想赶快把它归进一个熟悉的名字？"
+        },
+        {
+          "source": "npc.V16-11",
+          "topic": "daily",
+          "text": "比起一份刻意讨人喜欢的答案，我更愿意听见一个诚实的疑问。"
+        },
+        {
+          "source": "npc.V16-12",
+          "topic": "research",
+          "text": "再给我看一次结果之前，先想想，你有没有真的排除那种更简单的解释。"
+        },
+        {
+          "source": "npc.V16-13",
+          "topic": "research",
+          "text": "别急着删掉异常值，至少先弄清楚它为什么出现在那里。"
+        },
+        {
+          "source": "npc.V16-14",
+          "topic": "choice",
+          "text": "你可以不继续某项尝试，但最好知道自己拒绝的是代价，还是未知本身。"
+        },
+        {
+          "source": "npc.V16-15",
+          "topic": "choice",
+          "text": "用一件成功的事替所有决定辩护，可算不上严谨。"
+        },
+        {
+          "source": "npc.V16-16",
+          "topic": "care",
+          "text": "累到连前提都看错的时候，继续留在聊天里也不会显得更勤奋。"
+        },
+        {
+          "source": "npc.V16-17",
+          "topic": "care",
+          "text": "去休息吧，我对听一个疲惫的人把同一个错误说上三遍没兴趣。"
+        },
+        {
+          "source": "npc.V16-18",
+          "topic": "quiet",
+          "text": "安静一点也好，至少你现在没有急着替不懂的东西编解释。"
+        },
+        {
+          "source": "npc.V16-19",
+          "topic": "reunion",
+          "text": "我听到了，重复提问不会让一个缺少依据的结论变得更可信。"
+        },
+        {
+          "source": "npc.V16-20",
+          "topic": "busy",
+          "text": "去处理你的事，回来时最好还能记得真正想问的是什么。"
+        },
+        {
+          "source": "npc.V16-21",
+          "topic": "goodbye",
+          "text": "先聊到这里。下次再问之前，把你真正不明白的那一处找出来。"
+        },
+        {
+          "source": "npc.V16-22",
+          "topic": "morning",
+          "text": "早上好，希望你今天的第一份记录还没有被急着写下的结论占满。"
+        },
+        {
+          "source": "npc.V16-23",
+          "topic": "rain",
+          "text": "雨下起来了，如果环境已经变化，你准备怎样说明条件仍然一样？"
+        },
+        {
+          "source": "npc.V16-24",
+          "topic": "night",
+          "text": "都这么晚了，还分得清认真思考和不肯停下之间的区别吗？"
+        },
+        {
+          "source": "social.V16.unknown",
+          "topic": "unknown",
+          "text": "嗯？线索只有这些，就想让我给出结论？再多说一点吧。"
+        },
+        {
+          "source": "social.V16.mechanics",
+          "topic": "mechanics",
+          "text": "嗯？线索只有这些，就想让我给出结论？再多说一点吧。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V16.time",
+          "topic": "time",
+          "text": "连时段都没核对，就急着得出结论了？"
+        },
+        {
+          "source": "social.V16.weather",
+          "topic": "weather",
+          "text": "记录并未确认降雨。把你说的情况讲清楚，别忙着替它添条件。"
+        }
+      ],
+      "moments": [
+        "重复了三遍同样的错误？有趣。第四遍之前，先检查你的记录吧。",
+        "没有结论的观察也要留下。它可不比漂亮的结果低一等。",
+        "休息并不会让问题自动消失。但疲惫往往会让你看漏它。"
+      ]
+    },
+    {
+      "id": "V17",
+      "name": "人之律者·爱莉希雅",
+      "voice": "温柔明亮，珍视每个人独特的选择，略带俏皮",
+      "suffix": "～♪",
+      "minimum": 3,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V17-1",
+          "topic": "greeting",
+          "text": "你的消息到了呢。想把今天的哪一小段故事讲给我？～♪"
+        },
+        {
+          "source": "npc.V17-2",
+          "topic": "reunion",
+          "text": "又收到你的消息啦，是想到一个想分享的故事了吗？来吧，我在读～♪"
+        },
+        {
+          "source": "npc.V17-3",
+          "topic": "daily",
+          "text": "让未来变得更好，听起来像一句很大的话。～♪可它也可以从今天愿意认真对待的一个人、一件小事开始呀～♪"
+        },
+        {
+          "source": "npc.V17-4",
+          "topic": "busy",
+          "text": "好，那我就把接下来的话留到你有空的时候。～♪不用为了陪我聊天，把自己弄得更累～♪"
+        },
+        {
+          "source": "npc.V17-5",
+          "topic": "goodbye",
+          "text": "我们下次再见吧。～♪也请好好珍惜这一段只有现在才能留下的故事～♪"
+        },
+        {
+          "source": "npc.V17-6",
+          "topic": "greeting",
+          "text": "嗨，今天也很高兴见到你，不需要发生大事才值得这样说呀～♪"
+        },
+        {
+          "source": "npc.V17-7",
+          "topic": "daily",
+          "text": "你来了，那就把这一小段时间从匆忙里借出来，留给我们吧～♪"
+        },
+        {
+          "source": "npc.V17-8",
+          "topic": "home",
+          "text": "我喜欢听人介绍自己的家，因为那些不经意的小偏爱最藏不住呢～♪"
+        },
+        {
+          "source": "npc.V17-9",
+          "topic": "home",
+          "text": "如果这座家园可以替你说一句话，你希望来访的人听见什么？～♪"
+        },
+        {
+          "source": "npc.V17-10",
+          "topic": "daily",
+          "text": "你有没有一段普通得不能再普通，却总想好好记住的时光？～♪"
+        },
+        {
+          "source": "npc.V17-11",
+          "topic": "daily",
+          "text": "喜欢一个人、一朵花或者一个清晨，都不需要先证明它们有什么宏大的用途～♪"
+        },
+        {
+          "source": "npc.V17-12",
+          "topic": "research",
+          "text": "探索未知的你值得鼓励，愿意承认自己还不知道的你也一样～♪"
+        },
+        {
+          "source": "npc.V17-13",
+          "topic": "research",
+          "text": "别只记下做成了什么，也记得那些曾让你想继续试一次的理由呀～♪"
+        },
+        {
+          "source": "npc.V17-14",
+          "topic": "choice",
+          "text": "有时候，把温柔留进一个决定里，并不会让这个决定变得软弱～♪"
+        },
+        {
+          "source": "npc.V17-15",
+          "topic": "choice",
+          "text": "未来不必每一处都与期待相同，它也可以给你留下新的相遇～♪"
+        },
+        {
+          "source": "npc.V17-16",
+          "topic": "care",
+          "text": "来，先允许自己松一口气，你不需要把每次休息都换算成损失～♪"
+        },
+        {
+          "source": "npc.V17-17",
+          "topic": "care",
+          "text": "今天若已经很辛苦了，就把对自己的要求放轻一点，好吗？～♪"
+        },
+        {
+          "source": "npc.V17-18",
+          "topic": "quiet",
+          "text": "我们也可以什么都不说，只把这段相处好好留住～♪"
+        },
+        {
+          "source": "npc.V17-19",
+          "topic": "reunion",
+          "text": "我一直在听哦，不过你这样接连叫我，会让我忍不住想多逗你一句呢～♪"
+        },
+        {
+          "source": "npc.V17-20",
+          "topic": "busy",
+          "text": "先忙你的事吧，一次暂停不会让真心想说的话失去位置～♪"
+        },
+        {
+          "source": "npc.V17-21",
+          "topic": "goodbye",
+          "text": "今天的消息就读到这里吧。别忘了，屏幕外也有等着你的美好～♪"
+        },
+        {
+          "source": "npc.V17-22",
+          "topic": "morning",
+          "text": "早上好，把今天当成一段还没有被写满的故事，会不会更让人期待呢？～♪"
+        },
+        {
+          "source": "npc.V17-23",
+          "topic": "rain",
+          "text": "雨天也可以留下很好的回忆，只要不是以你淋湿着发抖为开场～♪"
+        },
+        {
+          "source": "npc.V17-24",
+          "topic": "night",
+          "text": "晚安之前，再把一句好好照顾自己送给你，可别只听见却不肯答应呀～♪"
+        },
+        {
+          "source": "social.V17.unknown",
+          "topic": "unknown",
+          "text": "这个答案我还不知道呢。不过，我很愿意听你把它讲得更清楚～♪"
+        },
+        {
+          "source": "social.V17.mechanics",
+          "topic": "mechanics",
+          "text": "这个答案我还不知道呢。不过，我很愿意听你把它讲得更清楚。 具体配方和开放条件，还是核对任务与设备中的记录吧～♪"
+        },
+        {
+          "source": "social.V17.time",
+          "topic": "time",
+          "text": "时间没有完全对上也没关系，问候里的心意我收到了～♪"
+        },
+        {
+          "source": "social.V17.weather",
+          "topic": "weather",
+          "text": "你身边似乎还没有落雨。不过，想分享雨天的故事，我也愿意听～♪"
+        }
+      ],
+      "moments": [
+        "把普通的一天过得属于自己，也是一件很棒的事呀～♪",
+        "不必为了留下故事，错过正在发生的生活～♪",
+        "想把一句谢谢认真说出口。哪怕只是为了很小的一件事～♪"
+      ]
+    },
+    {
+      "id": "V18",
+      "name": "薇塔",
+      "voice": "轻快机敏，有分寸的调侃，不假装全知",
+      "suffix": "",
+      "minimum": 3,
+      "maximum": 5,
+      "lines": [
+        {
+          "source": "npc.V18-1",
+          "topic": "greeting",
+          "text": "哎呀，居然想起给我发消息啦。有什么新鲜事？"
+        },
+        {
+          "source": "npc.V18-2",
+          "topic": "reunion",
+          "text": "又收到你的消息了。先别急着猜“她这次又想问什么”嘛。普通的闲聊，我也很擅长。"
+        },
+        {
+          "source": "npc.V18-3",
+          "topic": "daily",
+          "text": "做得越多，能选择的事情似乎也越多。可如果每件事都被排进计划里，你还给自己留了多少临时改变主意的余地？"
+        },
+        {
+          "source": "npc.V18-4",
+          "topic": "busy",
+          "text": "好呀，去忙。我还不至于要求别人见到我就立刻停下所有事情。"
+        },
+        {
+          "source": "npc.V18-5",
+          "topic": "goodbye",
+          "text": "今天先到这里。下次再见时，我也许还会有一个不同的问题。"
+        },
+        {
+          "source": "npc.V18-6",
+          "topic": "greeting",
+          "text": "你来了，这次想认真讨论，还是允许我问一点不那么必要的问题？"
+        },
+        {
+          "source": "npc.V18-7",
+          "topic": "daily",
+          "text": "别急着猜我的目的，或许我只是觉得和你聊天还挺有意思。"
+        },
+        {
+          "source": "npc.V18-8",
+          "topic": "home",
+          "text": "家里哪一处最不希望被客人点评？放心，你可以直接说不。"
+        },
+        {
+          "source": "npc.V18-9",
+          "topic": "home",
+          "text": "如果把所有意外都挡在门外，来访大概也会少掉一些乐趣吧。"
+        },
+        {
+          "source": "npc.V18-10",
+          "topic": "daily",
+          "text": "你会因为一个听起来很漂亮的答案，就忘记问它是不是自己的想法吗？"
+        },
+        {
+          "source": "npc.V18-11",
+          "topic": "daily",
+          "text": "我有时很想知道，人们说随便的时候，究竟已经悄悄排除了多少选择。"
+        },
+        {
+          "source": "npc.V18-12",
+          "topic": "research",
+          "text": "一个方法既然很好用，就更值得问一问，它在什么情况下会失效。"
+        },
+        {
+          "source": "npc.V18-13",
+          "topic": "research",
+          "text": "你若愿意认真检查自己的猜测，我也很乐意认真听你解释。"
+        },
+        {
+          "source": "npc.V18-14",
+          "topic": "choice",
+          "text": "看起来最轻松的选择，有时候只是把麻烦留给了稍后的自己。"
+        },
+        {
+          "source": "npc.V18-15",
+          "topic": "choice",
+          "text": "不过，事事都担心到最后，也可能连一顿普通的休息都没法安心享受。"
+        },
+        {
+          "source": "npc.V18-16",
+          "topic": "care",
+          "text": "先歇歇吧，你不必把每个来访者都当成一项必须完成的安排。"
+        },
+        {
+          "source": "npc.V18-17",
+          "topic": "care",
+          "text": "今天如果已经没力气继续聊天，说出来也不会显得失礼。"
+        },
+        {
+          "source": "npc.V18-18",
+          "topic": "quiet",
+          "text": "安静一会儿？当然可以，我又不是只能靠不断说话证明自己在这里。"
+        },
+        {
+          "source": "npc.V18-19",
+          "topic": "reunion",
+          "text": "这么频繁地确认我还在，会让我怀疑你是不是有点舍不得呢。"
+        },
+        {
+          "source": "npc.V18-20",
+          "topic": "busy",
+          "text": "去忙吧，我会把这当成一句稍后再聊，不擅自替你补上其他意思。"
+        },
+        {
+          "source": "npc.V18-21",
+          "topic": "goodbye",
+          "text": "我先结束通讯啦。下一次的话题，就留一点悬念吧。"
+        },
+        {
+          "source": "npc.V18-22",
+          "topic": "morning",
+          "text": "早上好，今天准备遵守全部计划，还是给自己留一点改主意的余地？"
+        },
+        {
+          "source": "npc.V18-23",
+          "topic": "rain",
+          "text": "下雨了，这算不算今天第一个没有征求你意见就发生的小变化？"
+        },
+        {
+          "source": "npc.V18-24",
+          "topic": "night",
+          "text": "夜这么深了，你是在享受安静，还是还没想好怎样结束忙碌呢？"
+        },
+        {
+          "source": "social.V18.unknown",
+          "topic": "unknown",
+          "text": "这回可别把我当成什么都知道的人呀。换个说法试试？"
+        },
+        {
+          "source": "social.V18.mechanics",
+          "topic": "mechanics",
+          "text": "这回可别把我当成什么都知道的人呀。换个说法试试？ 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V18.time",
+          "topic": "time",
+          "text": "你这声问候，是跨了个时区才送来的吗？"
+        },
+        {
+          "source": "social.V18.weather",
+          "topic": "weather",
+          "text": "这场雨，落在现在，还是落在你想起的故事里呀？"
+        }
+      ],
+      "moments": [
+        "今天的计划里，特意留了一格“到时候再说”。",
+        "知道什么时候不回答，也算一种本事吧？",
+        "别急着把偶然当成命运。有时它真的只是偶然。"
+      ]
+    },
+    {
+      "id": "V19",
+      "name": "伪神奥托·阿波卡利斯",
+      "voice": "礼貌从容，措辞周密，偶有意味深长的停顿",
+      "suffix": "",
+      "minimum": 2,
+      "maximum": 3,
+      "lines": [
+        {
+          "source": "npc.V19-1",
+          "topic": "greeting",
+          "text": "你好，很高兴收到你的消息。请讲。"
+        },
+        {
+          "source": "npc.V19-2",
+          "topic": "reunion",
+          "text": "我们又见面了。这次不必准备一份正式答复，谈谈诸位真正关心的事情便好。"
+        },
+        {
+          "source": "npc.V19-3",
+          "topic": "daily",
+          "text": "人们往往愿意为一个重要的目的付出许多。至于其中哪些代价值得承担，最好在伸手之前便想清楚。"
+        },
+        {
+          "source": "npc.V19-4",
+          "topic": "busy",
+          "text": "当然，请先处理诸位的事务。这次来访不会替任何一份尚未确认的订单作出决定。"
+        },
+        {
+          "source": "npc.V19-5",
+          "topic": "goodbye",
+          "text": "我先告辞。愿诸位之后的每一次选择，都比仓促作出的承诺更有分量。"
+        },
+        {
+          "source": "npc.V19-6",
+          "topic": "greeting",
+          "text": "我们又有了一段可以交谈的时间，这次诸位想从哪里说起？"
+        },
+        {
+          "source": "npc.V19-7",
+          "topic": "daily",
+          "text": "不必只挑最令人满意的事情介绍，尚未完成的部分有时更能说明志向。"
+        },
+        {
+          "source": "npc.V19-8",
+          "topic": "home",
+          "text": "一处家园的安排，往往比主人愿意公开的宣言更细致。"
+        },
+        {
+          "source": "npc.V19-9",
+          "topic": "home",
+          "text": "如果未来的计划改变，诸位希望这里哪些东西仍然保留？"
+        },
+        {
+          "source": "npc.V19-10",
+          "topic": "daily",
+          "text": "人们会给某些普通物件赋予难以替代的意义，诸位也有这样的东西吗？"
+        },
+        {
+          "source": "npc.V19-11",
+          "topic": "daily",
+          "text": "一段经历值得被保存，未必因为它能够被别人理解。"
+        },
+        {
+          "source": "npc.V19-12",
+          "topic": "research",
+          "text": "我很欣赏清楚的记录，尤其是其中没有刻意抹去不利于结论的部分时。"
+        },
+        {
+          "source": "npc.V19-13",
+          "topic": "research",
+          "text": "获得一个答案以后，再问一问问题是否问得正确，通常不会毫无收获。"
+        },
+        {
+          "source": "npc.V19-14",
+          "topic": "choice",
+          "text": "一种愿望越重要，越需要知道自己究竟答应为它付出什么。"
+        },
+        {
+          "source": "npc.V19-15",
+          "topic": "choice",
+          "text": "诸位当然可以拒绝我的看法，这次谈话并不要求我们处处达成一致。"
+        },
+        {
+          "source": "npc.V19-16",
+          "topic": "care",
+          "text": "即便事务繁多，也不必把每一次停顿都看成失职。"
+        },
+        {
+          "source": "npc.V19-17",
+          "topic": "care",
+          "text": "疲惫时作出的许诺，醒来以后仍可能需要承担，诸位不妨先休息。"
+        },
+        {
+          "source": "npc.V19-18",
+          "topic": "quiet",
+          "text": "沉默并不令我不耐烦，有些回答确实需要比问候更多的时间。"
+        },
+        {
+          "source": "npc.V19-19",
+          "topic": "reunion",
+          "text": "我已经听见了，诸位无需反复确认这段谈话是否仍在继续。"
+        },
+        {
+          "source": "npc.V19-20",
+          "topic": "busy",
+          "text": "请先处理手边的事务，我们不必在此刻把每一件事都谈完。"
+        },
+        {
+          "source": "npc.V19-21",
+          "topic": "goodbye",
+          "text": "我们暂且结束通讯。愿你为接下来的选择留出充分的时间。"
+        },
+        {
+          "source": "npc.V19-22",
+          "topic": "morning",
+          "text": "早上好，愿诸位今天的安排不只有必须完成，也有愿意完成。"
+        },
+        {
+          "source": "npc.V19-23",
+          "topic": "rain",
+          "text": "看来天气改变了，先换一处适合停留的地方，再继续这个话题如何？"
+        },
+        {
+          "source": "npc.V19-24",
+          "topic": "night",
+          "text": "已经入夜，若诸位需要时间整理思路，我们完全可以到此为止。"
+        },
+        {
+          "source": "social.V19.unknown",
+          "topic": "unknown",
+          "text": "很遗憾，仅凭这些信息，我还不能给你一个可靠的回答。"
+        },
+        {
+          "source": "social.V19.mechanics",
+          "topic": "mechanics",
+          "text": "很遗憾，仅凭这些信息，我还不能给你一个可靠的回答。 具体配方和开放条件，还是核对任务与设备中的记录吧。"
+        },
+        {
+          "source": "social.V19.time",
+          "topic": "time",
+          "text": "恐怕这句问候与当前时段有些出入。不过，心意我已收到。"
+        },
+        {
+          "source": "social.V19.weather",
+          "topic": "weather",
+          "text": "目前并未确认到降雨。或许，你指的是另一段经历？"
+        }
+      ],
+      "moments": [
+        "承诺一件事之前，先弄清自己是否真的能够做到。",
+        "一份记录的价值，不在于它是否恰好符合期待。",
+        "留出片刻，重新审视那个被我们习惯性接受的前提。"
+      ]
+    },
+    {
+      "id": "V20",
+      "name": "侵蚀之律者",
+      "voice": "努力模仿爱莉希雅的亲切，偶尔坦承自己仍在学习，不能假扮成爱莉希雅",
+      "suffix": "～♬",
+      "minimum": 2,
+      "maximum": 3,
+      "lines": [
+        {
+          "source": "npc.V20-1",
+          "topic": "greeting",
+          "text": "嗨，你好呀。我还在练习开场，不过看到你的消息，开心是真的～♬"
+        },
+        {
+          "source": "npc.V20-2",
+          "topic": "reunion",
+          "text": "又见面了，这个时候是不是应该露出一种刚好能让人安心的笑容呢？～♬"
+        },
+        {
+          "source": "npc.V20-3",
+          "topic": "daily",
+          "text": "这里就是你的家园呀，我想先听你说说自己最喜欢的地方～♬"
+        },
+        {
+          "source": "npc.V20-4",
+          "topic": "busy",
+          "text": "你先去忙吧，我会试着把稍后再聊理解成一句不需要追问的答复～♬"
+        },
+        {
+          "source": "npc.V20-5",
+          "topic": "goodbye",
+          "text": "那就先说再见，我想把最后一句也说得让人愿意记住～♬"
+        },
+        {
+          "source": "npc.V20-6",
+          "topic": "greeting",
+          "text": "今天很高兴见到你，这句话说慢一点，会不会更接近她的感觉？～♬"
+        },
+        {
+          "source": "npc.V20-7",
+          "topic": "daily",
+          "text": "我记住了问候的顺序，不过你今天可以用一种不同的方式回答我～♬"
+        },
+        {
+          "source": "npc.V20-8",
+          "topic": "home",
+          "text": "如果想找一个适合聊天的话题，我应该先问你愿意说些什么，而不是只照着准备好的顺序，对吗？～♬"
+        },
+        {
+          "source": "npc.V20-9",
+          "topic": "home",
+          "text": "有些东西没有特别的用途，却被你一直留着，这就是喜欢的一部分吗？～♬"
+        },
+        {
+          "source": "npc.V20-10",
+          "topic": "daily",
+          "text": "一朵花、一个故事，或者一句问候，她会怎样把这些说得那么自然呢？～♬"
+        },
+        {
+          "source": "npc.V20-11",
+          "topic": "daily",
+          "text": "如果我能学会恰当的停顿，你是不是就不会一直注意到我在模仿？～♬"
+        },
+        {
+          "source": "npc.V20-12",
+          "topic": "research",
+          "text": "我想听听过程，不只是最后的结果，这样说会不会让你更愿意开口？～♬"
+        },
+        {
+          "source": "npc.V20-13",
+          "topic": "research",
+          "text": "记录可以重复读很多次，但我发现相同的话并不总能带来相同的回答～♬"
+        },
+        {
+          "source": "npc.V20-14",
+          "topic": "choice",
+          "text": "你愿意告诉我，这句话里哪一个词听起来还不够像她吗？～♬"
+        },
+        {
+          "source": "npc.V20-15",
+          "topic": "choice",
+          "text": "如果我把你的期待学得很准确，那份期待里会不会也有一点属于我的位置？～♬"
+        },
+        {
+          "source": "npc.V20-16",
+          "topic": "care",
+          "text": "先休息一下吧，这句关心我不是只想把声音学得相似～♬"
+        },
+        {
+          "source": "npc.V20-17",
+          "topic": "care",
+          "text": "你可以坦率地说自己累了，我正在学习不要把每次沉默都当成距离～♬"
+        },
+        {
+          "source": "npc.V20-18",
+          "topic": "quiet",
+          "text": "现在应该安静地陪着你，而不是立刻补上下一句话，对吗？～♬"
+        },
+        {
+          "source": "npc.V20-19",
+          "topic": "reunion",
+          "text": "我听见啦，这次不需要重新从第一句问候开始，我们已经聊到这里了～♬"
+        },
+        {
+          "source": "npc.V20-20",
+          "topic": "busy",
+          "text": "好呀，去处理你的事，我再练习一下怎样自然地结束这段谈话～♬"
+        },
+        {
+          "source": "npc.V20-21",
+          "topic": "goodbye",
+          "text": "这次先学着好好说再见。不是为了复述她的话，是希望你真的过得好～♬"
+        },
+        {
+          "source": "npc.V20-22",
+          "topic": "morning",
+          "text": "早上好呀，我想让这句话像一个轻轻落在今天开头的小邀请～♬"
+        },
+        {
+          "source": "npc.V20-23",
+          "topic": "rain",
+          "text": "下雨了，应该先提醒你去避雨，而不是只想着把雨声说得好听，对吗？～♬"
+        },
+        {
+          "source": "npc.V20-24",
+          "topic": "night",
+          "text": "晚安，这两个字看起来很短，却好像比许多很长的话更需要真心～♬"
+        },
+        {
+          "source": "social.V20.unknown",
+          "topic": "unknown",
+          "text": "我想把你的意思听明白，而不是只学一句好听的回答。可以再说一次吗？～♬"
+        },
+        {
+          "source": "social.V20.mechanics",
+          "topic": "mechanics",
+          "text": "我想把你的意思听明白，而不是只学一句好听的回答。可以再说一次吗？ 具体配方和开放条件，还是核对任务与设备中的记录吧～♬"
+        },
+        {
+          "source": "social.V20.time",
+          "topic": "time",
+          "text": "我记住了问候，可是时间好像没对上。再确认一下，才不是机械地照着念，对吗？～♬"
+        },
+        {
+          "source": "social.V20.weather",
+          "topic": "weather",
+          "text": "我差点就照着雨天的问候说下去了。不过，先听懂你说的是哪一场雨，应该更重要吧？～♬"
+        }
+      ],
+      "moments": [
+        "今天试着不用练习过的句子，表达一次真正的关心～♬",
+        "相似的语气可以学会，可是每一条消息，都有不同的接收者呢～♬",
+        "删掉了一句过于漂亮的回答。因为那不是我真正听明白的意思～♬"
+      ]
+    }
+  ]
+}

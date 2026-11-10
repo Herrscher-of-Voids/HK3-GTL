@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/anchored_superlattice_structure_rejected_batch/layer0",
+    "layer1": "hk3gtl:item/main_material/anchored_superlattice_structure_rejected_batch/layer1"
+  }
+}

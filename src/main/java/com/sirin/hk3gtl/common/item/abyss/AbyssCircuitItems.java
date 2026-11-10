@@ -1,7 +1,24 @@
 package com.sirin.hk3gtl.common.item.abyss;
 
 
-
+/**
+ * 【文件职责】
+ * - 注册或实现 AbyssCircuitItems 物品行为。
+ * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
+ *
+ * 【变更记录】2026-05-19
+ * - 删除：
+ *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
+ * - 新增：
+ *   1) 新增统一变更备注块，便于后续维护与审计追踪。
+ * - 修改：
+ *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
+ * - 用途：
+ *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
+ *
+ * 【段内说明】
+ * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
+ */
 import com.sirin.hk3gtl.common.item.Hk3CircuitItems;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
@@ -20,22 +37,29 @@ import net.minecraftforge.registries.RegistryObject;
  *
  * @see Hk3CircuitItems#getDetailedCircuit(String, String) 实际数据来源
  */
+/**
+ * 【变更记录 #1】2026-09-30 02:17:47（第1次备注 · 内测5修订107）
+ * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
+ * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
+ * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
+ * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
+ */
 public class AbyssCircuitItems {
 
     /** 海渊一·演算核心（canonical：abyss_1_processor） */
-    public static RegistryObject<Item> CIRCUIT_ABYSS_1;
+    public static RegistryObject<Item> CIRCUIT_HBV;
     /** 海渊二·演算矩阵（canonical：abyss_2_assembly） */
-    public static RegistryObject<Item> CIRCUIT_ABYSS_2;
+    public static RegistryObject<Item> CIRCUIT_HCV;
     /** 海渊三·智算中枢（canonical：abyss_3_computer） */
-    public static RegistryObject<Item> CIRCUIT_ABYSS_3;
+    public static RegistryObject<Item> CIRCUIT_HRV;
     /** 海渊四·统御主机（canonical：abyss_4_processor_mainframe） */
-    public static RegistryObject<Item> CIRCUIT_ABYSS_4;
+    public static RegistryObject<Item> CIRCUIT_HDV;
 
     /** 必须在 Hk3CircuitItems.register() 之后调用 */
     public static void init() {
-        CIRCUIT_ABYSS_1 = Hk3CircuitItems.getDetailedCircuit("abyss_1", "processor");
-        CIRCUIT_ABYSS_2 = Hk3CircuitItems.getDetailedCircuit("abyss_2", "assembly");
-        CIRCUIT_ABYSS_3 = Hk3CircuitItems.getDetailedCircuit("abyss_3", "computer");
-        CIRCUIT_ABYSS_4 = Hk3CircuitItems.getDetailedCircuit("abyss_4", "processor_mainframe");
+        CIRCUIT_HBV = Hk3CircuitItems.getDetailedCircuit("hbv", "processor");
+        CIRCUIT_HCV = Hk3CircuitItems.getDetailedCircuit("hcv", "assembly");
+        CIRCUIT_HRV = Hk3CircuitItems.getDetailedCircuit("hrv", "computer");
+        CIRCUIT_HDV = Hk3CircuitItems.getDetailedCircuit("hdv", "processor_mainframe");
     }
 }

@@ -1,0 +1,2487 @@
+{
+  "revision": 85,
+  "time": "2026-09-27T01:44:54.823665+08:00",
+  "_comment": "变更记录 #1：应用二十件已确认物品；删除无，历史候选保留。来源、像素约束及用途见各项记录。",
+  "entries": [
+    {
+      "id": "honkai_fuel_rod_casing",
+      "source": "logs\\art-review81\\candidates\\honkai_fuel_rod_casing.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\honkai_fuel_rod_casing.png",
+      "sha256": "b01fd4879607e08e051a9a58b6ded4be6326c6900bb4b2240e45569ed94a6ad9",
+      "provenance": {
+        "id": "honkai_fuel_rod_casing",
+        "title": "01 燃料棒壳体",
+        "size": [
+          64,
+          64
+        ],
+        "note": "候选G：反应堆燃料棒原图整体紫色；保留64像素原轮廓与明暗。",
+        "reference": "honkai_fuel_rod_casing",
+        "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\kubejs\\assets\\kubejs\\textures\\item\\reactor_fuel_rod.png",
+        "source_sha256": "c832f3d37e9f2cc9eeeaa0e22431d97634abba556474bfb24421325029899d1a",
+        "sha256": "b01fd4879607e08e051a9a58b6ded4be6326c6900bb4b2240e45569ed94a6ad9",
+        "checks": {
+          "alpha_equal": true,
+          "brightness_scale": 1,
+          "geometry_preserved": true
+        },
+        "animation": false
+      }
+    },
+    {
+      "id": "soulium_swarf",
+      "source": "logs\\art-review81\\candidates\\soulium_swarf.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\soulium_swarf.png",
+      "sha256": "ce5f48fd01264e3e8d5e72cc40a2e4cc44641c7b6fc85234d0f9c5dd6b77764c",
+      "provenance": {
+        "id": "soulium_swarf",
+        "title": "06 废料与残渣",
+        "size": [
+          16,
+          16
+        ],
+        "note": "候选L：GT金属粉原图，深紫色并降低28%亮度；无新增笔画。",
+        "reference": "soulium_swarf",
+        "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar!/assets/gtceu/textures/item/material_sets/metallic/dust.png",
+        "source_sha256": "6278c1481ed3994ef63cff6c7454344eb29fc562b87fa8499a218b950e145265",
+        "sha256": "ce5f48fd01264e3e8d5e72cc40a2e4cc44641c7b6fc85234d0f9c5dd6b77764c",
+        "checks": {
+          "alpha_equal": true,
+          "brightness_scale": 0.72,
+          "geometry_preserved": true
+        },
+        "animation": false
+      }
+    },
+    {
+      "id": "separation_filter",
+      "source": "logs\\art-review81\\candidates\\separation_filter.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\separation_filter.png",
+      "sha256": "b9c513a9dcefcdf276917c576ac84432b405c7a56f2d4db9cb540b0e58134424",
+      "provenance": {
+        "id": "separation_filter",
+        "title": "09 分离滤芯",
+        "size": [
+          128,
+          128
+        ],
+        "note": "候选C：筛分矩阵原图整体紫色；原外框保留阴影，网格不重画。",
+        "reference": "separation_filter",
+        "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtlcore-1.2.3.2-fix2.jar!/assets/gtlcore/textures/item/protonated_fullerene_sieving_matrix.png",
+        "source_sha256": "d9a22878b73b67da7457b1d7caced38411ed3cf05e31d6a7e158a39ba8c53fb0",
+        "sha256": "b9c513a9dcefcdf276917c576ac84432b405c7a56f2d4db9cb540b0e58134424",
+        "checks": {
+          "alpha_equal": true,
+          "brightness_scale": 1,
+          "geometry_preserved": true
+        },
+        "animation": false
+      }
+    },
+    {
+      "id": "honkai_analysis_sample",
+      "source": "logs\\art-review81\\candidates\\honkai_analysis_sample.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\honkai_analysis_sample.png",
+      "sha256": "8bcf930f6eb27d6bdebde35ba691547d21df236b7cb53bc5ceacb251c9f00809",
+      "provenance": {
+        "id": "honkai_analysis_sample",
+        "title": "08 崩坏能分析样本",
+        "size": [
+          32,
+          32
+        ],
+        "note": "新画敞口直壁烧杯：倾倒嘴、刻度、玻璃反光、半杯紫色液态崩坏能。",
+        "reference": null,
+        "source": "本次逐像素绘制／项目既有核心",
+        "source_sha256": null,
+        "sha256": "8bcf930f6eb27d6bdebde35ba691547d21df236b7cb53bc5ceacb251c9f00809",
+        "checks": {},
+        "animation": false
+      }
+    },
+    {
+      "id": "hyperion_thruster_assembly",
+      "source": "logs\\art-review81\\candidates\\hyperion_thruster_assembly.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\hyperion_thruster_assembly.png",
+      "sha256": "0a3ca11ad7e775713516fcd33e5ac6287ab66db0bc278ae6d5813c600e84a6ae",
+      "provenance": {
+        "id": "hyperion_thruster_assembly",
+        "title": "04 舰船推进组件",
+        "size": [
+          16,
+          32
+        ],
+        "note": "仅将蓝色／青蓝功能区改紫；金属和红黄指示灯不动，保留两帧动画。",
+        "reference": "hyperion_thruster_assembly",
+        "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar!/assets/gtceu/textures/item/gravitation_engine_unit.png",
+        "source_sha256": "655901105561a78bde971886a163f78d47e28d29afd505e35ecee51adb8fd076",
+        "sha256": "0a3ca11ad7e775713516fcd33e5ac6287ab66db0bc278ae6d5813c600e84a6ae",
+        "checks": {
+          "changed_pixels": 36,
+          "outside_mask_unchanged": true,
+          "alpha_equal": true
+        },
+        "animation": true
+      }
+    },
+    {
+      "id": "conducting_composite",
+      "source": "logs\\art-review81\\candidates\\conducting_composite.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\conducting_composite.png",
+      "sha256": "6de884beb881afe970d28ff9e5bc78e8a641c37689fdbc8ba93a1a0383675b89",
+      "provenance": {
+        "id": "conducting_composite",
+        "title": "12a 导能复合材料 · HDV",
+        "size": [
+          16,
+          16
+        ],
+        "note": "GT碳纤维板原图整体蓝色；依据现有制造电压HDV。",
+        "reference": "conducting_composite",
+        "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar!/assets/gtceu/textures/item/carbon_fiber_plate.png",
+        "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae",
+        "sha256": "6de884beb881afe970d28ff9e5bc78e8a641c37689fdbc8ba93a1a0383675b89",
+        "checks": {
+          "alpha_equal": true,
+          "brightness_equal": true,
+          "geometry_preserved": true
+        },
+        "animation": false
+      }
+    },
+    {
+      "id": "reconstructing_composite",
+      "source": "logs\\art-review81\\candidates\\reconstructing_composite.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\reconstructing_composite.png",
+      "sha256": "33aeec747eb3b79fe2079b0cff6008229ed22fc1097277a3048ae37360c323af",
+      "provenance": {
+        "id": "reconstructing_composite",
+        "title": "12b 重构复合材料 · QAV",
+        "size": [
+          16,
+          16
+        ],
+        "note": "同一GT原图整体青色；依据现有制造电压QAV。",
+        "reference": "conducting_composite",
+        "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar!/assets/gtceu/textures/item/carbon_fiber_plate.png",
+        "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae",
+        "sha256": "33aeec747eb3b79fe2079b0cff6008229ed22fc1097277a3048ae37360c323af",
+        "checks": {
+          "alpha_equal": true,
+          "brightness_equal": true,
+          "geometry_preserved": true
+        },
+        "animation": false
+      }
+    },
+    {
+      "id": "cognitive_composite",
+      "source": "logs\\art-review81\\candidates\\cognitive_composite.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\cognitive_composite.png",
+      "sha256": "0acb9fa9dea315a2da505cfef237420b6e1d84f10741268c7e4d43c0c289f2df",
+      "provenance": {
+        "id": "cognitive_composite",
+        "title": "12c 认知复合材料 · IWV",
+        "size": [
+          16,
+          16
+        ],
+        "note": "同一GT原图整体金色；依据现有制造电压IWV。",
+        "reference": "conducting_composite",
+        "source": "C:\\Users\\OWNER\\AppData\\Roaming\\PrismLauncher\\instances\\GregTech-Leisure-1.4.5.2\\minecraft\\mods\\gtceu-1.20.1-1.4.4.jar!/assets/gtceu/textures/item/carbon_fiber_plate.png",
+        "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae",
+        "sha256": "0acb9fa9dea315a2da505cfef237420b6e1d84f10741268c7e4d43c0c289f2df",
+        "checks": {
+          "alpha_equal": true,
+          "brightness_equal": true,
+          "geometry_preserved": true
+        },
+        "animation": false
+      }
+    },
+    {
+      "id": "sealed_real_world_bubble",
+      "source": "logs\\art-review82\\candidates\\sealed_real_world_bubble.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\sealed_real_world_bubble.png",
+      "sha256": "01eae82dc7e836f57213944aafd19f4129447bc4f475c5883a29e2f76b816a32",
+      "provenance": {
+        "id": "sealed_real_world_bubble",
+        "title": "03 世界泡容器",
+        "note": "恢复16像素原图外壳与比例，只将原红球改为黑底星点。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review82\\candidates\\sealed_real_world_bubble.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review81\\candidates\\sealed_real_world_bubble.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "01eae82dc7e836f57213944aafd19f4129447bc4f475c5883a29e2f76b816a32",
+        "checks": {
+          "changed_region": "原红球及中心白色高光",
+          "outside_mask_unchanged": true,
+          "size_unchanged": true,
+          "mask": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              10,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              9
+            ],
+            [
+              10,
+              9
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              6,
+              11
+            ],
+            [
+              7,
+              11
+            ],
+            [
+              8,
+              11
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "imitation_flame_core",
+      "source": "logs\\art-review82\\candidates\\imitation_flame_core.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\imitation_flame_core.png",
+      "sha256": "736a0144faa320049aa20d19c71f6a38c83a5f85887359c267544c2435f3968d",
+      "provenance": {
+        "id": "imitation_flame_core",
+        "title": "05 仿制炎之律者核心",
+        "note": "中间晶核及外侧两点一并改橙；金色圆环逐像素保持。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review82\\candidates\\imitation_flame_core.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review81\\candidates\\imitation_flame_core.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "736a0144faa320049aa20d19c71f6a38c83a5f85887359c267544c2435f3968d",
+        "checks": {
+          "gold_frame_unchanged": true,
+          "outside_mask_unchanged": true,
+          "alpha_equal": true,
+          "mask": [
+            [
+              8,
+              0
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              11,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              10,
+              6
+            ],
+            [
+              11,
+              6
+            ],
+            [
+              12,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              11,
+              7
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              10,
+              8
+            ],
+            [
+              11,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              9
+            ],
+            [
+              10,
+              9
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              5,
+              12
+            ],
+            [
+              6,
+              12
+            ],
+            [
+              7,
+              12
+            ],
+            [
+              8,
+              12
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              13,
+              12
+            ],
+            [
+              14,
+              12
+            ],
+            [
+              6,
+              13
+            ],
+            [
+              7,
+              13
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              13
+            ],
+            [
+              13,
+              13
+            ],
+            [
+              14,
+              13
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              7,
+              14
+            ],
+            [
+              8,
+              14
+            ],
+            [
+              7,
+              15
+            ]
+          ],
+          "source_sha256": "1399e22acd05cc0a7be4448a7f59e37af4de515a8a8ec6b75d3486a32b31e71e"
+        }
+      }
+    },
+    {
+      "id": "nano_building_unit",
+      "source": "logs\\art-review82\\candidates\\nano_building_unit.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\nano_building_unit.png",
+      "sha256": "ce0c3b9b4414b38997f48c3e05b6108e61507d1a8deef832d6bc53836647ad0c",
+      "provenance": {
+        "id": "nano_building_unit",
+        "title": "10 纳米构建单元",
+        "note": "两只可辨认的微型机器人组成一群；简化机械足与躯体。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review82\\candidates\\nano_building_unit.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review81\\candidates\\nano_building_unit.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "ce0c3b9b4414b38997f48c3e05b6108e61507d1a8deef832d6bc53836647ad0c",
+        "checks": {}
+      }
+    },
+    {
+      "id": "reconstruction_rule_carrier",
+      "source": "logs\\art-review82\\candidates\\reconstruction_rule_carrier.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\reconstruction_rule_carrier.png",
+      "sha256": "2061986ee3b936e3b4260b063aa7e188366fa2d714f205bda5ef0d5c2ccdd300",
+      "provenance": {
+        "id": "reconstruction_rule_carrier",
+        "title": "11 重构规则载体",
+        "note": "对称外框、悬浮内核；左右像素完全镜像，无随机碎点。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review82\\candidates\\reconstruction_rule_carrier.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review81\\candidates\\reconstruction_rule_carrier.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "2061986ee3b936e3b4260b063aa7e188366fa2d714f205bda5ef0d5c2ccdd300",
+        "checks": {
+          "horizontal_pixel_symmetry": true
+        }
+      }
+    },
+    {
+      "id": "imitation_thunder_core",
+      "source": "logs\\art-review83\\candidates\\imitation_thunder_core.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\imitation_thunder_core.png",
+      "sha256": "e71a1e19fa5e5d3ad4ef85d93b2edf3d68ce9ffeef1d6142fab1d280334bc59b",
+      "provenance": {
+        "id": "imitation_thunder_core",
+        "title": "仿制雷之律者核心",
+        "note": "紫色晶体；外侧两点同色，保留原金色圆环。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review83\\candidates\\imitation_thunder_core.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review82\\candidates\\imitation_thunder_core.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "e71a1e19fa5e5d3ad4ef85d93b2edf3d68ce9ffeef1d6142fab1d280334bc59b",
+        "checks": {
+          "gold_frame_unchanged": true,
+          "outside_mask_unchanged": true,
+          "alpha_equal": true,
+          "mask": [
+            [
+              8,
+              0
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              11,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              10,
+              6
+            ],
+            [
+              11,
+              6
+            ],
+            [
+              12,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              11,
+              7
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              10,
+              8
+            ],
+            [
+              11,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              9
+            ],
+            [
+              10,
+              9
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              5,
+              12
+            ],
+            [
+              6,
+              12
+            ],
+            [
+              7,
+              12
+            ],
+            [
+              8,
+              12
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              13,
+              12
+            ],
+            [
+              14,
+              12
+            ],
+            [
+              6,
+              13
+            ],
+            [
+              7,
+              13
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              13
+            ],
+            [
+              13,
+              13
+            ],
+            [
+              14,
+              13
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              7,
+              14
+            ],
+            [
+              8,
+              14
+            ],
+            [
+              7,
+              15
+            ]
+          ],
+          "source_sha256": "1399e22acd05cc0a7be4448a7f59e37af4de515a8a8ec6b75d3486a32b31e71e",
+          "embellishment_pixels": [],
+          "color_authority": "负责人本轮明确指定；非网络推断"
+        }
+      }
+    },
+    {
+      "id": "imitation_ice_core",
+      "source": "logs\\art-review83\\candidates\\imitation_ice_core.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\imitation_ice_core.png",
+      "sha256": "dba8bb4e7f96cd6da7433808c85992148dc74315e0a6876bfa54f6e0d2e2948f",
+      "provenance": {
+        "id": "imitation_ice_core",
+        "title": "仿制冰之律者核心",
+        "note": "蓝色晶体；外侧两点同色，保留原金色圆环。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review83\\candidates\\imitation_ice_core.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review82\\candidates\\imitation_ice_core.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "dba8bb4e7f96cd6da7433808c85992148dc74315e0a6876bfa54f6e0d2e2948f",
+        "checks": {
+          "gold_frame_unchanged": true,
+          "outside_mask_unchanged": true,
+          "alpha_equal": true,
+          "mask": [
+            [
+              8,
+              0
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              11,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              10,
+              6
+            ],
+            [
+              11,
+              6
+            ],
+            [
+              12,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              11,
+              7
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              10,
+              8
+            ],
+            [
+              11,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              9
+            ],
+            [
+              10,
+              9
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              5,
+              12
+            ],
+            [
+              6,
+              12
+            ],
+            [
+              7,
+              12
+            ],
+            [
+              8,
+              12
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              13,
+              12
+            ],
+            [
+              14,
+              12
+            ],
+            [
+              6,
+              13
+            ],
+            [
+              7,
+              13
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              13
+            ],
+            [
+              13,
+              13
+            ],
+            [
+              14,
+              13
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              7,
+              14
+            ],
+            [
+              8,
+              14
+            ],
+            [
+              7,
+              15
+            ]
+          ],
+          "source_sha256": "1399e22acd05cc0a7be4448a7f59e37af4de515a8a8ec6b75d3486a32b31e71e",
+          "embellishment_pixels": [],
+          "color_authority": "负责人本轮明确指定；非网络推断"
+        }
+      }
+    },
+    {
+      "id": "imitation_wind_core",
+      "source": "logs\\art-review83\\candidates\\imitation_wind_core.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\imitation_wind_core.png",
+      "sha256": "05a8d7e9d8ef41dd3e537844afc80142c83c68c8359c6942ff8bef0fd579fdeb",
+      "provenance": {
+        "id": "imitation_wind_core",
+        "title": "仿制风之律者核心",
+        "note": "翠绿色晶体；外侧两点同色，保留原金色圆环。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review83\\candidates\\imitation_wind_core.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review82\\candidates\\imitation_wind_core.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "05a8d7e9d8ef41dd3e537844afc80142c83c68c8359c6942ff8bef0fd579fdeb",
+        "checks": {
+          "gold_frame_unchanged": true,
+          "outside_mask_unchanged": true,
+          "alpha_equal": true,
+          "mask": [
+            [
+              8,
+              0
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              11,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              10,
+              6
+            ],
+            [
+              11,
+              6
+            ],
+            [
+              12,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              11,
+              7
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              10,
+              8
+            ],
+            [
+              11,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              9
+            ],
+            [
+              10,
+              9
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              5,
+              12
+            ],
+            [
+              6,
+              12
+            ],
+            [
+              7,
+              12
+            ],
+            [
+              8,
+              12
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              13,
+              12
+            ],
+            [
+              14,
+              12
+            ],
+            [
+              6,
+              13
+            ],
+            [
+              7,
+              13
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              13
+            ],
+            [
+              13,
+              13
+            ],
+            [
+              14,
+              13
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              7,
+              14
+            ],
+            [
+              8,
+              14
+            ],
+            [
+              7,
+              15
+            ]
+          ],
+          "source_sha256": "1399e22acd05cc0a7be4448a7f59e37af4de515a8a8ec6b75d3486a32b31e71e",
+          "embellishment_pixels": [],
+          "color_authority": "负责人本轮明确指定；非网络推断"
+        }
+      }
+    },
+    {
+      "id": "imitation_corruption_core",
+      "source": "logs\\art-review83\\candidates\\imitation_corruption_core.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\imitation_corruption_core.png",
+      "sha256": "8ba0ab6bd425178f50ae2808f290d70269f1982196f7e97f1d186d1d7730d7e3",
+      "provenance": {
+        "id": "imitation_corruption_core",
+        "title": "仿制侵蚀之律者核心",
+        "note": "黑紫晶体＋亮紫断续数据流；保留金色圆环。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review83\\candidates\\imitation_corruption_core.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review82\\candidates\\imitation_corruption_core.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "8ba0ab6bd425178f50ae2808f290d70269f1982196f7e97f1d186d1d7730d7e3",
+        "checks": {
+          "gold_frame_unchanged": true,
+          "outside_mask_unchanged": true,
+          "alpha_equal": true,
+          "mask": [
+            [
+              8,
+              0
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              11,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              10,
+              6
+            ],
+            [
+              11,
+              6
+            ],
+            [
+              12,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              11,
+              7
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              10,
+              8
+            ],
+            [
+              11,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              9
+            ],
+            [
+              10,
+              9
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              5,
+              12
+            ],
+            [
+              6,
+              12
+            ],
+            [
+              7,
+              12
+            ],
+            [
+              8,
+              12
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              13,
+              12
+            ],
+            [
+              14,
+              12
+            ],
+            [
+              6,
+              13
+            ],
+            [
+              7,
+              13
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              13
+            ],
+            [
+              13,
+              13
+            ],
+            [
+              14,
+              13
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              7,
+              14
+            ],
+            [
+              8,
+              14
+            ],
+            [
+              7,
+              15
+            ]
+          ],
+          "source_sha256": "1399e22acd05cc0a7be4448a7f59e37af4de515a8a8ec6b75d3486a32b31e71e",
+          "embellishment_pixels": [],
+          "color_authority": "负责人本轮明确指定；非网络推断"
+        }
+      }
+    },
+    {
+      "id": "unmanned_resource_probe",
+      "source": "logs\\art-review83\\candidates\\unmanned_resource_probe_a.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\unmanned_resource_probe.png",
+      "sha256": "19856e823a5c7d477b9921fc84053a3b688e589af017525b738d260063e84b07",
+      "provenance": {
+        "id": "unmanned_resource_probe_a",
+        "title": "探测器 A · 原图局部强化",
+        "note": "直接使用整合包原图；保留斜向双翼与机身，只强化扫描头和装甲。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review83\\candidates\\unmanned_resource_probe_a.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review83\\references\\probe-original-16.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "19856e823a5c7d477b9921fc84053a3b688e589af017525b738d260063e84b07",
+        "checks": {
+          "original_128_to_16_lossless": true,
+          "changed_pixels": [
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              3
+            ],
+            [
+              12,
+              3
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              11,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              12,
+              5
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              6,
+              11
+            ]
+          ],
+          "original_source_sha256": "8e1fe0ecf1a7cad8a53faf86b0e121ea4ffbd23239a0b8c9d68707482c53a7b0"
+        }
+      }
+    },
+    {
+      "id": "imitation_binding_core",
+      "source": "logs\\art-review84\\candidates\\imitation_binding_core.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\imitation_binding_core.png",
+      "sha256": "18b429e6a70b63797e31e434d8ff8c5a6db52cf05e95dddcb163595d9f6a9e2c",
+      "provenance": {
+        "id": "imitation_binding_core",
+        "title": "约束：亮金＋链环",
+        "note": "亮金晶体，金链形成侧边轮廓；区别于赭褐与深橙。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review84\\candidates\\imitation_binding_core.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review83\\candidates\\imitation_binding_core.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "18b429e6a70b63797e31e434d8ff8c5a6db52cf05e95dddcb163595d9f6a9e2c",
+        "checks": {
+          "gold_frame_unchanged": true,
+          "core_geometry_preserved": true,
+          "added_chain_pixels": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              0,
+              9
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              12,
+              0
+            ],
+            [
+              13,
+              0
+            ],
+            [
+              14,
+              0
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              14,
+              1
+            ],
+            [
+              12,
+              2
+            ],
+            [
+              13,
+              2
+            ],
+            [
+              14,
+              2
+            ],
+            [
+              12,
+              3
+            ],
+            [
+              13,
+              3
+            ],
+            [
+              14,
+              3
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "imitation_rock_core",
+      "source": "logs\\art-review84\\candidates\\imitation_rock_core.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\imitation_rock_core.png",
+      "sha256": "6aef0f34e73a315e17ceb7a88563d300979e85a0621d68f864f5d1c0b4453889",
+      "provenance": {
+        "id": "imitation_rock_core",
+        "title": "岩：深赭＋矿物分层",
+        "note": "深赭褐主体，横向矿物分层与少量赭金高光。",
+        "candidate": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review84\\candidates\\imitation_rock_core.png",
+        "reference": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\hk3gtl\\logs\\art-review83\\candidates\\imitation_rock_core.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "6aef0f34e73a315e17ceb7a88563d300979e85a0621d68f864f5d1c0b4453889",
+        "checks": {
+          "gold_frame_unchanged": true,
+          "core_geometry_preserved": true,
+          "added_chain_pixels": []
+        }
+      }
+    },
+    {
+      "id": "imitation_void_core",
+      "source": "logs\\revision85\\imitation_void_core_gold.png",
+      "destination": "src\\main\\resources\\assets\\hk3gtl\\textures\\item\\imitation_void_core.png",
+      "sha256": "a3309c73966e14cd5f3ca8c5b1b2221ae60c3255398a5a75de427748fd1fd9b9",
+      "provenance": {
+        "source": "logs\\art-review84\\candidates\\imitation_void_core.png",
+        "source_sha256": "67824c5e0b06dd6729c8b4c30a08393ab5b4def6b17fc4701de119e1b51322d1",
+        "note": "负责人最新指定金黄色；保持原金环和裂隙",
+        "checks": {
+          "outside_mask_unchanged": true
+        }
+      }
+    }
+  ]
+}

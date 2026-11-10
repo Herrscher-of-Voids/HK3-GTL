@@ -1,0 +1,5770 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "communication.A01",
+      "system": "communication",
+      "title": "第一封：奥托的首次来信",
+      "speaker": "奥托",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 23
+    },
+    {
+      "id": "communication.A02",
+      "system": "communication",
+      "title": "第二封：玩家回信——同意合作",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 11
+    },
+    {
+      "id": "communication.A03",
+      "system": "communication",
+      "title": "第三封：玩家回信——不同意合作",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 11
+    },
+    {
+      "id": "communication.A04",
+      "system": "communication",
+      "title": "崩坏能基础观测资料",
+      "speaker": "奥托",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 13
+    },
+    {
+      "id": "communication.A05",
+      "system": "communication",
+      "title": "第一项提议",
+      "speaker": "奥托",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 14
+    },
+    {
+      "id": "communication.A06",
+      "system": "communication",
+      "title": "保留距离",
+      "speaker": "奥托",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 11
+    },
+    {
+      "id": "communication.A07",
+      "system": "communication",
+      "title": "首次观测比对意见",
+      "speaker": "奥托",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 13
+    },
+    {
+      "id": "communication.A08",
+      "system": "communication",
+      "title": "关于你们的稳定化试验",
+      "speaker": "爱因斯坦博士、特斯拉博士",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 21
+    },
+    {
+      "id": "communication.A09",
+      "system": "communication",
+      "title": "关于承载它的材料",
+      "speaker": "灰蛇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 14
+    },
+    {
+      "id": "communication.N01",
+      "system": "communication",
+      "title": "接受基础观测交流",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N02",
+      "system": "communication",
+      "title": "不接受本次资料交换",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N03",
+      "system": "communication",
+      "title": "提交首次观测摘要",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N04",
+      "system": "communication",
+      "title": "接受你们的独立研究决定",
+      "speaker": "奥托",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N05",
+      "system": "communication",
+      "title": "再次联系天命",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N06",
+      "system": "communication",
+      "title": "重新商议观测交换",
+      "speaker": "奥托",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N07",
+      "system": "communication",
+      "title": "接受逆熵的工程交流",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N08",
+      "system": "communication",
+      "title": "暂不开展逆熵工程交流",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N09",
+      "system": "communication",
+      "title": "逆熵确认交流范围",
+      "speaker": "爱因斯坦",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N10",
+      "system": "communication",
+      "title": "逆熵回应本次拒绝",
+      "speaker": "特斯拉",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N11",
+      "system": "communication",
+      "title": "提交稳定化批次记录",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N12",
+      "system": "communication",
+      "title": "逆熵首次工程反馈",
+      "speaker": "特斯拉、爱因斯坦",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 8
+    },
+    {
+      "id": "communication.N13",
+      "system": "communication",
+      "title": "接受世界蛇的材料交流",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N14",
+      "system": "communication",
+      "title": "拒绝本次世界蛇交流",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N15",
+      "system": "communication",
+      "title": "世界蛇确认材料主题",
+      "speaker": "灰蛇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N16",
+      "system": "communication",
+      "title": "世界蛇回应本次拒绝",
+      "speaker": "灰蛇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N17",
+      "system": "communication",
+      "title": "提交稳定魂钢研究记录",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N18",
+      "system": "communication",
+      "title": "世界蛇首次材料反馈",
+      "speaker": "灰蛇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N19",
+      "system": "communication",
+      "title": "对外公开稳定化成果摘要",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 5
+    },
+    {
+      "id": "communication.N20",
+      "system": "communication",
+      "title": "个人补谈的开场",
+      "speaker": "本系统提示",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 3
+    },
+    {
+      "id": "communication.N21",
+      "system": "communication",
+      "title": "暂存待处理主题",
+      "speaker": "本系统提示",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 2
+    },
+    {
+      "id": "communication.N22",
+      "system": "communication",
+      "title": "回看既有往来",
+      "speaker": "本系统提示",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 2
+    },
+    {
+      "id": "communication.N23",
+      "system": "communication",
+      "title": "重新联系逆熵",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N24",
+      "system": "communication",
+      "title": "逆熵回应再次联系",
+      "speaker": "爱因斯坦",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N25",
+      "system": "communication",
+      "title": "重新联系世界蛇",
+      "speaker": "玩家",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 4
+    },
+    {
+      "id": "communication.N26",
+      "system": "communication",
+      "title": "世界蛇回应再次联系",
+      "speaker": "灰蛇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/交流与外交系统/通知与交流整批审核_v1/review-data.json",
+      "lineCount": 3
+    },
+    {
+      "id": "first_review.open",
+      "system": "first_review",
+      "title": "召入与开场",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 6
+    },
+    {
+      "id": "first_review.question.1",
+      "system": "first_review",
+      "title": "1．你是什么？",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "first_review.question.2",
+      "system": "first_review",
+      "title": "2．何为崩坏？",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "first_review.question.3",
+      "system": "first_review",
+      "title": "3．这里是哪里？",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "first_review.question.4",
+      "system": "first_review",
+      "title": "4．之后的路，该如何走？",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "first_review.question.5",
+      "system": "first_review",
+      "title": "5．天命、逆熵与世界蛇，是否可信？",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "first_review.question.6",
+      "system": "first_review",
+      "title": "6．如何度过筛选？",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "first_review.question.7",
+      "system": "first_review",
+      "title": "7．如何走得更远？",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "first_review.question.8",
+      "system": "first_review",
+      "title": "8．你就是崩坏的主人吗？",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "first_review.closing",
+      "system": "first_review",
+      "title": "三问之后的收束",
+      "speaker": "终焉之茧",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/一审召入与茧的三问_正文草案v1.html",
+      "lineCount": 5
+    },
+    {
+      "id": "observation.QOM",
+      "system": "observation",
+      "title": "校准之外的回响",
+      "speaker": "信标观测记录",
+      "source": "doc/HK3GTL-内测5/05_叙事事件/首次量子异常_观测记录正文草案v1.html",
+      "lineCount": 12
+    },
+    {
+      "id": "npc.V01-1",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 初次见面",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V01-2",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 再次见面",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-3",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 普通交流",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-4",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 稍后再聊",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-5",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 告别离开",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-6",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 再会问候一",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-7",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 再会问候二",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-8",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 家园漫谈一",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-9",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 家园漫谈二",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-10",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 日常兴趣一",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-11",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 日常兴趣二",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-12",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 研究看法一",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-13",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 研究看法二",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-14",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 选择与目标一",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-15",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 选择与目标二",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-16",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 休息关怀一",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-17",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 休息关怀二",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-18",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 安静片刻",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-19",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 连续交互提醒",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-20",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 稍后再聊二",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-21",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 告别离开二",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-22",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 清晨问候",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-23",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 雨天话题",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V01-24",
+      "system": "npc",
+      "title": "雷之律者芽衣 · 夜间问候",
+      "speaker": "雷之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-1",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 初次见面",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V02-2",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 再次见面",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-3",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 普通交流",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-4",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 稍后再聊",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-5",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 告别离开",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-6",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 再会问候一",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-7",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 再会问候二",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-8",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 家园漫谈一",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-9",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 家园漫谈二",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-10",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 日常兴趣一",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-11",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 日常兴趣二",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-12",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 研究看法一",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-13",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 研究看法二",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-14",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 选择与目标一",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-15",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 选择与目标二",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-16",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 休息关怀一",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-17",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 休息关怀二",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-18",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 安静片刻",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-19",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 连续交互提醒",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-20",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 稍后再聊二",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-21",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 告别离开二",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-22",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 清晨问候",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-23",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 雨天话题",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V02-24",
+      "system": "npc",
+      "title": "始源之律者芽衣 · 夜间问候",
+      "speaker": "始源之律者芽衣",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-1",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 初次见面",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V03-2",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 再次见面",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-3",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 普通交流",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-4",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 稍后再聊",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-5",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 告别离开",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-6",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 再会问候一",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-7",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 再会问候二",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-8",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 家园漫谈一",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-9",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 家园漫谈二",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-10",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 日常兴趣一",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-11",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 日常兴趣二",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-12",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 研究看法一",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-13",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 研究看法二",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-14",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 选择与目标一",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-15",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 选择与目标二",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-16",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 休息关怀一",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-17",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 休息关怀二",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-18",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 安静片刻",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-19",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 连续交互提醒",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-20",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 稍后再聊二",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-21",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 告别离开二",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-22",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 清晨问候",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-23",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 雨天话题",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V03-24",
+      "system": "npc",
+      "title": "空之律者琪亚娜 · 夜间问候",
+      "speaker": "空之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-1",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 初次见面",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V04-2",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 再次见面",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-3",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 普通交流",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-4",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 稍后再聊",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-5",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 告别离开",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-6",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 再会问候一",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-7",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 再会问候二",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-8",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 家园漫谈一",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-9",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 家园漫谈二",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-10",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 日常兴趣一",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-11",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 日常兴趣二",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-12",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 研究看法一",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-13",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 研究看法二",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-14",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 选择与目标一",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-15",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 选择与目标二",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-16",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 休息关怀一",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-17",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 休息关怀二",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-18",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 安静片刻",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-19",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 连续交互提醒",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-20",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 稍后再聊二",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-21",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 告别离开二",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-22",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 清晨问候",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-23",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 雨天话题",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V04-24",
+      "system": "npc",
+      "title": "薪炎之律者琪亚娜 · 夜间问候",
+      "speaker": "薪炎之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-1",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 初次见面",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V05-2",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 再次见面",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-3",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 普通交流",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-4",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 稍后再聊",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-5",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 告别离开",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-6",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 再会问候一",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-7",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 再会问候二",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-8",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 家园漫谈一",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-9",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 家园漫谈二",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-10",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 日常兴趣一",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-11",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 日常兴趣二",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-12",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 研究看法一",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-13",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 研究看法二",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-14",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 选择与目标一",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-15",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 选择与目标二",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-16",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 休息关怀一",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-17",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 休息关怀二",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-18",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 安静片刻",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-19",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 连续交互提醒",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-20",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 稍后再聊二",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-21",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 告别离开二",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-22",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 清晨问候",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-23",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 雨天话题",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V05-24",
+      "system": "npc",
+      "title": "终焉之律者琪亚娜 · 夜间问候",
+      "speaker": "终焉之律者琪亚娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-1",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 初次见面",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V06-2",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 再次见面",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-3",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 普通交流",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-4",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 稍后再聊",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-5",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 告别离开",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-6",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 再会问候一",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-7",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 再会问候二",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-8",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 家园漫谈一",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-9",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 家园漫谈二",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-10",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 日常兴趣一",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-11",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 日常兴趣二",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-12",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 研究看法一",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-13",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 研究看法二",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-14",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 选择与目标一",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-15",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 选择与目标二",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-16",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 休息关怀一",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-17",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 休息关怀二",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-18",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 安静片刻",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-19",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 连续交互提醒",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-20",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 稍后再聊二",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-21",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 告别离开二",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-22",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 清晨问候",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-23",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 雨天话题",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V06-24",
+      "system": "npc",
+      "title": "理之律者布洛妮娅 · 夜间问候",
+      "speaker": "理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-1",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 初次见面",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V07-2",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 再次见面",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-3",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 普通交流",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-4",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 稍后再聊",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-5",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 告别离开",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-6",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 再会问候一",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-7",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 再会问候二",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-8",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 家园漫谈一",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-9",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 家园漫谈二",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-10",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 日常兴趣一",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-11",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 日常兴趣二",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-12",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 研究看法一",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-13",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 研究看法二",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-14",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 选择与目标一",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-15",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 选择与目标二",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-16",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 休息关怀一",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-17",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 休息关怀二",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-18",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 安静片刻",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-19",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 连续交互提醒",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-20",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 稍后再聊二",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-21",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 告别离开二",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-22",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 清晨问候",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-23",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 雨天话题",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V07-24",
+      "system": "npc",
+      "title": "真理之律者布洛妮娅 · 夜间问候",
+      "speaker": "真理之律者布洛妮娅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-1",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 初次见面",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V08-2",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 再次见面",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-3",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 普通交流",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-4",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 稍后再聊",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-5",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 告别离开",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-6",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 再会问候一",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-7",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 再会问候二",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-8",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 家园漫谈一",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-9",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 家园漫谈二",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-10",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 日常兴趣一",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-11",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 日常兴趣二",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-12",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 研究看法一",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-13",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 研究看法二",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-14",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 选择与目标一",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-15",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 选择与目标二",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-16",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 休息关怀一",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-17",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 休息关怀二",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-18",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 安静片刻",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-19",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 连续交互提醒",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-20",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 稍后再聊二",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-21",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 告别离开二",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-22",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 清晨问候",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-23",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 雨天话题",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V08-24",
+      "system": "npc",
+      "title": "理之律者瓦尔特·杨 · 夜间问候",
+      "speaker": "理之律者瓦尔特·杨",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-1",
+      "system": "npc",
+      "title": "风之律者温蒂 · 初次见面",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V09-2",
+      "system": "npc",
+      "title": "风之律者温蒂 · 再次见面",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-3",
+      "system": "npc",
+      "title": "风之律者温蒂 · 普通交流",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-4",
+      "system": "npc",
+      "title": "风之律者温蒂 · 稍后再聊",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-5",
+      "system": "npc",
+      "title": "风之律者温蒂 · 告别离开",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-6",
+      "system": "npc",
+      "title": "风之律者温蒂 · 再会问候一",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-7",
+      "system": "npc",
+      "title": "风之律者温蒂 · 再会问候二",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-8",
+      "system": "npc",
+      "title": "风之律者温蒂 · 家园漫谈一",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-9",
+      "system": "npc",
+      "title": "风之律者温蒂 · 家园漫谈二",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-10",
+      "system": "npc",
+      "title": "风之律者温蒂 · 日常兴趣一",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-11",
+      "system": "npc",
+      "title": "风之律者温蒂 · 日常兴趣二",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-12",
+      "system": "npc",
+      "title": "风之律者温蒂 · 研究看法一",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-13",
+      "system": "npc",
+      "title": "风之律者温蒂 · 研究看法二",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-14",
+      "system": "npc",
+      "title": "风之律者温蒂 · 选择与目标一",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-15",
+      "system": "npc",
+      "title": "风之律者温蒂 · 选择与目标二",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-16",
+      "system": "npc",
+      "title": "风之律者温蒂 · 休息关怀一",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-17",
+      "system": "npc",
+      "title": "风之律者温蒂 · 休息关怀二",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-18",
+      "system": "npc",
+      "title": "风之律者温蒂 · 安静片刻",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-19",
+      "system": "npc",
+      "title": "风之律者温蒂 · 连续交互提醒",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-20",
+      "system": "npc",
+      "title": "风之律者温蒂 · 稍后再聊二",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-21",
+      "system": "npc",
+      "title": "风之律者温蒂 · 告别离开二",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-22",
+      "system": "npc",
+      "title": "风之律者温蒂 · 清晨问候",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-23",
+      "system": "npc",
+      "title": "风之律者温蒂 · 雨天话题",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V09-24",
+      "system": "npc",
+      "title": "风之律者温蒂 · 夜间问候",
+      "speaker": "风之律者温蒂",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-1",
+      "system": "npc",
+      "title": "生死之律者希儿 · 初次见面",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V10-2",
+      "system": "npc",
+      "title": "生死之律者希儿 · 再次见面",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-3",
+      "system": "npc",
+      "title": "生死之律者希儿 · 普通交流",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-4",
+      "system": "npc",
+      "title": "生死之律者希儿 · 稍后再聊",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-5",
+      "system": "npc",
+      "title": "生死之律者希儿 · 告别离开",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-6",
+      "system": "npc",
+      "title": "生死之律者希儿 · 再会问候一",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-7",
+      "system": "npc",
+      "title": "生死之律者希儿 · 再会问候二",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-8",
+      "system": "npc",
+      "title": "生死之律者希儿 · 家园漫谈一",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-9",
+      "system": "npc",
+      "title": "生死之律者希儿 · 家园漫谈二",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-10",
+      "system": "npc",
+      "title": "生死之律者希儿 · 日常兴趣一",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-11",
+      "system": "npc",
+      "title": "生死之律者希儿 · 日常兴趣二",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-12",
+      "system": "npc",
+      "title": "生死之律者希儿 · 研究看法一",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-13",
+      "system": "npc",
+      "title": "生死之律者希儿 · 研究看法二",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-14",
+      "system": "npc",
+      "title": "生死之律者希儿 · 选择与目标一",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-15",
+      "system": "npc",
+      "title": "生死之律者希儿 · 选择与目标二",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-16",
+      "system": "npc",
+      "title": "生死之律者希儿 · 休息关怀一",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-17",
+      "system": "npc",
+      "title": "生死之律者希儿 · 休息关怀二",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-18",
+      "system": "npc",
+      "title": "生死之律者希儿 · 安静片刻",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-19",
+      "system": "npc",
+      "title": "生死之律者希儿 · 连续交互提醒",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-20",
+      "system": "npc",
+      "title": "生死之律者希儿 · 稍后再聊二",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-21",
+      "system": "npc",
+      "title": "生死之律者希儿 · 告别离开二",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-22",
+      "system": "npc",
+      "title": "生死之律者希儿 · 清晨问候",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-23",
+      "system": "npc",
+      "title": "生死之律者希儿 · 雨天话题",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V10-24",
+      "system": "npc",
+      "title": "生死之律者希儿 · 夜间问候",
+      "speaker": "生死之律者希儿",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-1",
+      "system": "npc",
+      "title": "？？？ · 初次见面",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V11-2",
+      "system": "npc",
+      "title": "？？？ · 再次见面",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-3",
+      "system": "npc",
+      "title": "？？？ · 普通交流",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-4",
+      "system": "npc",
+      "title": "？？？ · 稍后再聊",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-5",
+      "system": "npc",
+      "title": "？？？ · 告别离开",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-6",
+      "system": "npc",
+      "title": "？？？ · 再会问候一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-7",
+      "system": "npc",
+      "title": "？？？ · 再会问候二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-8",
+      "system": "npc",
+      "title": "？？？ · 家园漫谈一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-9",
+      "system": "npc",
+      "title": "？？？ · 家园漫谈二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-10",
+      "system": "npc",
+      "title": "？？？ · 日常兴趣一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-11",
+      "system": "npc",
+      "title": "？？？ · 日常兴趣二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-12",
+      "system": "npc",
+      "title": "？？？ · 研究看法一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-13",
+      "system": "npc",
+      "title": "？？？ · 研究看法二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-14",
+      "system": "npc",
+      "title": "？？？ · 选择与目标一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-15",
+      "system": "npc",
+      "title": "？？？ · 选择与目标二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-16",
+      "system": "npc",
+      "title": "？？？ · 休息关怀一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-17",
+      "system": "npc",
+      "title": "？？？ · 休息关怀二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-18",
+      "system": "npc",
+      "title": "？？？ · 安静片刻",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-19",
+      "system": "npc",
+      "title": "？？？ · 连续交互提醒",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-20",
+      "system": "npc",
+      "title": "？？？ · 稍后再聊二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-21",
+      "system": "npc",
+      "title": "？？？ · 告别离开二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-22",
+      "system": "npc",
+      "title": "？？？ · 清晨问候",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-23",
+      "system": "npc",
+      "title": "？？？ · 雨天话题",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V11-24",
+      "system": "npc",
+      "title": "？？？ · 夜间问候",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-1",
+      "system": "npc",
+      "title": "？？？ · 初次见面",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V12-2",
+      "system": "npc",
+      "title": "？？？ · 再次见面",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-3",
+      "system": "npc",
+      "title": "？？？ · 普通交流",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-4",
+      "system": "npc",
+      "title": "？？？ · 稍后再聊",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-5",
+      "system": "npc",
+      "title": "？？？ · 告别离开",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-6",
+      "system": "npc",
+      "title": "？？？ · 再会问候一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-7",
+      "system": "npc",
+      "title": "？？？ · 再会问候二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-8",
+      "system": "npc",
+      "title": "？？？ · 家园漫谈一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-9",
+      "system": "npc",
+      "title": "？？？ · 家园漫谈二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-10",
+      "system": "npc",
+      "title": "？？？ · 日常兴趣一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-11",
+      "system": "npc",
+      "title": "？？？ · 日常兴趣二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-12",
+      "system": "npc",
+      "title": "？？？ · 研究看法一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-13",
+      "system": "npc",
+      "title": "？？？ · 研究看法二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-14",
+      "system": "npc",
+      "title": "？？？ · 选择与目标一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-15",
+      "system": "npc",
+      "title": "？？？ · 选择与目标二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-16",
+      "system": "npc",
+      "title": "？？？ · 休息关怀一",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-17",
+      "system": "npc",
+      "title": "？？？ · 休息关怀二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-18",
+      "system": "npc",
+      "title": "？？？ · 安静片刻",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-19",
+      "system": "npc",
+      "title": "？？？ · 连续交互提醒",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-20",
+      "system": "npc",
+      "title": "？？？ · 稍后再聊二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-21",
+      "system": "npc",
+      "title": "？？？ · 告别离开二",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-22",
+      "system": "npc",
+      "title": "？？？ · 清晨问候",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-23",
+      "system": "npc",
+      "title": "？？？ · 雨天话题",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V12-24",
+      "system": "npc",
+      "title": "？？？ · 夜间问候",
+      "speaker": "？？？",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-1",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 初次见面",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V13-2",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 再次见面",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-3",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 普通交流",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-4",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 稍后再聊",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-5",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 告别离开",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-6",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 再会问候一",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-7",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 再会问候二",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-8",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 家园漫谈一",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-9",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 家园漫谈二",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-10",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 日常兴趣一",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-11",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 日常兴趣二",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-12",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 研究看法一",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-13",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 研究看法二",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-14",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 选择与目标一",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-15",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 选择与目标二",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-16",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 休息关怀一",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-17",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 休息关怀二",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-18",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 安静片刻",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-19",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 连续交互提醒",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-20",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 稍后再聊二",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-21",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 告别离开二",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-22",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 清晨问候",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-23",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 雨天话题",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V13-24",
+      "system": "npc",
+      "title": "凯文·卡斯兰娜 · 夜间问候",
+      "speaker": "凯文·卡斯兰娜",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-1",
+      "system": "npc",
+      "title": "爱莉希雅 · 初次见面",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V14-2",
+      "system": "npc",
+      "title": "爱莉希雅 · 再次见面",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-3",
+      "system": "npc",
+      "title": "爱莉希雅 · 普通交流",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-4",
+      "system": "npc",
+      "title": "爱莉希雅 · 稍后再聊",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-5",
+      "system": "npc",
+      "title": "爱莉希雅 · 告别离开",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-6",
+      "system": "npc",
+      "title": "爱莉希雅 · 再会问候一",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-7",
+      "system": "npc",
+      "title": "爱莉希雅 · 再会问候二",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-8",
+      "system": "npc",
+      "title": "爱莉希雅 · 家园漫谈一",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-9",
+      "system": "npc",
+      "title": "爱莉希雅 · 家园漫谈二",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-10",
+      "system": "npc",
+      "title": "爱莉希雅 · 日常兴趣一",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-11",
+      "system": "npc",
+      "title": "爱莉希雅 · 日常兴趣二",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-12",
+      "system": "npc",
+      "title": "爱莉希雅 · 研究看法一",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-13",
+      "system": "npc",
+      "title": "爱莉希雅 · 研究看法二",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-14",
+      "system": "npc",
+      "title": "爱莉希雅 · 选择与目标一",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-15",
+      "system": "npc",
+      "title": "爱莉希雅 · 选择与目标二",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-16",
+      "system": "npc",
+      "title": "爱莉希雅 · 休息关怀一",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-17",
+      "system": "npc",
+      "title": "爱莉希雅 · 休息关怀二",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-18",
+      "system": "npc",
+      "title": "爱莉希雅 · 安静片刻",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-19",
+      "system": "npc",
+      "title": "爱莉希雅 · 连续交互提醒",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-20",
+      "system": "npc",
+      "title": "爱莉希雅 · 稍后再聊二",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-21",
+      "system": "npc",
+      "title": "爱莉希雅 · 告别离开二",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-22",
+      "system": "npc",
+      "title": "爱莉希雅 · 清晨问候",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-23",
+      "system": "npc",
+      "title": "爱莉希雅 · 雨天话题",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V14-24",
+      "system": "npc",
+      "title": "爱莉希雅 · 夜间问候",
+      "speaker": "爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-1",
+      "system": "npc",
+      "title": "维尔薇 · 初次见面",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V15-2",
+      "system": "npc",
+      "title": "维尔薇 · 再次见面",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-3",
+      "system": "npc",
+      "title": "维尔薇 · 普通交流",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-4",
+      "system": "npc",
+      "title": "维尔薇 · 稍后再聊",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-5",
+      "system": "npc",
+      "title": "维尔薇 · 告别离开",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-6",
+      "system": "npc",
+      "title": "维尔薇 · 再会问候一",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-7",
+      "system": "npc",
+      "title": "维尔薇 · 再会问候二",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-8",
+      "system": "npc",
+      "title": "维尔薇 · 家园漫谈一",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-9",
+      "system": "npc",
+      "title": "维尔薇 · 家园漫谈二",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-10",
+      "system": "npc",
+      "title": "维尔薇 · 日常兴趣一",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-11",
+      "system": "npc",
+      "title": "维尔薇 · 日常兴趣二",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-12",
+      "system": "npc",
+      "title": "维尔薇 · 研究看法一",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-13",
+      "system": "npc",
+      "title": "维尔薇 · 研究看法二",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-14",
+      "system": "npc",
+      "title": "维尔薇 · 选择与目标一",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-15",
+      "system": "npc",
+      "title": "维尔薇 · 选择与目标二",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-16",
+      "system": "npc",
+      "title": "维尔薇 · 休息关怀一",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-17",
+      "system": "npc",
+      "title": "维尔薇 · 休息关怀二",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-18",
+      "system": "npc",
+      "title": "维尔薇 · 安静片刻",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-19",
+      "system": "npc",
+      "title": "维尔薇 · 连续交互提醒",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-20",
+      "system": "npc",
+      "title": "维尔薇 · 稍后再聊二",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-21",
+      "system": "npc",
+      "title": "维尔薇 · 告别离开二",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-22",
+      "system": "npc",
+      "title": "维尔薇 · 清晨问候",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-23",
+      "system": "npc",
+      "title": "维尔薇 · 雨天话题",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V15-24",
+      "system": "npc",
+      "title": "维尔薇 · 夜间问候",
+      "speaker": "维尔薇",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-1",
+      "system": "npc",
+      "title": "梅比乌斯 · 初次见面",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V16-2",
+      "system": "npc",
+      "title": "梅比乌斯 · 再次见面",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-3",
+      "system": "npc",
+      "title": "梅比乌斯 · 普通交流",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-4",
+      "system": "npc",
+      "title": "梅比乌斯 · 稍后再聊",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-5",
+      "system": "npc",
+      "title": "梅比乌斯 · 告别离开",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-6",
+      "system": "npc",
+      "title": "梅比乌斯 · 再会问候一",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-7",
+      "system": "npc",
+      "title": "梅比乌斯 · 再会问候二",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-8",
+      "system": "npc",
+      "title": "梅比乌斯 · 家园漫谈一",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-9",
+      "system": "npc",
+      "title": "梅比乌斯 · 家园漫谈二",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-10",
+      "system": "npc",
+      "title": "梅比乌斯 · 日常兴趣一",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-11",
+      "system": "npc",
+      "title": "梅比乌斯 · 日常兴趣二",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-12",
+      "system": "npc",
+      "title": "梅比乌斯 · 研究看法一",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-13",
+      "system": "npc",
+      "title": "梅比乌斯 · 研究看法二",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-14",
+      "system": "npc",
+      "title": "梅比乌斯 · 选择与目标一",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-15",
+      "system": "npc",
+      "title": "梅比乌斯 · 选择与目标二",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-16",
+      "system": "npc",
+      "title": "梅比乌斯 · 休息关怀一",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-17",
+      "system": "npc",
+      "title": "梅比乌斯 · 休息关怀二",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-18",
+      "system": "npc",
+      "title": "梅比乌斯 · 安静片刻",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-19",
+      "system": "npc",
+      "title": "梅比乌斯 · 连续交互提醒",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-20",
+      "system": "npc",
+      "title": "梅比乌斯 · 稍后再聊二",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-21",
+      "system": "npc",
+      "title": "梅比乌斯 · 告别离开二",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-22",
+      "system": "npc",
+      "title": "梅比乌斯 · 清晨问候",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-23",
+      "system": "npc",
+      "title": "梅比乌斯 · 雨天话题",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V16-24",
+      "system": "npc",
+      "title": "梅比乌斯 · 夜间问候",
+      "speaker": "梅比乌斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-1",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 初次见面",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V17-2",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 再次见面",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-3",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 普通交流",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-4",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 稍后再聊",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-5",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 告别离开",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-6",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 再会问候一",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-7",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 再会问候二",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-8",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 家园漫谈一",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-9",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 家园漫谈二",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-10",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 日常兴趣一",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-11",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 日常兴趣二",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-12",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 研究看法一",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-13",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 研究看法二",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-14",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 选择与目标一",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-15",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 选择与目标二",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-16",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 休息关怀一",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-17",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 休息关怀二",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-18",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 安静片刻",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-19",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 连续交互提醒",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-20",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 稍后再聊二",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-21",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 告别离开二",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-22",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 清晨问候",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-23",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 雨天话题",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V17-24",
+      "system": "npc",
+      "title": "人之律者爱莉希雅 · 夜间问候",
+      "speaker": "人之律者爱莉希雅",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-1",
+      "system": "npc",
+      "title": "薇塔 · 初次见面",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V18-2",
+      "system": "npc",
+      "title": "薇塔 · 再次见面",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-3",
+      "system": "npc",
+      "title": "薇塔 · 普通交流",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-4",
+      "system": "npc",
+      "title": "薇塔 · 稍后再聊",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-5",
+      "system": "npc",
+      "title": "薇塔 · 告别离开",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-6",
+      "system": "npc",
+      "title": "薇塔 · 再会问候一",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-7",
+      "system": "npc",
+      "title": "薇塔 · 再会问候二",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-8",
+      "system": "npc",
+      "title": "薇塔 · 家园漫谈一",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-9",
+      "system": "npc",
+      "title": "薇塔 · 家园漫谈二",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-10",
+      "system": "npc",
+      "title": "薇塔 · 日常兴趣一",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-11",
+      "system": "npc",
+      "title": "薇塔 · 日常兴趣二",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-12",
+      "system": "npc",
+      "title": "薇塔 · 研究看法一",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-13",
+      "system": "npc",
+      "title": "薇塔 · 研究看法二",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-14",
+      "system": "npc",
+      "title": "薇塔 · 选择与目标一",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-15",
+      "system": "npc",
+      "title": "薇塔 · 选择与目标二",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-16",
+      "system": "npc",
+      "title": "薇塔 · 休息关怀一",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-17",
+      "system": "npc",
+      "title": "薇塔 · 休息关怀二",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-18",
+      "system": "npc",
+      "title": "薇塔 · 安静片刻",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-19",
+      "system": "npc",
+      "title": "薇塔 · 连续交互提醒",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-20",
+      "system": "npc",
+      "title": "薇塔 · 稍后再聊二",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-21",
+      "system": "npc",
+      "title": "薇塔 · 告别离开二",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-22",
+      "system": "npc",
+      "title": "薇塔 · 清晨问候",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-23",
+      "system": "npc",
+      "title": "薇塔 · 雨天话题",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V18-24",
+      "system": "npc",
+      "title": "薇塔 · 夜间问候",
+      "speaker": "薇塔",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-1",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 初次见面",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 2
+    },
+    {
+      "id": "npc.V19-2",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 再次见面",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-3",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 普通交流",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-4",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 稍后再聊",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-5",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 告别离开",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-6",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 再会问候一",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-7",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 再会问候二",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-8",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 家园漫谈一",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-9",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 家园漫谈二",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-10",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 日常兴趣一",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-11",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 日常兴趣二",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-12",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 研究看法一",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-13",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 研究看法二",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-14",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 选择与目标一",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-15",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 选择与目标二",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-16",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 休息关怀一",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-17",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 休息关怀二",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-18",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 安静片刻",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-19",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 连续交互提醒",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-20",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 稍后再聊二",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-21",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 告别离开二",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-22",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 清晨问候",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-23",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 雨天话题",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V19-24",
+      "system": "npc",
+      "title": "伪神奥托·阿波卡利斯 · 夜间问候",
+      "speaker": "伪神奥托·阿波卡利斯",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-1",
+      "system": "npc",
+      "title": "侵蚀之律者 · 初次见面",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-2",
+      "system": "npc",
+      "title": "侵蚀之律者 · 再次见面",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-3",
+      "system": "npc",
+      "title": "侵蚀之律者 · 普通交流",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-4",
+      "system": "npc",
+      "title": "侵蚀之律者 · 稍后再聊",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-5",
+      "system": "npc",
+      "title": "侵蚀之律者 · 告别离开",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-6",
+      "system": "npc",
+      "title": "侵蚀之律者 · 再会问候一",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-7",
+      "system": "npc",
+      "title": "侵蚀之律者 · 再会问候二",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-8",
+      "system": "npc",
+      "title": "侵蚀之律者 · 家园漫谈一",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-9",
+      "system": "npc",
+      "title": "侵蚀之律者 · 家园漫谈二",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-10",
+      "system": "npc",
+      "title": "侵蚀之律者 · 日常兴趣一",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-11",
+      "system": "npc",
+      "title": "侵蚀之律者 · 日常兴趣二",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-12",
+      "system": "npc",
+      "title": "侵蚀之律者 · 研究看法一",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-13",
+      "system": "npc",
+      "title": "侵蚀之律者 · 研究看法二",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-14",
+      "system": "npc",
+      "title": "侵蚀之律者 · 选择与目标一",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-15",
+      "system": "npc",
+      "title": "侵蚀之律者 · 选择与目标二",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-16",
+      "system": "npc",
+      "title": "侵蚀之律者 · 休息关怀一",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-17",
+      "system": "npc",
+      "title": "侵蚀之律者 · 休息关怀二",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-18",
+      "system": "npc",
+      "title": "侵蚀之律者 · 安静片刻",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-19",
+      "system": "npc",
+      "title": "侵蚀之律者 · 连续交互提醒",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-20",
+      "system": "npc",
+      "title": "侵蚀之律者 · 稍后再聊二",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-21",
+      "system": "npc",
+      "title": "侵蚀之律者 · 告别离开二",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-22",
+      "system": "npc",
+      "title": "侵蚀之律者 · 清晨问候",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-23",
+      "system": "npc",
+      "title": "侵蚀之律者 · 雨天话题",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "npc.V20-24",
+      "system": "npc",
+      "title": "侵蚀之律者 · 夜间问候",
+      "speaker": "侵蚀之律者",
+      "source": "doc/HK3GTL-内测5/11_系统专项/NPC系统/NPC家园访客与正文整批审核_v2.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U01",
+      "system": "update",
+      "title": "页面标题",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U02",
+      "system": "update",
+      "title": "首次进入",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 3
+    },
+    {
+      "id": "update.U03",
+      "system": "update",
+      "title": "更新后重返",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 3
+    },
+    {
+      "id": "update.U04",
+      "system": "update",
+      "title": "本页导语",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U05",
+      "system": "update",
+      "title": "内测说明",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U06",
+      "system": "update",
+      "title": "当前范围提示",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U07",
+      "system": "update",
+      "title": "研究界面说明",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U08",
+      "system": "update",
+      "title": "液态工艺改动",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U09",
+      "system": "update",
+      "title": "采集参考样本",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U10",
+      "system": "update",
+      "title": "部件识别",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U11",
+      "system": "update",
+      "title": "接口填充件",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U12",
+      "system": "update",
+      "title": "研究主链",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U13",
+      "system": "update",
+      "title": "五阶研究所",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U14",
+      "system": "update",
+      "title": "团队研究与个人投入",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U15",
+      "system": "update",
+      "title": "来信与右侧通知",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U16",
+      "system": "update",
+      "title": "贸易功能撤下",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U17",
+      "system": "update",
+      "title": "家园访客",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U18",
+      "system": "update",
+      "title": "文明档案",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U19",
+      "system": "update",
+      "title": "更远的工业",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U20",
+      "system": "update",
+      "title": "阅读也是探索的一部分",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U21",
+      "system": "update",
+      "title": "旧存档提示",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U22",
+      "system": "update",
+      "title": "原版与增强版",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U23",
+      "system": "update",
+      "title": "手机与低内存设备",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U24",
+      "system": "update",
+      "title": "服务器与客户端",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U25",
+      "system": "update",
+      "title": "自检说明",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U26",
+      "system": "update",
+      "title": "自检未发现异常",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U27",
+      "system": "update",
+      "title": "自检发现异常",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U28",
+      "system": "update",
+      "title": "未取得自检结果",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U29",
+      "system": "update",
+      "title": "反馈引导",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 4
+    },
+    {
+      "id": "update.U30",
+      "system": "update",
+      "title": "没有匹配的版本正文",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U31",
+      "system": "update",
+      "title": "完整说明读取失败",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U32",
+      "system": "update",
+      "title": "版本通知",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U33",
+      "system": "update",
+      "title": "本版说明补充",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "update.U34",
+      "system": "update",
+      "title": "详情与分类导航",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 6
+    },
+    {
+      "id": "update.U35",
+      "system": "update",
+      "title": "阅读与返回",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 3
+    },
+    {
+      "id": "update.U36",
+      "system": "update",
+      "title": "辅助入口",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 3
+    },
+    {
+      "id": "update.U37",
+      "system": "update",
+      "title": "历史说明提示",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 1
+    },
+    {
+      "id": "update.U38",
+      "system": "update",
+      "title": "同版补充标记",
+      "speaker": "系统",
+      "source": "doc/HK3GTL-内测5/11_系统专项/更新详情页面/进入游戏更新详情正文整批审核_v1.html",
+      "lineCount": 2
+    },
+    {
+      "id": "S201",
+      "system": "review",
+      "title": "破界之后",
+      "speaker": "场景",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S202",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S202",
+      "system": "review",
+      "title": "正式开场",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S203",
+      "choices": [],
+      "lineCount": 3
+    },
+    {
+      "id": "S203",
+      "system": "review",
+      "title": "玩家确认来意",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "那么，请开始审查。",
+          "target": "S204"
+        },
+        {
+          "text": "这场审查由谁作出最终决定？",
+          "target": "S203A"
+        },
+        {
+          "text": "你和终焉之茧的审查有什么不同？",
+          "target": "S203B"
+        }
+      ],
+      "lineCount": 2
+    },
+    {
+      "id": "S203A",
+      "system": "review",
+      "title": "关于终审者",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S204",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S203B",
+      "system": "review",
+      "title": "从答案到使用",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S204",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S204",
+      "system": "review",
+      "title": "第一段：使用崩坏能",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "先弄清楚边界在哪里，再逐步提高负载。",
+          "target": "S204A"
+        },
+        {
+          "text": "先安排监测与停机措施，再试更高的产量。",
+          "target": "S204B"
+        },
+        {
+          "text": "我还不能保证每种异常都在掌握之中。",
+          "target": "S204C"
+        }
+      ],
+      "lineCount": 2
+    },
+    {
+      "id": "S204A",
+      "system": "review",
+      "title": "边界与试验",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S205",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S204B",
+      "system": "review",
+      "title": "停机也是能力",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S205",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S204C",
+      "system": "review",
+      "title": "承认尚未掌握",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S205",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S205",
+      "system": "review",
+      "title": "第二段：世界泡与记录",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "来源和每一次作业的记录。",
+          "target": "S205A"
+        },
+        {
+          "text": "作业留下的变化，包括我们没有带走的部分。",
+          "target": "S205B"
+        },
+        {
+          "text": "能让后来者重新核对结论的依据。",
+          "target": "S205C"
+        }
+      ],
+      "lineCount": 2
+    },
+    {
+      "id": "S205A",
+      "system": "review",
+      "title": "来源不可混淆",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S206",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S205B",
+      "system": "review",
+      "title": "带不回来的部分",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S206",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S205C",
+      "system": "review",
+      "title": "可核验的成果",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S206",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S206",
+      "system": "review",
+      "title": "第三段：面对错误",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "先限制影响，再找出需要修改的部分。",
+          "target": "S206A"
+        },
+        {
+          "text": "把新旧结果一起留下，重新核对原因。",
+          "target": "S206B"
+        },
+        {
+          "text": "即使需要返工，也不能把错误当成正确继续用。",
+          "target": "S206C"
+        }
+      ],
+      "lineCount": 2
+    },
+    {
+      "id": "S206A",
+      "system": "review",
+      "title": "先止住扩散",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S207",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S206B",
+      "system": "review",
+      "title": "允许结论被改写",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S207",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S206C",
+      "system": "review",
+      "title": "投入不能证明正确",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S207",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "S207",
+      "system": "review",
+      "title": "首次团队审查的裁定",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S208",
+      "choices": [],
+      "lineCount": 3
+    },
+    {
+      "id": "S208",
+      "system": "review",
+      "title": "交向奇观工程",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S209",
+      "choices": [],
+      "lineCount": 3
+    },
+    {
+      "id": "S209",
+      "system": "review",
+      "title": "结束会面",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "SP01",
+      "system": "review",
+      "title": "后来者的开场",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S204",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "SP02",
+      "system": "review",
+      "title": "个人补行收束",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "SP03",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "SP03",
+      "system": "review",
+      "title": "补行后的道路",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "S209",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "SP04",
+      "system": "review",
+      "title": "暂时停止交谈",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "SP05",
+      "system": "review",
+      "title": "攻击导致会面中止",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 3
+    },
+    {
+      "id": "SP06",
+      "system": "review",
+      "title": "中断后重返",
+      "speaker": "终焉之律者·琪亚娜",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "F01",
+      "system": "finale",
+      "title": "在树海的光幕前",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F02",
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "F02",
+      "system": "finale",
+      "title": "抬起头来，建造者",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F03",
+      "choices": [],
+      "lineCount": 6
+    },
+    {
+      "id": "F03",
+      "system": "finale",
+      "title": "让本律者看看",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "我想留下一个能继续运转，也能继续改变的文明。",
+          "target": "F03A"
+        },
+        {
+          "text": "我想让共同走过这段路的人，有值得回去的家园。",
+          "target": "F03B"
+        },
+        {
+          "text": "我还没有一个足够宏大的答案，但我知道自己不愿让这些努力白费。",
+          "target": "F03C"
+        }
+      ],
+      "lineCount": 6
+    },
+    {
+      "id": "F03A",
+      "system": "finale",
+      "title": "不只是永动的造物",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F04",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "F03B",
+      "system": "finale",
+      "title": "家园的分量",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F04",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "F03C",
+      "system": "finale",
+      "title": "不必借来的口号",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F04",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "F04",
+      "system": "finale",
+      "title": "你想延续什么",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "延续求证的方法，舍弃已经被事实推翻的判断。",
+          "target": "F04A"
+        },
+        {
+          "text": "延续共同生活的地方，舍弃必须由我决定一切的执念。",
+          "target": "F04B"
+        },
+        {
+          "text": "延续探索的勇气，舍弃永远不能停下来的冲动。",
+          "target": "F04C"
+        }
+      ],
+      "lineCount": 6
+    },
+    {
+      "id": "F04A",
+      "system": "finale",
+      "title": "旧答案也会失效",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F05",
+      "choices": [],
+      "lineCount": 5
+    },
+    {
+      "id": "F04B",
+      "system": "finale",
+      "title": "留下意志，不是枷锁",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F05",
+      "choices": [],
+      "lineCount": 5
+    },
+    {
+      "id": "F04C",
+      "system": "finale",
+      "title": "数字的尽头",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F05",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "F05",
+      "system": "finale",
+      "title": "关于杰作",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "一个继续走下去的机会，而不是永远正确的保证。",
+          "target": "F05A"
+        },
+        {
+          "text": "承认我们已经走到这里，但此后的路仍由我们去走。",
+          "target": "F05B"
+        },
+        {
+          "text": "我仍然不喜欢由别人决定我们的价值。",
+          "target": "F05C"
+        }
+      ],
+      "lineCount": 7
+    },
+    {
+      "id": "F05A",
+      "system": "finale",
+      "title": "资格与结果",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F06",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "F05B",
+      "system": "finale",
+      "title": "你已经走过的路",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F06",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "F05C",
+      "system": "finale",
+      "title": "不必讨好本律者",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F06",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "F06",
+      "system": "finale",
+      "title": "裁定之前",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "我愿意。让此后的行动继续回答。",
+          "target": "F07"
+        },
+        {
+          "text": "你见过的那些“如果”，让我亲自选几条看看。",
+          "target": "F06A"
+        },
+        {
+          "text": "我现在还不能作出这个承诺。",
+          "target": "FP01"
+        }
+      ],
+      "lineCount": 5
+    },
+    {
+      "id": "F06A",
+      "system": "finale",
+      "title": "那些尚未发生的可能",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "IF_MENU",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "F07",
+      "system": "finale",
+      "title": "正式裁定",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F08",
+      "choices": [],
+      "lineCount": 7
+    },
+    {
+      "id": "F08",
+      "system": "finale",
+      "title": "不是再添一台机器",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F09",
+      "choices": [],
+      "lineCount": 6
+    },
+    {
+      "id": "F09",
+      "system": "finale",
+      "title": "梦该醒了",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "FU01",
+      "choices": [],
+      "lineCount": 9
+    },
+    {
+      "id": "FU01",
+      "system": "finale",
+      "title": "结果界面",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 3
+    },
+    {
+      "id": "FP01",
+      "system": "finale",
+      "title": "留到愿意回答的时候",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 3
+    },
+    {
+      "id": "FP02",
+      "system": "finale",
+      "title": "不必重演整场会面",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "FP03",
+      "system": "finale",
+      "title": "你把审判看成了什么",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "FU02",
+      "choices": [],
+      "lineCount": 6
+    },
+    {
+      "id": "FU02",
+      "system": "finale",
+      "title": "坏结局结果界面",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 3
+    },
+    {
+      "id": "FP04",
+      "system": "finale",
+      "title": "旧选择不会消失",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": "F03",
+      "choices": [],
+      "lineCount": 4
+    },
+    {
+      "id": "FU03",
+      "system": "finale",
+      "title": "尚未达到入场条件",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "FU04",
+      "system": "finale",
+      "title": "暂停状态",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [],
+      "lineCount": 2
+    },
+    {
+      "id": "IF_MENU",
+      "system": "finale",
+      "title": "二十六种可能",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "IF-01 核电，轻而易举！",
+          "target": "IF-01"
+        },
+        {
+          "text": "IF-02 内斗",
+          "target": "IF-02"
+        },
+        {
+          "text": "IF-03 女王降临",
+          "target": "IF-03"
+        },
+        {
+          "text": "IF-04 崩坏？",
+          "target": "IF-04"
+        },
+        {
+          "text": "IF-05 魔法？",
+          "target": "IF-05"
+        },
+        {
+          "text": "IF-06 包罗万象之匣",
+          "target": "IF-06"
+        },
+        {
+          "text": "IF-07 永动的流水线",
+          "target": "IF-07"
+        },
+        {
+          "text": "IF-08 咒文与信仰",
+          "target": "IF-08"
+        },
+        {
+          "text": "IF-09 无尽的彼岸",
+          "target": "IF-09"
+        },
+        {
+          "text": "IF-10 回到起点",
+          "target": "IF-10"
+        },
+        {
+          "text": "IF-11 众神的角斗场",
+          "target": "IF-11"
+        },
+        {
+          "text": "IF-12 数值的深渊",
+          "target": "IF-12"
+        },
+        {
+          "text": "IF-13 永夜的服务器",
+          "target": "IF-13"
+        },
+        {
+          "text": "IF-14 抄来的黎明",
+          "target": "IF-14"
+        },
+        {
+          "text": "IF-15 忒休斯之船",
+          "target": "IF-15"
+        },
+        {
+          "text": "IF-16 全家桶的盛宴",
+          "target": "IF-16"
+        },
+        {
+          "text": "IF-17 速通的幽灵",
+          "target": "IF-17"
+        },
+        {
+          "text": "IF-18 沉默的档案馆",
+          "target": "IF-18"
+        },
+        {
+          "text": "IF-19 平衡的独裁",
+          "target": "IF-19"
+        },
+        {
+          "text": "IF-20 未竟的存档",
+          "target": "IF-20"
+        },
+        {
+          "text": "IF-21 遗忘的本心",
+          "target": "IF-21"
+        },
+        {
+          "text": "IF-22 再未打开的世界",
+          "target": "IF-22"
+        },
+        {
+          "text": "IF-23 最后一次心跳",
+          "target": "IF-23"
+        },
+        {
+          "text": "IF-24 世界之外的生活",
+          "target": "IF-24"
+        },
+        {
+          "text": "IF-25 删除之后",
+          "target": "IF-25"
+        },
+        {
+          "text": "IF-26 创造，无须许可",
+          "target": "IF-26"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 3
+    },
+    {
+      "id": "IF-01",
+      "system": "finale",
+      "title": "IF-01 核电，轻而易举！",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-02",
+      "system": "finale",
+      "title": "IF-02 内斗",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-03",
+      "system": "finale",
+      "title": "IF-03 女王降临",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-04",
+      "system": "finale",
+      "title": "IF-04 崩坏？",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-05",
+      "system": "finale",
+      "title": "IF-05 魔法？",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-06",
+      "system": "finale",
+      "title": "IF-06 包罗万象之匣",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-07",
+      "system": "finale",
+      "title": "IF-07 永动的流水线",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-08",
+      "system": "finale",
+      "title": "IF-08 咒文与信仰",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-09",
+      "system": "finale",
+      "title": "IF-09 无尽的彼岸",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-10",
+      "system": "finale",
+      "title": "IF-10 回到起点",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-11",
+      "system": "finale",
+      "title": "IF-11 众神的角斗场",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-12",
+      "system": "finale",
+      "title": "IF-12 数值的深渊",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-13",
+      "system": "finale",
+      "title": "IF-13 永夜的服务器",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-14",
+      "system": "finale",
+      "title": "IF-14 抄来的黎明",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-15",
+      "system": "finale",
+      "title": "IF-15 忒休斯之船",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-16",
+      "system": "finale",
+      "title": "IF-16 全家桶的盛宴",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-17",
+      "system": "finale",
+      "title": "IF-17 速通的幽灵",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-18",
+      "system": "finale",
+      "title": "IF-18 沉默的档案馆",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-19",
+      "system": "finale",
+      "title": "IF-19 平衡的独裁",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-20",
+      "system": "finale",
+      "title": "IF-20 未竟的存档",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-21",
+      "system": "finale",
+      "title": "IF-21 遗忘的本心",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-22",
+      "system": "finale",
+      "title": "IF-22 再未打开的世界",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-23",
+      "system": "finale",
+      "title": "IF-23 最后一次心跳",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-24",
+      "system": "finale",
+      "title": "IF-24 世界之外的生活",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-25",
+      "system": "finale",
+      "title": "IF-25 删除之后",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    },
+    {
+      "id": "IF-26",
+      "system": "finale",
+      "title": "IF-26 创造，无须许可",
+      "speaker": "空之律者凌虛晴",
+      "source": "doc/HK3GTL-内测5/06_终局系统/二审与终审对话整批审核_v5_IF逐句阅读.html",
+      "next": null,
+      "choices": [
+        {
+          "text": "返回IF目录",
+          "target": "IF_MENU"
+        },
+        {
+          "text": "回到本次终审",
+          "target": "F06"
+        }
+      ],
+      "lineCount": 10
+    }
+  ],
+  "_removal_r99": {
+    "time": "2026-09-29 19:50:20",
+    "reason": "负责人撤销贸易系统，92条贸易原文随修改前文件归档；其他已审正文保留。"
+  },
+  "_revision122": "变更记录 #122 · 2026-10-01 00:17:25：依用户明确署名，将世界蛇来信具名灰蛇，逆熵首信具名爱因斯坦博士与特斯拉博士；原合作内容不变。",
+  "_revision141": "2026-10-01 19:03:37：仅统一终审显示称谓；保留已审核正文、选项与分支。"
+}

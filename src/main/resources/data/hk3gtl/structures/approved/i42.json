@@ -1,0 +1,255 @@
+{
+  "key": "i42",
+  "machine": "hk3gtl:i42_wonder_component_prefabrication_factory",
+  "source": "data/hk3gtl/approved_architecture/i42.json",
+  "sha256": "7b3ee05bb279cad459f7d9d0fd32db9153b9bbade2978e9ef433330b4bf2aae7",
+  "template_sha256": "001f33b1151c3ef2f2323235c1177a6459234e18ccfee1c4a3462db0b19890be",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_235744_579366_batch-10_03of05_I42_V1_WFV_外观已确认\\I42_奇观构件预制工厂_巨构龙骨与步进预制船坞_V1_20261028",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_235744_579366_batch-10_03of05_I42_V1_WFV_外观已确认\\I42_奇观构件预制工厂_巨构龙骨与步进预制船坞_V1_20261028\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_235744_579366_batch-10_03of05_I42_V1_WFV_外观已确认\\I42_奇观构件预制工厂_巨构龙骨与步进预制船坞_V1_20261028\\i42\\hk3gtl-i42-prefabrication-dock-v1-20261028.nbt",
+  "source_nbt_sha256": "835dd6d1d889dbc8348163696e4f5c064437d94858d8186ca185c92bd5cf9594",
+  "controller": [
+    320,
+    26,
+    0
+  ],
+  "size_xyz": [
+    641,
+    295,
+    449
+  ],
+  "blocks": 14747313,
+  "ports": [
+    {
+      "id": "魂钢精密骨架输入",
+      "pos": [
+        224,
+        26,
+        0
+      ],
+      "face": "north",
+      "purpose": "计划工艺接口占位，正式能力另行验收",
+      "group": "item_input"
+    },
+    {
+      "id": "I40专用材料输入",
+      "pos": [
+        248,
+        26,
+        0
+      ],
+      "face": "north",
+      "purpose": "计划工艺接口占位，正式能力另行验收",
+      "group": "item_input"
+    },
+    {
+      "id": "导能元件输入",
+      "pos": [
+        272,
+        26,
+        0
+      ],
+      "face": "north",
+      "purpose": "计划工艺接口占位，正式能力另行验收",
+      "group": "item_input"
+    },
+    {
+      "id": "预制工艺介质输入",
+      "pos": [
+        296,
+        26,
+        0
+      ],
+      "face": "north",
+      "purpose": "计划工艺接口占位，正式能力另行验收",
+      "group": "fluid_input"
+    },
+    {
+      "id": "专用预制构件交接",
+      "pos": [
+        344,
+        26,
+        0
+      ],
+      "face": "north",
+      "purpose": "计划工艺接口占位，正式能力另行验收",
+      "group": "item_output"
+    },
+    {
+      "id": "边角料分类回收",
+      "pos": [
+        368,
+        26,
+        0
+      ],
+      "face": "north",
+      "purpose": "计划工艺接口占位，正式能力另行验收",
+      "group": "item_output"
+    },
+    {
+      "id": "图样与授权核验",
+      "pos": [
+        392,
+        26,
+        0
+      ],
+      "face": "north",
+      "purpose": "计划工艺接口占位，正式能力另行验收",
+      "group": "research"
+    },
+    {
+      "id": "维护及流体汇接",
+      "pos": [
+        416,
+        26,
+        0
+      ],
+      "face": "north",
+      "purpose": "计划工艺接口占位，正式能力另行验收",
+      "group": "fluid_output"
+    }
+  ],
+  "target_voltage": "WFV",
+  "installed_hatches": {
+    "魂钢精密骨架输入": "item_input",
+    "I40专用材料输入": "item_input",
+    "导能元件输入": "item_input",
+    "预制工艺介质输入": "fluid_input",
+    "专用预制构件交接": "item_output",
+    "边角料分类回收": "item_output",
+    "维护及流体汇接": "fluid_output"
+  },
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 182,
+  "materials": 44,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        224,
+        26,
+        0
+      ],
+      "role": "魂钢精密骨架输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        248,
+        26,
+        0
+      ],
+      "role": "I40专用材料输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        272,
+        26,
+        0
+      ],
+      "role": "导能元件输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        296,
+        26,
+        0
+      ],
+      "role": "预制工艺介质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        320,
+        26,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i42_wonder_component_prefabrication_factory[facing=north]",
+      "block_entity_id": "hk3gtl:i42_wonder_component_prefabrication_factory"
+    },
+    {
+      "pos": [
+        344,
+        26,
+        0
+      ],
+      "role": "专用预制构件交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        368,
+        26,
+        0
+      ],
+      "role": "边角料分类回收",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        392,
+        26,
+        0
+      ],
+      "role": "图样与授权核验",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        416,
+        26,
+        0
+      ],
+      "role": "维护及流体汇接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": true,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i42_wonder_component_prefabrication_factory",
+  "approved_version": "V1",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "actual_bounds_xyz": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      640,
+      294,
+      448
+    ]
+  },
+  "process_scope": "完整批准建筑、主控、原位物品流体仓与全高JEI预览；能源、维护和研究接口保留占位，不声明能源调度或旅行逻辑已实现。"
+}

@@ -1,0 +1,1629 @@
+{
+  "revision": 165,
+  "recorded_at": "2026-10-17T16:46:30.469539+08:00",
+  "user_answer": "采用这批候选，整批接入正式资源",
+  "approval_scope": "已展示候选清单全部231项纹理及对应物品模型，不批准新方块或结构",
+  "candidate_manifest_sha256": "d24548448fe9848fafa42f5c61c614d77092532fc3b0b1e4794b8729b51a7e0b",
+  "candidate_history_unchanged": true,
+  "installed_count": 231,
+  "installed": [
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_billet.json",
+      "texture_sha256": "64f6e033892596a2694505550bf67406b2685bed8da4c2c0da810510a5edbe0e",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_plate.json",
+      "texture_sha256": "f6d7d4177364f9dd3a5311cab0a4c0596c6a73c984632113aa4ca8c4468935b5",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_rod.json",
+      "texture_sha256": "35c884bcdf716817120032c619c63e3122ae4091eed8d90cbbbe88bc18148aae",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_fine_wire.json",
+      "texture_sha256": "2d9bc5ac5512924baee3eb0f421c1a27e0e0c541bb48baf20fd3ee714dafa6dc",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_ring.json",
+      "texture_sha256": "154f9d9dcdf30687defb2c07af2622c26bc6de35a91eaee23b0a793d822c8965",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_foil.json",
+      "texture_sha256": "0395c094d991c4d57c54fc26b4ee671a32fd4ba99c7590f44cfdff2d2fe1bbcc",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_frame.json",
+      "texture_sha256": "3ae6e75ae0dcb2d2112c66d4731172bc7f4944487cdc5fb1753f32ca8edece1e",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_rejected_batch.json",
+      "texture_sha256": "a25c9d7fdfd54ca70e61647fa674c5d873fb48d2dd1f366a6dc6267e8e260517",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_classified_scrap.json",
+      "texture_sha256": "38b1360eb6924a1d6af39bfb7abca8f0aa3a164615b1437cd2231da8fc4af1c8",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_recovered_fraction.json",
+      "texture_sha256": "2c781b3de2889c607cc5b02d1aed6f0d15b9f7a0e8c2ebbf436e0f229cff1b4c",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_unrecoverable_tailings.json",
+      "texture_sha256": "4eee1de53fc76d2e7a06288a98c9be55ec1ff096f3aed681f23871a93de01c1c",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_stage_1.json",
+      "texture_sha256": "bd6d742057ff447f2b3f66b99468f049813a2e8105690537d98291591d4e7d15",
+      "source_sha256": "8393431ee15bee13bceca3a15dda64ef2786e507d8e407a53319ea73b855c856"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_stage_2.json",
+      "texture_sha256": "8dce3a683c134cb9eaa82958c9b9c63ab827e94e1b90e668a83f38788d12bede",
+      "source_sha256": "0db39bd3618b536f392caa1c3b0ac651bcd03105b57bee154ed18fdd822ca308"
+    },
+    {
+      "id": "hk3gtl:abyss_impregnated_soulium_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/abyss_impregnated_soulium_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/abyss_impregnated_soulium_stage_3.json",
+      "texture_sha256": "ef41aa5f811c3721bc17c8c557ffae40358d0d3d1bb1a8ae7db6e6b38e3ffd71",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_billet.json",
+      "texture_sha256": "4079dd09f34eaf1c2705a3d3a19bdb55e633f68d60a249c6131b8933f85eda49",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_plate.json",
+      "texture_sha256": "9fb1a83e298948427f4c702a0b6044aefa16ae841283e0aecf2ed382b5e17003",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_rod.json",
+      "texture_sha256": "ffa54e40b03b3acbc741c317549f28acc77bc0595c0c1ce863aeca8a41f718bc",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_fine_wire.json",
+      "texture_sha256": "1c0973d41afb616b8e70d921f790cda13b0a4e1cba98d0910b95929cdbcf897c",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_ring.json",
+      "texture_sha256": "3b8ae8ef9dc778ef42eaf205f14ae7f4c522f58ec891aca4fae1fb2a82d7c61b",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_foil.json",
+      "texture_sha256": "45f76c9e83d3d9c93d80a71b2c429cd6909a73642e283e0431892a18cbfa2794",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_frame.json",
+      "texture_sha256": "d97bd9cd13e7b2adadf8766565fcc9afa08a8ef4872e2f1bbd7f9dbb61733e3c",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_rejected_batch.json",
+      "texture_sha256": "39072e88cb3a287f712b37a4d2b39a80256cb9cdcd9702ed156732e7a0d704ce",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_classified_scrap.json",
+      "texture_sha256": "713aee0e959ce6b10c95f1360ca46b6b8c270d642d69325811d18feeeaa91d72",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_recovered_fraction.json",
+      "texture_sha256": "82b8a263373f5fb6f8b8192402ae1b99d1b12dafed092239fec6a094fa27c9a2",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_unrecoverable_tailings.json",
+      "texture_sha256": "9dcb42504de7d5b40c7e0e76c96eee4473d131600b8e927a722213271359ad37",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_stage_1.json",
+      "texture_sha256": "0eff430958eab9787e30660206acf62dee9bc25fa9ddaffdb065446c0c55e57d",
+      "source_sha256": "325405d516b34951058f16555354cf959dd5491b7c719877fb7798aee235fa73"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_stage_2.json",
+      "texture_sha256": "d97bd9cd13e7b2adadf8766565fcc9afa08a8ef4872e2f1bbd7f9dbb61733e3c",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:constraint_gradient_composite_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/constraint_gradient_composite_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/constraint_gradient_composite_stage_3.json",
+      "texture_sha256": "045c0f87b9a9b274880b6f2068c755d4ac094825ebf3856facc78efc20a11630",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_billet.json",
+      "texture_sha256": "42ceacaf8a979af27c0bbb515e17b391174849fe5375f6f20607a8b921fb33a8",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_plate.json",
+      "texture_sha256": "13d137eb8be0ed25fdc96f23240423590b7bcaf94c29e39f11624c8ad33f7cc8",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_rod.json",
+      "texture_sha256": "7ca97ddd0c16e05a9a05b5f42015fecb65d19e92d4f6b354574d86b37cf29945",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_fine_wire.json",
+      "texture_sha256": "9f2c165749839998ebbd9a139f6a58e764885355b6344b6c5570b493644f4ea1",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_ring.json",
+      "texture_sha256": "6ce94833759926cda70e1df59aebf6030faa50ab028d903e2ac8cb610c7a9d44",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_foil.json",
+      "texture_sha256": "9f31a66d70c8d33f4736e7b8793ec306b569e50d617ab2d9e473397471a666b5",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_frame.json",
+      "texture_sha256": "663239c31f0d551592ca3569a8a855b65cd18a9f0a84fffdaa99100fa44375f2",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_rejected_batch.json",
+      "texture_sha256": "acd5fd40786e298eeff07798d1759798153d108808b7ffdbaac482f9cc66e67c",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_classified_scrap.json",
+      "texture_sha256": "d4e7cc1701e2b26bfd8ec7075eb415fe55a226316cb1f4c884380bda6c8d7813",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_recovered_fraction.json",
+      "texture_sha256": "791a78bc0a28c2cdab3835b22b61e6f07e122a945263d9b5ac2abd22be737b41",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_unrecoverable_tailings.json",
+      "texture_sha256": "f1546ef38f3ad4ea883b56da1c6ed83ca2f40d8e92fd2eda7ba8b0c614b25a56",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_stage_1.json",
+      "texture_sha256": "791a78bc0a28c2cdab3835b22b61e6f07e122a945263d9b5ac2abd22be737b41",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_stage_2.json",
+      "texture_sha256": "22594ad08960c0ee08d42c6df15603596c299106d42faf3ad25e97599d126c24",
+      "source_sha256": "22fbe6a4796481853cf559cb0a77809bd9d307f1cedfdcb05ba5257583fdf5f4"
+    },
+    {
+      "id": "hk3gtl:resonance_oriented_lattice_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/resonance_oriented_lattice_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/resonance_oriented_lattice_stage_3.json",
+      "texture_sha256": "61147fd71d8233eb71f6fd90109ddc1c7becd0308881503f660c9814498d1c11",
+      "source_sha256": "2aebfb789d82be57e9e0160eb9e818029f39683da19cb42ec6e7ec521660342e"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_billet.json",
+      "texture_sha256": "725e4d579a3036673826a610d18d4454672a267d3759cb4bcef5ad5f46c89e92",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_plate.json",
+      "texture_sha256": "6329dc1aeac7611c0b72cda52ebe0f2d8d77f5d8237784fe8c0a1aedf07f9dbb",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_rod.json",
+      "texture_sha256": "9d74a10977f6b79ef1da1e0194ecf310c3b82374cb329f867f8d5a09f544a724",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_fine_wire.json",
+      "texture_sha256": "e51f13b436c5a50d86124ae1cded75101211de964dd993fb66674c45678725aa",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_ring.json",
+      "texture_sha256": "39978e0f87c69b9e969db9f7c8faa54b010bf9b83d8b6c3a3f51b913adfdc8c5",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_foil.json",
+      "texture_sha256": "dc524bb73a5e7ca919d7c698dc95cfda54dd6eaaf5784fb3bafb0dd067dfddbd",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_frame.json",
+      "texture_sha256": "083ef436cb83aa012d0cda0a373e173b64cbf390e3c2b69ffaf19786766f3a64",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_rejected_batch.json",
+      "texture_sha256": "0b6a32a7110f2abfa5a2c58171a51e5fb8d4bd5c0519c13d13d1f4696f76d0ec",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_classified_scrap.json",
+      "texture_sha256": "a92b783482324500d6a4bfee87e555626a64e6a69367c442f19f7e9467986af6",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_recovered_fraction.json",
+      "texture_sha256": "562a1caf709a79dd8986344d3eb476ec2b85c01574d6d95807a258cc25a923d8",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_unrecoverable_tailings.json",
+      "texture_sha256": "9c347de4ca4a89a1707825ba8ccb4447a8099473861e3fee36081ea405c4de06",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_stage_1.json",
+      "texture_sha256": "72cc20b80e169a20b2450d2bf223ab120602d5c32b869d7db985969f1b37f59d",
+      "source_sha256": "8393431ee15bee13bceca3a15dda64ef2786e507d8e407a53319ea73b855c856"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_stage_2.json",
+      "texture_sha256": "15a3fbdc30fe77de34227c41a7d5939608ff28151186c4dc55cc17dd6b84bb66",
+      "source_sha256": "dfaeac914c24d570c9c10b4967835af5d704bdc3de9e3b4937ed7ab0ac8b189e"
+    },
+    {
+      "id": "hk3gtl:ultradense_loadbearing_soulium_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/ultradense_loadbearing_soulium_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/ultradense_loadbearing_soulium_stage_3.json",
+      "texture_sha256": "6a3f65e95fdc99f00ec07bf35cf40f1b76a6b796b85270e76298cd374ed3a8f6",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_billet.json",
+      "texture_sha256": "0caebf99b0534abe46666d71a0323a22a5dee35068555065dcb11987d726b561",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_plate.json",
+      "texture_sha256": "bf5a9a50cbd59204c29aeb13af15c67712f302a815e9f15fd551c309186ef8c1",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_rod.json",
+      "texture_sha256": "17f7b01c0bb79abac8e91083b34c88a728c64e0b1b185d52b451f3abda1e1fe4",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_fine_wire.json",
+      "texture_sha256": "dd75c6ed6de36e4b237ba06cfcf2e1f4d2d76aab469c71edd3febc353bee5e55",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_ring.json",
+      "texture_sha256": "073b777eb905e8840ee83e74a0c94de8ea92fa3e83bf6328c7e7d1caa39dcddb",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_foil.json",
+      "texture_sha256": "49ecfaae0fcc272c9a290b7b6a4224871e5c0ad4147af29ddb8283cae3162256",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_frame.json",
+      "texture_sha256": "be22e84d9e1864ea1d632f65477f10886a9638d291f31e447599b7a80ab7077c",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_rejected_batch.json",
+      "texture_sha256": "a077379c5c94a5fd55e3f382b7017489ed58eaf458cc6a22a7eaab9b53c76c31",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_classified_scrap.json",
+      "texture_sha256": "e8f13f0d1108a9ae5faaae6af8c7eff3467119dddafaec6d697d8174cf5dfd73",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_recovered_fraction.json",
+      "texture_sha256": "1302bc1744afc551c67ab35f9e2aa17d0a552208d0e7a71df748fbfa1a661c56",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_unrecoverable_tailings.json",
+      "texture_sha256": "9a2af133cac59d91719fd6fcb7b191bff53e710ec879f78c7fa7f78ea32ac850",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_stage_1.json",
+      "texture_sha256": "49ecfaae0fcc272c9a290b7b6a4224871e5c0ad4147af29ddb8283cae3162256",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_stage_2.json",
+      "texture_sha256": "1d829b95cdd76eadb9d8f8d5a9b0a29f040d0b9633b975ce8795741cabb7a9af",
+      "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae"
+    },
+    {
+      "id": "hk3gtl:superposed_laminate_matrix_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/superposed_laminate_matrix_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/superposed_laminate_matrix_stage_3.json",
+      "texture_sha256": "aaf8dda2d6ec1da6168cf425d354225e38f1afb2fca6d05fb7548ea6746fdc59",
+      "source_sha256": "bbe138f2703a6b9983a2e547c738a05b9b17c6467f3308726df8c320ad2201a2"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_billet.json",
+      "texture_sha256": "60382c0f88fadf0fe37d3d800cafa8d04dacb57349cf028494b6f30f32735111",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_plate.json",
+      "texture_sha256": "dc7a9785f0faabcab53d57263aa41feec06a8ab5613cbb981507c1fd223a35c1",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_rod.json",
+      "texture_sha256": "ea441c7859964bb988ef85fde6ed78255c41b8251fd83e5da9cc295cf46fe0d2",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_fine_wire.json",
+      "texture_sha256": "6108013cae8af9542e5db42d63e800ffc9db3ba5569efb5c63c2836e25dfd541",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_ring.json",
+      "texture_sha256": "6ddbb6bb38bf91c17e913a093f44f847f5f69b6697e6f58c8e8d06883ff45420",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_foil.json",
+      "texture_sha256": "9c5280fe7fc9646d58b697362d67d0be6405b8e312fa6a2c2b652c6f71fca75c",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_frame.json",
+      "texture_sha256": "4d6ed2f1b283c6b623d03f4eb4ec2967b5efbbf1f150e5befc957b6c84cbd290",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_rejected_batch.json",
+      "texture_sha256": "f6f8b89f94c65c40efc8254d62075c2d9dfe1a72823e782f8d210fbdd2b6ca24",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_classified_scrap.json",
+      "texture_sha256": "160bb8317e9b175845e2887f1b45a529e8223d132408b80a9b3bc895cd928b2c",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_recovered_fraction.json",
+      "texture_sha256": "80fb76104d401f3660106c669b3e109965bdc91ef71cbd70187cd392090d6e9c",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_unrecoverable_tailings.json",
+      "texture_sha256": "12585a5664e805e551cf9c85a669668aceb6a1c887bbec4ffefac17ae158a82e",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_stage_1.json",
+      "texture_sha256": "4d6ed2f1b283c6b623d03f4eb4ec2967b5efbbf1f150e5befc957b6c84cbd290",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_stage_2.json",
+      "texture_sha256": "47b2ab369193508ae517190fda88daa9fec10641335e63c26808fc1231e10b0f",
+      "source_sha256": "325405d516b34951058f16555354cf959dd5491b7c719877fb7798aee235fa73"
+    },
+    {
+      "id": "hk3gtl:coherent_interconnect_grid_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/coherent_interconnect_grid_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/coherent_interconnect_grid_stage_3.json",
+      "texture_sha256": "950a947d5628ed551243e623dc86e58610f352a1050647c57a2c17c6440c0a48",
+      "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_billet.json",
+      "texture_sha256": "9d136797a348b9c2b0d9867e522a173c0d2a834ddf12901b859d5872c186332f",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_plate.json",
+      "texture_sha256": "bbd106f5fa584a67ae230f22d3a7c899329936349e23b6b89715d6f047db5675",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_rod.json",
+      "texture_sha256": "c07c955a7ed8fbd9af85d1b6232fb2e7e7e09cd818db7f1861f5b6b5348931aa",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_fine_wire.json",
+      "texture_sha256": "11a98a3906f1c59a75f7388e14f8fe6ab06888e4e74eddc5b6af3517352833ba",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_ring.json",
+      "texture_sha256": "b6601a2c911af1716d0d788d5ef3c74504af994d2e5ba33ed4206b46152649d6",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_foil.json",
+      "texture_sha256": "b0152ee16ea8c8d238c8055bbce4bcf61d1ab5efc2a79faa5c749217a3c522cb",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_frame.json",
+      "texture_sha256": "40b52a5596e1258ed818346420a46343c95112824ed8bb4d1178c5fa52b0ad8c",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_rejected_batch.json",
+      "texture_sha256": "d20f6c548899d21e5c42b00fc855b6104cdd5e32c3d365f03b16f3ccad481584",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_classified_scrap.json",
+      "texture_sha256": "9f79d3fd164060e136d10e02cab4e06b27f653aaa62e0c074167d8e24cf3d1e8",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_recovered_fraction.json",
+      "texture_sha256": "387e7f736da4352112252d0edff8e755620b8e4f931760e15c4a0c5d3c90548f",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_unrecoverable_tailings.json",
+      "texture_sha256": "3e40eb3032262cb0e90a0fb03cee20d8a133166ea3b01fb4e628734831c5848f",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_stage_1.json",
+      "texture_sha256": "4a1105ece28c4d879e331c71be40ff474645df8849a7ed1a1e216bc6a1b0edad",
+      "source_sha256": "22fbe6a4796481853cf559cb0a77809bd9d307f1cedfdcb05ba5257583fdf5f4"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_stage_2.json",
+      "texture_sha256": "f07644426c66d3ddb6ab52ce0d77f9486704371972b91e5d13977292ea53213e",
+      "source_sha256": "2aebfb789d82be57e9e0160eb9e818029f39683da19cb42ec6e7ec521660342e"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_stage_3.json",
+      "texture_sha256": "c4b86587ad991e982449b8f39cfd0d477e56b7a10069065d420a9dc7fd3b8bda",
+      "source_sha256": "cf766975f08edec6c944fc1403fb4f9c0046a2f24c8352e53ef6ca9ff74ed5d2"
+    },
+    {
+      "id": "hk3gtl:paired_entangled_lattice_stage_4",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/paired_entangled_lattice_stage_4.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/paired_entangled_lattice_stage_4.json",
+      "texture_sha256": "42b1dbe93b34d3d412f1eb02c42a7ba90d6fc3a4ef5a46c98de6b9cc8f818fa9",
+      "source_sha256": "f0a8286ce637ccc558521055d61b11ec2c0b9156255daaf6a5d993e08f8375ec"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_billet.json",
+      "texture_sha256": "f9b751527d47528595fda37281b5f00ff67debb666f7d583ed4e1c30f6bacf85",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_plate.json",
+      "texture_sha256": "ef2bcd53d816084330f282c7a5ac6a14b4f6ac477c77b6fbfcb8ea8e3b206ddd",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_rod.json",
+      "texture_sha256": "9ad4ee61a2c47477b2fd4b5da6dfd0bc59d7f15d400625894d621ae87458b4fc",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_fine_wire.json",
+      "texture_sha256": "960efbdc8ee915734df3c030dcab79679785ef31ea247340682d3d85e0dd1f90",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_ring.json",
+      "texture_sha256": "149bb5c8cdc19ec4700c26f9ed9dc0a5a55901880a92fb1c470a5c94c1169d9c",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_foil.json",
+      "texture_sha256": "4c8cb3d6eb54d99f2a2aa7a4a629dbf50dfa0c7d4a03ab08d2efe79f586798b8",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_frame.json",
+      "texture_sha256": "cba1ad183ac7446bcde76067e4edeca1511ee82984c99c939916ec5dfbb1f6f2",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_rejected_batch.json",
+      "texture_sha256": "f68840349af0c21f793803dede3fe659a889b7361f05ec2e57110156341f8369",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_classified_scrap.json",
+      "texture_sha256": "1f29ccc5ace04225aa9296dc05d04fcb87730c1b7c4fd29a814d09d1ba1c3447",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_recovered_fraction.json",
+      "texture_sha256": "1aef5b1eea25905c56c2878227e0a42bb893a1395976a9218f48911f68cd1c0d",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_unrecoverable_tailings.json",
+      "texture_sha256": "c2f8581f813ce21e31b6ac7ddb61ae1491c07c33f6fefeda93311cc041f0cb19",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_stage_1.json",
+      "texture_sha256": "83184783d2e356b5b40606fa70545324022a372d756df714a174ae1dc1ad7fd7",
+      "source_sha256": "bbe138f2703a6b9983a2e547c738a05b9b17c6467f3308726df8c320ad2201a2"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_stage_2.json",
+      "texture_sha256": "e18eb440f90f65afac75f077f54da3f25429fad247c371ded0670609b531f597",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    },
+    {
+      "id": "hk3gtl:anchored_superlattice_structure_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/anchored_superlattice_structure_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/anchored_superlattice_structure_stage_3.json",
+      "texture_sha256": "88bb869112585727a075dfda38dd436f0ece76addcbf064d804a3652ef2ce139",
+      "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_billet.json",
+      "texture_sha256": "9c86ec941d52464df05b08bafed89e91dbba051d5a0ce9ff544181056060236c",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_plate.json",
+      "texture_sha256": "746da2790fa83e4963f81f026852173b33bc71bd6a7e8796be2359b8192e7b43",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_rod.json",
+      "texture_sha256": "c7c38eed765b7cd977cfa0432f5901629b125157d76953dda14670caecb3e3c0",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_fine_wire.json",
+      "texture_sha256": "69a3b05c633be8973b0c9ae0c5f4b2fbc6d89598f37851cae1045fb200e16656",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_ring.json",
+      "texture_sha256": "b981018572b41a3d7bdde5c085e477588a57732eefd262d9045840cad989f61b",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_foil.json",
+      "texture_sha256": "dbc3ba2ea9fad08368cc551859b39c10d5b4675dd116014fc1419aaffeae4f56",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_frame.json",
+      "texture_sha256": "d87a605a927780442fed4067b279f9e0425e8fcc93a76cd5af9f97cb4801d3a3",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_rejected_batch.json",
+      "texture_sha256": "5436bf6982457ffd5cc15b298562186dd7ef7052be5c9fbb93794061e820d621",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_classified_scrap.json",
+      "texture_sha256": "ecaa68cf4a602270a633bdf6ba3fad75f7b46a79103130b4425da4f6ddae0bc1",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_recovered_fraction.json",
+      "texture_sha256": "561205f292f8033ed968fdb5ccf1f407740057e7d67617e234eab31f8ab5f3d4",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_unrecoverable_tailings.json",
+      "texture_sha256": "6a0b8b7a9309080b4cdc55488493c99bfd95103898836dce17c4e814a5c0d625",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_stage_1.json",
+      "texture_sha256": "1b4019a2cd69bec08f2a2a9b34e4fbbcc946a8d0eb9824bb9c1d8b9604b09780",
+      "source_sha256": "325405d516b34951058f16555354cf959dd5491b7c719877fb7798aee235fa73"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_stage_2.json",
+      "texture_sha256": "561205f292f8033ed968fdb5ccf1f407740057e7d67617e234eab31f8ab5f3d4",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:imaginary_phase_transfer_ceramic_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_phase_transfer_ceramic_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_phase_transfer_ceramic_stage_3.json",
+      "texture_sha256": "25c6c904be2b86b050400efb925408fc2f9c05b70958ae945463c591c1a02f8c",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_billet.json",
+      "texture_sha256": "6295c0d7c0a2f925f8db0c2ac3756c26929aeb8d69f0ba74529a16c40e2ef677",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_plate.json",
+      "texture_sha256": "436e970d85438a4056aa4361f7f89292c080b21ee4e0599233df848ab3169f01",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_rod.json",
+      "texture_sha256": "ed82df31227d404d7b989397a33e8fd866976e4f8558049951c84ccc08c79e9b",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_fine_wire.json",
+      "texture_sha256": "b74722c43b96bcee36e2d12e13506d4625b34e88564f679c7cc713ac55ebd6dc",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_ring.json",
+      "texture_sha256": "c10fa15eabc936d51d5df829c24aa3707c6cc7e3c80615483230e544fb36d095",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_foil.json",
+      "texture_sha256": "c94ede594f34eb08382eb700c0b05a98134ca030e59ca9629e9ab108f07929dc",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_frame.json",
+      "texture_sha256": "342602975e92e623ef317ca4d80963f705e1d594bb86f2e6e28a043e79b992d4",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_rejected_batch.json",
+      "texture_sha256": "89cd91e9acb170bbe3c579d2e48e15a918d23a8fc136a2177cfe4b1ff8e2c67b",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_classified_scrap.json",
+      "texture_sha256": "5750d19f68e0aa791a68e4c0c015e9ce56cbb0432afc07b84983b79a990e8bae",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_recovered_fraction.json",
+      "texture_sha256": "c06ff15d92363be679ba379a3145300df9276e09b2da7882d5638e9d4910ee82",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_unrecoverable_tailings.json",
+      "texture_sha256": "bc5e760f16ad2972300f34e7b2795641a9bf178e98a434aa13334071b4450b92",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_stage_1.json",
+      "texture_sha256": "c94ede594f34eb08382eb700c0b05a98134ca030e59ca9629e9ab108f07929dc",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_stage_2.json",
+      "texture_sha256": "342602975e92e623ef317ca4d80963f705e1d594bb86f2e6e28a043e79b992d4",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:imaginary_coupled_energy_band_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_coupled_energy_band_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_coupled_energy_band_stage_3.json",
+      "texture_sha256": "ca34fb55ef556003a6be6a95a4ccaad8f4b531379e3a1c1d1e65b210c3267690",
+      "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_billet.json",
+      "texture_sha256": "6e3bec7db6f342dad964209c04a056ecce37131f4d4462c304802ee052c3d7de",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_plate.json",
+      "texture_sha256": "96ca6f4c9cfb210e9c36ef812e6d64996c7f29f18a75b1362c10ae5ffce85cb8",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_rod.json",
+      "texture_sha256": "9e559ab679c19b1b642a6391a95654cbc1087714cfd2811464de06c3106bb5be",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_fine_wire.json",
+      "texture_sha256": "a463d8a47f4da35ab1fbb1d8dc10bd3ff251c97ca33506e13381affe58a27d50",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_ring.json",
+      "texture_sha256": "8a54de32420c579a62efc24065758721d8da225f18015411308c13a2f476a42f",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_foil.json",
+      "texture_sha256": "89c90c6272ad054d369b3c1d1690a398f850c110c4e0d62fe728408517dea722",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_frame.json",
+      "texture_sha256": "79fe607ecee5aa12eacfbf93f9e8f82ee72d6faf83979122b939211c9fc93172",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_rejected_batch.json",
+      "texture_sha256": "411c77571e2969479fc1210465c09afffcbbdcda4115a08daf3e6908df06063f",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_classified_scrap.json",
+      "texture_sha256": "95bee1adba1179c0677db8e94a080441bd5f42742232fa1f3f806bd3926eacf3",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_recovered_fraction.json",
+      "texture_sha256": "d271cd62d6a985a8022ddf519177408d0f40f947f8b8d13111f5bdb4901fd329",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_unrecoverable_tailings.json",
+      "texture_sha256": "2950c293daf4818443577bfab6b97952ef45209060f71e5ddbdf8358ae499b3e",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_stage_1.json",
+      "texture_sha256": "95bee1adba1179c0677db8e94a080441bd5f42742232fa1f3f806bd3926eacf3",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_stage_2.json",
+      "texture_sha256": "a96dc80c0a64d0d9c1a6d326839597b31e646f2e4dd90ad77f35f7b1103782fb",
+      "source_sha256": "8393431ee15bee13bceca3a15dda64ef2786e507d8e407a53319ea73b855c856"
+    },
+    {
+      "id": "hk3gtl:imaginary_reconstructed_alloy_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/imaginary_reconstructed_alloy_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/imaginary_reconstructed_alloy_stage_3.json",
+      "texture_sha256": "bc4bdefc326882132e43b509ef63d8ca1967650fbaae02b27d042abf11fa8f59",
+      "source_sha256": "dfaeac914c24d570c9c10b4967835af5d704bdc3de9e3b4937ed7ab0ac8b189e"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_billet.json",
+      "texture_sha256": "64420abd18f58a842b6b045104eae60d1498c3fdbab86d26d8a0e81f980fc1c2",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_plate.json",
+      "texture_sha256": "d0bf4e3c364b939df07a81db1edf409a57e1e9cb27b0db4c0436842e8f858266",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_rod.json",
+      "texture_sha256": "ede71c3680879c38538cdb58631f07f0cc8ecb4018b7cbf9cef37748fc4a6226",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_fine_wire.json",
+      "texture_sha256": "7070ab64e07fcdc9c9a5b6662cbed95b659af25fa3dc0faddc23dab11b219773",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_ring.json",
+      "texture_sha256": "7a6505f83350b7444f9ee6d931f17bdf2b2414b5540e214b3659c98ac167a463",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_foil.json",
+      "texture_sha256": "30568497b88e0a8e2920ddfe8b18d69999c50fb5e927d7327971f941a58ae548",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_frame.json",
+      "texture_sha256": "28a5e7f0348197a6457a0e1d3c8739a0f9b7ce00e9d034ac5eaf595445bc3ae1",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_rejected_batch.json",
+      "texture_sha256": "603ce423a30084b5aa2a6c623df23d8909de97a223d83a62a8d8e1592dce4ece",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_classified_scrap.json",
+      "texture_sha256": "47ac1ad4318ce54b841d37a47a5c7f43ec501a399065312fa291287a7086c924",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_recovered_fraction.json",
+      "texture_sha256": "55c703754aa64ee73b660d4744d0ed865780a6d29af72b5bda490332fadce7a6",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_unrecoverable_tailings.json",
+      "texture_sha256": "c75aa84c98f0be59f3beb27325ca704e55e6fbbafd0e57122718e9c61a4dcddc",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_stage_1.json",
+      "texture_sha256": "28a5e7f0348197a6457a0e1d3c8739a0f9b7ce00e9d034ac5eaf595445bc3ae1",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_stage_2.json",
+      "texture_sha256": "30568497b88e0a8e2920ddfe8b18d69999c50fb5e927d7327971f941a58ae548",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_stage_3.json",
+      "texture_sha256": "595818f5a84a10ce4f7c60c7ed1c575178cb30050091319d16056d5371fa1eb9",
+      "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_stage_4",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_stage_4.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_stage_4.json",
+      "texture_sha256": "87f931892ff80c0194302a07de79c19958e0dca8ac391ce4c89ddc4e5ac92470",
+      "source_sha256": "90bddf67fdbca431bcd38d3d6ac939e14016ea896357250137d317d82a023ef8"
+    },
+    {
+      "id": "hk3gtl:worldweave_multiaxial_composite_stage_5",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldweave_multiaxial_composite_stage_5.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldweave_multiaxial_composite_stage_5.json",
+      "texture_sha256": "85588461293087280dc100ea0645e4197ace11e34c53eabeec7f6da9f2bfeaf8",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_billet.json",
+      "texture_sha256": "478d6a1004b12865e23986728c441ebba0da1dab0db4358ea2d6b6b13b95ea64",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_plate.json",
+      "texture_sha256": "9afe0e94f0714adc03381eaa7dff61bf53113bff32733dd38737df4e6ab2b3de",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_rod.json",
+      "texture_sha256": "faec4e98db74406ff509c3728a146f0706c28152e1955a1df84e894ef7a79b0a",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_fine_wire.json",
+      "texture_sha256": "3c01d2fabc0333655b200248ba7841f0bfb37342130992e96e4d7db65e2b8b9a",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_ring.json",
+      "texture_sha256": "ac9f55100710b628cf0ad3c700d0ecdff0138626b69f9847ed34cf30f3926757",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_foil.json",
+      "texture_sha256": "347338442beb33f1c3bce59791216f884970c3373566a84193df9a80d93ffbcf",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_frame.json",
+      "texture_sha256": "b33d6c7b588d3ba74eaa878415cfd4d864cd31286782f07c98f4b4fab4ff6c0f",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_rejected_batch.json",
+      "texture_sha256": "9a057bd76f7cfb8e8460775148568a201e84393576dd4c30d6e7b92bbffdb2bb",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_classified_scrap.json",
+      "texture_sha256": "81f29b1d05dd84d3a44a2225fa86af415918c0d76e10f6be5e45afc397afee7b",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_recovered_fraction.json",
+      "texture_sha256": "4aa25996a25feb121bb569dadb945084d703ca8dca06cd00ab330d4d62c58132",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_unrecoverable_tailings.json",
+      "texture_sha256": "31e01951e74254919cb19523eb78bacabd1d704a011f3d1798bc0c66fa690b73",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_stage_1.json",
+      "texture_sha256": "132727567850d8c4fe62e0d6be9a30c7ee39abaf6c6dc20f7274be59546662c3",
+      "source_sha256": "90bddf67fdbca431bcd38d3d6ac939e14016ea896357250137d317d82a023ef8"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_stage_2.json",
+      "texture_sha256": "b33d6c7b588d3ba74eaa878415cfd4d864cd31286782f07c98f4b4fab4ff6c0f",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:worldforming_gradient_fiber_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldforming_gradient_fiber_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldforming_gradient_fiber_stage_3.json",
+      "texture_sha256": "8088d1b66ba4997eb2ca66e751d2ba035112d229a270298bedd30787353f3eea",
+      "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_billet.json",
+      "texture_sha256": "b49e78eade1aae5dbd0a526d8ef7b1142b4ef81ea551920cafdc0d83622bd0cb",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_plate.json",
+      "texture_sha256": "4521ac30f86e6ff8427447816e99727f5867159df64cf287c9770498be179ba7",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_rod.json",
+      "texture_sha256": "2249ce04db9be79f2393717bbbf129a9691575e8f034170641adddbafa061f83",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_fine_wire.json",
+      "texture_sha256": "90d191bc710442f9059cd623449329ee14bfd098c75986144a2f68f0c629b2a9",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_ring.json",
+      "texture_sha256": "9956ecf1336a816b9638074d8a51fb37863efaf7aa61fa24f029df48395fa381",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_foil.json",
+      "texture_sha256": "94003bdbb7428e5f145b2ec7bfc489f54b699f935d603552b9f680092d2196e7",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_frame.json",
+      "texture_sha256": "30ff024ad72873c0e2d16019548097f4caf06b6cefc50bf1881fc63e293dc1c5",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_rejected_batch.json",
+      "texture_sha256": "36f1c8748f939b7f04251c80559d20e99ed7f598d1242ddce392e49700668598",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_classified_scrap.json",
+      "texture_sha256": "07b5838fafeaad0dcef7b1a221fc33634165d23012c47a94a41b70f9508d9e30",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_recovered_fraction.json",
+      "texture_sha256": "2e9fd1b82cee9cbe997a2a74f82075e5342bb69e7bf67a024cf11faf24673e8b",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_unrecoverable_tailings.json",
+      "texture_sha256": "6bb7385f54cc2232e8c34f4181f3c16c821e3be915df638c60137c5ba3574879",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_stage_1.json",
+      "texture_sha256": "02fc3f6e263a88318c8e23e0de1f1d936e2499366a2bf21eef1878124b8e9d8d",
+      "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_stage_2.json",
+      "texture_sha256": "30ff024ad72873c0e2d16019548097f4caf06b6cefc50bf1881fc63e293dc1c5",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:worldstabilizing_confinement_shell_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/worldstabilizing_confinement_shell_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/worldstabilizing_confinement_shell_stage_3.json",
+      "texture_sha256": "b8c78258f61af06589d332836e91e710f3deeadaf50590f56abe979ca532efd2",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_billet.json",
+      "texture_sha256": "d2accad2220018d5023da76fc4331ad8b25c7745d8dc398bd42cd18a5f5ca210",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_plate.json",
+      "texture_sha256": "aaec36f421b4611b281059cda0707a91d3f159a914e220760e00c7486b226c45",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_rod.json",
+      "texture_sha256": "9fe0786ad6aa509276e3dbbede4475cd65efb5cb4e91fd2b2ca809e4cfc51860",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_fine_wire.json",
+      "texture_sha256": "1e153546ec4e94984110f3f71592c37c84b9809c9a020689ee798edd3fec8507",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_ring.json",
+      "texture_sha256": "8a673350c8a6039d15a388faa95cffe9fa4db1e5fc456205dcf02e4dac55e83b",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_foil.json",
+      "texture_sha256": "0b7a60f8f94bf8bb95ec1d0659957c4d82c4b4e82e5beaa088e114e07560ec8a",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_frame.json",
+      "texture_sha256": "2b2d0435efe1a74f5f17886df44295c795c842dd440415554c140a1c6acb664a",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_rejected_batch.json",
+      "texture_sha256": "84e66b76abc9c79b0951075f118b2b6bcf70eba574d76f8c7f35f6846d25c776",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_classified_scrap.json",
+      "texture_sha256": "75eb325a4ee4bcc038219790e613224688aa8e2ac816c6cf6d2f97e8a0cf8665",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_recovered_fraction.json",
+      "texture_sha256": "d8f2721b92d51825f678f2f106df557aafdfab7f33095c0e0b8e7ac17e207aaa",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_unrecoverable_tailings.json",
+      "texture_sha256": "1d19f51289f6dbfdfb8875174641d523b77cdebb8de55c4e52ab54d9755740ef",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_stage_1.json",
+      "texture_sha256": "0dca004c0011f7edafe964b4438264344be73c89e064cdadce47aac3da272b97",
+      "source_sha256": "90bddf67fdbca431bcd38d3d6ac939e14016ea896357250137d317d82a023ef8"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_stage_2.json",
+      "texture_sha256": "d2f7064f93579be6b83a504c4918ffbcd82a840d9cda475a5f9521ba3a3111f3",
+      "source_sha256": "22fbe6a4796481853cf559cb0a77809bd9d307f1cedfdcb05ba5257583fdf5f4"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_stage_3.json",
+      "texture_sha256": "bb49fd39c58ff3af91aa933c5a4796052096ae453cd075f77bd677d7e7abdeea",
+      "source_sha256": "8393431ee15bee13bceca3a15dda64ef2786e507d8e407a53319ea73b855c856"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_stage_4",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_stage_4.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_stage_4.json",
+      "texture_sha256": "9eeaeed479f1b49dbd794461ef0e15e8886b25fc6a2ad7fd59cc45dc36cfd675",
+      "source_sha256": "f0a8286ce637ccc558521055d61b11ec2c0b9156255daaf6a5d993e08f8375ec"
+    },
+    {
+      "id": "hk3gtl:civilization_quadrisystem_matrix_stage_5",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/civilization_quadrisystem_matrix_stage_5.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/civilization_quadrisystem_matrix_stage_5.json",
+      "texture_sha256": "fab2ff04ab823c326f08f1207a500bb528946418c6e7bcf04c0345f8204849c4",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_billet",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_billet.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_billet.json",
+      "texture_sha256": "67ebe3f01d692ba6b4caff7a936bb07e4da993ce6c000d1f6dfec471750a7e0b",
+      "source_sha256": "8550ef4e3c6f1aff718c7cb33d6e314e09c36076ebb15f5362a7cc3e69a60dfc"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_plate",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_plate.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_plate.json",
+      "texture_sha256": "d24060442681fbadd22674e9c3729934ba938911d8f51ce88237d704dde3573a",
+      "source_sha256": "0565e8a702f0196375454fdc4d5aaf536267c1863f60cf7065699c81c4d5d5ab"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_rod",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_rod.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_rod.json",
+      "texture_sha256": "63460c648955d69a22338c260168591b53b1c2d50baaf6471ce53f2d8f931b78",
+      "source_sha256": "351f5c169153dae2babac53abd55b3d048a068a13cc85e6705a7f18936cde05a"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_fine_wire",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_fine_wire.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_fine_wire.json",
+      "texture_sha256": "4287b47649a69e53e727eb453a58fef8bada45536caf028fa255339f5a5ac01a",
+      "source_sha256": "826937f3a797243f79e0a30e9803edc6a914ff1e743346dce6a7d7ab5bf26389"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_ring",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_ring.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_ring.json",
+      "texture_sha256": "5b6ccd0cd150b3d5cbad263c2e75bb6ee58d73e836784973bbba571e43dc80a9",
+      "source_sha256": "b5a2660e388b0607f2401e99719d4b3c6ffe46517f233d72c0f68e11a881777c"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_foil",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_foil.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_foil.json",
+      "texture_sha256": "d817a99576c14cbd531d1c359cbda5b9e0f6ede3a542de809811e97c41e44d0b",
+      "source_sha256": "359c3ffa123c22be18cef72e9a9ed507b534dc6e0fabb0431fa0eb7e68f39641"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_frame",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_frame.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_frame.json",
+      "texture_sha256": "b442dfe6b33f590b85b78cf01f9f312b1a904e065b1b4449f139df02794801c3",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_rejected_batch",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_rejected_batch.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_rejected_batch.json",
+      "texture_sha256": "e2fded406d7a5ed2522137db78be69c30e955cf10d0ba9dafd624bddcf0eb5ac",
+      "source_sha256": "7f9c8d3a380903439be6b87ad376e7f524d89b9cb8d04be00771f2ce2b2e69bf"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_classified_scrap",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_classified_scrap.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_classified_scrap.json",
+      "texture_sha256": "fa8931809e7e95c0408866f56690a938b06478f3a0e8d6e137255928165b0147",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_recovered_fraction",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_recovered_fraction.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_recovered_fraction.json",
+      "texture_sha256": "ea1cb489834b85b4d3619a8c071fd71ecaaa5a97b7ecfd4a9befe02ad5f95db4",
+      "source_sha256": "c9d71cb17b06f7b92e67448e6c88840360639c55d2cd1fd482d26d9fb23047a7"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_unrecoverable_tailings.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_unrecoverable_tailings.json",
+      "texture_sha256": "fcbee407af6b98b097ccce7404ef149011045827f2ce68e6b2efaf2a76f2be14",
+      "source_sha256": "7b7e42e3a8ae223a6af64d2141592b78dcb18309f9d39a7367302048f4b49227"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_stage_1",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_stage_1.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_stage_1.json",
+      "texture_sha256": "b442dfe6b33f590b85b78cf01f9f312b1a904e065b1b4449f139df02794801c3",
+      "source_sha256": "e4bb8e7f0d87a87f4a976593a61fad4f83e8387e19070637808b730f773ee5dc"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_stage_2",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_stage_2.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_stage_2.json",
+      "texture_sha256": "608421916952641d357a54da22d124a87e4b40a388aa4b2ecb40ea072258c73e",
+      "source_sha256": "ac95bd0d158c0d22b188f9a465c551e2944f43ebc2c7c91d37fe10dd2b56e1ae"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_stage_3",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_stage_3.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_stage_3.json",
+      "texture_sha256": "2b8217e671413a75a9389f92d2d7de8801dbf093048137dcb37cd3f86d897fb3",
+      "source_sha256": "bbe138f2703a6b9983a2e547c738a05b9b17c6467f3308726df8c320ad2201a2"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_stage_4",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_stage_4.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_stage_4.json",
+      "texture_sha256": "fa8931809e7e95c0408866f56690a938b06478f3a0e8d6e137255928165b0147",
+      "source_sha256": "9e665c48768910437bae8c22385d0050a363bf30e34b8d39a90a58d6e6b22f1c"
+    },
+    {
+      "id": "hk3gtl:perennial_service_composite_stage_5",
+      "texture": "src/main/resources/assets/hk3gtl/textures/item/main_material/perennial_service_composite_stage_5.png",
+      "model": "src/main/resources/assets/hk3gtl/models/item/perennial_service_composite_stage_5.json",
+      "texture_sha256": "c8a6e2063f8a985f9e07de37f71d3f392248193372b35a55e6c8cd66f95f7087",
+      "source_sha256": "d9b246ff20bad8bb09a3f293451b15af960e301d5d25e552da3246ceb26e11f1"
+    }
+  ],
+  "note": "批准与正式资源接入已完成；构建、部署与游戏验收分别记录。"
+}
