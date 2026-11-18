@@ -4,9 +4,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.nbt.*;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
-
-
-
 public final class Hk3EggProductionData extends SavedData {
     private final Map<UUID,Map<String,Long>> counts=new HashMap<>();
     private boolean disabled;

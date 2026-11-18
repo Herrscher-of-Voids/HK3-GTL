@@ -12,14 +12,9 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 
 import java.util.function.Consumer;
 
-
-
-
-
-
-
-
-
+/**
+ * 给本电子注册器被目标整合包自动复制的十条光刻配方保留研究和精确运行功率。
+ */
 public final class Hk3ElectronicRecipeCopies {
     private Hk3ElectronicRecipeCopies() {}
 

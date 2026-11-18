@@ -8,8 +8,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import java.util.*;
 import java.math.BigInteger;
-
-
 public final class Hk3EggGeneration {
     private record Capture(MetaMachine machine,long[] energy){}
     private static final ThreadLocal<ArrayDeque<Capture>> ACTIVE=ThreadLocal.withInitial(ArrayDeque::new);

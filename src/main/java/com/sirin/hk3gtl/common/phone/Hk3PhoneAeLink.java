@@ -10,13 +10,6 @@ import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
 import java.lang.reflect.Method;
 import java.util.*;
-
-
-
-
-
-
-
 public final class Hk3PhoneAeLink {
     private Hk3PhoneAeLink(){}
     private static final org.slf4j.Logger LOG=com.mojang.logging.LogUtils.getLogger();

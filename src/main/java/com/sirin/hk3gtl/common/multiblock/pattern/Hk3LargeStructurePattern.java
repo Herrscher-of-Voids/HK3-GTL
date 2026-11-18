@@ -20,24 +20,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import java.util.*;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3LargeStructurePattern extends BlockPattern {
     public static final String BOUNDS_KEY = "hk3gtlLargeBounds";
     private final MultiblockMachineDefinition definition;
@@ -117,22 +99,21 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
         for (var limit : limits) world.getGlobalCount().put(limit, 0);
         if (!matchPart(world, access, center, control, savePredicate)) return false;
 
-        // 按线性坐标合并稀疏实体和空气，不为每个空气格分配谓词、坐标或IO记录。
-        int cursor = 0, controlAt = linear(controller), linear = 0;
+        int controlAt = linear(controller);
         var pos = new BlockPos.MutableBlockPos();
-        for (int z = 0; z < size[2]; z++) for (int y = 0; y < size[1]; y++) for (int x = 0; x < size[0]; x++, linear++) {
-            boolean occupied = cursor < cells.length && (cells[cursor] >>> 16) == linear;
-            int state = occupied ? (int) (cells[cursor++] & 65535) : -1;
-            if (linear == controlAt) continue;
+        for (long cell : cells) {
+            int at = (int) (cell >>> 16), state = (int) (cell & 65535);
+            if (at == controlAt) continue;
+            int x = at % size[0], y = at / size[0] % size[1], z = at / size[0] / size[1];
             setPosition(pos, center, x - controller[0], y - controller[1], z - controller[2], turn);
             BlockState actual = world.world.getBlockState(pos);
-            if (occupied && Hk3InterfacePredicates.isInterface(actual)) {
+            if (Hk3InterfacePredicates.isInterface(actual)) {
                 if (!matchPart(world, access, pos.immutable(), universal, savePredicate)) return false;
                 continue;
             }
-            if (occupied ? actual != states[turn][state] && actual != activeStates[turn][state] : !Hk3InterfacePredicates.isClearance(actual)) {
-                access.hk3gtl$update(pos.immutable(), occupied ? Predicates.states(states[turn][state]) : Hk3InterfacePredicates.clearance());
-                return fail(world, occupied ? "批准巨构建材或状态不符" : "批准巨构空气区被占用");
+            if (actual != states[turn][state] && actual != activeStates[turn][state]) {
+                access.hk3gtl$update(pos.immutable(), Predicates.states(states[turn][state]));
+                return fail(world, "批准巨构建材或状态不符");
             }
             if (actual.getBlock() instanceof ActiveBlock)
                 world.getMatchContext().getOrCreate("vaBlocks", LongOpenHashSet::new).add(pos.asLong());

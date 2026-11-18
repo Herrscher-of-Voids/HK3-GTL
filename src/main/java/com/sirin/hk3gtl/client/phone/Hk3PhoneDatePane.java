@@ -6,10 +6,9 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 
-
-
-
-
+/**
+ * 复用手机外框显示服务器存档日历，不增加材质或修改应用排序。
+ */
 final class Hk3PhoneDatePane {
     private Hk3PhoneDatePane() {}
     static void render(GuiGraphics gui, CompoundTag runtime, int x, int y) {

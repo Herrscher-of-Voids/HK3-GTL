@@ -2,14 +2,9 @@ package com.sirin.hk3gtl.common.recipe.main;
 
 import java.util.List;
 
-
-
-
-
-
-
-
-
+/**
+ * 主材首制/量产的电压与研究条件；纯策略不访问Forge注册表。
+ */
 public final class Hk3MainMaterialAccess {
     private static final int FIRST = 15;
     private static final int LAST = 30;

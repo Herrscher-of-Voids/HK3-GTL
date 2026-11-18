@@ -7,19 +7,6 @@ import java.nio.charset.StandardCharsets;
 import java.io.InputStreamReader;
 import java.util.*;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3ResearchExecutionContracts {
     public record Contract(String id, String executor, String recipe, boolean existing,
             List<String> prerequisites, List<String> facts, List<String> unlocks,
@@ -85,5 +72,4 @@ public final class Hk3ResearchExecutionContracts {
         return c.prerequisites().stream().anyMatch(p -> requires(p,target,seen));
     }
 }
-
 

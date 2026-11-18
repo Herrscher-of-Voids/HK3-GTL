@@ -12,15 +12,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 修复Re-Avaritia能力状态集合被单人客户端与服务端线程同时修改的问题。
+ */
 @Pseudo
 @Mixin(targets="committee.nova.mods.avaritia.init.handler.AbilityHandler",remap=false)
 public abstract class AvaritiaAbilityHandlerMixin {

@@ -13,14 +13,9 @@ import java.util.function.Consumer;
 
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialRecipes.*;
 
-
-
-
-
-
-
-
-
+/**
+ * HBV至QAV八阶主材料实体制备；首制与L1、L3量产明确分开。
+ */
 final class Hk3MainMaterialProductionLower {
     private Hk3MainMaterialProductionLower() {}
 

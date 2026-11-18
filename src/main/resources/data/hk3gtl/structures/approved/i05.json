@@ -1,1 +1,215 @@
-{"key":"i05","machine":"hk3gtl:stabilization_medium_regeneration_tower","controller":[20,3,16],"size_xyz":[43,49,37]}
+{
+  "key": "i05",
+  "machine": "hk3gtl:stabilization_medium_regeneration_tower",
+  "source": "data/hk3gtl/approved_architecture/i05.json",
+  "sha256": "36d850ae671a7591e045a56276bbeebc89ac890cb904b8e4692523b081a6a45c",
+  "template_sha256": "4bf58b3fcc6dd8885dc51c440ba2b5a06ef98ca5fcaa67fa0c5d0180801b8007",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_004242_968234_I05_V5_HBV_外观已确认未接入\\I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_004242_968234_I05_V5_HBV_外观已确认未接入\\I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_004242_968234_I05_V5_HBV_外观已确认未接入\\I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026\\i05-regeneration-hbv-crown-v5.nbt",
+  "source_nbt_sha256": "ec30d0483b2b44cf3f4d1b34d153b554b385cb8f3f356c5568ab95bc52e70719",
+  "controller": [
+    20,
+    3,
+    16
+  ],
+  "size_xyz": [
+    43,
+    49,
+    37
+  ],
+  "blocks": 7519,
+  "ports": [],
+  "target_voltage": "HBV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 13,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        6,
+        3,
+        16
+      ],
+      "role": "FILTER",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        16,
+        3,
+        16
+      ],
+      "role": "FEED",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        20,
+        3,
+        16
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:stabilization_medium_regeneration_tower[facing=north]",
+      "block_entity_id": "hk3gtl:stabilization_medium_regeneration_tower"
+    },
+    {
+      "pos": [
+        24,
+        3,
+        16
+      ],
+      "role": "POWER",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        21,
+        3,
+        33
+      ],
+      "role": "RESIDUE",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        33,
+        4,
+        15
+      ],
+      "role": "COOLANT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        37,
+        4,
+        15
+      ],
+      "role": "PRODUCT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:stabilization_medium_regeneration_tower",
+  "controller_json_state": "hk3gtl:stabilization_medium_regeneration_tower",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "FEED",
+      "pos": [
+        16,
+        3,
+        16
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_hbv",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261026_004242_968234_I05_V5_HBV_外观已确认未接入/I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026/设计与检查.json",
+        "field": "replaced_surface_state"
+      }
+    },
+    {
+      "id": "FILTER",
+      "pos": [
+        6,
+        3,
+        16
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:stainless_evaporation_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261026_004242_968234_I05_V5_HBV_外观已确认未接入/I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026/设计与检查.json",
+        "field": "replaced_surface_state"
+      }
+    },
+    {
+      "id": "POWER",
+      "pos": [
+        24,
+        3,
+        16
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_hbv",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261026_004242_968234_I05_V5_HBV_外观已确认未接入/I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026/设计与检查.json",
+        "field": "replaced_surface_state"
+      }
+    },
+    {
+      "id": "RESIDUE",
+      "pos": [
+        21,
+        3,
+        33
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:corrosion_proof_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261026_004242_968234_I05_V5_HBV_外观已确认未接入/I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026/设计与检查.json",
+        "field": "replaced_surface_state"
+      }
+    },
+    {
+      "id": "COOLANT",
+      "pos": [
+        33,
+        4,
+        15
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:stainless_evaporation_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261026_004242_968234_I05_V5_HBV_外观已确认未接入/I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026/设计与检查.json",
+        "field": "replaced_surface_state"
+      }
+    },
+    {
+      "id": "PRODUCT",
+      "pos": [
+        37,
+        4,
+        15
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:stainless_evaporation_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261026_004242_968234_I05_V5_HBV_外观已确认未接入/I05_稳定介质再生塔_HBV塔冠内置反应段_滤芯接口移至X6_V5_20261026/设计与检查.json",
+        "field": "replaced_surface_state"
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

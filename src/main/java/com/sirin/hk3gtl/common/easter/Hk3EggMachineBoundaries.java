@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
-/** 2026-11-11：复用成功放置回执与已加载区块的成型索引，收藏只归放置者。 */
+/** 复用成功放置回执与已加载区块的成型索引，收藏只归放置者。 */
 public final class Hk3EggMachineBoundaries {
     private record Geometry(int[] size, int[] controller) {}
     private static final Map<String, Optional<Geometry>> GEOMETRY = new ConcurrentHashMap<>();

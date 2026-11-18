@@ -4,6 +4,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability;
 import com.gregtechceu.gtceu.api.capability.recipe.FluidRecipeCapability;
 import net.minecraft.nbt.*;
+import net.minecraft.resources.ResourceLocation;
 import java.util.UUID;
 
 public final class Hk3ProcessReceipts {
@@ -24,6 +25,15 @@ public final class Hk3ProcessReceipts {
         result.putString("Category", category(recipe)); result.putString("Recipe", recipe.id.toString());
         result.put("Inputs", contents(recipe, true)); result.put("Outputs", contents(recipe, false));
         return result;
+    }
+    public static CompoundTag findSnapshot(GTRecipe recipe, ResourceLocation id) {
+        if (!recipe.data.contains(Hk3ResearchRecipeRuntime.MERGED))
+            return id.equals(recipe.id) ? snapshot(recipe) : null;
+        for (var raw : recipe.data.getList(Hk3ResearchRecipeRuntime.MERGED, Tag.TAG_COMPOUND)) {
+            var entry = (CompoundTag) raw;
+            if (id.toString().equals(entry.getString("Recipe"))) return entry;
+        }
+        return null;
     }
     public static CompoundTag settle(CompoundTag source, String facility, long tick) {
         var result = source.copy(); result.putString("Facility", facility); result.putLong("Tick", tick);

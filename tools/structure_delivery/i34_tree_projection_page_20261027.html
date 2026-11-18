@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I34 · 虚数之树观测投影</title>
+<style>
+:root{color-scheme:dark;--ink:#e9e7e1;--muted:#89939b;--gold:#e2c18a;--edge:#dfc69524}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{background:#03070c;color:var(--ink);font:14px/1.6 "Microsoft YaHei",system-ui,sans-serif}
+#scene{position:fixed;inset:0;background:radial-gradient(ellipse at 48% 47%,#1d1d1a77,transparent 49%),radial-gradient(ellipse at 45% 90%,#14212b55,transparent 52%)}
+#scene canvas{display:block;touch-action:none;width:100%;height:100%}
+header{position:absolute;top:32px;left:36px;pointer-events:none}
+.eyebrow{font-size:10px;letter-spacing:.26em;color:var(--gold)}
+h1{font:400 39px/1.3 "Songti SC","SimSun",serif;letter-spacing:.17em;margin:13px 0 11px}
+.subtitle{color:var(--muted);font-size:12px;letter-spacing:.16em}
+.status{position:absolute;top:37px;right:36px;display:flex;align-items:center;gap:10px;color:var(--gold);font-size:12px;letter-spacing:.16em}
+.dot{height:5px;width:5px;border-radius:50%;background:#f6d99a;box-shadow:0 0 12px #ffd683}
+.dot[data-mode=idle]{opacity:.5}.dot[data-mode=off]{background:#75828e;box-shadow:none}
+.views{position:absolute;top:91px;right:36px;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+button{font:inherit;color:#9ca6ae;background:#0b121866;border:1px solid transparent;border-radius:2px;cursor:pointer;padding:8px 14px;transition:color .2s,border-color .2s,background .2s}
+button:hover{color:#fff2d4;background:#c2a26c11;border-color:#d5bb8533}button:focus-visible,input:focus-visible{outline:2px solid #e2c18a;outline-offset:3px}
+button.selected,button.active{color:#f0d3a0;border-color:#d9bc7d55;background:#b6955115}
+.views button{font-size:12px;min-width:84px}
+.caption{position:absolute;left:36px;bottom:117px;color:var(--muted);font-size:11px;letter-spacing:.05em;pointer-events:none}
+.caption strong{display:block;color:#d4d4cf;font-weight:400;font-size:13px;letter-spacing:.13em;margin-bottom:7px}
+.toolbar{position:absolute;left:36px;right:36px;bottom:51px;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:17px;border-top:1px solid var(--edge)}
+.modes,.tools{display:flex;align-items:center;gap:5px}.modes{gap:7px}.modes button{min-width:70px}
+.tools button{font-size:12px}.separator{height:17px;width:1px;background:var(--edge);margin:0 10px}
+.speed{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-right:13px}
+input[type=range]{width:74px;height:3px;accent-color:var(--gold)}#speedValue{min-width:27px}
+footer{position:absolute;bottom:16px;left:36px;right:36px;display:flex;justify-content:space-between;font-size:10px;color:#64717c;letter-spacing:.05em;pointer-events:none}
+#loading{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);color:#d5b57e;letter-spacing:.1em}
+@media(max-width:850px){header{left:20px;top:22px}h1{font-size:30px}.status{right:20px;top:26px}.views{right:20px;top:69px}.caption{left:20px;bottom:146px}.toolbar{left:20px;right:20px;bottom:50px;flex-wrap:wrap;gap:9px}.tools{gap:1px}.tools button{padding:7px 10px}.speed{margin-right:0}footer{left:20px;right:20px;font-size:9px}.subtitle{font-size:10px}.caption strong{font-size:11px}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style>
+<main id="scene" role="img" aria-label="正在建立虚数之树观测投影"></main>
+<header><div class="eyebrow">HK3GTL · I34 / PROJECTION STUDY 01</div><h1>虚数之树</h1><div class="subtitle">分枝之间，观测世界的联系。</div></header>
+<div class="status"><i class="dot" id="state-dot" data-mode="running"></i><span id="state">观测中</span></div>
+<nav class="views" aria-label="投影视角"><button data-view="full" class="selected">完整树影</button><button data-view="crown">树冠</button><button data-view="roots">根系</button></nav>
+<div id="loading" role="status">正在建立观测投影…</div>
+<div class="caption"><strong>光脉 · 世界节点 · 观测投影</strong>拖动旋转 / 滚轮缩放 / 右键平移</div>
+<div class="toolbar"><div class="modes" role="group" aria-label="投影状态"><button data-mode="running" class="active" aria-pressed="true">运行</button><button data-mode="idle" aria-pressed="false">待机</button><button data-mode="off" aria-pressed="false">关闭</button></div>
+<div class="tools"><label class="speed" for="speed">流速 <input id="speed" aria-label="动画流速" type="range" min="0.3" max="2" step="0.1" value="1"><span id="speedValue">1.0×</span></label><button id="pause" aria-pressed="false">暂停动画</button><button id="orbit" class="selected" aria-pressed="true">自动环绕</button><button id="bloom" class="selected" aria-pressed="true">柔光</button><span class="separator"></span><button id="save">保存画面</button></div></div>
+<footer><span id="notice">投影效果候选 · 不含建筑结构 · 尚未接入游戏</span><span>HTML / 本地独立预览</span></footer>
+<script>/*__PROJECTION_BUNDLE__*/</script>
+</html>

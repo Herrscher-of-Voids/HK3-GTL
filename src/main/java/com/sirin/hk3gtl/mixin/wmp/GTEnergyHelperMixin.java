@@ -8,16 +8,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 在 WMP 1.7.0 电路识别入口追加 hk3gtl 16 个正式高阶电路。
+ *
+ */
 @Mixin(value = GTEnergyHelper.class, remap = false)
 public abstract class GTEnergyHelperMixin {
 

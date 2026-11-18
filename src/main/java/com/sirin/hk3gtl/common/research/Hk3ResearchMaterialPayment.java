@@ -1,14 +1,8 @@
 package com.sirin.hk3gtl.common.research;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】独立实验统一分配实际物品与NBT，将耗材及工装区分存入支付快照。
+ */
 
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +15,6 @@ import java.util.List;
 
 public final class Hk3ResearchMaterialPayment {
     private Hk3ResearchMaterialPayment() {}
-    /** 修订100：工装与耗材一次托管；成功只退工装，取消全部原样退回。 */
     public record Requirement(java.util.function.Predicate<ItemStack> match,int count,boolean tool) {}
     public static Prepared prepareExperiment(Container inventory,List<Requirement> requirements) {
         int slots=Math.min(36,inventory.getContainerSize());

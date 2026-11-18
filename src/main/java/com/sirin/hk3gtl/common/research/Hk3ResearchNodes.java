@@ -43,13 +43,6 @@ import java.util.stream.Collectors;
  *
  * 依赖图参见设计文档：06_科技树与研究系统/研究节点依赖图与卡关检查表.md
  */
-
-
-
-
-
-
-
 public class Hk3ResearchNodes {
 
     /** 按注册顺序存储所有节点，用 LinkedHashMap 保证遍历顺序 */

@@ -1,1 +1,409 @@
-{"key":"i45","machine":"hk3gtl:i45_imitation_thousand_realms_train","controller":[60,108,0],"size_xyz":[121,181,821]}
+{
+  "key": "i45",
+  "machine": "hk3gtl:i45_imitation_thousand_realms_train",
+  "source": "data/hk3gtl/approved_architecture/i45.json",
+  "sha256": "e9b8466f02228f1426cf99f362cb2fc46eddca09d778198898a596fbb876ea4d",
+  "template_sha256": "f332f31593a808cdfe1c0bd47f3d2d432f9cafc169c0d89f14ff5452f6170856",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261030_161153_992027_I43V1_I44V2_I45V2_负责人要求落实\\I45_仿制的千界一乘列车_黑金蒸汽机车与双节旅客车_V2_20261029",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261030_161153_992027_I43V1_I44V2_I45V2_负责人要求落实\\I45_仿制的千界一乘列车_黑金蒸汽机车与双节旅客车_V2_20261029\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261030_161153_992027_I43V1_I44V2_I45V2_负责人要求落实\\I45_仿制的千界一乘列车_黑金蒸汽机车与双节旅客车_V2_20261029\\i45\\hk3gtl-i45-steam-train-v2-20261029.nbt",
+  "source_nbt_sha256": "5cdc7237e5c47dcbae5dd85f4686320cede7947b5119bfcf295ed1529683d267",
+  "controller": [
+    60,
+    108,
+    0
+  ],
+  "size_xyz": [
+    121,
+    181,
+    821
+  ],
+  "blocks": 3200871,
+  "ports": [],
+  "target_voltage": "QCV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 182,
+  "materials": 27,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        13,
+        78,
+        528
+      ],
+      "role": "COORD-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        107,
+        78,
+        528
+      ],
+      "role": "AUTH-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        13,
+        78,
+        700
+      ],
+      "role": "ARRIVAL-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=west]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        107,
+        78,
+        700
+      ],
+      "role": "RECOVERY-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        13,
+        81,
+        385
+      ],
+      "role": "EU-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        107,
+        81,
+        385
+      ],
+      "role": "WATER-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        13,
+        82,
+        320
+      ],
+      "role": "STEAM-SERVICE",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        107,
+        88,
+        444
+      ],
+      "role": "COAL-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=east]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        60,
+        108,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i45_imitation_thousand_realms_train[facing=north]",
+      "block_entity_id": "hk3gtl:i45_imitation_thousand_realms_train"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i45_imitation_thousand_realms_train",
+  "approved_version": "V2",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "actual_bounds_xyz": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      120,
+      180,
+      820
+    ]
+  },
+  "process_scope": "完整批准建筑、主控、原位物品流体仓与全高JEI预览；能源、维护和研究接口保留占位，不声明能源调度或旅行逻辑已实现。",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "EU-IN",
+      "pos": [
+        13,
+        81,
+        385
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "minecraft:netherite_block",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              13,
+              81,
+              384
+            ],
+            "state": "minecraft:netherite_block"
+          },
+          {
+            "pos": [
+              13,
+              81,
+              386
+            ],
+            "state": "minecraft:netherite_block"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COAL-IN",
+      "pos": [
+        107,
+        88,
+        444
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "minecraft:netherite_block",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              107,
+              88,
+              443
+            ],
+            "state": "minecraft:netherite_block"
+          },
+          {
+            "pos": [
+              107,
+              88,
+              445
+            ],
+            "state": "minecraft:netherite_block"
+          }
+        ]
+      }
+    },
+    {
+      "id": "WATER-IN",
+      "pos": [
+        107,
+        81,
+        385
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "minecraft:netherite_block",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              107,
+              81,
+              384
+            ],
+            "state": "minecraft:netherite_block"
+          },
+          {
+            "pos": [
+              107,
+              81,
+              386
+            ],
+            "state": "minecraft:netherite_block"
+          }
+        ]
+      }
+    },
+    {
+      "id": "STEAM-SERVICE",
+      "pos": [
+        13,
+        82,
+        320
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "minecraft:netherite_block",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              13,
+              82,
+              319
+            ],
+            "state": "minecraft:netherite_block"
+          },
+          {
+            "pos": [
+              13,
+              82,
+              321
+            ],
+            "state": "minecraft:netherite_block"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COORD-IN",
+      "pos": [
+        13,
+        78,
+        528
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "minecraft:netherite_block",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              13,
+              78,
+              527
+            ],
+            "state": "minecraft:netherite_block"
+          },
+          {
+            "pos": [
+              13,
+              78,
+              529
+            ],
+            "state": "minecraft:netherite_block"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AUTH-IN",
+      "pos": [
+        107,
+        78,
+        528
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "minecraft:netherite_block",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              107,
+              78,
+              527
+            ],
+            "state": "minecraft:netherite_block"
+          },
+          {
+            "pos": [
+              107,
+              78,
+              529
+            ],
+            "state": "minecraft:netherite_block"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ARRIVAL-OUT",
+      "pos": [
+        13,
+        78,
+        700
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "minecraft:netherite_block",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              13,
+              78,
+              699
+            ],
+            "state": "minecraft:netherite_block"
+          },
+          {
+            "pos": [
+              13,
+              78,
+              701
+            ],
+            "state": "minecraft:netherite_block"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RECOVERY-OUT",
+      "pos": [
+        107,
+        78,
+        700
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "minecraft:netherite_block",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              107,
+              78,
+              699
+            ],
+            "state": "minecraft:netherite_block"
+          },
+          {
+            "pos": [
+              107,
+              78,
+              701
+            ],
+            "state": "minecraft:netherite_block"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

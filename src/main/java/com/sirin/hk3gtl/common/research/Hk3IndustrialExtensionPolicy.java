@@ -1,28 +1,13 @@
 package com.sirin.hk3gtl.common.research;
 
-/** 2026-10-30（修订182）：I40–I45沿用暂定工艺拒绝策略，建筑获批不改变研究、工艺或旅行许可。 */
-
-
 
 import java.util.Set;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 隔离新批准建筑与仍未批准的工艺计划；运行、合并批次共用此规则。
+ */
 public final class Hk3IndustrialExtensionPolicy {
     public static final Set<String> GUARDED_ROLES = Set.of("I14", "I15", "I16", "I18",
             "I19", "I20", "I21", "I22", "I23", "I24", "I25", "I26", "I27", "I28",

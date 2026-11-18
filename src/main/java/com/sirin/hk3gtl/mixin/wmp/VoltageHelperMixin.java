@@ -9,16 +9,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.math.BigInteger;
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 扩展 WMP 1.7.0 的电压查询，使 Tier 15~30 不再被 clamp 到 MAX。
+ *
+ */
 @Mixin(value = VoltageHelper.class, remap = false)
 public abstract class VoltageHelperMixin {
 

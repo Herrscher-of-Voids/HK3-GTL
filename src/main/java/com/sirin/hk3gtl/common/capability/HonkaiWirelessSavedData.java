@@ -1,20 +1,11 @@
 package com.sirin.hk3gtl.common.capability;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 持久化每个玩家的任意精度无线崩坏能余额。
+ * - 关键调用链：HonkaiWirelessNetwork 写入 -> SavedData dirty -> 世界保存/启动镜像。
+ *
+ */
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -41,19 +32,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 public final class HonkaiWirelessSavedData extends SavedData {
 

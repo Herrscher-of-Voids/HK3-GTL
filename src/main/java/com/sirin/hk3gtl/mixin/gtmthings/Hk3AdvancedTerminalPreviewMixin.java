@@ -19,8 +19,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
-
 @Mixin(value=AdvancedTerminalBehavior.class,remap=false)
 public abstract class Hk3AdvancedTerminalPreviewMixin {
     private static AdvancedTerminalBehavior.AutoBuildSetting hk3gtl$settings(ItemStack stack){

@@ -8,19 +8,9 @@ import java.util.UUID;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 查询已经注册的真实稳定锚；以机器所在维度、研究团队和已扣电工作刻为依据。
+ */
 public final class Hk3ResearchSuppression {
     /** 提供者须在实际完成本刻能源扣费后更新时间；强化还须真实RN-JOK与不消耗模块校验。 */
     public interface Source {

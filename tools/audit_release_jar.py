@@ -13,31 +13,35 @@ import zlib
 RUNTIME = re.compile(
     r'com/sirin/hk3gtl/.+\.class|'
     r'assets/hk3gtl/(?:lang/(?:zh_cn|en_us)\.json|'
-    r'ftbquests/chapters/hk3_(?:stargate|voltage_(?:0[1-9]|1[0-6]))\.snbt|changelog\.json|'
+    r'ftbquests/chapters/hk3_(?:stargate|multiblock_patterns|industrial_(?:early|world|late)|voltage_(?:0[1-9]|1[0-6]))\.snbt|changelog\.json|'
     r'narrative/(?:approved|easter_eggs|easter_rules|faction_first_contacts|progress_correspondence|'
     r'social_dialogues|social_personas|story)\.json|'
     r'(?:models|blockstates)/.+\.json|models/scene/.+\.bin\.(?:gz|xz)|'
     r'textures/.+\.png(?:\.mcmeta)?|shaders/.+\.(?:json|fsh|vsh)|(?:effects|wonder)/.+\.bin\.gz)|'
     r'data/hk3gtl/(?:structures/(?:approved/[^/]+\.json|.+\.bin\.(?:gz|xz)|ae_nexus_a1\.nbt|jei_materials/(?:i\d+(?:_\d+)?|s\d+)\.txt)|'
-    r'catalog/(?:industrial_content|natural_supply_sources|world_bubble_resources)\.json|'
+    r'catalog/(?:industrial_(?:content|expansion_fluids|expansion_items|support_items)|natural_supply_sources|world_bubble_resources|multiblock_pattern_library)\.json|'
     r'(?:advancements|calendar|compact_architecture|dimension|dimension_type|guide|loot_tables|'
     r'narrative|recipes|research|sgjourney|worldgen)/.+\.json)|'
     r'data/(?:forge|gtceu)/tags/items/.+\.json|data/minecraft/tags/blocks/.+\.json|'
     r'pack\.mcmeta|hk3gtl\.mixins\.json|[^/]+-refmap\.json|'
     r'META-INF/(?:MANIFEST\.MF|mods\.toml|jarjar/metadata\.json|jars/(?:mixinextras-forge-[^/]+|xz-1\.10)\.jar)'
 )
+DEVELOPMENT_CLASSES = re.compile(
+    r'com/sirin/hk3gtl/common/(?:registration/Hk3Industrial(?:AuditReport|DependencyAudit)|'
+    r'command/Hk3LiquidLine(?:Audit|RuntimeCheck))(?:\$[^/]+)?\.class'
+)
 PRIVATE = re.compile(
     rb'"(?:[a-z_]*_quote|conversation_id|approval_basis|approval_manifest|authorization|'
     rb'runtime_provenance|_comment[a-z_0-9]*|_history|dev_note|internal_note)"\s*:|'
     rb'\b01a1[0-9a-f]{4}-[0-9a-f-]{27}\b|[A-Za-z]:[/\\]+(?:Users|Prism|AI)[/\\]+|'
     rb'"(?:deliveries|source_archives|logs)/(?!hk3gtl-)|' +
-    r'(?:负责人(?:原话|要求|明确批准|授权)|用户原话|对话原话|审核原话|审核备注|开发备注|授权备注|正文校对|已审核正文|变更记录\s*[#＃])'.encode('utf-8')
+    r'(?:负责人(?:原话|要求|明确批准|授权)|用户原话|对话原话|审核原话|审核备注|开发备注|授权备注|正文校对|已审核正文|变更记录|修订\s*(?:#|＃|:|：)?\s*[0-9]+|第(?:[0-9]+|一|二|三|四|五|六|七|八|九|十)+次备注)'.encode('utf-8')
 )
 
 MARKERS = tuple(f.encode('utf-8') for f in (
     '_quote', 'conversation_id', 'approval_basis', 'approval_manifest', 'authorization',
     'runtime_provenance', '_comment', '_history', 'dev_note', 'internal_note', '01a1',
-    '"deliveries/', '"source_archives/', '"logs/', '负责人', '用户原话', '对话原话', '审核原话', '审核备注', '开发备注', '授权备注', '正文校对', '已审核正文', '变更记录',
+    '"deliveries/', '"source_archives/', '"logs/', '负责人', '用户原话', '对话原话', '审核原话', '审核备注', '开发备注', '授权备注', '正文校对', '已审核正文', '变更记录', '修订', '次备注',
 )) + tuple((separator + folder).encode('ascii') for separator in (':/', ':\\', ':\\\\')
           for folder in ('Users', 'Prism', 'AI'))
 
@@ -92,7 +96,9 @@ def audit(path, quotes=()):
                 continue
             files += 1
             name = item.filename
-            if not RUNTIME.fullmatch(name):
+            if DEVELOPMENT_CLASSES.fullmatch(name):
+                problems.append((name, '开发核验类不属于正式发布范围'))
+            elif not RUNTIME.fullmatch(name):
                 problems.append((name, '不在正式发布文件范围'))
             if name.endswith('.jar'):
                 with ZipFile(BytesIO(archive.read(item))) as dependency:

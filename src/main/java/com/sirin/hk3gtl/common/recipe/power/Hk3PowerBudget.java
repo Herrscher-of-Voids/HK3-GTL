@@ -3,18 +3,9 @@ package com.sirin.hk3gtl.common.recipe.power;
 import java.math.BigInteger;
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 以任意精度核对输入额定值、实际工况与余额，不将多安培或多仓功率当作升压。
+ */
 public final class Hk3PowerBudget {
     private Hk3PowerBudget() {}
 

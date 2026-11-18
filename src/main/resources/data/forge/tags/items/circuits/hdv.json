@@ -1,1 +1,9 @@
-{"replace":false,"values":["hk3gtl:hdv_processor_mainframe","hk3gtl:rhythmic_coupling_computer","hk3gtl:honkai_resonance_assembly","hk3gtl:quantum_bridge_processor"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:hdv_processor_mainframe",
+    "hk3gtl:rhythmic_coupling_computer",
+    "hk3gtl:honkai_resonance_assembly",
+    "hk3gtl:quantum_bridge_processor"
+  ]
+}

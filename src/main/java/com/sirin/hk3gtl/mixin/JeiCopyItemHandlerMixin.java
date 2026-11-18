@@ -7,14 +7,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-
-
-
-
-
-
-
-
+/**
+ * 仅在安装JEI复制附属时，守卫其按键监听入口。
+ */
 @Pseudo
 @Mixin(targets = "net.yiran.jcrj.CopyItemHandler", remap = false)
 public abstract class JeiCopyItemHandlerMixin {

@@ -8,19 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.RegistryObject;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3ElectronicItems {
     public static final List<String> PLATFORMS = List.of(
             "honkai_lattice", "quantum_coherence", "imaginary_topology", "civilization_endurance");

@@ -11,9 +11,6 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
-
 public final class Hk3EggPersonalScenes {
     private Hk3EggPersonalScenes(){}
     public static void note(ServerPlayer p,String title,String body){

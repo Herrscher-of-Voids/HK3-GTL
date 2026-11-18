@@ -17,13 +17,6 @@ import net.minecraftforge.registries.RegistryObject;
  *
  * @see Hk3CircuitItems#getDetailedCircuit(String, String) 实际数据来源
  */
-
-
-
-
-
-
-
 public class QuantumCircuitItems {
 
     /** 量子一·纠缠逻辑核 */

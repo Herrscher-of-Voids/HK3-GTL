@@ -4,11 +4,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-
-
-
-
-
 public final class Hk3TeamContactData extends SavedData {
     public static final int PERSONAL_STEPS=4;
     private CompoundTag teams=new CompoundTag();

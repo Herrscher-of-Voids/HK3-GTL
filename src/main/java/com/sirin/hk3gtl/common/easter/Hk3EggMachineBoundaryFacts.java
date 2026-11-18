@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.easter;
 
 import java.util.Map;
 
-/** 2026-11-11：只识别正式设备及成型包络外四格内的真实放置，不授生产或工程资格。 */
+/** 只识别正式设备及成型包络外四格内的真实放置，不授生产或工程资格。 */
 public final class Hk3EggMachineBoundaryFacts {
     private static final Map<String, String> MACHINES = Map.of(
             "hk3gtl:soulium_polymerization_die_caster", "i14",

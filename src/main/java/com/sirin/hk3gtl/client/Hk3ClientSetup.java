@@ -37,8 +37,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
  * </ul>
  */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-
-
 public class Hk3ClientSetup {
 
     /** 设置方块渲染类型（在主线程上执行，通过 enqueueWork 保证安全） */
@@ -78,7 +76,6 @@ public class Hk3ClientSetup {
     @SubscribeEvent
     public static void onRegisterOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAbove(VanillaGuiOverlay.HOTBAR.id(), "hk3gtl_gaze", Hk3GazeHudOverlay.INSTANCE);
-
         event.registerAboveAll("hk3gtl_phone_toast", (gui, graphics, partial, width, height) ->
                 com.sirin.hk3gtl.client.phone.Hk3PhoneScreen.renderToast(graphics));
         // 坏结局黑屏遮罩：置于所有 HUD 层之上，保证全屏覆盖

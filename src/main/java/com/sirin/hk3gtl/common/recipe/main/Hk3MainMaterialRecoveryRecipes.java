@@ -10,21 +10,9 @@ import java.util.function.Consumer;
 
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialRecipes.*;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 同级制造边角料及拒收批的有损回收，不按名称混收，也不让小件返还整坯。
+ */
 final class Hk3MainMaterialRecoveryRecipes {
     private Hk3MainMaterialRecoveryRecipes() {}
 

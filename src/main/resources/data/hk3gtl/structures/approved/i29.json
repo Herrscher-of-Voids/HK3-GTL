@@ -1,1 +1,394 @@
-{"key":"i29","machine":"hk3gtl:i29_simulated_world_bubble_synthesizer","controller":[190,33,21],"size_xyz":[381,223,361]}
+{
+  "key": "i29",
+  "machine": "hk3gtl:i29_simulated_world_bubble_synthesizer",
+  "source": "data/hk3gtl/approved_architecture/i29.json",
+  "sha256": "a18d6eeec99fd3deccd49c7d0bcbdb76f112d947b77f6d814377a04fcfefa66a",
+  "template_sha256": "16b456141278f71750d170bffc3a928264cf4d028ef94031f43b7b97b7c2a02f",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_011314_252615_batch-08_01of05_I29_V1_ICV_外观已确认\\I29_模拟世界泡构筑机_双瓣造界工厂_V1_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_011314_252615_batch-08_01of05_I29_V1_ICV_外观已确认\\I29_模拟世界泡构筑机_双瓣造界工厂_V1_20261026\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_011314_252615_batch-08_01of05_I29_V1_ICV_外观已确认\\I29_模拟世界泡构筑机_双瓣造界工厂_V1_20261026\\i29\\hk3gtl-i29-simulated-world-fabricator-v1-20261026.nbt",
+  "source_nbt_sha256": "1fd8f9c02b130e5c33b47cfd5be972c372e501c6794784e5287306b29413fea0",
+  "controller": [
+    190,
+    33,
+    21
+  ],
+  "size_xyz": [
+    381,
+    223,
+    361
+  ],
+  "blocks": 5624362,
+  "ports": [],
+  "target_voltage": "ICV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 180,
+  "materials": 39,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        168,
+        33,
+        21
+      ],
+      "role": "世界模型输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        190,
+        33,
+        21
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i29_simulated_world_bubble_synthesizer[facing=north]",
+      "block_entity_id": "hk3gtl:i29_simulated_world_bubble_synthesizer"
+    },
+    {
+      "pos": [
+        212,
+        33,
+        21
+      ],
+      "role": "真实种子输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        2,
+        33,
+        128
+      ],
+      "role": "西翼物质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        378,
+        33,
+        128
+      ],
+      "role": "东翼耗材输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=east]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        2,
+        33,
+        232
+      ],
+      "role": "西翼控制能源",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        378,
+        33,
+        232
+      ],
+      "role": "东翼冷却流体",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        168,
+        33,
+        339
+      ],
+      "role": "未稳定批次输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        212,
+        33,
+        339
+      ],
+      "role": "模型误差记录",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i29_simulated_world_bubble_synthesizer",
+  "process_scope": "正式建筑、控制器、原位仓室和完整预览接入；不开放暂定工艺或未实现的世界泡任务。",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "世界模型输入",
+      "pos": [
+        168,
+        33,
+        21
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              167,
+              33,
+              21
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              169,
+              33,
+              21
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          }
+        ]
+      }
+    },
+    {
+      "id": "真实种子输入",
+      "pos": [
+        212,
+        33,
+        21
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtlcore:hsss_reinforced_borosilicate_glass",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              211,
+              33,
+              21
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          },
+          {
+            "pos": [
+              213,
+              33,
+              21
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西翼物质输入",
+      "pos": [
+        2,
+        33,
+        128
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              2,
+              33,
+              127
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              2,
+              33,
+              129
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东翼耗材输入",
+      "pos": [
+        378,
+        33,
+        128
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              378,
+              33,
+              127
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              378,
+              33,
+              129
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西翼控制能源",
+      "pos": [
+        2,
+        33,
+        232
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtlcore:hsss_reinforced_borosilicate_glass",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              2,
+              33,
+              231
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          },
+          {
+            "pos": [
+              2,
+              33,
+              233
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东翼冷却流体",
+      "pos": [
+        378,
+        33,
+        232
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtlcore:hsss_reinforced_borosilicate_glass",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              378,
+              33,
+              231
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          },
+          {
+            "pos": [
+              378,
+              33,
+              233
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          }
+        ]
+      }
+    },
+    {
+      "id": "未稳定批次输出",
+      "pos": [
+        168,
+        33,
+        339
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              167,
+              33,
+              339
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              169,
+              33,
+              339
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          }
+        ]
+      }
+    },
+    {
+      "id": "模型误差记录",
+      "pos": [
+        212,
+        33,
+        339
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtlcore:hsss_reinforced_borosilicate_glass",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              211,
+              33,
+              339
+            ],
+            "state": "gtlcore:hsss_reinforced_borosilicate_glass"
+          },
+          {
+            "pos": [
+              213,
+              33,
+              339
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

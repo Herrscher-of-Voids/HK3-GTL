@@ -17,6 +17,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.common.crafting.CompoundIngredient;
 import net.minecraftforge.common.crafting.StrictNBTIngredient;
 
@@ -48,7 +51,7 @@ public final class Hk3WorldMiningJei {
         var items = view.getOutputContents(ItemRecipeCapability.CAP);
         items.add(item(Hk3WorldMiningRewards.LEGACY, 10_000));
         items.add(item(Hk3WorldMiningRewards.SHIP, 100));
-        items.add(item(Hk3WorldMiningRewards.RELIC, 10_000));
+        items.add(item(Hk3WorldMiningRewards.RELIC, 10_000, "hk3gtl.recipe.world_mining.relic"));
         var itemGroups = catalog.items().stream().collect(Collectors.groupingBy(
                 Entry::amount, LinkedHashMap::new, Collectors.toList()));
         pack(itemGroups.values(), Hk3WorldRuntimeCatalog.SAMPLING.itemKinds(), entries -> {
@@ -93,6 +96,14 @@ public final class Hk3WorldMiningJei {
 
     private static Content item(String id, int chance) {
         return output(SizedIngredient.create(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(id)))), chance);
+    }
+
+    private static Content item(String id, int chance, String tooltip) {
+        var stack = new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(id)));
+        var lore = new ListTag();
+        lore.add(StringTag.valueOf(Component.Serializer.toJson(Component.translatable(tooltip))));
+        stack.getOrCreateTagElement("display").put("Lore", lore);
+        return output(SizedIngredient.create(stack), chance);
     }
 
     private static Content output(Object ingredient, int chance) {

@@ -7,8 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import java.util.*;
 
-
-
 public final class Hk3CommunicationPages {
     private static final String ROOT="hk3letter diplomacy records";
     private Hk3CommunicationPages() {}
@@ -65,5 +63,4 @@ public final class Hk3CommunicationPages {
                 .then(Commands.argument("grant",BoolArgumentType.bool()).then(Commands.argument("page",IntegerArgumentType.integer(0)).executes(c->grant(c.getSource().getPlayerOrException(),StringArgumentType.getString(c,"team"),StringArgumentType.getString(c,"target"),BoolArgumentType.getBool(c,"grant"),IntegerArgumentType.getInteger(c,"page"))))))));
     }
 }
-
 

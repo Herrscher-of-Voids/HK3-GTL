@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Animal.class)
-
 public abstract class Hk3EggAnimalMealMixin {
     @Unique private int hk3gtl$age,hk3gtl$love;
     @Inject(method="mobInteract",at=@At("HEAD"))private void hk3gtl$before(Player p,InteractionHand hand,CallbackInfoReturnable<InteractionResult> ci){var a=(Animal)(Object)this;hk3gtl$age=a.getAge();hk3gtl$love=a.getInLoveTime();}

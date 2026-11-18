@@ -11,16 +11,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import java.util.*;
 
-
-
-
-
-
-
-
-
-
-
 final class Hk3SocialPane {
     private final Hk3PhoneScreen screen;
     private CompoundTag view=new CompoundTag();private int page;private String status="",draft="",lastContact="";

@@ -8,11 +8,6 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-
-
-
-
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3DialogueLifecycle {
     private Hk3DialogueLifecycle(){}

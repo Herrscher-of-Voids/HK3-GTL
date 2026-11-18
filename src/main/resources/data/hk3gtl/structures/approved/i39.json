@@ -1,1 +1,480 @@
-{"key":"i39","machine":"hk3gtl:i39_unmanned_cross_boundary_route_relay","controller":[190,22,0],"size_xyz":[381,211,301]}
+{
+  "key": "i39",
+  "machine": "hk3gtl:i39_unmanned_cross_boundary_route_relay",
+  "source": "data/hk3gtl/approved_architecture/i39.json",
+  "sha256": "94c1f8d16a1036e37418c7f2649c30a69c867b9ed6013372018df3e8ea5300d8",
+  "template_sha256": "fab335da68b423c7d4d85caf693001862414de64012f77c0dee0864accf40e9d",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_222056_124451_batch-09_05of05_I39_V1_ICV_外观已确认\\I39_无人跨界航路中继站_偏馈碟阵与双轨整备站_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_222056_124451_batch-09_05of05_I39_V1_ICV_外观已确认\\I39_无人跨界航路中继站_偏馈碟阵与双轨整备站_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_222056_124451_batch-09_05of05_I39_V1_ICV_外观已确认\\I39_无人跨界航路中继站_偏馈碟阵与双轨整备站_V1_20261027\\i39\\hk3gtl-i39-unmanned-relay-v1-20261027.nbt",
+  "source_nbt_sha256": "4d8e43c9ffbb5c2a7cfd3fcb73491b137d9bd52f6379cdb21433318d121960ed",
+  "controller": [
+    190,
+    22,
+    0
+  ],
+  "size_xyz": [
+    381,
+    211,
+    301
+  ],
+  "blocks": 2383123,
+  "ports": [],
+  "target_voltage": "ICV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 181,
+  "materials": 42,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        104,
+        22,
+        0
+      ],
+      "role": "辅助供能输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        120,
+        22,
+        0
+      ],
+      "role": "维护物资补给",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        136,
+        22,
+        0
+      ],
+      "role": "无人设备送入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        152,
+        22,
+        0
+      ],
+      "role": "信标坐标输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        168,
+        22,
+        0
+      ],
+      "role": "发射任务输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        190,
+        22,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i39_unmanned_cross_boundary_route_relay[facing=north]",
+      "block_entity_id": "hk3gtl:i39_unmanned_cross_boundary_route_relay"
+    },
+    {
+      "pos": [
+        212,
+        22,
+        0
+      ],
+      "role": "返航装置交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        228,
+        22,
+        0
+      ],
+      "role": "任务状态回执",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        244,
+        22,
+        0
+      ],
+      "role": "异常维护处置",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        260,
+        22,
+        0
+      ],
+      "role": "用后材料输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        276,
+        22,
+        0
+      ],
+      "role": "辅助供能回路",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i39_unmanned_cross_boundary_route_relay",
+  "approved_version": "V1",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "process_scope": "正式建筑、控制器、原位物品流体仓及完整预览；崩坏能、能源与维护接口允许位置保留，不虚称未实现能力或工艺已运行。",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "发射任务输入",
+      "pos": [
+        168,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              167,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              169,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "信标坐标输入",
+      "pos": [
+        152,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              151,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              153,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "无人设备送入",
+      "pos": [
+        136,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              135,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              137,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "维护物资补给",
+      "pos": [
+        120,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              119,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              121,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "辅助供能输入",
+      "pos": [
+        104,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              103,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              105,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "返航装置交接",
+      "pos": [
+        212,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              211,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              213,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "任务状态回执",
+      "pos": [
+        228,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              227,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              229,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "异常维护处置",
+      "pos": [
+        244,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              243,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              245,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "用后材料输出",
+      "pos": [
+        260,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              259,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              261,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "辅助供能回路",
+      "pos": [
+        276,
+        22,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              275,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              277,
+              22,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

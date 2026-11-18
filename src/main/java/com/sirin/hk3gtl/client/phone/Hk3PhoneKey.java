@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.client.phone;
 
-
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -10,12 +9,6 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.glfw.GLFW;
-
-
-
-
-
-
 
 public final class Hk3PhoneKey {
     public static final KeyMapping OPEN=new KeyMapping("key.hk3gtl.phone",InputConstants.Type.KEYSYM,GLFW.GLFW_KEY_P,"key.categories.hk3gtl");

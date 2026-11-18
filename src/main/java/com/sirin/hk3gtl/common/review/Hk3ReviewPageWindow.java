@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.review;
 import java.util.*;
-
 public final class Hk3ReviewPageWindow {
     private final ArrayDeque<Hk3ReviewFrame> sent=new ArrayDeque<>();
     public void sent(Hk3ReviewFrame frame){

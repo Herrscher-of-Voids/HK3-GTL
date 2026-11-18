@@ -1,28 +1,8 @@
 package com.sirin.hk3gtl;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】初始化可选FTB研究团队桥接，保留其他系统注册。
+ */
 
 
 
@@ -79,15 +59,6 @@ import com.mojang.logging.LogUtils;
  * </ul>
  */
 @Mod(Hk3Constants.MOD_ID)
-
-
-
-
-
-
-
-
-
 public class Hk3Gtl {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -102,7 +73,6 @@ public class Hk3Gtl {
         com.sirin.hk3gtl.common.dimension.height.Hk3HeightConfig.register();
         net.minecraftforge.fml.ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT,
                 com.sirin.hk3gtl.common.farview.Hk3FarViewConfig.SPEC,"hk3gtl-farview-client.toml");
-        // 修订100 · 2026-09-29：注册团队研究归属变更监听。
         com.sirin.hk3gtl.common.research.Hk3ResearchTeams.init();
 
         // ── 对话系统初始化 ──
@@ -135,7 +105,6 @@ public class Hk3Gtl {
         Hk3Entities.ENTITY_TYPES.register(modEventBus);
 
         // FTB Quests 集成已恢复：FtbQuestsIntegration（EventBusSubscriber 自动注册）
-        // 【修订279】服务端启动时同步六章文明叙事任务，旧电压教程由现有安装器归档。
 
         // ── 双能源配方引擎（审计项 D-01）：登记全部双能源机器的崩坏能消耗档位 ──
         com.sirin.hk3gtl.common.capability.Hk3DualEnergyCosts.init();

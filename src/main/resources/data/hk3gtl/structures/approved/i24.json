@@ -1,1 +1,161 @@
-{"key":"i24","machine":"hk3gtl:i24_quantum_anomaly_observation_array","controller":[58,8,0],"size_xyz":[117,66,149]}
+{
+  "key": "i24",
+  "machine": "hk3gtl:i24_quantum_anomaly_observation_array",
+  "source": "data/hk3gtl/approved_architecture/i24.json",
+  "sha256": "fb5c08d1ed172e02727a28fa6f473e663f4a4a87cc31b7cae9b3ab53751920da",
+  "template_sha256": "6c759156934dda2362d557c2db66da9f0eec8b3115d45d27c804c48a196b055a",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_004459_948658_batch-07_03of05_I24_V2_QEV_已确认\\I24_量子异常观测阵列_三碟长基线天文庭院_V2_20261025",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_004459_948658_batch-07_03of05_I24_V2_QEV_已确认\\I24_量子异常观测阵列_三碟长基线天文庭院_V2_20261025\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_004459_948658_batch-07_03of05_I24_V2_QEV_已确认\\I24_量子异常观测阵列_三碟长基线天文庭院_V2_20261025\\i24\\hk3gtl-i24-three-dish-long-baseline-v2-20261025.nbt",
+  "source_nbt_sha256": "c6a689a4e08338a597fba39bafd12be2b960c41361b116e3cfb6cd485419f878",
+  "controller": [
+    58,
+    8,
+    0
+  ],
+  "size_xyz": [
+    117,
+    66,
+    149
+  ],
+  "blocks": 85154,
+  "ports": [],
+  "target_voltage": "QEV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 11,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        50,
+        8,
+        0
+      ],
+      "role": "DATA-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        58,
+        8,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i24_quantum_anomaly_observation_array[facing=north]",
+      "block_entity_id": "hk3gtl:i24_quantum_anomaly_observation_array"
+    },
+    {
+      "pos": [
+        66,
+        8,
+        38
+      ],
+      "role": "OBSERVATION-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        0,
+        8,
+        93
+      ],
+      "role": "PROBE-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        116,
+        8,
+        93
+      ],
+      "role": "ENERGY-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i24_quantum_anomaly_observation_array",
+  "controller_json_state": "hk3gtl:i24_quantum_anomaly_observation_array",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "PROBE-IN",
+      "pos": [
+        0,
+        8,
+        93
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qev",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_004459_948658_batch-07_03of05_I24_V2_QEV_已确认/I24_量子异常观测阵列_三碟长基线天文庭院_V2_20261025/设计与检查.json",
+        "field": "surface_state"
+      }
+    },
+    {
+      "id": "DATA-IN",
+      "pos": [
+        50,
+        8,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qev",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_004459_948658_batch-07_03of05_I24_V2_QEV_已确认/I24_量子异常观测阵列_三碟长基线天文庭院_V2_20261025/设计与检查.json",
+        "field": "surface_state"
+      }
+    },
+    {
+      "id": "OBSERVATION-OUT",
+      "pos": [
+        66,
+        8,
+        38
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qev",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_004459_948658_batch-07_03of05_I24_V2_QEV_已确认/I24_量子异常观测阵列_三碟长基线天文庭院_V2_20261025/设计与检查.json",
+        "field": "surface_state"
+      }
+    },
+    {
+      "id": "ENERGY-IN",
+      "pos": [
+        116,
+        8,
+        93
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qev",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_004459_948658_batch-07_03of05_I24_V2_QEV_已确认/I24_量子异常观测阵列_三碟长基线天文庭院_V2_20261025/设计与检查.json",
+        "field": "surface_state"
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

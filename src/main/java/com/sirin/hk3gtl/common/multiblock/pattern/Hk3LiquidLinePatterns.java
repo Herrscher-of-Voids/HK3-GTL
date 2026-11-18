@@ -14,47 +14,9 @@ import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.RIGHT;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.UP;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.BACK;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 将正式工业布局接入 GT 成型系统，保留严格空气和后侧检修带。
+ */
 public final class Hk3LiquidLinePatterns {
     private Hk3LiquidLinePatterns() {}
 
@@ -77,7 +39,6 @@ public final class Hk3LiquidLinePatterns {
     }
 
     public static BlockPattern create(MultiblockMachineDefinition definition,Hk3LiquidLineLayout.Kind kind) {
-        // 2026-09-25：I03使用已批准建筑；其余六台保留现有工艺与布局，旧分馏布局仅留作历史归档。
         if(kind==Hk3LiquidLineLayout.Kind.SEPARATION)return Hk3ApprovedArchitecturePatterns.create(definition,"i03");
         if(kind==Hk3LiquidLineLayout.Kind.STABILIZATION)return Hk3ApprovedArchitecturePatterns.create(definition,"i04");
         if(kind==Hk3LiquidLineLayout.Kind.REGENERATION)return Hk3ApprovedArchitecturePatterns.create(definition,"i05");

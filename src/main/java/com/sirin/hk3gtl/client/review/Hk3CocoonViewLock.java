@@ -14,13 +14,9 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-
-
-
-
-
-
-
+/**
+ * 一审空间固定第一人称观礼镜头，输入和渲染阶段共同约束。
+ */
 @Mod.EventBusSubscriber(modid="hk3gtl", value=Dist.CLIENT)
 public final class Hk3CocoonViewLock {
     private static final ResourceLocation DIMENSION=new ResourceLocation("hk3gtl","cocoon_review");

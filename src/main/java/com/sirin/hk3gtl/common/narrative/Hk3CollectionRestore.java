@@ -6,7 +6,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3CollectionRestore {
     private Hk3CollectionRestore(){}

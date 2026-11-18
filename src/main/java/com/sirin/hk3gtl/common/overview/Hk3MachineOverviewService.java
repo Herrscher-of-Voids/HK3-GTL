@@ -17,26 +17,9 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 连接机器生命周期、权限归属与总览账本，只观察真实已加载实例。
+ */
 @Mod.EventBusSubscriber(modid = "hk3gtl")
 public final class Hk3MachineOverviewService {
     private Hk3MachineOverviewService() {}

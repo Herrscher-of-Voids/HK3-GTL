@@ -17,7 +17,7 @@ public final class Hk3ResearchProcessRecipes {
             if (!Hk3ApprovedIndustrialPlans.isSuperseded(recipe.getId())) provider.accept(recipe);
         });
         for(var p:Hk3ResearchProcessPlans.all()){
-            var type=Hk3ResearchProcessTypes.get(p.role());
+            var type=Hk3ResearchProcessTypes.of(p);
             Hk3RecipeResearchGate.bindAll(type.registryName.getPath(),p.id(),p.requirements());
             if(p.inputHw()>0)com.sirin.hk3gtl.common.capability.Hk3DualEnergyCosts.bindRecipe(
                     type.registryName.getPath(),p.id(),p.inputHw());
@@ -36,7 +36,7 @@ public final class Hk3ResearchProcessRecipes {
         return recipe;
     }
     private static com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder builder(Hk3ResearchProcessPlans.Plan p) {
-            var type=Hk3ResearchProcessTypes.get(p.role());
+            var type=Hk3ResearchProcessTypes.of(p);
             long eut=Hk3ResearchProcessTypes.isGenerator(p.role()) ? p.outputEut()
                     : p.inputEut()>0 ? p.inputEut() : Hk3Values.VA_LONG[p.energyTier()];
             var b=type.recipeBuilder(new ResourceLocation("hk3gtl",p.id())).duration(p.ticks())

@@ -6,9 +6,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 @Mixin(ServerPlayerGameMode.class)
-
 public abstract class Hk3EggMiningMixin {
     @Shadow @Final protected ServerPlayer player;
     @Unique private BlockState hk3gtl$old;

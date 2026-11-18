@@ -3,10 +3,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
-
-
-
-
 final class Hk3PhoneAppCard extends Button {
     private final String subtitle,badge;private final int accent;
     Hk3PhoneAppCard(String title,String subtitle,String badge,int x,int y,int w,int h,int accent,Runnable action){

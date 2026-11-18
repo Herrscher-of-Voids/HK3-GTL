@@ -58,15 +58,18 @@ public final class Hk3ResearchProcessTypes {
         });
         var mining = map.get("I26");
         mining.setRecipeUI(new Hk3WorldMiningRecipeUI(mining));
-        mining.setMaxTooltips(8)
-                .addDataInfo(data -> Component.translatable("hk3gtl.recipe.world_mining.operation").getString())
+        mining.setMaxTooltips(6)
                 .addDataInfo(data -> Component.translatable("hk3gtl.recipe.world_mining.package",
                         Hk3WorldRuntimeCatalog.SAMPLING.itemKinds(), Hk3WorldRuntimeCatalog.SAMPLING.fluidKinds()).getString())
                 .addDataInfo(data -> Component.translatable("hk3gtl.recipe.world_mining.route").getString())
-                .addDataInfo(data -> Component.translatable("hk3gtl.recipe.world_mining.amount").getString())
-                .addDataInfo(data -> Component.translatable("hk3gtl.recipe.world_mining.archive").getString())
-                .addDataInfo(data -> Component.translatable("hk3gtl.recipe.world_mining.relic").getString());
+                .addDataInfo(data -> Component.translatable("hk3gtl.recipe.world_mining.archive").getString());
         return Collections.unmodifiableMap(map);
+    }
+    public static GTRecipeType of(Hk3ResearchProcessPlans.Plan plan) {
+        return get(plan.role());
+    }
+    public static GTRecipeType[] machineTypes(String role) {
+        return new GTRecipeType[]{get(role)};
     }
     public static GTRecipeType get(String role) {
         var type=TYPES.get(role);if(type==null)throw new IllegalArgumentException("Unknown process role "+role);return type;

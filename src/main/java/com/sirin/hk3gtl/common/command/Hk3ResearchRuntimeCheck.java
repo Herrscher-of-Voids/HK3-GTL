@@ -31,11 +31,6 @@ import net.minecraftforge.fml.loading.FMLLoader;
 import com.mojang.logging.LogUtils;
 import java.util.UUID;
 
-
-
-
-
-
 @Mod.EventBusSubscriber(modid="hk3gtl",bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3ResearchRuntimeCheck {
     private static UUID playerId;
@@ -46,7 +41,6 @@ public final class Hk3ResearchRuntimeCheck {
     private Hk3ResearchRuntimeCheck() {}
 
     public static int begin(ServerPlayer p) {
-        // 修订70：旧夹具仅按3格研究所预留空间，不得再放置放大后的正式研究所。
         // 当前正式包只允许通过指定实例的新版结构／光谱验收入口启动，历史实现保留便于追溯。
         p.sendSystemMessage(Component.literal("旧研究夹具已归档，请在指定GTL实例的新作弊超平坦创造存档中使用新版结构验收。"));
         return 0;
@@ -168,5 +162,4 @@ public final class Hk3ResearchRuntimeCheck {
         LogUtils.getLogger().info("[HK3-RESEARCH-RUNTIME] {}",text);p.sendSystemMessage(Component.literal(text));
     }
 }
-
 

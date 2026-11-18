@@ -1,1 +1,393 @@
-{"key":"i27","machine":"hk3gtl:i27_world_bubble_capture_array","controller":[168,35,18],"size_xyz":[337,205,337]}
+{
+  "key": "i27",
+  "machine": "hk3gtl:i27_world_bubble_capture_array",
+  "source": "data/hk3gtl/approved_architecture/i27.json",
+  "sha256": "b5e614c41efee99150b9c9a2a1c933066d59321444432a270020a0a79f854746",
+  "template_sha256": "0716010e59f37e6fb295874bf2a420f253271b917e04d085732fd67b0736e51a",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_171435_109565_batch-07_05of05_I27_V1_IMV_已确认\\I27_世界泡整体捕获阵列_锁界环形回收坞_V1_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_171435_109565_batch-07_05of05_I27_V1_IMV_已确认\\I27_世界泡整体捕获阵列_锁界环形回收坞_V1_20261026\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_171435_109565_batch-07_05of05_I27_V1_IMV_已确认\\I27_世界泡整体捕获阵列_锁界环形回收坞_V1_20261026\\i27\\hk3gtl-i27-whole-world-capture-array-v1-20261026.nbt",
+  "source_nbt_sha256": "c6f5256df63e34dd21b85080326c1199fd389eda5dfbfb013208140e0625f3ae",
+  "controller": [
+    168,
+    35,
+    18
+  ],
+  "size_xyz": [
+    337,
+    205,
+    337
+  ],
+  "blocks": 1201924,
+  "ports": [],
+  "target_voltage": "IMV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 36,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        146,
+        35,
+        18
+      ],
+      "role": "坐标数据输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        168,
+        35,
+        18
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i27_world_bubble_capture_array[facing=north]",
+      "block_entity_id": "hk3gtl:i27_world_bubble_capture_array"
+    },
+    {
+      "pos": [
+        190,
+        35,
+        18
+      ],
+      "role": "锁定与研究授权",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        12,
+        35,
+        140
+      ],
+      "role": "西侧约束能源",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        324,
+        35,
+        140
+      ],
+      "role": "东侧约束能源",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        12,
+        35,
+        196
+      ],
+      "role": "西侧维护",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        324,
+        35,
+        196
+      ],
+      "role": "捕获异常与场衰减记录",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        154,
+        35,
+        322
+      ],
+      "role": "空收容容器输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=south]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        182,
+        35,
+        322
+      ],
+      "role": "封存世界泡输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i27_world_bubble_capture_array",
+  "controller_json_state": "hk3gtl:i27_world_bubble_capture_array",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "坐标数据输入",
+      "pos": [
+        146,
+        35,
+        18
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_imv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              145,
+              35,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          },
+          {
+            "pos": [
+              147,
+              35,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "锁定与研究授权",
+      "pos": [
+        190,
+        35,
+        18
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_imv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              189,
+              35,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          },
+          {
+            "pos": [
+              191,
+              35,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西侧约束能源",
+      "pos": [
+        12,
+        35,
+        140
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_imv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              12,
+              35,
+              139
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          },
+          {
+            "pos": [
+              12,
+              35,
+              141
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西侧维护",
+      "pos": [
+        12,
+        35,
+        196
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_imv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              12,
+              35,
+              195
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          },
+          {
+            "pos": [
+              12,
+              35,
+              197
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东侧约束能源",
+      "pos": [
+        324,
+        35,
+        140
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_imv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              324,
+              35,
+              139
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          },
+          {
+            "pos": [
+              324,
+              35,
+              141
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "捕获异常与场衰减记录",
+      "pos": [
+        324,
+        35,
+        196
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_imv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              324,
+              35,
+              195
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          },
+          {
+            "pos": [
+              324,
+              35,
+              197
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "空收容容器输入",
+      "pos": [
+        154,
+        35,
+        322
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_imv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              153,
+              35,
+              322
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          },
+          {
+            "pos": [
+              155,
+              35,
+              322
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "封存世界泡输出",
+      "pos": [
+        182,
+        35,
+        322
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_imv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              181,
+              35,
+              322
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          },
+          {
+            "pos": [
+              183,
+              35,
+              322
+            ],
+            "state": "hk3gtl:voltage_machine_casing_imv"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

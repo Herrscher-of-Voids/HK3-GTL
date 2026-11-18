@@ -11,12 +11,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
-
-
-
-
-
 public final class Hk3ResearchIcons {
     private Hk3ResearchIcons() {}
     private static final class Holder { private static final Map<String,String> ICONS=load(); }
@@ -38,5 +32,4 @@ public final class Hk3ResearchIcons {
         return new ItemStack(item==Items.AIR?Items.KNOWLEDGE_BOOK:item);
     }
 }
-
 

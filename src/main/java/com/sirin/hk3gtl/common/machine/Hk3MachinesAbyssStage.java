@@ -16,29 +16,7 @@ import com.sirin.hk3gtl.common.recipe.Hk3RecipeTypes;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3MachinesAbyssStage {
-
 
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -71,7 +49,6 @@ public class Hk3MachinesAbyssStage {
                 .recipeType(Hk3IndustrialRecipeTypes.SPECTRUM_ANALYSIS)
                 .appearanceBlock(() -> com.sirin.hk3gtl.common.multiblock.pattern.Hk3StructureBlocks.require("hk3gtl:industrial_port_casing"))
                 .pattern(def -> com.sirin.hk3gtl.common.multiblock.pattern.Hk3IndustrialApprovedPatterns.create(def, "i02"))
-                // 2026-09-25：光谱棱镜面板使用独立状态贴图；机器功能、接口和配方关联保持不变。
                 .workableCasingRenderer(tex("industrial_controller_shell"),
                         new ResourceLocation("hk3gtl", "block/overlay/i02_appearance_0002_r7"))
                 .tooltips(
@@ -84,5 +61,4 @@ public class Hk3MachinesAbyssStage {
         LOGGER.info("[HK3GTL] machine registration completed");
     }
 }
-
 

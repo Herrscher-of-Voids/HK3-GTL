@@ -41,19 +41,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 为逐格建造提供可回退的物品与AE材料预留，所有操作限服务器线程。
+ */
 public final class Hk3BuildMaterials {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Set<String> POSITION_ONLY_TAGS = Set.of("id", "x", "y", "z");

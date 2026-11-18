@@ -3,9 +3,6 @@ package com.sirin.hk3gtl.common.communication;
 
 
 
-
-
-
 import com.sirin.hk3gtl.common.phone.*;
 import com.sirin.hk3gtl.common.research.*;
 import net.minecraft.nbt.CompoundTag;
@@ -16,13 +13,6 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-
-
-
-
-
-
-
 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3PersonalCommunicationService {
@@ -90,5 +80,4 @@ public final class Hk3PersonalCommunicationService {
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent event) { PREVIEWS.remove(event.getEntity().getUUID()); }
     @SubscribeEvent public static void stop(ServerStoppedEvent event) { PREVIEWS.clear(); }
 }
-
 

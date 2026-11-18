@@ -1,14 +1,8 @@
 package com.sirin.hk3gtl.common.research;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】保留最大流扣料分配，并返回逐需求分配以区分耗材与不消耗工装。
+ */
 
 import java.util.Arrays;
 
@@ -19,7 +13,6 @@ public final class Hk3MaterialAllocation {
     public static long[] allocate(long[] stock, long[] cost, boolean[][] matches) {
         var plan=allocateDetailed(stock,cost,matches); return plan==null?null:plan.used();
     }
-    /** 修订100：保留每种需求的分配，准确区分消耗品和需退回的带NBT工装。 */
     public record Plan(long[] used,long[][] assigned) {}
     public static Plan allocateDetailed(long[] stock, long[] cost, boolean[][] matches) {
         int s = stock.length, c = cost.length, sink = s+c+1, n = sink+1;

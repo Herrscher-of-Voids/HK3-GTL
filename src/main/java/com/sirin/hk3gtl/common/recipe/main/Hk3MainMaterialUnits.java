@@ -2,14 +2,9 @@ package com.sirin.hk3gtl.common.recipe.main;
 
 import java.util.Map;
 
-
-
-
-
-
-
-
-
+/**
+ * 维护主材相含量的形态折算；不是所有外加树脂、导体与溶剂的原子质量模型。
+ */
 public final class Hk3MainMaterialUnits {
     private static final Map<String, Integer> UNITS = Map.ofEntries(
             Map.entry("billet", 144), Map.entry("plate", 144), Map.entry("rod", 72),

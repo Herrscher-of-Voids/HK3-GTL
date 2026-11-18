@@ -20,6 +20,6 @@ public abstract class Hk3CampusCreateWorldMixin {
 
     @Inject(method = "resetInputs", at = @At("HEAD"))
     private void hk3gtl$currentLayout(CallbackInfo ci) {
-        if (state != null) Hk3CampusLayoutVersion.set(draft, 7);
+        if (state != null) Hk3CampusLayoutVersion.set(draft, Hk3CampusLayoutVersion.CURRENT);
     }
 }

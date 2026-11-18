@@ -1,1 +1,9 @@
-{"replace":false,"values":["hk3gtl:entanglement_anchor_processor_mainframe","hk3gtl:imaginary_anchoring_computer","hk3gtl:icv_assembly","hk3gtl:causal_reconstruction_processor"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:entanglement_anchor_processor_mainframe",
+    "hk3gtl:imaginary_anchoring_computer",
+    "hk3gtl:icv_assembly",
+    "hk3gtl:causal_reconstruction_processor"
+  ]
+}

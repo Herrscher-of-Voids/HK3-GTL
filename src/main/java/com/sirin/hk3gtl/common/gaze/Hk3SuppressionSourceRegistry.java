@@ -5,12 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-
-
-
-
-
-
+/**
+ * 稳定源的坐标与具体实例登记；弱引用不因维度索引阻止机器及世界释放。
+ */
 public final class Hk3SuppressionSourceRegistry<K, V> {
     private final Map<K, WeakReference<V>> sources = new HashMap<>();
 

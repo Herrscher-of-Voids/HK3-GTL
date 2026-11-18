@@ -6,19 +6,6 @@ import com.sirin.hk3gtl.common.research.*;
 import net.minecraft.nbt.*;
 import java.util.*;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3WorldBubbleResearch {
     private Hk3WorldBubbleResearch() {}
     public static boolean valid(CompoundTag receipt,UUID scope,UUID batch,String role) {
@@ -70,5 +57,4 @@ public final class Hk3WorldBubbleResearch {
     private static void fact(Hk3ResearchData data,UUID scope,String id,CompoundTag receipt){data.recordProcessFact(scope,id,receipt);}
     private static String source(CompoundTag r){return r.getString("Facility")+"/"+r.getString("Recipe")+"/"+r.getUUID("Batch");}
 }
-
 

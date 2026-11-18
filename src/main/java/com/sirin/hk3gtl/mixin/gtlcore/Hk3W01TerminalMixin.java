@@ -11,13 +11,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-
-
-
-
-
-
-
+/**
+ * 接管HK3GTL高级Pattern建造与拆除；真实终端入口在转换Pattern前另行分流。
+ */
 @Mixin(value = AdvancedBlockPattern.class, remap = false, priority = 2000)
 public abstract class Hk3W01TerminalMixin {
     @Inject(method = "autoBuild", at = @At("HEAD"), cancellable = true)

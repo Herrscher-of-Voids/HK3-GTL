@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-/** 2026-10-30：只在显式测试开关下为I34准备无空气数组的完整预览，不改变正式Pattern。 */
+/** 只在显式测试开关下为I34准备无空气数组的完整预览，不改变正式Pattern。 */
 public final class Hk3PreviewPrototype {
     public static final String PROPERTY = "hk3gtl.previewPrototype";
     public static final String I34 = "hk3gtl:i34_imaginary_tree_observation_array";

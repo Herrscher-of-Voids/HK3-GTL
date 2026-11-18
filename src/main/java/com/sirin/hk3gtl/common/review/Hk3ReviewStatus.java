@@ -5,10 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
 public final class Hk3ReviewStatus {
     private Hk3ReviewStatus(){}
     @SubscribeEvent public static void commands(RegisterCommandsEvent e){e.getDispatcher().register(Commands.literal("hk3review").executes(c->{

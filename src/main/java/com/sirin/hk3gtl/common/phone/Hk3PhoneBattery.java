@@ -3,11 +3,6 @@ import com.gregtechceu.gtceu.api.capability.IElectricItem;
 import net.minecraft.nbt.CompoundTag;
 import java.util.function.Supplier;
 import java.util.function.IntSupplier;
-
-
-
-
-
 public final class Hk3PhoneBattery implements IElectricItem {
     public static final long CAPACITY=128000;
     private final Supplier<CompoundTag> tag;private final IntSupplier count;

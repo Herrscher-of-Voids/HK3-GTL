@@ -1,32 +1,10 @@
 package com.sirin.hk3gtl.mixin;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 处理 GTValuesMixin 的 Mixin 注入逻辑。
+ *
+ */
 import com.gregtechceu.gtceu.api.GTValues;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Final;
@@ -34,25 +12,6 @@ import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(value = GTValues.class, remap = false)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class GTValuesMixin {
 
     // ═══════════════════════════════════════

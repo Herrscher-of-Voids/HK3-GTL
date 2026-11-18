@@ -18,27 +18,6 @@ import static com.sirin.hk3gtl.common.recipe.Hk3ElectronicRecipes.part;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.item;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.fluid;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3CircuitManufacturing {
     private Hk3CircuitManufacturing() {}
 
@@ -89,5 +68,4 @@ public final class Hk3CircuitManufacturing {
         }
     }
 }
-
 

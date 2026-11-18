@@ -6,19 +6,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 第一条工业线的正式逐格结构数据，坐标单位为方块，顺序为宽、高、深。
+ */
 public final class Hk3LiquidLineLayout {
     public enum Kind {
         SEPARATION(25, 25, 29), STABILIZATION(21, 33, 21), REGENERATION(21, 29, 25),

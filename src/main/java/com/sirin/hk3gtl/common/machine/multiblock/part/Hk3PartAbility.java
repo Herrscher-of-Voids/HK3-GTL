@@ -14,7 +14,7 @@ public class Hk3PartAbility {
     public static final PartAbility HONKAI_ENERGY_INPUT = new PartAbility("honkai_energy_input");
     /** 崩坏能输出能力 */
     public static final PartAbility HONKAI_ENERGY_OUTPUT = new PartAbility("honkai_energy_output");
-
+    
     /** 无线崩坏能输入能力 */
     public static final PartAbility WIRELESS_HONKAI_INPUT = new PartAbility("wireless_honkai_input");
     /** 无线崩坏能输出能力 */

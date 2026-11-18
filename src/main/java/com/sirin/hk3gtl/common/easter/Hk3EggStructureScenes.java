@@ -9,8 +9,6 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
 public final class Hk3EggStructureScenes {
     private record Dismantled(ServerPlayer player,ServerLevel level,net.minecraftforge.event.level.BlockEvent.BreakEvent event,
                               MultiblockControllerMachine machine,net.minecraft.world.level.block.state.BlockState before,long tick) {}
@@ -85,5 +83,4 @@ public final class Hk3EggStructureScenes {
         }
     }
 }
-
 

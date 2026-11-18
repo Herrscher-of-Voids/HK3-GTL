@@ -1,20 +1,10 @@
 package com.sirin.hk3gtl.common.event;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 处理 Hk3EventService 相关事件分发与触发。
+ *
+ */
 import com.sirin.hk3gtl.common.advancement.Hk3StageAdvancements;
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeManager;
 import com.sirin.hk3gtl.common.research.Hk3ResearchManager;
@@ -35,23 +25,6 @@ import javax.annotation.Nullable;
  * 从 {@link Hk3EventManagerImpl} / {@link Hk3FactionEventChecker} 抽离，供研究失败彩蛋等任意系统复用，
  * 避免重复维护 TAG 前缀与桥接顺序。
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3EventService {
 
     private static final Logger LOGGER = LogUtils.getLogger();

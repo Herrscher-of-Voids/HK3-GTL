@@ -1,11 +1,5 @@
 package com.sirin.hk3gtl.common.event;
 
-
-
-
-
-
-
 import com.sirin.hk3gtl.common.bootstrap.Hk3ModHealthReport;
 import com.sirin.hk3gtl.common.bootstrap.Hk3WelcomeState;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
@@ -19,15 +13,12 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 
-
-
-
-
-
-
-
+/**
+ * 
+ * - 玩家首次进入世界或模组版本变更时，下发欢迎/加载状态弹窗。
+ *
+ */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-
 public final class Hk3ModWelcomeHandler {
 
     private static final java.util.Map<java.util.UUID, String> OFFERED = new java.util.concurrent.ConcurrentHashMap<>();

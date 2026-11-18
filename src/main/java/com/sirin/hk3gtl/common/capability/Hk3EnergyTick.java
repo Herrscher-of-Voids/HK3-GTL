@@ -4,12 +4,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-
 public final class Hk3EnergyTick {
     private enum State { OPEN, REFUNDING, REFUNDED, COMMITTED }
     private State state = State.OPEN;

@@ -7,6 +7,7 @@
   "verbose": true,
   "mixins": [
     "ae.Hk3NexusChunkMapAccess",
+    "ae.Hk3NexusNodeReadyMixin",
     "ae.Hk3NexusCraftingServiceMixin",
     "ae.Hk3NexusCpuMenuMixin",
     "ae.Hk3NexusStorageAccess",
@@ -204,6 +205,7 @@
     "client.Hk3FarEmbeddiumVisibilityMixin",
     "gtceu.Hk3W01PreviewMixin",
     "gtceu.Hk3JeiPreviewWidgetMixin",
+    "jei.Hk3MultiblockControllerFocusMixin",
     "enhanced.client.Hk3JeiMaterialIndexMixin",
     "gtceu.Hk3W01PreviewCullingMixin",
     "gtceu.Hk3PreviewCacheAccessor",

@@ -11,6 +11,7 @@ import com.sirin.hk3gtl.common.constants.Hk3Tiers;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 import com.sirin.hk3gtl.common.gaze.Hk3ResearchSuppression;
 import com.sirin.hk3gtl.common.registration.Hk3IndustrialContent;
+import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessTypes;
 import com.sirin.hk3gtl.common.recipe.power.Hk3PortPayment;
 import com.sirin.hk3gtl.common.recipe.power.Hk3PowerPorts;
 import com.sirin.hk3gtl.common.research.Hk3ResearchData;
@@ -36,10 +37,11 @@ public final class Hk3RealityStabilityAnchorMachine extends Hk3LateIndustrialMac
 
     @Override protected boolean enableMultiRecipe() { return false; }
 
-    @Override protected RecipeLogic createRecipeLogic(Object... args) {
-        return new RecipeLogic(this) {
-            @Override public void serverTick() { updateField(); }
-        };
+    @Override protected boolean continuousMode() { return getRecipeType() == Hk3ResearchProcessTypes.get("I36"); }
+
+    @Override protected boolean runContinuousProcess() {
+        if (!continuousMode()) return false;
+        updateField(); return true;
     }
 
     private boolean hasJudahModule() {
@@ -62,7 +64,11 @@ public final class Hk3RealityStabilityAnchorMachine extends Hk3LateIndustrialMac
         long now = getLevel().getGameTime();
         if (checkedTick == now) return;
         checkedTick = now;
-        if (!isFormed() || !getRecipeLogic().isWorkingEnabled() || getOwnerUUID() == null) return;
+        if (!isFormed() || getOwnerUUID() == null) return;
+        if (!getRecipeLogic().isWorkingEnabled()) {
+            getRecipeLogic().setStatus(RecipeLogic.Status.IDLE);
+            return;
+        }
         if (fieldRefund == null) fieldRefund = Hk3RefundJournal.resume(this);
         if (fieldRefund != null) {
             if (!fieldRefund.finish(false)) return;
@@ -116,6 +122,7 @@ public final class Hk3RealityStabilityAnchorMachine extends Hk3LateIndustrialMac
 
     @Override public long lastPaidTick() {
         // 查询先于锚自身tick时也结算同一刻；checkedTick禁止重复扣电。
+        if (!continuousMode()) return Long.MIN_VALUE;
         updateField();
         return paidTeam != null && paidTeam.equals(getResearchTeamUUID()) ? paidTick : Long.MIN_VALUE;
     }

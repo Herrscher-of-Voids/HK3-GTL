@@ -10,31 +10,6 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 import javax.annotation.Nullable;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3CircuitItem extends Item {
     private final int tier;
 

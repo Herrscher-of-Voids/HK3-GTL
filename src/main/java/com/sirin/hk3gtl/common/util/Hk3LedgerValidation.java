@@ -3,11 +3,6 @@ package com.sirin.hk3gtl.common.util;
 import net.minecraft.nbt.*;
 import java.util.UUID;
 
-
-
-
-
-
 public final class Hk3LedgerValidation {
     private Hk3LedgerValidation(){}
     public static void require(boolean valid,String field){if(!valid)throw new IllegalStateException("账本字段损坏，拒绝重置："+field);}

@@ -11,9 +11,7 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
 public final class Hk3EggMusic {
     private record Key(Level level,BlockPos pos){}
     private record Pending(UUID player,long tick,int note){}

@@ -9,19 +9,9 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * Forge配置界面仅编辑未来新世界模式和上界，不能给当前或旧档启用/缩高。
+ */
 public final class Hk3HeightConfigScreen extends Screen {
     private final Screen parent;
     private Hk3HeightConfig.NewWorldMode mode;

@@ -1,29 +1,13 @@
 package com.sirin.hk3gtl.common.event;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 为特定玩家 ID（xiguamao）发放“专属首次进入世界礼物”的隐藏彩蛋处理器。
+ * - 核心输入：玩家登录事件 PlayerLoggedInEvent。
+ * - 核心输出：向匹配玩家背包发放礼物物品，并在聊天栏弹出西琳台词。
+ * - 关键调用链：Forge 事件总线 -> onPlayerLoggedIn -> 名称匹配/去重标记 -> 发放物品 + 发送消息。
+ *
+ */
 
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraft.core.registries.BuiltInRegistries;

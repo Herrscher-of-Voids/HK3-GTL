@@ -20,13 +20,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.HashSet;
 import java.util.List;
 
-
-
-
-
-
-
-
+/**
+ * 在GT原生分类内接入本模组自家完整预览，按需解码稀疏实体，不接管其他模组。
+ */
 @Mixin(value = PatternPreviewWidget.class, remap = false)
 public abstract class Hk3W01PreviewMixin {
     @Shadow @Final public MultiblockMachineDefinition controllerDefinition;

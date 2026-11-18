@@ -1,7 +1,6 @@
 package com.sirin.hk3gtl.common.machine;
 
 
-
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
@@ -16,15 +15,9 @@ import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 正式注册I14–I18批准结构；复用玩家电网、研究身份和既有类型。
+ */
 public final class Hk3IndustrialExtensionMachines {
     public static MultiblockMachineDefinition SOULIUM_POLYMERIZATION_DIE_CASTER;
     public static MultiblockMachineDefinition SOULIUM_RECONSTRUCTION_ANNEALING_FURNACE;

@@ -2,15 +2,9 @@ package com.sirin.hk3gtl.common.research;
 
 
 
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】按获批样件与工装实际扣入托管，ALE使用MAX、ERM使用QSV，只有成功实验才记证据。
+ */
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -22,20 +16,6 @@ import com.sirin.hk3gtl.common.constants.Hk3Values;
 import com.sirin.hk3gtl.common.registration.Hk3IndustrialContent;
 import java.util.*;
 import static com.sirin.hk3gtl.common.research.Hk3ResearchMaterialPayment.Requirement;
-
-/** 修订100 · 2026-09-29：仅注册审核过的固定实验；不把样件持有当成功证据。 */
-
-
-
-
-
-
-
-
-
-
-
-
 
 public final class Hk3LabExperimentService {
     private Hk3LabExperimentService() {}
@@ -84,5 +64,4 @@ public final class Hk3LabExperimentService {
         return started?Hk3ResearchStartService.Result.STARTED:Hk3ResearchStartService.Result.CAPACITY;
     }
 }
-
 

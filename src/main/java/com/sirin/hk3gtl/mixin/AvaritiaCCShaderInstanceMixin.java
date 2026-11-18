@@ -1,22 +1,10 @@
 package com.sirin.hk3gtl.mixin;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 处理 AvaritiaCCShaderInstanceMixin 的 Mixin 注入逻辑。
+ *
+ */
 import com.mojang.blaze3d.shaders.Uniform;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.logging.LogUtils;

@@ -11,14 +11,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 虚数维度平台中央的「虚数裂隙」交互点：仅粒子可见，右键后触发西琳登场。
+ *
+ */
 public class ImaginaryRiftEntity extends Entity {
 
     private int particleTick;

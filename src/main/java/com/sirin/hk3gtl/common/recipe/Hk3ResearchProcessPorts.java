@@ -22,16 +22,22 @@ public final class Hk3ResearchProcessPorts {
             case "GTL_SPS" -> new Ports(6,2,3,1);
             case "NETWORK_INJECTION" -> new Ports(8,4,4,2);
             case "I01-1" -> new Ports(6,4,2,3);
-            case "I02" -> new Ports(6,4,2,2);
+            case "I02" -> new Ports(7,4,3,2);
+            case "I04" -> new Ports(13,6,4,4);
             case "I05", "I06" -> new Ports(8,6,5,4);
             case "I07" -> new Ports(8,4,0,0);
-            case "I09", "I14" -> new Ports(10,6,4,4);
+            case "I09" -> new Ports(12,6,4,4);
+            case "I10", "I15", "I28", "I30", "I31", "I39", "I41" -> new Ports(11,6,4,4);
             case "I11" -> new Ports(20,6,4,2);
-            case "I12" -> new Ports(10,4,3,2);
+            case "I12" -> new Ports(12,4,3,2);
+            case "I14", "I45" -> new Ports(10,6,4,4);
             case "I16" -> new Ports(28,8,5,4);
             case "I17" -> new Ports(8,6,8,4);
+            case "I25", "I26", "I27", "I29" -> new Ports(15,6,4,4);
             case "I33" -> new Ports(16,4,4,2);
-            case "I42" -> new Ports(16,6,5,4);
+            case "I37" -> new Ports(16,6,4,4);
+            case "I40" -> new Ports(9,6,4,4);
+            case "I42" -> new Ports(18,6,5,4);
             default -> {
                 if(!role.matches("I(0[3-9]|[1-3][0-9]|4[0-5])|I01-[234]|W(0[1-9]|1[0-5])|H01"))
                     throw new IllegalArgumentException("Unknown recipe role "+role);

@@ -9,6 +9,9 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.content.Content;
 import com.gregtechceu.gtceu.api.recipe.content.ContentModifier;
 import com.gregtechceu.gtceu.api.recipe.modifier.ParallelLogic;
+import com.sirin.hk3gtl.common.capability.Hk3DualEnergyCosts;
+import com.sirin.hk3gtl.common.capability.HonkaiWirelessNetwork;
+import com.sirin.hk3gtl.common.capability.IDualEnergyConsumer;
 import com.sirin.hk3gtl.common.recipe.power.Hk3RecipePower;
 import com.sirin.hk3gtl.common.research.Hk3RecipeAccess;
 import com.sirin.hk3gtl.common.research.Hk3ResearchRequirementPolicy;
@@ -22,18 +25,6 @@ import org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper;
 
 import java.math.BigInteger;
 import java.util.*;
-
-
-
-
-
-
-
-
-
-
-
-
 
 public final class Hk3RecipeCalculationHelper {
 
@@ -69,6 +60,8 @@ public final class Hk3RecipeCalculationHelper {
         copyContentsInPlace(copy.tickInputs, mod);
         copyContentsInPlace(copy.tickOutputs, mod);
         Hk3RecipePower.scale(recipe, copy, multiplier);
+        BigInteger honkai = Hk3DualEnergyCosts.getMergedCost(recipe);
+        if (honkai != null) Hk3DualEnergyCosts.setMergedCost(copy, honkai.multiply(BigInteger.valueOf(multiplier)));
         return copy;
     }
 
@@ -96,7 +89,9 @@ public final class Hk3RecipeCalculationHelper {
     public static long[] calculateParallel(IRecipeCapabilityHolder machine, GTRecipe recipe, long maxParallel) {
         if (maxParallel <= 0) return new long[]{0, 0};
 
-        GTRecipe testRecipe = recipe.copy();
+        // 无线网按实际余额供电，物料初筛不使用单安培电压限制。
+        GTRecipe testRecipe = machine instanceof Hk3WorkableMultiblockMachine
+                ? Hk3RecipePower.withoutEU(recipe) : recipe.copy();
         var parallelResult = ParallelLogic.applyParallel((MetaMachine) machine, testRecipe,
                 (int) Math.min(maxParallel, Integer.MAX_VALUE), false);
         int limitedParallel = parallelResult.getSecond();
@@ -320,6 +315,9 @@ public final class Hk3RecipeCalculationHelper {
                 || !planned.checkConditions(recipeMachine.getRecipeLogic()).isSuccess()) {
             return false;
         }
+        if (machine instanceof IDualEnergyConsumer consumer
+                && HonkaiWirelessNetwork.getStoredAmount(consumer.getDualEnergyOwner())
+                .compareTo(Hk3DualEnergyCosts.getMergedCost(planned)) < 0) return false;
         return RecipeRunnerHelper.matchRecipe(machine, planned)
                 && planned.matchTickRecipe(machine).isSuccess();
     }
@@ -354,13 +352,21 @@ public final class Hk3RecipeCalculationHelper {
         var gates = new ListTag();
         requirements.forEach(id -> gates.add(StringTag.valueOf(id)));
         merged.data.put(Hk3ResearchRequirementPolicy.METADATA_KEY, gates);
+        merged.data.putLong(Hk3MultiRecipeLogic.PARALLEL_COUNT_KEY,
+                Arrays.stream(parallelData.getParallels()).sum());
+        merged.data.putInt(Hk3MultiRecipeLogic.RECIPE_COUNT_KEY, parallelData.getOriginRecipeList().size());
 
         return merged;
     }
 
     /** 将 other 配方的所有 Content 合并到 base 配方 */
     private static void mergeRecipeInto(GTRecipe base, GTRecipe other) {
+        BigInteger baseHonkai = Hk3DualEnergyCosts.getMergedCost(base);
+        BigInteger otherHonkai = Hk3DualEnergyCosts.getMergedCost(other);
         Hk3RecipePower.merge(base, other);
+        if (baseHonkai != null || otherHonkai != null) Hk3DualEnergyCosts.setMergedCost(base,
+                (baseHonkai == null ? BigInteger.ZERO : baseHonkai)
+                        .add(otherHonkai == null ? BigInteger.ZERO : otherHonkai));
         mergeContentMap(base.inputs, other.inputs);
         mergeContentMap(base.outputs, other.outputs);
         mergeContentMap(base.tickInputs, other.tickInputs);

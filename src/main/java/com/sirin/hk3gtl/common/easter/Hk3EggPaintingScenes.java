@@ -6,7 +6,6 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
 public final class Hk3EggPaintingScenes {
     private Hk3EggPaintingScenes(){}
     public static void placed(ServerPlayer p,Painting painting){

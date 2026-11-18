@@ -9,7 +9,6 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-
 public record Hk3CampusMarkerBeamPacket(ResourceLocation dimension, BlockPos marker, int minX, int minZ, int maxX, int maxZ) {
     public static void encode(Hk3CampusMarkerBeamPacket packet, FriendlyByteBuf buffer) {
         buffer.writeResourceLocation(packet.dimension);

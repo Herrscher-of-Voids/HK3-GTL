@@ -1,0 +1,69 @@
+{
+  "id": "W05",
+  "version": "0005-R3",
+  "controller": "hk3gtl:w05_ideal_fluid_circulation_array",
+  "blueprint": "hk3gtl:structures/w05_candidate.bin.gz",
+  "conversation": "0005",
+  "conversation_id": "01a1d6b8-bd81-79d3-a6f4-4f590806cc8e",
+  "appearance_approved": true,
+  "approval_basis": "负责人：可以就这台吧，接入吧，你主控打算放哪里",
+  "source": "deliveries/0005_W05_七处穿模修订_R3_20261115",
+  "source_manifest_sha256": "31447ba6b63a570e673ae659f5c18f097efb75d8e4e7c7442054e2a39abfaa6e",
+  "source_npz_sha256": "12be8d1690db42998d8391e3b0c9084b08245746bec035bdf12a4a6b055a8dfb",
+  "source_manifest_approved_field_preserved": true,
+  "external_approval_is_authoritative": true,
+  "size_xyz": [
+    555,
+    321,
+    701
+  ],
+  "size_wdh": [
+    555,
+    701,
+    321
+  ],
+  "source_origin_xyz": [
+    -277,
+    0,
+    -350
+  ],
+  "controller_source_xyz": [
+    0,
+    12,
+    -345
+  ],
+  "controller_xyz": [
+    277,
+    12,
+    5
+  ],
+  "source_facing": "north",
+  "block_count": 6646726,
+  "full_geometry": true,
+  "source_component_voxels": 6749599,
+  "overlap_extra_memberships": 102873,
+  "overlap_material_policy": "沿用既有整机生成顺序，后构件覆盖前构件；正常嵌接合并为唯一方块，外形不裁切。",
+  "fixed_interface_positions": [],
+  "production_recipe": "hk3gtl:wonder_ideal_flow_exchange_matrix",
+  "target_voltage": "WSV",
+  "research": "RN-IFF",
+  "interface_policy": "保留既有自由通用接口规则；本蓝图不预装固定仓室。",
+  "material_counts": {
+    "gtceu:watertight_casing": 5364963,
+    "gtceu:plascrete": 312272,
+    "gtceu:iridium_frame": 456531,
+    "minecraft:sea_lantern": 188171,
+    "gtceu:stainless_steel_frame": 324788,
+    "hk3gtl:w05_ideal_fluid_circulation_array[facing=north]": 1
+  },
+  "controller_previous_state": "minecraft:sea_lantern",
+  "controller_state": "hk3gtl:w05_ideal_fluid_circulation_array[facing=north]",
+  "controller_nbt_blockentity_id": "hk3gtl:w05_ideal_fluid_circulation_array",
+  "controller_replacements": 1,
+  "runtime_format": "HK3P/2；线性坐标全局升序等差游程，兼容稀疏蓝图二分查找；主控原生方块实体NBT",
+  "rle_record_count": 727410,
+  "blueprint_sha256": "86091875f8f924db9a2442efe9b031a4fde9fd7b23fa090e1068f9880fdf3fcc",
+  "native_animation_integrated": false,
+  "animation_scope": "本次接入完整静态方块蓝图；R3叶轮、陀螺仪和流场动画仍仅网页演示。",
+  "game_verified": false
+}

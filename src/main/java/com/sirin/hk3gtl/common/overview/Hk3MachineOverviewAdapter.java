@@ -26,19 +26,9 @@ import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Set;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 只读适配GT及其附属的公开机器接口，独立核验现场绑定权限。
+ */
 public final class Hk3MachineOverviewAdapter {
     private Hk3MachineOverviewAdapter() {}
 

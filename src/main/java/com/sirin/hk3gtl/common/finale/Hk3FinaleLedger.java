@@ -3,12 +3,6 @@ package com.sirin.hk3gtl.common.finale;
 import net.minecraft.nbt.*;
 import java.util.*;
 
-
-
-
-
-
-
 public final class Hk3FinaleLedger {
     public enum State { OPEN, PASSED, BAD }
     private record Entry(UUID meeting,State state,String checkpoint,CompoundTag sources){}

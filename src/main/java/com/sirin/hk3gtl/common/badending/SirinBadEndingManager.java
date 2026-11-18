@@ -1,11 +1,5 @@
 package com.sirin.hk3gtl.common.badending;
 
-
-
-
-
-
-
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.dimension.Hk3Dimensions;
 import com.sirin.hk3gtl.common.dimension.Hk3GraduationData;
@@ -59,8 +53,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 阶段仍为 ERASED，直接走收尾流程，不会延续 Boss 战。</p>
  */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID)
-
-
 public final class SirinBadEndingManager {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -123,7 +115,6 @@ public final class SirinBadEndingManager {
         if (data.getStage(player.getUUID()) != Hk3BadEndingData.STAGE_NONE) return;
         if (Hk3GraduationData.get(level).isGraduated(player.getUUID())) return;
 
-        // 修订198：攻击不生成资格，只统计本人已核验的当前会面。
         if (!com.sirin.hk3gtl.common.finale.Hk3FinaleAdmission.hasSession(player)) return;
         UUID meeting=data.meeting(player.getUUID());
         var attacks=Hk3FinaleAttackData.get(player);attacks.begin(player.getUUID(),meeting);

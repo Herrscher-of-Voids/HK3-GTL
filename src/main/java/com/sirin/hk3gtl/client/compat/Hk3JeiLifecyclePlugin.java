@@ -5,14 +5,9 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.resources.ResourceLocation;
 
-
-
-
-
-
-
-
-
+/**
+ * 通过JEI公开生命周期记录复制操作是否可以读取运行时，不保存运行时实例。
+ */
 @JeiPlugin
 public final class Hk3JeiLifecyclePlugin implements IModPlugin {
     private static volatile boolean runtimeAvailable;

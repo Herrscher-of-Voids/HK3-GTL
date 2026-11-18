@@ -1,10 +1,5 @@
 package com.sirin.hk3gtl.common.phone;
 
-
-
-
-
-
 public final class Hk3PhoneLayout {
     private Hk3PhoneLayout(){}
     public static int pages(int lines,int perPage){return Math.max(1,(int)(((long)Math.max(0,lines)+Math.max(1,perPage)-1)/Math.max(1,perPage)));}

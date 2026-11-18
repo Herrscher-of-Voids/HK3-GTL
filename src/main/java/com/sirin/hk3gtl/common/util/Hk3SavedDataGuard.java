@@ -10,13 +10,6 @@ import java.nio.file.Path;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-
-
-
-
-
-
-
 public final class Hk3SavedDataGuard {
     private Hk3SavedDataGuard() {}
     public static <T extends SavedData> T get(MinecraftServer server, String name,

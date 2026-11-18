@@ -1,0 +1,347 @@
+{
+  "revision": 153,
+  "time": "2026-10-01 21:59:42",
+  "source_jar": "gtceu-1.20.1-1.4.4.jar",
+  "method": "用户指定防震机壳原图与CTM图按已批准主色乘以原像素亮度；删除MAX旧面及动画资源，连接纹理引用指向各自换色图。",
+  "blocks": [
+    "voltage_machine_casing_hbv",
+    "voltage_machine_casing_hcv",
+    "voltage_machine_casing_hrv",
+    "voltage_machine_casing_hdv",
+    "voltage_machine_casing_qsv",
+    "voltage_machine_casing_qcv",
+    "voltage_machine_casing_qev",
+    "voltage_machine_casing_qav",
+    "voltage_machine_casing_imv",
+    "voltage_machine_casing_icv",
+    "voltage_machine_casing_irv",
+    "voltage_machine_casing_iwv",
+    "voltage_machine_casing_wfv",
+    "voltage_machine_casing_wsv",
+    "voltage_machine_casing_civ",
+    "voltage_machine_casing_cev"
+  ],
+  "textures": [
+    {
+      "id": "voltage_machine_casing_hbv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_hbv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_hcv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_hcv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_hrv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_hrv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_hdv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_hdv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_qsv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_qsv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_qcv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_qcv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_qev",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_qev",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_qav",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_qav",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_imv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_imv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_icv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_icv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_irv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_irv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_iwv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_iwv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_wfv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_wfv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_wsv",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_wsv",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_civ",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_civ",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    },
+    {
+      "id": "voltage_machine_casing_cev",
+      "face": "casing",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing.png",
+      "size": [
+        16,
+        16
+      ],
+      "source_sha256": "de711df9d6e33080eb3dc49e220241ee0f6759c1d913d9fb767519200763c89a"
+    },
+    {
+      "id": "voltage_machine_casing_cev",
+      "face": "casing_ctm",
+      "source": "assets/gtceu/textures/block/casings/gcym/vibration_safe_casing_ctm.png",
+      "size": [
+        32,
+        32
+      ],
+      "source_sha256": "2b8b0ffc17a395d9024b39ae687585cbb008a8c863e4a8ea05dea1ce3dac651b"
+    }
+  ],
+  "source_block": "gtceu:vibration_safe_casing"
+}

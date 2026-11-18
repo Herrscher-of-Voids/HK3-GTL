@@ -1,11 +1,8 @@
 package com.sirin.hk3gtl.common.gaze;
 
-
-
-
-
-
-
+/**
+ * 注视值边界与稳定锚覆盖的纯逻辑，供运行时及回归测试共用。
+ */
 public final class Hk3GazeRules {
     private Hk3GazeRules() {}
     /** 缓冲以主世界刻计时，到期刻立即失效；减免不修改个人原值。 */

@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.client.phone;
 
-
 import com.sirin.hk3gtl.common.phone.*;
 import com.sirin.hk3gtl.common.network.Hk3Network;
 import net.minecraft.client.Minecraft;
@@ -8,23 +7,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 final class Hk3PhoneExtraApps {
-
-
     private final Hk3PhoneScreen host;
     private final Hk3MachineOverviewPane machines;
     private final Hk3PhoneCipherPane cipher;
@@ -103,7 +86,7 @@ final class Hk3PhoneExtraApps {
                 titleBox=host.widget(new EditBox(Minecraft.getInstance().font,x+5,y+125,302,24,Component.literal("标题")));
                 titleBox.setMaxLength(64);titleBox.setValue(title);titleBox.setResponder(s->{title=s;dirty=true;});
                 bodyBox=host.widget(new MultiLineEditBox(Minecraft.getInstance().font,x+5,y+171,302,185,Component.literal("写下想记录的事…"),Component.literal("笔记正文")){
-                    @Override
+                    @Override  
 public void renderWidget(GuiGraphics g,int mx,int my,float delta){
                         if(!visible)return;renderBackground(g);host.clip(g,getX()+1,getY()+1,getX()+getWidth()-1,getY()+getHeight()-1);
                         g.pose().pushPose();g.pose().translate(0,-scrollAmount(),0);
@@ -144,7 +127,6 @@ public void renderWidget(GuiGraphics g,int mx,int my,float delta){
                 host.button("查看文明等级与成果条件",x,y+413,312,()->Hk3PhoneScreen.command("hk3phone apps milestones"));
                 host.button("档案与收藏",x,y+451,148,()->Hk3PhoneScreen.command("hk3phone apps archive"));
                 host.button("文明往来",x+164,y+451,148,()->Hk3PhoneScreen.command("hk3phone apps story"));
-
                 host.button("阅读全文",x,y+489,148,()->Hk3PhoneScreen.command("hk3phone apps civilizationread"));
                 host.button(Component.translatable("hk3gtl.phone.gallery.title").getString(),x+164,y+489,148,()->Hk3PhoneScreen.command("hk3phone apps gallery"));
             }

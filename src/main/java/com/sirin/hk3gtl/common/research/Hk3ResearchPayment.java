@@ -16,21 +16,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.BooleanSupplier;
 
-
-
-
-
-
-
-
-
+/**
+ * 将研究开题、实验托管与退款领取的真实内存变更提交为可重放的跨文件事务。
+ */
 @Mod.EventBusSubscriber(modid = "hk3gtl")
-
-
-
-
-
-
 public final class Hk3ResearchPayment {
     private Hk3ResearchPayment() {}
     private static final ThreadLocal<Boolean> ACTIVE = ThreadLocal.withInitial(() -> false);

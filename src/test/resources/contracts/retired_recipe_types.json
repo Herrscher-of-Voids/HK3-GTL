@@ -1,0 +1,733 @@
+{
+  "revision": 162,
+  "timestamp": "2026-10-17 14:38:46",
+  "scope": "legacy HK3 GT recipe type registrations only",
+  "count": 88,
+  "retained": [
+    {
+      "field": "ABYSS_RESEARCH_ANALYSIS_RECIPES",
+      "registry_name": "abyss_research_analysis",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "reason": "S01–S05实际研究所绑定，保留。"
+    }
+  ],
+  "current_initialization": [
+    "Hk3RecipeTypesImpl.init -> Hk3IndustrialRecipeTypes.init -> Hk3ResearchProcessTypes.init"
+  ],
+  "types": [
+    {
+      "field": "SOULIUM_SMELTING_RECIPES",
+      "registry_name": "soulium_smelting",
+      "registry_id": "gtceu:soulium_smelting",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 75,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "VOID_ARCHIVES_ANALYSIS_RECIPES",
+      "registry_name": "void_archives_analysis",
+      "registry_id": "gtceu:void_archives_analysis",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 96,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "REASON_RECONSTRUCTION_RECIPES",
+      "registry_name": "reason_reconstruction",
+      "registry_id": "gtceu:reason_reconstruction",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 104,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "SMALL_HONKAI_REACTION_RECIPES",
+      "registry_name": "small_honkai_reaction",
+      "registry_id": "gtceu:small_honkai_reaction",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 112,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "MEDIUM_HONKAI_REACTION_RECIPES",
+      "registry_name": "medium_honkai_reaction",
+      "registry_id": "gtceu:medium_honkai_reaction",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 120,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_EU_CONVERSION_RECIPES",
+      "registry_name": "honkai_eu_conversion",
+      "registry_id": "gtceu:honkai_eu_conversion",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 128,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_NETWORK_INJECTION_RECIPES",
+      "registry_name": "honkai_network_injection",
+      "registry_id": "gtceu:honkai_network_injection",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 137,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_CIRCUIT_FOUNDRY_RECIPES",
+      "registry_name": "abyss_circuit_foundry",
+      "registry_id": "gtceu:abyss_circuit_foundry",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 145,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_CASING_PRESS_RECIPES",
+      "registry_name": "abyss_casing_press",
+      "registry_id": "gtceu:abyss_casing_press",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 153,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_DISTILLATION_RECIPES",
+      "registry_name": "honkai_distillation",
+      "registry_id": "gtceu:honkai_distillation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 161,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "SOULIUM_WIRE_DRAWING_RECIPES",
+      "registry_name": "soulium_wire_drawing",
+      "registry_id": "gtceu:soulium_wire_drawing",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 169,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "PRECIVILIZATION_DATA_RECOVERY_RECIPES",
+      "registry_name": "precivilization_data_recovery",
+      "registry_id": "gtceu:precivilization_data_recovery",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 177,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_ENVIRONMENT_SAMPLING_RECIPES",
+      "registry_name": "honkai_environment_sampling",
+      "registry_id": "gtceu:honkai_environment_sampling",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 185,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "LARGE_HONKAI_REACTION_RECIPES",
+      "registry_name": "large_honkai_reaction",
+      "registry_id": "gtceu:large_honkai_reaction",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 198,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_MATERIAL_COMPRESSION_RECIPES",
+      "registry_name": "abyss_material_compression",
+      "registry_id": "gtceu:abyss_material_compression",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 205,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_PRECISION_ASSEMBLY_RECIPES",
+      "registry_name": "abyss_precision_assembly",
+      "registry_id": "gtceu:abyss_precision_assembly",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 212,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "SEA_OF_QUANTA_OBSERVATION_RECIPES",
+      "registry_name": "sea_of_quanta_observation",
+      "registry_id": "gtceu:sea_of_quanta_observation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 219,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "WORLD_BUBBLE_SAMPLING_RECIPES",
+      "registry_name": "world_bubble_sampling",
+      "registry_id": "gtceu:world_bubble_sampling",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 226,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_POLLUTION_SUPPRESSION_RECIPES",
+      "registry_name": "honkai_pollution_suppression",
+      "registry_id": "gtceu:honkai_pollution_suppression",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 233,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_SUPERCONDUCTOR_COOLING_RECIPES",
+      "registry_name": "abyss_superconductor_cooling",
+      "registry_id": "gtceu:abyss_superconductor_cooling",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 240,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_ALLOY_REFINING_RECIPES",
+      "registry_name": "abyss_alloy_refining",
+      "registry_id": "gtceu:abyss_alloy_refining",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 247,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_CHEMICAL_MEGA_REACTION_RECIPES",
+      "registry_name": "abyss_chemical_mega_reaction",
+      "registry_id": "gtceu:abyss_chemical_mega_reaction",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 254,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_PARTICLE_ACCELERATION_RECIPES",
+      "registry_name": "abyss_particle_acceleration",
+      "registry_id": "gtceu:abyss_particle_acceleration",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 261,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_NANO_FABRICATION_RECIPES",
+      "registry_name": "abyss_nano_fabrication",
+      "registry_id": "gtceu:abyss_nano_fabrication",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 268,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_KILN_REFINING_RECIPES",
+      "registry_name": "abyss_kiln_refining",
+      "registry_id": "gtceu:abyss_kiln_refining",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 276,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_ENERGY_BUFFER_RECIPES",
+      "registry_name": "abyss_energy_buffer",
+      "registry_id": "gtceu:abyss_energy_buffer",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 284,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_CARTWRIGHT_CRAFTING_RECIPES",
+      "registry_name": "abyss_cartwright_crafting",
+      "registry_id": "gtceu:abyss_cartwright_crafting",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 292,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_VACUUM_SMELTING_RECIPES",
+      "registry_name": "abyss_vacuum_smelting",
+      "registry_id": "gtceu:abyss_vacuum_smelting",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 299,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_CRYSTAL_GROWTH_RECIPES",
+      "registry_name": "abyss_crystal_growth",
+      "registry_id": "gtceu:abyss_crystal_growth",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 306,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_MAGNETIC_CONFINEMENT_RECIPES",
+      "registry_name": "abyss_magnetic_confinement",
+      "registry_id": "gtceu:abyss_magnetic_confinement",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 313,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_BIOCOMPUTING_RECIPES",
+      "registry_name": "abyss_biocomputing",
+      "registry_id": "gtceu:abyss_biocomputing",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 320,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_WASTE_RECYCLING_RECIPES",
+      "registry_name": "abyss_waste_recycling",
+      "registry_id": "gtceu:abyss_waste_recycling",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 327,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_SPECTRUM_ANALYSIS_RECIPES",
+      "registry_name": "abyss_spectrum_analysis",
+      "registry_id": "gtceu:abyss_spectrum_analysis",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 335,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_HONKAI_CONCENTRATION_RECIPES",
+      "registry_name": "abyss_honkai_concentration",
+      "registry_id": "gtceu:abyss_honkai_concentration",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 342,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_ARMOR_PLATE_FORGING_RECIPES",
+      "registry_name": "abyss_armor_plate_forging",
+      "registry_id": "gtceu:abyss_armor_plate_forging",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 349,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ABYSS_COMMUNICATION_AMPLIFIER_RECIPES",
+      "registry_name": "abyss_communication_amplifier",
+      "registry_id": "gtceu:abyss_communication_amplifier",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 356,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CIVILIZATION_COMMUNICATION_RECIPES",
+      "registry_name": "civilization_communication",
+      "registry_id": "gtceu:civilization_communication",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 368,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_POLLUTION_MONITORING_RECIPES",
+      "registry_name": "honkai_pollution_monitoring",
+      "registry_id": "gtceu:honkai_pollution_monitoring",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 376,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_CRACKING_RECIPES",
+      "registry_name": "honkai_cracking",
+      "registry_id": "gtceu:honkai_cracking",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 384,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ANCIENT_RELIC_ANALYSIS_RECIPES",
+      "registry_name": "ancient_relic_analysis",
+      "registry_id": "gtceu:ancient_relic_analysis",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 392,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_COGNITION_SMITHING_RECIPES",
+      "registry_name": "honkai_cognition_smithing",
+      "registry_id": "gtceu:honkai_cognition_smithing",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImpl.java",
+      "line": 403,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "IMAGINARY_TREE_OBSERVATION",
+      "registry_name": "imaginary_tree_observation",
+      "registry_id": "gtceu:imaginary_tree_observation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 35,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "IMAGINARY_ANCHORING",
+      "registry_name": "imaginary_anchoring",
+      "registry_id": "gtceu:imaginary_anchoring",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 36,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "IMAGINARY_CIRCUIT_COMPUTATION",
+      "registry_name": "imaginary_circuit_computation",
+      "registry_id": "gtceu:imaginary_circuit_computation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 37,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "SOULIUM_SUPERSTRUCTURE_FORGING",
+      "registry_name": "soulium_superstructure_forging",
+      "registry_id": "gtceu:soulium_superstructure_forging",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 38,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CIVILIZATION_EXCHANGE",
+      "registry_name": "civilization_exchange",
+      "registry_id": "gtceu:civilization_exchange",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 39,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "PRECIVILIZATION_DATABASE_DECODING",
+      "registry_name": "precivilization_database_decoding",
+      "registry_id": "gtceu:precivilization_database_decoding",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 40,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_PHASE_PURIFICATION",
+      "registry_name": "honkai_phase_purification",
+      "registry_id": "gtceu:honkai_phase_purification",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 41,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "IMAGINARY_MATTER_WEAVING",
+      "registry_name": "imaginary_matter_weaving",
+      "registry_id": "gtceu:imaginary_matter_weaving",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 42,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "DUAL_ENERGY_STABLE_SUPPLY",
+      "registry_name": "dual_energy_stable_supply",
+      "registry_id": "gtceu:dual_energy_stable_supply",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 43,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "IMAGINARY_DREAM_MELTING",
+      "registry_name": "imaginary_dream_melting",
+      "registry_id": "gtceu:imaginary_dream_melting",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "line": 44,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "QUANTUM_ENTANGLEMENT_COMPUTING",
+      "registry_name": "quantum_entanglement_computing",
+      "registry_id": "gtceu:quantum_entanglement_computing",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 35,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "THOUSAND_REALMS_TRANSIT",
+      "registry_name": "thousand_realms_transit",
+      "registry_id": "gtceu:thousand_realms_transit",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 36,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "WORLD_BUBBLE_MELTDOWN",
+      "registry_name": "world_bubble_meltdown",
+      "registry_id": "gtceu:world_bubble_meltdown",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 37,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "QUANTUM_SUPERCONDUCTOR_LATTICE",
+      "registry_name": "quantum_superconductor_lattice",
+      "registry_id": "gtceu:quantum_superconductor_lattice",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 38,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_WIRELESS_TRANSIT",
+      "registry_name": "honkai_wireless_transit",
+      "registry_id": "gtceu:honkai_wireless_transit",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 39,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "QUANTUM_THOUGHT_FORGING",
+      "registry_name": "quantum_thought_forging",
+      "registry_id": "gtceu:quantum_thought_forging",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 40,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "DIVINE_KEY_DISPLAY",
+      "registry_name": "divine_key_display",
+      "registry_id": "gtceu:divine_key_display",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 41,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "QUANTUM_CIVILIZATION_TRADE",
+      "registry_name": "quantum_civilization_trade",
+      "registry_id": "gtceu:quantum_civilization_trade",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 42,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "QUANTUM_HONKAI_FUSION",
+      "registry_name": "quantum_honkai_fusion",
+      "registry_id": "gtceu:quantum_honkai_fusion",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 43,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "FINALITY_PRESSURE_BUFFERING",
+      "registry_name": "finality_pressure_buffering",
+      "registry_id": "gtceu:finality_pressure_buffering",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 44,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "WONDER_CONSTRUCTION_SIMULATION",
+      "registry_name": "wonder_construction_simulation",
+      "registry_id": "gtceu:wonder_construction_simulation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 45,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "QUANTUM_PRECISION_ASSEMBLY",
+      "registry_name": "quantum_precision_assembly",
+      "registry_id": "gtceu:quantum_precision_assembly",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "line": 47,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HYPERION_FLAGSHIP_PROCESSING",
+      "registry_name": "hyperion_flagship_processing",
+      "registry_id": "gtceu:hyperion_flagship_processing",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 41,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "SHIPBOARD_FINALITY_OBSERVATION",
+      "registry_name": "shipboard_finality_observation",
+      "registry_id": "gtceu:shipboard_finality_observation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 42,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "SHIPBOARD_DUAL_ENERGY_REACTOR",
+      "registry_name": "shipboard_dual_energy_reactor",
+      "registry_id": "gtceu:shipboard_dual_energy_reactor",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 43,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "SHIPBOARD_ENDGAME_COORDINATION",
+      "registry_name": "shipboard_endgame_coordination",
+      "registry_id": "gtceu:shipboard_endgame_coordination",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 44,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "SHIPBOARD_DIVINE_KEY",
+      "registry_name": "shipboard_divine_key",
+      "registry_id": "gtceu:shipboard_divine_key",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 45,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "FINALITY_CIVILIZATION_CONSTRUCTION",
+      "registry_name": "finality_civilization_construction",
+      "registry_id": "gtceu:finality_civilization_construction",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 46,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CIVILIZATION_VALIDATION",
+      "registry_name": "civilization_validation",
+      "registry_id": "gtceu:civilization_validation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 47,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "FINALITY_ENERGY_DISTRIBUTION",
+      "registry_name": "finality_energy_distribution",
+      "registry_id": "gtceu:finality_energy_distribution",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 48,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "FINALITY_ULTIMATE_MATERIAL_FORGE",
+      "registry_name": "finality_ultimate_material_forge",
+      "registry_id": "gtceu:finality_ultimate_material_forge",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 49,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "FINALITY_HONKAI_ANNIHILATION",
+      "registry_name": "finality_honkai_annihilation",
+      "registry_id": "gtceu:finality_honkai_annihilation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 50,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "GRADUATION_PERMISSION_VERIFICATION",
+      "registry_name": "graduation_permission_verification",
+      "registry_id": "gtceu:graduation_permission_verification",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 51,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CIVILIZATION_WONDER_SANCTUM",
+      "registry_name": "civilization_wonder_sanctum",
+      "registry_id": "gtceu:civilization_wonder_sanctum",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 52,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "IMAGINARY_DIMENSION_GATEWAY_PROC",
+      "registry_name": "imaginary_dimension_gateway",
+      "registry_id": "gtceu:imaginary_dimension_gateway",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "line": 53,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "HONKAI_ULTIMATE_FUSION",
+      "registry_name": "honkai_ultimate_fusion",
+      "registry_id": "gtceu:honkai_ultimate_fusion",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 35,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "DIVINE_KEY_GRAND_CATHEDRAL",
+      "registry_name": "divine_key_grand_cathedral",
+      "registry_id": "gtceu:divine_key_grand_cathedral",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 36,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CIVILIZATION_JUDGMENT",
+      "registry_name": "civilization_judgment",
+      "registry_id": "gtceu:civilization_judgment",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 37,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CIVILIZATION_MEMORY_ETERNAL",
+      "registry_name": "civilization_memory_eternal",
+      "registry_id": "gtceu:civilization_memory_eternal",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 38,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "MYRIAD_REALMS_COMMUNICATION",
+      "registry_name": "myriad_realms_communication",
+      "registry_id": "gtceu:myriad_realms_communication",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 39,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "DESTINY_WEAVING",
+      "registry_name": "destiny_weaving",
+      "registry_id": "gtceu:destiny_weaving",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 40,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CIVILIZATION_EYE_OBSERVATION",
+      "registry_name": "civilization_eye_observation",
+      "registry_id": "gtceu:civilization_eye_observation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 41,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CYCLE_NARRATION",
+      "registry_name": "cycle_narration",
+      "registry_id": "gtceu:cycle_narration",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 42,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "CIVILIZATION_STARSHIP_EXHIBITION",
+      "registry_name": "civilization_starship_exhibition",
+      "registry_id": "gtceu:civilization_starship_exhibition",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 43,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "PROOF_OF_EXISTENCE",
+      "registry_name": "proof_of_existence",
+      "registry_id": "gtceu:proof_of_existence",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 44,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "ULTIMATE_MEDITATION",
+      "registry_name": "ultimate_meditation",
+      "registry_id": "gtceu:ultimate_meditation",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 45,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    },
+    {
+      "field": "GRAND_CONVERGENCE",
+      "registry_name": "grand_convergence",
+      "registry_id": "gtceu:grand_convergence",
+      "source": "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java",
+      "line": 46,
+      "reason": "旧四版设备类型；对应控制器已退役且未被现行I/S机器绑定。新版工业与研究/奇观规划另有独立业务载体，移除旧类型注册不等于删除获批产线或物品。"
+    }
+  ],
+  "deleted_empty_type_sources": {
+    "timestamp": "2026-10-17 14:41:13",
+    "sources": [
+      "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesImaginary.java",
+      "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesQuantum.java",
+      "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesFinality.java",
+      "src/main/java/com/sirin/hk3gtl/common/recipe/Hk3RecipeTypesWonder.java"
+    ],
+    "reason": "活动代码与测试无类引用，原历史内容已保存在before；删除空兼容壳，不再打包旧阶段类型类。"
+  }
+}

@@ -1,13 +1,8 @@
 package com.sirin.hk3gtl.common.dimension.height;
 
-
-
-
-
-
-
-
-
+/**
+ * 以纯函数计算建筑高度扩展，保留维度原始最低高度与逻辑高度，不改生成器。
+ */
 public final class Hk3HeightPolicy {
     public static final int MIN_TOP_EXCLUSIVE = 528;
     public static final int MAX_TOP_EXCLUSIVE = 2032;

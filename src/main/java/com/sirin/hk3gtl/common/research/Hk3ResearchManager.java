@@ -145,4 +145,3 @@ public class Hk3ResearchManager {
     }
 }
 
-

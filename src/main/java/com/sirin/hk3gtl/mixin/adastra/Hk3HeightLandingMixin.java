@@ -1,7 +1,6 @@
 package com.sirin.hk3gtl.mixin.adastra;
 
 
-
 import com.sirin.hk3gtl.common.dimension.height.Hk3HeightLandingPolicy;
 import com.sirin.hk3gtl.common.dimension.height.Hk3HeightService;
 import earth.terrarium.adastra.common.utils.ModUtils;

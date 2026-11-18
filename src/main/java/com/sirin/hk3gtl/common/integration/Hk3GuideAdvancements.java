@@ -6,8 +6,6 @@ import com.sirin.hk3gtl.common.review.*;
 import com.sirin.hk3gtl.common.dimension.Hk3GraduationData;
 
 /** 原版进度与FTB研究读取相同账本；个人审查和终审只读本人回执，旧事件不能授予新进度。 */
-
-
 public final class Hk3GuideAdvancements {
     private Hk3GuideAdvancements(){}
     public static void sync(ServerPlayer p,Hk3QuestCatalog.Facts f){

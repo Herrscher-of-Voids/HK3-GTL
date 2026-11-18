@@ -1,1 +1,103 @@
-{"key":"i37","machine":"hk3gtl:i37_world_maintenance_trial_platform","target_voltage":"WFV","size":[561,321,681],"size_xyz":[561,321,681],"controller":[280,42,17],"ports":[],"blocks":18445378,"material_counts":{"hk3gtl:voltage_machine_casing_wfv":8567249,"gtceu:robust_machine_casing":1228536,"gtceu:clean_machine_casing":1821455,"gtceu:assembly_line_casing":558080,"gtceu:advanced_computer_casing":75644,"gtceu:atomic_casing":241160,"gtceu:high_power_casing":342050,"gtceu:laser_safe_engraving_casing":118844,"gtceu:stainless_steel_turbine_casing":43240,"gtceu:secure_maceration_casing":69356,"gtceu:computer_heat_vent":137288,"gtceu:tungstensteel_gearbox":397444,"gtceu:tungstensteel_pipe_casing":617114,"gtceu:steel_pipe_casing":44820,"gtceu:assembly_line_grating":120217,"gtlcore:iridium_casing":130608,"gtlcore:process_machine_casing":193090,"gtlcore:dimension_connection_casing":102680,"gtlcore:multi_functional_casing":24960,"gtlcore:lafium_mechanical_casing":170524,"gtlcore:hsss_reinforced_borosilicate_glass":667912,"gtlcore:law_filter_casing":23920,"gtceu:inert_machine_casing":292464,"gtceu:heatproof_machine_casing":73234,"gtceu:nonconducting_casing":367456,"gtceu:frostproof_machine_casing":78182,"gtceu:stable_machine_casing":139392,"gtceu:solid_machine_casing":273874,"gtceu:engine_intake_casing[active=false]":49726,"gtceu:stress_proof_casing":512316,"gtceu:reaction_safe_mixing_casing":24960,"gtceu:vibration_safe_casing":180498,"gtceu:plascrete":201780,"minecraft:light_blue_stained_glass":26432,"minecraft:black_stained_glass":1404,"minecraft:black_concrete":200753,"minecraft:sea_lantern":10410,"minecraft:gold_block":2744,"minecraft:copper_block":34908,"minecraft:iron_block":52240,"minecraft:obsidian":139392,"minecraft:quartz_block":13804,"hk3gtl:casing_colored_cyan":73217},"layout_state_overrides":{},"compact_records_sha256":"b7c361c8b891e0fd4b2765dce5c44ed551a98007a6795b8b5e27ced41a1af41a","compact_sha256":"9485ad3ad93ee4da17e15cce9d2fb4672a2064e006e37f39c9666fa56c40832c","runtime_format":"HK3P/2; original-order arithmetic runs; full entity NBT"}
+{
+  "key": "i37",
+  "machine": "hk3gtl:i37_world_maintenance_trial_platform",
+  "approved_version": "A2",
+  "target_voltage": "WFV",
+  "size": [
+    561,
+    321,
+    681
+  ],
+  "size_xyz": [
+    561,
+    321,
+    681
+  ],
+  "controller": [
+    280,
+    42,
+    17
+  ],
+  "ports": [],
+  "blocks": 18445378,
+  "materials": 43,
+  "material_counts": {
+    "hk3gtl:voltage_machine_casing_wfv": 8567249,
+    "gtceu:robust_machine_casing": 1228536,
+    "gtceu:clean_machine_casing": 1821455,
+    "gtceu:assembly_line_casing": 558080,
+    "gtceu:advanced_computer_casing": 75644,
+    "gtceu:atomic_casing": 241160,
+    "gtceu:high_power_casing": 342050,
+    "gtceu:laser_safe_engraving_casing": 118844,
+    "gtceu:stainless_steel_turbine_casing": 43240,
+    "gtceu:secure_maceration_casing": 69356,
+    "gtceu:computer_heat_vent": 137288,
+    "gtceu:tungstensteel_gearbox": 397444,
+    "gtceu:tungstensteel_pipe_casing": 617114,
+    "gtceu:steel_pipe_casing": 44820,
+    "gtceu:assembly_line_grating": 120217,
+    "gtlcore:iridium_casing": 130608,
+    "gtlcore:process_machine_casing": 193090,
+    "gtlcore:dimension_connection_casing": 102680,
+    "gtlcore:multi_functional_casing": 24960,
+    "gtlcore:lafium_mechanical_casing": 170524,
+    "gtlcore:hsss_reinforced_borosilicate_glass": 667912,
+    "gtlcore:law_filter_casing": 23920,
+    "gtceu:inert_machine_casing": 292464,
+    "gtceu:heatproof_machine_casing": 73234,
+    "gtceu:nonconducting_casing": 367456,
+    "gtceu:frostproof_machine_casing": 78182,
+    "gtceu:stable_machine_casing": 139392,
+    "gtceu:solid_machine_casing": 273874,
+    "gtceu:engine_intake_casing[active=false]": 49726,
+    "gtceu:stress_proof_casing": 512316,
+    "gtceu:reaction_safe_mixing_casing": 24960,
+    "gtceu:vibration_safe_casing": 180498,
+    "gtceu:plascrete": 201780,
+    "minecraft:light_blue_stained_glass": 26432,
+    "minecraft:black_stained_glass": 1404,
+    "minecraft:black_concrete": 200753,
+    "minecraft:sea_lantern": 10410,
+    "minecraft:gold_block": 2744,
+    "minecraft:copper_block": 34908,
+    "minecraft:iron_block": 52240,
+    "minecraft:obsidian": 139392,
+    "minecraft:quartz_block": 13804,
+    "hk3gtl:casing_colored_cyan": 73217
+  },
+  "layout_state_overrides": {},
+  "compact_records_sha256": "b7c361c8b891e0fd4b2765dce5c44ed551a98007a6795b8b5e27ced41a1af41a",
+  "compact_sha256": "9485ad3ad93ee4da17e15cce9d2fb4672a2064e006e37f39c9666fa56c40832c",
+  "source_nbt": "E:\\AI\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261115_014231_894826_0005_I37_A2_外观已确认\\candidate\\0005-i37-suspended-test-dock-a2.nbt",
+  "source_nbt_sha256": "5016151d60dbb7f65bdf038ea0fad670f933f18c800f480b52c21e46d6dabf7b",
+  "source_snapshot": "E:\\AI\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261115_014231_894826_0005_I37_A2_外观已确认",
+  "source_metadata": "E:\\AI\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261115_014231_894826_0005_I37_A2_外观已确认\\candidate\\manifest.json",
+  "approval_manifest": "E:\\AI\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261115_014231_894826_0005_I37_A2_外观已确认\\approval.json",
+  "source_manifest_approved_field_preserved": true,
+  "external_approval_is_authoritative": true,
+  "runtime_format": "HK3P/2; original-order arithmetic runs; full entity NBT",
+  "required_abilities": [
+    "item_input",
+    "item_output",
+    "fluid_input",
+    "fluid_output"
+  ],
+  "installed_hatches": {},
+  "controller_nbt_blockentity_id": "hk3gtl:i37_world_maintenance_trial_platform",
+  "changes": [
+    {
+      "pos": [
+        280,
+        42,
+        17
+      ],
+      "role": "controller",
+      "from": "minecraft:redstone_block",
+      "to": "hk3gtl:i37_world_maintenance_trial_platform[facing=north]",
+      "block_entity_id": "hk3gtl:i37_world_maintenance_trial_platform"
+    }
+  ],
+  "interface_policy": "非主控实体位置允许合法通用接口替换；空气区仍完整检查。",
+  "game_verified": false
+}

@@ -24,43 +24,6 @@ import java.util.UUID;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3RecipeLogic extends RecipeLogic {
     private static final org.slf4j.Logger LOGGER = com.mojang.logging.LogUtils.getLogger();
     private static final GTRecipe.ActionResult COMMIT_FAILED = GTRecipe.ActionResult.fail(
@@ -199,7 +162,7 @@ public class Hk3RecipeLogic extends RecipeLogic {
             }
         }
         GTRecipe tickRecipe = recipe;
-        if (Hk3RecipePower.marked(recipe)) {
+        if (Hk3RecipePower.marked(recipe) || Hk3RecipePower.hasExactCost(recipe)) {
             if (!Hk3RecipePower.pay(recipe, this)) return COMMIT_FAILED;
             tickRecipe = Hk3RecipePower.withoutEU(recipe);
         }

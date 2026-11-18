@@ -1,1 +1,507 @@
-{"key":"i26","machine":"hk3gtl:i26_world_bubble_unmanned_mining_dispatch","controller":[166,76,119],"size_xyz":[333,110,301]}
+{
+  "key": "i26",
+  "machine": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch",
+  "source": "data/hk3gtl/approved_architecture/i26.json",
+  "sha256": "55e64dbe08c781a4f5667581b1de1270bc9ebcd416ee436f068045dfccca93cc",
+  "template_sha256": "bceb87c43ea8e5eca8e83373793df213ccd347d23ff2de4177d0a67837f298a1",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_164410_339340_batch-07_04of05_I26_V5_QAV_外观已确认\\I26_葵涌码头_疏散货柜与随机集卡运营场景_V5_20261026",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_164410_339340_batch-07_04of05_I26_V5_QAV_外观已确认\\I26_葵涌码头_疏散货柜与随机集卡运营场景_V5_20261026\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261026_164410_339340_batch-07_04of05_I26_V5_QAV_外观已确认\\I26_葵涌码头_疏散货柜与随机集卡运营场景_V5_20261026\\i26\\hk3gtl-i26-operating-yard-v5-20261026.nbt",
+  "source_nbt_sha256": "ee2d74cec276062f90f73074f2e428874d27ce63bc6946522bfe684b4d58d6db",
+  "controller": [
+    166,
+    76,
+    119
+  ],
+  "size_xyz": [
+    333,
+    110,
+    301
+  ],
+  "blocks": 606452,
+  "ports": [],
+  "target_voltage": "QAV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 34,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        0,
+        25,
+        144
+      ],
+      "role": "无人装置与耗材输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        332,
+        25,
+        144
+      ],
+      "role": "回收装置与磨损件输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        0,
+        28,
+        248
+      ],
+      "role": "远征记录接口",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=west]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        332,
+        28,
+        248
+      ],
+      "role": "遗留档案输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        148,
+        29,
+        300
+      ],
+      "role": "任务授权与坐标输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=south]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        184,
+        29,
+        300
+      ],
+      "role": "供能输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        0,
+        34,
+        184
+      ],
+      "role": "冷却介质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        332,
+        34,
+        184
+      ],
+      "role": "冷却介质回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        166,
+        76,
+        119
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch[facing=north]",
+      "block_entity_id": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch",
+  "controller_json_state": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "无人装置与耗材输入",
+      "pos": [
+        0,
+        25,
+        144
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qav",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              0,
+              25,
+              143
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              0,
+              25,
+              145
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              0,
+              24,
+              144
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              0,
+              26,
+              144
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          }
+        ]
+      }
+    },
+    {
+      "id": "回收装置与磨损件输出",
+      "pos": [
+        332,
+        25,
+        144
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qav",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              332,
+              25,
+              143
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              332,
+              25,
+              145
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              332,
+              24,
+              144
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              332,
+              26,
+              144
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          }
+        ]
+      }
+    },
+    {
+      "id": "冷却介质输入",
+      "pos": [
+        0,
+        34,
+        184
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qav",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              0,
+              34,
+              183
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              0,
+              34,
+              185
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              0,
+              33,
+              184
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              0,
+              35,
+              184
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          }
+        ]
+      }
+    },
+    {
+      "id": "冷却介质回流",
+      "pos": [
+        332,
+        34,
+        184
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qav",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              332,
+              34,
+              183
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              332,
+              34,
+              185
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              332,
+              33,
+              184
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              332,
+              35,
+              184
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          }
+        ]
+      }
+    },
+    {
+      "id": "任务授权与坐标输入",
+      "pos": [
+        148,
+        29,
+        300
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qav",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              147,
+              29,
+              300
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              149,
+              29,
+              300
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              148,
+              28,
+              300
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              148,
+              30,
+              300
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          }
+        ]
+      }
+    },
+    {
+      "id": "供能输入",
+      "pos": [
+        184,
+        29,
+        300
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qav",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              183,
+              29,
+              300
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              185,
+              29,
+              300
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              184,
+              28,
+              300
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              184,
+              30,
+              300
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          }
+        ]
+      }
+    },
+    {
+      "id": "远征记录接口",
+      "pos": [
+        0,
+        28,
+        248
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qav",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              0,
+              28,
+              247
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              0,
+              28,
+              249
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              0,
+              29,
+              248
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          }
+        ]
+      }
+    },
+    {
+      "id": "遗留档案输出",
+      "pos": [
+        332,
+        28,
+        248
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qav",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              332,
+              28,
+              247
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              332,
+              28,
+              249
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          },
+          {
+            "pos": [
+              332,
+              29,
+              248
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qav"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

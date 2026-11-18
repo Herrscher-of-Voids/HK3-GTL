@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/generated","textures":{"layer0":"hk3gtl:item/electronics/honkai_lattice_cpu"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/electronics/honkai_lattice_cpu"
+  }
+}

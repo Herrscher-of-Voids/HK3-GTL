@@ -6,8 +6,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.tags.BlockTags;
 import com.gregtechceu.gtceu.api.pattern.MultiblockWorldSavedData;
 import java.util.*;
-
-
 public final class Hk3EggBuildings {
     private Hk3EggBuildings(){}
     public static boolean ordinary(ServerPlayer p,BlockPos pos,BlockState state){

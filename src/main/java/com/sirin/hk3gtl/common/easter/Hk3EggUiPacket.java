@@ -2,10 +2,6 @@ package com.sirin.hk3gtl.common.easter;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 import java.util.function.Supplier;
-
-
-
-
 public record Hk3EggUiPacket(String action,String value){
     public static void encode(Hk3EggUiPacket p,FriendlyByteBuf b){b.writeUtf(p.action,24);b.writeUtf(p.value,512);}
     public static Hk3EggUiPacket decode(FriendlyByteBuf b){return new Hk3EggUiPacket(b.readUtf(24),b.readUtf(512));}

@@ -1,11 +1,5 @@
 package com.sirin.hk3gtl.common.command;
 
-
-
-
-
-
-
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -36,8 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-
-
 public class Hk3DebugCommands {
 
     private static final String TAG = "§a[HK3DEBUG] §f";

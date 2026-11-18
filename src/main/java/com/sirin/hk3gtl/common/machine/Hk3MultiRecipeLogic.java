@@ -1,101 +1,14 @@
 package com.sirin.hk3gtl.common.machine;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 本模组多方块的"多配方同时运行 + 无限并行"配方逻辑（替换 GTCEu 原版单配方 RecipeLogic）。
+ * - 关键调用链：WorkableMultiblockMachine.serverTick -> findAndHandleRecipe()（本类重写）
+ *   -> lookupRecipeSet() 收集全量匹配配方 -> calculateParallels() 贪心/公平分配并行量
+ *   -> buildFinalNormalRecipe() 构建合成配方 -> setupRecipe()
+ *   -> onRecipeFinish() 一次性产出后立即重新批量匹配下一轮。
+ *
+ */
 
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.capability.recipe.EURecipeCapability;
@@ -134,18 +47,6 @@ import java.util.function.Supplier;
  * 本类把当前库存能匹配的所有配方各自并行后合并成一个合成配方，
  * 让机器同 tick 同时产出多种配方的产物。
  */
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -154,6 +55,8 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
     private boolean commitFailed;
 
     private static final String MERGED_PLAN_KEY = "hk3gtlMergedPlan";
+    public static final String PARALLEL_COUNT_KEY = "hk3gtlParallelCount";
+    public static final String RECIPE_COUNT_KEY = "hk3gtlRecipeCount";
 
     private static final int DEFAULT_MAX_MERGED_RECIPES = Integer.MAX_VALUE;
 
@@ -233,6 +136,13 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
     }
 
     @Override
+    public boolean checkMatchedRecipeAvailable(GTRecipe recipe) {
+        boolean started = super.checkMatchedRecipeAvailable(recipe);
+        if (started) lastFailedMatches = null;
+        return started;
+    }
+
+    @Override
     protected boolean handleRecipeIO(GTRecipe recipe, IO io) {
         if (io == IO.IN && recipe.data.getBoolean(MERGED_PLAN_KEY)) {
             boolean matched = recipe.checkConditions(this).isSuccess()
@@ -248,7 +158,7 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
 
     @Override
     public void onRecipeFinish() {
-        if (lastRecipe != null && lastRecipe.data.getBoolean(MERGED_PLAN_KEY)) {
+        if (lastRecipe != null) {
             markLastRecipeDirty();
             lastOriginRecipe = null;
         }
@@ -402,7 +312,11 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
     /** 对配方执行超频+并行修改，返回修改后的配方副本 */
     private GTRecipe fullModify(GTRecipe raw) {
         GTRecipe copy = raw.copy();
-        return machine.fullModifyRecipe(copy, ocParams, ocResult);
+        GTRecipe modified = machine.fullModifyRecipe(copy, ocParams, ocResult);
+        if (modified != null) Hk3DualEnergyCosts.setMergedCost(modified,
+                Hk3DualEnergyCosts.calculateMergedCost(List.of(raw), new long[]{1},
+                        getMachine().getDefinition().getId().getPath()));
+        return modified;
     }
 
     // ── 阶段 3：最终配方构建 ──────────────────────────────────────────────

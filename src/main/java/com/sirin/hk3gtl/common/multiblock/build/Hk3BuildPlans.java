@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class Hk3BuildPlans {
-    /** 2026-11-11：工业依赖审计复用正式控制器身份，不从机号推测布局。 */
+    /** 工业依赖审计复用正式控制器身份，不从机号推测布局。 */
     public static String layoutForMachine(String machine) { return Keys.BY_MACHINE.get(machine); }
     private static final String ROOT = "/data/hk3gtl/structures/";
     private Hk3BuildPlans() {}

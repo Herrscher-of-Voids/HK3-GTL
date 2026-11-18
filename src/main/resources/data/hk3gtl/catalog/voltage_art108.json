@@ -1,0 +1,3952 @@
+{
+  "revision": 108,
+  "generated_at": "2026-09-30T03:19:42.151867+08:00",
+  "method": "Existing pixel recolor only; neutral component metal unchanged; source alpha, frames and mcmeta preserved",
+  "platform_pcb_convention": "Shared PCB uses platform entry tier HBV/QSV/IMV/WFV; no new recipe or circuit tier",
+  "entries": [
+    {
+      "id": "electric_motor_hbv",
+      "tier": 15,
+      "kind": "component",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_motor_hbv.png",
+      "baseline_sha256": "f3884961607a4605733e220773bd2c8b600c9c602aed31f4269ab2bccb4e2afc",
+      "sha256": "6efa0457a1a7cd7a3ae1e89559aa81d9992c0f4bf67e4173b9460bca466ac2bc",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_hbv",
+      "tier": 15,
+      "kind": "component",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_pump_hbv.png",
+      "baseline_sha256": "fd2d7b8b22447ee8b3c49aeed429619c5964d8cd5a9a212544100b546c5a103b",
+      "sha256": "5dcbdf7c3ac213dd40c45691d2898c878fb34e08b600a99f26d3a1c4144c68b4",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_hbv",
+      "tier": 15,
+      "kind": "component",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_piston_hbv.png",
+      "baseline_sha256": "fa4b3dfeee60a32040f1fe1abe0819d20817ecfee8eb8fc781e92a774c23b137",
+      "sha256": "bb655a4d2fb435c3b80d45c1059bf4b61831874777062061fa160f8cc96706d7",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_hbv",
+      "tier": 15,
+      "kind": "component",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/conveyor_module_hbv.png",
+      "baseline_sha256": "cd6aa63a8386e9dd1607b0016e0f258974f0ae85789da7740f2670815ae2237c",
+      "sha256": "eb68175a6884744bae8bcd1e92501b3614e658d81c2946b212dd918b0a3eb4e8",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_hbv",
+      "tier": 15,
+      "kind": "component",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/robot_arm_hbv.png",
+      "baseline_sha256": "54766fd7af659c1b1cfbf34f373561526c0403a3c1fe722220bc73d745e5685e",
+      "sha256": "bb606e2b92f56ce789a5b5fb9929985ba77379ecba13509d7abd618153b21e4e",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_hbv",
+      "tier": 15,
+      "kind": "component",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/sensor_hbv.png",
+      "baseline_sha256": "d61f69266094a9ca51dd375ae30b5232617d14f94663c16457c5e906cb747979",
+      "sha256": "b2ee091e8db9ee4fe45597426a6f4c41198f09a743dfd206296c5957a866a32a",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 75,
+      "preserved_neutral_pixels": 27
+    },
+    {
+      "id": "emitter_hbv",
+      "tier": 15,
+      "kind": "component",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/emitter_hbv.png",
+      "baseline_sha256": "5ad9c1c3810bec98b7676577cc26d79c91005e071604565870006ac2e73b4380",
+      "sha256": "66894867900da81855d8a7c916f3b6f6480999420d498c9f0ad91a68f138574a",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 64,
+      "preserved_neutral_pixels": 32
+    },
+    {
+      "id": "field_generator_hbv",
+      "tier": 15,
+      "kind": "component",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/field_generator_hbv.png",
+      "baseline_sha256": "926ea87dc8fe0edbbe88238027d6d65e4c918ec11fb6746e5647f4363c8c5c01",
+      "sha256": "07228750715c12d2bbe5ab702495403e52df8c35ae3f43467daaa61ae0ee5e9c",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1036,
+      "preserved_neutral_pixels": 296
+    },
+    {
+      "id": "electric_motor_hcv",
+      "tier": 16,
+      "kind": "component",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_motor_hcv.png",
+      "baseline_sha256": "fe61233a6661916b3aa9e9f0154eae68ff8640703185b6985930b5f55db04b05",
+      "sha256": "802ed04e7601166c64af584d797a21aefd132ddb796b403c96affb7697109e9e",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_hcv",
+      "tier": 16,
+      "kind": "component",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_pump_hcv.png",
+      "baseline_sha256": "7edb0a1900f9c4a99e37866ff174751262c1e0f24b93f8cfa8f21945a2d33419",
+      "sha256": "6462c7f32cd3c4ca9a6cd615cb53a916b04364280ff46793f1891a9294442e63",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_hcv",
+      "tier": 16,
+      "kind": "component",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_piston_hcv.png",
+      "baseline_sha256": "0541b81af348a2582e3faac8183c0fdc65edeed5966138dcc5952d68f392ebcf",
+      "sha256": "89b122f166917f6b9dc2d59aa29fb21464df18489bcc2fa4e38b6e2dbd682508",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_hcv",
+      "tier": 16,
+      "kind": "component",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/conveyor_module_hcv.png",
+      "baseline_sha256": "af972b924b8bb3538c21bde0cec5f56f9d86a98770a29c70cf54e850ab616575",
+      "sha256": "2d09602916d6171119949e68335e437f54ed2b621f20d40b867eb02dfa2b5752",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_hcv",
+      "tier": 16,
+      "kind": "component",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/robot_arm_hcv.png",
+      "baseline_sha256": "ea273fa16ea6f47ca5048748f5b4bb6ab663d46179103f1698ae3ff72bce4019",
+      "sha256": "089537305c726a9c5c57c939803794203ecba25e1402b73a3d9d074abc9bcdeb",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_hcv",
+      "tier": 16,
+      "kind": "component",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/sensor_hcv.png",
+      "baseline_sha256": "eed08ddb2cd12fcaa7b195fb5627098d0a9a3d308d41e1971d33d5a48a8f2826",
+      "sha256": "d201b0c2aae5ed68ec5c35f775a5dea90ff93083dba0d281f51e6bed5e7843c0",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 75,
+      "preserved_neutral_pixels": 27
+    },
+    {
+      "id": "emitter_hcv",
+      "tier": 16,
+      "kind": "component",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/emitter_hcv.png",
+      "baseline_sha256": "6b0bffef1ab3b041c34e82fd2eea6e4bbeb0fb99ad25abeb412701e899d165d3",
+      "sha256": "11d670d99c12fe3fb31bda8534bff08c7837bf60d366d9b519a4503a1876bedd",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 64,
+      "preserved_neutral_pixels": 32
+    },
+    {
+      "id": "field_generator_hcv",
+      "tier": 16,
+      "kind": "component",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/field_generator_hcv.png",
+      "baseline_sha256": "8ba0fcedb6b5addd0e56ef4a67cfacb0dd24afc358c1122c200fcddbf6dd4618",
+      "sha256": "8c0bd584a06f9f1131f3c50e6d88f27c1527af2b18f1d5936e09b2fabfe71ecb",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1036,
+      "preserved_neutral_pixels": 296
+    },
+    {
+      "id": "electric_motor_hrv",
+      "tier": 17,
+      "kind": "component",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_motor_hrv.png",
+      "baseline_sha256": "9582830be4626fee842dcbfae80dbc674731566caa4954a03494aa4c5e256bf5",
+      "sha256": "cc8a133e6d76e12f070c0ae76e24e87c39b518279c529f910b4d2f51d82ab8d2",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_hrv",
+      "tier": 17,
+      "kind": "component",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_pump_hrv.png",
+      "baseline_sha256": "55564572b0fc4fe1ee821e9318bc01730e696b942e46c3433fd52268c8b6fc23",
+      "sha256": "b1c5163ddd1bbb34ede6b3b46ea2a72173261dae931d4e54abd6934b830ff9f0",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_hrv",
+      "tier": 17,
+      "kind": "component",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_piston_hrv.png",
+      "baseline_sha256": "6cfeb8bd4f147fbce524f52f4d980a5b4cb1cae4e17716bfcb5b4f2f20d38627",
+      "sha256": "aff0c3863caa0ea729fc181b3d1737443d9bdcf60d590a19bddcb2d2f5d42c86",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_hrv",
+      "tier": 17,
+      "kind": "component",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/conveyor_module_hrv.png",
+      "baseline_sha256": "de499a4cc3fb4e5371a01039e30fe54d3768ec02ac4d5fcdd9c2484ae24d58a1",
+      "sha256": "a931dacbdb70f8ce3fc974cbd8f347b1559ca0365fb7f9df56def8497da28f31",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_hrv",
+      "tier": 17,
+      "kind": "component",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/robot_arm_hrv.png",
+      "baseline_sha256": "d875b62b6a9f4e4d5021c2611e868e18c7ac80f6c2f34a3cfbb3a3f787973a82",
+      "sha256": "608bee327714f83e0441f836200cd5dbaff2e3211ff6d803bc980b22184e333e",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_hrv",
+      "tier": 17,
+      "kind": "component",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/sensor_hrv.png",
+      "baseline_sha256": "318b5a6f4219553f9782c56476bb355faa0ecddc558bb4c8017480ae848a19b6",
+      "sha256": "6fc809a3466e3bf290d9a05a6bd1ecd83ae1da32c3bc59306aa42582d342cf7e",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 72,
+      "preserved_neutral_pixels": 30
+    },
+    {
+      "id": "emitter_hrv",
+      "tier": 17,
+      "kind": "component",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/emitter_hrv.png",
+      "baseline_sha256": "8e33e6a717010ed93e69ad8c267b347b2987047041e39876164486849d71d489",
+      "sha256": "8f647287b04edebbf98c7150927605ce3f499bee97a2789fb2e8a35388aef20d",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 35,
+      "preserved_neutral_pixels": 61
+    },
+    {
+      "id": "field_generator_hrv",
+      "tier": 17,
+      "kind": "component",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/field_generator_hrv.png",
+      "baseline_sha256": "482717b7d7286e5fecc592b310d2940cdf2f8a48fcc09ec6722bfe8c11a1a926",
+      "sha256": "718540b118b2f8b6b6477102991aa46c46958e4a57e098c2a50ba6167249d465",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1036,
+      "preserved_neutral_pixels": 296
+    },
+    {
+      "id": "electric_motor_hdv",
+      "tier": 18,
+      "kind": "component",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_motor_hdv.png",
+      "baseline_sha256": "575371748b0c83980bb69c321a0bfb28e121d8262eeeb15efac962b18b5a7625",
+      "sha256": "269cc96ab7ffab2422db2c1af8acff7ceb29e7ae4c1fc4b7d62db62f4ae801c8",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 39,
+      "preserved_neutral_pixels": 111
+    },
+    {
+      "id": "electric_pump_hdv",
+      "tier": 18,
+      "kind": "component",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_pump_hdv.png",
+      "baseline_sha256": "6f737eb1fec5bcd92587b9d9543e1169f2449a8651dfcbd27fe8a50ffea4f35c",
+      "sha256": "f87db065fb7e724232df6efac633173003c64bcf4bd22d81a20c2ba59d3c5d40",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_hdv",
+      "tier": 18,
+      "kind": "component",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/electric_piston_hdv.png",
+      "baseline_sha256": "5b72340ded612e9149e5e5c2b98aeadbfe31900ea32abf5654ace4c9246bb84b",
+      "sha256": "1f4800b16fa4a3adc8bb32afec85ae7ddf000be4c383545fde66298fc7489962",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 74,
+      "preserved_neutral_pixels": 38
+    },
+    {
+      "id": "conveyor_module_hdv",
+      "tier": 18,
+      "kind": "component",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/conveyor_module_hdv.png",
+      "baseline_sha256": "a9749f5884632aed6e388cb9d6fc74520252e8f062c6d13728c15cb58a533687",
+      "sha256": "a892251ac194cc31ea7c9a90240fe88e7e199da8c7c6f8f67db247054c7d5acb",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_hdv",
+      "tier": 18,
+      "kind": "component",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/robot_arm_hdv.png",
+      "baseline_sha256": "0bf7e0bd99899d41d7d8a2ca6bf87c20bd6cfcd584a28ed765cedf32cfcdc19b",
+      "sha256": "d89755f974f4d7cee7b97b4e30d89f6838a2625339989f8cf135823d350e052b",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 83
+    },
+    {
+      "id": "sensor_hdv",
+      "tier": 18,
+      "kind": "component",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/sensor_hdv.png",
+      "baseline_sha256": "1837439c7ae17eec706d786db92954c32af385267dc8839d7a5fd8932914d062",
+      "sha256": "3edad21df932cccef976509ca3663a96bc1c50a78f5acb2d309a5c2a5a66faa5",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 62,
+      "preserved_neutral_pixels": 40
+    },
+    {
+      "id": "emitter_hdv",
+      "tier": 18,
+      "kind": "component",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/emitter_hdv.png",
+      "baseline_sha256": "81d78fa10135229a10a3f25f61cc89bb1a70223a6d7c92390e27106e0d7c10d8",
+      "sha256": "100e6834fb2d6a61d64e4204d65b15f74c851319d6c067dfaade470240739c4f",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 50
+    },
+    {
+      "id": "field_generator_hdv",
+      "tier": 18,
+      "kind": "component",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/components/field_generator_hdv.png",
+      "baseline_sha256": "f53be4a6bf05c9a6e2fedf389522ef171f8851015e19067ec6056c82bef6f156",
+      "sha256": "97112569f7a0272696e0835e51af34fda81329eebfe4bb48ad58e69a65ae0693",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 908,
+      "preserved_neutral_pixels": 424
+    },
+    {
+      "id": "electric_motor_qsv",
+      "tier": 19,
+      "kind": "component",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_motor_qsv.png",
+      "baseline_sha256": "94bf7976d79f6dc0d544b89160f61a0ebc1aaa73ef7512271f342699360acb86",
+      "sha256": "fada241745ad269378db5d42205ca7a49574b1e9fdc44fb32842598c6683bd38",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_qsv",
+      "tier": 19,
+      "kind": "component",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_pump_qsv.png",
+      "baseline_sha256": "8fd9cb69a33aadc197d8a9a74b755187f693072a189e86460238cdaa9a4c4b07",
+      "sha256": "276673c479ab173ac85b273bc0a246722ac9f02dbb26ba68a7fe71f518be542e",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_qsv",
+      "tier": 19,
+      "kind": "component",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_piston_qsv.png",
+      "baseline_sha256": "5f9016bc24fa3b9cf2796d82f9c525e40d14825b886b53872e99be569333bd60",
+      "sha256": "771c196addaa0064e978e5b9eb5d972f2904a12e6818fd1696198bb34874822a",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_qsv",
+      "tier": 19,
+      "kind": "component",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/conveyor_module_qsv.png",
+      "baseline_sha256": "03a0abe7a2e67c9892e78de86ba09e62c351bb442d05c9f926515293f0b5832a",
+      "sha256": "a4fb5263503656579db137d701650dff37d8f544675f9701109211c978f53609",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_qsv",
+      "tier": 19,
+      "kind": "component",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/robot_arm_qsv.png",
+      "baseline_sha256": "4e86b2a8cd99da48f92867c82dde5a20548d0b41f9c236282c368263c9112c48",
+      "sha256": "b04e0420278acb295a3d596a368543ad637c397e4881df40eebf1c8eae1acf4f",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_qsv",
+      "tier": 19,
+      "kind": "component",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/sensor_qsv.png",
+      "baseline_sha256": "91e06cfdd63f20680234db624bd2fda3ad49a38af702fb638d3e04d548486dfa",
+      "sha256": "3162b51d4241f83d26ff6118251c48c34c2e27aa4f7056967966d4adc5f7955b",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 67,
+      "preserved_neutral_pixels": 35
+    },
+    {
+      "id": "emitter_qsv",
+      "tier": 19,
+      "kind": "component",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/emitter_qsv.png",
+      "baseline_sha256": "df95aa683e55339995ca9557ed0404b6c45b0ad7fb26f2bfded91010f1fb3d59",
+      "sha256": "031583d82f0ee990caf17d914272fe3adbcdfb849a6e307ca194e89f6dae3279",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 54,
+      "preserved_neutral_pixels": 42
+    },
+    {
+      "id": "field_generator_qsv",
+      "tier": 19,
+      "kind": "component",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/field_generator_qsv.png",
+      "baseline_sha256": "ab2d0012c8686816b0bd202e112cf15c983a50f4fc4e0ed380a76c62f5a6d9c9",
+      "sha256": "7c4e08017d0f6d096d8b1eb80679c2497abf7116052df331780209b599b11376",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 976,
+      "preserved_neutral_pixels": 356
+    },
+    {
+      "id": "electric_motor_qcv",
+      "tier": 20,
+      "kind": "component",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_motor_qcv.png",
+      "baseline_sha256": "dbf9d876137d2f5066aadc5a05ee4a6c0645fae8dfa7a3a46e1bb441cfb69d55",
+      "sha256": "5136dd59e8518073b62ac82e8aa79e73e5bb9a14bc5e0c41e7b40ea690cc6352",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_qcv",
+      "tier": 20,
+      "kind": "component",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_pump_qcv.png",
+      "baseline_sha256": "049a4c04f86ed4d175afc06002908f91af8bcf1e0bfc98a6b7f97153fa909ee4",
+      "sha256": "90efeb922d2d81d6ba58052c6e35aa5100c609dacc216456384bf824c43132a4",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_qcv",
+      "tier": 20,
+      "kind": "component",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_piston_qcv.png",
+      "baseline_sha256": "a330b8455ab6b2397beafe54b562399ef2586ab9862c6f1de104fc028a4ed0b0",
+      "sha256": "0e78a1c397fd81e5b5f431da9818181ae7e41330f0cab7a70a1c4fef55ae2aa2",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_qcv",
+      "tier": 20,
+      "kind": "component",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/conveyor_module_qcv.png",
+      "baseline_sha256": "56a26ad220a3c1eaa1f21c12117e47727059a842202d734157d613b9a7eda096",
+      "sha256": "5e866033ad6605a26afc9f269d070395e23f518cb4d0d339484efa5debff3ec1",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_qcv",
+      "tier": 20,
+      "kind": "component",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/robot_arm_qcv.png",
+      "baseline_sha256": "bd3cea67f107524f9ea3afca30b4769a69c29f559050dbebb2ba165bc184f4cc",
+      "sha256": "5706279fff7d9057dab9136cae41035c4e8e171403aff8e64ef5f1408059743f",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_qcv",
+      "tier": 20,
+      "kind": "component",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/sensor_qcv.png",
+      "baseline_sha256": "437e45f694e115089c4344bdaba016f1140bf8dc452865b5ed092a37e1f63de5",
+      "sha256": "fac420081b75e1bae8e4379b8c92ba9cd9fb9c910031dd80a0c0b995b6d1cad0",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 71,
+      "preserved_neutral_pixels": 31
+    },
+    {
+      "id": "emitter_qcv",
+      "tier": 20,
+      "kind": "component",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/emitter_qcv.png",
+      "baseline_sha256": "3d7d0014705021eff584d1b030bec37ab0ff818a74c52faa20aa5d955404af36",
+      "sha256": "371b9e936163a6064bba20ef7ab07e2192062a5c6738128ad8827e80d5d2ce78",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 59,
+      "preserved_neutral_pixels": 37
+    },
+    {
+      "id": "field_generator_qcv",
+      "tier": 20,
+      "kind": "component",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/field_generator_qcv.png",
+      "baseline_sha256": "a9aeeb552006762e3e0d983dfdac434a03579517f14b5b0e9f287786e0a612fd",
+      "sha256": "02469ea50684ae75309ecfb6bee17377267bd1449285c7726f343c724977bab2",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1036,
+      "preserved_neutral_pixels": 296
+    },
+    {
+      "id": "electric_motor_qev",
+      "tier": 21,
+      "kind": "component",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_motor_qev.png",
+      "baseline_sha256": "de44f0cf9d0fd49dcec6afe102912ff5ad6ad1d20f2018195290252fa69a60bb",
+      "sha256": "1e86f4bf094666f32d1263a7a0a3c80763ac942bb2fb9b8782c2c1f6fda6db0b",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_qev",
+      "tier": 21,
+      "kind": "component",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_pump_qev.png",
+      "baseline_sha256": "a99574d422398d907afa5f37efa8f9fe4b7875e0b2b91e4e2aa9f21f9444e324",
+      "sha256": "a2a4bb632574b0e555216df219acd25f8cd94674a02ad345baad9130f33f6024",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_qev",
+      "tier": 21,
+      "kind": "component",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_piston_qev.png",
+      "baseline_sha256": "66ad29c3b91c9d5b05d145cb9babce61f87c28cc266d005763ecadc4040dfa29",
+      "sha256": "2857bb870235bce4df29c10d597c4dc583b985d5188d07929243ddc1f9b46081",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_qev",
+      "tier": 21,
+      "kind": "component",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/conveyor_module_qev.png",
+      "baseline_sha256": "3863a53b3faf7540cfeb465ef15f064a24e6f46fc6bd5bd47f8cca11ec5da5a3",
+      "sha256": "806319b9722f5aa1d091c4c3246ef0fdb8282d4281d3bf3e571b273a86556e49",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_qev",
+      "tier": 21,
+      "kind": "component",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/robot_arm_qev.png",
+      "baseline_sha256": "c73260f21589888fd28024b83aaf0967b77c359448828077914b594fbaed9f52",
+      "sha256": "e56982bff8e48f60e0f20f1e622c43121ee1f9bc0d0e2cf109beec16b1f87dc1",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_qev",
+      "tier": 21,
+      "kind": "component",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/sensor_qev.png",
+      "baseline_sha256": "0ede9e404c9dadb8356c4e95abb4b95a6b3fc70090a6518d7a36a6fd6a9faf16",
+      "sha256": "61ee2cfe3c85938c2fe22ccd43fcde3dc0b12a24191b7c52f52be1cd64620cc6",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 72,
+      "preserved_neutral_pixels": 30
+    },
+    {
+      "id": "emitter_qev",
+      "tier": 21,
+      "kind": "component",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/emitter_qev.png",
+      "baseline_sha256": "911b1b6872be111205d2885c069904cf488e987895e131322b3a84835f90e36c",
+      "sha256": "043bd1b80df6fcf1707208ca5bd3f1d0720ca55c1d570259b713eda326a32ad6",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 30,
+      "preserved_neutral_pixels": 66
+    },
+    {
+      "id": "field_generator_qev",
+      "tier": 21,
+      "kind": "component",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/field_generator_qev.png",
+      "baseline_sha256": "cccac93d6f57f4dedb34c2a295cb350357e7212a6fb90b823f76a2f488a5b7e8",
+      "sha256": "c628c7e14dd50124fc5f665220d03a259dbbbeb7b02fd149472cd822b6ba9653",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1036,
+      "preserved_neutral_pixels": 296
+    },
+    {
+      "id": "electric_motor_qav",
+      "tier": 22,
+      "kind": "component",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_motor_qav.png",
+      "baseline_sha256": "2853c80f0e76ea940a8e6646358f77ec3d43c5567d5139fd0d2d1a24555f639f",
+      "sha256": "5c51eeb05dccf7bf88bd14f339c36263b8b9bb722f04f9ea3dc0fb1e8f91bc5c",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 39,
+      "preserved_neutral_pixels": 111
+    },
+    {
+      "id": "electric_pump_qav",
+      "tier": 22,
+      "kind": "component",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_pump_qav.png",
+      "baseline_sha256": "a57464903ab0e3e0d1609c468bdc2d6fb39ee7563d03b3106a3a5afe62c4806d",
+      "sha256": "ec6fc2f6f0b3cc397f298a4662fb129395dda7b0c1772239bab5725a5f30a374",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_qav",
+      "tier": 22,
+      "kind": "component",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/electric_piston_qav.png",
+      "baseline_sha256": "a682338381f6d26e9a0f839c1134f85b3976f0f587133d973a26f38281e229f1",
+      "sha256": "db72d9c5a44e427dbf88746d0b4d25214cdc822bae7687783ffa38acc0596692",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_qav",
+      "tier": 22,
+      "kind": "component",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/conveyor_module_qav.png",
+      "baseline_sha256": "3a235d9308f23174dd0f452b45b0e006e19a1cea44e8dcf70feaaf4da300a2b3",
+      "sha256": "6924f98489d54a3eb9289d6a37ade83083d37850aa8b2600bc153b29822fe89a",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_qav",
+      "tier": 22,
+      "kind": "component",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/robot_arm_qav.png",
+      "baseline_sha256": "c2ec45f92363a38543286cec148d17ed97c02e73aa84f1852caeb00d2bbab404",
+      "sha256": "29597967e116c67c40c8879a75c9c32995844d482457632c3e6c45a04856b533",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_qav",
+      "tier": 22,
+      "kind": "component",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/sensor_qav.png",
+      "baseline_sha256": "43b00cace7c111911cb1f4a58a02bf9122456ce99832aeafd57f270fb16f06b0",
+      "sha256": "1edf866119c4cbecaf46bf64c7d0632db71772a2fc86ae3d89f652220bcce532",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 66,
+      "preserved_neutral_pixels": 36
+    },
+    {
+      "id": "emitter_qav",
+      "tier": 22,
+      "kind": "component",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/emitter_qav.png",
+      "baseline_sha256": "98d2bb80a4e6d1e8e386f7c1751849b71619574f9a686327ebd4d78474d80aae",
+      "sha256": "b4e5d3f0c332159d4d27048863e4e5144a3b183f12cdc416f19f9e6889384147",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 50,
+      "preserved_neutral_pixels": 46
+    },
+    {
+      "id": "field_generator_qav",
+      "tier": 22,
+      "kind": "component",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/components/field_generator_qav.png",
+      "baseline_sha256": "ed10583499c2ea1ff579bdda4e8ef391b9e4a8aa82155cbfcf76b9a4dcded261",
+      "sha256": "c2c33c01489029a3cc7fe9b2ff6c1224107b9cdc51ac37da5c3581b0d38b2d31",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1000,
+      "preserved_neutral_pixels": 332
+    },
+    {
+      "id": "electric_motor_imv",
+      "tier": 23,
+      "kind": "component",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_motor_imv.png",
+      "baseline_sha256": "bfb797d7c9cde07f68b6f2f3d4c76d7b27a3538e99a8cec6e9ac271425910deb",
+      "sha256": "60175a422688c928333ba20847b903d7b07a8f4f480b0332d7b9651974119184",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_imv",
+      "tier": 23,
+      "kind": "component",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_pump_imv.png",
+      "baseline_sha256": "80c91e3f5753cc1c7e0dd2ca2d3adb8952898fb4e7e38a432c11de406572f963",
+      "sha256": "6db7a07941ccc5460e502fe040021a1b3f60438d1c58f42aabc2ec56a70e6bb2",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_imv",
+      "tier": 23,
+      "kind": "component",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_piston_imv.png",
+      "baseline_sha256": "21b30b69a9003e4953ac9439b8256163c93d374b82e8fbcd2a3f0f75f86d6ee7",
+      "sha256": "363f9dedcf8b9e494b8504987c12489fe2c639f5cc680331f4201394ee2e38e8",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_imv",
+      "tier": 23,
+      "kind": "component",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/conveyor_module_imv.png",
+      "baseline_sha256": "689c715f554c97ee11622896428711432b718d827165efeb8bbe0179202eb5d8",
+      "sha256": "157f58cfbcf505295ef3d283ddb1520a33b582bed485e75443e53402b783c2d5",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_imv",
+      "tier": 23,
+      "kind": "component",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/robot_arm_imv.png",
+      "baseline_sha256": "abe2799bb4e0de15c4b8f6f9b3812eeaa951978f63db91fbb5ea5bf4c8a7b5db",
+      "sha256": "a41b9d418429952ff2c6997c950ab42806794889fc1dbf558435651486ec4652",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_imv",
+      "tier": 23,
+      "kind": "component",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/sensor_imv.png",
+      "baseline_sha256": "9a4b41aaaa31dc567a2577e6bfc90a3b838412eb5e019e48be8e25338009f6a1",
+      "sha256": "f505c75f5e28f30e286b49e0d21edfd5013eb616180262dd36b7a353ca21a73f",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 75,
+      "preserved_neutral_pixels": 27
+    },
+    {
+      "id": "emitter_imv",
+      "tier": 23,
+      "kind": "component",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/emitter_imv.png",
+      "baseline_sha256": "b9dcc7aab23f01477187ceb27a723078ed7ffe645e0108cb2703bc0e0cc8d2a2",
+      "sha256": "f4e8e4142d6de2a53ac1dcb9964d5bf9885eb9230c6eb1a490664c5841fdf57f",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 64,
+      "preserved_neutral_pixels": 32
+    },
+    {
+      "id": "field_generator_imv",
+      "tier": 23,
+      "kind": "component",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/field_generator_imv.png",
+      "baseline_sha256": "f416428f41abcb028a42be1d658bbcd8a4afd6a69b5bd2b2baf361e5a1f04460",
+      "sha256": "67e0917bdb98c8b569ed03aa2fc8f4407c144544c8e4eac1748993a9fc61960a",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1036,
+      "preserved_neutral_pixels": 296
+    },
+    {
+      "id": "electric_motor_icv",
+      "tier": 24,
+      "kind": "component",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_motor_icv.png",
+      "baseline_sha256": "9267c7580b8b22bc612aee6e7226bd877bb46a7b588e5526a08f9dfa470afa30",
+      "sha256": "56019d58b567011a251023b0e50a6f77ddc70cafae072ca135a9c0998949d11d",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_icv",
+      "tier": 24,
+      "kind": "component",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_pump_icv.png",
+      "baseline_sha256": "1ac27427fd656fcf5611c41c8ff084ec96ed322c1487ee2bc0094433521b68a5",
+      "sha256": "e8c22aa052a327678cfd4fb66857dd8c7225d29d920b12cddd4b67150dfe2e93",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_icv",
+      "tier": 24,
+      "kind": "component",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_piston_icv.png",
+      "baseline_sha256": "8c93fbc95be4f6b14d25f7a0184bdee441c5096049948e70f462f967b03438a0",
+      "sha256": "4330e552666a27625e7e1e52e39d6f21795defa4d0b0e978f820a914b671514c",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_icv",
+      "tier": 24,
+      "kind": "component",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/conveyor_module_icv.png",
+      "baseline_sha256": "1de6453e97b8e763c58ad454f6ac4f53c1d3d0786602c3e2d25d0d8a4148c137",
+      "sha256": "04ec4c362af8cd2f4d93c928b838ba24100b59d2d3b17716135f6dca3bc84f88",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_icv",
+      "tier": 24,
+      "kind": "component",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/robot_arm_icv.png",
+      "baseline_sha256": "59f6d7e3520e483c400aada49245e435ed6647fae9cff79aeb9c73420390b5b0",
+      "sha256": "f3281007f5835ea321eec69d783a881c7056530907aa0277f54b9bca388bcc93",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_icv",
+      "tier": 24,
+      "kind": "component",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/sensor_icv.png",
+      "baseline_sha256": "e4748db4c751e1b4021d60f146aa21139a7ddfd495b8e41982306c83c8fde17e",
+      "sha256": "ace595afc9037ae55badaa3a547fc9748eb9e58ccff983eed9f6edb186cffd29",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 75,
+      "preserved_neutral_pixels": 27
+    },
+    {
+      "id": "emitter_icv",
+      "tier": 24,
+      "kind": "component",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/emitter_icv.png",
+      "baseline_sha256": "a43ab448c87177a8385b452dbd41661c3548ac255ea4fc05ee858b177e4043d9",
+      "sha256": "963e68f0e4c7ab5f0f394b291890398aba3d55a574bdfe8871c9c8c516b71ce1",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 56,
+      "preserved_neutral_pixels": 40
+    },
+    {
+      "id": "field_generator_icv",
+      "tier": 24,
+      "kind": "component",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/field_generator_icv.png",
+      "baseline_sha256": "c85ba3a8b298089292eae8f16402f6ec18c94e678533393eb6f95cb191f43f7c",
+      "sha256": "a9cd9de5f16935ac6b81a5c125e780d54b91a51520eaf43a3286271fc41b283f",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1004,
+      "preserved_neutral_pixels": 328
+    },
+    {
+      "id": "electric_motor_irv",
+      "tier": 25,
+      "kind": "component",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_motor_irv.png",
+      "baseline_sha256": "b4d469320a60b3820894227d42eda6c2944eeadf9420ce146b1b50e93573f556",
+      "sha256": "9af8e3928c3f1737e647d0da935c90eb920c9e3b8c2e8d1e39fcd910aece8eb2",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_irv",
+      "tier": 25,
+      "kind": "component",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_pump_irv.png",
+      "baseline_sha256": "115180f37f9a7ad47e04edce1dae59eb0acc3f1f11ae18399343209768e7e91a",
+      "sha256": "024d25f06cdd15b0186fdb9d89590b34e3c99b328d5f9f6265b6a6f7d0addc4f",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_irv",
+      "tier": 25,
+      "kind": "component",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_piston_irv.png",
+      "baseline_sha256": "38dce45c8420c3049a0f1f1d860eed6890198ef6f622dd441e1e4b6417c6235b",
+      "sha256": "6358deb249ea7fe3bea115a16d1627274d02b0cba24c7c0bb05730c3f8daac65",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 74,
+      "preserved_neutral_pixels": 38
+    },
+    {
+      "id": "conveyor_module_irv",
+      "tier": 25,
+      "kind": "component",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/conveyor_module_irv.png",
+      "baseline_sha256": "f2a6d47e13eff41ee833dfb9d1214c709beaa819cfce4b1502c1235eb952270c",
+      "sha256": "4470120ebe71f0f7f098945521edc25d2eea3e4f7b18fc702fb13c38fd4de2e5",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_irv",
+      "tier": 25,
+      "kind": "component",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/robot_arm_irv.png",
+      "baseline_sha256": "45929857dc1e080254758eeb24eeab310ff09dec6f03731580517ba28279b91d",
+      "sha256": "1a8d9f81fcc03a761e88bde2100844d1332765ffa61e8f1afc3cdc452237cdc0",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 83
+    },
+    {
+      "id": "sensor_irv",
+      "tier": 25,
+      "kind": "component",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/sensor_irv.png",
+      "baseline_sha256": "145682ccf1377ca9fa16d16e227a6fe12ed134eca3a4aa9b8dbf326280bf0965",
+      "sha256": "59ad719e60b624f1ee3ad5303fbb71a6ed58a6672e8d19c5ca71d3dcce621901",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 62,
+      "preserved_neutral_pixels": 40
+    },
+    {
+      "id": "emitter_irv",
+      "tier": 25,
+      "kind": "component",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/emitter_irv.png",
+      "baseline_sha256": "12ab71972b688191357ff8aeb0e3bbeaa140da22bc949547357668dc198e2075",
+      "sha256": "68e98d8a07504fab7e97db753ad089ac6f4b82246d905cc10b0fc206f208321d",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 35,
+      "preserved_neutral_pixels": 61
+    },
+    {
+      "id": "field_generator_irv",
+      "tier": 25,
+      "kind": "component",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/field_generator_irv.png",
+      "baseline_sha256": "5f0fbd431390e57703145859c5e0a9f757188fa0b99cf024e4376f2399d7cc66",
+      "sha256": "3f6b35c19f726d116d8b4b9844744461779f59d4a68fd5be8b16188750bc0c92",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 876,
+      "preserved_neutral_pixels": 456
+    },
+    {
+      "id": "electric_motor_iwv",
+      "tier": 26,
+      "kind": "component",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_motor_iwv.png",
+      "baseline_sha256": "f477aef9dd6bb9b1bb940dc3e2c67e60bedff3632d51e05780057e69a5ff7967",
+      "sha256": "f1a3831b6cea479da5bf5a0f36cf59ed71df62831a53499f160bbd0da704d159",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 31,
+      "preserved_neutral_pixels": 119
+    },
+    {
+      "id": "electric_pump_iwv",
+      "tier": 26,
+      "kind": "component",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_pump_iwv.png",
+      "baseline_sha256": "e66cb80d8b660ec205aefd22f78741c14cf3b19ade3691d361509e70241bb83c",
+      "sha256": "ab3bd8425df2b51e53c07eadcb43e9030c246c493f95c69467a225f13f255d67",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 40,
+      "preserved_neutral_pixels": 77
+    },
+    {
+      "id": "electric_piston_iwv",
+      "tier": 26,
+      "kind": "component",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/electric_piston_iwv.png",
+      "baseline_sha256": "72a691a0c960a66c00bcd355739a5085e10a6a5cc73b025d078d93ec516b9bda",
+      "sha256": "1377c29e5826dadcf80e946236b6834dc8706a83cde11346b4d4068ba236fd6e",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 57,
+      "preserved_neutral_pixels": 55
+    },
+    {
+      "id": "conveyor_module_iwv",
+      "tier": 26,
+      "kind": "component",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/conveyor_module_iwv.png",
+      "baseline_sha256": "bb776b6abcb53195be075e84f20ff11516f36753d3d8983641ddbb94dae259d4",
+      "sha256": "65b84a8136a150f4f2faf12179c528ea176e4cc9c4a53c957b0536543ecf453d",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 23,
+      "preserved_neutral_pixels": 133
+    },
+    {
+      "id": "robot_arm_iwv",
+      "tier": 26,
+      "kind": "component",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/robot_arm_iwv.png",
+      "baseline_sha256": "bc2fb2b4f83c5efdc1f67817c10ceb7e2784b76694c18f5dc8afffaa60cf7d9a",
+      "sha256": "3d72d64aeaa5fc1f7efc9a8eb998b24109bcb33e6eb071652a782957a20e1dd6",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 38,
+      "preserved_neutral_pixels": 89
+    },
+    {
+      "id": "sensor_iwv",
+      "tier": 26,
+      "kind": "component",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/sensor_iwv.png",
+      "baseline_sha256": "260e783da68ddf78a430e7b7c59331917b06113735e89832a1367dec38363cae",
+      "sha256": "7d4eedcaa6ea822b5ccb286383f5031cff07942e62bf4905e095a1bd99d96d92",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 48,
+      "preserved_neutral_pixels": 54
+    },
+    {
+      "id": "emitter_iwv",
+      "tier": 26,
+      "kind": "component",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/emitter_iwv.png",
+      "baseline_sha256": "bef2ea17ca9476571b678b13d330e4daf88d6f79e19d35bc1a11313ed89cbdbb",
+      "sha256": "4ee38ee05f95e55099e90c6d30ac24f1da1cefd6f2dcd396dd9b6e7463452f71",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 67
+    },
+    {
+      "id": "field_generator_iwv",
+      "tier": 26,
+      "kind": "component",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/components/field_generator_iwv.png",
+      "baseline_sha256": "e4fae341d2fc83344c6b328459b3f8e0298cdcca119380e1b1b8d78572c87860",
+      "sha256": "995f56d9ceae276d0786ac24e1e116add10019ef7981b18d6c3dc6933412ee1c",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 692,
+      "preserved_neutral_pixels": 640
+    },
+    {
+      "id": "electric_motor_wfv",
+      "tier": 27,
+      "kind": "component",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_motor_wfv.png",
+      "baseline_sha256": "9fab41714b29adaeb6c3f414eb67ddf52a4bde44b849f70551de371a47e5ac8a",
+      "sha256": "62e6290910f49b9e988382739e80814a709b6a61a7a321e858bb5697373a9560",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 38,
+      "preserved_neutral_pixels": 112
+    },
+    {
+      "id": "electric_pump_wfv",
+      "tier": 27,
+      "kind": "component",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_pump_wfv.png",
+      "baseline_sha256": "2c349c11183682a4a86102bc88cccc122878a583453754a3514dec22cd2a6504",
+      "sha256": "ceab99b336ca7741a352f2079c740bbcfda3deff72a9561a2a9fdc5103ce7d06",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 36,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "electric_piston_wfv",
+      "tier": 27,
+      "kind": "component",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_piston_wfv.png",
+      "baseline_sha256": "cfdc0ee666d49c85e224687ee8efccba1c43382496d8a7783d3e3336b48773cc",
+      "sha256": "c23da4b39d3972884844f883c905a608e2b529db202232b38158464175a768d5",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 68,
+      "preserved_neutral_pixels": 44
+    },
+    {
+      "id": "conveyor_module_wfv",
+      "tier": 27,
+      "kind": "component",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/conveyor_module_wfv.png",
+      "baseline_sha256": "e20e9e725f0fb1236714e53ff302771cebd2607dc93b950b2d6bb83911f5a976",
+      "sha256": "21afa69f992e9bf8dd08d6a45a46b5f18faaff3e9cf757d6aec92d4c3c2f2863",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 25,
+      "preserved_neutral_pixels": 131
+    },
+    {
+      "id": "robot_arm_wfv",
+      "tier": 27,
+      "kind": "component",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/robot_arm_wfv.png",
+      "baseline_sha256": "525bd1c82446fe2fd35ed050b24aaf024470476d68338fb63ea9014484d774c5",
+      "sha256": "adf9f4af1d559cd451e009d896d3ca9abce09ff5ae6c94a6f814eae73201bef1",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 34,
+      "preserved_neutral_pixels": 93
+    },
+    {
+      "id": "sensor_wfv",
+      "tier": 27,
+      "kind": "component",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/sensor_wfv.png",
+      "baseline_sha256": "23712d8e68b290372385acd7bc76f7bc03c592a9cf8aa7689b7ae6d375a6eada",
+      "sha256": "a69ac30ea376a1b2cc10592579c5398c378ea8dae2e7877ce24648ca4948e2d3",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 56,
+      "preserved_neutral_pixels": 46
+    },
+    {
+      "id": "emitter_wfv",
+      "tier": 27,
+      "kind": "component",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/emitter_wfv.png",
+      "baseline_sha256": "2acb2435359acc4c010c1b2bc278dd1ba302dc738efbc0fd56cf1cf79136f380",
+      "sha256": "8028e665ddb1b061884254649325f09ce37e5d1d41e32ea867852e0b721b863d",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 45,
+      "preserved_neutral_pixels": 51
+    },
+    {
+      "id": "field_generator_wfv",
+      "tier": 27,
+      "kind": "component",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/field_generator_wfv.png",
+      "baseline_sha256": "5af4f69066a874c04d29acf8322abd770f8fe35d9433229a7d0fa620c2c28862",
+      "sha256": "5ddae0c8d0ea80bd91da28b885e77d178162539124891941f6e069f9c6f807ac",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 856,
+      "preserved_neutral_pixels": 476
+    },
+    {
+      "id": "electric_motor_wsv",
+      "tier": 28,
+      "kind": "component",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_motor_wsv.png",
+      "baseline_sha256": "bf96abb0d98889f1df5e698d3c52f04d62a5fe50b04474415c1efc7f35785eee",
+      "sha256": "633acb029bff6f0154f3a46dd2ad18b167aa43fffcc3c86da4ed028d143ecfe3",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_wsv",
+      "tier": 28,
+      "kind": "component",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_pump_wsv.png",
+      "baseline_sha256": "256d81dd4430257964af0609f8b65e176c24aed7b51974c7facae3733457e6e6",
+      "sha256": "85ca5b32ae992ee66b267bad59b4bfe12578336abc6d3734ada996d98ec1e31e",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_wsv",
+      "tier": 28,
+      "kind": "component",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_piston_wsv.png",
+      "baseline_sha256": "63a10c73583a179de330b67f67125e06e4549a110a506ac0fb6677cb063eca61",
+      "sha256": "bf82b32ccef3be263753593b4c88e417a87d1d4879b726a0f3543547d250c1fd",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 83,
+      "preserved_neutral_pixels": 29
+    },
+    {
+      "id": "conveyor_module_wsv",
+      "tier": 28,
+      "kind": "component",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/conveyor_module_wsv.png",
+      "baseline_sha256": "bf546d40496b6dd0173ce921f5dd74127a14da1c0f2b132431c3512873d79690",
+      "sha256": "53f59e90ea6566d4d895b2eece51d1458267a41db4d14dab70999cbdf900ebc6",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_wsv",
+      "tier": 28,
+      "kind": "component",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/robot_arm_wsv.png",
+      "baseline_sha256": "d2c548accf43651d4612a6813e04ad85fd020372b7e81b172090f75ae4e8e554",
+      "sha256": "3ee2ab8c1314f1a3f45f291fd5aac1e1bd44b5626a53b36045e2c0c8b94c128a",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 46,
+      "preserved_neutral_pixels": 81
+    },
+    {
+      "id": "sensor_wsv",
+      "tier": 28,
+      "kind": "component",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/sensor_wsv.png",
+      "baseline_sha256": "239feefca0a77509bfecf3f4d23f73b3895419b103cca55b9df45ae06b590872",
+      "sha256": "121d174d428b8e054094971473ea6730718fb3dce7be09cde09bf637cc37e078",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 71,
+      "preserved_neutral_pixels": 31
+    },
+    {
+      "id": "emitter_wsv",
+      "tier": 28,
+      "kind": "component",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/emitter_wsv.png",
+      "baseline_sha256": "db98a1b3e3ac97369ba037bf1fc0ee525035b4da4f3f5b4cf8cdd66a9ad2447b",
+      "sha256": "0853211c7eb3c4d2cdb3b5c554ecae31bf33e42d2ae05bab83651ddb2e2e55c2",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 59,
+      "preserved_neutral_pixels": 37
+    },
+    {
+      "id": "field_generator_wsv",
+      "tier": 28,
+      "kind": "component",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/field_generator_wsv.png",
+      "baseline_sha256": "2b7a612694ca06ff1a15279c695bfcbe36790a34f9b21d365019415b8f5695e3",
+      "sha256": "19fde17287c701154937d39ad186126e06ddae1e0b6347c76d3bbd18c2300d99",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 1000,
+      "preserved_neutral_pixels": 332
+    },
+    {
+      "id": "electric_motor_civ",
+      "tier": 29,
+      "kind": "component",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_motor_civ.png",
+      "baseline_sha256": "1f23e77df26e3973580be0d83fce2744b8717ae13d0d117280a3896d3729b9a3",
+      "sha256": "2f7e75b7a786ca3504eb22ad60193b5d09b33c9be802752c8303003e4bd9f9c9",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 106
+    },
+    {
+      "id": "electric_pump_civ",
+      "tier": 29,
+      "kind": "component",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_pump_civ.png",
+      "baseline_sha256": "5c384d518de1942e149fda9bce6447018d97377341adfbe6af1a83a636150734",
+      "sha256": "c4a434b292a3704f8ca1418138ea2ac100a83100bc6f80f60c980458267c10fd",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_civ",
+      "tier": 29,
+      "kind": "component",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_piston_civ.png",
+      "baseline_sha256": "38ec7409293a6e702f550bd0914814fa63c8f4015b4f316391801e3b286ef7a0",
+      "sha256": "8dbf0fb0b1c3c8ad7e1101fe229641a048c4e0a0b2c75f09ce84d793d27e9385",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 74,
+      "preserved_neutral_pixels": 38
+    },
+    {
+      "id": "conveyor_module_civ",
+      "tier": 29,
+      "kind": "component",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/conveyor_module_civ.png",
+      "baseline_sha256": "b65917d6a48884a27278fb7643e1e29940b958a6cebf1daf505a45f63252ef78",
+      "sha256": "94c6c349fedf4dac91649ac6dcdc0630f60eef2f2c888c1b6b557ebeef5945df",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_civ",
+      "tier": 29,
+      "kind": "component",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/robot_arm_civ.png",
+      "baseline_sha256": "ddb4c3ec231b84ae5a5ba0532bef8f602ef709b28bafaebe90f034065b888d7d",
+      "sha256": "e6296c6796e6aa2abad334ae9ad1e455de4a6e6e6ff049b7cf376881ded1d385",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 83
+    },
+    {
+      "id": "sensor_civ",
+      "tier": 29,
+      "kind": "component",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/sensor_civ.png",
+      "baseline_sha256": "a2ec597c5310b4f30e7c53b0b10a5e44ea1a8be27c33f2c87d4f542cb2f37150",
+      "sha256": "d200ce2259f1743f62cd1b28b59bc01ec29d74f3204eabf65eef3d38bf03651d",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 58,
+      "preserved_neutral_pixels": 44
+    },
+    {
+      "id": "emitter_civ",
+      "tier": 29,
+      "kind": "component",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/emitter_civ.png",
+      "baseline_sha256": "c1409b71c9d2c4bba0d394080a45cf71eab7fae1a23c8d678f4d22645f6ec98d",
+      "sha256": "e6fa7321f8fe9a188a40bd3cea3bb27677fcb8746c514ec331e009b02f9b05b1",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 30,
+      "preserved_neutral_pixels": 66
+    },
+    {
+      "id": "field_generator_civ",
+      "tier": 29,
+      "kind": "component",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/field_generator_civ.png",
+      "baseline_sha256": "260afb24bb0db01b6dbb0b702f6dccf5abb247c3b7d49143d1f9f953776c543e",
+      "sha256": "e5e1420f46995214e540568b8c63bccab035315e2a8f613e07f44eee0962ba91",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 908,
+      "preserved_neutral_pixels": 424
+    },
+    {
+      "id": "electric_motor_cev",
+      "tier": 30,
+      "kind": "component",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_motor_cev.png",
+      "baseline_sha256": "f4352c9cf0609e7d059eacd208cdc0d1dba38a1b18a1cab4318fef63db94f905",
+      "sha256": "7498c5ed1cdcb10c130b11ca8a2be37cc04067fb274b067a91d712088bcc0bb7",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "86b0d2b80004030d276adec632beb9885b4ba471cdecf52eef26ea01339f15e7",
+      "mcmeta_sha256": null,
+      "changed_pixels": 39,
+      "preserved_neutral_pixels": 111
+    },
+    {
+      "id": "electric_pump_cev",
+      "tier": 30,
+      "kind": "component",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_pump_cev.png",
+      "baseline_sha256": "7cdbea730655e9abe3d7497775f2637157412c8be060b4d6edf0925b4a269699",
+      "sha256": "8908eb9a7fe52a5651b25b26a15ca2ee696da86f1b8a9fd77c0301aa441b4c12",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "4de2c6457cb7979da469f3b6f87126ae74df4bcec8936e2ad03c286b33dc3949",
+      "mcmeta_sha256": null,
+      "changed_pixels": 43,
+      "preserved_neutral_pixels": 74
+    },
+    {
+      "id": "electric_piston_cev",
+      "tier": 30,
+      "kind": "component",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/electric_piston_cev.png",
+      "baseline_sha256": "707b0966cc5869d4703b4d70f3afef27ffaf4e54102150a451e0016ddfb5e304",
+      "sha256": "d485083504a109206048708e0eb01c18c8904c29c064f426b396442b7567040b",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "6895d94d07a6a22a3a76fde6657501a557daf6649f6c78829fb60c7b1f8e6931",
+      "mcmeta_sha256": null,
+      "changed_pixels": 74,
+      "preserved_neutral_pixels": 38
+    },
+    {
+      "id": "conveyor_module_cev",
+      "tier": 30,
+      "kind": "component",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/conveyor_module_cev.png",
+      "baseline_sha256": "b0f77c6a93f9b48fa3461a07c9b047e7fada2d88915b9c43316d3fc81da713e2",
+      "sha256": "a632f86cf9a377fde5a4bec3c58d196dba17335fa98b1d4719169ee644f05332",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "771ca7b730902e65fbcc6b4f5d914ab3c8e811715eb26e7862fa05c413f62df6",
+      "mcmeta_sha256": null,
+      "changed_pixels": 29,
+      "preserved_neutral_pixels": 127
+    },
+    {
+      "id": "robot_arm_cev",
+      "tier": 30,
+      "kind": "component",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/robot_arm_cev.png",
+      "baseline_sha256": "048b7fc62417b5aab526bdaf8479c1d155ff0c40bd702b4a65f41e15dd5d5492",
+      "sha256": "a4fcb5c73d7905ce29b843c034eb77115b99bfbb8252faab29bb82d5bdbbf2ea",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "8c5ad30f45abfa60c15189f799d9d4e8e544d329032e6254c78a3dac9bcfc074",
+      "mcmeta_sha256": null,
+      "changed_pixels": 44,
+      "preserved_neutral_pixels": 83
+    },
+    {
+      "id": "sensor_cev",
+      "tier": 30,
+      "kind": "component",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/sensor_cev.png",
+      "baseline_sha256": "3804a3328ab65d912c4a83f7dba07d746cc7189dcf373a96c0b15152ef3d2567",
+      "sha256": "5333ad7cbf0fdbf1d177c587c6a55874db97c5ea36cc28f885be4e8481673d88",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "9c1b520eb184cd628512e2bcc3e7fef1a8786c633800cb36b65f4017d6feaf46",
+      "mcmeta_sha256": null,
+      "changed_pixels": 58,
+      "preserved_neutral_pixels": 44
+    },
+    {
+      "id": "emitter_cev",
+      "tier": 30,
+      "kind": "component",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/emitter_cev.png",
+      "baseline_sha256": "dace5a102478ddbc53f4134069d302699dd8b6346b78ca885706499be68f2a1b",
+      "sha256": "f29c32a209de16a54c2573f68b342ffe3a99ce985ece40a580b5dc1e699b7cc0",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "7619a6e6c10dcad02c31cd1bbe8676e698982e85433f5e7fe821a4da26d45846",
+      "mcmeta_sha256": null,
+      "changed_pixels": 41,
+      "preserved_neutral_pixels": 55
+    },
+    {
+      "id": "field_generator_cev",
+      "tier": 30,
+      "kind": "component",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/components/field_generator_cev.png",
+      "baseline_sha256": "f2cae2c5c777f326f859d68f090337d2d75da4321692aa6a97da5c035558dd2c",
+      "sha256": "c673b356937ab36cc6a2fc13c3e70c9903872ba50b007ed3de17352af79d5827",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "cec5e6cd1545b9a09d50d0136e961288fa7e4cbecf90116961ee4a0940f7c42b",
+      "mcmeta_sha256": "fe6a8d5806f9e2c68eacd033a7e58f6546202b46d6a4c5a924001d6abcdc8be7",
+      "changed_pixels": 908,
+      "preserved_neutral_pixels": 424
+    },
+    {
+      "id": "hbv_processor",
+      "tier": 15,
+      "kind": "formal_circuit",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hbv_processor.png",
+      "baseline_sha256": "5c0bacfea878d246c4458233091181fc24ef1826693c855df8453982a105884a",
+      "sha256": "36efe59ba5423bdb300b88d8b3c16d482194272482e3339352395b89f3a90295",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": "e672b9958274445ef85cf0f254f737ed0587bec59cb7e1a77c444509b94850e4",
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hcv_assembly",
+      "tier": 16,
+      "kind": "formal_circuit",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hcv_assembly.png",
+      "baseline_sha256": "7adace7558d1c588270a9bd4ac3d6ca1362162a08b7afdadd6adb00eff10db2e",
+      "sha256": "2420c9f6f57b315a3e94a261d8077b122664d846f1ac95d3aa31c9409b89b8b3",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": "e672b9958274445ef85cf0f254f737ed0587bec59cb7e1a77c444509b94850e4",
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hrv_computer",
+      "tier": 17,
+      "kind": "formal_circuit",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hrv_computer.png",
+      "baseline_sha256": "0823a978500b5d2b73eb0db8262fbb56b6def9c998f8af58abe5c1a30a2c5f46",
+      "sha256": "e62ae4e0b406130d5648e974ad5ced381f478fac2b0204acb39dac50e6207e47",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hdv_processor_mainframe",
+      "tier": 18,
+      "kind": "formal_circuit",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hdv_processor_mainframe.png",
+      "baseline_sha256": "908a57dc064dc587b45e165b879c4533611cd75d28bfa275b021d531205f00ec",
+      "sha256": "37d3a523d6d3d9901fa296b73eb4fa4be0b2ee88d3f1c9a086ff93896d859cf0",
+      "size": [
+        16,
+        80
+      ],
+      "alpha_sha256": "4e38e5ca5049bffd8e7b1f2b702a23e5251553fdc37ea7ecec24dbb8966291cc",
+      "mcmeta_sha256": "7e2213aed684faf03dc845a30a3e7c3d65d320a7b3ad0ce277e8e60544b43b2b",
+      "changed_pixels": 940,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "rhythmic_coupling_processor",
+      "tier": 16,
+      "kind": "formal_circuit",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/rhythmic_coupling/circuits/rhythmic_coupling_processor.png",
+      "baseline_sha256": "c174ce54d1ab8cf4adf3f51b27d7a094e94029cd655bc5d9efc49969d3b18b0f",
+      "sha256": "60f90c5e00dfde5863ce11ce3732e052d2b1e31fe34f3d027056b4bd5cfcedd3",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "rhythmic_coupling_assembly",
+      "tier": 17,
+      "kind": "formal_circuit",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/rhythmic_coupling/circuits/rhythmic_coupling_assembly.png",
+      "baseline_sha256": "09c573ad55674e849c5ed1a1f707a0c6b53fa5adb77033cef7453922206f3eb5",
+      "sha256": "58675e385e6c20a313829654471fc372c25f1754a295fec03d3b3d31755b2420",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "rhythmic_coupling_computer",
+      "tier": 18,
+      "kind": "formal_circuit",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/rhythmic_coupling/circuits/rhythmic_coupling_computer.png",
+      "baseline_sha256": "a27ee1d45f34cd4baf57b98ae857a3435e3e5ecc883ae84272e28b0f379da70a",
+      "sha256": "0fd898e81233c283c236d6e3da876af8fb3e2f6a33e7a99873e11c6f430025fe",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "rhythmic_coupling_processor_mainframe",
+      "tier": 19,
+      "kind": "formal_circuit",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/rhythmic_coupling/circuits/rhythmic_coupling_processor_mainframe.png",
+      "baseline_sha256": "04f6953d9ac32b9ebee4118eab688a869d899a3b626ee4db9268d73560251ff1",
+      "sha256": "abda09e754f51b29bacbb1e308e39e75e1f42b532e09ac40e40e1c990e96cdd7",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "ae03cef713a2ed6d4f53908d23dca75fb4bee7fbc8328b6986457db0593afb66",
+      "mcmeta_sha256": "a34bda0031e3c2bb56f62b5d61b1f9eccf70f0782ea94679b04b1d0208649845",
+      "changed_pixels": 1316,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "honkai_resonance_processor",
+      "tier": 17,
+      "kind": "formal_circuit",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/honkai_resonance/circuits/honkai_resonance_processor.png",
+      "baseline_sha256": "2bc03cdb71404ea82cfd9b735f23b1b368e0f9f8234e6c5b95f8629aa9762498",
+      "sha256": "93bbbe69f9339ad68c4dcd9c9a7d73d286a4b22f5a79c266f0d533113e18ee0a",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "dafbe894f8d87c433e981462d7a21e082a94147c01f52eebe5fdc818689e386b",
+      "mcmeta_sha256": "441b6b8a78e4a5ba61f1036f9be934f4125531ad91355948f0d3a26d1a960753",
+      "changed_pixels": 714,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "honkai_resonance_assembly",
+      "tier": 18,
+      "kind": "formal_circuit",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/honkai_resonance/circuits/honkai_resonance_assembly.png",
+      "baseline_sha256": "6eb49af165d963cbc4fc6d1fed8ea1a23bc6fba78ea4fa7562ef61f2ade0964c",
+      "sha256": "e0f3a011aa13c5e70bbc1d5e2107dbd13ed918ddd7582cd03fbbe861c1510173",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "87c6746f2d8722f1c2e4ed68773aa6edc0e014a8f7a54dceb899cb9cdba1322e",
+      "mcmeta_sha256": "1f263bd1df7218d84592f736e1dcacaff39faa9acfb1186cf0cfe1a14d5acd9b",
+      "changed_pixels": 770,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "honkai_resonance_computer",
+      "tier": 19,
+      "kind": "formal_circuit",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/honkai_resonance/circuits/honkai_resonance_computer.png",
+      "baseline_sha256": "15ceb31778343421e7dbacaa660b45fd9a7ec265b6cf651feef7c878d54050a8",
+      "sha256": "ba9dbd4a2835777174a2816fcdcd57e53437f4226ada4f20d03f4a0d9ffc55e2",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "honkai_resonance_processor_mainframe",
+      "tier": 20,
+      "kind": "formal_circuit",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/honkai_resonance/circuits/honkai_resonance_processor_mainframe.png",
+      "baseline_sha256": "53d1539359ce4faae44d10aef3fbd3330cc6b5e7898233f12fdd795197e9e3c1",
+      "sha256": "2c347bd212a08c6033d39e92ea73e8ab996c8dca6aaa8b16b6389ceb76fbc8a0",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "daa8c454058c3019089cb506b0bab485868c9ce74b1ee3e1dbcd64eaa5d019ac",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_bridge_processor",
+      "tier": 18,
+      "kind": "formal_circuit",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/quantum_bridge/circuits/quantum_bridge_processor.png",
+      "baseline_sha256": "6279455dc0b11ea2a907f7d77cd0bbf80d8dadab25bfac6f578741707fbd0b99",
+      "sha256": "902fb9c29d423e9d86ad6595577e7fc654a527aaf2336ad23068297063602e80",
+      "size": [
+        16,
+        144
+      ],
+      "alpha_sha256": "221ccfae1e6df4b7bacef75c94d462867a0e9006ea8fe1b4492a253f44770c87",
+      "mcmeta_sha256": "86bfa2531b669d4f249278e9f35a7f55d2d45540ca36f503107af07bd1fae0f1",
+      "changed_pixels": 918,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_bridge_assembly",
+      "tier": 19,
+      "kind": "formal_circuit",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/quantum_bridge/circuits/quantum_bridge_assembly.png",
+      "baseline_sha256": "90bc42f8b9f748a7163db0564089e8d04e2605e20c6736159bc2f793be42c1a9",
+      "sha256": "493e249bf62f9bcdf13e77488c32cc1fe27d1677da7ef029b136acd7d8d1fa2a",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "87c6746f2d8722f1c2e4ed68773aa6edc0e014a8f7a54dceb899cb9cdba1322e",
+      "mcmeta_sha256": "0d81a8feb03b276867a0e8e49acb6c76202b11cd1f7257752cd2c3ff512e0a3a",
+      "changed_pixels": 770,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_bridge_computer",
+      "tier": 20,
+      "kind": "formal_circuit",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/quantum_bridge/circuits/quantum_bridge_computer.png",
+      "baseline_sha256": "b431ba693aef8d76afb8967e6a5291512f3ee86092111473e046af600093aca6",
+      "sha256": "2f380eb6a9212da2f4fae560fafa00a22fdcb727b7b761e8ccf6d879d3f7293e",
+      "size": [
+        16,
+        144
+      ],
+      "alpha_sha256": "8e90921a99586241b669f2b7094d1a7dfae0dd9d7867f6789d62a4bea5167900",
+      "mcmeta_sha256": "f6dd0d2e54b016f022c7fd6745825e08065b4699e88eea0d65b98d950146686d",
+      "changed_pixels": 1332,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_bridge_processor_mainframe",
+      "tier": 21,
+      "kind": "formal_circuit",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/quantum_bridge/circuits/quantum_bridge_processor_mainframe.png",
+      "baseline_sha256": "7399df7726a3b96f491d805928d0b7d3b0adc6095a00c1e86fd9e341e642293e",
+      "sha256": "32e4a31a3c7f749d5c3dd365a79a108a14f6a29c57e3658d58e9d3adbbcde1e7",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "4d42ae6190a6076d415e0fd6c713c1250138724545181e0426783f97ad841b66",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qsv_processor",
+      "tier": 19,
+      "kind": "formal_circuit",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qsv_processor.png",
+      "baseline_sha256": "14cff3428bc461dacd6e01c6882f1c14ea39498dcabfab58dc91c56638ec41ed",
+      "sha256": "2cd83e695d7ebf1117282beea627aad45c9f9a843a01304981ad9f54b871a5d5",
+      "size": [
+        16,
+        144
+      ],
+      "alpha_sha256": "221ccfae1e6df4b7bacef75c94d462867a0e9006ea8fe1b4492a253f44770c87",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 918,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qcv_assembly",
+      "tier": 20,
+      "kind": "formal_circuit",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qcv_assembly.png",
+      "baseline_sha256": "a55add4e898e77ddb8a5150db30fbe6e46bc5d12911482b4823487c586445d41",
+      "sha256": "eadacc6a54ef19182c03019158781aa4087710511392640cc6a17e024216f005",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "87c6746f2d8722f1c2e4ed68773aa6edc0e014a8f7a54dceb899cb9cdba1322e",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 770,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qev_computer",
+      "tier": 21,
+      "kind": "formal_circuit",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qev_computer.png",
+      "baseline_sha256": "f3dbd1ecb502834ad110c28070042e82e4a2d1bf14b0cabb2ef4cee464817408",
+      "sha256": "9876a38a76562f7d96010aa320fb6e54369a273884e4c6aa46e5731de63580ca",
+      "size": [
+        16,
+        144
+      ],
+      "alpha_sha256": "8e90921a99586241b669f2b7094d1a7dfae0dd9d7867f6789d62a4bea5167900",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 1332,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qav_processor_mainframe",
+      "tier": 22,
+      "kind": "formal_circuit",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qav_processor_mainframe.png",
+      "baseline_sha256": "a6616465221e644e9e313aa1bddbe4d74be8877fab9b617baf0d0b2f954d3621",
+      "sha256": "ba517960fdb79474eb980c52c7e74e9cd4debe4ccf13b9ead6e75dc012a11168",
+      "size": [
+        16,
+        144
+      ],
+      "alpha_sha256": "278e4a2b4ae71968414510f93633acacb997519923b6f3b696b680b3f798ddbd",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 1692,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_interference_processor",
+      "tier": 20,
+      "kind": "formal_circuit",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/quantum_interference/circuits/quantum_interference_processor.png",
+      "baseline_sha256": "de79837d588a5e96217de64ea3744abccddecfba118feffab99d341932144530",
+      "sha256": "387ab155ae229f47d3b349ea8a1f7c14d8cbdeddc09392584251aa585f0d69ba",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "dafbe894f8d87c433e981462d7a21e082a94147c01f52eebe5fdc818689e386b",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 714,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_interference_assembly",
+      "tier": 21,
+      "kind": "formal_circuit",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/quantum_interference/circuits/quantum_interference_assembly.png",
+      "baseline_sha256": "75d07c801b26a146cfaab9eb9ae8c55f4de57c22b75a6ebf0d5d5b213286520d",
+      "sha256": "5c71088edfc0ee7912cfbfd9e68858088e069bad0aa105a3890e8e95b43f3dcb",
+      "size": [
+        16,
+        96
+      ],
+      "alpha_sha256": "8149e3296e2a11bb6cdb95f6508db0eaafba74c016073d16d2f480c3e5799225",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 660,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_interference_computer",
+      "tier": 22,
+      "kind": "formal_circuit",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/quantum_interference/circuits/quantum_interference_computer.png",
+      "baseline_sha256": "a578583073e834ca346326349839e1c7b716a0e22f94bed189fd42762bd24a4c",
+      "sha256": "b34e274df233e672faebc3b1eafcca804ab31a8a955a8dbabc86ad1323506124",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "a371c7a8d62138010d5184b2512ec4f5af84d86c377f641b7a6b6db0443e4b70",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 1184,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_interference_processor_mainframe",
+      "tier": 23,
+      "kind": "formal_circuit",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum_interference/circuits/quantum_interference_processor_mainframe.png",
+      "baseline_sha256": "0b194c1f7ba01e7e39d1e608d6de139dcb49e2a24e314d190db3c12f51a5ae46",
+      "sha256": "421b1a9587982da4c0daf441777abe02b16219a104720366d6997c1ebea6c9d2",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "b89c471a4a994f44c1df01ed3d398e62de02e96abbf74141cd3f9c7843a91e21",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 1537,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "entanglement_anchor_processor",
+      "tier": 21,
+      "kind": "formal_circuit",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/entanglement_anchor/circuits/entanglement_anchor_processor.png",
+      "baseline_sha256": "bf7cbc256e90732b08c3402af1a5798df96c473b4ad2223b38aba6fa405a8b55",
+      "sha256": "6318441409a32db9dea9f1efcb478e133dc0e97107072af2b026c05c30c6a382",
+      "size": [
+        16,
+        96
+      ],
+      "alpha_sha256": "cec2b0ee186f022c2fd39b9641af6e7bbad66198281aa0edc1356034754f376c",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 612,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "entanglement_anchor_assembly",
+      "tier": 22,
+      "kind": "formal_circuit",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/entanglement_anchor/circuits/entanglement_anchor_assembly.png",
+      "baseline_sha256": "5268b73cf1a40dccfe8f3cd1fb4ea743e308908a54abfed366961d860fc58c78",
+      "sha256": "ea86700671fe26c4bc61039941d4933e42473c69a1bc9f25df86afb8db614ecf",
+      "size": [
+        16,
+        96
+      ],
+      "alpha_sha256": "5288aef03d83a6830562d009866656a2a8862ab396a69e04abfe8c72298056d9",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 672,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "entanglement_anchor_computer",
+      "tier": 23,
+      "kind": "formal_circuit",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/entanglement_anchor/circuits/entanglement_anchor_computer.png",
+      "baseline_sha256": "0d249be8e3388f9cbc2d36d941a02de45f8d474e8e1a29989f0cd56ce54b1b32",
+      "sha256": "3f7852c99491cdef33de29317cc8d7ce30f87f6a5f1f8eb1db7d809c50a7e423",
+      "size": [
+        16,
+        96
+      ],
+      "alpha_sha256": "d995b6f2f13b7c5cdf063682e8046cbdcf6dbffc10149f93dc77f7ceb8b354a5",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 904,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "entanglement_anchor_processor_mainframe",
+      "tier": 24,
+      "kind": "formal_circuit",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/entanglement_anchor/circuits/entanglement_anchor_processor_mainframe.png",
+      "baseline_sha256": "fc87e412d9af0da38029206d43a84da42e78d19d2924f2d10a72b38faa258c13",
+      "sha256": "44cd5fe9f15db53d7620fc5c532594288c71e7af74af2cbbc3bd7803b4119068",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imaginary_anchoring_processor",
+      "tier": 22,
+      "kind": "formal_circuit",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary_anchoring/circuits/imaginary_anchoring_processor.png",
+      "baseline_sha256": "21275ffbef3b567961604e90b27136f9d7a3013e4c213c619bf35d1d5add263a",
+      "sha256": "adbf4787d40b421fb283f0fbad70dd57019999908e1692335a1b70c1e7f18c32",
+      "size": [
+        16,
+        96
+      ],
+      "alpha_sha256": "cec2b0ee186f022c2fd39b9641af6e7bbad66198281aa0edc1356034754f376c",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 566,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imaginary_anchoring_assembly",
+      "tier": 23,
+      "kind": "formal_circuit",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/imaginary_anchoring/circuits/imaginary_anchoring_assembly.png",
+      "baseline_sha256": "b76e02dd2544cbd9a2cbf460e8e466729aca38adc36629ba9e8f8cb32aec6245",
+      "sha256": "c13ce389da202260a2910880fc5d52cb8aa1d9d0f4d3e1a70064e12fa98bddac",
+      "size": [
+        16,
+        96
+      ],
+      "alpha_sha256": "8149e3296e2a11bb6cdb95f6508db0eaafba74c016073d16d2f480c3e5799225",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 565,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imaginary_anchoring_computer",
+      "tier": 24,
+      "kind": "formal_circuit",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/imaginary_anchoring/circuits/imaginary_anchoring_computer.png",
+      "baseline_sha256": "8dba0b4148c22e91c260e6b4b89a957fb73c2e478c1b9797d332740f3fdd344d",
+      "sha256": "93913d847806b40ef39e56fc7440a1cdc477d15b588f01cd8388705b26860239",
+      "size": [
+        16,
+        96
+      ],
+      "alpha_sha256": "67129bde02c6f1428ff81a5e8cad59de036614a14ffc991be0e60f384ce9818f",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 858,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imaginary_anchoring_processor_mainframe",
+      "tier": 25,
+      "kind": "formal_circuit",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/imaginary_anchoring/circuits/imaginary_anchoring_processor_mainframe.png",
+      "baseline_sha256": "9c8ed44e867410d21a6b265f2ffbf7c6f2bfedbfee09277e2c6d709dbb510138",
+      "sha256": "d3bea7f5bc7c0bd6ad865d5d00f49f698920f7fa70cc14ff49bb0c7d75b0e982",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 1209,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imv_processor",
+      "tier": 23,
+      "kind": "formal_circuit",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/imv_processor.png",
+      "baseline_sha256": "953e0de0cc5050448f52454f70b15b8c5bbd2e18479a09fed085bd8cbc54fbf1",
+      "sha256": "55841aa45c9b93888478c0db54c86daf681e4d3797e2008d055034a3df356d70",
+      "size": [
+        16,
+        256
+      ],
+      "alpha_sha256": "a81393ca40d2c73bba01ba5dc844e9303fdb66d548e67a09a0fdeb902c24ed55",
+      "mcmeta_sha256": "fc304a5ea308edfcd6a6eba7823dadc20f1a2110171716cd4daa44b2570d8e65",
+      "changed_pixels": 1376,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "icv_assembly",
+      "tier": 24,
+      "kind": "formal_circuit",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/icv_assembly.png",
+      "baseline_sha256": "e38d628087cf3b56693a9d1b5394c143d795f9b55a22bf011195a43bd100a2d7",
+      "sha256": "6d5799a52e5990ba0f433fe276b6654a36b1e659042fec871a17acdcd08d4382",
+      "size": [
+        16,
+        256
+      ],
+      "alpha_sha256": "4df46e21d7fbb94c101aa4babc180299a2495336565548db533b8f7ea908690d",
+      "mcmeta_sha256": "fc304a5ea308edfcd6a6eba7823dadc20f1a2110171716cd4daa44b2570d8e65",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "irv_computer",
+      "tier": 25,
+      "kind": "formal_circuit",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/irv_computer.png",
+      "baseline_sha256": "9f20b85f562c16a4ef23fe43b03433724c7eb275ec16709b07453aa143e325bf",
+      "sha256": "04e9989640cacf746d4736fdacd2d45c37c558ec5e67b8f910d99afc8a0e512d",
+      "size": [
+        16,
+        256
+      ],
+      "alpha_sha256": "394ddf6e42b25bb0845b344c35b0ec0903ad3a29f7309392716676aa0215b5d6",
+      "mcmeta_sha256": "fc304a5ea308edfcd6a6eba7823dadc20f1a2110171716cd4daa44b2570d8e65",
+      "changed_pixels": 2032,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "iwv_processor_mainframe",
+      "tier": 26,
+      "kind": "formal_circuit",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/iwv_processor_mainframe.png",
+      "baseline_sha256": "ed950ac4bf78b9402c1e02c25106c504e4968963db19f768e0ad75a10b6bb1fd",
+      "sha256": "fe36a40bfbd5d24856195d3c6370d755e8b32c76a06a5aa94d82872f2f083a96",
+      "size": [
+        16,
+        256
+      ],
+      "alpha_sha256": "6049b1f4dbe0a05091715244bf871d9118b00170ae42a9a2146cc2ff2b66b753",
+      "mcmeta_sha256": "fc304a5ea308edfcd6a6eba7823dadc20f1a2110171716cd4daa44b2570d8e65",
+      "changed_pixels": 2624,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "causal_reconstruction_processor",
+      "tier": 24,
+      "kind": "formal_circuit",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/causal_reconstruction/circuits/causal_reconstruction_processor.png",
+      "baseline_sha256": "513f5803146f5f1af1893750655a9f25ed02ebecfb8c9df3bf7622d34c19783d",
+      "sha256": "ba26a268ddba62d04cb9eaa467e557fd3c83d7e5515e2ee822faf1ad2de6fb1a",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "causal_reconstruction_assembly",
+      "tier": 25,
+      "kind": "formal_circuit",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/causal_reconstruction/circuits/causal_reconstruction_assembly.png",
+      "baseline_sha256": "06c58e6e88522cfcedcb0db6dd0a3acdba7ee48c338328764aef6268ea234386",
+      "sha256": "80d9a02f5801233357b3e0424026c4953bdd91099c23d0bd051ce0ead565e04c",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "causal_reconstruction_computer",
+      "tier": 26,
+      "kind": "formal_circuit",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/causal_reconstruction/circuits/causal_reconstruction_computer.png",
+      "baseline_sha256": "0a907373e44c899f215207ccc5e4532777359643d0e0cc8232acb74bbd46ab5b",
+      "sha256": "37677e2255b434f69c28ecd1cea5e3ccc27e0195e0beb132d2448c7425adde4d",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "causal_reconstruction_processor_mainframe",
+      "tier": 27,
+      "kind": "formal_circuit",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/causal_reconstruction/circuits/causal_reconstruction_processor_mainframe.png",
+      "baseline_sha256": "45d4c535f627224067290285cd8a461ee63bbe426422a24c8fd3c8ad47262bc2",
+      "sha256": "350929651adb0b82255ccaaf521c321bb9b12b21889496b553a9a977991f157d",
+      "size": [
+        16,
+        80
+      ],
+      "alpha_sha256": "4e38e5ca5049bffd8e7b1f2b702a23e5251553fdc37ea7ecec24dbb8966291cc",
+      "mcmeta_sha256": "7e2213aed684faf03dc845a30a3e7c3d65d320a7b3ad0ce277e8e60544b43b2b",
+      "changed_pixels": 940,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "world_weaving_processor",
+      "tier": 25,
+      "kind": "formal_circuit",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/world_weaving/circuits/world_weaving_processor.png",
+      "baseline_sha256": "67190e133d776f9ba04709e90508869df0fb4bcd76e00fd572f5ef7d649923f4",
+      "sha256": "4dbdcc9627ffc30d73fb001d24efe06c2c0db5ac2c5a98467bc6c5692479ac37",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": "e672b9958274445ef85cf0f254f737ed0587bec59cb7e1a77c444509b94850e4",
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "world_weaving_assembly",
+      "tier": 26,
+      "kind": "formal_circuit",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/world_weaving/circuits/world_weaving_assembly.png",
+      "baseline_sha256": "b1e3b4632b43a9cdda75d4139a294b91726900af0eca8be6c7855c210628d07c",
+      "sha256": "6bb84d9ebe2972477fb31246e4f318f9ae1f60819ac59585d504ab7bd4a6fa15",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": "e672b9958274445ef85cf0f254f737ed0587bec59cb7e1a77c444509b94850e4",
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "world_weaving_computer",
+      "tier": 27,
+      "kind": "formal_circuit",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/world_weaving/circuits/world_weaving_computer.png",
+      "baseline_sha256": "d6ebeb688cea99308621efc308fc66359aee207214a8f334a3c329098fa5e83e",
+      "sha256": "609dafd2b7bf1413404a3aed2a85bceb6023f3d4228e4faad9f87abe07ce88fe",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": "e672b9958274445ef85cf0f254f737ed0587bec59cb7e1a77c444509b94850e4",
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "world_weaving_processor_mainframe",
+      "tier": 28,
+      "kind": "formal_circuit",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/world_weaving/circuits/world_weaving_processor_mainframe.png",
+      "baseline_sha256": "8d1890c1645fbf6eb831acb7555bf0e0a699e489c37b22f0a102535e35b5a133",
+      "sha256": "ecd77541ed6b5c4db6d53255818df3d37641b0fb4a953c51db147fcc97e86917",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "ae03cef713a2ed6d4f53908d23dca75fb4bee7fbc8328b6986457db0593afb66",
+      "mcmeta_sha256": "a34bda0031e3c2bb56f62b5d61b1f9eccf70f0782ea94679b04b1d0208649845",
+      "changed_pixels": 1316,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "terminal_computation_processor",
+      "tier": 26,
+      "kind": "formal_circuit",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/terminal_computation/circuits/terminal_computation_processor.png",
+      "baseline_sha256": "8ef2013db9b2affe21731fe7dc6798dc912b71e2ee9b9526af9efdfb807c1fff",
+      "sha256": "a5875104c55e7df5a79ebe37db1d01efa7ba91d1e5ac1455a6e3ee3b3b2c73ec",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "dafbe894f8d87c433e981462d7a21e082a94147c01f52eebe5fdc818689e386b",
+      "mcmeta_sha256": "441b6b8a78e4a5ba61f1036f9be934f4125531ad91355948f0d3a26d1a960753",
+      "changed_pixels": 714,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "terminal_computation_assembly",
+      "tier": 27,
+      "kind": "formal_circuit",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/terminal_computation/circuits/terminal_computation_assembly.png",
+      "baseline_sha256": "c8fccdb49d01ffecfc8b6fe7e93f450e1541fc9041505a321dd7df0e0f24af1f",
+      "sha256": "7c44f6a2be08eea3df358bd555db58f82feed26c41b0fca4867400592de6961f",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "87c6746f2d8722f1c2e4ed68773aa6edc0e014a8f7a54dceb899cb9cdba1322e",
+      "mcmeta_sha256": "1f263bd1df7218d84592f736e1dcacaff39faa9acfb1186cf0cfe1a14d5acd9b",
+      "changed_pixels": 770,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "terminal_computation_computer",
+      "tier": 28,
+      "kind": "formal_circuit",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/terminal_computation/circuits/terminal_computation_computer.png",
+      "baseline_sha256": "ee9b0529403fed858bc96a66c4ef28cabbcdb84270e8ecbb6370340fc3096d4c",
+      "sha256": "64140bcfd1c39cb15d0c41659973ce295a6cd8ad5426657b4e23c7834b04e6ac",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "terminal_computation_processor_mainframe",
+      "tier": 29,
+      "kind": "formal_circuit",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/terminal_computation/circuits/terminal_computation_processor_mainframe.png",
+      "baseline_sha256": "595ca9c55cd8e6875119571e47297a5d8b43f7ecb5f20b2676755595a3a549d1",
+      "sha256": "3166e55344905eed63357e34c9228a845e4cd8fb5d8d7c682bfeb131de1212ed",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "daa8c454058c3019089cb506b0bab485868c9ce74b1ee3e1dbcd64eaa5d019ac",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "wfv_processor",
+      "tier": 27,
+      "kind": "formal_circuit",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wfv_processor.png",
+      "baseline_sha256": "c12667c1ddb2e0540f5e916e46958e6e507f7059d5f194997c089ae48e94528c",
+      "sha256": "5b5936bdeab0925a45c6bf73d317cb4968b1f2ed65015db73478b2ab1b9df502",
+      "size": [
+        16,
+        144
+      ],
+      "alpha_sha256": "221ccfae1e6df4b7bacef75c94d462867a0e9006ea8fe1b4492a253f44770c87",
+      "mcmeta_sha256": "86bfa2531b669d4f249278e9f35a7f55d2d45540ca36f503107af07bd1fae0f1",
+      "changed_pixels": 918,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "wsv_assembly",
+      "tier": 28,
+      "kind": "formal_circuit",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wsv_assembly.png",
+      "baseline_sha256": "0d7d8344aa982306f60238cf71230d3f461a08cd51364874ff448c475975ceb6",
+      "sha256": "7ab7d7eafc5c7db10eef23a3edfcfd867af7ebf970b9f99d985ba249a7556e51",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "87c6746f2d8722f1c2e4ed68773aa6edc0e014a8f7a54dceb899cb9cdba1322e",
+      "mcmeta_sha256": "0d81a8feb03b276867a0e8e49acb6c76202b11cd1f7257752cd2c3ff512e0a3a",
+      "changed_pixels": 770,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "civ_computer",
+      "tier": 29,
+      "kind": "formal_circuit",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/civ_computer.png",
+      "baseline_sha256": "2d01cb4335f7d77056bf87ae026c78d9aef9242520fd84068ad6ae48062fda60",
+      "sha256": "413fd74491d972d6cb83729603bc757e487cd2fa7f27f90e9241ab3af605dea2",
+      "size": [
+        16,
+        144
+      ],
+      "alpha_sha256": "8e90921a99586241b669f2b7094d1a7dfae0dd9d7867f6789d62a4bea5167900",
+      "mcmeta_sha256": "f6dd0d2e54b016f022c7fd6745825e08065b4699e88eea0d65b98d950146686d",
+      "changed_pixels": 1332,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "cev_processor_mainframe",
+      "tier": 30,
+      "kind": "formal_circuit",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/cev_processor_mainframe.png",
+      "baseline_sha256": "9ca5552a30d6e16e30678ca87dc5a16c2c762b26a9d19c4d5a0de8433b0ec387",
+      "sha256": "e6bec1ff3411026ebfc3c8f6a2f57461d04b3e6cbf1af89d00da5086086f38c7",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "4d42ae6190a6076d415e0fd6c713c1250138724545181e0426783f97ad841b66",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hbv_assembly",
+      "tier": 15,
+      "kind": "archived_circuit",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hbv_assembly.png",
+      "baseline_sha256": "9625d022cb8f833fce0a7a12a333c8a181e76f2bab75a386696597ade6e5bced",
+      "sha256": "f9ecaba66289f92720b07a97ee1071cf91d886d077d24215988691f5966f779d",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "87c6746f2d8722f1c2e4ed68773aa6edc0e014a8f7a54dceb899cb9cdba1322e",
+      "mcmeta_sha256": "00553b2772ad43d6886b3fd164b50ccee8c73249f8348985a2b27fd3ea879e7b",
+      "changed_pixels": 770,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hbv_computer",
+      "tier": 15,
+      "kind": "archived_circuit",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hbv_computer.png",
+      "baseline_sha256": "b47d40cf989b521b1ef142988f45ca41a87227dc2af38dd7257d15db1703c09f",
+      "sha256": "60672c19dbb07ba817eb54557eb99d631172754d2ca684b8b67fac71e53b1e38",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hbv_processor_mainframe",
+      "tier": 15,
+      "kind": "archived_circuit",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hbv_processor_mainframe.png",
+      "baseline_sha256": "fe0b93afc14fa55ded80a269008bcb00fca7953844e09510c7ade06a00a83cff",
+      "sha256": "4b4b0fd736127e50d60609b317215d8f730916ed0925aff0e246c1db54a18976",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "07704b578aeb2acdcb7c99788c47b0ccdf56afe91a098e524a3a7bdf9176762f",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hcv_processor",
+      "tier": 16,
+      "kind": "archived_circuit",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hcv_processor.png",
+      "baseline_sha256": "e46fa662ac9b67740c9e878e6f49469b811c1046bbf37622b210571ffad2b339",
+      "sha256": "bf0403d0aec8085a7289a055eb5204024ccb1421ee7395f0a86755c7c27a5128",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "dafbe894f8d87c433e981462d7a21e082a94147c01f52eebe5fdc818689e386b",
+      "mcmeta_sha256": "88dfeb315117a23d6193480b3e444f06c4ba02b4dd3869e8484e652834975a4d",
+      "changed_pixels": 714,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hcv_computer",
+      "tier": 16,
+      "kind": "archived_circuit",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hcv_computer.png",
+      "baseline_sha256": "70ab22e971b5e64e77519c36004294eb90c639c326a0ec6689a2e1f923a50f95",
+      "sha256": "fbb8172ee25e35174ab9ceece66e9025007a0c60c2cd38c87d36ea309de330ad",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hcv_processor_mainframe",
+      "tier": 16,
+      "kind": "archived_circuit",
+      "palette": "HCV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hcv_processor_mainframe.png",
+      "baseline_sha256": "796799602ff83448a6c16ab4d18e308c52a4aa3c9789f562da7f2376d1b13886",
+      "sha256": "c6a35a86a2c37079c0bcf2c881a236f48d7ed3f88eb834053241fb7f39a4aba0",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "07704b578aeb2acdcb7c99788c47b0ccdf56afe91a098e524a3a7bdf9176762f",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hrv_processor",
+      "tier": 17,
+      "kind": "archived_circuit",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hrv_processor.png",
+      "baseline_sha256": "7014921af519f65f7a1ea4c22dc5e02fe95ea0269895506f7300b795f63abcd3",
+      "sha256": "1a2ace9fe3226d02f5b783ba482f10bd8af6a07bd31f52f39b7920c17db0b5a1",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "dafbe894f8d87c433e981462d7a21e082a94147c01f52eebe5fdc818689e386b",
+      "mcmeta_sha256": "88dfeb315117a23d6193480b3e444f06c4ba02b4dd3869e8484e652834975a4d",
+      "changed_pixels": 714,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hrv_assembly",
+      "tier": 17,
+      "kind": "archived_circuit",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hrv_assembly.png",
+      "baseline_sha256": "192b74d02994a9018ad5c41c768528cfaf7e55be426b344ca576c0457d8e164a",
+      "sha256": "dc4b47cd4269a669e1ebc22a18c2bc5d23ec7aa6b695cd6e26691332acb9b5ff",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "87c6746f2d8722f1c2e4ed68773aa6edc0e014a8f7a54dceb899cb9cdba1322e",
+      "mcmeta_sha256": "00553b2772ad43d6886b3fd164b50ccee8c73249f8348985a2b27fd3ea879e7b",
+      "changed_pixels": 770,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hrv_processor_mainframe",
+      "tier": 17,
+      "kind": "archived_circuit",
+      "palette": "HRV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hrv_processor_mainframe.png",
+      "baseline_sha256": "ae682e987555f3859356fafebf64cc75c5f6521d5fca920e32a3d2ed7457e7e5",
+      "sha256": "c0fa847d88edcb84b07feacc561734f0679cf01aca081b9b1851b85feb924c43",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "5176aa1fd0d9104280acb4cc824de98b5190cd1eaabf987feff43a9cea084ef5",
+      "mcmeta_sha256": "07704b578aeb2acdcb7c99788c47b0ccdf56afe91a098e524a3a7bdf9176762f",
+      "changed_pixels": 1504,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hdv_processor",
+      "tier": 18,
+      "kind": "archived_circuit",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hdv_processor.png",
+      "baseline_sha256": "86c58be88e81e787f2aafc4130a9ab02e5b9207e338c13ce18ee5f37d90ea20b",
+      "sha256": "0f137c60fd6f0f23b0630eb65b915ac001c7e380e5f525bdbc5351252602a9ce",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "dafbe894f8d87c433e981462d7a21e082a94147c01f52eebe5fdc818689e386b",
+      "mcmeta_sha256": "88dfeb315117a23d6193480b3e444f06c4ba02b4dd3869e8484e652834975a4d",
+      "changed_pixels": 714,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hdv_assembly",
+      "tier": 18,
+      "kind": "archived_circuit",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hdv_assembly.png",
+      "baseline_sha256": "4f16245be861a5455c31559c5e9c8e401305413406b7ffc64d9184b87b247abd",
+      "sha256": "1d4a4e938b8e765ba3d46be22ab4689936a978eab573adbfbc6f903c671bd69a",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "87c6746f2d8722f1c2e4ed68773aa6edc0e014a8f7a54dceb899cb9cdba1322e",
+      "mcmeta_sha256": "00553b2772ad43d6886b3fd164b50ccee8c73249f8348985a2b27fd3ea879e7b",
+      "changed_pixels": 770,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "hdv_computer",
+      "tier": 18,
+      "kind": "archived_circuit",
+      "palette": "HDV",
+      "destination": "assets/hk3gtl/textures/item/abyss/circuits/hdv_computer.png",
+      "baseline_sha256": "d8872695d02fc3f1e4c8daef2065552453842b7f15930acd51cf48ceead1fdcc",
+      "sha256": "c0cdef52f29c4b9d8b4b74528fae0513f1efd5a7bbc054135fa16ba57b284cf9",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qsv_assembly",
+      "tier": 19,
+      "kind": "archived_circuit",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qsv_assembly.png",
+      "baseline_sha256": "f05762b425b63c6a0f7d2e7ddca22eee6333135e5a732976f1bac98f81b9ddab",
+      "sha256": "614d81b17b7325487e9e03e45cd57eb89285436ef998a4a4890d3f897349aaf9",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qsv_computer",
+      "tier": 19,
+      "kind": "archived_circuit",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qsv_computer.png",
+      "baseline_sha256": "437d3173e3df575f8fa1382908c44f0ec6f354d430bedb2db6893e1965328d2a",
+      "sha256": "8cecdd54bfa6e4cf14b0c693c805f71f4411fbe969d3c10f7a1026b2d7b7abbd",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qsv_processor_mainframe",
+      "tier": 19,
+      "kind": "archived_circuit",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qsv_processor_mainframe.png",
+      "baseline_sha256": "113e63cf312a7e207923452320ded9a32f42bc8833c636dd3910ad8e47ae373f",
+      "sha256": "1f7235e4b7813c577d795ba9783e1f01b70df49b92344ee0618416c1385cada4",
+      "size": [
+        16,
+        80
+      ],
+      "alpha_sha256": "4e38e5ca5049bffd8e7b1f2b702a23e5251553fdc37ea7ecec24dbb8966291cc",
+      "mcmeta_sha256": "b752294798a01f72c906e43f11bdf84c8a9a9fc8b36a0de026efefb82381bc3e",
+      "changed_pixels": 940,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qcv_processor",
+      "tier": 20,
+      "kind": "archived_circuit",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qcv_processor.png",
+      "baseline_sha256": "21b6c5e362d9764447bb51ac4c638b7df2d4c0a7ec8ebb84d5f56950991e2343",
+      "sha256": "2af060abdf0ceaf6f05252d56ce8b53d47effdeed6ddaa1a1cc42394edc482ec",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qcv_computer",
+      "tier": 20,
+      "kind": "archived_circuit",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qcv_computer.png",
+      "baseline_sha256": "632519778ab44ea9a064eba51cdf3ca9025929533bfc177350f8469c5492a030",
+      "sha256": "f38ec022000fad54d757a2f8a1a6e961f23bba5de592169a433dbb731c09e78e",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qcv_processor_mainframe",
+      "tier": 20,
+      "kind": "archived_circuit",
+      "palette": "QCV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qcv_processor_mainframe.png",
+      "baseline_sha256": "883b8f8db50ec10bdb3b80e917b6585ee41660479783ca1c57299e9e53d4fdec",
+      "sha256": "4d8b445c332cf7d88421523d545eb951fac4b2e58c1dc0c2d281505447562bed",
+      "size": [
+        16,
+        80
+      ],
+      "alpha_sha256": "4e38e5ca5049bffd8e7b1f2b702a23e5251553fdc37ea7ecec24dbb8966291cc",
+      "mcmeta_sha256": "b752294798a01f72c906e43f11bdf84c8a9a9fc8b36a0de026efefb82381bc3e",
+      "changed_pixels": 940,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qev_processor",
+      "tier": 21,
+      "kind": "archived_circuit",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qev_processor.png",
+      "baseline_sha256": "0fd4fc35346e7d7b78c0af0cf647ff15a10aa9090eef4f5c243be9213f92b2ef",
+      "sha256": "edae07eff6b261e618a7d826adbe937af11696945a3e48558e5f78b5931d42f3",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qev_assembly",
+      "tier": 21,
+      "kind": "archived_circuit",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qev_assembly.png",
+      "baseline_sha256": "38652147ef362241e9030bf7e42a64f2848c35dba243131714ec2e88d4a96c27",
+      "sha256": "59b0353bf1525a696bd7ddab8554d58cc37f07b7089f2a6a3edef3277c2f27f0",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qev_processor_mainframe",
+      "tier": 21,
+      "kind": "archived_circuit",
+      "palette": "QEV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qev_processor_mainframe.png",
+      "baseline_sha256": "1c3cdea95a74eedf1e75adafa35d66141816d02fd39d358788c433f381dea878",
+      "sha256": "284d775bfe1ddb9ad65ddad09b111d2f24b57fedcc42eaf1a3fb98934b50aa57",
+      "size": [
+        16,
+        80
+      ],
+      "alpha_sha256": "4e38e5ca5049bffd8e7b1f2b702a23e5251553fdc37ea7ecec24dbb8966291cc",
+      "mcmeta_sha256": "b752294798a01f72c906e43f11bdf84c8a9a9fc8b36a0de026efefb82381bc3e",
+      "changed_pixels": 940,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qav_processor",
+      "tier": 22,
+      "kind": "archived_circuit",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qav_processor.png",
+      "baseline_sha256": "ef276fb56976e502aec6f8d62b6379c165b638849e8872133d5fd4fb9d281ab0",
+      "sha256": "e337a731c63fb6f5b1d3ca3be4d0ae0cb4e1cbc6c8ce801c9af5d06cfe137c85",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qav_assembly",
+      "tier": 22,
+      "kind": "archived_circuit",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qav_assembly.png",
+      "baseline_sha256": "d0c6d9b6144a130e7df8285aab01660074745d23731479dd0a4bddafe3cf47f6",
+      "sha256": "da6b75a43883e8fc34bc20741180f24052fd32f30af1a0dadfb7d7bee1a0e5a4",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "qav_computer",
+      "tier": 22,
+      "kind": "archived_circuit",
+      "palette": "QAV",
+      "destination": "assets/hk3gtl/textures/item/imaginary/circuits/qav_computer.png",
+      "baseline_sha256": "90afcd9cdd736c6375bcfb1f9b77074ef19d5761abcacda967695bf2f816ea08",
+      "sha256": "6b712d05f79893b77aa655ffdff01110ef32e8f825b96016c186b246a8eec48c",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imv_assembly",
+      "tier": 23,
+      "kind": "archived_circuit",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/imv_assembly.png",
+      "baseline_sha256": "b782e9287d2d133777c924e4967548aae32d555b87aa7b01b7d1be20a38a15a6",
+      "sha256": "ba397990eb4437fb91baec3b317de165a5c2db550fc8147e35fcd7fd9742c173",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imv_computer",
+      "tier": 23,
+      "kind": "archived_circuit",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/imv_computer.png",
+      "baseline_sha256": "08b0cca2fe22dfb377a1bc09c66a7b7b62d74504d7366b501a19668e7f0ca29f",
+      "sha256": "1e302213a4e7591f9134461c58b4814f082b8db78178d61ad439923743d68bff",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imv_processor_mainframe",
+      "tier": 23,
+      "kind": "archived_circuit",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/imv_processor_mainframe.png",
+      "baseline_sha256": "cfce03b496797aef3727e733e121b5b11a54d54a62ff382364c71e80a5ff8baf",
+      "sha256": "4d8bac757b1de6bd4e6131839dedcda14ffcf26125f7c158cf9cd6d3b6680d50",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "ae03cef713a2ed6d4f53908d23dca75fb4bee7fbc8328b6986457db0593afb66",
+      "mcmeta_sha256": "7f3dab36c73915feb6dc1d83e39a7989593cee30b027cb06d7331eff6ec986c0",
+      "changed_pixels": 1316,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "icv_processor",
+      "tier": 24,
+      "kind": "archived_circuit",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/icv_processor.png",
+      "baseline_sha256": "51c88f282c38925ff1aead27f985a1e10a400a378c5127f140a1a8d82ec8963a",
+      "sha256": "11709d71d57fc061c07148186b79d2b5dfc04cf03cb054e92a818a8e520f1fd6",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "icv_computer",
+      "tier": 24,
+      "kind": "archived_circuit",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/icv_computer.png",
+      "baseline_sha256": "2f926d02deb13ae541c5768eb7dbbcba6456e34daecf89072464c55e4276cac6",
+      "sha256": "2362d017229f2e78df46be19c2616121d96758f060f8a8510d8a54841b66b3af",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "icv_processor_mainframe",
+      "tier": 24,
+      "kind": "archived_circuit",
+      "palette": "ICV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/icv_processor_mainframe.png",
+      "baseline_sha256": "f41ccbfdb6e2a393d0fc6acce6b7f762c0d9aa703702e1e1eab87507786c68da",
+      "sha256": "1e41bb5609cca19a3d73f04a2b70b07edf42533d5bfb68e73cd588763a509bc4",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "ae03cef713a2ed6d4f53908d23dca75fb4bee7fbc8328b6986457db0593afb66",
+      "mcmeta_sha256": "7f3dab36c73915feb6dc1d83e39a7989593cee30b027cb06d7331eff6ec986c0",
+      "changed_pixels": 1316,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "irv_processor",
+      "tier": 25,
+      "kind": "archived_circuit",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/irv_processor.png",
+      "baseline_sha256": "ca7dbc272636f324ab3e62efeff767518beaa2d2373d6bb5ce7c9658bb080736",
+      "sha256": "960cf5b1c5e972ff67cd68a6f3f8844b3a01c7cc650dc3278d5a2e84012f629c",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "irv_assembly",
+      "tier": 25,
+      "kind": "archived_circuit",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/irv_assembly.png",
+      "baseline_sha256": "54bf503f6d20b7c0dc9fb6ecb232a1b0b8816dc9ff16c716803d00bec58a520b",
+      "sha256": "e9625ce4715fdb0900782f74a1fedd1bfba1c70e338e72bc95c73e7608180f75",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "irv_processor_mainframe",
+      "tier": 25,
+      "kind": "archived_circuit",
+      "palette": "IRV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/irv_processor_mainframe.png",
+      "baseline_sha256": "936a2303163d9a1dfe26def420a8ed7bb212f344cc18a469a2cac1cc401efba1",
+      "sha256": "b4f8f820b7cf98c3a417832d8e8d136436b0f80b70d172fc0581a02be97e3379",
+      "size": [
+        16,
+        112
+      ],
+      "alpha_sha256": "ae03cef713a2ed6d4f53908d23dca75fb4bee7fbc8328b6986457db0593afb66",
+      "mcmeta_sha256": "7f3dab36c73915feb6dc1d83e39a7989593cee30b027cb06d7331eff6ec986c0",
+      "changed_pixels": 1316,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "iwv_processor",
+      "tier": 26,
+      "kind": "archived_circuit",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/iwv_processor.png",
+      "baseline_sha256": "1e8102882e60e7a4805ad1de331a9ee3668687269445a9f7e3555bbf47fd019f",
+      "sha256": "710d05e866be69b0757d6970e921c1dcfee8a97287a03f8a36714730898631f2",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "iwv_assembly",
+      "tier": 26,
+      "kind": "archived_circuit",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/iwv_assembly.png",
+      "baseline_sha256": "591ecde50ae8a0c983697fb3d24802a89de40e14f2ccdbe3692a80d936a741f7",
+      "sha256": "3701418f7078dd319f2ea9e88fa18e90929588c3f4f50fdcb68bf31c9d4dd0a7",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "iwv_computer",
+      "tier": 26,
+      "kind": "archived_circuit",
+      "palette": "IWV",
+      "destination": "assets/hk3gtl/textures/item/quantum/circuits/iwv_computer.png",
+      "baseline_sha256": "a008dc7994ad5c69caebb27eeaceae757258384f6fa83162b48d1e071fe9080d",
+      "sha256": "469b47891b9f2dd39ded519b3dee225add325fec20fe5a343b412356dc1b0991",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "wfv_assembly",
+      "tier": 27,
+      "kind": "archived_circuit",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wfv_assembly.png",
+      "baseline_sha256": "5b27fe6dcaca9c715993526d256a8910196164afbd264d976c64b70db9af69ac",
+      "sha256": "3215e5ca03d685096af010d8a36e54d18073d3363a747d749c4e20241e8144fa",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "wfv_computer",
+      "tier": 27,
+      "kind": "archived_circuit",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wfv_computer.png",
+      "baseline_sha256": "af9bea277d2f8bc801a20934813c86e6840f651fd8b09e3a13faf38de2c9c521",
+      "sha256": "dad47ee50d215166f2f17850f23c4653c742ae7ec8118bb753bf7141a17be627",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "wfv_processor_mainframe",
+      "tier": 27,
+      "kind": "archived_circuit",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wfv_processor_mainframe.png",
+      "baseline_sha256": "12db1b16a5daee5a23b222053962ee2c199625cc2cc14c9ec4adba22d0115ed7",
+      "sha256": "e77ad81fd0ba70f32acff1444c7bdb4e037e85772e0925ae711ae6d8cba36a7d",
+      "size": [
+        16,
+        80
+      ],
+      "alpha_sha256": "4e38e5ca5049bffd8e7b1f2b702a23e5251553fdc37ea7ecec24dbb8966291cc",
+      "mcmeta_sha256": "3c083bdad62656044ddddddcced173c8dd6dadd48a8adfb017539420ca3f6b41",
+      "changed_pixels": 940,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "wsv_processor",
+      "tier": 28,
+      "kind": "archived_circuit",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wsv_processor.png",
+      "baseline_sha256": "8a16187859739f95d56e9f2c176bbe3686f334a28e7b15a8158793fc993d64d4",
+      "sha256": "f428833b04b392d983612fc9e4a44fe0f088023372aa94f28d0fc19bb1d2c2d4",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "wsv_computer",
+      "tier": 28,
+      "kind": "archived_circuit",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wsv_computer.png",
+      "baseline_sha256": "8eb4254242238839b15a39f9286929c166828e0c297b4d8db1be7b97109afe14",
+      "sha256": "2d2280fc489c95b2ca281334fc6f640cee4a0cda28ab30733b1105a483c0f54d",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "wsv_processor_mainframe",
+      "tier": 28,
+      "kind": "archived_circuit",
+      "palette": "WSV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/wsv_processor_mainframe.png",
+      "baseline_sha256": "3991c42b297a58c63f319ef11538fd2a1ec66eb3385d5c0a7ec9dce196344920",
+      "sha256": "02754ac740d95bd2f23e278414aad5f9c5f625b61c37a00668eab592ead61be7",
+      "size": [
+        16,
+        80
+      ],
+      "alpha_sha256": "4e38e5ca5049bffd8e7b1f2b702a23e5251553fdc37ea7ecec24dbb8966291cc",
+      "mcmeta_sha256": "3c083bdad62656044ddddddcced173c8dd6dadd48a8adfb017539420ca3f6b41",
+      "changed_pixels": 940,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "civ_processor",
+      "tier": 29,
+      "kind": "archived_circuit",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/civ_processor.png",
+      "baseline_sha256": "661bd7e38f6a9dabe65b05e59db8fb26d34f7939e80df8c5a3730b9800adccd9",
+      "sha256": "e10288fd073a228ca470ef8a836daf15377d78831fe848e46c0b25ec8ddfa8da",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "civ_assembly",
+      "tier": 29,
+      "kind": "archived_circuit",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/civ_assembly.png",
+      "baseline_sha256": "98b4bb96de79508e866544b830eba6e0344fa045c26f67dd227c9f04aa49a4ce",
+      "sha256": "43c46d994732f2f5db6f099f7504f0b53e0ec343a231e9b5efa7c7ffc18b79c0",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "civ_processor_mainframe",
+      "tier": 29,
+      "kind": "archived_circuit",
+      "palette": "CIV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/civ_processor_mainframe.png",
+      "baseline_sha256": "310cda743a4f6e01165df166c190703cf3ce6abe6661e147d243e1e3b5e5224e",
+      "sha256": "f3ec7dcab505b67790cff8e2a7df2c891b75a102333d9aba688dcdfafa0ae9d6",
+      "size": [
+        16,
+        80
+      ],
+      "alpha_sha256": "4e38e5ca5049bffd8e7b1f2b702a23e5251553fdc37ea7ecec24dbb8966291cc",
+      "mcmeta_sha256": "3c083bdad62656044ddddddcced173c8dd6dadd48a8adfb017539420ca3f6b41",
+      "changed_pixels": 940,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "cev_processor",
+      "tier": 30,
+      "kind": "archived_circuit",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/cev_processor.png",
+      "baseline_sha256": "cc42c4a7fce24314e428802c82562d0d1cbf4b8bee349880d9cd395f62aeb0bc",
+      "sha256": "4ab1d87f8ff3ec54c940b708f982655364d8f87c8ac9bd4c40612c2407c8ee77",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "ad8bd341480349631e1e924ee798ce6cedb668c6fd87966905e946070bd155fa",
+      "mcmeta_sha256": null,
+      "changed_pixels": 102,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "cev_assembly",
+      "tier": 30,
+      "kind": "archived_circuit",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/cev_assembly.png",
+      "baseline_sha256": "c243c310b651e48dd77121da7795c197e0d75710190325f74d9a21f33377a40c",
+      "sha256": "a297d13e42671b2f638db25389b0cbdbcda1280959652eb2f7597888f5af2507",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "d0142ea1caba44739ff750c9a708994b115d8b466f2a4333beef830c206d9661",
+      "mcmeta_sha256": null,
+      "changed_pixels": 110,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "cev_computer",
+      "tier": 30,
+      "kind": "archived_circuit",
+      "palette": "CEV",
+      "destination": "assets/hk3gtl/textures/item/finality/circuits/cev_computer.png",
+      "baseline_sha256": "be683b0da734a7b0cc0b963ce215fc17b1e5b8edc0e63470dd70307cb9b82c1a",
+      "sha256": "265b10892fad96b258e013f6dd4a1e4588f0a8dee1b51248749b18a3a7a7aa39",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "dd373e1a962c33c3aaee26a0ad00e4a58a22d115d26a540b2e42f8f3f7db62ee",
+      "mcmeta_sha256": null,
+      "changed_pixels": 148,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "honkai_lattice_printed_circuit_board",
+      "tier": 15,
+      "kind": "platform_pcb",
+      "palette": "HBV",
+      "destination": "assets/hk3gtl/textures/item/electronics/honkai_lattice_printed_circuit_board.png",
+      "baseline_sha256": "4337da45e0cef6750aacfe35981bcffc69de72e0306f375d048d4e04fba14aa3",
+      "sha256": "6344923b8aefd37652b6da0b3dedeb92e0eec359e287cd8029d0ad302c2a35e3",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "247cb996a060530d237e44c10826e0a7fb3548030dc66d00ca51e527efd0f8c9",
+      "mcmeta_sha256": null,
+      "changed_pixels": 136,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "quantum_coherence_printed_circuit_board",
+      "tier": 19,
+      "kind": "platform_pcb",
+      "palette": "QSV",
+      "destination": "assets/hk3gtl/textures/item/electronics/quantum_coherence_printed_circuit_board.png",
+      "baseline_sha256": "60d604fcce619245fe09d27db7734f702354f90c6457cd174f94a86d489778f4",
+      "sha256": "c1e2ee8b3ddd52454c8af2ac075286587fdd832927b82eb2dd2a8836ebb15a2a",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "5b99bdb6ea05cf66bb83517943265fa58a3462982e841f792a34f00466954834",
+      "mcmeta_sha256": null,
+      "changed_pixels": 126,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "imaginary_topology_printed_circuit_board",
+      "tier": 23,
+      "kind": "platform_pcb",
+      "palette": "IMV",
+      "destination": "assets/hk3gtl/textures/item/electronics/imaginary_topology_printed_circuit_board.png",
+      "baseline_sha256": "60fcaa175ee338f3084f1a1f4cc0264f920ea1d699056a7baba3e0e29b1d3fc9",
+      "sha256": "3311c5aa538b7e1a650ddabfb9a1f5b7dd17956b19bfa8b84dab1936308449a8",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_sha256": "5b99bdb6ea05cf66bb83517943265fa58a3462982e841f792a34f00466954834",
+      "mcmeta_sha256": null,
+      "changed_pixels": 126,
+      "preserved_neutral_pixels": 0
+    },
+    {
+      "id": "civilization_endurance_printed_circuit_board",
+      "tier": 27,
+      "kind": "platform_pcb",
+      "palette": "WFV",
+      "destination": "assets/hk3gtl/textures/item/electronics/civilization_endurance_printed_circuit_board.png",
+      "baseline_sha256": "36912dcc8260a3d57280e2efe82706c6799a24b76e40d51198ccac9a9b5bd87c",
+      "sha256": "7e27fa6a2cb0a68d60d3312e597d9de9e90740f6bf56c52ab12172dd0bd74d3b",
+      "size": [
+        16,
+        128
+      ],
+      "alpha_sha256": "e07429fef6b2ede00b9ebd4cabfb301af984bc9018f51b141d1ae04f1a6a598c",
+      "mcmeta_sha256": "9b53d9769418604cb936e1e76b0a8264741f7229dcc4674d5343d484925b1c4b",
+      "changed_pixels": 1008,
+      "preserved_neutral_pixels": 0
+    }
+  ]
+}

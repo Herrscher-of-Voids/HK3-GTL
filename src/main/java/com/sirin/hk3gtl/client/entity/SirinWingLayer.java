@@ -1,23 +1,10 @@
 package com.sirin.hk3gtl.client.entity;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 负责 SirinWingLayer 客户端渲染或 UI 逻辑。
+ *
+ */
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;

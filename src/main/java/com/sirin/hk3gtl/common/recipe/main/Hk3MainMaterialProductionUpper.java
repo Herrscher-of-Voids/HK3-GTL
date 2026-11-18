@@ -10,19 +10,9 @@ import java.util.function.Consumer;
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialProductionLower.quality;
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialRecipes.*;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * IMV至CEV实体主材链，覆盖陶瓷、导带、重构、多轴纤维、四系统合与单向服役复核。
+ */
 final class Hk3MainMaterialProductionUpper {
     private Hk3MainMaterialProductionUpper() {}
 

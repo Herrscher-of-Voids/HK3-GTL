@@ -3,26 +3,6 @@ package com.sirin.hk3gtl.common.multiblock.pattern;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.pattern.BlockPattern;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3ApprovedArchitecturePatterns {
     private Hk3ApprovedArchitecturePatterns() {}
 

@@ -10,7 +10,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3PhoneAppHints {
     private static final Hk3PhoneAppHintSessions SESSIONS=new Hk3PhoneAppHintSessions();

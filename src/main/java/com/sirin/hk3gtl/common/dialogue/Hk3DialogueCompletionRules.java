@@ -1,5 +1,4 @@
 package com.sirin.hk3gtl.common.dialogue;
-
 public final class Hk3DialogueCompletionRules {
     private Hk3DialogueCompletionRules(){}
     public static boolean maySettle(DialogueDefinition definition,String segment,boolean completed){

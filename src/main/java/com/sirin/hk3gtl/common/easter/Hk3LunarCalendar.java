@@ -12,12 +12,9 @@ import java.io.*;
 import java.time.*;
 import java.util.*;
 
-
-
-
-
-
-
+/**
+ * 读取有来源的逐年农历节日公历日期；只提供日期事实，不模拟农历或授予进度。
+ */
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3LunarCalendar {
     private static final ResourceLocation RESOURCE = new ResourceLocation("hk3gtl", "calendar/lunar_festivals.json");

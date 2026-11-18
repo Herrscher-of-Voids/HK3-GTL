@@ -17,7 +17,7 @@ public class FtbQuestsIntegration {
 
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final String FTB_QUESTS_MOD_ID = "ftbquests";
-    private static final String QUEST_VERSION = "quest-schema-v12-fluid-icons-20261118";
+    private static final String QUEST_VERSION = "quest-schema-v16-defer-mx-replication-20261119";
     private static final String MARKER_FILE = ".hk3gtl_quest_version";
     private static final String RESOURCE_PREFIX = "/assets/" + Hk3Constants.MOD_ID + "/ftbquests/";
 
@@ -38,10 +38,14 @@ public class FtbQuestsIntegration {
             "chapters/hk3_voltage_13.snbt",
             "chapters/hk3_voltage_14.snbt",
             "chapters/hk3_voltage_15.snbt",
-            "chapters/hk3_voltage_16.snbt"
+            "chapters/hk3_voltage_16.snbt",
+            "chapters/hk3_multiblock_patterns.snbt"
     );
 
     private static final List<String> LEGACY_FILES = List.of(
+            "chapters/hk3_industrial_early.snbt",
+            "chapters/hk3_industrial_world.snbt",
+            "chapters/hk3_industrial_late.snbt",
             "chapters/hk3_story_01.snbt",
             "chapters/hk3_story_02.snbt",
             "chapters/hk3_story_03.snbt",

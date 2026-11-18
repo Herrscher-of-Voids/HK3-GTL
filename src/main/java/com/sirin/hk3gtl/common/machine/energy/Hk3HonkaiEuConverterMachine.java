@@ -1,17 +1,10 @@
 package com.sirin.hk3gtl.common.machine.energy;
 
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 定义 Hk3HonkaiEuConverterMachine 机器行为与结构逻辑。
+ *
+ */
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;

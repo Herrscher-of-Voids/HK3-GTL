@@ -9,12 +9,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Collection;
 
-
-
-
-
-
-
+/**
+ * 仅为紧凑巨构提供完整包围盒通知及每区块一个索引代表点。
+ */
 @Mixin(value = MultiblockState.class, remap = false)
 public abstract class Hk3LargeStructureStateMixin {
     @Inject(method = "isPosInCache", at = @At("HEAD"), cancellable = true)

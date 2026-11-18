@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.easter;
 
-/** 2026-11-11：沿用091／095／096原条件，只接受对应真实成功事务。 */
 public final class Hk3EggNativeMachineFacts {
     public static final String QUANTUM_MACHINE = "hk3gtl:i24_quantum_anomaly_observation_array";
     public static final String FLAGSHIP_MACHINE = "hk3gtl:hyperion_flagship";

@@ -8,9 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 @Mixin(BlockItem.class)
-
 public abstract class Hk3EggBlockItemMixin {
     @Unique private final ThreadLocal<BlockState> hk3gtl$before= new ThreadLocal<>();
     @Inject(method="place",at=@At("HEAD"))

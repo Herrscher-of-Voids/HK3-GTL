@@ -14,8 +14,6 @@ import com.sirin.hk3gtl.mixin.Hk3EggItemThrowerAccessor;
 import com.sirin.hk3gtl.common.easter.Hk3EggProductionData;
 import com.sirin.hk3gtl.common.easter.Hk3EggCraftingReceipts.TransformInput;
 @Mixin(value=TransformLogic.class,remap=false)
-
-
 public abstract class Hk3EggTransformMixin {
     @Unique private static final ThreadLocal<List<TransformInput>> hk3gtl$before=new ThreadLocal<>();
     @Inject(method="tryTransform",at=@At("HEAD"))private static void hk3gtl$before(ItemEntity item,Predicate<TransformCircumstance> circumstance,CallbackInfoReturnable<Boolean> ci){

@@ -3,18 +3,10 @@ package com.sirin.hk3gtl.common.machine.research;
 
 
 
+/**
+ * 【文件职责／本轮边界】I01真实采样成功按固定团队记录证据，已收资料与绑定人离线分开判断。
+ */
 
-
-
-
-
-
-
-
-
-
-
-/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
 import com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes;
 
@@ -22,6 +14,7 @@ import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.research.Hk3ResearchData;
 import com.sirin.hk3gtl.common.research.Hk3OutputReceiptDispatch;
+import com.sirin.hk3gtl.common.research.Hk3ProcessReceipts;
 import net.minecraft.server.level.ServerPlayer;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
@@ -30,14 +23,6 @@ import com.gregtechceu.gtceu.api.recipe.logic.OCResult;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.sirin.hk3gtl.common.communication.Hk3CommunicationData;
 import net.minecraft.resources.ResourceLocation;
-
-
-
-
-
-
-
-
 
 public final class Hk3HonkaiAbsorptionMachine extends Hk3LiquidProcessMachine
         implements com.sirin.hk3gtl.common.machine.IMultiTypeRecipeMachine {
@@ -51,15 +36,20 @@ public final class Hk3HonkaiAbsorptionMachine extends Hk3LiquidProcessMachine
     }
     @Override protected boolean enableMultiRecipe() { return true; }
     @Override public boolean keepSubscribing() { return true; }
+    private boolean initialExperimentCompleted() {
+        return getResearchTeamUUID() != null && Hk3ResearchData.get(getLevel().getServer())
+                .hasExperiment(getResearchTeamUUID(), "RN-HED");
+    }
     @Override public GTRecipe fullModifyRecipe(GTRecipe recipe, OCParams params, OCResult result) {
-        if (!SAMPLING.equals(recipe.id)) return super.fullModifyRecipe(recipe, params, result);
+        if (!SAMPLING.equals(recipe.id) || initialExperimentCompleted()) return super.fullModifyRecipe(recipe, params, result);
         GTRecipe bounded=recipe.copy().trimRecipeOutputs(getOutputLimits());
         for (var part:getParts()) { bounded=part.modifyRecipe(bounded); if(bounded==null) return null; }
         result.init(com.sirin.hk3gtl.common.constants.Hk3Values.VA_LONG[com.gregtechceu.gtceu.api.GTValues.MAX],bounded.duration,1,0);
         return bounded;
     }
     @Override protected GTRecipe getRealRecipe(GTRecipe recipe, OCParams params, OCResult result) {
-        return SAMPLING.equals(recipe.id) ? recipe.copy() : super.getRealRecipe(recipe, params, result);
+        return SAMPLING.equals(recipe.id) && !initialExperimentCompleted()
+                ? recipe.copy() : super.getRealRecipe(recipe, params, result);
     }
 
     @Override protected ServerPlayer informedOwner() {
@@ -77,17 +67,17 @@ public final class Hk3HonkaiAbsorptionMachine extends Hk3LiquidProcessMachine
     }
 
     private void recordSamplingOutput(GTRecipe recipe) {
-        if (recipe == null || !SAMPLING.equals(recipe.id)) return;
-        // 修订101：采样成功保留原始批次，供SSC核验；持有液体不能补写此回执。
+        if (recipe == null) return;
+        var snapshot = Hk3ProcessReceipts.findSnapshot(recipe, SAMPLING);
+        if (snapshot == null) return;
         if(hasObservationData() && getResearchTeamUUID()!=null) {
-            var receipt=com.sirin.hk3gtl.common.research.Hk3ProcessReceipts.settle(
-                    com.sirin.hk3gtl.common.research.Hk3ProcessReceipts.snapshot(recipe),
+            var receipt=Hk3ProcessReceipts.settle(snapshot,
                     getLevel().dimension().location()+"@"+getPos(),getLevel().getGameTime());
             Hk3ResearchData.get(getLevel().getServer()).recordProcessFact(getResearchTeamUUID(),"liquid_collection",receipt);
             com.sirin.hk3gtl.common.communication.Hk3CommunicationEvidence.get(getLevel().getServer()).record(getResearchTeamUUID(),"sampling",receipt);
         }
         var owner=informedOwner();
-        if (hasObservationData() && getResearchTeamUUID()!=null && Hk3ResearchData.get(getLevel().getServer()).recordExperiment(getResearchTeamUUID(), "RN-HED",getLevel().dimension().location()+"@"+getPos()+"/"+recipe.id) && owner!=null) {
+        if (hasObservationData() && getResearchTeamUUID()!=null && Hk3ResearchData.get(getLevel().getServer()).recordExperiment(getResearchTeamUUID(), "RN-HED",getLevel().dimension().location()+"@"+getPos()+"/"+snapshot.getString("Recipe")) && owner!=null) {
             owner.sendSystemMessage(net.minecraft.network.chat.Component.translatable("hk3gtl.research.sampling_recorded"));
             com.mojang.logging.LogUtils.getLogger().info("[HK3-RESEARCH] RN-HED sample settled at {} for {}",getPos(),owner.getUUID());
         }
@@ -99,7 +89,7 @@ public final class Hk3HonkaiAbsorptionMachine extends Hk3LiquidProcessMachine
         return new ProcessLogic(this) {
             @Override public void findAndHandleRecipe() {
                 if (dispatchProbabilityOrder()) return;
-                if (hasObservationData()) {
+                if (hasObservationData() && !initialExperimentCompleted()) {
                     var sample=com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.COLLECTION
                             .getRecipe(getLevel().getServer().getRecipeManager(), SAMPLING);
                     if (sample != null && org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper
@@ -110,7 +100,7 @@ public final class Hk3HonkaiAbsorptionMachine extends Hk3LiquidProcessMachine
             }
             @Override protected java.util.Set<GTRecipe> lookupRecipeSet() {
                 var candidates=new java.util.LinkedHashSet<>(super.lookupRecipeSet());
-                candidates.removeIf(recipe -> SAMPLING.equals(recipe.id));
+                if (!initialExperimentCompleted()) candidates.removeIf(recipe -> SAMPLING.equals(recipe.id));
                 return candidates;
             }
             @Override protected boolean handleTickRecipeIO(GTRecipe recipe, IO io) {
@@ -125,5 +115,4 @@ public final class Hk3HonkaiAbsorptionMachine extends Hk3LiquidProcessMachine
         };
     }
 }
-
 

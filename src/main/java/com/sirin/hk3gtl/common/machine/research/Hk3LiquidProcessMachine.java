@@ -5,19 +5,10 @@ import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport;
 
 
 
+/**
+ * 【文件职责／本轮边界】I03至I05真实输出结算按固定团队授权并记录来源，离线不伪造或漏记已完成实验。
+ */
 
-
-
-
-
-
-
-
-
-
-
-
-/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
@@ -46,31 +37,9 @@ import java.math.BigInteger;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 第一条工业线的归属、实验和批次结算入口；仅在真实输出成功后授予实验证据。
+ */
 public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
     public static final String EXPERIMENT="hk3gtlExperiment", EXPERIMENTS="hk3gtlExperiments";
     public static final String REQUIREMENTS=Hk3ResearchRequirementPolicy.METADATA_KEY, CREDIT="hk3gtlNetworkCredit";
@@ -93,8 +62,7 @@ public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
         return !isRemote() && getLevel()!=null && getLevel().getServer()!=null && getOwnerUUID()!=null
                 && Hk3CommunicationData.get(getLevel().getServer()).state(getOwnerUUID()).hasObservationData();
     }
-    /** 修订163 · 2026-10-17 15:07:22：检查全部注册与批次门槛，旧ID和错误列表不能绕过。 */
-    private boolean allowed(GTRecipe recipe) {
+    protected final boolean allowed(GTRecipe recipe) {
         if(!hasObservationData()||recipe==null)return false;
         if(!Hk3ResearchRecipeRuntime.allowed(this,recipe))return false;
         return !Hk3RecipeAccess.blocks(recipe,this);
@@ -252,5 +220,4 @@ public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
         }
     }
 }
-
 

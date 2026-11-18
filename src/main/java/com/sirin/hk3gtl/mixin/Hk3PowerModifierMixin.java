@@ -10,18 +10,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 显式HK工况固定原始long耗电、时长、物料和data，避免第三方double折扣/超频丢价。
+ */
 @Mixin(value = WorkableMultiblockMachine.class, remap = false)
 public abstract class Hk3PowerModifierMixin {
     @Inject(method = "doModifyRecipe", at = @At("HEAD"), cancellable = true, require = 1)

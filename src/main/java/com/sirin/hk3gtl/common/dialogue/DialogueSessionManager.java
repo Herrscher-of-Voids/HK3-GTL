@@ -1,20 +1,5 @@
 package com.sirin.hk3gtl.common.dialogue;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import com.sirin.hk3gtl.common.dialogue.definition.SirinDialogueDefinitions;
 import com.sirin.hk3gtl.common.dialogue.handler.IDialogueEndHandler;
 import com.sirin.hk3gtl.common.network.DialogueAbortS2CPacket;
@@ -36,12 +21,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * <p>
  * 线程安全：内部使用 ConcurrentHashMap，网络包回调通过 enqueueWork 在主线程执行。
  */
-
-
-
-
-
-
 public final class DialogueSessionManager {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -275,7 +254,6 @@ public final class DialogueSessionManager {
     /**
      * 对话会话状态（不可变）。
      */
-    /** 修订198：开屏与推进均刷新令牌，拒绝旧会面、旧段落和循环返回后的重放。 */
     public record DialogueSession(String dialogueId, String currentSegmentId, int extraData, long nonce) {
         public DialogueSession(String dialogueId, String currentSegmentId, int extraData) {
             this(dialogueId, currentSegmentId, extraData, java.util.concurrent.ThreadLocalRandom.current().nextLong(1, Long.MAX_VALUE));

@@ -38,19 +38,6 @@ import java.util.function.Consumer;
  *   <li>禁止用 GTValues.V[15+]，int 溢出！必须用 Hk3Values.VA_LONG[]</li>
  * </ul>
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class AbyssMaterialRecipes {
 
     /** 海渊I 电压 (Tier 15)。改数值 → Hk3Values.VA_LONG[Hk3Tiers.ABYSS_1] */
@@ -173,5 +160,4 @@ public class AbyssMaterialRecipes {
         Hk3RecipeResearchGate.bindAll("assembler", "hk3gtl_anti_entropy_imaginary_core", List.of("RN-CCE", "RN-CPT"));
     }
 }
-
 

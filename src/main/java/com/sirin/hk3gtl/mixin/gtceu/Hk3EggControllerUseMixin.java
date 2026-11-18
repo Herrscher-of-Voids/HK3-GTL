@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/** 2026-11-11：本人直接交互控制器返回成功后核对所用手；远程打开菜单不等价。 */
+/** 本人直接交互控制器返回成功后核对所用手；远程打开菜单不等价。 */
 @Mixin(value = MetaMachineBlock.class, remap = false)
 public abstract class Hk3EggControllerUseMixin {
     @Inject(method = "use", at = @At("RETURN"), remap = true)

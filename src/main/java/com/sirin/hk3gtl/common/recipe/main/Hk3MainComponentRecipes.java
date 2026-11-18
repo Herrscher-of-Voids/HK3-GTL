@@ -21,14 +21,9 @@ import org.gtlcore.gtlcore.common.data.GTLItems;
 import java.util.List;
 import java.util.function.Consumer;
 
-
-
-
-
-
-
-
-
+/**
+ * 16阶八大件消费本阶主材料和电子平台，前一阶组件作为不可跳过的装配基件。
+ */
 public final class Hk3MainComponentRecipes {
     public static final List<String> PARTS = List.of("electric_motor", "electric_piston", "electric_pump",
             "conveyor_module", "robot_arm", "field_generator", "emitter", "sensor");

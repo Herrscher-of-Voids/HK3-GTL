@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<title>支配剧场 · 剧情大厅 T1</title>
+</head>
+<body>
+<header>
+<div class="eyebrow">0005 / 支配剧场 / T1</div>
+<h1>支配剧场 · 剧情大厅</h1>
+<p>红毯 · 双侧楼梯 · 金框圆窗 · <span id="actualSize"></span></p>
+</header>
+<main>
+<section id="stage">
+<div id="loading">载入整数格剧场…</div>
+<div id="legend"><b id="modelName"></b><br>左键旋转 · 右键平移 · 滚轮缩放</div>
+</section>
+<aside>
+<section class="controls">
+<div class="row"><button id="shellFull">完整建筑</button><button id="shellCutaway" class="active">展示剖面</button></div>
+<div id="models" class="row"></div>
+<p id="stats"></p>
+<a class="referenceLink" href="references/scene/index.html" target="_blank">原作场景参考图册 ↗</a>
+</section>
+<section class="controls">
+<h2>观察视角</h2><div id="views" class="row"></div>
+<div class="row" style="margin-top:8px">
+<button id="reset">完整复位</button><button id="screenshot">保存截图</button><button id="fullscreen">全屏</button>
+</div>
+</section>
+<section class="controls">
+<h2>方块剖切</h2>
+<div class="slice">
+<select id="axis"><option value="y">Y 高度</option><option value="x">X 宽度</option><option value="z">Z 深度</option></select>
+<output id="layerLabel"></output>
+</div>
+<input id="layer" type="range" step="1"><button id="fullLayer">显示全部</button>
+</section>
+<details open><summary>形制与来源</summary><div id="features"></div></details>
+<details><summary>原生方块材质</summary><div id="materials"></div></details>
+<p class="links">
+<a href="支配剧场-剧情大厅-T1.nbt">完整 NBT</a> · <a href="完整整数格模型.npz">完整整数格</a><br>
+<a href="锚点.json">合体锚点</a> · <a href="manifest.json">模型记录</a>
+</p>
+</aside>
+</main>
+<script src="data.js"></script><script src="viewer.bundle.js"></script>
+</body>
+</html>

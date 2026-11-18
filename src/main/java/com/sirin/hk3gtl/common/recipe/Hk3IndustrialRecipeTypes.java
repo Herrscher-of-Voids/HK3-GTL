@@ -8,18 +8,6 @@ import com.gregtechceu.gtceu.common.data.GTSoundEntries;
 
 import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection.LEFT_TO_RIGHT;
 
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3IndustrialRecipeTypes {
     private Hk3IndustrialRecipeTypes() {}
 
@@ -74,5 +62,4 @@ public final class Hk3IndustrialRecipeTypes {
         // 静态字段注册，保留显式入口便于启动健康检查与未来分阶段迁移。
     }
 }
-
 

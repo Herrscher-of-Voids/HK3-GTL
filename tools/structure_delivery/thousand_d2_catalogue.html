@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,"><title>千人人偶 · 游戏原作参考图册</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#111216;color:#e9e5dd;font:14px/1.7 system-ui,"Microsoft YaHei",sans-serif}header,main{max-width:1540px;margin:auto;padding:22px}header{padding-bottom:12px}h1{font-size:25px;margin:2px 0}h2{font-size:17px;margin:0 0 8px;color:#e5c786}p{margin:6px 0}.muted,figcaption small{color:#afa99c}a{color:#e3c78d}.eyebrow{font:11px ui-monospace,monospace;color:#d0b57f;letter-spacing:.14em}.summary{padding:14px 18px;border-left:3px solid #ac864c;background:#201c1a}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;align-items:center}button,select,input{font:inherit;color:inherit;background:#24252a;border:1px solid #5a503e;border-radius:3px;padding:7px 12px}button{cursor:pointer}button:hover,button.active{background:#55442d;border-color:#cba765}input[type=search]{flex:1;min-width:220px}input[type=checkbox]{accent-color:#cba765}#gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}figure{margin:0;background:#1a1b20;border:1px solid #3f3a31}figure button{display:block;width:100%;padding:0;border:0;background:#0d0f13;cursor:zoom-in;border-radius:0}figure img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain}figcaption{padding:10px 12px;font-size:12px;overflow-wrap:anywhere}figcaption b{color:#e6c883}figcaption small{display:block;font-size:11px}.bad{color:#d49090}#counts{color:#d2bf9d}.pager{display:flex;align-items:center;justify-content:center;gap:18px;margin:22px 0}dialog{background:#121318;color:inherit;border:1px solid #a88a57;width:min(1840px,98vw);max-height:98vh;padding:12px}dialog::backdrop{background:#000e}dialog img{display:block;max-height:81vh;width:100%;object-fit:contain}.modalbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:9px}.modalbar span{flex:1}details{margin:15px 0;padding:12px 16px;border:1px solid #40392f}summary{cursor:pointer;color:#d1b57f}.note{font-size:12px;color:#bdb5a7}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #d9bb7e;outline-offset:2px}@media(max-width:950px){#gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){#gallery{grid-template-columns:1fr}header,main{padding:14px}h1{font-size:21px}}
+</style>
+</head>
+<body>
+<header>
+<div class="eyebrow">0005 / 千人人偶 / D2 / REFERENCES</div>
+<h1>千人人偶 · 游戏原作参考图册</h1>
+<p><a href="index.html">返回独立像素模型 ↗</a> · <a href="references/catalogue.json">逐图清单</a></p>
+<div class="summary"><h2>本次依据：游戏剧情形态</h2><p>奶金发壳、白瓷脸、黑蒙眼、黑金连体衣、贴胯叶甲、深色长腿。原网格与原贴图用于比例和表面形制，miHoYo原作，神帝宇整理／编辑。</p><p class="muted">《薪炎永燃》中的黑金短裙、白瓷腿单列为动画版本比对。每张图保留原始画面与来源，点击可查看完整分辨率。</p><p id="counts"></p></div>
+<details><summary>参考计数与版本说明</summary><p id="gameCount" class="note"></p><p id="animationCount" class="note"></p><p class="note">游戏录像、官方宣传图和社区移植展示分别标记。相邻帧、同一镜头及裁切均保留对应关系，联系图不增加原图数量。</p></details>
+</header>
+<main>
+<nav class="toolbar" id="families">
+<button data-family="game" class="active">游戏形态与辅助</button><button data-family="design">既有宣传与移植图</button><button data-family="animation">动画版本比对</button>
+</nav>
+<div class="toolbar"><input id="search" type="search" placeholder="搜索部位、角度、来源或图号"><select id="quality"><option value="all">全部有效参考</option><option value="detail">局部细节</option><option value="silhouette">轮廓与连接</option></select><label><input id="excluded" type="checkbox">显示排除项</label></div>
+<p id="result" class="muted"></p><section id="gallery"></section>
+<div class="pager"><button id="prev">上一页</button><span id="page"></span><button id="next">下一页</button></div>
+</main>
+<dialog id="modal"><div class="modalbar"><button id="imagePrev">上一张</button><button id="imageNext">下一张</button><span id="modalTitle"></span><a id="source" target="_blank" rel="noreferrer">来源 ↗</a><a id="original" target="_blank">原图 ↗</a><button id="close">关闭</button></div><img id="fullImage" alt=""><p id="modalNote" class="note"></p></dialog>
+<script>
+const data=CATALOGUE_PAYLOAD;
+let family='game',page=0,filtered=[],opened=0;const perPage=24;
+const $=id=>document.getElementById(id);
+$('counts').textContent=`本轮454张候选，329张有效：游戏形态与辅助 ${data.counts.game} 张，动画比对 ${data.counts.animation} 张。另列既有宣传与移植图 ${data.counts.design} 张。相邻帧包含在图片数内。`;
+$('gameCount').textContent=data.game_notes;$('animationCount').textContent=data.animation;
+function render(){
+  const query=$('search').value.trim().toLowerCase(),quality=$('quality').value;
+  filtered=data.rows.filter(r=>r.family===family&&($('excluded').checked||r.selected)&&(query===''||JSON.stringify(r).toLowerCase().includes(query))&&(quality==='all'||quality==='detail'&&r.quality==='局部细节参考'||quality==='silhouette'&&r.quality==='轮廓与连接参考'));
+  const pages=Math.max(1,Math.ceil(filtered.length/perPage));page=Math.min(page,pages-1);$('gallery').replaceChildren();
+  filtered.slice(page*perPage,(page+1)*perPage).forEach((r,index)=>{
+    const figure=document.createElement('figure'),button=document.createElement('button'),img=document.createElement('img'),caption=document.createElement('figcaption');
+    img.src=r.file;img.loading='lazy';img.alt=r.id;button.append(img);button.onclick=()=>showImage(page*perPage+index);
+    const b=document.createElement('b');b.textContent=`${r.id} · ${r.angle||r.description||r.use||''}`;
+    const note=document.createElement('p');note.textContent=r.note;
+    const source=document.createElement('a');source.href=r.source_url;source.target='_blank';source.rel='noreferrer';source.textContent=r.publisher||r.source_type||r.source_title||'原始来源';
+    const meta=document.createElement('small');meta.textContent=[r.quality,r.time_seconds===undefined?'':`${r.time_seconds.toFixed(3)} 秒`,r.camera_group||r.shot_group||'',r.source_type||''].filter(Boolean).join(' · ');
+    caption.append(b,note,source,meta);
+    if(!r.selected){const status=document.createElement('p');status.className='bad';status.textContent='排除：'+(r.excluded_reason||r.rejection_reason||r.reason||'目标形制不适用');caption.append(status);}
+    figure.append(button,caption);$('gallery').append(figure);
+  });
+  $('result').textContent=`当前 ${filtered.length} 张，每页 ${perPage} 张`;$('page').textContent=`${page+1} / ${pages}`;$('prev').disabled=page===0;$('next').disabled=page===pages-1;
+}
+function showImage(index){opened=(index+filtered.length)%filtered.length;const r=filtered[opened];$('fullImage').src=r.file;$('fullImage').alt=r.id;$('modalTitle').textContent=`${r.id} · ${r.angle||r.description||r.use||''}`;$('modalNote').textContent=r.note;$('source').href=r.source_url;$('original').href=r.file;if(!$('modal').open)$('modal').showModal();}
+document.querySelectorAll('[data-family]').forEach(button=>button.onclick=()=>{family=button.dataset.family;page=0;document.querySelectorAll('[data-family]').forEach(b=>b.classList.toggle('active',b===button));render();});
+$('search').oninput=()=>{page=0;render();};$('quality').onchange=()=>{page=0;render();};$('excluded').onchange=()=>{page=0;render();};$('prev').onclick=()=>{page--;render();};$('next').onclick=()=>{page++;render();};$('imagePrev').onclick=()=>showImage(opened-1);$('imageNext').onclick=()=>showImage(opened+1);$('close').onclick=()=>$('modal').close();document.addEventListener('keydown',e=>{if($('modal').open&&e.key==='ArrowRight')showImage(opened+1);if($('modal').open&&e.key==='ArrowLeft')showImage(opened-1);});render();
+</script>
+</body></html>

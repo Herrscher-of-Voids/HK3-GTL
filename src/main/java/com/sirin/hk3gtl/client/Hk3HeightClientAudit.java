@@ -18,16 +18,9 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 连接或切换维度时，只读记录客户端从服务器同步的实际维度类型和Level边界。
+ */
 @Mod.EventBusSubscriber(modid = "hk3gtl", value = Dist.CLIENT)
 public final class Hk3HeightClientAudit {
     private Hk3HeightClientAudit() {}

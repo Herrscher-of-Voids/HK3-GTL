@@ -1,0 +1,19 @@
+{
+  "id": "W04",
+  "version": "0005-A3",
+  "controller": "hk3gtl:w04_thunder_superconducting_axis",
+  "blueprint": "hk3gtl:structures/w04_candidate.bin.gz",
+  "conversation_id": "01a1d6b8-bd81-79d3-a6f4-4f590806cc8e",
+  "appearance_approved": true,
+  "approval_quote": "就这个吧，我们下一台吧，没时间了，有问题之后再改吧",
+  "implementation_quote": "不是，这一台你要实装到游戏里呀，先实装，然后再下一台",
+  "source": "deliveries/0005_W04_七雷取能天枢_构图A3_20261114",
+  "size_xyz": [841, 594, 781],
+  "controller_xyz": [420, 18, 739],
+  "source_facing": "south",
+  "block_count": 10536136,
+  "fixed_interface_positions": [],
+  "production_recipe": "hk3gtl:wonder_superconducting_polarization_matrix",
+  "energy_extraction_visual_only": true,
+  "game_verified": false
+}

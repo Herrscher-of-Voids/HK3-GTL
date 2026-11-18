@@ -4,9 +4,7 @@ import com.sirin.hk3gtl.common.easter.Hk3EggRuntime;
 import net.minecraft.nbt.*;
 import net.minecraft.server.level.ServerPlayer;
 
-
 public final class Hk3PhoneTodoService {
-
     private Hk3PhoneTodoService(){}
     private static boolean allowed(ServerPlayer p){return Hk3PhoneData.get(p).installed(p.getUUID())&&Hk3PhoneRuntime.requirePower(p);}
     static void saved(ServerPlayer p,Hk3PhoneNotes.Note note){

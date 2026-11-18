@@ -21,11 +21,6 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.Locale;
 import java.util.UUID;
 
-
-
-
-
-
 @Mod.EventBusSubscriber(modid = "hk3gtl", bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3CircuitTechnology {
     private Hk3CircuitTechnology() {}

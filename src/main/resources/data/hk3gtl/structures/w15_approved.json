@@ -1,0 +1,251 @@
+{
+  "id": "W15",
+  "version": "0005-W15-B1",
+  "controller": "hk3gtl:w15_tree_sea_audience_throne",
+  "recorded_at": "2026-11-18T03:09:15+08:00",
+  "conversation": "0005",
+  "conversation_id": "01a1e02a-4d20-7d81-bdab-70404f66086d",
+  "appearance_approved": true,
+  "implementation_authorized": true,
+  "approval_quote": "可以，没问题，实装一下",
+  "approval_basis": "负责人批准B1树海巨书，指定左页虚数之树、右页量子之海后要求实装。",
+  "external_approval_is_authoritative": true,
+  "source_approval_fields_preserved": true,
+  "blueprint": "hk3gtl:structures/w15_candidate.bin.gz",
+  "source": "deliveries/0005_W15_凌虛晴树海巨书_B1_20261118",
+  "source_manifest_sha256": "80d66e3dcb9cc76d42df51466753a8a359526173f2cfa4314a2f55cd169d5e5d",
+  "source_materials_sha256": "2419fd4ff04f03b1e849305c4b4f2c0988ed4ac92da08fdf0f4f2a19d11d896a",
+  "source_npz_sha256": "8044b94d49f81d1da716af195d3a519b615690228de6950fa2eb4945b449258d",
+  "source_nbt": {
+    "file": "W15-凌虛晴树海巨书-B1.nbt",
+    "bytes": 40251483,
+    "sha256": "affe3411b749b96e7ff68ad91d9ec85fa3109193b6165b038074f8d0c3aca617"
+  },
+  "size_xyz": [
+    1101,
+    210,
+    878
+  ],
+  "size_wdh": [
+    1101,
+    878,
+    210
+  ],
+  "source_bounds": {
+    "min": [
+      -550,
+      78,
+      -405
+    ],
+    "max": [
+      550,
+      287,
+      472
+    ]
+  },
+  "source_origin_xyz": [
+    -550,
+    78,
+    -405
+  ],
+  "blueprint_to_export_offset_xyz": [
+    550,
+    -78,
+    405
+  ],
+  "controller_source_xyz": [
+    0,
+    153,
+    404
+  ],
+  "controller_xyz": [
+    550,
+    75,
+    809
+  ],
+  "source_facing": "south",
+  "controller_location": "前侧书脊端面，源坐标(0,153,404)，朝前方+Z。",
+  "controller_previous_state": "hk3gtl:voltage_machine_casing_cev",
+  "controller_state": "hk3gtl:w15_tree_sea_audience_throne[facing=south]",
+  "controller_replacements": 1,
+  "controller_nbt_blockentity_id": "hk3gtl:w15_tree_sea_audience_throne",
+  "controller_access": {
+    "below_controller": {
+      "source_xyz": [
+        0,
+        152,
+        404
+      ],
+      "state": "hk3gtl:voltage_machine_casing_cev"
+    },
+    "front": {
+      "source_xyz": [
+        0,
+        153,
+        405
+      ],
+      "state": "minecraft:air"
+    },
+    "front_head": {
+      "source_xyz": [
+        0,
+        154,
+        405
+      ],
+      "state": "minecraft:air"
+    },
+    "front_floor": {
+      "source_xyz": [
+        0,
+        152,
+        405
+      ],
+      "state": "minecraft:air"
+    },
+    "two_blocks_front": {
+      "source_xyz": [
+        0,
+        153,
+        406
+      ],
+      "state": "minecraft:air"
+    },
+    "two_blocks_front_head": {
+      "source_xyz": [
+        0,
+        154,
+        406
+      ],
+      "state": "minecraft:air"
+    }
+  },
+  "block_count": 16002128,
+  "source_block_count": 16002128,
+  "component_count": 8,
+  "components": [
+    {
+      "id": "cover_-1",
+      "group": "cover",
+      "blocks": 4340451
+    },
+    {
+      "id": "pages_-1",
+      "group": "pages",
+      "blocks": 2812591
+    },
+    {
+      "id": "cover_1",
+      "group": "cover",
+      "blocks": 4340451
+    },
+    {
+      "id": "pages_1",
+      "group": "pages",
+      "blocks": 2812408
+    },
+    {
+      "id": "spine",
+      "group": "spine",
+      "blocks": 1450893
+    },
+    {
+      "id": "locks",
+      "group": "locks",
+      "blocks": 204712
+    },
+    {
+      "id": "writing",
+      "group": "writing",
+      "blocks": 28974
+    },
+    {
+      "id": "ribbon",
+      "group": "ribbon",
+      "blocks": 11648
+    }
+  ],
+  "full_geometry": true,
+  "geometry_source": "B1完整整数格NPZ，按XYZ顺序重排并替换唯一主控格。",
+  "merge_priority": "沿用B1完整NPZ已完成的去重结果，每个实体坐标输出一次。",
+  "external_base": false,
+  "fixed_interface_positions": [],
+  "interface_policy": "除主控外，全部实体格均可替换合法通用接口，朝向自选。",
+  "target_voltage": "CEV",
+  "research": "RN-TAA",
+  "product": "hk3gtl:tree_sea_audience_credential",
+  "palette": [
+    "gtceu:black_metal_sheet",
+    "gtceu:black_studs",
+    "gtceu:white_metal_sheet",
+    "gtceu:clean_machine_casing",
+    "gtceu:light_gray_metal_sheet",
+    "gtceu:computer_heat_vent",
+    "minecraft:gold_block",
+    "gtceu:yellow_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "hk3gtl:voltage_machine_casing_cev",
+    "hk3gtl:w15_tree_sea_audience_throne[facing=south]"
+  ],
+  "palette_count": 10,
+  "used_palette_count": 10,
+  "unique_block_types": 10,
+  "source_unique_block_types": 9,
+  "legacy_required_unique_block_types": 59,
+  "material_count_exception": {
+    "approved": true,
+    "actual": 9,
+    "minimum": 59,
+    "scope": "W15 B1",
+    "unique_block_types": 9,
+    "required_unique_block_types": 59,
+    "approval_quote": "按 B1 原样实装，允许 W15 专项例外（推荐）",
+    "basis": "负责人明确批准B1原样实装；9种原材质保持，主控作为第10项单独计数。"
+  },
+  "material_count_status": "W15 B1已获专项例外，保留9种原材质，豁免旧CEV至少59种要求。",
+  "scale_exception": {
+    "approved": true,
+    "scope": "仅W15 B1的包围盒体积、实际高度和实体方块数。",
+    "approval_quote": "允许三项例外，按 B1 原尺寸实装（推荐）",
+    "approval_record": "logs/0005-w15-b1-production-20261118/scale-approval.json",
+    "reason": "保留已批准的展开巨书构图、左右书页比例与树海特效空间，不为递增指标加高主体或填充无功能方块。",
+    "preserved_size_wdh": [1101, 878, 210],
+    "footprint_area": {"actual": 966678, "lower_tier_maximum": 900601, "source_machine": "W10", "passes": true},
+    "bounding_box_volume": {"actual": 203002380, "lower_tier_maximum": 441313404, "source_machine": "W03", "source_voltage": "WSV", "source": "deliveries/W03_C9_C5外环下移净空修订_20261108/manifest.json"},
+    "height": {"actual": 210, "lower_tier_maximum": 636, "source_machine": "W03", "source_voltage": "WSV", "source": "deliveries/W03_C9_C5外环下移净空修订_20261108/manifest.json"},
+    "entity_block_count": {"actual": 16002128, "lower_tier_maximum": 23541415, "source_machine": "W12", "source_voltage": "CIV", "source": "src/main/resources/data/hk3gtl/structures/w12_approved.json"}
+  },
+  "material_counts": {
+    "gtceu:black_metal_sheet": 8123850,
+    "gtceu:black_studs": 1274794,
+    "gtceu:white_metal_sheet": 4196524,
+    "gtceu:clean_machine_casing": 27242,
+    "gtceu:light_gray_metal_sheet": 1401733,
+    "gtceu:computer_heat_vent": 238800,
+    "minecraft:gold_block": 272434,
+    "gtceu:yellow_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 13592,
+    "hk3gtl:voltage_machine_casing_cev": 453158,
+    "hk3gtl:w15_tree_sea_audience_throne[facing=south]": 1
+  },
+  "runtime_format": "HK3P/2；XYZ全局升序、Z连续游程；唯一主控附原生方块实体NBT。",
+  "blueprint_linear_index": "(x*sizeY+y)*sizeZ+z",
+  "rle_record_count": 356870,
+  "blueprint_sha256": "56f3312e03be7bfb3429fc02516e5feae847aa7ab0b576de0abbc0092ac55cf6",
+  "blueprint_bytes": 1449385,
+  "entity_count": 0,
+  "minimum_dimension_height": 210,
+  "controller_relative_y_range": [
+    -75,
+    134
+  ],
+  "overworld_vertical_span": 384,
+  "overworld_height_compatible": true,
+  "page_titles": {
+    "left": "虚数之树",
+    "right": "量子之海"
+  },
+  "scope": "批准B1完整展开巨书；无外部底座、无人像、无亚空之矛。",
+  "animation_state": "左侧金色虚数之树与世界叶片，右侧蓝紫量子之海，页内金色书写光带；独立客户端特效。",
+  "game_verified": false,
+  "jar_built": false,
+  "installed": false,
+  "game_started": false
+}

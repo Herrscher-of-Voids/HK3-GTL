@@ -1,1 +1,8 @@
-{"replace":false,"values":["hk3gtl:world_weaving_processor_mainframe","hk3gtl:terminal_computation_computer","hk3gtl:wsv_assembly"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:world_weaving_processor_mainframe",
+    "hk3gtl:terminal_computation_computer",
+    "hk3gtl:wsv_assembly"
+  ]
+}

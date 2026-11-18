@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/generated","textures":{"layer0":"hk3gtl:item/quantum_interference/circuits/quantum_interference_assembly"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/quantum_interference/circuits/quantum_interference_assembly"
+  }
+}

@@ -1,1 +1,479 @@
-{"key":"i30","machine":"hk3gtl:i30_simulated_world_bubble_stabilizer","controller":[182,35,12],"size_xyz":[365,223,365]}
+{
+  "key": "i30",
+  "machine": "hk3gtl:i30_simulated_world_bubble_stabilizer",
+  "source": "data/hk3gtl/approved_architecture/i30.json",
+  "sha256": "b80b998bbee2c55e1aa9777c63d91cd063c4fbddb784cbe77bea97ea1a51b070",
+  "template_sha256": "87bb98c16dbb5933f9543604589ace72f95a1eac1f6ed279b7408b7047f33782",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_014038_267181_batch-08_02of05_I30_V1_ICV_外观已确认\\I30_模拟世界泡稳定控制器_六脊稳界深井_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_014038_267181_batch-08_02of05_I30_V1_ICV_外观已确认\\I30_模拟世界泡稳定控制器_六脊稳界深井_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_014038_267181_batch-08_02of05_I30_V1_ICV_外观已确认\\I30_模拟世界泡稳定控制器_六脊稳界深井_V1_20261027\\i30\\hk3gtl-i30-simulated-world-stabilizer-v1-20261027.nbt",
+  "source_nbt_sha256": "0ef7456451a511b5e57f6c27abfc90eb3633849cebdb5eeff32e8f43a12c5966",
+  "controller": [
+    182,
+    35,
+    12
+  ],
+  "size_xyz": [
+    365,
+    223,
+    365
+  ],
+  "blocks": 3466331,
+  "ports": [],
+  "target_voltage": "ICV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 180,
+  "materials": 39,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        158,
+        35,
+        12
+      ],
+      "role": "未稳定模拟载体输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        182,
+        35,
+        12
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i30_simulated_world_bubble_stabilizer[facing=north]",
+      "block_entity_id": "hk3gtl:i30_simulated_world_bubble_stabilizer"
+    },
+    {
+      "pos": [
+        206,
+        35,
+        12
+      ],
+      "role": "模型与负载参数",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        0,
+        35,
+        104
+      ],
+      "role": "西侧稳定介质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        364,
+        35,
+        104
+      ],
+      "role": "东侧稳定介质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        0,
+        35,
+        256
+      ],
+      "role": "西侧持续供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        364,
+        35,
+        256
+      ],
+      "role": "东侧持续供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        134,
+        35,
+        352
+      ],
+      "role": "废介质排出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        158,
+        35,
+        352
+      ],
+      "role": "可终止模拟载体输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        206,
+        35,
+        352
+      ],
+      "role": "运行档案输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        230,
+        35,
+        352
+      ],
+      "role": "热回流排出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i30_simulated_world_bubble_stabilizer",
+  "process_scope": "正式建筑、控制器、原位仓室和完整预览接入；不开放暂定工艺或未实现的世界泡任务。",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "未稳定模拟载体输入",
+      "pos": [
+        158,
+        35,
+        12
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              157,
+              35,
+              12
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              159,
+              35,
+              12
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "模型与负载参数",
+      "pos": [
+        206,
+        35,
+        12
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              205,
+              35,
+              12
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              207,
+              35,
+              12
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西侧稳定介质输入",
+      "pos": [
+        0,
+        35,
+        104
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              0,
+              35,
+              103
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              0,
+              35,
+              105
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东侧稳定介质输入",
+      "pos": [
+        364,
+        35,
+        104
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              364,
+              35,
+              103
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              364,
+              35,
+              105
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西侧持续供能",
+      "pos": [
+        0,
+        35,
+        256
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              0,
+              35,
+              255
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              0,
+              35,
+              257
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东侧持续供能",
+      "pos": [
+        364,
+        35,
+        256
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              364,
+              35,
+              255
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              364,
+              35,
+              257
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "可终止模拟载体输出",
+      "pos": [
+        158,
+        35,
+        352
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              157,
+              35,
+              352
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              159,
+              35,
+              352
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "运行档案输出",
+      "pos": [
+        206,
+        35,
+        352
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              205,
+              35,
+              352
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              207,
+              35,
+              352
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "废介质排出",
+      "pos": [
+        134,
+        35,
+        352
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              133,
+              35,
+              352
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              135,
+              35,
+              352
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "热回流排出",
+      "pos": [
+        230,
+        35,
+        352
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_icv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              229,
+              35,
+              352
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          },
+          {
+            "pos": [
+              231,
+              35,
+              352
+            ],
+            "state": "hk3gtl:voltage_machine_casing_icv"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

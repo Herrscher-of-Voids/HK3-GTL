@@ -36,25 +36,9 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 所有HK3GTL控制器共用的终端分批建造入口；材料事务与最终GT成型判定分离。
+ */
 @Mod.EventBusSubscriber(modid = "hk3gtl", bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3UniversalTerminalBuilder {
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -64,11 +48,25 @@ public final class Hk3UniversalTerminalBuilder {
     private Hk3UniversalTerminalBuilder() {}
 
     public static void use(Player player, MultiblockState state, AutoBuildSetting setting) {
+        use(player, state, setting, null);
+    }
+
+    public interface BuildAccess {
+        boolean valid(ServerPlayer owner, MultiblockControllerMachine target);
+        boolean debit();
+        void refund();
+    }
+
+    public static void use(Player player, MultiblockState state, AutoBuildSetting setting, BuildAccess access) {
         if (!(player instanceof ServerPlayer owner) || state == null || state.getController() == null
                 || !(state.getController() instanceof MultiblockControllerMachine controller)
                 || !(controller.getLevel() instanceof ServerLevel level)
                 || owner.level() != level || !level.getServer().isSameThread()
                 || !"hk3gtl".equals(controller.self().getDefinition().getId().getNamespace())) return;
+
+        if (access != null && !access.valid(owner, controller)) {
+            tell(owner, "重构机、目标主控的归属或研究许可不满足建筑作业要求。"); return;
+        }
 
         if (owner.isSpectator() || !owner.getAbilities().mayBuild || !level.mayInteract(owner,controller.getPos())
                 || !owner.mayUseItemAt(controller.getPos(),Direction.UP,owner.getMainHandItem())) {
@@ -120,12 +118,12 @@ public final class Hk3UniversalTerminalBuilder {
                 tell(owner, "该多方块已通过真实成型检查，无需重建。"); return;
             }
             plan = Hk3BuildPlans.create(controller);
-            if (plan.creativeOnly() && (!owner.isCreative() || setting.isDismantleMode())) {
+            if (plan.creativeOnly() && (access != null || !owner.isCreative() || setting.isDismantleMode())) {
                 plan.close();
                 tell(owner, "此蓝图仅支持创造模式搭建，暂不支持生存取料。");
                 return;
             }
-            job = new Job(owner, controller, level, plan, setting);
+            job = new Job(owner, controller, level, plan, setting, access);
             job.validateBounds();
             if (JOBS.putIfAbsent(level.getServer(),job) != null) {
                 plan.close(); tell(owner, "服务器当前已有一项HK3GTL多方块建造任务。"); return;
@@ -286,6 +284,7 @@ public final class Hk3UniversalTerminalBuilder {
         private final ServerLevel level;
         private final Hk3BuildPlan plan;
         private final Hk3BuildMaterials materials;
+        private final BuildAccess access;
         private final boolean dismantle;
         private final Hk3DismantleOperation removal;
         private final BlockPos center;
@@ -313,9 +312,10 @@ public final class Hk3UniversalTerminalBuilder {
         private int chunkWaitTicks, pipelineWaitTicks;
 
         private Job(ServerPlayer owner, MultiblockControllerMachine controller, ServerLevel level,
-                    Hk3BuildPlan plan, AutoBuildSetting setting) {
+                    Hk3BuildPlan plan, AutoBuildSetting setting, BuildAccess access) {
             this.owner = owner.getUUID(); this.controller = controller; this.level = level; this.plan = plan;
             this.materials = new Hk3BuildMaterials(owner, setting);
+            this.access = access;
             dismantle = setting.isDismantleMode();
             removal = dismantle ? new Hk3DismantleOperation(owner,controller,setting) : null;
             if (!dismantle && !materials.isSupported()) throw new IllegalArgumentException("终端选项不支持");
@@ -366,7 +366,8 @@ public final class Hk3UniversalTerminalBuilder {
                     && level.mayInteract(player,center)
                     && player.mayUseItemAt(center,Direction.UP,player.getMainHandItem())
                     && controller.getFrontFacing() == front && controller.getUpwardsFacing() == Direction.NORTH
-                    && !controller.isFlipped() && controllerPresent();
+                    && !controller.isFlipped() && controllerPresent()
+                    && (access == null || access.valid(player, controller));
         }
 
         private void tick(long deadline) {
@@ -445,9 +446,14 @@ public final class Hk3UniversalTerminalBuilder {
                     if (!level.mayInteract(ownerPlayer, pos) || !ownerPlayer.mayUseItemAt(pos, Direction.UP, ownerPlayer.getMainHandItem())) {
                         pause("没有权限在 " + pos.toShortString() + " 建造。"); return;
                     }
-                    Hk3BuildMaterials.Reservation reservation = plan.creativeOnly()
+                    Hk3BuildMaterials.Reservation material = plan.creativeOnly()
                             ? materials.reserveCreativeBlueprint() : materials.reserve(expected, plan.tag(index));
-                    if (reservation == null) { pause("缺少精确蓝图材料或当前终端材料选项不兼容；停在 " + pos.toShortString() + "。"); return; }
+                    if (material == null) { pause("缺少精确蓝图材料或当前终端材料选项不兼容；停在 " + pos.toShortString() + "。"); return; }
+                    if (access != null && !access.debit()) {
+                        material.close();
+                        pause("重构介质或构建EU不足；停在 " + pos.toShortString() + "。"); return;
+                    }
+                    var reservation = new PlacementReservation(material, access);
                     try (reservation) {
                         if (JOBS.get(level.getServer()) != this) return;
                         BlockSnapshot before = BlockSnapshot.create(level.dimension(), level, pos.immutable());
@@ -557,7 +563,7 @@ public final class Hk3UniversalTerminalBuilder {
             ServerPlayer ownerPlayer = player();
             if (ownerPlayer != null) tell(ownerPlayer, message + " 再次使用终端继续。");
         }
-        private boolean rollbackOrRetain(BlockSnapshot snapshot, Hk3BuildMaterials.Reservation reservation,
+        private boolean rollbackOrRetain(BlockSnapshot snapshot, PlacementReservation reservation,
                                          RuntimeException original) {
             RuntimeException rollback;
             try {
@@ -596,6 +602,23 @@ public final class Hk3UniversalTerminalBuilder {
         private void removeTicket(long chunk) {
             try { level.getChunkSource().removeRegionTicket(TICKET, new ChunkPos(chunk), 2, center.asLong()); }
             catch (RuntimeException failure) { LOGGER.warn("释放HK3GTL建造区块票据失败：{}",chunk,failure); }
+        }
+    }
+
+    private static final class PlacementReservation implements AutoCloseable {
+        private final Hk3BuildMaterials.Reservation material;
+        private final BuildAccess access;
+        private boolean committed;
+
+        private PlacementReservation(Hk3BuildMaterials.Reservation material, BuildAccess access) {
+            this.material = material; this.access = access;
+        }
+
+        private void commit() { material.commit(); committed = true; }
+
+        @Override public void close() {
+            if (!committed && access != null) access.refund();
+            material.close();
         }
     }
 

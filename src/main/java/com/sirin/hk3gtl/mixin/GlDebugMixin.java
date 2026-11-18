@@ -1,62 +1,11 @@
 package com.sirin.hk3gtl.mixin;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 抑制 Re-Avaritia 宇宙着色器每帧触发的 GL_INVALID_OPERATION(id=1282) 调试刷屏。
+ * - 关键调用链：OpenGL 驱动调试回调 -> GlDebug.printDebugLog -> 本 Mixin 拦截特定重复消息。
+ *
+ */
 import com.mojang.blaze3d.platform.GlDebug;
 import org.lwjgl.opengl.GLDebugMessageCallback;
 import org.slf4j.Logger;

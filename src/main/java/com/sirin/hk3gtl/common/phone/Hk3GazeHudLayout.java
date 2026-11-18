@@ -1,8 +1,4 @@
 package com.sirin.hk3gtl.common.phone;
-
-
-
-
 public final class Hk3GazeHudLayout {
     private Hk3GazeHudLayout(){}
     public record Box(int x,int y,int width,int height,double scale){}

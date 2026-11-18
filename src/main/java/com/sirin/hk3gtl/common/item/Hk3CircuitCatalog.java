@@ -7,31 +7,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3CircuitCatalog {
     public record Entry(String id, int tier, String family, int form, boolean primary) {}
     public static final List<Entry> ENTRIES = List.of(

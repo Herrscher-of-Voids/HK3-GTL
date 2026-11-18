@@ -11,14 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-
-
-
-
-
-
-
-
+/**
+ * 集中约束结构导出的文件名、固定目录与四份产物写入；由导出命令调用。
+ */
 public final class ExportFiles {
     public static final String DIRECTORY = "hk3gtl_exports";
     private static final List<String> SUFFIXES = List.of(".txt", "_pattern_impl.txt", "_pattern_facade.txt", "_machine.txt");

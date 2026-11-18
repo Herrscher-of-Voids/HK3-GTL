@@ -1,20 +1,11 @@
 package com.sirin.hk3gtl.client.network;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 在物理客户端应用服务端同步的研究、事件与叙事状态。
+ * - 关键调用链：ResearchStateSyncS2CPacket.handle -> DistExecutor -> apply -> LocalPlayer.persistentData。
+ *
+ */
 
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraft.client.Minecraft;

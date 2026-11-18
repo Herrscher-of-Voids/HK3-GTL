@@ -1,18 +1,10 @@
 package com.sirin.hk3gtl.common.machine.research;
 
 
+/**
+ * 【文件职责／本轮边界】I02真实光谱输出按固定团队记证据，离线读取既有观察资料。
+ */
 
-
-
-
-
-
-
-
-
-
-
-/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
 import com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes;
 
@@ -27,16 +19,12 @@ import com.sirin.hk3gtl.common.machine.Hk3MultiRecipeLogic;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.research.Hk3ResearchData;
 import com.sirin.hk3gtl.common.research.Hk3OutputReceiptDispatch;
+import com.sirin.hk3gtl.common.research.Hk3ProcessReceipts;
 import com.sirin.hk3gtl.common.recipe.Hk3RecipeTypesImpl;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper;
-
-
-
-
-
 
 public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
     /** 内测5光谱分析类型下的初始实验完整配方ID。 */
@@ -44,8 +32,12 @@ public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
             "hk3gtl", "industrial_honkai_spectrum_analysis/approved_hbv_r13");
     public Hk3SpectrumAnalysisMachine(IMachineBlockEntity holder) { super(holder); }
     @Override public boolean keepSubscribing() { return true; }
+    private boolean initialExperimentCompleted() {
+        return getResearchTeamUUID() != null && Hk3ResearchData.get(getLevel().getServer())
+                .hasExperiment(getResearchTeamUUID(), "RN-HSA");
+    }
     @Override public GTRecipe fullModifyRecipe(GTRecipe recipe, OCParams params, OCResult result) {
-        if (!INITIAL.equals(recipe.id)) return super.fullModifyRecipe(recipe, params, result);
+        if (!INITIAL.equals(recipe.id) || initialExperimentCompleted()) return super.fullModifyRecipe(recipe, params, result);
         GTRecipe bounded=recipe.copy().trimRecipeOutputs(getOutputLimits());
         for (var part:getParts()) { bounded=part.modifyRecipe(bounded); if(bounded==null) return null; }
         result.init(com.sirin.hk3gtl.common.constants.Hk3Values.VA_LONG[com.gregtechceu.gtceu.api.GTValues.MAX],bounded.duration,1,0);
@@ -59,7 +51,8 @@ public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
     }
 
     @Override protected GTRecipe getRealRecipe(GTRecipe recipe, OCParams params, OCResult result) {
-        return INITIAL.equals(recipe.id) ? recipe.copy() : super.getRealRecipe(recipe, params, result);
+        return INITIAL.equals(recipe.id) && !initialExperimentCompleted()
+                ? recipe.copy() : super.getRealRecipe(recipe, params, result);
     }
 
     @Override public boolean beforeWorking(GTRecipe recipe) {
@@ -72,13 +65,15 @@ public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
     }
 
     private void recordSpectrumOutput(GTRecipe recipe) {
-        if (recipe == null || !INITIAL.equals(recipe.id) || !isFormed()) return;
+        if (recipe == null || !isFormed()) return;
+        var snapshot = Hk3ProcessReceipts.findSnapshot(recipe, INITIAL);
+        if (snapshot == null) return;
         if(hasObservationData()&&getResearchTeamUUID()!=null){
-            var receipt=com.sirin.hk3gtl.common.research.Hk3ProcessReceipts.settle(com.sirin.hk3gtl.common.research.Hk3ProcessReceipts.snapshot(recipe),getLevel().dimension().location()+"@"+getPos(),getLevel().getGameTime());
+            var receipt=Hk3ProcessReceipts.settle(snapshot,getLevel().dimension().location()+"@"+getPos(),getLevel().getGameTime());
             com.sirin.hk3gtl.common.communication.Hk3CommunicationEvidence.get(getLevel().getServer()).record(getResearchTeamUUID(),"spectrum",receipt);
         }
         var player = informedOwner();
-        if (hasObservationData() && getResearchTeamUUID()!=null && Hk3ResearchData.get(getLevel().getServer()).recordExperiment(getResearchTeamUUID(), "RN-HSA",getLevel().dimension().location()+"@"+getPos()+"/"+recipe.id) && player!=null) {
+        if (hasObservationData() && getResearchTeamUUID()!=null && Hk3ResearchData.get(getLevel().getServer()).recordExperiment(getResearchTeamUUID(), "RN-HSA",getLevel().dimension().location()+"@"+getPos()+"/"+snapshot.getString("Recipe")) && player!=null) {
             player.sendSystemMessage(Component.translatable("hk3gtl.research.spectrum_recorded"));
             com.mojang.logging.LogUtils.getLogger().info("[HK3-RESEARCH] RN-HSA spectrum settled at {} for {}", getPos(), player.getUUID());
         }
@@ -88,7 +83,7 @@ public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
         return new ProcessLogic(this) {
             @Override public void findAndHandleRecipe() {
                 if (dispatchProbabilityOrder()) return;
-                if (hasObservationData()) {
+                if (hasObservationData() && !initialExperimentCompleted()) {
                     var recipe = Hk3IndustrialRecipeTypes.SPECTRUM_ANALYSIS.getRecipe(getLevel().getServer().getRecipeManager(), INITIAL);
                     if (recipe != null && RecipeRunnerHelper.matchRecipe(Hk3SpectrumAnalysisMachine.this, recipe)
                             && checkMatchedRecipeAvailable(recipe)) { recipeDirty = false; return; }
@@ -97,7 +92,7 @@ public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
             }
             @Override protected java.util.Set<GTRecipe> lookupRecipeSet() {
                 var candidates = new java.util.LinkedHashSet<>(super.lookupRecipeSet());
-                candidates.removeIf(recipe -> INITIAL.equals(recipe.id));
+                if (!initialExperimentCompleted()) candidates.removeIf(recipe -> INITIAL.equals(recipe.id));
                 return candidates;
             }
             @Override protected boolean handleTickRecipeIO(GTRecipe recipe, IO io) {
@@ -113,5 +108,4 @@ public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
     }
     @Override protected void onProcessOutput(GTRecipe recipe) { super.onProcessOutput(recipe); }
 }
-
 

@@ -39,7 +39,7 @@ public final class Hk3WorldResourceBatches {
         int first=1,last=0;
         switch(tx.action()){
             case MINE->{first=ledger.real(tx.target()).miningCount()+1;last=first;}
-            case TERMINATE_REAL->{first=ledger.real(tx.target()).miningCount()+1;last=10;}
+            case TERMINATE_REAL->{first=ledger.real(tx.target()).miningCount()+1;last=Hk3WorldBubbleLedger.MAX_MINING;}
             case TERMINATE_SIMULATION->{last=1;}
             default->{return supplied.isEmpty();}
         }
@@ -90,7 +90,7 @@ public final class Hk3WorldResourceBatches {
             var tag=(CompoundTag)raw;
             if(!tag.hasUUID("Target")||!tag.contains("Ordinal",Tag.TAG_INT))throw new IllegalArgumentException("Missing resource identity");
             var domain=Hk3WorldBubbleLedger.Domain.valueOf(tag.getString("Domain"));var target=tag.getUUID("Target");int n=tag.getInt("Ordinal");
-            if(n<1||n>(domain==Hk3WorldBubbleLedger.Domain.REAL?10:1)
+            if(n<1||n>(domain==Hk3WorldBubbleLedger.Domain.REAL?Hk3WorldBubbleLedger.LEGACY_MINING_LIMIT:1)
                     ||(domain==Hk3WorldBubbleLedger.Domain.REAL?ledger.real(target)==null:ledger.simulation(target)==null))
                 throw new IllegalArgumentException("Invalid resource target or ordinal");
             if(!tag.getString("CatalogHash").matches("[0-9a-f]{64}")||tag.getString("CatalogVersion").isBlank()||tag.getString("Profile").isBlank())

@@ -1,36 +1,10 @@
 package com.sirin.hk3gtl.common.recipe.validate;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 负责 RecipeCycleDetector 对应的配方注册与门槛绑定。
+ *
+ */
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;

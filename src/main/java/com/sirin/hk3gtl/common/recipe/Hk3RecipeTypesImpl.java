@@ -30,12 +30,6 @@ import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection
  * <h3>子类分布</h3>
  * {@link Hk3RecipeTypesImaginary}(10) → {@link Hk3RecipeTypesQuantum}(12) → {@link Hk3RecipeTypesFinality}(13) → {@link Hk3RecipeTypesWonder}(12)
  */
-
-
-
-
-
-
 public class Hk3RecipeTypesImpl {
 
     /** 内测5活动配方类型已迁移到 Hk3Beta5RecipeTypes，本类保留旧类型兼容入口。 */
@@ -148,7 +142,5 @@ public class Hk3RecipeTypesImpl {
         LOGGER.info("[HK3GTL] 已注册现行工业工艺类型与研究所分析类型；旧设备配方类型已退役。");
     }
 }
-
-
 
 

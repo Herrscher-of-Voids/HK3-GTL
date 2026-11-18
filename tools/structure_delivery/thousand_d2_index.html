@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<title>千人人偶 · 游戏剧情形态 D2</title>
+</head>
+<body>
+<header>
+<div class="eyebrow">0005 / 千人人偶 / D2</div>
+<h1>千人人偶 · 游戏剧情形态</h1>
+<p>原始A姿势 · 原贴图取色 · <span id="actualSize"></span></p>
+</header>
+<main>
+<section id="stage">
+<div id="loading">载入整数格方块模型…</div>
+<div id="legend"><b id="modelName"></b><br>左键旋转 · 右键平移 · 滚轮缩放</div>
+</section>
+<aside>
+<section class="controls">
+<div id="models" class="row"></div>
+<p id="stats"></p>
+<a class="referenceLink" href="参考图册.html" target="_blank">游戏原作与版本比对图册 ↗</a>
+</section>
+<section class="controls">
+<h2>观察视角</h2><div id="views" class="row"></div>
+<div class="row" style="margin-top:8px">
+<button id="reset">完整复位</button><button id="screenshot">保存截图</button><button id="fullscreen">全屏</button>
+</div>
+</section>
+<section class="controls">
+<h2>方块剖切</h2>
+<div class="slice">
+<select id="axis"><option value="y">Y 高度</option><option value="x">X 宽度</option><option value="z">Z 深度</option></select>
+<output id="layerLabel"></output>
+</div>
+<input id="layer" type="range" step="1"><button id="fullLayer">显示全部</button>
+</section>
+<details open><summary>形制与来源</summary><div id="features"></div></details>
+<details><summary>原贴图调色板</summary><div id="materials"></div></details>
+<p class="links">
+<a href="千人人偶-游戏剧情形态-D2.vox">原色 VOX</a> · <a href="完整整数格模型.npz">完整整数格</a><br>
+<a href="独立关节构件.npz">独立构件</a> · <a href="关节.json">关节</a> · <a href="manifest.json">模型记录</a>
+</p>
+</aside>
+</main>
+<script src="data.js"></script><script src="viewer.bundle.js"></script>
+</body>
+</html>

@@ -4,8 +4,6 @@ import com.sirin.hk3gtl.common.phone.Hk3PhoneData;
 import java.util.*;
 import java.util.function.Consumer;
 
-
-
 public final class Hk3CommunicationDelivery {
     public record Notice(UUID recipient,String id,String title,String body,String kind,boolean pending) {}
     private Hk3CommunicationDelivery() {}

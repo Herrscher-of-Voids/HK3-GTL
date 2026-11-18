@@ -1,11 +1,6 @@
 package com.sirin.hk3gtl.common.communication;
 
 
-
-
-
-
-
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.MinecraftServer;

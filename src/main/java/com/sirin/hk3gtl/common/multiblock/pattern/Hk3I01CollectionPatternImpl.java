@@ -8,17 +8,9 @@ import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * I01 采集塔的兼容 Pattern；几何与已确认蓝图保持不变。
+ */
 public class Hk3I01CollectionPatternImpl {
     protected Hk3I01CollectionPatternImpl() {}
 

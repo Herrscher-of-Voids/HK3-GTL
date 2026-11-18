@@ -6,12 +6,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.function.Predicate;
 
-
-
-
-
-
-
 public final class Hk3ResearchRequirementPolicy {
     public static final String METADATA_KEY = "hk3gtlResearchRequirements";
     public static final String MALFORMED_METADATA = "<invalid research requirements metadata>";

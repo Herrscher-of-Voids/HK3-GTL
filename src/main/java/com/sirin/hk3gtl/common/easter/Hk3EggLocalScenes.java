@@ -11,8 +11,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
 public final class Hk3EggLocalScenes {
     private Hk3EggLocalScenes(){}
     public static void hurt(LivingEntity target,DamageSource source,float before){

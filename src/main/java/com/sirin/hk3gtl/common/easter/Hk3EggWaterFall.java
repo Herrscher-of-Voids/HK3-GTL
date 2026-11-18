@@ -8,7 +8,6 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
 public final class Hk3EggWaterFall {
     private Hk3EggWaterFall(){}
     public static void placed(ServerPlayer p,BlockPos pos){

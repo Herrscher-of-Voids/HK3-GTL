@@ -1,1 +1,7 @@
-{"replace":false,"values":["hk3gtl:hcv_assembly","hk3gtl:rhythmic_coupling_processor"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:hcv_assembly",
+    "hk3gtl:rhythmic_coupling_processor"
+  ]
+}

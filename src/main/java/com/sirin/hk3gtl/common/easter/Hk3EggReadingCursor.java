@@ -1,5 +1,4 @@
 package com.sirin.hk3gtl.common.easter;
-
 public final class Hk3EggReadingCursor {
     private final String body;private int offset,pages;
     public Hk3EggReadingCursor(String body){this.body=normalize(body);if(this.body.length()>131072)throw new IllegalArgumentException("正文过长");}

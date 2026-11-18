@@ -40,19 +40,6 @@ import java.util.stream.Collectors;
  *   <li>物品（材料/功能性/杂项）</li>
  * </ol>
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3CreativeTabsImpl {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -136,7 +123,6 @@ public class Hk3CreativeTabsImpl {
 
     /** 60 台多方块控制器清单（v0.3，与 Hk3Machines*Stage 注册严格一致） */
     private static final String[] MULTIBLOCK_CONTROLLER_PATHS = {
-
             // 删除：无；新增：审核控制器分类。用途：创造机器页直接获取，不混入普通零件。
             "i01_honkai_collection_tower",
             "i01_2_honkai_collection_tower",
@@ -435,5 +421,4 @@ public class Hk3CreativeTabsImpl {
         TABS.register(modEventBus);
     }
 }
-
 

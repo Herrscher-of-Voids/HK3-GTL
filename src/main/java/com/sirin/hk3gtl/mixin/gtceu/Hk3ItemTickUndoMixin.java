@@ -12,11 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.List;
 
-
-
-
-
-
 @Mixin(value = NotifiableItemStackHandler.class, remap = false)
 public abstract class Hk3ItemTickUndoMixin {
     @Redirect(method = "handleIngredient", at = @At(value = "INVOKE", target =

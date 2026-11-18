@@ -53,74 +53,7 @@ import java.util.function.Consumer;
  * Layer 0: P1 基础产线 → Layer 1: Max 阶段 → Layer 2: 材料链 → Layer 3: 海渊中间件
  * → Layer 4: 八大件 II~IV → Layer 5: 海渊 23 台机器配方 → Layer 6: 控制器组装 → Layer 7: 研究凭证
  *
- * <h3>变更记录（2026-05-19）</h3>
- * <ul>
- *   <li>删除：后期阶段“只注册机器不注册配方”的残余状态</li>
- *   <li>新增：量子/终焉/奇观机器配方、量子/终焉电路配方、后期控制器组装配方</li>
- *   <li>修改：把后期阶段配方注册纳入统一入口，避免漏注册导致软锁</li>
- *   <li>用途：打通 R-QT / R-FN 研究节点所需物料来源与控制器建造链</li>
- * </ul>
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3RecipeAdderImpl {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -162,7 +95,6 @@ public class Hk3RecipeAdderImpl {
         HonkaiRecipes.addAbsorptionRecipes(provider);
         HonkaiRecipes.addCondensationRecipes(provider);
         HonkaiRecipes.addNetworkInjectionRecipes(provider);
-        // 修订160 · 2026-10-17 13:52:26：旧冶铸/深熔/精密装配控制器已退役，停止旧魂钢生产入口，避免绕过L3八步。
         SouliumRecipes.addSouliumProcessingRecipes(provider);
         addMachineRecipes(provider);
         com.sirin.hk3gtl.common.recipe.machine.Hk3VoltageCasingRecipes.register(provider);

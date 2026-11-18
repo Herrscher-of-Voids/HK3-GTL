@@ -9,19 +9,9 @@ import net.minecraftforge.fml.config.ModConfig;
 
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 只为新建世界选择高度合同；已存在合同不受后续配置缩高影响。
+ */
 public final class Hk3HeightConfig {
     public enum NewWorldMode { DISABLED, ISOLATED_TEST_ONLY, ALL_NEW_WORLDS }
     public static final String TEST_PREFIX = "hk3gtl-height-r166";

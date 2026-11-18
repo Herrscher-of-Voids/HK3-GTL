@@ -1,1 +1,145 @@
-{"key":"i17","machine":"hk3gtl:honkai_fuel_concentration_plant","controller":[24,3,20],"size_xyz":[49,35,55]}
+{
+  "key": "i17",
+  "source": "data/hk3gtl/approved_architecture/i17.json",
+  "machine": "hk3gtl:honkai_fuel_concentration_plant",
+  "sha256": "c2c7508e59a23c225cae751595c84734b99ccbf2a45021cc8ffdca0ec973ea28",
+  "template_sha256": "12301541bae0b7b2f90ebb26b900834d77f18256a8bdbf3d1c7828d583ffd8af",
+  "approved_blueprint_sha256": "5e7bc163369375c6ef1f7e07baeec2cb2b50b59d3cce21f6ccb81a289cbce645",
+  "approved_nbt_sha256": "9a03928542b8c5070085e003a5742cb24cebb49fcdf1b777048f2a40516a983b",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "controller": [
+    24,
+    3,
+    20
+  ],
+  "size_xyz": [
+    49,
+    35,
+    55
+  ],
+  "blocks": 13254,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {},
+  "installed_hatch_blocks": {
+    "LIQUID_FUEL": "gtceu:max_input_hatch_4x",
+    "STABILIZER": "gtceu:max_input_bus",
+    "CONCENTRATE": "gtceu:max_output_hatch_4x",
+    "RESIDUAL": "gtceu:max_output_bus"
+  },
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室",
+  "game_verified": false,
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-23T13:41:15+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准主控置中融合V2并要求实装",
+      "deleted": "I17旧海渊布局正式引用；批准归档无改动",
+      "added": "五台正式入口、精确几何、真实仓模板和批准来源身份",
+      "modified": "仅指定主控替换；模板仅另换声明接口为真实仓",
+      "purpose": "保持批准造型；配方开放、生存获取和实机成型另行验收"
+    }
+  ],
+  "ports": [],
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "LIQUID_FUEL",
+      "pos": [
+        8,
+        3,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:advanced_computer_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/confirmed_v2/i17/blueprint.json",
+        "field": "replaced_state"
+      }
+    },
+    {
+      "id": "STABILIZER",
+      "pos": [
+        13,
+        3,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:advanced_computer_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/confirmed_v2/i17/blueprint.json",
+        "field": "replaced_state"
+      }
+    },
+    {
+      "id": "COOLANT",
+      "pos": [
+        33,
+        3,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:filter_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/confirmed_v2/i17/blueprint.json",
+        "field": "replaced_state"
+      }
+    },
+    {
+      "id": "CONCENTRATE",
+      "pos": [
+        7,
+        3,
+        40
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:stainless_steel_turbine_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/confirmed_v2/i17/blueprint.json",
+        "field": "replaced_state"
+      }
+    },
+    {
+      "id": "RESIDUAL",
+      "pos": [
+        42,
+        3,
+        40
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:stainless_steel_turbine_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/confirmed_v2/i17/blueprint.json",
+        "field": "replaced_state"
+      }
+    },
+    {
+      "id": "POWER",
+      "pos": [
+        44,
+        3,
+        5
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:bronze_machine_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/confirmed_v2/i17/blueprint.json",
+        "field": "replaced_state"
+      }
+    }
+  ],
+  "port_positions_faces_purposes_preserved": false
+}

@@ -2373,7 +2373,7 @@
       ]
     },
     {
-      "id": "wonder_w14_unstable_world_disassembly",
+      "id": "wonder_w14_unstable_world_salvage",
       "role": "W14",
       "zh_name": "失稳模拟体定向拆解",
       "purpose": "不强行稳定不合格模拟体，将其拆回模型载体和待校准壳并消耗新核心。",

@@ -6,8 +6,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import appeng.menu.AEBaseMenu;
 import appeng.blockentity.storage.DriveBlockEntity;
 import java.util.*;
-
-
 public final class Hk3EggAeDevices {
     public record View(List<ItemStack> cells,int slots,List<Integer> cards){}
     private Hk3EggAeDevices(){}

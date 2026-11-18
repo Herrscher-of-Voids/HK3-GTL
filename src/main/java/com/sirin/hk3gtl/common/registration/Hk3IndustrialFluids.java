@@ -10,13 +10,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
-
-
-
-
-
-
 public final class Hk3IndustrialFluids {
     private static final Map<String, Material> MATERIALS = new LinkedHashMap<>();
     private Hk3IndustrialFluids() {}
@@ -100,10 +93,13 @@ public final class Hk3IndustrialFluids {
         add("supercritical_honkai_fuel", 0xFFFFFF, 300);
     }
     private static void add(String id, int color, int temperature) {
+        add(id, color, temperature, false);
+    }
+    private static void add(String id, int color, int temperature, boolean gas) {
         FluidBuilder fluid = new FluidBuilder().name(id).translation("material.hk3gtl." + id)
-                .textures(true, true).temperature(temperature).state(FluidState.LIQUID);
+                .textures(true, true).temperature(temperature).state(gas ? FluidState.GAS : FluidState.LIQUID);
         Material material = new Material.Builder(new ResourceLocation("hk3gtl", id))
-                .fluid(FluidStorageKeys.LIQUID, fluid)
+                .fluid(gas ? FluidStorageKeys.GAS : FluidStorageKeys.LIQUID, fluid)
                 .color(color).iconSet(MaterialIconSet.FLUID).buildAndRegister();
         MATERIALS.put(id, material);
     }
@@ -119,5 +115,4 @@ public final class Hk3IndustrialFluids {
     }
     public static Map<String, Material> materials() { return Collections.unmodifiableMap(MATERIALS); }
 }
-
 

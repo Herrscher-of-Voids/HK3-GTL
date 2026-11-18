@@ -1,23 +1,10 @@
 package com.sirin.hk3gtl.client.narrative;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 管理 Hk3NarrativeCodexScreen 叙事节点与档案显示数据。
+ *
+ */
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeFaction;
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeLog;
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeNode;
@@ -37,15 +24,7 @@ import java.util.List;
 /**
  * 《文明档案卷轴》阅读界面：
  * 左侧阵营筛选，中间节点列表，右侧详情，底部进度条。
- *
- * <p>2026-05-19 变更：
- * 新增彩蛋条件展示与可视化滚动条，便于 100 条彩蛋档案快速浏览。</p>
  */
-
-
-
-
-
 public class Hk3NarrativeCodexScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int GUI_WIDTH = 420;

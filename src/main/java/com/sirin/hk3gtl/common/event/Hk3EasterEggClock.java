@@ -1,7 +1,6 @@
 package com.sirin.hk3gtl.common.event;
 import java.time.*;
 import java.util.*;
-
 public final class Hk3EasterEggClock {
     private Hk3EasterEggClock(){}
     public static List<Integer> events(LocalDateTime real,long worldTime){

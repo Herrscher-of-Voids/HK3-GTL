@@ -32,15 +32,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * <h3>线程安全</h3>
  * 使用 ConcurrentHashMap，因为配方注册（Mixin 线程）和查询（服务端/客户端线程）可能并发。
  */
-
-
-
-
-
-
-
-
-
 public final class Hk3RecipeResearchGate {
 
     /** 配方ID到全部现行研究前置；每次发布的列表不可变。 */
@@ -58,7 +49,6 @@ public final class Hk3RecipeResearchGate {
     public static void bind(ResourceLocation recipeId, String researchId) {
         merge(recipeId, List.of(normalizeResearchId(researchId)));
     }
-    /** 修订101：同一配方的全部工艺前置，不允许后一次bind覆盖其他必要条件。 */
     public static void bindAll(String type, String id, java.util.List<String> requirements) {
         if (requirements.isEmpty()) return;
         var normalized = requirements.stream().map(Hk3RecipeResearchGate::normalizeResearchId).distinct().toList();
@@ -135,5 +125,4 @@ public final class Hk3RecipeResearchGate {
         return ALL_REQUIREMENTS.size();
     }
 }
-
 

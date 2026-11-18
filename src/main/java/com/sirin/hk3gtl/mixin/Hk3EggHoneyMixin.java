@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.sirin.hk3gtl.common.easter.*;
 @Mixin(BeehiveBlock.class)
-
 public abstract class Hk3EggHoneyMixin {
     @Inject(method="use",at=@At("HEAD"))private void hk3gtl$before(BlockState state,Level level,BlockPos pos,Player player,InteractionHand hand,BlockHitResult hit,CallbackInfoReturnable<InteractionResult> ci){
         if(player instanceof ServerPlayer p)Hk3EggRuntime.state(p).putBoolean("honeyBottleUse",p.getItemInHand(hand).is(Items.GLASS_BOTTLE));

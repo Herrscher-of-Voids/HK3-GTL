@@ -10,15 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 服务端进世界时下发模组欢迎/加载状态，客户端弹出介绍界面。
+ *
+ */
 public record ModWelcomeS2CPacket(String modVersion, List<String> statusLines) {
     public ModWelcomeS2CPacket {
         if (modVersion.length() > 128 || statusLines.size() > 64 || statusLines.stream().anyMatch(s -> s.length() > 1024))

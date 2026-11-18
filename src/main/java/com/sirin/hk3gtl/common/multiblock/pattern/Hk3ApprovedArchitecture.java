@@ -1,51 +1,10 @@
 package com.sirin.hk3gtl.common.multiblock.pattern;
 
-/** 2026-11-15：I37悬箱稳界试验坞A2接入完整紧凑蓝图，现有正式结构共53形态。 */
 
 import com.sirin.hk3gtl.common.util.Hk3WeightedCache;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -63,14 +22,6 @@ public final class Hk3ApprovedArchitecture {
     private static final Hk3WeightedCache<String,Layout> CACHE =
             new Hk3WeightedCache<>(8L * 1024 * 1024, Hk3PackedArchitectureReader::estimatedBytes);
     /** 已确认并接入的结构资源键；S01–S05 为研究院区五阶，I13 为工业线 V6。 */
-
-
-
-
-
-
-
-
     public static final List<String> IDS=List.of("i01","i01_2","i01_3","i01_4","i02","i03","s01","s02","s03","s04","s05","i04","i05","i06","i07","i08","i09","i10","i11","i12","i13","i14","i15","i16","i17","i18","i19","i20","i21","i22","i23","i24","i25","i26","i27","i28","i29","i30","i31","i32","i33","i34","i35","i36","i37","i38","i39","i40","i41","i42","i43","i44","i45");
     private Hk3ApprovedArchitecture() {}
 

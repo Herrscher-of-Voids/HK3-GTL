@@ -26,6 +26,7 @@ import appeng.api.storage.MEStorage;
 import appeng.api.util.DimensionalBlockPos;
 import appeng.parts.networking.CablePart;
 import appeng.helpers.patternprovider.PatternContainer;
+import appeng.me.InWorldGridNode;
 import appeng.util.Platform;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.lowdragmc.lowdraglib.side.item.IItemTransfer;
@@ -64,11 +65,13 @@ public final class Hk3NexusGrid implements IInWorldGridNodeHost, IActionHost, IS
     private final Map<IGridNode, IGridConnection> wireless = new IdentityHashMap<>();
     private final Set<IGridNode> seen = java.util.Collections.newSetFromMap(new IdentityHashMap<>());
     private final List<ChunkHolder> scanChunks = new ArrayList<>();
+    private final Set<GlobalPos> pending = new LinkedHashSet<>();
     private IGridConnection bridge;
     private ServerLevel level;
     private BlockPos pos;
     private UUID owner;
     private int scanIndex;
+    private int scanBudget = 4;
 
     public Hk3NexusGrid(Runnable changed) {
         this.changed = changed;
@@ -107,6 +110,7 @@ public final class Hk3NexusGrid implements IInWorldGridNodeHost, IActionHost, IS
         wireless.clear();
         seen.clear();
         scanChunks.clear();
+        pending.clear();
         var crafting = node.getNode().getService(ICraftingProvider.class);
         nodeData = new CompoundTag();
         node.saveToNBT(nodeData);
@@ -119,24 +123,53 @@ public final class Hk3NexusGrid implements IInWorldGridNodeHost, IActionHost, IS
         else rebuildBridges(server);
         level = null;
         scanIndex = 0;
+        scanBudget = 4;
+    }
+
+    public static void nodeReady(IGridNode target) {
+        if (!(target instanceof InWorldGridNode inWorld) || target.getOwner() instanceof CablePart) return;
+        var nexuses = LOADED.get(target.getLevel().getServer());
+        if (nexuses == null) return;
+        var position = GlobalPos.of(target.getLevel().dimension(), inWorld.getLocation());
+        for (var nexus : nexuses) nexus.pending.add(position);
+    }
+
+    public boolean rescan() {
+        if (!node.isReady()) return false;
+        scanIndex = 0;
+        scanChunks.clear();
+        seen.clear();
+        scanBudget = 32;
+        return true;
     }
 
     public void tick() {
         if (!node.isReady()) return;
+        var updates = pending.iterator();
+        for (int step = 0; step < 64 && updates.hasNext(); step++) {
+            var position = updates.next();
+            updates.remove();
+            var dimension = level.getServer().getLevel(position.dimension());
+            var chunk = dimension.getChunkSource().getChunkNow(position.pos().getX() >> 4, position.pos().getZ() >> 4);
+            if (chunk != null) {
+                var entity = chunk.getBlockEntity(position.pos());
+                if (entity != null) discover(entity);
+            }
+        }
         if (scanIndex == 0) {
             for (var dimension : level.getServer().getAllLevels()) {
                 for (var holder : ((Hk3NexusChunkMapAccess) dimension.getChunkSource().chunkMap).hk3gtl$loadedChunks())
                     scanChunks.add(holder);
             }
         }
-        // 跨维扫描分摊到每tick四个区块，不加载远端区块。
-        for (int step = 0; step < 4 && scanIndex < scanChunks.size(); step++) {
+        for (int step = 0; step < scanBudget && scanIndex < scanChunks.size(); step++) {
             var chunk = scanChunks.get(scanIndex++).getFullChunk();
             if (chunk != null) for (var entity : chunk.getBlockEntities().values()) discover(entity);
         }
         if (scanIndex < scanChunks.size()) return;
         scanIndex = 0;
         scanChunks.clear();
+        scanBudget = 4;
         var iterator = wireless.entrySet().iterator();
         while (iterator.hasNext()) {
             var link = iterator.next();

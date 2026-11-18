@@ -1,1 +1,479 @@
-{"key":"i33","machine":"hk3gtl:i33_imitation_divine_key_assembly_center","controller":[125,25,8],"size_xyz":[251,173,241]}
+{
+  "key": "i33",
+  "machine": "hk3gtl:i33_imitation_divine_key_assembly_center",
+  "source": "data/hk3gtl/approved_architecture/i33.json",
+  "sha256": "adfaa5bbe6d2ef7939b625a5855fa53315914d6c02c63e8fca06d7c327f20aa4",
+  "template_sha256": "2aed8414e4fab6257cac8487e7dd4fedb156982980f3e239fb002439e2ce803a",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_031122_229329_batch-08_05of05_I33_V1_QCV_外观已确认\\I33_仿制神之键装配中心_圣匣铸键工坊_V1_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_031122_229329_batch-08_05of05_I33_V1_QCV_外观已确认\\I33_仿制神之键装配中心_圣匣铸键工坊_V1_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_031122_229329_batch-08_05of05_I33_V1_QCV_外观已确认\\I33_仿制神之键装配中心_圣匣铸键工坊_V1_20261027\\i33\\hk3gtl-i33-divine-key-assembly-v1-20261027.nbt",
+  "source_nbt_sha256": "1ceca469e6f48718550cce2c654f2fbb1c71ad5f41922fc1053a8d0775d52e78",
+  "controller": [
+    125,
+    25,
+    8
+  ],
+  "size_xyz": [
+    251,
+    173,
+    241
+  ],
+  "blocks": 1595661,
+  "ports": [],
+  "target_voltage": "QCV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 180,
+  "materials": 26,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        101,
+        25,
+        8
+      ],
+      "role": "仿制核心输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        125,
+        25,
+        8
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i33_imitation_divine_key_assembly_center[facing=north]",
+      "block_entity_id": "hk3gtl:i33_imitation_divine_key_assembly_center"
+    },
+    {
+      "pos": [
+        149,
+        25,
+        8
+      ],
+      "role": "研究许可核验",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        0,
+        25,
+        65
+      ],
+      "role": "西侧装配供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        250,
+        25,
+        65
+      ],
+      "role": "东侧装配供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        0,
+        25,
+        178
+      ],
+      "role": "西侧冷却输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        250,
+        25,
+        178
+      ],
+      "role": "东侧冷却回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        77,
+        25,
+        232
+      ],
+      "role": "列车信标组件交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        101,
+        25,
+        232
+      ],
+      "role": "仿制神之键交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        149,
+        25,
+        232
+      ],
+      "role": "魂钢部件输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=south]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        173,
+        25,
+        232
+      ],
+      "role": "测试残件输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i33_imitation_divine_key_assembly_center",
+  "process_scope": "正式建筑、控制器、原位仓室和完整预览接入；不开放暂定工艺或未实现的世界泡任务。",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "仿制核心输入",
+      "pos": [
+        101,
+        25,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              100,
+              25,
+              8
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              102,
+              25,
+              8
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "研究许可核验",
+      "pos": [
+        149,
+        25,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              148,
+              25,
+              8
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              150,
+              25,
+              8
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西侧装配供能",
+      "pos": [
+        0,
+        25,
+        65
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              0,
+              25,
+              64
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              0,
+              25,
+              66
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东侧装配供能",
+      "pos": [
+        250,
+        25,
+        65
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              250,
+              25,
+              64
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              250,
+              25,
+              66
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西侧冷却输入",
+      "pos": [
+        0,
+        25,
+        178
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              0,
+              25,
+              177
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              0,
+              25,
+              179
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东侧冷却回流",
+      "pos": [
+        250,
+        25,
+        178
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              250,
+              25,
+              177
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              250,
+              25,
+              179
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "仿制神之键交付",
+      "pos": [
+        101,
+        25,
+        232
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              100,
+              25,
+              232
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              102,
+              25,
+              232
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "魂钢部件输入",
+      "pos": [
+        149,
+        25,
+        232
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              148,
+              25,
+              232
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              150,
+              25,
+              232
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "列车信标组件交付",
+      "pos": [
+        77,
+        25,
+        232
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              76,
+              25,
+              232
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              78,
+              25,
+              232
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "测试残件输出",
+      "pos": [
+        173,
+        25,
+        232
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              172,
+              25,
+              232
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          },
+          {
+            "pos": [
+              174,
+              25,
+              232
+            ],
+            "state": "hk3gtl:voltage_machine_casing_qcv"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

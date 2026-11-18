@@ -7,29 +7,6 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3WorldBubbleData extends SavedData {
     private static final String NAME = "hk3gtl_world_bubbles_v5";
     private Hk3WorldBubbleLedger ledger = new Hk3WorldBubbleLedger();
@@ -71,7 +48,6 @@ public final class Hk3WorldBubbleData extends SavedData {
         var receipt=Hk3WorldResourceSettlement.prepare(ledger,resources,operation,actor,scope,completed,catalog,server.overworld().getSeed());
         settleCompleted(server,operation,actor,scope,receipt,project);return receipt.copy();
     }
-    /** 修订101：已完成服务端工序的统一结算入口，证据只从持久账本投影。 */
     public void settleCompleted(MinecraftServer server,java.util.UUID operation,java.util.UUID actor,
             java.util.UUID scope,CompoundTag receipt) {
         settleCompleted(server,operation,actor,scope,receipt,true);
@@ -161,5 +137,4 @@ public final class Hk3WorldBubbleData extends SavedData {
         return tag;
     }
 }
-
 

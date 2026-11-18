@@ -5,24 +5,12 @@ import java.math.BigInteger;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 统一格式化任意精度崩坏能数值，避免 GUI、日志和明细页面各自截断 BigInteger。
+ * - 关键调用链：机器 GUI/诊断日志 -> 本工具 -> 紧凑、科学、完整分组或工程计数文本。
+ *
+ */
 public final class Hk3HonkaiEnergyFormatter {
 
     private static final BigInteger THOUSAND = BigInteger.valueOf(1_000L);

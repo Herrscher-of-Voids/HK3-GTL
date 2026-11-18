@@ -1,13 +1,8 @@
 package com.sirin.hk3gtl.common.multiblock.export;
 
-
-
-
-
-
-
-
-
+/**
+ * 提供不依赖游戏运行时的导出预算、坐标与区块边界校验，由 StructureScanner 调用。
+ */
 final class ExportScanBounds {
     static final int MAX_BLOCKS = 262_144;
     static final int MAX_AXIS = 256;

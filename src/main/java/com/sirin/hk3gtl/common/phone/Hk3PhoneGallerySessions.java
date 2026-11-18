@@ -4,7 +4,6 @@ import java.util.UUID;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-
 public final class Hk3PhoneGallerySessions {
     public static final long READ_MS=30_000, GAP_MS=5_000;
     private final Map<UUID,Session> sessions=new ConcurrentHashMap<>();

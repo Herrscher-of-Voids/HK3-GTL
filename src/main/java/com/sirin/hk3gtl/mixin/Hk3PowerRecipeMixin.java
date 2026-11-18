@@ -10,18 +10,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
-
-
-
-
-
+/**
+ * 显式HK高阶工况按同源费用模拟能源，其他tick能力继续走GT原匹配器。
+ */
 @Mixin(value = GTRecipe.class, remap = false)
 public abstract class Hk3PowerRecipeMixin {
     @Inject(method = "matchTickRecipe", at = @At("HEAD"), cancellable = true, require = 1)
     private void hk3gtl$matchPower(IRecipeCapabilityHolder holder, CallbackInfoReturnable<GTRecipe.ActionResult> result) {
         GTRecipe recipe = (GTRecipe) (Object) this;
-        if (!Hk3RecipePower.marked(recipe)) return;
+        boolean marked = Hk3RecipePower.marked(recipe);
+        boolean exact = Hk3RecipePower.hasExactCost(recipe) && holder instanceof IRecipeLogicMachine machine
+                && machine.getRecipeLogic() instanceof com.sirin.hk3gtl.common.machine.Hk3RecipeLogic;
+        if (!marked && !exact) return;
         if (!(holder instanceof IRecipeLogicMachine machine)) {
             result.setReturnValue(GTRecipe.ActionResult.FAIL_NO_REASON);
             return;

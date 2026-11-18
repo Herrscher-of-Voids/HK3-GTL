@@ -5,9 +5,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
 public final class Hk3ReviewProgress {
     private Hk3ReviewProgress(){}
     public static void sync(ServerPlayer p){
@@ -30,5 +28,4 @@ public final class Hk3ReviewProgress {
     }
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p)Hk3ReviewData.get(p.server).change(ledger->{ledger.depart(p.getUUID());return null;});}
 }
-
 

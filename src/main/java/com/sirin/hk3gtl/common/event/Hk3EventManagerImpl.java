@@ -52,39 +52,7 @@ import java.util.Locale;
  * - 多方块首次建成
  * - P2 第一版研究事件桥接
  */
-
-
-
-
-
-
-
-
-
-
-
-
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3EventManagerImpl {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -116,7 +84,6 @@ public class Hk3EventManagerImpl {
         if (player.tickCount % 20 != 0) return;
 
         checkMilestoneEvents(player);
-        // 修订128：500目录改由独立原生事件执行，不再运行旧彩蛋附近机器/库存差分轮询。
         Hk3FactionEventChecker.checkFactionEvents(player);
         // 事件检查完成后再同步事件型研究，避免依赖 Forge 订阅顺序并合并每秒入口。
         Hk3ResearchManager.onPlayerSecond(player);

@@ -7,7 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import java.util.UUID;
 
-
 final class Hk3PhoneGalleryPane {
     private static final java.util.List<ResourceLocation> TEXTURES=java.util.stream.IntStream.range(0,4).mapToObj(i->new ResourceLocation("minecraft","textures/gui/title/background/panorama_"+i+".png")).toList();
     private UUID token;

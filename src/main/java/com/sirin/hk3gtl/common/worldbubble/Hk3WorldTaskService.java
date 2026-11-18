@@ -4,6 +4,8 @@ import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
+import com.gregtechceu.gtceu.api.recipe.content.Content;
+import com.gregtechceu.gtceu.api.recipe.ingredient.SizedIngredient;
 import com.sirin.hk3gtl.common.machine.ParallelData;
 import com.sirin.hk3gtl.common.machine.research.Hk3LateIndustrialMachine;
 import com.sirin.hk3gtl.common.research.Hk3ProcessReceipts;
@@ -12,13 +14,16 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.item.ItemStack;
-import org.gtlcore.gtlcore.common.machine.multiblock.part.ae.MEPatternBufferPartMachineBase;
-import org.gtlcore.gtlcore.common.machine.multiblock.part.ae.MEPatternBufferProxyPartMachine;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.crafting.StrictNBTIngredient;
 import org.gtlcore.gtlcore.common.machine.multiblock.part.ae.NotifiableMERecipeHandlerTrait;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -27,6 +32,8 @@ import java.util.stream.Collectors;
 
 public final class Hk3WorldTaskService {
     private static final String OPERATION = "hk3gtlWorldOperation";
+    public static final String BUBBLE = "located_real_world_bubble";
+    private static final String BUBBLE_CONSUMED = "BubbleConsumed";
     private static final String OPERATIONS = "hk3gtlWorldOperations";
     private static final String BATCHES = "hk3gtlWorldBatches";
     private static final String OWNER = "hk3gtlWorldOwner", TEAM = "hk3gtlWorldTeam";
@@ -53,13 +60,13 @@ public final class Hk3WorldTaskService {
     }
     private static boolean creates(String role) { return role.equals("I25") || role.equals("I29"); }
 
-    private static void addBubble(Set<UUID> inputs, Object value) {
-        if (value instanceof ItemStack stack && stack.is(Hk3IndustrialContent.items().get("located_real_world_bubble").get())
-                && stack.hasTag() && stack.getTag().hasUUID("Source")) inputs.add(stack.getTag().getUUID("Source"));
+    private static void addBubble(Map<UUID, ItemStack> inputs, Object value) {
+        if (value instanceof ItemStack stack && stack.is(Hk3IndustrialContent.items().get(BUBBLE).get())
+                && stack.hasTag() && stack.getTag().hasUUID("Source")) inputs.putIfAbsent(stack.getTag().getUUID("Source"), stack);
     }
 
-    private static Set<UUID> miningInputs(Hk3LateIndustrialMachine machine) {
-        var inputs = new LinkedHashSet<UUID>();
+    private static Map<UUID, ItemStack> miningInputs(Hk3LateIndustrialMachine machine) {
+        var inputs = new LinkedHashMap<UUID, ItemStack>();
         for (var io : List.of(IO.IN, IO.BOTH)) {
             for (var handler : machine.getCapabilitiesProxy().row(io).getOrDefault(ItemRecipeCapability.CAP, List.of())) {
                 for (var stack : handler.getContents()) addBubble(inputs, stack);
@@ -67,9 +74,6 @@ public final class Hk3WorldTaskService {
         }
         for (var part : machine.getParts()) {
             if (!(part instanceof MetaMachine meta)) continue;
-            var source = meta instanceof MEPatternBufferProxyPartMachine proxy ? proxy.getBuffer() : meta;
-            if (source instanceof MEPatternBufferPartMachineBase buffer)
-                for (var stack : buffer.getSharedCatalystInventory().getContents()) addBubble(inputs, stack);
             for (var trait : meta.getTraits()) {
                 if (!(trait instanceof NotifiableMERecipeHandlerTrait<?, ?> handler)
                         || handler.getCapability() != ItemRecipeCapability.CAP
@@ -99,7 +103,7 @@ public final class Hk3WorldTaskService {
                 .map(Hk3WorldBubbleLedger.Transaction::target).collect(Collectors.toSet()) : Set.<UUID>of();
         var routes = world.routes(machine.getResearchTeamUUID());
         boolean mining = role.equals("I26");
-        var inputs = mining ? miningInputs(machine) : Set.<UUID>of();
+        var inputs = mining ? miningInputs(machine).keySet() : Set.<UUID>of();
         var result = new ArrayList<UUID>();
         for (UUID id : routes) {
             if (mining && !inputs.contains(id)) continue;
@@ -175,17 +179,42 @@ public final class Hk3WorldTaskService {
         long count = recipe == null ? 1 : batches(recipe).stream().mapToLong(raw -> ((CompoundTag) raw).getLong("Count")).sum();
         return count <= maxParallel(machine);
     }
+    private static boolean consumeMiningInputs(Hk3LateIndustrialMachine machine, GTRecipe recipe,
+            List<UUID> targets, long count, BooleanSupplier consume) {
+        var contents = recipe.getInputContents(ItemRecipeCapability.CAP);
+        var original = List.copyOf(contents);
+        var item = Hk3IndustrialContent.items().get(BUBBLE).get();
+        var stacks = miningInputs(machine);
+        contents.removeIf(content -> Arrays.stream(((Ingredient) content.getContent()).getItems()).anyMatch(stack -> stack.is(item)));
+        for (int i = 0; i < count; i++) {
+            var exact = SizedIngredient.create(StrictNBTIngredient.of(stacks.get(targets.get(i))), 1);
+            contents.add(new Content(exact, 10_000, 10_000, 0, null, null));
+        }
+        boolean consumed = consume.getAsBoolean();
+        contents.clear(); contents.addAll(original);
+        return consumed;
+    }
+
+    private static CompoundTag token(String item, UUID target) {
+        var token = new CompoundTag(); token.putString("id", "hk3gtl:" + item);
+        token.putInt("Count", 1); token.putUUID("Source", target);
+        return token;
+    }
+
     public static boolean start(Hk3LateIndustrialMachine machine, GTRecipe recipe, BooleanSupplier consume) {
         if (!ready(machine, recipe)) return false;
         if (recipe.data.contains(OPERATIONS) || recipe.data.hasUUID(OPERATION)) return consume.getAsBoolean();
         String role = machine.researchRole();
         var targets = creates(role) ? List.<UUID>of() : targets(machine);
-        if (!consume.getAsBoolean()) return false;
         var groups = batches(recipe).copy();
+        boolean mining = role.equals("I26");
+        long planned = groups.stream().mapToLong(raw -> ((CompoundTag) raw).getLong("Count")).sum();
+        if (!(mining ? consumeMiningInputs(machine, recipe, targets, planned, consume) : consume.getAsBoolean())) return false;
         int targetIndex = 0; long count = 0;
         for (var raw : groups) {
             var batch = (CompoundTag) raw; batch.putUUID(OPERATION, UUID.randomUUID());
             count += batch.getLong("Count");
+            if (mining) batch.putBoolean(BUBBLE_CONSUMED, true);
             if (creates(role)) continue;
             for (long i = 0; i < batch.getLong("Count"); i++)
                 data(machine).ledger().begin(operation(batch, i), machine.getOwnerUUID(), domain(role), targets.get(targetIndex++), action(role));
@@ -221,11 +250,9 @@ public final class Hk3WorldTaskService {
                     } else {
                         var tx = world.ledger().transaction(operation);
                         if (tx.phase() == Hk3WorldBubbleLedger.Phase.SETTLED) continue;
-                        if (role.equals("I27")) {
-                            var token = new CompoundTag(); token.putString("id", "hk3gtl:sealed_real_world_bubble");
-                            token.putInt("Count", 1); token.putUUID("Source", tx.target());
-                            var tokens = new ListTag(); tokens.add(token); receipt.getCompound("Outputs").put("Tokens", tokens);
-                        }
+                        var tokens = new ListTag();
+                        if (role.equals("I27")) tokens.add(token("sealed_real_world_bubble", tx.target()));
+                        if (!tokens.isEmpty()) receipt.getCompound("Outputs").put("Tokens", tokens);
                         world.completeWithResources(server, operation, machine.getOwnerUUID(), scope, receipt, Hk3WorldRuntimeCatalog.get(server), false);
                     }
                 }
@@ -241,7 +268,14 @@ public final class Hk3WorldTaskService {
             var batch = (CompoundTag) raw;
             for (long i = 0; i < batch.getLong("Count"); i++) {
                 var tx = ledger.transaction(operation(batch, i));
-                if (tx != null && tx.phase() == Hk3WorldBubbleLedger.Phase.RESERVED) ledger.cancel(tx.id(), tx.actor());
+                if (tx != null && tx.phase() == Hk3WorldBubbleLedger.Phase.RESERVED) {
+                    ledger.cancel(tx.id(), tx.actor());
+                    if (batch.getBoolean(BUBBLE_CONSUMED)) {
+                        var stack = new ItemStack(Hk3IndustrialContent.items().get(BUBBLE).get());
+                        stack.getOrCreateTag().putUUID("Source", tx.target());
+                        Block.popResource(machine.getLevel(), machine.getPos(), stack);
+                    }
+                }
             }
         }
     }

@@ -28,34 +28,6 @@ import org.gtlcore.gtlcore.common.data.GTLMaterials;
 
 import java.util.function.Consumer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class HonkaiMaterialRecipes {
 
     private static final long MAX_EUT = Hk3Values.VA_LONG[GTValues.MAX];
@@ -249,5 +221,4 @@ public class HonkaiMaterialRecipes {
         return new ItemStack(item.get(), amount);
     }
 }
-
 

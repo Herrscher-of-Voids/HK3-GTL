@@ -1,12 +1,8 @@
 package com.sirin.hk3gtl.common.multiblock.build;
 
-
-
-
-
-
-
-
+/**
+ * 依据服务器最近平均tick耗时计算本次W01搭建主线程限额，不改TPS或方块行为。
+ */
 final class Hk3W01BuildBudget {
     static final int BUILD_STEPS = 32768;
     static final int PREPARATION_STEPS = 65536;

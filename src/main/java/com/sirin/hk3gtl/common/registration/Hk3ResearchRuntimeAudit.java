@@ -26,46 +26,11 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 整包启动后分帧导出真实注册表和最终配方，核对研究配方；不改研究、存档或玩家物品。
+ */
 @Mod.EventBusSubscriber(modid = "hk3gtl")
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3ResearchRuntimeAudit {
-
-
-
-
-
-
-
     private static final Gson JSON = new GsonBuilder().disableHtmlEscaping().create();
     private static Job active;
     private static String lastStatus = "尚未运行实例配方核验";
@@ -137,7 +102,7 @@ public final class Hk3ResearchRuntimeAudit {
             recipes = new ArrayList<>(server.getRecipeManager().getRecipes());
             recipes.sort(Comparator.comparing(r -> r.getId().toString()));
             for (var plan : Hk3ResearchProcessPlans.all()) {
-                var type = Hk3ResearchProcessTypes.get(plan.role());
+                var type = Hk3ResearchProcessTypes.of(plan);
                 plans.put("hk3gtl:" + type.registryName.getPath() + "/" + plan.id(), plan);
             }
             write(directory.resolve("manifest.json"), manifest());
@@ -322,8 +287,5 @@ public final class Hk3ResearchRuntimeAudit {
         return HexFormat.of().formatHex(digest.digest());
     }
 }
-
-
-
 
 

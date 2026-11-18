@@ -25,12 +25,6 @@ import net.minecraft.server.level.ServerPlayer;
  *
  * @see Hk3EventManagerImpl 里程碑与 FB 事件管理器
  */
-
-
-
-
-
-
 public class Hk3FactionEventChecker {
     private Hk3FactionEventChecker() {}
     /** 正式故事由独立服务登录及每100tick补投，避免旧每秒轮询重复扫描。 */

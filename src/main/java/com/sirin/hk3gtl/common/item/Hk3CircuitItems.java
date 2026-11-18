@@ -1,23 +1,10 @@
 package com.sirin.hk3gtl.common.item;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 注册或实现 Hk3CircuitItems 物品行为。
+ *
+ */
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -46,26 +33,6 @@ import java.util.Map;
  * @see QuantumCircuitItems 量子电路桥接别名
  * @see FinalityCircuitItems 终焉电路桥接别名
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3CircuitItems {
 
     /** 崩坏能电路板等级名（ULV~MAX），修改此数组可增减电路等级数量 */

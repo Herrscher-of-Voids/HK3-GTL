@@ -1,13 +1,6 @@
 package com.sirin.hk3gtl.common.network;
 
 
-
-
-
-
-
-
-
 import com.sirin.hk3gtl.client.communication.Hk3LetterScreen;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.api.distmarker.Dist;

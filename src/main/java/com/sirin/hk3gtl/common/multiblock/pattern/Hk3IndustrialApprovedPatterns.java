@@ -16,12 +16,6 @@ import java.util.Set;
 
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
-
-
-
-
-
-
 public final class Hk3IndustrialApprovedPatterns {
     private static final Set<String> INDUSTRIAL_IDS = Set.of("i01", "i01_2", "i01_3", "i01_4",
             "i02", "i03", "i04", "i05", "i06", "i07", "i08", "i09", "i10", "i11", "i12", "i13");

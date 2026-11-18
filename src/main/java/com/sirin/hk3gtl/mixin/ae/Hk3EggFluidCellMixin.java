@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value=BasicCellInventory.class,remap=false)
-
 public abstract class Hk3EggFluidCellMixin {
     @Shadow @Final private ItemStack i;
     @Inject(method="innerInsert",at=@At("RETURN"))private void hk3gtl$inserted(AEKey what,long amount,Actionable mode,CallbackInfoReturnable<Long> ci){

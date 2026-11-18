@@ -1,11 +1,5 @@
 package com.sirin.hk3gtl.client.bootstrap;
 
-
-
-
-
-
-
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -14,19 +8,6 @@ import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 public class Hk3ModWelcomeScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
     private static final int PANEL_W = 420, PANEL_H = 310;
@@ -129,8 +110,8 @@ public class Hk3ModWelcomeScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedSc
         bodyLines.clear();
         switch (tab) {
             case 0 -> {
-                add("§6" + I18n.get("hk3gtl.welcome.release.0_5_0.title"));
-                for (int i = 1; i <= 6; i++) add(I18n.get("hk3gtl.welcome.release.0_5_0." + i));
+                add("§6" + I18n.get("hk3gtl.welcome.current.title", modVersion));
+                for (int i = 1; i <= 6; i++) add(I18n.get("hk3gtl.welcome.current." + i));
                 appendApproved(statusLines.contains("welcome:first") ? "U02" : "U03");
                 com.sirin.hk3gtl.common.bootstrap.Hk3WelcomeState.CURRENT_PROSE.forEach(this::appendApproved);
             }

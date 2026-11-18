@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/generated","textures":{"layer0":"hk3gtl:item/entanglement_anchor/circuits/entanglement_anchor_computer"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/entanglement_anchor/circuits/entanglement_anchor_computer"
+  }
+}

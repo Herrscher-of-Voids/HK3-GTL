@@ -60,6 +60,9 @@ final class Hk3NexusUi {
             addWidget(Hk3NexusTheme.label(8, 183, () -> message));
             addWidget(Hk3NexusTheme.label(8, 198, () -> Component.translatable("hk3gtl.nexus.connections",
                     network.wirelessConnections()).getString()));
+            addWidget(button(216, 185, 90, "hk3gtl.nexus.rescan", () ->
+                    message = Component.translatable(network.rescan()
+                            ? "hk3gtl.nexus.rescan_started" : "hk3gtl.nexus.unformed").getString()));
         }
     }
 

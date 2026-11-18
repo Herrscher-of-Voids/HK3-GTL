@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.recipe.honkai;
 
-import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
@@ -20,28 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
 import java.util.function.Consumer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class HonkaiRecipes {
-    private static final long MAX_EUT = Hk3Values.VA_LONG[GTValues.MAX];
-
     private HonkaiRecipes() {}
 
     private static ItemStack betaItem(String id, int amount) {
@@ -57,13 +35,6 @@ public final class HonkaiRecipes {
     }
 
     public static void addAbsorptionRecipes(Consumer<FinishedRecipe> provider) {
-        Hk3IndustrialRecipeTypes.COLLECTION.recipeBuilder(new ResourceLocation("hk3gtl", "industrial_liquid_sampling"))
-                .circuitMeta(3)
-                .notConsumable(betaItem("prototype_honkai_detector", 1))
-                .inputFluids(GTMaterials.LiquidAir.getFluid(1_000_000))
-                .outputFluids(Hk3Materials.LIQUID_HONKAI_ENERGY.getFluid(100))
-                .duration(1200).EUt(MAX_EUT).save(provider);
-
         com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate.bind("industrial_honkai_collection", "industrial_liquid_collection", "RN-DMT");
         // HBV将液化与选择性提取集成在塔内，省去外置空气液化工序。
         Hk3RecipePower.require(Hk3IndustrialRecipeTypes.COLLECTION.recipeBuilder(new ResourceLocation("hk3gtl", "industrial_liquid_collection"))
@@ -85,5 +56,4 @@ public final class HonkaiRecipes {
         Hk3LiquidLineRecipes.injection(provider);
     }
 }
-
 

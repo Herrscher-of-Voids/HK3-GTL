@@ -1,1 +1,482 @@
-{"key":"i34","machine":"hk3gtl:i34_imaginary_tree_observation_array","controller":[240,43,18],"size_xyz":[481,251,381]}
+{
+  "key": "i34",
+  "machine": "hk3gtl:i34_imaginary_tree_observation_array",
+  "source": "data/hk3gtl/approved_architecture/i34.json",
+  "sha256": "0ec5cbf629312fad6843a347dec931734f9ef09df7c7273066e2815a5f23b089",
+  "template_sha256": "e86817ace99169cf6d994d590f20cebb580876d354b342bad06543f4be12d2e3",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_064738_136334_batch-09_01of05_I34_V2_IRV_外观已确认\\I34_虚数之树观测阵列_开穹悬弦观测仪_V2_20261027",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_064738_136334_batch-09_01of05_I34_V2_IRV_外观已确认\\I34_虚数之树观测阵列_开穹悬弦观测仪_V2_20261027\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261027_064738_136334_batch-09_01of05_I34_V2_IRV_外观已确认\\I34_虚数之树观测阵列_开穹悬弦观测仪_V2_20261027\\i34\\hk3gtl-i34-open-observatory-v2-20261027.nbt",
+  "source_nbt_sha256": "0e0b829962505e08c2802acedab6d99c40f78f2ec43dcfeb9e2949f366cc05e6",
+  "controller": [
+    240,
+    43,
+    18
+  ],
+  "size_xyz": [
+    481,
+    251,
+    381
+  ],
+  "blocks": 7464621,
+  "ports": [],
+  "target_voltage": "IRV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 181,
+  "materials": 40,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        200,
+        43,
+        18
+      ],
+      "role": "西侧观测供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        216,
+        43,
+        18
+      ],
+      "role": "世界泡对照档案输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        240,
+        43,
+        18
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i34_imaginary_tree_observation_array[facing=north]",
+      "block_entity_id": "hk3gtl:i34_imaginary_tree_observation_array"
+    },
+    {
+      "pos": [
+        264,
+        43,
+        18
+      ],
+      "role": "空间探针输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        280,
+        43,
+        18
+      ],
+      "role": "东侧观测供能",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        180,
+        43,
+        355
+      ],
+      "role": "观测探针回收",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        192,
+        43,
+        355
+      ],
+      "role": "西侧冷却输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        216,
+        43,
+        355
+      ],
+      "role": "树与世界联系图输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        264,
+        43,
+        355
+      ],
+      "role": "虚数观测资料输出",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        288,
+        43,
+        355
+      ],
+      "role": "东侧冷却回流",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=south]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        300,
+        43,
+        355
+      ],
+      "role": "复测档案交付",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i34_imaginary_tree_observation_array",
+  "approved_version": "V2",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "process_scope": "正式建筑、控制器、原位物品流体仓及完整预览；崩坏能、能源与维护接口允许位置保留，不虚称未实现能力或工艺已运行。",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "世界泡对照档案输入",
+      "pos": [
+        216,
+        43,
+        18
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              215,
+              43,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              217,
+              43,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "空间探针输入",
+      "pos": [
+        264,
+        43,
+        18
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              263,
+              43,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              265,
+              43,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西侧观测供能",
+      "pos": [
+        200,
+        43,
+        18
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              199,
+              43,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              201,
+              43,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东侧观测供能",
+      "pos": [
+        280,
+        43,
+        18
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              279,
+              43,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              281,
+              43,
+              18
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "西侧冷却输入",
+      "pos": [
+        192,
+        43,
+        355
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              191,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              193,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "东侧冷却回流",
+      "pos": [
+        288,
+        43,
+        355
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              287,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              289,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "树与世界联系图输出",
+      "pos": [
+        216,
+        43,
+        355
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              215,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              217,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "虚数观测资料输出",
+      "pos": [
+        264,
+        43,
+        355
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              263,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              265,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "观测探针回收",
+      "pos": [
+        180,
+        43,
+        355
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              179,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              181,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "复测档案交付",
+      "pos": [
+        300,
+        43,
+        355
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_irv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              299,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          },
+          {
+            "pos": [
+              301,
+              43,
+              355
+            ],
+            "state": "hk3gtl:voltage_machine_casing_irv"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

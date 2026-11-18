@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.research;
 
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 
-/** 2026-11-11：实体模块只加速获批正式课题；每次实际推进另付1A QSV，不改实验、槽位或研究点。 */
+/** 实体模块只加速获批正式课题；每次实际推进另付1A QSV，不改实验、槽位或研究点。 */
 public final class Hk3ErosionResearch {
     private Hk3ErosionResearch() {}
 

@@ -5,8 +5,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-
-
 public final class Hk3EggRules {
     public enum Operation { EQ, CONTAINS, AT_LEAST, AT_MOST }
     public record Check(String field,Operation op,String value){

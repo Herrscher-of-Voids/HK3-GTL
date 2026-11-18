@@ -4,12 +4,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 
-
-
-
-
-
-
+/**
+ * 保存个人注视来源、去重键和历史峰值；仅由服务端业务调用，随玩家数据存盘与重生复制。
+ */
 public final class Hk3GazeJournal {
     public static final String KEY = "hk3gtl_gaze_journal";
     private Hk3GazeJournal() {}

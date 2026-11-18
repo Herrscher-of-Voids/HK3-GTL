@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/generated","textures":{"layer0":"hk3gtl:item/honkai_resonance/circuits/honkai_resonance_assembly"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/honkai_resonance/circuits/honkai_resonance_assembly"
+  }
+}

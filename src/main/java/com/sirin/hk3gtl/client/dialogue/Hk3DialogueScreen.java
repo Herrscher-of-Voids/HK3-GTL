@@ -1,22 +1,5 @@
 package com.sirin.hk3gtl.client.dialogue;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import com.sirin.hk3gtl.common.dialogue.*;
 import com.sirin.hk3gtl.common.dialogue.definition.SirinDialogueDefinitions;
 import com.sirin.hk3gtl.common.network.DialogueCloseC2SPacket;
@@ -42,12 +25,6 @@ import java.util.List;
  * 布局：全屏暗幕 + 底部面板(文本) + 角色名牌 + 选项按钮。
  * 支持逐字显示、多 segment 跳转、动态选项过滤。
  */
-
-
-
-
-
-
 public class Hk3DialogueScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int CHARS_PER_TICK = 2;
@@ -403,7 +380,6 @@ public class Hk3DialogueScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScre
     }
 
     private void closeDialogue() {
-        // 修订198：等推进回包更新令牌后再关闭，避免旧令牌被拒后遗留服务端占用。
         if (awaitingChoiceAck) return;
         eggAction("close");awaitingChoiceAck = false;
         if(com.sirin.hk3gtl.common.review.Hk3ReviewDialogues.formal(dialogueId))

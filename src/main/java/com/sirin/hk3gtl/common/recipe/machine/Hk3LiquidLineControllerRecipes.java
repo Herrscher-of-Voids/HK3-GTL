@@ -10,25 +10,6 @@ import com.sirin.hk3gtl.common.machine.Hk3MachinesImpl;
 import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3LiquidLineControllerRecipes {
     private Hk3LiquidLineControllerRecipes() {}
     public static void register(Consumer<FinishedRecipe> provider) {
@@ -50,7 +31,6 @@ public final class Hk3LiquidLineControllerRecipes {
         controller(provider,"industrial_nanobot_assembly_array_controller",Hk3MachinesImpl.NANOBOT_ASSEMBLY_ARRAY,16,"RN-NRA");
         controller(provider,"industrial_nano_programming_chamber_controller",Hk3MachinesImpl.NANO_SELF_ORGANIZING_PROGRAMMING_CHAMBER,16,"RN-NSP");
         controller(provider,"industrial_honkai_resistant_coating_array_controller",Hk3MachinesImpl.I13_HONKAI_RESISTANT_COATING_ARRAY,16,"RN-HRC");
-        // 修订213：批准的魂钢工艺复用前级装配用料，首台控制器不要求本机产物。
         controller(provider,"industrial_soulium_polymerization_controller",com.sirin.hk3gtl.common.machine.Hk3IndustrialExtensionMachines.SOULIUM_POLYMERIZATION_DIE_CASTER,16,"RN-SPC");
         controller(provider,"industrial_soulium_reconstruction_controller",com.sirin.hk3gtl.common.machine.Hk3IndustrialExtensionMachines.SOULIUM_RECONSTRUCTION_ANNEALING_FURNACE,16,"RN-SRA");
         controller(provider,"industrial_soulium_precision_controller",com.sirin.hk3gtl.common.machine.Hk3IndustrialExtensionMachines.SOULIUM_PRECISION_PROCESSING_CENTER,16,"RN-SPM");
@@ -93,5 +73,4 @@ public final class Hk3LiquidLineControllerRecipes {
         com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate.bind("assembler",id,gate);
     }
 }
-
 

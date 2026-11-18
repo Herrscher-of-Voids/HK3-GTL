@@ -2,23 +2,9 @@ package com.sirin.hk3gtl.common.research;
 
 
 
-
-
-
-
-
-
-
-
-
-
-/** 修订100 · 2026-09-29：批准的研究所固定实验；与正式研究共用队列和槽位。 */
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】只定义获批ALE及ERM两阶段固定实验，不把缺完整生产账本的OPR作为已接通实验。
+ */
 
 public final class Hk3LabExperimentRules {
     private Hk3LabExperimentRules() {}

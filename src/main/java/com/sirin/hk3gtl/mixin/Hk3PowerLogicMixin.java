@@ -21,21 +21,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 标准GT循环的显式HK工况足额能源事务，原第三方工况不进入本分支。
+ */
 @Mixin(value = RecipeLogic.class, remap = false)
 public abstract class Hk3PowerLogicMixin implements Hk3PowerWork {
     @Shadow protected GTRecipe lastRecipe;

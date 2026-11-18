@@ -6,7 +6,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value=ImportBusPart.class,remap=false)
-
 public abstract class Hk3EggImportBusMixin {
     @Inject(method="doBusWork",at=@At("RETURN"))private void hk3gtl$moved(IGrid grid,CallbackInfoReturnable<Boolean> ci){
         if(!Boolean.TRUE.equals(ci.getReturnValue()))return;var part=(ImportBusPart)(Object)this;

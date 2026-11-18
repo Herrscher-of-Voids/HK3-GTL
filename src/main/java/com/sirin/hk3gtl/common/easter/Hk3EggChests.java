@@ -6,7 +6,6 @@ import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import net.minecraft.core.*;
 import java.util.*;
-
 public final class Hk3EggChests {
     public static final String SIGN_AUTHOR="hk3gtl_egg_sign_author",ROTTEN_AUTHOR="hk3gtl_egg_rotten_author";
     private Hk3EggChests(){}

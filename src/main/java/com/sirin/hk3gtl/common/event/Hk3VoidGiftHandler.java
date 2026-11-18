@@ -15,12 +15,6 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.wrapper.PlayerMainInvWrapper;
 import java.util.*;
 
-
-
-
-
-
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3VoidGiftHandler {
     private static final org.slf4j.Logger LOGGER=LogUtils.getLogger();

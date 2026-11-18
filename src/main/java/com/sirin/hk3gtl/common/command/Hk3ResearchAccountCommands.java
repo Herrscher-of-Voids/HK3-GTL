@@ -1,14 +1,8 @@
 package com.sirin.hk3gtl.common.command;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】提供个人账本查询、原付款人取消、材料领取及原队管理者授权重绑入口。
+ */
 
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
@@ -21,14 +15,7 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/** 修订100 · 2026-09-29：离队后仍能取消本人付款任务、领取原样退款，不要求管理员权限。 */
 @Mod.EventBusSubscriber(modid=Hk3Constants.MOD_ID)
-
-
-
-
-
-
 public final class Hk3ResearchAccountCommands {
     @SubscribeEvent public static void register(RegisterCommandsEvent event) {
         event.getDispatcher().register(Commands.literal("hk3research")
@@ -65,5 +52,4 @@ public final class Hk3ResearchAccountCommands {
                 })))));
     }
 }
-
 

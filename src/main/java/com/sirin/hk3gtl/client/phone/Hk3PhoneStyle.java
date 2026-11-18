@@ -5,11 +5,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
 
-
-
-
-
-
 public final class Hk3PhoneStyle {
     public static final int INK=0xFFF0EBFA,MUTED=0xFFAEA5C2,GOLD=0xFFE1BE78,PURPLE=0xFFA687E8;
     private Hk3PhoneStyle(){}

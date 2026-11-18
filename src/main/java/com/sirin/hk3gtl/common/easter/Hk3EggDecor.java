@@ -7,10 +7,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.phys.AABB;
 import java.util.*;
-
-
-
-
 public final class Hk3EggDecor {
     private static final String OWNER="hk3gtl_egg_frame_author";
     private Hk3EggDecor(){}

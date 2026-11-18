@@ -1,14 +1,8 @@
 package com.sirin.hk3gtl.common.recipe.honkai;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】分析试剂、冷却剂和残液的扩展回收改由RN-SMR开放；基础再生保留原起步门槛。
+ */
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
@@ -33,21 +27,9 @@ import net.minecraft.world.item.Items;
 import org.gtlcore.gtlcore.common.data.GTLMaterials;
 import java.util.function.Consumer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 液态工业线的正式工艺、冷却和损耗处理；数量分别为物品个数、流体mB、tick和EU/t。
+ */
 public final class Hk3LiquidLineRecipes {
     private static final long MAX=Hk3Values.VA_LONG[GTValues.MAX];
     private Hk3LiquidLineRecipes() {}
@@ -135,7 +117,6 @@ public final class Hk3LiquidLineRecipes {
     }
     /** 各残液独立处理，回收小于投入；不可再生部分最终转成可处置的惰性灰分。 */
     private static void recovery(Consumer<FinishedRecipe> provider) {
-        // 修订100：基础再生先给SMR证据；SMR完成后才开放扩展回收种类。
         recipe(Hk3IndustrialRecipeTypes.REGENERATION,"industrial_analysis_reagent_recovery",7,600,"RN-SMR",null)
                 .inputFluids(fluid("spent_analysis_reagent",500),GTMaterials.DistilledWater.getFluid(1000))
                 .inputItems(item("separation_filter",2)).inputItems(TagPrefix.dust,GTMaterials.Carbon,8)
@@ -177,5 +158,4 @@ public final class Hk3LiquidLineRecipes {
                 .addData(Hk3LiquidProcessMachine.CREDIT,16000L).save(provider);
     }
 }
-
 

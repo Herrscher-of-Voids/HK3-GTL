@@ -11,36 +11,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 双能源消耗登记表 —— 记录"哪些配方/机器在 EU 之外还要每 tick 扣多少崩坏能"。
+ *
+ * <h3>两级查找（配方级优先）</h3>
+ * <ol>
+ *   <li><b>配方级</b>：{@link #bindRecipe}，Key = 配方 ResourceLocation（即设计文档中的
+ *       配方 {@code honkaiCost} 字段，与 {@link com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate}
+ *       同一侧表模式，避免侵入 GTRecipe 序列化）</li>
+ *   <li><b>机器级</b>：{@link #bindMachine}，Key = 机器注册 ID path（如 "soulium_smeltery"），
+ *       作为该机器全部配方的默认值</li>
+ * </ol>
+ *
+ * <h3>数值口径</h3>
+ * 全部为"每 tick 崩坏能单位"（1 崩坏能 = 1000 EU），与 EUt 语义对齐。
+ * 机器级默认值按四大阶段递增：海渊 64 → 虚数 256 → 量子 1024 → 终焉 4096。
+ *
+ * <h3>线程侧</h3>
+ * 注册发生在启动期（单线程），查询发生在服务端 tick；用 ConcurrentHashMap 兜底。
+ *
+ */
 public final class Hk3DualEnergyCosts {
 
     private static final Logger LOGGER = LogUtils.getLogger();

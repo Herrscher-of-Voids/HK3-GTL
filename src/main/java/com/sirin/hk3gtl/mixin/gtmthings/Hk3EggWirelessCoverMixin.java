@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value=WirelessTransferCover.class,remap=false)
-
 public abstract class Hk3EggWirelessCoverMixin {
     @Inject(method="onAttached",at=@At("RETURN"))private void hk3gtl$attached(ItemStack stack,ServerPlayer p,CallbackInfo ci){Hk3EggCovers.attached((CoverBehavior)(Object)this,p);}
     @Redirect(method="update",at=@At(value="INVOKE",target="Lcom/lowdragmc/lowdraglib/side/item/ItemTransferHelper;exportToTarget(Lcom/lowdragmc/lowdraglib/side/item/IItemTransfer;ILjava/util/function/Predicate;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;)V"))

@@ -4,15 +4,9 @@ import net.minecraft.world.level.block.*;
 
 import java.util.function.IntUnaryOperator;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 为统一建造蓝图建立先支撑、后重力、最后附着的稳定高度索引，不展开空气。
+ */
 final class Hk3BuildOrder {
     private final IntUnaryOperator yAt, phaseAt;
     private final int height, minY;

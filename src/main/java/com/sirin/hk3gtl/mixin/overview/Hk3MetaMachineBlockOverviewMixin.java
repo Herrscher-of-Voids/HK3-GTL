@@ -15,18 +15,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 从实际玩家放置和真实方块替换接入GT机器索引，不把区块卸载当拆除。
+ */
 @Mixin(value = MetaMachineBlock.class, remap = false)
 public abstract class Hk3MetaMachineBlockOverviewMixin {
     @Inject(method = "setPlacedBy", at = @At("RETURN"), remap = true)

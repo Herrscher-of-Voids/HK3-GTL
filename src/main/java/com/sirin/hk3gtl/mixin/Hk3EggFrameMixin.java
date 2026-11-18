@@ -7,7 +7,6 @@ import net.minecraft.world.InteractionResult;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 @Mixin(ItemFrame.class)
 public abstract class Hk3EggFrameMixin {
     @Unique private boolean hk3gtl$empty;

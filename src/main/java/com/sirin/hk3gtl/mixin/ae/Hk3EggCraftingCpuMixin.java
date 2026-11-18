@@ -15,7 +15,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
 @Mixin(value=CraftingCpuLogic.class,remap=false)
-
 public abstract class Hk3EggCraftingCpuMixin {
     @Shadow @Final CraftingCPUCluster cluster;
     @Shadow @Final private int[] usedOps;

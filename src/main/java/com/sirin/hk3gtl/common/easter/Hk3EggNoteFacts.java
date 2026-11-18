@@ -2,8 +2,6 @@ package com.sirin.hk3gtl.common.easter;
 
 import java.util.*;
 
-
-
 public final class Hk3EggNoteFacts {
     private Hk3EggNoteFacts(){}
     public static boolean hasValidDate(String body){

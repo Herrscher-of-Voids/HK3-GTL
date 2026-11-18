@@ -2,7 +2,6 @@ package com.sirin.hk3gtl.common.recipe.power;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.recipe.EURecipeCapability;
-import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
@@ -26,33 +25,14 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * HK3高阶配方的额定电压、足额能源和安全执行入口；JEI与服务端共同读取配方数据。
+ */
 public final class Hk3RecipePower {
     public static final String TIER_KEY = "hk3_required_voltage_tier";
     public static final String MATERIAL_TIER_KEY = "hk3_main_material_tier";
     public static final String MINIMUM_COST_KEY = "hk3_required_eut";
+    public static final String EXACT_COST_KEY = "hk3_exact_eut";
     private static final String INVALID_KEY = "hk3_invalid_power";
     private static final BigInteger LONG_MAX = BigInteger.valueOf(Long.MAX_VALUE);
 
@@ -84,6 +64,16 @@ public final class Hk3RecipePower {
                 .map(content -> EURecipeCapability.CAP.of(content.content)).toList();
     }
 
+    public static BigInteger cost(GTRecipe recipe) {
+        if (hasExactCost(recipe)) return new BigInteger(recipe.data.getString(EXACT_COST_KEY));
+        var amounts = amounts(recipe);
+        return marked(recipe) ? Hk3PowerBudget.cost(amounts) : Hk3GridEnergyPayment.total(amounts);
+    }
+
+    public static boolean hasExactCost(GTRecipe recipe) {
+        return recipe.data.contains(EXACT_COST_KEY, Tag.TAG_STRING);
+    }
+
     private static BigInteger minimum(GTRecipe recipe) {
         return recipe.data.contains(MINIMUM_COST_KEY, Tag.TAG_STRING)
                 ? new BigInteger(recipe.data.getString(MINIMUM_COST_KEY)) : Hk3GridEnergyPayment.total(amounts(recipe));
@@ -91,17 +81,21 @@ public final class Hk3RecipePower {
 
     /** 检查只读，不能因显示、模拟或不满足条件而扣款。 */
     public static GTRecipe.ActionResult check(GTRecipe recipe, RecipeLogic logic) {
-        if (!marked(recipe)) return GTRecipe.ActionResult.SUCCESS;
+        boolean fixed = marked(recipe);
+        MetaMachine machine = logic.getMachine();
+        boolean wireless = logic instanceof Hk3RecipeLogic && machine instanceof Hk3WorkableMultiblockMachine;
+        if (!fixed && (!wireless || !hasExactCost(recipe))) return GTRecipe.ActionResult.SUCCESS;
         try {
-            int requiredTier = tier(recipe);
-            if (requiredTier <= GTValues.MAX || requiredTier >= Hk3Values.VA_LONG.length
-                    || recipe.data.getBoolean(INVALID_KEY)) return fail("invalid");
-            BigInteger cost = Hk3PowerBudget.cost(amounts(recipe));
-            if (cost.compareTo(minimum(recipe)) < 0
-                    || cost.compareTo(BigInteger.valueOf(Hk3Values.VA_LONG[requiredTier])) < 0
-                    || !recipe.hasTick() || !recipe.getTickOutputContents(EURecipeCapability.CAP).isEmpty())
-                return fail("invalid");
-            MetaMachine machine = logic.getMachine();
+            BigInteger cost = cost(recipe);
+            if (recipe.data.getBoolean(INVALID_KEY) || cost.signum() <= 0) return fail("invalid");
+            if (fixed) {
+                int requiredTier = tier(recipe);
+                if (requiredTier <= GTValues.MAX || requiredTier >= Hk3Values.VA_LONG.length
+                        || cost.compareTo(minimum(recipe)) < 0
+                        || cost.compareTo(BigInteger.valueOf(Hk3Values.VA_LONG[requiredTier])) < 0
+                        || !recipe.hasTick() || !recipe.getTickOutputContents(EURecipeCapability.CAP).isEmpty())
+                    return fail("invalid");
+            }
             if (machine.getLevel() == null || machine.getLevel().isClientSide()) return fail("side");
             if (logic instanceof Hk3RecipeLogic && machine instanceof Hk3WorkableMultiblockMachine hk) {
                 if (source(machine) == null) return fail("executor");
@@ -141,7 +135,7 @@ public final class Hk3RecipePower {
         if (!check(recipe, logic).isSuccess() || logic.getMachine().getLevel() == null
                 || !logic.getMachine().getLevel().getServer().isSameThread()) return false;
         BigInteger honkai = Hk3DualEnergyCosts.getMergedCost(recipe);
-        return Hk3PortPayment.pay(Hk3PowerPorts.of(logic), Hk3PowerBudget.cost(amounts(recipe)), tick)
+        return Hk3PortPayment.pay(Hk3PowerPorts.of(logic), cost(recipe), tick)
                 && (honkai == null || HonkaiWirelessNetwork.reserve(externalPayer(logic.getMachine()), honkai, tick));
     }
 
@@ -153,10 +147,10 @@ public final class Hk3RecipePower {
 
     /** HK工作票据已开启后精确付款；其余tick IO使用移除EU的副本，避免真实仓抢先支付或重复扣款。 */
     public static boolean pay(GTRecipe recipe, Hk3RecipeLogic logic) {
-        if (!marked(recipe)) return true;
+        if (!marked(recipe) && !hasExactCost(recipe)) return true;
         if (logic.getEnergyTick() == null || !check(recipe, logic).isSuccess()) return false;
         Hk3PlayerGridEnergyTrait source = source(logic.getMachine());
-        return source != null && source.handleRecipeInner(IO.IN, recipe, amounts(recipe), null, false) == null;
+        return source != null && source.consumeEnergy(cost(recipe));
     }
 
     public static GTRecipe withoutEU(GTRecipe recipe) {
@@ -171,23 +165,26 @@ public final class Hk3RecipePower {
                 .map(Hk3PlayerGridEnergyTrait.class::cast).findFirst().orElse(null);
     }
 
-    /** 只对标记工况修正EU倍乘；超long的单条费用显式拒绝，不使用饱和金额运行。 */
+    /** 倍乘费用保留精确总额，Long内容只保留显示值。 */
     public static void scale(GTRecipe original, GTRecipe scaled, long multiplier) {
-        if (!marked(original)) return;
+        boolean fixed = marked(original);
+        var from = amounts(original);
+        if (!fixed && Hk3GridEnergyPayment.total(from).signum() == 0) return;
         scaled.data = original.data.copy();
         BigInteger multiple = BigInteger.valueOf(multiplier);
-        scaled.data.putString(MINIMUM_COST_KEY, minimum(original).multiply(multiple).toString());
-        BigInteger honkai = Hk3DualEnergyCosts.getMergedCost(original);
-        if (honkai != null) Hk3DualEnergyCosts.setMergedCost(scaled, honkai.multiply(multiple));
+        if (fixed) {
+            scaled.data.putString(MINIMUM_COST_KEY, minimum(original).multiply(multiple).toString());
+        }
         try {
             if (multiplier <= 0) throw new ArithmeticException("并行必须为正数");
-            var from = amounts(original);
             var contents = scaled.getTickInputContents(EURecipeCapability.CAP);
             if (from.size() != contents.size()) throw new ArithmeticException("费用条目被丢失");
+            scaled.data.putString(EXACT_COST_KEY, cost(original).multiply(multiple).toString());
             for (int i = 0; i < from.size(); i++) {
                 BigInteger value = BigInteger.valueOf(from.get(i)).multiply(multiple);
-                if (value.signum() <= 0 || value.compareTo(LONG_MAX) > 0) throw new ArithmeticException("单条EU费用超long");
-                contents.get(i).content = value.longValueExact();
+                if (value.signum() < 0 || fixed && value.signum() == 0)
+                    throw new ArithmeticException("运行耗电不符合配方要求");
+                contents.get(i).content = value.min(LONG_MAX).longValueExact();
             }
         } catch (RuntimeException invalid) {
             scaled.data.putBoolean(INVALID_KEY, true);
@@ -196,17 +193,21 @@ public final class Hk3RecipePower {
 
     /** 合并时保留最高需求功率阶段和全部最低费用，不能只保留首条配方的数据。 */
     public static void merge(GTRecipe base, GTRecipe other) {
-        if (!marked(base) && !marked(other)) return;
+        BigInteger mergedCost = cost(base).add(cost(other));
+        if (!marked(base) && !marked(other)) {
+            if (mergedCost.signum() > 0) {
+                base.data = base.data.copy();
+                base.data.putString(EXACT_COST_KEY, mergedCost.toString());
+            }
+            return;
+        }
         BigInteger required = minimum(base).add(minimum(other));
         int highest = Math.max(tier(base), tier(other));
         boolean invalid = base.data.getBoolean(INVALID_KEY) || other.data.getBoolean(INVALID_KEY);
-        BigInteger baseHonkai = Hk3DualEnergyCosts.getMergedCost(base);
-        BigInteger otherHonkai = Hk3DualEnergyCosts.getMergedCost(other);
         base.data = base.data.copy();
         base.data.putInt(TIER_KEY, highest);
         base.data.putString(MINIMUM_COST_KEY, required.toString());
-        if (baseHonkai != null || otherHonkai != null) Hk3DualEnergyCosts.setMergedCost(base,
-                (baseHonkai == null ? BigInteger.ZERO : baseHonkai).add(otherHonkai == null ? BigInteger.ZERO : otherHonkai));
+        base.data.putString(EXACT_COST_KEY, mergedCost.toString());
         if (invalid) base.data.putBoolean(INVALID_KEY, true);
     }
 

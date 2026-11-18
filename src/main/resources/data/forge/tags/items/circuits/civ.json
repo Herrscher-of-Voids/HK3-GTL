@@ -1,1 +1,7 @@
-{"replace":false,"values":["hk3gtl:terminal_computation_processor_mainframe","hk3gtl:civ_computer"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:terminal_computation_processor_mainframe",
+    "hk3gtl:civ_computer"
+  ]
+}

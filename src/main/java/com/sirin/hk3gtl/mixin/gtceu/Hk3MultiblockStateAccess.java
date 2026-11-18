@@ -6,12 +6,9 @@ import net.minecraft.core.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-
-
-
-
-
-
+/**
+ * 让紧凑巨构判定复用GT匹配上下文的清理与单格更新。
+ */
 @Mixin(value = MultiblockState.class, remap = false)
 public interface Hk3MultiblockStateAccess {
     @Invoker("clean") void hk3gtl$clean();

@@ -1,13 +1,8 @@
 package com.sirin.hk3gtl.common.material.main;
 
-
-
-
-
-
-
-
-
+/**
+ * 维护十六阶主材料身份、工业线及实体工序形态；不依赖游戏注册表，不自动生成加工旁路。
+ */
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

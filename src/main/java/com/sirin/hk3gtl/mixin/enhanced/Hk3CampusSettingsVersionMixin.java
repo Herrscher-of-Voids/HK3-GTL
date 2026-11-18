@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Pseudo
 @Mixin(value = PlotSettings.class, remap = false)
 public abstract class Hk3CampusSettingsVersionMixin implements Hk3CampusLayoutVersion {
-    @Unique private int hk3gtl$layoutVersion = 7;
+    @Unique private int hk3gtl$layoutVersion = Hk3CampusLayoutVersion.CURRENT;
 
     @Override
     public int hk3gtl$layoutVersion() { return hk3gtl$layoutVersion; }

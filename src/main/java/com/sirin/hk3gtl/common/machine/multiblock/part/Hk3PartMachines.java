@@ -1,23 +1,10 @@
 package com.sirin.hk3gtl.common.machine.multiblock.part;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 定义 Hk3PartMachines 机器行为与结构逻辑。
+ *
+ */
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.sirin.hk3gtl.common.block.energy.HonkaiHatchType;
 

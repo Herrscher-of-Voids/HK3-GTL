@@ -1,1 +1,2746 @@
-{"schema":1,"revision":284,"topics":[{"id":"RN-HED","title":"崩坏能识别","lab":1,"tier":0,"executor":"I01-1","recipe":"approved_hbv_r11","existing":true,"prerequisites":[],"facts":[],"precursor":"prototype_honkai_detector","ticks":600,"energy_tier":14,"provisional":false,"unlocks":[],"source":"一阶崩坏能采集塔首次液态采样","success":"采集塔实际消耗1,000,000mB液态空气并成功输出100mB液态崩坏能；不要求同意合作","inputs":"奥托首信观察资料；试作型崩坏能探测器×1不消耗；液态空气1,000,000mB；MAX电力与流体输入、输出。","formal_executor":"S01","workingEUt":"2013265920","designRecipe":"HBV:R11"},{"id":"RN-HSA","title":"样本光谱解析","lab":1,"tier":0,"executor":"I02","recipe":"approved_hbv_r13","existing":true,"prerequisites":["RN-HED"],"facts":[],"precursor":"honkai_analysis_sample","ticks":600,"energy_tier":14,"provisional":false,"unlocks":["I03"],"source":"崩坏能样本光谱分析阵列初始光谱实验","success":"完成初始光谱实验，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按初始光谱实验登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"2013265920","designRecipe":"HBV:R13"},{"id":"RN-LSE","title":"液态分离工艺","lab":1,"tier":0,"executor":"I03","recipe":"approved_hbv_r14","existing":true,"prerequisites":["RN-HSA"],"facts":[],"precursor":"separation_filter","ticks":1600,"energy_tier":14,"provisional":false,"unlocks":["I04"],"source":"崩坏能离心分离中心首次分馏","success":"完成初级分馏，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按初级分馏登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"2013265920","designRecipe":"HBV:R14"},{"id":"RN-LES","title":"液态崩坏能稳定化","lab":1,"tier":0,"executor":"I04","recipe":"approved_hbv_r18","existing":true,"prerequisites":["RN-LSE"],"facts":[],"precursor":"honkai_crystal_seed","ticks":2400,"energy_tier":14,"provisional":false,"unlocks":[],"source":"液态崩坏能稳定塔稳定化","success":"完成液态崩坏能稳定化，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按液态崩坏能稳定化登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"2013265920","designRecipe":"HBV:R18"},{"id":"RN-BCE","title":"起步电路适配","lab":1,"tier":0,"executor":"I02","recipe":"approved_hcv_p02","existing":true,"prerequisites":["RN-LES"],"facts":[],"precursor":"honkai_adapted_circuit_substrate","ticks":800,"energy_tier":14,"provisional":false,"unlocks":["I05","I06","I07"],"source":"崩坏能样本光谱分析阵列现有电路兼容试验","success":"完成起步电路适配实验，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按起步电路适配实验登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"2013265920","designRecipe":"HCV:P02"},{"id":"RN-DMT","title":"探测器校准","lab":1,"tier":1,"executor":"I07","recipe":"industrial_prototype_detector_calibration","existing":true,"prerequisites":["RN-HSA","RN-BCE"],"facts":[],"precursor":"prototype_honkai_detector","ticks":840,"energy_tier":14,"provisional":false,"unlocks":[],"source":"探测器精密校准台现有对照校准","success":"输出校准报告并返回原探测器；不是单纯取走探测器","inputs":"零阶探测器、参考样本、分析样本、纸与铂箔","formal_executor":"S01"},{"id":"RN-SMR","title":"稳定介质再生","lab":1,"tier":1,"executor":"I05","recipe":"approved_hcv_p07","existing":true,"prerequisites":["RN-BCE"],"facts":[],"precursor":"separation_filter","ticks":1800,"energy_tier":15,"provisional":false,"unlocks":[],"source":"稳定介质再生塔基础稳定介质再生","success":"完成基础稳定介质再生与性能检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按基础稳定介质再生与性能检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"8053063680","designRecipe":"HCV:P07"},{"id":"RN-HFB","title":"崩坏燃料调配","lab":1,"tier":1,"executor":"I06","recipe":"approved_hcv_p09","existing":true,"prerequisites":["RN-BCE"],"facts":[],"precursor":"fuel_matrix","ticks":2200,"energy_tier":15,"provisional":false,"unlocks":["I17"],"source":"崩坏能燃料调配厂已有液态燃料调配","success":"完成液态崩坏燃料调配，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按液态崩坏燃料调配登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"8053063680","designRecipe":"HCV:P09"},{"id":"RN-FRP","title":"低阶燃料棒封装","lab":1,"tier":1,"executor":"I02","recipe":"approved_hdv_p04","existing":true,"prerequisites":["RN-HFB"],"facts":[],"precursor":"honkai_fuel_rod","ticks":1600,"energy_tier":15,"provisional":false,"unlocks":["I18"],"source":"HDV:P01/P02→HDV:P03首制普通棒→HDV:P04无损抽检","success":"完成低阶燃料棒无损封装抽检，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按低阶燃料棒无损封装抽检登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","designRecipe":"HDV:P04","workingEUt":"8053063680","formal_executor":"S01"},{"id":"RN-SRE","title":"小型反应堆工程","lab":1,"tier":1,"executor":"I02","recipe":"approved_hdv_p06","existing":false,"prerequisites":["RN-FRP","RN-SMR"],"facts":[],"precursor":"honkai_fuel_rod_casing","ticks":1800,"energy_tier":16,"provisional":false,"unlocks":["I19"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成小型反应堆冷态联锁检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按小型反应堆冷态联锁检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","designRecipe":"HDV:P06","workingEUt":"32212254720","formal_executor":"S01"},{"id":"RN-HLC","title":"冷却剂换热回流","lab":1,"tier":2,"executor":"I02","recipe":"approved_hdv_p20","existing":false,"prerequisites":["RN-SRE","RN-SMR"],"facts":["reactor_load"],"precursor":"fuel_encapsulation_part","ticks":2000,"energy_tier":16,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成反应堆热回路与密封件表征，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按反应堆热回路与密封件表征登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","designRecipe":"HDV:P20","workingEUt":"32212254720","formal_executor":"S01"},{"id":"RN-SFR","title":"失活燃料后处理","lab":1,"tier":2,"executor":"I02","recipe":"approved_hdv_p21","existing":false,"prerequisites":["RN-SRE","RN-LSE"],"facts":["reactor_spent_rod"],"precursor":"depleted_honkai_fuel_rod","ticks":2000,"energy_tier":16,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成乏燃料无损表征，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按乏燃料无损表征登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","designRecipe":"HDV:P21","workingEUt":"32212254720","formal_executor":"S01"},{"id":"RN-RAT","title":"现实稳定锚原理","lab":1,"tier":2,"executor":"I02","recipe":"industrial_experiment_rat","existing":false,"prerequisites":["RN-HSA","RN-LES"],"facts":[],"precursor":"honkai_reference_sample","ticks":880,"energy_tier":15,"provisional":false,"unlocks":["I36"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"同一试件的干扰前后读数形成有效检测回执；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏能标准样本×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S01"},{"id":"RN-SSP","title":"魂钢前驱体","lab":1,"tier":3,"executor":"I02","recipe":"approved_hcv_p22","existing":false,"prerequisites":["RN-LES","RN-SMR"],"facts":[],"precursor":"honkai_crystal_seed","ticks":1440,"energy_tier":15,"provisional":false,"unlocks":["I09"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成魂钢前驱定向成核检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按魂钢前驱定向成核检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"8053063680","designRecipe":"HCV:P22"},{"id":"RN-NBS","title":"纳米基元合成","lab":1,"tier":3,"executor":"I02","recipe":"approved_hcv_p23","existing":false,"prerequisites":["RN-SSP"],"facts":["soulium_precursor"],"precursor":"soulium_microstructure_template","ticks":1440,"energy_tier":15,"provisional":false,"unlocks":["I10"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成魂钢模板微结构检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按魂钢模板微结构检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"8053063680","designRecipe":"HCV:P23"},{"id":"RN-NRA","title":"纳米机器人装配","lab":1,"tier":3,"executor":"I02","recipe":"approved_hcv_p24","existing":false,"prerequisites":["RN-NBS"],"facts":["nano_building"],"precursor":"nano_building_unit","ticks":1440,"energy_tier":15,"provisional":false,"unlocks":["I11"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成纳米构筑单元启动检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按纳米构筑单元启动检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"8053063680","designRecipe":"HCV:P24"},{"id":"RN-NSP","title":"纳米自组织编程","lab":1,"tier":3,"executor":"I02","recipe":"approved_hcv_p25","existing":false,"prerequisites":["RN-NRA"],"facts":["nano_assembly"],"precursor":"unprogrammed_nanobot","ticks":1440,"energy_tier":15,"provisional":false,"unlocks":["I12"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成未编程机器人受限指令检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按未编程机器人受限指令检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"8053063680","designRecipe":"HCV:P25"},{"id":"RN-CBS","title":"适配基板生长","lab":1,"tier":3,"executor":"I02","recipe":"approved_hrv_e17","existing":false,"prerequisites":["RN-NSP","RN-BCE"],"facts":[],"precursor":"controlled_nano_swarm","ticks":920,"energy_tier":15,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成适配基板纳米群模板表征，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按适配基板纳米群模板表征登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"8053063680","designRecipe":"HRV:E17"},{"id":"RN-HRC","title":"崩坏抗性包覆","lab":1,"tier":4,"executor":"I02","recipe":"approved_hcv_p26","existing":false,"prerequisites":["RN-NSP"],"facts":["nano_control"],"precursor":"controlled_nano_swarm","ticks":1440,"energy_tier":15,"provisional":false,"unlocks":["I13"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成受控纳米群抗性界面检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按受控纳米群抗性界面检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"8053063680","designRecipe":"HCV:P26"},{"id":"RN-SPC","title":"魂钢聚合压铸","lab":1,"tier":4,"executor":"I02","recipe":"approved_hrv_s05","existing":false,"prerequisites":["RN-HRC"],"facts":[],"precursor":"coated_nano_swarm","ticks":2400,"energy_tier":16,"provisional":false,"unlocks":["I14"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成包覆群聚合适用性检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按包覆群聚合适用性检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"32212254720","designRecipe":"HRV:S05"},{"id":"RN-SRA","title":"魂钢重构退火","lab":1,"tier":4,"executor":"I02","recipe":"approved_hrv_s10","existing":false,"prerequisites":["RN-SPC"],"facts":[],"precursor":"soulium_proto_mass","ticks":2400,"energy_tier":16,"provisional":false,"unlocks":["I15"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成粗魂钢退火窗口检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按粗魂钢退火窗口检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"32212254720","designRecipe":"HRV:S10"},{"id":"RN-SPM","title":"魂钢精密加工","lab":1,"tier":4,"executor":"I02","recipe":"approved_hrv_s13","existing":false,"prerequisites":["RN-SRA"],"facts":[],"precursor":"stabilized_soulium_proto_mass","ticks":2400,"energy_tier":16,"provisional":false,"unlocks":["I16"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成稳定魂钢加工公差检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按稳定魂钢加工公差检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"32212254720","designRecipe":"HRV:S13"},{"id":"RN-MCE","title":"多层电路蚀刻","lab":1,"tier":4,"executor":"I02","recipe":"approved_qsv_p01","existing":false,"prerequisites":["RN-CBS","RN-SPM"],"facts":["substrate_growth","soulium_processing"],"precursor":"honkai_adapted_circuit_substrate","ticks":1800,"energy_tier":17,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成多层电路层间连通与绝缘检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按多层电路层间连通与绝缘检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S01","workingEUt":"128849018880","designRecipe":"QSV:P01"},{"id":"RN-ALE","title":"高级材料研究所工程","lab":1,"tier":4,"executor":"S01","recipe":"LAB-ALE","existing":true,"prerequisites":["RN-SPM","RN-MCE"],"facts":[],"precursor":"etched_circuit_layer","ticks":2400,"energy_tier":14,"provisional":false,"unlocks":["S02"],"source":"崩坏现象研究所独立工程试验任务","success":"在崩坏现象研究所完成120秒设施负载试验，持续供电；完成后返还四类受检物并记录实验结果。","inputs":"魂钢板64、魂钢细线64、已蚀刻电路层16、HRV传感器2，受检物完成后原量返还；消耗纸16。","formal_executor":"S01","workingEUt":"2013265920","designRecipe":"QSV:P02"},{"id":"RN-OPR","title":"介质损耗优化","lab":1,"tier":2,"executor":"S01","recipe":"LAB-OPR","existing":true,"prerequisites":["RN-HLC","RN-SFR"],"facts":["recovery_medium","recovery_heat","recovery_spent_rods"],"precursor":"separation_filter","ticks":880,"energy_tier":15,"provisional":false,"unlocks":[],"source":"崩坏现象研究所独立收支核验任务","success":"至少各一种有效成功批次，核对实际输入输出及损耗；同一批次只计一次","inputs":"稳定介质再生塔介质回收、热循环换热和乏燃料后处理的真实批次回执","formal_executor":"S01"},{"id":"RN-SSC","title":"固态崩坏能采集","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_ssc","existing":false,"prerequisites":["RN-ALE","RN-DMT","RN-SPM"],"facts":["liquid_collection"],"precursor":"soulium_data_substrate","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":["I01-2"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实完成液态样本与约束试件的响应检测，关联原采集和制样批次；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-CCE","title":"仿制核心结晶","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_cce","existing":false,"prerequisites":["RN-SSC"],"facts":["solid_collection"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":["I08"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实结晶试样经成分和晶格检测形成有效回执；试晶不具有核心能力；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-CFR","title":"高阶燃料棒与浓缩燃料精制","lab":2,"tier":5,"executor":"I17","recipe":"industrial_liquid_fuel_concentration","existing":true,"prerequisites":["RN-HFB"],"facts":[],"precursor":"fuel_matrix","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"沿用浓缩崩坏能燃料精制厂液态燃料浓缩成功入口","success":"现有浓缩配方实际输出提交成功；证据可提前记录，正式研究仍核对SSC、HFB和FRP","inputs":"HFB后可得液态燃料与既有浓缩耗材","formal_executor":"S02"},{"id":"RN-MRE","title":"中型反应堆工程","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_mre","existing":false,"prerequisites":["RN-CFR","RN-HLC","RN-SFR","RN-SRE"],"facts":["reactor_load","recovery_heat","recovery_spent_rods"],"precursor":"fuel_encapsulation_part","ticks":2100,"energy_tier":18,"provisional":false,"unlocks":["I20"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"试件实际完成受控热响应和密封检测；核验已有发电、换热、后处理批次；受检物原量返还，实验以机器真实结算为准","inputs":"燃料封装组件×1；纸×2；工装不消耗。","designRecipe":"EXISTING:industrial_experiment_mre","workingEUt":"515396075520","powerSupply":"前代I19／I20／I21高能工况分别供给HDV／QAV／WFV实际功率；前代真实发电、换热与材料事实继续核验。","formal_executor":"S02"},{"id":"RN-CPT","title":"电路封装与工况测试","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_cpt","existing":false,"prerequisites":["RN-ALE","RN-MCE","RN-SSC","RN-SPM"],"facts":["circuit_etching"],"precursor":"etched_circuit_layer","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"封装试件完成导通、绝缘与热循环检测；检测件不是可用于造首机的新级电路；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：已蚀刻电路层×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-ERA","title":"强化现实稳定","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_era","existing":false,"prerequisites":["RN-RAT","RN-CCE"],"facts":["anchor_basic"],"precursor":"soulium_anchor_component","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"对同一基准记录强化前后的稳定偏差，真实耗材耗电运行，未启用待解锁强化模式；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-GSC","title":"气态崩坏能采集","lab":2,"tier":6,"executor":"I02","recipe":"industrial_experiment_gsc","existing":false,"prerequisites":["RN-SSC","RN-MRE"],"facts":["liquid_collection","solid_collection"],"precursor":"soulium_anchor_component","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":["I01-3"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实完成液固记录与试件的封闭场响应对照；试验不产可用气态崩坏能；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-PCE","title":"相变释能工程","lab":2,"tier":6,"executor":"I02","recipe":"industrial_experiment_pce","existing":false,"prerequisites":["RN-GSC","RN-HLC"],"facts":["gas_collection"],"precursor":"process_gas_filter","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":["I23"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"封装气态样本完成受控相变与能量损耗测量，不向电网返还未定量的试验能量；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-GPR","title":"异质工艺气体净化","lab":2,"tier":6,"executor":"I02","recipe":"industrial_experiment_gpr","existing":false,"prerequisites":["RN-GSC","RN-SMR"],"facts":["gas_exhaust"],"precursor":"depleted_gas_filter","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"比较真实进出气样和过滤残渣，关联生成排气的批次；新鲜气体用于工况启动；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：失效工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-FCA","title":"仿制炎核心","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_fca","existing":false,"prerequisites":["RN-CCE"],"facts":["crystal_growth"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"试晶在受控热输入下形成可重复检测回执；消耗或封存试晶，不能直接交付正式炎核心；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-ICA","title":"仿制冰核心","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_ica","existing":false,"prerequisites":["RN-CCE","RN-HLC"],"facts":["crystal_growth"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"实际记录降温及回温响应，冷却介质收支与试晶批次对应；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-RCA","title":"仿制理核心","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_rca","existing":false,"prerequisites":["RN-CCE","RN-CPT"],"facts":["crystal_growth","circuit_packaging"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实完成已知构件结构对照；不在试验中复制新物品或授予未掌握电路；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-VCA","title":"仿制空核心","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_vca","existing":false,"prerequisites":["RN-CCE","RN-ERA"],"facts":["crystal_growth","anchor_basic"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"同一基准下完成空间定位偏差测量，记录工装、场与试晶来源；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-ECA","title":"仿制侵蚀核心","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_eca","existing":false,"prerequisites":["RN-CCE","RN-CPT"],"facts":["crystal_growth","circuit_packaging"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实完成固定测试输入、结果校验及停止指令；记录电耗和输出，异常不算成功；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-GCA","title":"仿制岩核心","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_gca","existing":false,"prerequisites":["RN-CCE"],"facts":["crystal_growth"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"检测有场/基准条件下试件的响应差异，形成可追溯批次；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-BCA","title":"仿制约束核心","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_bca","existing":false,"prerequisites":["RN-CCE","RN-ERA"],"facts":["crystal_growth","anchor_basic"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实测量同一输入下能流传递与抑制效果，完整记录消耗与残余输出；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-TCA","title":"仿制雷核心","lab":2,"tier":5,"executor":"I02","recipe":"industrial_experiment_tca","existing":false,"prerequisites":["RN-CCE","RN-CPT"],"facts":["crystal_growth","circuit_packaging"],"precursor":"honkai_crystal_seed","ticks":1400,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实完成既定脉冲输入和输出响应测量，输入电力照常消耗；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-WCA","title":"仿制风核心","lab":2,"tier":6,"executor":"I02","recipe":"industrial_experiment_wca","existing":false,"prerequisites":["RN-CCE","RN-GSC"],"facts":["crystal_growth","gas_collection"],"precursor":"honkai_crystal_seed","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"实际消耗测试介质并记录压差/流量响应；回收部分与损耗分别记账；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-DKE","title":"神之键部件装配","lab":2,"tier":6,"executor":"I02","recipe":"industrial_experiment_dke","existing":false,"prerequisites":["RN-CPT","RN-VCA","RN-SPM"],"facts":["circuit_packaging"],"precursor":"circuit_encapsulation_part","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":["I33"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实完成核心封装、接口与安全停止检测；试验装配体不能当作成品神之键；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：电路封装组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-VAK","title":"仿制的虚空万藏","lab":2,"tier":6,"executor":"I33","recipe":"industrial_experiment_vak","existing":false,"prerequisites":["RN-DKE","RN-RCA"],"facts":["divine_key_assembly"],"precursor":"imitation_reason_core","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":[],"source":"仿制神之键装配中心实物无损表征与检测","success":"验证既有制造清单结构及控制回路，输出测试记录；不产出制造清单外成品；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：仿制理之律者核心×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-CJK","title":"仿制的千界一乘","lab":2,"tier":6,"executor":"I33","recipe":"industrial_experiment_cjk","existing":false,"prerequisites":["RN-DKE","RN-VCA"],"facts":["divine_key_assembly"],"precursor":"imitation_void_core","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":["I44","I45"],"source":"仿制神之键装配中心实物无损表征与检测","success":"完成同一已知基准坐标的稳定校准与回执提交，试件不能代替完整信标或列车结构；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：仿制空之律者核心×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-SEK","title":"仿制的伊甸之星","lab":2,"tier":6,"executor":"I33","recipe":"industrial_experiment_sek","existing":false,"prerequisites":["RN-DKE","RN-GCA"],"facts":["divine_key_assembly"],"precursor":"imitation_rock_core","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":[],"source":"仿制神之键装配中心实物无损表征与检测","success":"在安全范围实际完成压缩与释放对照；试验输出仅为检测件；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：仿制岩之律者核心×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-JOK","title":"仿制的犹大的誓约","lab":2,"tier":6,"executor":"I33","recipe":"industrial_experiment_jok","existing":false,"prerequisites":["RN-DKE","RN-BCA"],"facts":["divine_key_assembly"],"precursor":"imitation_binding_core","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":[],"source":"仿制神之键装配中心实物无损表征与检测","success":"固定输入下完成约束开启/解除的回路检测，结算实际能耗；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：仿制约束之律者核心×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-QOM","title":"量子异常初观","lab":2,"tier":7,"executor":"I44","recipe":"industrial_beacon_calibration","existing":true,"prerequisites":["RN-CJK"],"facts":[],"precursor":"spatial_calibration_module","ticks":1480,"energy_tier":20,"provisional":false,"unlocks":["I24"],"source":"仿制的千界一乘·信标坐标校准与异常观测工况","success":"校准模块完成观测后原量返还；输出结算后登记异常观测实验，不能仅持有模块或打开界面授予","inputs":"空间校准模块1；崩坏能基准样本循环使用","formal_executor":"S02"},{"id":"RN-QLE","title":"量子研究所工程","lab":2,"tier":7,"executor":"I24","recipe":"industrial_quantum_observation","existing":true,"prerequisites":["RN-QOM"],"facts":[],"precursor":"spatial_probe","ticks":1480,"energy_tier":20,"provisional":false,"unlocks":["S03"],"source":"量子异常观测阵列首次完成观测后的实验记录；物质重构研究所随后正常研究","success":"观测实际完成并保存回执即满足该项实验来源；不另加重复观测或二次交样","inputs":"量子异常观测阵列首次成功量子观测的原始记录与设备来源","formal_executor":"S02"},{"id":"RN-SSQ","title":"魂钢质量控制","lab":2,"tier":5,"executor":"I02","recipe":"approved_qsv_p04","existing":false,"prerequisites":["RN-ALE","RN-SPM","RN-SPC","RN-SRA"],"facts":["soulium_polymerization","soulium_reconstruction","soulium_processing"],"precursor":"soulium_data_substrate","ticks":2800,"energy_tier":18,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"完成魂钢多工序批次质量关联检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。","inputs":"按魂钢多工序批次质量关联检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。","formal_executor":"S02","workingEUt":"515396075520","designRecipe":"QSV:P04"},{"id":"RN-CQS","title":"电路工况扩展","lab":2,"tier":6,"executor":"I02","recipe":"industrial_experiment_cqs","existing":false,"prerequisites":["RN-CPT","RN-GSC"],"facts":["circuit_packaging","gas_collection"],"precursor":"circuit_encapsulation_part","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"真实完成封装工况扩展试验并记录样品性能；不消耗尚未能制造的高一电压种子；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：电路封装组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S02"},{"id":"RN-ERM","title":"受控演算优化","lab":2,"tier":6,"executor":"S02","recipe":"LAB-ERM-AID","existing":true,"prerequisites":["RN-ECA","RN-CPT","RN-ALE"],"facts":[],"precursor":"imitation_corruption_core","ticks":1440,"energy_tier":19,"provisional":false,"unlocks":[],"source":"物质重构研究所的隔离演算对照实验","success":"比较普通与核心辅助演算的真实结果、耗时和停止边界；通过仅记实验，不返还研究点","inputs":"ECA已可造侵蚀核心、CPT控制回路、同一固定演算任务及已有普通研究结果","formal_executor":"S02"},{"id":"RN-WCP","title":"世界泡坐标解析","lab":3,"tier":7,"executor":"I24","recipe":"industrial_experiment_wcp","existing":false,"prerequisites":["RN-QLE","RN-QOM","RN-CJK"],"facts":["enhanced_beacon_signal","cocoon_authorization"],"precursor":"spatial_probe","ticks":1880,"energy_tier":20,"provisional":false,"unlocks":["I25"],"source":"量子异常观测阵列实物无损表征与检测","success":"原始目标观测与误差拟合真实完成；输出研究用记录，不提前生成供世界泡无人采掘调度台使用的正式坐标；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-UAA","title":"无人作业装置装配","lab":3,"tier":8,"executor":"I02","recipe":"industrial_experiment_uaa","existing":false,"prerequisites":["RN-WCP","RN-SPM","RN-CPT","RN-HSA"],"facts":["soulium_processing","circuit_packaging"],"precursor":"unprogrammed_nanobot","ticks":1920,"energy_tier":21,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"试件实际完成执行器驱动、指令响应和停止检测；不发射任务、不取世界泡资源；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：未编程纳米机器人×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-UED","title":"无人世界泡采掘","lab":3,"tier":8,"executor":"I11","recipe":"industrial_experiment_ued","existing":false,"prerequisites":["RN-UAA","RN-WCP","RN-CJK"],"facts":["coordinate_solution","drone_assembly"],"precursor":"spatial_probe","ticks":1920,"energy_tier":21,"provisional":false,"unlocks":["I26"],"source":"纳米机器人装配阵列实物无损表征与检测","success":"真实完成导航、载荷、通信及返回协议台架检查；核对目标身份与有效状态，不进行采掘结算；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-LTA","title":"遗留技术解析","lab":3,"tier":8,"executor":"I02","recipe":"industrial_experiment_lta","existing":false,"prerequisites":["RN-UED","RN-HSA"],"facts":["first_mining_legacy"],"precursor":"world_mining_legacy_record","ticks":1920,"energy_tier":21,"provisional":false,"unlocks":["I32"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"实际消耗检测耗材并检验任务返回资料，核验原成功任务；不能只持有古代遗产物品授予；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：真实采掘遗留资料×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-HBD","title":"仿制休伯利安图纸解读","lab":3,"tier":8,"executor":"I32","recipe":"industrial_ship_blueprint_analysis","existing":true,"prerequisites":["RN-LTA","RN-UED"],"facts":["ship_archive"],"precursor":"ship_engineering_archive","ticks":2400,"energy_tier":19,"provisional":false,"unlocks":[],"source":"遗留技术逆向实验室首次有效舰船档案解析","success":"遗留技术逆向实验室实际解析有来源的档案，产出仿制休伯利安蓝图并取得舰船蓝图研究记录；本次解析只记录一次发现并发放一次物品","inputs":"遗留技术逆向方法研究完成后世界泡无人采掘调度台合格真实任务发现的舰船工程档案","formal_executor":"S03"},{"id":"RN-HCC","title":"仿制舰体构件","lab":3,"tier":9,"executor":"I02","recipe":"industrial_experiment_hcc","existing":false,"prerequisites":["RN-HBD","RN-SPM","RN-UAA"],"facts":["soulium_processing"],"precursor":"soulium_data_substrate","ticks":1960,"energy_tier":22,"provisional":false,"unlocks":[],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"实际加工并检测龙骨连接、推进接口等试件；测试件不冒充正式舰体组件；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-HVI","title":"仿制舰系统整合","lab":3,"tier":9,"executor":"I33","recipe":"industrial_experiment_hvi","existing":false,"prerequisites":["RN-HCC","RN-SPM","RN-DKE"],"facts":["ship_components"],"precursor":"hyperion_navigation_module","ticks":1960,"energy_tier":22,"provisional":false,"unlocks":["H01"],"source":"仿制神之键装配中心实物无损表征与检测","success":"供电、控制、导航接口在真实试验回路完成联调并安全停止；不要求整舰先成型；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：仿制休伯利安导航模块×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-BCC","title":"世界泡约束容器","lab":3,"tier":9,"executor":"I33","recipe":"industrial_experiment_bcc","existing":false,"prerequisites":["RN-WCP","RN-JOK","RN-SPM","RN-DKE"],"facts":["vessel_shell"],"precursor":"failed_containment_shell","ticks":1960,"energy_tier":22,"provisional":false,"unlocks":[],"source":"仿制神之键装配中心实物无损表征与检测","success":"空载试壳完成密封和场稳定检验；仅形成检测记录，不生成封存世界泡；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：不合格收容壳体×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-WBC","title":"真实世界泡整体捕获","lab":3,"tier":9,"executor":"I33","recipe":"industrial_experiment_wbc","existing":false,"prerequisites":["RN-BCC","RN-UED","RN-DKE","RN-WCP"],"facts":["coordinate_solution"],"precursor":"empty_bubble_containment_vessel","ticks":1960,"energy_tier":22,"provisional":false,"unlocks":["I27"],"source":"仿制神之键装配中心实物无损表征与检测","success":"真实耗电耗材完成容器容量、边界和锁定数据的校验；验证不改变真实目标状态、不占采掘次数；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：空世界泡收容容器×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-WTR","title":"真实世界泡终止回收","lab":3,"tier":9,"executor":"I33","recipe":"industrial_experiment_wtr","existing":false,"prerequisites":["RN-WBC","RN-DKE"],"facts":["real_capture"],"precursor":"spatial_calibration_module","ticks":1960,"energy_tier":22,"provisional":false,"unlocks":["I28"],"source":"仿制神之键装配中心实物无损表征与检测","success":"真实执行控制试验并核对合法捕获回执；只演算安全边界，原目标保持封存，不产生终止资源；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：空间校准模块×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-LRE","title":"大型反应堆工程","lab":3,"tier":9,"executor":"I02","recipe":"industrial_experiment_lre","existing":false,"prerequisites":["RN-MRE","RN-PCE","RN-QLE","RN-HSA"],"facts":["medium_reactor_load","phase_conversion"],"precursor":"fuel_encapsulation_part","ticks":2940,"energy_tier":22,"provisional":false,"unlocks":["I21"],"source":"崩坏能样本光谱分析阵列实物无损表征与检测","success":"高负载运行与热收支记录齐全，包含设备和实际消耗；受检物原量返还，完成后记录实验结果。","inputs":"燃料封装组件×1；纸×2；工装不消耗。","designRecipe":"EXISTING:industrial_experiment_lre","workingEUt":"131941395333120","powerSupply":"前代I19／I20／I21高能工况分别供给HDV／QAV／WFV实际功率；前代真实发电、换热与材料事实继续核验。","formal_executor":"S03"},{"id":"RN-SWC","title":"模拟世界泡构筑","lab":3,"tier":10,"executor":"I32","recipe":"industrial_experiment_swc","existing":false,"prerequisites":["RN-WTR","RN-SEK","RN-LTA","RN-SPM"],"facts":["real_termination"],"precursor":"world_model_carrier","ticks":2000,"energy_tier":23,"provisional":false,"unlocks":["I29"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"真实制样和模型验证成功，试验本身不创建可取资世界泡；关联真实终止记录而非只完成WTR研究；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-SWS","title":"模拟世界泡稳定","lab":3,"tier":10,"executor":"I32","recipe":"world:simulation_created","existing":true,"prerequisites":["RN-SWC"],"facts":["simulation_created"],"precursor":"world_maintenance_specimen","ticks":2000,"energy_tier":23,"provisional":false,"unlocks":["I30"],"source":"模拟世界泡构筑机完成构筑后取得实验记录，量子域研究所随后正常研究","success":"构筑真实完成且独立批次已保存，初始状态记录完整；无需先由模拟世界泡稳定控制器稳定","inputs":"模拟世界泡构筑机实际构筑的初始模拟批次与模型误差/能流记录","formal_executor":"S03"},{"id":"RN-SWR","title":"模拟世界泡终止回收","lab":3,"tier":10,"executor":"I32","recipe":"industrial_experiment_swr","existing":false,"prerequisites":["RN-SWS","RN-WTR","RN-LTA"],"facts":["simulation_stabilized"],"precursor":"bubble_termination_charge","ticks":2000,"energy_tier":23,"provisional":false,"unlocks":["I31"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"真实耗材耗电执行终止控制验证，原批次保持稳定，不提前生成资源或标为已终止；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：世界泡终止组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-VRC","title":"无人跨界航路中继","lab":3,"tier":10,"executor":"I32","recipe":"industrial_experiment_vrc","existing":false,"prerequisites":["RN-UED","RN-SWS","RN-LTA"],"facts":["distinct_mining_routes"],"precursor":"spatial_probe","ticks":2000,"energy_tier":23,"provisional":false,"unlocks":["I39"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"核验多个不同目标的独立成功任务和路由对照；同坐标多次或复制报告不能冒充多个目标；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-IOP","title":"虚数联系初观","lab":3,"tier":11,"executor":"I32","recipe":"industrial_experiment_iop","existing":false,"prerequisites":["RN-SWR","RN-VRC","RN-LTA"],"facts":["simulation_full_chain","distinct_mining_routes"],"precursor":"world_model_carrier","ticks":2040,"energy_tier":24,"provisional":false,"unlocks":["I34"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"实际分析已有工况及终止日志，确认同批状态变化与跨目标差异，输出初观前研究记录；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-ILE","title":"虚数研究所工程","lab":3,"tier":11,"executor":"I34","recipe":"industrial_imaginary_observation","existing":true,"prerequisites":["RN-IOP"],"facts":[],"precursor":"spatial_probe","ticks":2040,"energy_tier":24,"provisional":false,"unlocks":["S04"],"source":"虚数之树观测阵列首次观测成功的实验记录；量子域研究所正常支付并研究","success":"实际观测完成后提交证据，不另加重复观察或要求提前造世界维系研究所","inputs":"虚数之树观测阵列首次成功虚数观测的原始设备、工况与观测记录","formal_executor":"S03"},{"id":"RN-UPR","title":"无人装置返修","lab":3,"tier":9,"executor":"I11","recipe":"industrial_experiment_upr","existing":false,"prerequisites":["RN-UED","RN-UAA"],"facts":["drone_return"],"precursor":"worn_work_drone","ticks":1960,"energy_tier":22,"provisional":false,"unlocks":[],"source":"纳米机器人装配阵列实物无损表征与检测","success":"实际执行故障定位与维修可行性检测，返回同一件待修装置；检测不提前恢复耐久或重复输出旧件；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：磨损的作业无人机×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-LTB","title":"异界资料交叉解析","lab":3,"tier":9,"executor":"I32","recipe":"industrial_experiment_ltb","existing":false,"prerequisites":["RN-LTA","RN-VAK"],"facts":["distinct_legacy_sources"],"precursor":"world_mining_legacy_record","ticks":1960,"energy_tier":22,"provisional":false,"unlocks":[],"source":"遗留技术逆向实验室实物无损表征与检测","success":"实际完成不同来源的资料与工艺证据对照；合作路线验证资料授权，独立路线无需合作授权，两者不必同时满足；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：真实采掘遗留资料×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S03"},{"id":"RN-IAA","title":"虚数空间锚定","lab":4,"tier":11,"executor":"I33","recipe":"industrial_experiment_iaa","existing":false,"prerequisites":["RN-ILE","RN-VCA","RN-SPM","RN-DKE"],"facts":["imaginary_observation"],"precursor":"soulium_anchor_component","ticks":2440,"energy_tier":24,"provisional":false,"unlocks":["I35"],"source":"仿制神之键装配中心实物无损表征与检测","success":"试件在已有空间工装中完成连接稳定性测试，关联虚数之树观测阵列观测和制样批次；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-ESC","title":"能量态崩坏能采集","lab":4,"tier":12,"executor":"I33","recipe":"industrial_experiment_esc","existing":false,"prerequisites":["RN-IAA","RN-GSC","RN-DKE"],"facts":["liquid_collection","solid_collection","gas_collection","imaginary_anchor"],"precursor":"soulium_data_substrate","ticks":2480,"energy_tier":25,"provisional":false,"unlocks":["I01-4"],"source":"仿制神之键装配中心实物无损表征与检测","success":"完成前三态与虚数联系的实际对照，记录场响应；试验不产可用能量态或免费HW；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-HER","title":"虚数能量整流","lab":4,"tier":12,"executor":"I33","recipe":"industrial_experiment_her","existing":false,"prerequisites":["RN-ESC","RN-DKE"],"facts":["energy_collection"],"precursor":"soulium_data_substrate","ticks":2480,"energy_tier":25,"provisional":false,"unlocks":["I38"],"source":"仿制神之键装配中心实物无损表征与检测","success":"真实消耗测试输入并测量能流/损耗，完成安全隔离；测试不向个人账户任意充值；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-CED","title":"文明能源调度","lab":4,"tier":12,"executor":"I32","recipe":"industrial_experiment_ced","existing":false,"prerequisites":["RN-HER","RN-LTA","RN-HFB"],"facts":["hw_injection","hw_load"],"precursor":"soulium_data_substrate","ticks":2480,"energy_tier":25,"provisional":false,"unlocks":["I41"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"实际负载扣费与产能回执对应，核验付款账户、有效运行量和拒绝无授权操作；余额截图不算证据；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-WME","title":"世界维系试验","lab":4,"tier":13,"executor":"I33","recipe":"industrial_experiment_wme","existing":false,"prerequisites":["RN-IAA","RN-CED","RN-RAT","RN-LTA","RN-DKE","RN-SWS"],"facts":["imaginary_anchor","anchor_enhanced","hw_injection","manual_dispatch"],"precursor":"soulium_anchor_component","ticks":2520,"energy_tier":26,"provisional":false,"unlocks":["I37"],"source":"仿制神之键装配中心实物无损表征与检测","success":"真实完成局部扰动响应、停止与恢复验证并关联输入/能流记录；测试局限于装置和样件；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-WMS","title":"文明奇观材料","lab":4,"tier":13,"executor":"I32","recipe":"industrial_experiment_wms","existing":false,"prerequisites":["RN-WME","RN-SPM","RN-LTA"],"facts":["world_maintenance"],"precursor":"world_maintenance_specimen","ticks":2520,"energy_tier":26,"provisional":false,"unlocks":["I40"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"试片真实制造并完成维系条件下的适配检测，不能将检测件当正式复合材料使用；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：世界维系工程样本×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-WPF","title":"奇观构件预制","lab":4,"tier":13,"executor":"I32","recipe":"industrial_experiment_wpf","existing":false,"prerequisites":["RN-WMS","RN-SPM","RN-LTA"],"facts":["composite_production"],"precursor":"conducting_composite","ticks":2520,"energy_tier":26,"provisional":false,"unlocks":["I42"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"实际完成接口、公差与承载试片检测，关联文明奇观材料合成中心产物批次；试片不是奇观控制器；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：高维导能复合材料×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-CEE","title":"文明工程验收方法","lab":4,"tier":14,"executor":"I32","recipe":"industrial_experiment_cee","existing":false,"prerequisites":["RN-WPF","RN-WME","RN-LTA"],"facts":["prefabrication"],"precursor":"world_maintenance_specimen","ticks":2560,"energy_tier":27,"provisional":false,"unlocks":["I43"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"真实检测已知基准件，并验证判定规则能区分合格/不合格样件；只形成验收方法证据；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：世界维系工程样本×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-URE","title":"究极反应堆工程","lab":4,"tier":14,"executor":"I32","recipe":"industrial_experiment_ure","existing":false,"prerequisites":["RN-LRE","RN-CED","RN-WMS","RN-LTA"],"facts":["large_reactor_load","composite_production"],"precursor":"extreme_casting_material","ticks":3840,"energy_tier":27,"provisional":false,"unlocks":["I22"],"source":"遗留技术逆向实验室实物无损表征与检测","success":"真实高负载批次和材料安全检验关联，实际耗材耗电；不依赖待开放究极崩坏能反应堆；受检物原量返还，实验以机器真实结算为准","inputs":"极限铸造材料×1；纸×2；工装不消耗。","designRecipe":"EXISTING:industrial_experiment_ure","workingEUt":"135107988821114880","powerSupply":"前代I19／I20／I21高能工况分别供给HDV／QAV／WFV实际功率；前代真实发电、换热与材料事实继续核验。","formal_executor":"S04"},{"id":"RN-HCCO","title":"始源群星协奏工程","lab":4,"tier":14,"executor":"I43","recipe":"industrial_experiment_hcco","existing":false,"prerequisites":["RN-CEE"],"facts":["formal_communication"],"precursor":"soulium_data_substrate","ticks":2560,"energy_tier":27,"provisional":false,"unlocks":["W01"],"source":"文明工程验收中心实物无损表征与检测","success":"核验研究和交流事件确已发生，关联资料来源并完成工程校核；独立或拒绝合作路线均可提供符合既定条件的交流记录；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-AIM","title":"万象自律工业矩阵","lab":4,"tier":14,"executor":"I43","recipe":"industrial_experiment_aim","existing":false,"prerequisites":["RN-CEE","RN-RCA","RN-SPM","RN-CPT"],"facts":["soulium_processing","circuit_packaging"],"precursor":"etched_circuit_layer","ticks":2560,"energy_tier":27,"provisional":false,"unlocks":["W02"],"source":"文明工程验收中心实物无损表征与检测","success":"核验实际投入产出、批次来源与连续工况，排除复制报告和未掌握电路；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：已蚀刻电路层×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-SEM","title":"鸣霆超导电磁天枢","lab":4,"tier":14,"executor":"I43","recipe":"industrial_experiment_sem","existing":false,"prerequisites":["RN-CEE","RN-TCA"],"facts":["electromagnetic_test"],"precursor":"polarized_electromagnetic_material","ticks":2560,"energy_tier":27,"provisional":false,"unlocks":["W04"],"source":"文明工程验收中心实物无损表征与检测","success":"实际电磁响应及供能/冷却回执通过检测，试件不充当雷之律者·鸣霆·超导电磁天枢量产材料；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：极化电磁材料×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-IFF","title":"长风理想流体环流","lab":4,"tier":14,"executor":"I43","recipe":"industrial_experiment_iff","existing":false,"prerequisites":["RN-CEE","RN-WCA","RN-GPR","RN-HLC"],"facts":["flow_test","gas_purification","recovery_heat"],"precursor":"process_gas_filter","ticks":2560,"energy_tier":27,"provisional":false,"unlocks":["W05"],"source":"文明工程验收中心实物无损表征与检测","success":"真实输入输出、循环补液和热交换结果可追溯，明确损耗，不靠库存差额推断来源；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-CCF","title":"永霜极低温凝态","lab":4,"tier":14,"executor":"I43","recipe":"industrial_experiment_ccf","existing":false,"prerequisites":["RN-CEE","RN-ICA"],"facts":["cryogenic_test"],"precursor":"cryogenic_condensed_material","ticks":2560,"energy_tier":27,"provisional":false,"unlocks":["W06"],"source":"文明工程验收中心实物无损表征与检测","success":"真实完成低温处理并核对介质和能源消耗，样品来源与温控记录对应；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：深冷凝聚材料×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-IAR","title":"穹界虚数锚定环","lab":4,"tier":15,"executor":"I43","recipe":"industrial_experiment_iar","existing":false,"prerequisites":["RN-CEE","RN-IAA","RN-VCA","RN-WME"],"facts":["imaginary_anchor","world_maintenance"],"precursor":"soulium_anchor_component","ticks":2600,"energy_tier":28,"provisional":false,"unlocks":["W03"],"source":"文明工程验收中心实物无损表征与检测","success":"核验既有锚定设备的真实工况与局部扰动响应，不提前运行文明级锚定环；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-MRA","title":"生息物质再生方舟","lab":4,"tier":15,"executor":"I43","recipe":"industrial_experiment_mra","existing":false,"prerequisites":["RN-CEE","RN-SFR","RN-GPR","RN-SMR"],"facts":["recovery_medium","recovery_spent_rods","gas_purification"],"precursor":"recovered_fuel_casing_material","ticks":2600,"energy_tier":28,"provisional":false,"unlocks":["W07"],"source":"文明工程验收中心实物无损表征与检测","success":"核验真实投入、回收与不可回收残渣，排除重复统计同一批次；试验不额外生成回收物；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：回收燃料壳体材料×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-SFF","title":"劫焰恒星熔铸","lab":4,"tier":15,"executor":"I43","recipe":"industrial_experiment_sff","existing":false,"prerequisites":["RN-CEE","RN-FCA","RN-URE"],"facts":["flame_test","ultra_reactor_load"],"precursor":"extreme_casting_material","ticks":2600,"energy_tier":28,"provisional":false,"unlocks":["W08"],"source":"文明工程验收中心实物无损表征与检测","success":"实际完成高温加工、安全冷却和能耗回执核验，试件不是炎之律者·劫焰·恒星熔铸炉的正式产物；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：极限铸造材料×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-GSF","title":"坠星引力奇点铸造","lab":4,"tier":15,"executor":"I43","recipe":"industrial_experiment_gsf","existing":false,"prerequisites":["RN-CEE","RN-GCA","RN-SEK","RN-SWS"],"facts":["compression_test","simulation_created","simulation_stabilized"],"precursor":"soulium_anchor_component","ticks":2600,"energy_tier":28,"provisional":false,"unlocks":["W10"],"source":"文明工程验收中心实物无损表征与检测","success":"实际完成压缩响应并关联模拟种子工艺记录，试验不产文明工程奇点；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-ECB","title":"戒律能量约束壁","lab":4,"tier":15,"executor":"I43","recipe":"industrial_experiment_ecb","existing":false,"prerequisites":["RN-CEE","RN-BCA","RN-JOK","RN-RAT"],"facts":["binding_test"],"precursor":"imitation_binding_core","ticks":2600,"energy_tier":28,"provisional":false,"unlocks":["W12"],"source":"文明工程验收中心实物无损表征与检测","success":"实际完成开启/解除约束和输入输出计量；验证不把抑制能量返充账户；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：仿制约束之律者核心×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-CLE","title":"文明认知穹顶工程","lab":4,"tier":15,"executor":"I43","recipe":"industrial_experiment_cle","existing":false,"prerequisites":["RN-WME","RN-CEE","RN-HCCO","RN-ILE"],"facts":["lab_four_interface","three_domains"],"precursor":"soulium_data_substrate","ticks":2600,"energy_tier":28,"provisional":false,"unlocks":["S05"],"source":"文明工程验收中心实物无损表征与检测","success":"以现有世界维系研究所可提供的接口试件和真实资料完成联调，仅输出工程证据，随后在世界维系研究所正常支付并研究；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-ELC","title":"能源负载协调","lab":4,"tier":13,"executor":"I32","recipe":"industrial_experiment_elc","existing":false,"prerequisites":["RN-CED","RN-WME","RN-LTA"],"facts":["manual_dispatch_multiple"],"precursor":"soulium_data_substrate","ticks":2520,"energy_tier":26,"provisional":false,"unlocks":[],"source":"遗留技术逆向实验室实物无损表征与检测","success":"实际运行与手动开停产生可核对的多设备时间线，验证未授权/余额不足时不继续推进；不先启用待解锁自动优先级；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S04"},{"id":"RN-CKV","title":"万象文明共识矩阵","lab":5,"tier":16,"executor":"I43","recipe":"industrial_experiment_ckv","existing":false,"prerequisites":["RN-CLE","RN-IAR","RN-LTA","RN-CEE"],"facts":["contradiction_retest","three_domains"],"precursor":"world_model_carrier","ticks":3040,"energy_tier":29,"provisional":false,"unlocks":["W09"],"source":"文明工程验收中心实物无损表征与检测","success":"实际复验区分事实、推论与无法判定项，保留原文和实验来源；不靠选择预设立场获得证据；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S05"},{"id":"RN-DIO","title":"千律分布式工业统御","lab":5,"tier":16,"executor":"I43","recipe":"industrial_experiment_dio","existing":false,"prerequisites":["RN-CLE","RN-AIM","RN-CED","RN-CEE"],"facts":["cross_machine_order"],"precursor":"industrial_work_drone","ticks":3040,"energy_tier":29,"provisional":false,"unlocks":["W11"],"source":"文明工程验收中心实物无损表征与检测","success":"不同设备完成同一订单关联工序，投入、产物和权限回执对应；研究前可手动交接，不要求已有支配之律者·千律·分布式工业统御阵自动统御；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：工业作业无人机×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S05"},{"id":"RN-ASR","title":"蚀界自演算研究母机","lab":5,"tier":16,"executor":"I43","recipe":"industrial_experiment_asr","existing":false,"prerequisites":["RN-CLE","RN-ECA","RN-CPT","RN-LTA","RN-CEE"],"facts":["bounded_computation"],"precursor":"imitation_corruption_core","ticks":3040,"energy_tier":29,"provisional":false,"unlocks":["W13"],"source":"文明工程验收中心实物无损表征与检测","success":"实际耗能运行有限基准演算，结果可重复核对并验证可停止；不先加速本课题，不重新授予已完成课题奖励；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：仿制侵蚀之律者核心×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S05"},{"id":"RN-WCE","title":"终序世界泡轮回引擎","lab":5,"tier":16,"executor":"I43","recipe":"industrial_experiment_wce","existing":false,"prerequisites":["RN-CLE","RN-SWR","RN-WME","RN-SWC","RN-SWS","RN-CEE"],"facts":["simulation_full_chain"],"precursor":"world_model_carrier","ticks":3040,"energy_tier":29,"provisional":false,"unlocks":["W14"],"source":"文明工程验收中心实物无损表征与检测","success":"同一批次实际耗料、耗能、稳定及终止成功且仅结算一次；封存或暂停不算完成，不拼接不同批次；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"W13 蚀界·自演算研究母机"},{"id":"RN-CAV","title":"文明成果交叉验证","lab":5,"tier":16,"executor":"I43","recipe":"industrial_experiment_cav","existing":false,"prerequisites":["RN-CKV","RN-DIO","RN-ASR","RN-WCE","RN-CEE"],"facts":["wonder_W09","wonder_W11","wonder_W13","wonder_W14"],"precursor":"soulium_data_substrate","ticks":3040,"energy_tier":29,"provisional":false,"unlocks":[],"source":"文明工程验收中心实物无损表征与检测","success":"提交四座设备各自的运行记录与工程档案，核对来源和成果；每份记录只计一次。受检物原量返还，完成实验后记录结果。","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S05"},{"id":"RN-TAA","title":"凌霄树海朝觐圣座","lab":5,"tier":16,"executor":"I43","recipe":"industrial_experiment_taa","existing":false,"prerequisites":["RN-CAV","RN-HCCO","RN-AIM","RN-SEM","RN-IFF","RN-CCF","RN-IAR","RN-MRA","RN-SFF","RN-GSF","RN-ECB","RN-HVI","RN-CEE"],"facts":["all_fourteen_wonders","ship_acceptance","cross_domain_report"],"precursor":"soulium_data_substrate","ticks":3040,"energy_tier":29,"provisional":false,"unlocks":["W15"],"source":"文明工程验收中心实物无损表征与检测","success":"按类型核验14种不同奇观的真实成果和舰船记录，不以14台同类型机器或14个控制器代替；预检成功只给TAA研究证据；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"W13 蚀界·自演算研究母机"},{"id":"RN-DVC","title":"跨领域工况校验","lab":5,"tier":16,"executor":"I32","recipe":"industrial_experiment_dvc","existing":false,"prerequisites":["RN-CKV","RN-CAV","RN-LTA"],"facts":["three_domain_difference"],"precursor":"world_model_carrier","ticks":3040,"energy_tier":29,"provisional":false,"unlocks":[],"source":"遗留技术逆向实验室实物无损表征与检测","success":"实际比较崩坏、量子与虚数工况在各自条件下的差异，能追溯原始实验；不能统一删掉不同结果或用三份复制资料凑数；受检物原量返还，实验以机器真实结算为准","inputs":"受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用","formal_executor":"S05"}]}
+{
+  "schema": 1,
+  "revision": 284,
+  "structure_approval": false,
+  "topics": [
+    {
+      "id": "RN-HED",
+      "title": "崩坏能识别",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I01-1",
+      "recipe": "approved_hbv_r11",
+      "existing": true,
+      "prerequisites": [],
+      "facts": [],
+      "precursor": "prototype_honkai_detector",
+      "ticks": 600,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [],
+      "source": "一阶崩坏能采集塔首次液态采样",
+      "success": "采集塔实际消耗1,000,000mB液态空气并成功输出100mB液态崩坏能；不要求同意合作",
+      "inputs": "奥托首信观察资料；试作型崩坏能探测器×1不消耗；液态空气1,000,000mB；MAX电力与流体输入、输出。",
+      "formal_executor": "S01",
+      "workingEUt": "2013265920",
+      "designRecipe": "HBV:R11"
+    },
+    {
+      "id": "RN-HSA",
+      "title": "样本光谱解析",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I02",
+      "recipe": "approved_hbv_r13",
+      "existing": true,
+      "prerequisites": [
+        "RN-HED"
+      ],
+      "facts": [],
+      "precursor": "honkai_analysis_sample",
+      "ticks": 600,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "I03"
+      ],
+      "source": "崩坏能样本光谱分析阵列初始光谱实验",
+      "success": "完成初始光谱实验，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按初始光谱实验登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "2013265920",
+      "designRecipe": "HBV:R13"
+    },
+    {
+      "id": "RN-LSE",
+      "title": "液态分离工艺",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I03",
+      "recipe": "approved_hbv_r14",
+      "existing": true,
+      "prerequisites": [
+        "RN-HSA"
+      ],
+      "facts": [],
+      "precursor": "separation_filter",
+      "ticks": 1600,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "I04"
+      ],
+      "source": "崩坏能离心分离中心首次分馏",
+      "success": "完成初级分馏，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按初级分馏登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "2013265920",
+      "designRecipe": "HBV:R14"
+    },
+    {
+      "id": "RN-LES",
+      "title": "液态崩坏能稳定化",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I04",
+      "recipe": "approved_hbv_r18",
+      "existing": true,
+      "prerequisites": [
+        "RN-LSE"
+      ],
+      "facts": [],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 2400,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [],
+      "source": "液态崩坏能稳定塔稳定化",
+      "success": "完成液态崩坏能稳定化，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按液态崩坏能稳定化登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "2013265920",
+      "designRecipe": "HBV:R18"
+    },
+    {
+      "id": "RN-BCE",
+      "title": "起步电路适配",
+      "lab": 1,
+      "tier": 0,
+      "executor": "I02",
+      "recipe": "approved_hcv_p02",
+      "existing": true,
+      "prerequisites": [
+        "RN-LES"
+      ],
+      "facts": [],
+      "precursor": "honkai_adapted_circuit_substrate",
+      "ticks": 800,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "I05",
+        "I06",
+        "I07"
+      ],
+      "source": "崩坏能样本光谱分析阵列现有电路兼容试验",
+      "success": "完成起步电路适配实验，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按起步电路适配实验登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "2013265920",
+      "designRecipe": "HCV:P02"
+    },
+    {
+      "id": "RN-DMT",
+      "title": "探测器校准",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I07",
+      "recipe": "industrial_prototype_detector_calibration",
+      "existing": true,
+      "prerequisites": [
+        "RN-HSA",
+        "RN-BCE"
+      ],
+      "facts": [],
+      "precursor": "prototype_honkai_detector",
+      "ticks": 840,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [],
+      "source": "探测器精密校准台现有对照校准",
+      "success": "输出校准报告并返回原探测器；不是单纯取走探测器",
+      "inputs": "零阶探测器、参考样本、分析样本、纸与铂箔",
+      "formal_executor": "S01"
+    },
+    {
+      "id": "RN-SMR",
+      "title": "稳定介质再生",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I05",
+      "recipe": "approved_hcv_p07",
+      "existing": true,
+      "prerequisites": [
+        "RN-BCE"
+      ],
+      "facts": [],
+      "precursor": "separation_filter",
+      "ticks": 1800,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [],
+      "source": "稳定介质再生塔基础稳定介质再生",
+      "success": "完成基础稳定介质再生与性能检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按基础稳定介质再生与性能检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "8053063680",
+      "designRecipe": "HCV:P07"
+    },
+    {
+      "id": "RN-HFB",
+      "title": "崩坏燃料调配",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I06",
+      "recipe": "approved_hcv_p09",
+      "existing": true,
+      "prerequisites": [
+        "RN-BCE"
+      ],
+      "facts": [],
+      "precursor": "fuel_matrix",
+      "ticks": 2200,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [
+        "I17"
+      ],
+      "source": "崩坏能燃料调配厂已有液态燃料调配",
+      "success": "完成液态崩坏燃料调配，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按液态崩坏燃料调配登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "8053063680",
+      "designRecipe": "HCV:P09"
+    },
+    {
+      "id": "RN-FRP",
+      "title": "低阶燃料棒封装",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I02",
+      "recipe": "approved_hdv_p04",
+      "existing": true,
+      "prerequisites": [
+        "RN-HFB"
+      ],
+      "facts": [],
+      "precursor": "honkai_fuel_rod",
+      "ticks": 1600,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [
+        "I18"
+      ],
+      "source": "HDV:P01/P02→HDV:P03首制普通棒→HDV:P04无损抽检",
+      "success": "完成低阶燃料棒无损封装抽检，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按低阶燃料棒无损封装抽检登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "designRecipe": "HDV:P04",
+      "workingEUt": "8053063680",
+      "formal_executor": "S01"
+    },
+    {
+      "id": "RN-SRE",
+      "title": "小型反应堆工程",
+      "lab": 1,
+      "tier": 1,
+      "executor": "I02",
+      "recipe": "approved_hdv_p06",
+      "existing": false,
+      "prerequisites": [
+        "RN-FRP",
+        "RN-SMR"
+      ],
+      "facts": [],
+      "precursor": "honkai_fuel_rod_casing",
+      "ticks": 1800,
+      "energy_tier": 16,
+      "provisional": false,
+      "unlocks": [
+        "I19"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成小型反应堆冷态联锁检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按小型反应堆冷态联锁检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "designRecipe": "HDV:P06",
+      "workingEUt": "32212254720",
+      "formal_executor": "S01"
+    },
+    {
+      "id": "RN-HLC",
+      "title": "冷却剂换热回流",
+      "lab": 1,
+      "tier": 2,
+      "executor": "I02",
+      "recipe": "approved_hdv_p20",
+      "existing": false,
+      "prerequisites": [
+        "RN-SRE",
+        "RN-SMR"
+      ],
+      "facts": [
+        "reactor_load"
+      ],
+      "precursor": "fuel_encapsulation_part",
+      "ticks": 2000,
+      "energy_tier": 16,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成反应堆热回路与密封件表征，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按反应堆热回路与密封件表征登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "designRecipe": "HDV:P20",
+      "workingEUt": "32212254720",
+      "formal_executor": "S01"
+    },
+    {
+      "id": "RN-SFR",
+      "title": "失活燃料后处理",
+      "lab": 1,
+      "tier": 2,
+      "executor": "I02",
+      "recipe": "approved_hdv_p21",
+      "existing": false,
+      "prerequisites": [
+        "RN-SRE",
+        "RN-LSE"
+      ],
+      "facts": [
+        "reactor_spent_rod"
+      ],
+      "precursor": "depleted_honkai_fuel_rod",
+      "ticks": 2000,
+      "energy_tier": 16,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成乏燃料无损表征，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按乏燃料无损表征登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "designRecipe": "HDV:P21",
+      "workingEUt": "32212254720",
+      "formal_executor": "S01"
+    },
+    {
+      "id": "RN-RAT",
+      "title": "现实稳定锚原理",
+      "lab": 1,
+      "tier": 2,
+      "executor": "I02",
+      "recipe": "industrial_experiment_rat",
+      "existing": false,
+      "prerequisites": [
+        "RN-HSA",
+        "RN-LES"
+      ],
+      "facts": [],
+      "precursor": "honkai_reference_sample",
+      "ticks": 880,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [
+        "I36"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "同一试件的干扰前后读数形成有效检测回执；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏能标准样本×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S01"
+    },
+    {
+      "id": "RN-SSP",
+      "title": "魂钢前驱体",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "approved_hcv_p22",
+      "existing": false,
+      "prerequisites": [
+        "RN-LES",
+        "RN-SMR"
+      ],
+      "facts": [],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1440,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [
+        "I09"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成魂钢前驱定向成核检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按魂钢前驱定向成核检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "8053063680",
+      "designRecipe": "HCV:P22"
+    },
+    {
+      "id": "RN-NBS",
+      "title": "纳米基元合成",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "approved_hcv_p23",
+      "existing": false,
+      "prerequisites": [
+        "RN-SSP"
+      ],
+      "facts": [
+        "soulium_precursor"
+      ],
+      "precursor": "soulium_microstructure_template",
+      "ticks": 1440,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [
+        "I10"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成魂钢模板微结构检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按魂钢模板微结构检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "8053063680",
+      "designRecipe": "HCV:P23"
+    },
+    {
+      "id": "RN-NRA",
+      "title": "纳米机器人装配",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "approved_hcv_p24",
+      "existing": false,
+      "prerequisites": [
+        "RN-NBS"
+      ],
+      "facts": [
+        "nano_building"
+      ],
+      "precursor": "nano_building_unit",
+      "ticks": 1440,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [
+        "I11"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成纳米构筑单元启动检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按纳米构筑单元启动检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "8053063680",
+      "designRecipe": "HCV:P24"
+    },
+    {
+      "id": "RN-NSP",
+      "title": "纳米自组织编程",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "approved_hcv_p25",
+      "existing": false,
+      "prerequisites": [
+        "RN-NRA"
+      ],
+      "facts": [
+        "nano_assembly"
+      ],
+      "precursor": "unprogrammed_nanobot",
+      "ticks": 1440,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [
+        "I12"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成未编程机器人受限指令检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按未编程机器人受限指令检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "8053063680",
+      "designRecipe": "HCV:P25"
+    },
+    {
+      "id": "RN-CBS",
+      "title": "适配基板生长",
+      "lab": 1,
+      "tier": 3,
+      "executor": "I02",
+      "recipe": "approved_hrv_e17",
+      "existing": false,
+      "prerequisites": [
+        "RN-NSP",
+        "RN-BCE"
+      ],
+      "facts": [],
+      "precursor": "controlled_nano_swarm",
+      "ticks": 920,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成适配基板纳米群模板表征，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按适配基板纳米群模板表征登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "8053063680",
+      "designRecipe": "HRV:E17"
+    },
+    {
+      "id": "RN-HRC",
+      "title": "崩坏抗性包覆",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "approved_hcv_p26",
+      "existing": false,
+      "prerequisites": [
+        "RN-NSP"
+      ],
+      "facts": [
+        "nano_control"
+      ],
+      "precursor": "controlled_nano_swarm",
+      "ticks": 1440,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [
+        "I13"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成受控纳米群抗性界面检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按受控纳米群抗性界面检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "8053063680",
+      "designRecipe": "HCV:P26"
+    },
+    {
+      "id": "RN-SPC",
+      "title": "魂钢聚合压铸",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "approved_hrv_s05",
+      "existing": false,
+      "prerequisites": [
+        "RN-HRC"
+      ],
+      "facts": [],
+      "precursor": "coated_nano_swarm",
+      "ticks": 2400,
+      "energy_tier": 16,
+      "provisional": false,
+      "unlocks": [
+        "I14"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成包覆群聚合适用性检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按包覆群聚合适用性检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "32212254720",
+      "designRecipe": "HRV:S05"
+    },
+    {
+      "id": "RN-SRA",
+      "title": "魂钢重构退火",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "approved_hrv_s10",
+      "existing": false,
+      "prerequisites": [
+        "RN-SPC"
+      ],
+      "facts": [],
+      "precursor": "soulium_proto_mass",
+      "ticks": 2400,
+      "energy_tier": 16,
+      "provisional": false,
+      "unlocks": [
+        "I15"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成粗魂钢退火窗口检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按粗魂钢退火窗口检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "32212254720",
+      "designRecipe": "HRV:S10"
+    },
+    {
+      "id": "RN-SPM",
+      "title": "魂钢精密加工",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "approved_hrv_s13",
+      "existing": false,
+      "prerequisites": [
+        "RN-SRA"
+      ],
+      "facts": [],
+      "precursor": "stabilized_soulium_proto_mass",
+      "ticks": 2400,
+      "energy_tier": 16,
+      "provisional": false,
+      "unlocks": [
+        "I16"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成稳定魂钢加工公差检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按稳定魂钢加工公差检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "32212254720",
+      "designRecipe": "HRV:S13"
+    },
+    {
+      "id": "RN-MCE",
+      "title": "多层电路蚀刻",
+      "lab": 1,
+      "tier": 4,
+      "executor": "I02",
+      "recipe": "approved_qsv_p01",
+      "existing": false,
+      "prerequisites": [
+        "RN-CBS",
+        "RN-SPM"
+      ],
+      "facts": [
+        "substrate_growth",
+        "soulium_processing"
+      ],
+      "precursor": "honkai_adapted_circuit_substrate",
+      "ticks": 1800,
+      "energy_tier": 17,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成多层电路层间连通与绝缘检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按多层电路层间连通与绝缘检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S01",
+      "workingEUt": "128849018880",
+      "designRecipe": "QSV:P01"
+    },
+    {
+      "id": "RN-ALE",
+      "title": "高级材料研究所工程",
+      "lab": 1,
+      "tier": 4,
+      "executor": "S01",
+      "recipe": "LAB-ALE",
+      "existing": true,
+      "prerequisites": [
+        "RN-SPM",
+        "RN-MCE"
+      ],
+      "facts": [],
+      "precursor": "etched_circuit_layer",
+      "ticks": 2400,
+      "energy_tier": 14,
+      "provisional": false,
+      "unlocks": [
+        "S02"
+      ],
+      "source": "崩坏现象研究所独立工程试验任务",
+      "success": "在崩坏现象研究所完成120秒设施负载试验，持续供电；完成后返还四类受检物并记录实验结果。",
+      "inputs": "魂钢板64、魂钢细线64、已蚀刻电路层16、HRV传感器2，受检物完成后原量返还；消耗纸16。",
+      "formal_executor": "S01",
+      "workingEUt": "2013265920",
+      "designRecipe": "QSV:P02"
+    },
+    {
+      "id": "RN-OPR",
+      "title": "介质损耗优化",
+      "lab": 1,
+      "tier": 2,
+      "executor": "S01",
+      "recipe": "LAB-OPR",
+      "existing": true,
+      "prerequisites": [
+        "RN-HLC",
+        "RN-SFR"
+      ],
+      "facts": [
+        "recovery_medium",
+        "recovery_heat",
+        "recovery_spent_rods"
+      ],
+      "precursor": "separation_filter",
+      "ticks": 880,
+      "energy_tier": 15,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏现象研究所独立收支核验任务",
+      "success": "至少各一种有效成功批次，核对实际输入输出及损耗；同一批次只计一次",
+      "inputs": "稳定介质再生塔介质回收、热循环换热和乏燃料后处理的真实批次回执",
+      "formal_executor": "S01"
+    },
+    {
+      "id": "RN-SSC",
+      "title": "固态崩坏能采集",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_ssc",
+      "existing": false,
+      "prerequisites": [
+        "RN-ALE",
+        "RN-DMT",
+        "RN-SPM"
+      ],
+      "facts": [
+        "liquid_collection"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [
+        "I01-2"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实完成液态样本与约束试件的响应检测，关联原采集和制样批次；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-CCE",
+      "title": "仿制核心结晶",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_cce",
+      "existing": false,
+      "prerequisites": [
+        "RN-SSC"
+      ],
+      "facts": [
+        "solid_collection"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [
+        "I08"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实结晶试样经成分和晶格检测形成有效回执；试晶不具有核心能力；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-CFR",
+      "title": "高阶燃料棒与浓缩燃料精制",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I17",
+      "recipe": "industrial_liquid_fuel_concentration",
+      "existing": true,
+      "prerequisites": [
+        "RN-HFB"
+      ],
+      "facts": [],
+      "precursor": "fuel_matrix",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "沿用浓缩崩坏能燃料精制厂液态燃料浓缩成功入口",
+      "success": "现有浓缩配方实际输出提交成功；证据可提前记录，正式研究仍核对SSC、HFB和FRP",
+      "inputs": "HFB后可得液态燃料与既有浓缩耗材",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-MRE",
+      "title": "中型反应堆工程",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_mre",
+      "existing": false,
+      "prerequisites": [
+        "RN-CFR",
+        "RN-HLC",
+        "RN-SFR",
+        "RN-SRE"
+      ],
+      "facts": [
+        "reactor_load",
+        "recovery_heat",
+        "recovery_spent_rods"
+      ],
+      "precursor": "fuel_encapsulation_part",
+      "ticks": 2100,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [
+        "I20"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "试件实际完成受控热响应和密封检测；核验已有发电、换热、后处理批次；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "燃料封装组件×1；纸×2；工装不消耗。",
+      "designRecipe": "EXISTING:industrial_experiment_mre",
+      "workingEUt": "515396075520",
+      "powerSupply": "前代I19／I20／I21高能工况分别供给HDV／QAV／WFV实际功率；前代真实发电、换热与材料事实继续核验。",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-CPT",
+      "title": "电路封装与工况测试",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_cpt",
+      "existing": false,
+      "prerequisites": [
+        "RN-ALE",
+        "RN-MCE",
+        "RN-SSC",
+        "RN-SPM"
+      ],
+      "facts": [
+        "circuit_etching"
+      ],
+      "precursor": "etched_circuit_layer",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "封装试件完成导通、绝缘与热循环检测；检测件不是可用于造首机的新级电路；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：已蚀刻电路层×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-ERA",
+      "title": "强化现实稳定",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_era",
+      "existing": false,
+      "prerequisites": [
+        "RN-RAT",
+        "RN-CCE"
+      ],
+      "facts": [
+        "anchor_basic"
+      ],
+      "precursor": "soulium_anchor_component",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "对同一基准记录强化前后的稳定偏差，真实耗材耗电运行，未启用待解锁强化模式；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-GSC",
+      "title": "气态崩坏能采集",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_gsc",
+      "existing": false,
+      "prerequisites": [
+        "RN-SSC",
+        "RN-MRE"
+      ],
+      "facts": [
+        "liquid_collection",
+        "solid_collection"
+      ],
+      "precursor": "soulium_anchor_component",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [
+        "I01-3"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实完成液固记录与试件的封闭场响应对照；试验不产可用气态崩坏能；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-PCE",
+      "title": "相变释能工程",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_pce",
+      "existing": false,
+      "prerequisites": [
+        "RN-GSC",
+        "RN-HLC"
+      ],
+      "facts": [
+        "gas_collection"
+      ],
+      "precursor": "process_gas_filter",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [
+        "I23"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "封装气态样本完成受控相变与能量损耗测量，不向电网返还未定量的试验能量；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-GPR",
+      "title": "异质工艺气体净化",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_gpr",
+      "existing": false,
+      "prerequisites": [
+        "RN-GSC",
+        "RN-SMR"
+      ],
+      "facts": [
+        "gas_exhaust"
+      ],
+      "precursor": "depleted_gas_filter",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "比较真实进出气样和过滤残渣，关联生成排气的批次；新鲜气体用于工况启动；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：失效工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-FCA",
+      "title": "仿制炎核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_fca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE"
+      ],
+      "facts": [
+        "crystal_growth"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "试晶在受控热输入下形成可重复检测回执；消耗或封存试晶，不能直接交付正式炎核心；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-ICA",
+      "title": "仿制冰核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_ica",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-HLC"
+      ],
+      "facts": [
+        "crystal_growth"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "实际记录降温及回温响应，冷却介质收支与试晶批次对应；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-RCA",
+      "title": "仿制理核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_rca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-CPT"
+      ],
+      "facts": [
+        "crystal_growth",
+        "circuit_packaging"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实完成已知构件结构对照；不在试验中复制新物品或授予未掌握电路；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-VCA",
+      "title": "仿制空核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_vca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-ERA"
+      ],
+      "facts": [
+        "crystal_growth",
+        "anchor_basic"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "同一基准下完成空间定位偏差测量，记录工装、场与试晶来源；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-ECA",
+      "title": "仿制侵蚀核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_eca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-CPT"
+      ],
+      "facts": [
+        "crystal_growth",
+        "circuit_packaging"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实完成固定测试输入、结果校验及停止指令；记录电耗和输出，异常不算成功；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-GCA",
+      "title": "仿制岩核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_gca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE"
+      ],
+      "facts": [
+        "crystal_growth"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "检测有场/基准条件下试件的响应差异，形成可追溯批次；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-BCA",
+      "title": "仿制约束核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_bca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-ERA"
+      ],
+      "facts": [
+        "crystal_growth",
+        "anchor_basic"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实测量同一输入下能流传递与抑制效果，完整记录消耗与残余输出；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-TCA",
+      "title": "仿制雷核心",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "industrial_experiment_tca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-CPT"
+      ],
+      "facts": [
+        "crystal_growth",
+        "circuit_packaging"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1400,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实完成既定脉冲输入和输出响应测量，输入电力照常消耗；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-WCA",
+      "title": "仿制风核心",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_wca",
+      "existing": false,
+      "prerequisites": [
+        "RN-CCE",
+        "RN-GSC"
+      ],
+      "facts": [
+        "crystal_growth",
+        "gas_collection"
+      ],
+      "precursor": "honkai_crystal_seed",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "实际消耗测试介质并记录压差/流量响应；回收部分与损耗分别记账；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-DKE",
+      "title": "神之键部件装配",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_dke",
+      "existing": false,
+      "prerequisites": [
+        "RN-CPT",
+        "RN-VCA",
+        "RN-SPM"
+      ],
+      "facts": [
+        "circuit_packaging"
+      ],
+      "precursor": "circuit_encapsulation_part",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [
+        "I33"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实完成核心封装、接口与安全停止检测；试验装配体不能当作成品神之键；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：电路封装组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-VAK",
+      "title": "仿制的虚空万藏",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I33",
+      "recipe": "industrial_experiment_vak",
+      "existing": false,
+      "prerequisites": [
+        "RN-DKE",
+        "RN-RCA"
+      ],
+      "facts": [
+        "divine_key_assembly"
+      ],
+      "precursor": "imitation_reason_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "验证既有制造清单结构及控制回路，输出测试记录；不产出制造清单外成品；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：仿制理之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-CJK",
+      "title": "仿制的千界一乘",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I33",
+      "recipe": "industrial_experiment_cjk",
+      "existing": false,
+      "prerequisites": [
+        "RN-DKE",
+        "RN-VCA"
+      ],
+      "facts": [
+        "divine_key_assembly"
+      ],
+      "precursor": "imitation_void_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [
+        "I44",
+        "I45"
+      ],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "完成同一已知基准坐标的稳定校准与回执提交，试件不能代替完整信标或列车结构；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：仿制空之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-SEK",
+      "title": "仿制的伊甸之星",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I33",
+      "recipe": "industrial_experiment_sek",
+      "existing": false,
+      "prerequisites": [
+        "RN-DKE",
+        "RN-GCA"
+      ],
+      "facts": [
+        "divine_key_assembly"
+      ],
+      "precursor": "imitation_rock_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "在安全范围实际完成压缩与释放对照；试验输出仅为检测件；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：仿制岩之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-JOK",
+      "title": "仿制的犹大的誓约",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I33",
+      "recipe": "industrial_experiment_jok",
+      "existing": false,
+      "prerequisites": [
+        "RN-DKE",
+        "RN-BCA"
+      ],
+      "facts": [
+        "divine_key_assembly"
+      ],
+      "precursor": "imitation_binding_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "固定输入下完成约束开启/解除的回路检测，结算实际能耗；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：仿制约束之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-QOM",
+      "title": "量子异常初观",
+      "lab": 2,
+      "tier": 7,
+      "executor": "I44",
+      "recipe": "industrial_beacon_calibration",
+      "existing": true,
+      "prerequisites": [
+        "RN-CJK"
+      ],
+      "facts": [],
+      "precursor": "spatial_calibration_module",
+      "ticks": 1480,
+      "energy_tier": 20,
+      "provisional": false,
+      "unlocks": [
+        "I24"
+      ],
+      "source": "仿制的千界一乘·信标坐标校准与异常观测工况",
+      "success": "校准模块完成观测后原量返还；输出结算后登记异常观测实验，不能仅持有模块或打开界面授予",
+      "inputs": "空间校准模块1；崩坏能基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-QLE",
+      "title": "量子研究所工程",
+      "lab": 2,
+      "tier": 7,
+      "executor": "I24",
+      "recipe": "industrial_quantum_observation",
+      "existing": true,
+      "prerequisites": [
+        "RN-QOM"
+      ],
+      "facts": [],
+      "precursor": "spatial_probe",
+      "ticks": 1480,
+      "energy_tier": 20,
+      "provisional": false,
+      "unlocks": [
+        "S03"
+      ],
+      "source": "量子异常观测阵列首次完成观测后的实验记录；物质重构研究所随后正常研究",
+      "success": "观测实际完成并保存回执即满足该项实验来源；不另加重复观测或二次交样",
+      "inputs": "量子异常观测阵列首次成功量子观测的原始记录与设备来源",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-SSQ",
+      "title": "魂钢质量控制",
+      "lab": 2,
+      "tier": 5,
+      "executor": "I02",
+      "recipe": "approved_qsv_p04",
+      "existing": false,
+      "prerequisites": [
+        "RN-ALE",
+        "RN-SPM",
+        "RN-SPC",
+        "RN-SRA"
+      ],
+      "facts": [
+        "soulium_polymerization",
+        "soulium_reconstruction",
+        "soulium_processing"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 2800,
+      "energy_tier": 18,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "完成魂钢多工序批次质量关联检测，将全部产物输出后记录本实验。运行期间持续消耗EU与HW。",
+      "inputs": "按魂钢多工序批次质量关联检测登记实际物品、流体和不消耗输入；受检物返还按该工艺输出执行。",
+      "formal_executor": "S02",
+      "workingEUt": "515396075520",
+      "designRecipe": "QSV:P04"
+    },
+    {
+      "id": "RN-CQS",
+      "title": "电路工况扩展",
+      "lab": 2,
+      "tier": 6,
+      "executor": "I02",
+      "recipe": "industrial_experiment_cqs",
+      "existing": false,
+      "prerequisites": [
+        "RN-CPT",
+        "RN-GSC"
+      ],
+      "facts": [
+        "circuit_packaging",
+        "gas_collection"
+      ],
+      "precursor": "circuit_encapsulation_part",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "真实完成封装工况扩展试验并记录样品性能；不消耗尚未能制造的高一电压种子；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：电路封装组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-ERM",
+      "title": "受控演算优化",
+      "lab": 2,
+      "tier": 6,
+      "executor": "S02",
+      "recipe": "LAB-ERM-AID",
+      "existing": true,
+      "prerequisites": [
+        "RN-ECA",
+        "RN-CPT",
+        "RN-ALE"
+      ],
+      "facts": [],
+      "precursor": "imitation_corruption_core",
+      "ticks": 1440,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "物质重构研究所的隔离演算对照实验",
+      "success": "比较普通与核心辅助演算的真实结果、耗时和停止边界；通过仅记实验，不返还研究点",
+      "inputs": "ECA已可造侵蚀核心、CPT控制回路、同一固定演算任务及已有普通研究结果",
+      "formal_executor": "S02"
+    },
+    {
+      "id": "RN-WCP",
+      "title": "世界泡坐标解析",
+      "lab": 3,
+      "tier": 7,
+      "executor": "I24",
+      "recipe": "industrial_experiment_wcp",
+      "existing": false,
+      "prerequisites": [
+        "RN-QLE",
+        "RN-QOM",
+        "RN-CJK"
+      ],
+      "facts": [
+        "enhanced_beacon_signal",
+        "cocoon_authorization"
+      ],
+      "precursor": "spatial_probe",
+      "ticks": 1880,
+      "energy_tier": 20,
+      "provisional": false,
+      "unlocks": [
+        "I25"
+      ],
+      "source": "量子异常观测阵列实物无损表征与检测",
+      "success": "原始目标观测与误差拟合真实完成；输出研究用记录，不提前生成供世界泡无人采掘调度台使用的正式坐标；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-UAA",
+      "title": "无人作业装置装配",
+      "lab": 3,
+      "tier": 8,
+      "executor": "I02",
+      "recipe": "industrial_experiment_uaa",
+      "existing": false,
+      "prerequisites": [
+        "RN-WCP",
+        "RN-SPM",
+        "RN-CPT",
+        "RN-HSA"
+      ],
+      "facts": [
+        "soulium_processing",
+        "circuit_packaging"
+      ],
+      "precursor": "unprogrammed_nanobot",
+      "ticks": 1920,
+      "energy_tier": 21,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "试件实际完成执行器驱动、指令响应和停止检测；不发射任务、不取世界泡资源；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：未编程纳米机器人×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-UED",
+      "title": "无人世界泡采掘",
+      "lab": 3,
+      "tier": 8,
+      "executor": "I11",
+      "recipe": "industrial_experiment_ued",
+      "existing": false,
+      "prerequisites": [
+        "RN-UAA",
+        "RN-WCP",
+        "RN-CJK"
+      ],
+      "facts": [
+        "coordinate_solution",
+        "drone_assembly"
+      ],
+      "precursor": "spatial_probe",
+      "ticks": 1920,
+      "energy_tier": 21,
+      "provisional": false,
+      "unlocks": [
+        "I26"
+      ],
+      "source": "纳米机器人装配阵列实物无损表征与检测",
+      "success": "真实完成导航、载荷、通信及返回协议台架检查；核对目标身份与有效状态，不进行采掘结算；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-LTA",
+      "title": "遗留技术解析",
+      "lab": 3,
+      "tier": 8,
+      "executor": "I02",
+      "recipe": "industrial_experiment_lta",
+      "existing": false,
+      "prerequisites": [
+        "RN-UED",
+        "RN-HSA"
+      ],
+      "facts": [
+        "first_mining_legacy"
+      ],
+      "precursor": "world_mining_legacy_record",
+      "ticks": 1920,
+      "energy_tier": 21,
+      "provisional": false,
+      "unlocks": [
+        "I32"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "实际消耗检测耗材并检验任务返回资料，核验原成功任务；不能只持有古代遗产物品授予；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：真实采掘遗留资料×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-HBD",
+      "title": "仿制休伯利安图纸解读",
+      "lab": 3,
+      "tier": 8,
+      "executor": "I32",
+      "recipe": "industrial_ship_blueprint_analysis",
+      "existing": true,
+      "prerequisites": [
+        "RN-LTA",
+        "RN-UED"
+      ],
+      "facts": [
+        "ship_archive"
+      ],
+      "precursor": "ship_engineering_archive",
+      "ticks": 2400,
+      "energy_tier": 19,
+      "provisional": false,
+      "unlocks": [],
+      "source": "遗留技术逆向实验室首次有效舰船档案解析",
+      "success": "遗留技术逆向实验室实际解析有来源的档案，产出仿制休伯利安蓝图并取得舰船蓝图研究记录；本次解析只记录一次发现并发放一次物品",
+      "inputs": "遗留技术逆向方法研究完成后世界泡无人采掘调度台合格真实任务发现的舰船工程档案",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-HCC",
+      "title": "仿制舰体构件",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I02",
+      "recipe": "industrial_experiment_hcc",
+      "existing": false,
+      "prerequisites": [
+        "RN-HBD",
+        "RN-SPM",
+        "RN-UAA"
+      ],
+      "facts": [
+        "soulium_processing"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": false,
+      "unlocks": [],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "实际加工并检测龙骨连接、推进接口等试件；测试件不冒充正式舰体组件；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-HVI",
+      "title": "仿制舰系统整合",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I33",
+      "recipe": "industrial_experiment_hvi",
+      "existing": false,
+      "prerequisites": [
+        "RN-HCC",
+        "RN-SPM",
+        "RN-DKE"
+      ],
+      "facts": [
+        "ship_components"
+      ],
+      "precursor": "hyperion_navigation_module",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": false,
+      "unlocks": [
+        "H01"
+      ],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "供电、控制、导航接口在真实试验回路完成联调并安全停止；不要求整舰先成型；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：仿制休伯利安导航模块×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-BCC",
+      "title": "世界泡约束容器",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I33",
+      "recipe": "industrial_experiment_bcc",
+      "existing": false,
+      "prerequisites": [
+        "RN-WCP",
+        "RN-JOK",
+        "RN-SPM",
+        "RN-DKE"
+      ],
+      "facts": [
+        "vessel_shell"
+      ],
+      "precursor": "failed_containment_shell",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": false,
+      "unlocks": [],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "空载试壳完成密封和场稳定检验；仅形成检测记录，不生成封存世界泡；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：不合格收容壳体×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-WBC",
+      "title": "真实世界泡整体捕获",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I33",
+      "recipe": "industrial_experiment_wbc",
+      "existing": false,
+      "prerequisites": [
+        "RN-BCC",
+        "RN-UED",
+        "RN-DKE",
+        "RN-WCP"
+      ],
+      "facts": [
+        "coordinate_solution"
+      ],
+      "precursor": "empty_bubble_containment_vessel",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": false,
+      "unlocks": [
+        "I27"
+      ],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "真实耗电耗材完成容器容量、边界和锁定数据的校验；验证不改变真实目标状态、不占采掘次数；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：空世界泡收容容器×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-WTR",
+      "title": "真实世界泡终止回收",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I33",
+      "recipe": "industrial_experiment_wtr",
+      "existing": false,
+      "prerequisites": [
+        "RN-WBC",
+        "RN-DKE"
+      ],
+      "facts": [
+        "real_capture"
+      ],
+      "precursor": "spatial_calibration_module",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": false,
+      "unlocks": [
+        "I28"
+      ],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "真实执行控制试验并核对合法捕获回执；只演算安全边界，原目标保持封存，不产生终止资源；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：空间校准模块×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-LRE",
+      "title": "大型反应堆工程",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I02",
+      "recipe": "industrial_experiment_lre",
+      "existing": false,
+      "prerequisites": [
+        "RN-MRE",
+        "RN-PCE",
+        "RN-QLE",
+        "RN-HSA"
+      ],
+      "facts": [
+        "medium_reactor_load",
+        "phase_conversion"
+      ],
+      "precursor": "fuel_encapsulation_part",
+      "ticks": 2940,
+      "energy_tier": 22,
+      "provisional": false,
+      "unlocks": [
+        "I21"
+      ],
+      "source": "崩坏能样本光谱分析阵列实物无损表征与检测",
+      "success": "高负载运行与热收支记录齐全，包含设备和实际消耗；受检物原量返还，完成后记录实验结果。",
+      "inputs": "燃料封装组件×1；纸×2；工装不消耗。",
+      "designRecipe": "EXISTING:industrial_experiment_lre",
+      "workingEUt": "131941395333120",
+      "powerSupply": "前代I19／I20／I21高能工况分别供给HDV／QAV／WFV实际功率；前代真实发电、换热与材料事实继续核验。",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-SWC",
+      "title": "模拟世界泡构筑",
+      "lab": 3,
+      "tier": 10,
+      "executor": "I32",
+      "recipe": "industrial_experiment_swc",
+      "existing": false,
+      "prerequisites": [
+        "RN-WTR",
+        "RN-SEK",
+        "RN-LTA",
+        "RN-SPM"
+      ],
+      "facts": [
+        "real_termination"
+      ],
+      "precursor": "world_model_carrier",
+      "ticks": 2000,
+      "energy_tier": 23,
+      "provisional": false,
+      "unlocks": [
+        "I29"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "真实制样和模型验证成功，试验本身不创建可取资世界泡；关联真实终止记录而非只完成WTR研究；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-SWS",
+      "title": "模拟世界泡稳定",
+      "lab": 3,
+      "tier": 10,
+      "executor": "I32",
+      "recipe": "world:simulation_created",
+      "existing": true,
+      "prerequisites": [
+        "RN-SWC"
+      ],
+      "facts": [
+        "simulation_created"
+      ],
+      "precursor": "world_maintenance_specimen",
+      "ticks": 2000,
+      "energy_tier": 23,
+      "provisional": false,
+      "unlocks": [
+        "I30"
+      ],
+      "source": "模拟世界泡构筑机完成构筑后取得实验记录，量子域研究所随后正常研究",
+      "success": "构筑真实完成且独立批次已保存，初始状态记录完整；无需先由模拟世界泡稳定控制器稳定",
+      "inputs": "模拟世界泡构筑机实际构筑的初始模拟批次与模型误差/能流记录",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-SWR",
+      "title": "模拟世界泡终止回收",
+      "lab": 3,
+      "tier": 10,
+      "executor": "I32",
+      "recipe": "industrial_experiment_swr",
+      "existing": false,
+      "prerequisites": [
+        "RN-SWS",
+        "RN-WTR",
+        "RN-LTA"
+      ],
+      "facts": [
+        "simulation_stabilized"
+      ],
+      "precursor": "bubble_termination_charge",
+      "ticks": 2000,
+      "energy_tier": 23,
+      "provisional": false,
+      "unlocks": [
+        "I31"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "真实耗材耗电执行终止控制验证，原批次保持稳定，不提前生成资源或标为已终止；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：世界泡终止组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-VRC",
+      "title": "无人跨界航路中继",
+      "lab": 3,
+      "tier": 10,
+      "executor": "I32",
+      "recipe": "industrial_experiment_vrc",
+      "existing": false,
+      "prerequisites": [
+        "RN-UED",
+        "RN-SWS",
+        "RN-LTA"
+      ],
+      "facts": [
+        "distinct_mining_routes"
+      ],
+      "precursor": "spatial_probe",
+      "ticks": 2000,
+      "energy_tier": 23,
+      "provisional": false,
+      "unlocks": [
+        "I39"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "核验多个不同目标的独立成功任务和路由对照；同坐标多次或复制报告不能冒充多个目标；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-IOP",
+      "title": "虚数联系初观",
+      "lab": 3,
+      "tier": 11,
+      "executor": "I32",
+      "recipe": "industrial_experiment_iop",
+      "existing": false,
+      "prerequisites": [
+        "RN-SWR",
+        "RN-VRC",
+        "RN-LTA"
+      ],
+      "facts": [
+        "simulation_full_chain",
+        "distinct_mining_routes"
+      ],
+      "precursor": "world_model_carrier",
+      "ticks": 2040,
+      "energy_tier": 24,
+      "provisional": false,
+      "unlocks": [
+        "I34"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "实际分析已有工况及终止日志，确认同批状态变化与跨目标差异，输出初观前研究记录；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-ILE",
+      "title": "虚数研究所工程",
+      "lab": 3,
+      "tier": 11,
+      "executor": "I34",
+      "recipe": "industrial_imaginary_observation",
+      "existing": true,
+      "prerequisites": [
+        "RN-IOP"
+      ],
+      "facts": [],
+      "precursor": "spatial_probe",
+      "ticks": 2040,
+      "energy_tier": 24,
+      "provisional": false,
+      "unlocks": [
+        "S04"
+      ],
+      "source": "虚数之树观测阵列首次观测成功的实验记录；量子域研究所正常支付并研究",
+      "success": "实际观测完成后提交证据，不另加重复观察或要求提前造世界维系研究所",
+      "inputs": "虚数之树观测阵列首次成功虚数观测的原始设备、工况与观测记录",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-UPR",
+      "title": "无人装置返修",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I11",
+      "recipe": "industrial_experiment_upr",
+      "existing": false,
+      "prerequisites": [
+        "RN-UED",
+        "RN-UAA"
+      ],
+      "facts": [
+        "drone_return"
+      ],
+      "precursor": "worn_work_drone",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": false,
+      "unlocks": [],
+      "source": "纳米机器人装配阵列实物无损表征与检测",
+      "success": "实际执行故障定位与维修可行性检测，返回同一件待修装置；检测不提前恢复耐久或重复输出旧件；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：磨损的作业无人机×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-LTB",
+      "title": "异界资料交叉解析",
+      "lab": 3,
+      "tier": 9,
+      "executor": "I32",
+      "recipe": "industrial_experiment_ltb",
+      "existing": false,
+      "prerequisites": [
+        "RN-LTA",
+        "RN-VAK"
+      ],
+      "facts": [
+        "distinct_legacy_sources"
+      ],
+      "precursor": "world_mining_legacy_record",
+      "ticks": 1960,
+      "energy_tier": 22,
+      "provisional": false,
+      "unlocks": [],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "实际完成不同来源的资料与工艺证据对照；合作路线验证资料授权，独立路线无需合作授权，两者不必同时满足；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：真实采掘遗留资料×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S03"
+    },
+    {
+      "id": "RN-IAA",
+      "title": "虚数空间锚定",
+      "lab": 4,
+      "tier": 11,
+      "executor": "I33",
+      "recipe": "industrial_experiment_iaa",
+      "existing": false,
+      "prerequisites": [
+        "RN-ILE",
+        "RN-VCA",
+        "RN-SPM",
+        "RN-DKE"
+      ],
+      "facts": [
+        "imaginary_observation"
+      ],
+      "precursor": "soulium_anchor_component",
+      "ticks": 2440,
+      "energy_tier": 24,
+      "provisional": false,
+      "unlocks": [
+        "I35"
+      ],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "试件在已有空间工装中完成连接稳定性测试，关联虚数之树观测阵列观测和制样批次；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-ESC",
+      "title": "能量态崩坏能采集",
+      "lab": 4,
+      "tier": 12,
+      "executor": "I33",
+      "recipe": "industrial_experiment_esc",
+      "existing": false,
+      "prerequisites": [
+        "RN-IAA",
+        "RN-GSC",
+        "RN-DKE"
+      ],
+      "facts": [
+        "liquid_collection",
+        "solid_collection",
+        "gas_collection",
+        "imaginary_anchor"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 2480,
+      "energy_tier": 25,
+      "provisional": false,
+      "unlocks": [
+        "I01-4"
+      ],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "完成前三态与虚数联系的实际对照，记录场响应；试验不产可用能量态或免费HW；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-HER",
+      "title": "虚数能量整流",
+      "lab": 4,
+      "tier": 12,
+      "executor": "I33",
+      "recipe": "industrial_experiment_her",
+      "existing": false,
+      "prerequisites": [
+        "RN-ESC",
+        "RN-DKE"
+      ],
+      "facts": [
+        "energy_collection"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 2480,
+      "energy_tier": 25,
+      "provisional": false,
+      "unlocks": [
+        "I38"
+      ],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "真实消耗测试输入并测量能流/损耗，完成安全隔离；测试不向个人账户任意充值；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-CED",
+      "title": "文明能源调度",
+      "lab": 4,
+      "tier": 12,
+      "executor": "I32",
+      "recipe": "industrial_experiment_ced",
+      "existing": false,
+      "prerequisites": [
+        "RN-HER",
+        "RN-LTA",
+        "RN-HFB"
+      ],
+      "facts": [
+        "hw_injection",
+        "hw_load"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 2480,
+      "energy_tier": 25,
+      "provisional": false,
+      "unlocks": [
+        "I41"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "实际负载扣费与产能回执对应，核验付款账户、有效运行量和拒绝无授权操作；余额截图不算证据；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-WME",
+      "title": "世界维系试验",
+      "lab": 4,
+      "tier": 13,
+      "executor": "I33",
+      "recipe": "industrial_experiment_wme",
+      "existing": false,
+      "prerequisites": [
+        "RN-IAA",
+        "RN-CED",
+        "RN-RAT",
+        "RN-LTA",
+        "RN-DKE",
+        "RN-SWS"
+      ],
+      "facts": [
+        "imaginary_anchor",
+        "anchor_enhanced",
+        "hw_injection",
+        "manual_dispatch"
+      ],
+      "precursor": "soulium_anchor_component",
+      "ticks": 2520,
+      "energy_tier": 26,
+      "provisional": false,
+      "unlocks": [
+        "I37"
+      ],
+      "source": "仿制神之键装配中心实物无损表征与检测",
+      "success": "真实完成局部扰动响应、停止与恢复验证并关联输入/能流记录；测试局限于装置和样件；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-WMS",
+      "title": "文明奇观材料",
+      "lab": 4,
+      "tier": 13,
+      "executor": "I32",
+      "recipe": "industrial_experiment_wms",
+      "existing": false,
+      "prerequisites": [
+        "RN-WME",
+        "RN-SPM",
+        "RN-LTA"
+      ],
+      "facts": [
+        "world_maintenance"
+      ],
+      "precursor": "world_maintenance_specimen",
+      "ticks": 2520,
+      "energy_tier": 26,
+      "provisional": false,
+      "unlocks": [
+        "I40"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "试片真实制造并完成维系条件下的适配检测，不能将检测件当正式复合材料使用；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：世界维系工程样本×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-WPF",
+      "title": "奇观构件预制",
+      "lab": 4,
+      "tier": 13,
+      "executor": "I32",
+      "recipe": "industrial_experiment_wpf",
+      "existing": false,
+      "prerequisites": [
+        "RN-WMS",
+        "RN-SPM",
+        "RN-LTA"
+      ],
+      "facts": [
+        "composite_production"
+      ],
+      "precursor": "conducting_composite",
+      "ticks": 2520,
+      "energy_tier": 26,
+      "provisional": false,
+      "unlocks": [
+        "I42"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "实际完成接口、公差与承载试片检测，关联文明奇观材料合成中心产物批次；试片不是奇观控制器；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：高维导能复合材料×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-CEE",
+      "title": "文明工程验收方法",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I32",
+      "recipe": "industrial_experiment_cee",
+      "existing": false,
+      "prerequisites": [
+        "RN-WPF",
+        "RN-WME",
+        "RN-LTA"
+      ],
+      "facts": [
+        "prefabrication"
+      ],
+      "precursor": "world_maintenance_specimen",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": false,
+      "unlocks": [
+        "I43"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "真实检测已知基准件，并验证判定规则能区分合格/不合格样件；只形成验收方法证据；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：世界维系工程样本×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-URE",
+      "title": "究极反应堆工程",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I32",
+      "recipe": "industrial_experiment_ure",
+      "existing": false,
+      "prerequisites": [
+        "RN-LRE",
+        "RN-CED",
+        "RN-WMS",
+        "RN-LTA"
+      ],
+      "facts": [
+        "large_reactor_load",
+        "composite_production"
+      ],
+      "precursor": "extreme_casting_material",
+      "ticks": 3840,
+      "energy_tier": 27,
+      "provisional": false,
+      "unlocks": [
+        "I22"
+      ],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "真实高负载批次和材料安全检验关联，实际耗材耗电；不依赖待开放究极崩坏能反应堆；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "极限铸造材料×1；纸×2；工装不消耗。",
+      "designRecipe": "EXISTING:industrial_experiment_ure",
+      "workingEUt": "135107988821114880",
+      "powerSupply": "前代I19／I20／I21高能工况分别供给HDV／QAV／WFV实际功率；前代真实发电、换热与材料事实继续核验。",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-HCCO",
+      "title": "始源群星协奏工程",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_hcco",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE"
+      ],
+      "facts": [
+        "formal_communication"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": false,
+      "unlocks": [
+        "W01"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "核验研究和交流事件确已发生，关联资料来源并完成工程校核；独立或拒绝合作路线均可提供符合既定条件的交流记录；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-AIM",
+      "title": "万象自律工业矩阵",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_aim",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-RCA",
+        "RN-SPM",
+        "RN-CPT"
+      ],
+      "facts": [
+        "soulium_processing",
+        "circuit_packaging"
+      ],
+      "precursor": "etched_circuit_layer",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": false,
+      "unlocks": [
+        "W02"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "核验实际投入产出、批次来源与连续工况，排除复制报告和未掌握电路；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：已蚀刻电路层×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-SEM",
+      "title": "鸣霆超导电磁天枢",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_sem",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-TCA"
+      ],
+      "facts": [
+        "electromagnetic_test"
+      ],
+      "precursor": "polarized_electromagnetic_material",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": false,
+      "unlocks": [
+        "W04"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "实际电磁响应及供能/冷却回执通过检测，试件不充当雷之律者·鸣霆·超导电磁天枢量产材料；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：极化电磁材料×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-IFF",
+      "title": "长风理想流体环流",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_iff",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-WCA",
+        "RN-GPR",
+        "RN-HLC"
+      ],
+      "facts": [
+        "flow_test",
+        "gas_purification",
+        "recovery_heat"
+      ],
+      "precursor": "process_gas_filter",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": false,
+      "unlocks": [
+        "W05"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "真实输入输出、循环补液和热交换结果可追溯，明确损耗，不靠库存差额推断来源；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-CCF",
+      "title": "永霜极低温凝态",
+      "lab": 4,
+      "tier": 14,
+      "executor": "I43",
+      "recipe": "industrial_experiment_ccf",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-ICA"
+      ],
+      "facts": [
+        "cryogenic_test"
+      ],
+      "precursor": "cryogenic_condensed_material",
+      "ticks": 2560,
+      "energy_tier": 27,
+      "provisional": false,
+      "unlocks": [
+        "W06"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "真实完成低温处理并核对介质和能源消耗，样品来源与温控记录对应；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：深冷凝聚材料×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-IAR",
+      "title": "穹界虚数锚定环",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_iar",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-IAA",
+        "RN-VCA",
+        "RN-WME"
+      ],
+      "facts": [
+        "imaginary_anchor",
+        "world_maintenance"
+      ],
+      "precursor": "soulium_anchor_component",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": false,
+      "unlocks": [
+        "W03"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "核验既有锚定设备的真实工况与局部扰动响应，不提前运行文明级锚定环；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-MRA",
+      "title": "生息物质再生方舟",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_mra",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-SFR",
+        "RN-GPR",
+        "RN-SMR"
+      ],
+      "facts": [
+        "recovery_medium",
+        "recovery_spent_rods",
+        "gas_purification"
+      ],
+      "precursor": "recovered_fuel_casing_material",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": false,
+      "unlocks": [
+        "W07"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "核验真实投入、回收与不可回收残渣，排除重复统计同一批次；试验不额外生成回收物；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：回收燃料壳体材料×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-SFF",
+      "title": "劫焰恒星熔铸",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_sff",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-FCA",
+        "RN-URE"
+      ],
+      "facts": [
+        "flame_test",
+        "ultra_reactor_load"
+      ],
+      "precursor": "extreme_casting_material",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": false,
+      "unlocks": [
+        "W08"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "实际完成高温加工、安全冷却和能耗回执核验，试件不是炎之律者·劫焰·恒星熔铸炉的正式产物；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：极限铸造材料×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-GSF",
+      "title": "坠星引力奇点铸造",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_gsf",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-GCA",
+        "RN-SEK",
+        "RN-SWS"
+      ],
+      "facts": [
+        "compression_test",
+        "simulation_created",
+        "simulation_stabilized"
+      ],
+      "precursor": "soulium_anchor_component",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": false,
+      "unlocks": [
+        "W10"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "实际完成压缩响应并关联模拟种子工艺记录，试验不产文明工程奇点；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-ECB",
+      "title": "戒律能量约束壁",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_ecb",
+      "existing": false,
+      "prerequisites": [
+        "RN-CEE",
+        "RN-BCA",
+        "RN-JOK",
+        "RN-RAT"
+      ],
+      "facts": [
+        "binding_test"
+      ],
+      "precursor": "imitation_binding_core",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": false,
+      "unlocks": [
+        "W12"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "实际完成开启/解除约束和输入输出计量；验证不把抑制能量返充账户；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：仿制约束之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-CLE",
+      "title": "文明认知穹顶工程",
+      "lab": 4,
+      "tier": 15,
+      "executor": "I43",
+      "recipe": "industrial_experiment_cle",
+      "existing": false,
+      "prerequisites": [
+        "RN-WME",
+        "RN-CEE",
+        "RN-HCCO",
+        "RN-ILE"
+      ],
+      "facts": [
+        "lab_four_interface",
+        "three_domains"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 2600,
+      "energy_tier": 28,
+      "provisional": false,
+      "unlocks": [
+        "S05"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "以现有世界维系研究所可提供的接口试件和真实资料完成联调，仅输出工程证据，随后在世界维系研究所正常支付并研究；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-ELC",
+      "title": "能源负载协调",
+      "lab": 4,
+      "tier": 13,
+      "executor": "I32",
+      "recipe": "industrial_experiment_elc",
+      "existing": false,
+      "prerequisites": [
+        "RN-CED",
+        "RN-WME",
+        "RN-LTA"
+      ],
+      "facts": [
+        "manual_dispatch_multiple"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 2520,
+      "energy_tier": 26,
+      "provisional": false,
+      "unlocks": [],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "实际运行与手动开停产生可核对的多设备时间线，验证未授权/余额不足时不继续推进；不先启用待解锁自动优先级；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S04"
+    },
+    {
+      "id": "RN-CKV",
+      "title": "万象文明共识矩阵",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_ckv",
+      "existing": false,
+      "prerequisites": [
+        "RN-CLE",
+        "RN-IAR",
+        "RN-LTA",
+        "RN-CEE"
+      ],
+      "facts": [
+        "contradiction_retest",
+        "three_domains"
+      ],
+      "precursor": "world_model_carrier",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": false,
+      "unlocks": [
+        "W09"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "实际复验区分事实、推论与无法判定项，保留原文和实验来源；不靠选择预设立场获得证据；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S05"
+    },
+    {
+      "id": "RN-DIO",
+      "title": "千律分布式工业统御",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_dio",
+      "existing": false,
+      "prerequisites": [
+        "RN-CLE",
+        "RN-AIM",
+        "RN-CED",
+        "RN-CEE"
+      ],
+      "facts": [
+        "cross_machine_order"
+      ],
+      "precursor": "industrial_work_drone",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": false,
+      "unlocks": [
+        "W11"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "不同设备完成同一订单关联工序，投入、产物和权限回执对应；研究前可手动交接，不要求已有支配之律者·千律·分布式工业统御阵自动统御；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：工业作业无人机×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S05"
+    },
+    {
+      "id": "RN-ASR",
+      "title": "蚀界自演算研究母机",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_asr",
+      "existing": false,
+      "prerequisites": [
+        "RN-CLE",
+        "RN-ECA",
+        "RN-CPT",
+        "RN-LTA",
+        "RN-CEE"
+      ],
+      "facts": [
+        "bounded_computation"
+      ],
+      "precursor": "imitation_corruption_core",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": false,
+      "unlocks": [
+        "W13"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "实际耗能运行有限基准演算，结果可重复核对并验证可停止；不先加速本课题，不重新授予已完成课题奖励；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：仿制侵蚀之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S05"
+    },
+    {
+      "id": "RN-WCE",
+      "title": "终序世界泡轮回引擎",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_wce",
+      "existing": false,
+      "prerequisites": [
+        "RN-CLE",
+        "RN-SWR",
+        "RN-WME",
+        "RN-SWC",
+        "RN-SWS",
+        "RN-CEE"
+      ],
+      "facts": [
+        "simulation_full_chain"
+      ],
+      "precursor": "world_model_carrier",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": false,
+      "unlocks": [
+        "W14"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "同一批次实际耗料、耗能、稳定及终止成功且仅结算一次；封存或暂停不算完成，不拼接不同批次；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "W13 蚀界·自演算研究母机"
+    },
+    {
+      "id": "RN-CAV",
+      "title": "文明成果交叉验证",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_cav",
+      "existing": false,
+      "prerequisites": [
+        "RN-CKV",
+        "RN-DIO",
+        "RN-ASR",
+        "RN-WCE",
+        "RN-CEE"
+      ],
+      "facts": [
+        "wonder_W09",
+        "wonder_W11",
+        "wonder_W13",
+        "wonder_W14"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": false,
+      "unlocks": [],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "提交四座设备各自的运行记录与工程档案，核对来源和成果；每份记录只计一次。受检物原量返还，完成实验后记录结果。",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S05"
+    },
+    {
+      "id": "RN-TAA",
+      "title": "凌霄树海朝觐圣座",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I43",
+      "recipe": "industrial_experiment_taa",
+      "existing": false,
+      "prerequisites": [
+        "RN-CAV",
+        "RN-HCCO",
+        "RN-AIM",
+        "RN-SEM",
+        "RN-IFF",
+        "RN-CCF",
+        "RN-IAR",
+        "RN-MRA",
+        "RN-SFF",
+        "RN-GSF",
+        "RN-ECB",
+        "RN-HVI",
+        "RN-CEE"
+      ],
+      "facts": [
+        "all_fourteen_wonders",
+        "ship_acceptance",
+        "cross_domain_report"
+      ],
+      "precursor": "soulium_data_substrate",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": false,
+      "unlocks": [
+        "W15"
+      ],
+      "source": "文明工程验收中心实物无损表征与检测",
+      "success": "按类型核验14种不同奇观的真实成果和舰船记录，不以14台同类型机器或14个控制器代替；预检成功只给TAA研究证据；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "W13 蚀界·自演算研究母机"
+    },
+    {
+      "id": "RN-DVC",
+      "title": "跨领域工况校验",
+      "lab": 5,
+      "tier": 16,
+      "executor": "I32",
+      "recipe": "industrial_experiment_dvc",
+      "existing": false,
+      "prerequisites": [
+        "RN-CKV",
+        "RN-CAV",
+        "RN-LTA"
+      ],
+      "facts": [
+        "three_domain_difference"
+      ],
+      "precursor": "world_model_carrier",
+      "ticks": 3040,
+      "energy_tier": 29,
+      "provisional": false,
+      "unlocks": [],
+      "source": "遗留技术逆向实验室实物无损表征与检测",
+      "success": "实际比较崩坏、量子与虚数工况在各自条件下的差异，能追溯原始实验；不能统一删掉不同结果或用三份复制资料凑数；受检物原量返还，实验以机器真实结算为准",
+      "inputs": "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+      "formal_executor": "S05"
+    }
+  ]
+}

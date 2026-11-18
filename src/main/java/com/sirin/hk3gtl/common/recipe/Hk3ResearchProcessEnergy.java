@@ -44,7 +44,7 @@ public final class Hk3ResearchProcessEnergy {
             var tiers = new HashMap<GTRecipeType, Integer>();
             RATED_TIERS.forEach((role, tier) -> tiers.merge(Hk3ResearchProcessTypes.get(role), tier, Math::max));
             Hk3ResearchProcessPlans.all().stream().filter(plan -> !plan.provisional()).forEach(plan ->
-                    tiers.merge(Hk3ResearchProcessTypes.get(plan.role()), plan.energyTier(), Math::max));
+                    tiers.merge(Hk3ResearchProcessTypes.of(plan), plan.energyTier(), Math::max));
             return Map.copyOf(tiers);
         }
     }

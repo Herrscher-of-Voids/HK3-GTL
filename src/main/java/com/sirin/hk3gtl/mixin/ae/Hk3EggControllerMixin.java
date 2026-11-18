@@ -6,7 +6,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value=ControllerBlockEntity.class,remap=false)
-
 public abstract class Hk3EggControllerMixin {
     @Inject(method="onMainNodeStateChanged",at=@At("RETURN"))
     private void hk3gtl$online(IGridNodeListener.State reason,CallbackInfo ci){

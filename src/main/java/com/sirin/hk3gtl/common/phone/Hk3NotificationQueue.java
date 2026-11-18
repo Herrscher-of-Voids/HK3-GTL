@@ -2,12 +2,6 @@ package com.sirin.hk3gtl.common.phone;
 
 import java.util.*;
 
-
-
-
-
-
-
 public final class Hk3NotificationQueue {
     public record Notice(String id,String title,String body,String kind,int priority) {}
     public record Card(String title,String body,int count,int priority,String kind) {}

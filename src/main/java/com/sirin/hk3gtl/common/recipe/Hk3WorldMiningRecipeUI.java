@@ -27,17 +27,26 @@ final class Hk3WorldMiningRecipeUI extends GTRecipeTypeUI {
         var item = widget(children, "item_in_0");
         var fluid = widget(children, "fluid_out_0").copy();
         offsetOutputs(children);
-        move(item, "item_in_0", 68, 0);
-        for (int i = 1; i < 4; i++)
-            children.add(move(item.copy(), "item_in_" + i, 68 + i * 18, 0));
-        children.add(move(fluid.copy(), "fluid_in_0", 140, 0));
-
+        var mining = Hk3ResearchProcessPlans.all().stream().filter(p -> p.id().equals("industrial_unmanned_mining_dispatch")).findFirst().orElseThrow();
+        int items = mining.inputs().size() + mining.catalysts().size() + (mining.circuit() > 0 ? 1 : 0);
+        int extraHeight = 18 * ((items + mining.fluidInputs().size() - 1) / 8);
+        for (var raw : children) {
+            var pos = ((CompoundTag) raw).getCompound("data").getCompound("selfPosition");
+            pos.putInt("y", pos.getInt("y") + extraHeight);
+        }
+        move(item, "item_in_0", 32, 0);
+        for (int i = 1; i < items; i++)
+            children.add(move(item.copy(), "item_in_" + i, 32 + i % 8 * 18, i / 8 * 18));
+        for (int i = 0; i < mining.fluidInputs().size(); i++) {
+            int slot = items + i;
+            children.add(move(fluid.copy(), "fluid_in_" + i, 32 + slot % 8 * 18, slot / 8 * 18));
+        }
         var progress = widget(children, "progress");
-        move(progress, "progress", 103, 19).getCompound("data").getCompound("size").putInt("height", 18);
-        int byproductY = root.getCompound("size").getInt("height") + 2;
+        move(progress, "progress", 103, 19 + extraHeight).getCompound("data").getCompound("size").putInt("height", 18);
+        int byproductY = root.getCompound("size").getInt("height") + extraHeight + 2;
         for (int i = 0; i < ITEM_BYPRODUCTS; i++)
-            children.add(move(item.copy(), "item_out_" + i, 59 + i * 18, byproductY));
-        children.add(move(fluid, "fluid_out_0", 149, byproductY));
+            children.add(move(item.copy(), "item_out_" + i, 50 + i * 18, byproductY));
+        children.add(move(fluid, "fluid_out_0", 158, byproductY));
         root.getCompound("size").putInt("height", byproductY + 21);
         return template = layout;
     }

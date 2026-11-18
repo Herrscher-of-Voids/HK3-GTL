@@ -11,14 +11,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 public final class Hk3ApprovedIndustrialPlans {
-    private static final JsonObject DATA = load();
+    private static final JsonObject DATA = load("approved_industrial_processes");
     private static final Set<String> SUPERSEDED = ids();
 
     private Hk3ApprovedIndustrialPlans() {}
 
-    private static JsonObject load() {
+    private static JsonObject load(String file) {
         try (var input = Hk3ApprovedIndustrialPlans.class.getResourceAsStream(
-                "/data/hk3gtl/research/approved_industrial_processes.json")) {
+                "/data/hk3gtl/research/" + file + ".json")) {
             return JsonParser.parseReader(new InputStreamReader(input, StandardCharsets.UTF_8)).getAsJsonObject();
         } catch (java.io.IOException failure) {
             throw new IllegalStateException("批准工业配方读取失败", failure);

@@ -4,7 +4,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 
-
 public final class Hk3FinaleData extends SavedData {
     private Hk3FinaleLedger ledger=new Hk3FinaleLedger();
     private boolean changing;

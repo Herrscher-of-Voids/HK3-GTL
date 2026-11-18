@@ -21,22 +21,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Map;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 区别新建公开构造与旧档parse路径，在世界数据实例保存高度合同。
+ */
 @Mixin(PrimaryLevelData.class)
 public abstract class Hk3PrimaryLevelHeightMixin implements Hk3HeightWorldData {
     @Unique private static final String HK3GTL_HEIGHT_TAG = Hk3HeightWorldState.TAG_KEY;

@@ -11,17 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 文明总览内的团队机器目录与只读详情；仅显示服务端授权投影，不操作世界或机器。
+ */
 final class Hk3MachineOverviewPane {
     private static final String[] SOURCES={"all","hk3gtl","gtceu","gtlcore","gtladditions","gtlsupb"};
     private static final String[] SOURCE_LABELS={"全部","HK3GTL","GTCEu","GTL Core","GTL附属","GTL SupB"};

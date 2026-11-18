@@ -10,20 +10,6 @@ import net.minecraft.server.level.ServerPlayer;
 import java.util.*;
 import java.util.function.Predicate;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3FormalArchive {
     public enum Group { RESEARCH, COMMUNICATION, REVIEW, LEGACY }
     public record Entry(String id, String label, Group group, Hk3FinaleRequirements.State state, String detail) {}
@@ -91,5 +77,4 @@ public final class Hk3FormalArchive {
         return text.append("").toString();
     }
 }
-
 

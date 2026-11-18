@@ -1,11 +1,5 @@
 package com.sirin.hk3gtl.common.dialogue.definition;
 
-
-
-
-
-
-
 import com.sirin.hk3gtl.common.dialogue.DialogueChoice;
 import com.sirin.hk3gtl.common.dialogue.DialogueDefinition;
 import com.sirin.hk3gtl.common.dialogue.DialogueLine;

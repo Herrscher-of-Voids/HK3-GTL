@@ -24,8 +24,6 @@ import com.mojang.logging.LogUtils;
  *   <li>调试重置：调用 resetForDebug()（仅供 /hk3debug 使用）</li>
  * </ul>
  */
-
-
 public class Hk3GraduationData extends SavedData {
 
     private static final Logger LOGGER = LogUtils.getLogger();

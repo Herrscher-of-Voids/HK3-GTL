@@ -12,8 +12,6 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
 public final class Hk3EggExploration {
     private Hk3EggExploration(){}
     public static void broken(ServerPlayer p,BlockPos pos,BlockState old){
@@ -48,5 +46,4 @@ public final class Hk3EggExploration {
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p)reset(p);}
     private static void reset(ServerPlayer p){var s=Hk3EggRuntime.state(p);s.remove("portalTripOrigin");s.remove("portalTripNether");s.remove("tunnelTick");s.remove("speedPrepareStart");}
 }
-
 

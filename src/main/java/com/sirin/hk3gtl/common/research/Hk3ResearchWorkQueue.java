@@ -1,15 +1,8 @@
 package com.sirin.hk3gtl.common.research;
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】增加原任务取消及归属快照，正式课题与独立实验共享槽位、持久化进度和重复tick防护。
+ */
 
 
 import net.minecraft.nbt.CompoundTag;
@@ -21,12 +14,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.BooleanSupplier;
 import java.util.function.Predicate;
-
-
-
-
-
-
 
 public final class Hk3ResearchWorkQueue {
     public enum Outcome { MISSING, PAUSED, DUPLICATE_TICK, RUNNING, WAITING_COMPLETION, STAGE_COMPLETED, COMPLETED }
@@ -46,7 +33,6 @@ public final class Hk3ResearchWorkQueue {
     }
 
     public record Snapshot(Quote quote, double progress, long order, UUID id) {}
-    /** 修订100 · 2026-09-29：暴露不可变归属快照，取消只移除实际存在的任务。 */
     public record Entry(UUID scope, Snapshot snapshot) {}
     public java.util.List<Entry> entries() {
         return jobs.entrySet().stream().map(e -> new Entry(e.getKey().owner(),
@@ -204,5 +190,4 @@ public final class Hk3ResearchWorkQueue {
         if (!tag.contains(field, type)) throw new IllegalArgumentException("Invalid research field: " + field);
     }
 }
-
 

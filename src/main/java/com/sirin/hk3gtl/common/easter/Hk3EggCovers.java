@@ -5,10 +5,6 @@ import net.minecraft.server.level.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.item.ItemStack;
 import java.util.*;
-
-
-
-
 public final class Hk3EggCovers {
     private Hk3EggCovers(){}
     private static String key(CoverBehavior c){return "hk3_egg_cover_"+c.attachedSide.getName();}

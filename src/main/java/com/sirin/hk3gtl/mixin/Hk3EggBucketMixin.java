@@ -10,9 +10,6 @@ import net.minecraft.core.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 @Mixin(BucketItem.class)
-
-
-
 public abstract class Hk3EggBucketMixin {
     @Inject(method="checkExtraContent",at=@At("RETURN"))private void hk3gtl$water(Player player,Level level,ItemStack bucket,BlockPos pos,org.spongepowered.asm.mixin.injection.callback.CallbackInfo ci){
         if(player instanceof ServerPlayer p&&bucket.is(Items.WATER_BUCKET)&&level.getFluidState(pos).is(net.minecraft.tags.FluidTags.WATER)&&level.getFluidState(pos).isSource()){com.sirin.hk3gtl.common.easter.Hk3EggPersonalScenes.farming(p,"water");com.sirin.hk3gtl.common.easter.Hk3EggWaterFall.placed(p,pos);}

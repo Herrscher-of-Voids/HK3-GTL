@@ -11,20 +11,9 @@ import java.util.TreeMap;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 保存每个世界独立的高度合同及按维度类型ID冻结的原始边界快照。
+ */
 public record Hk3HeightWorldState(UUID worldId, int contractVersion, int topExclusive, boolean enabled,
                                  Map<String, Hk3HeightBounds> dimensions) {
     public static final String TAG_KEY = "hk3gtl:height_contract";

@@ -8,9 +8,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
-
-
-
 public final class Hk3ArchitectureMaterials {
     private Hk3ArchitectureMaterials() {}
 

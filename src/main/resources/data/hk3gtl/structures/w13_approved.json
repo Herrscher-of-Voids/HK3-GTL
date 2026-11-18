@@ -1,0 +1,204 @@
+{
+  "id": "W13",
+  "version": "0005-W13-T2-M1",
+  "controller": "hk3gtl:w13_self_computing_research_mother",
+  "recorded_at": "2026-11-17T22:46:36+08:00",
+  "blueprint": "hk3gtl:structures/w13_candidate.bin.gz",
+  "conversation": "0005",
+  "conversation_id": "01a1e02a-4d20-7d81-bdab-70404f66086d",
+  "appearance_approved": true,
+  "approval_basis": "负责人本轮批准T2-M1外观与动画并要求实装，沿用原稿20种方块与现有配色。",
+  "approval_quote": "可以，没问题，但是你控制器打算放哪，实装一下",
+  "material_exception_approval_quote": "原样实装，允许 W13 专项例外（推荐）",
+  "source_approval_fields_preserved": true,
+  "external_approval_is_authoritative": true,
+  "source": "deliveries/0005_W13_侵蚀之律者电视山_T2_20261117",
+  "source_manifest_sha256": "8a624b3b1f4092f1f68da09f52c60e2ded8cf8c52fd22040b2c0c1ea012131c5",
+  "source_geometry_sha256": "fa36f2ebaf1f850300c7b5e1ee6386110976eee2c5167532f1d630261f03e5cc",
+  "source_materials_sha256": "113a1764bcf6d31559e8b265aee45dce9e0f0bab3bce51e5683f07c2f4dc4c39",
+  "source_npz_sha256": "af0afd51738c1d47c48d9c1b2141f0459f5f85ec4bac94b349e493cd6d39e5ff",
+  "size_xyz": [
+    1207,
+    1213,
+    1042
+  ],
+  "size_wdh": [
+    1207,
+    1042,
+    1213
+  ],
+  "source_bounds": {
+    "min": [
+      -623,
+      -526,
+      -548
+    ],
+    "max": [
+      583,
+      686,
+      493
+    ]
+  },
+  "source_origin_xyz": [
+    -623,
+    -526,
+    -548
+  ],
+  "blueprint_to_export_offset_xyz": [
+    623,
+    526,
+    548
+  ],
+  "controller_source_xyz": [
+    0,
+    16,
+    472
+  ],
+  "controller_xyz": [
+    623,
+    542,
+    1020
+  ],
+  "source_facing": "south",
+  "controller_location": "前方主缆检修端子正面，源坐标(0,16,472)，朝外侧+Z。",
+  "controller_previous_state": "minecraft:redstone_block",
+  "controller_state": "hk3gtl:w13_self_computing_research_mother[facing=south]",
+  "controller_nbt_blockentity_id": "hk3gtl:w13_self_computing_research_mother",
+  "controller_replacements": 1,
+  "block_count": 55059317,
+  "source_block_count": 55059317,
+  "component_count": 133,
+  "source_component_voxels": 57816819,
+  "overlap_extra_memberships": 2757502,
+  "full_geometry": true,
+  "geometry_source": "T2完整整数格NPZ，保持全部静态实体，仅按XYZ顺序重排并替换唯一主控标记。",
+  "merge_priority": "沿用T2完整NPZ已完成的去重结果，每个实体坐标输出一次。",
+  "fixed_interface_positions": [],
+  "interface_policy": "除主控外，全部实体格均可替换合法通用接口，朝向自选。",
+  "target_voltage": "CEV",
+  "research": "RN-ASR",
+  "product": "hk3gtl:bounded_research_model",
+  "palette": [
+    "gtceu:black_metal_sheet",
+    "gtceu:black_studs",
+    "gtceu:gray_metal_sheet",
+    "gtceu:light_gray_metal_sheet",
+    "gtceu:computer_heat_vent",
+    "gtceu:clean_machine_casing",
+    "gtceu:white_metal_sheet",
+    "gtceu:white_studs",
+    "minecraft:gold_block",
+    "gtceu:yellow_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "gtceu:pink_metal_sheet",
+    "gtceu:magenta_metal_sheet",
+    "gtceu:red_metal_sheet",
+    "minecraft:pink_stained_glass",
+    "minecraft:magenta_stained_glass",
+    "gtceu:pink_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "gtceu:magenta_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "gtceu:red_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "gtceu:light_blue_metal_sheet",
+    "minecraft:cyan_stained_glass",
+    "gtceu:white_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "gtceu:computer_casing",
+    "gtceu:advanced_computer_casing",
+    "minecraft:redstone_block",
+    "hk3gtl:voltage_machine_casing_iwv",
+    "gtceu:cyan_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "gtceu:green_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "gtceu:blue_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "hk3gtl:w13_self_computing_research_mother[facing=south]"
+  ],
+  "palette_count": 29,
+  "used_palette_count": 20,
+  "unique_block_types": 20,
+  "material_counts": {
+    "gtceu:black_metal_sheet": 44158027,
+    "gtceu:black_studs": 8332350,
+    "gtceu:gray_metal_sheet": 1041140,
+    "gtceu:light_gray_metal_sheet": 108836,
+    "gtceu:computer_heat_vent": 1087284,
+    "gtceu:clean_machine_casing": 0,
+    "gtceu:white_metal_sheet": 0,
+    "gtceu:white_studs": 0,
+    "minecraft:gold_block": 0,
+    "gtceu:yellow_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 67357,
+    "gtceu:pink_metal_sheet": 6500,
+    "gtceu:magenta_metal_sheet": 1164,
+    "gtceu:red_metal_sheet": 20982,
+    "minecraft:pink_stained_glass": 0,
+    "minecraft:magenta_stained_glass": 0,
+    "gtceu:pink_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 20818,
+    "gtceu:magenta_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 12985,
+    "gtceu:red_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 2964,
+    "gtceu:light_blue_metal_sheet": 1164,
+    "minecraft:cyan_stained_glass": 0,
+    "gtceu:white_lamp[bloom=true,inverted=true,lit=true,powered=false]": 74757,
+    "gtceu:computer_casing": 21385,
+    "gtceu:advanced_computer_casing": 0,
+    "minecraft:redstone_block": 0,
+    "hk3gtl:voltage_machine_casing_iwv": 1728,
+    "gtceu:cyan_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 78419,
+    "gtceu:green_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 14966,
+    "gtceu:blue_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 6490,
+    "hk3gtl:w13_self_computing_research_mother[facing=south]": 1
+  },
+  "source_scale_metrics": {
+    "footprint_area": {
+      "candidate": 1257694,
+      "recorded_lower_tier_max": 900601,
+      "greater": true
+    },
+    "bounding_box_volume": {
+      "candidate": 1525582822,
+      "recorded_lower_tier_max": 441313404,
+      "greater": true
+    },
+    "actual_height": {
+      "candidate": 1213,
+      "recorded_lower_tier_max": 636,
+      "greater": true
+    },
+    "blocks": {
+      "candidate": 55059317,
+      "recorded_lower_tier_max": 23541415,
+      "greater": true
+    },
+    "unique_block_types": {
+      "candidate": 20,
+      "recorded_lower_tier_max": 58,
+      "greater": false
+    }
+  },
+  "material_count_exception": {
+    "approved": true,
+    "scope": "仅W13 T2-M1",
+    "unique_block_types": 20,
+    "approval_quote": "原样实装，允许 W13 专项例外（推荐）",
+    "basis": "负责人明确选中20种方块原稿，原样实装；不添加材料凑数。"
+  },
+  "runtime_format": "HK3P/2；XYZ全局升序、Z连续游程；唯一主控附原生方块实体NBT。",
+  "blueprint_linear_index": "(x*sizeY+y)*sizeZ+z",
+  "rle_record_count": 11167028,
+  "blueprint_sha256": "c034a38d6b53a10197ba6bfb57b130c7a846f75234420058a4323a099db00443",
+  "blueprint_bytes": 40766286,
+  "animation_mask": "hk3gtl:structures/w13_t2_m1_mask.bin.gz",
+  "animation_mask_sha256": "cebbbb8bbd4dd79fb46674c222145919349f40d9115c788d273fc29ade3f64b2",
+  "animation_mask_magic": "0x5731334d",
+  "animation_mask_sections": 2752,
+  "animation_mask_blocks": 1546420,
+  "animation_mask_scope": "最终NPZ中eye_display与cable_XX_[12]所有实体格，保留后写主控端子；合法接口由客户端原生绘制。",
+  "minimum_dimension_height": 1213,
+  "dimension_requirement": "完整高度1213格，须在可容纳整座结构的维度建造。",
+  "controller_relative_y_range": [
+    -542,
+    670
+  ],
+  "overworld_vertical_span": 384,
+  "overworld_height_compatible": false,
+  "animation_state": "静态完整实体沿用T2；T2-M1眼珠与分节粗缆动画由独立渲染资源接入。",
+  "game_verified": false,
+  "jar_built": false,
+  "installed": false,
+  "game_started": false
+}

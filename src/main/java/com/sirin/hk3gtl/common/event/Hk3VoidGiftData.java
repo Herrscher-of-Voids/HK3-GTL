@@ -7,12 +7,6 @@ import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 import java.util.function.IntPredicate;
 
-
-
-
-
-
-
 public final class Hk3VoidGiftData extends SavedData {
     public static final String TARGET="Herrscher_Void";
     public record Gift(String item,long charge) {

@@ -14,18 +14,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.function.Predicate;
 
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3LegacyArchiveMigration {
     public enum SourceKind { RESEARCH, COMMUNICATION, REVIEW }
     public record Rule(String eventId, String previousTrigger, SourceKind kind, String source,

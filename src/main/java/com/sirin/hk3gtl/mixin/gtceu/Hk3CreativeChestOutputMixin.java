@@ -1,13 +1,8 @@
 package com.sirin.hk3gtl.mixin.gtceu;
 
-
-
-
-
-
-
-
-
+/**
+ * 仅关闭 gtceu:creative_chest 的自动化无限能力与主动供给，保留样本和创造界面。
+ */
 
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.common.machine.storage.CreativeChestMachine;

@@ -5,16 +5,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.state.BlockState;
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 统一终端建造器的只读实体蓝图；坐标相对源主控，不展开空气，不保存世界引用。
+ */
 public interface Hk3BuildPlan extends AutoCloseable {
     int size();
     int height();

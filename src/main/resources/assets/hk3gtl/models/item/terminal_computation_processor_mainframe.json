@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/generated","textures":{"layer0":"hk3gtl:item/terminal_computation/circuits/terminal_computation_processor_mainframe"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/terminal_computation/circuits/terminal_computation_processor_mainframe"
+  }
+}

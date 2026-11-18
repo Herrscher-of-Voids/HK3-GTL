@@ -4,32 +4,12 @@ import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 注视度统一入口：负责注视读写、增长修正、缓冲单元、研究速度与设施加成。
+ * - 调用链：事件系统/研究系统 -> Hk3GazeManager -> Hk3GazeThresholdWatcher。
+ *
+ */
 public final class Hk3GazeManager {
 
     public static final String TAG_GAZE_LEVEL = "hk3gtl_gaze_level";

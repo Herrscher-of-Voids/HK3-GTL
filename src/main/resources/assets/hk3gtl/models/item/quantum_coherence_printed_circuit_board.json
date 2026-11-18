@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/generated","textures":{"layer0":"hk3gtl:item/electronics/quantum_coherence_printed_circuit_board"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/electronics/quantum_coherence_printed_circuit_board"
+  }
+}

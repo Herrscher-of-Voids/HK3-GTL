@@ -4,17 +4,9 @@ package com.sirin.hk3gtl.common.research;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】同一SavedData保存团队知识、个人付款、任务及待领退款；完成成果迁移、在研不复制、解散退款。
+ */
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -26,45 +18,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3ResearchData extends SavedData {
     private CompoundTag accounts = new CompoundTag();
     private Hk3ResearchWorkQueue jobs = new Hk3ResearchWorkQueue();
     private CompoundTag computers = new CompoundTag();
-    /** 修订100 · 2026-09-29：团队知识、个人付款与待领退款在同一保存周期中结算。 */
     private CompoundTag memberships = new CompoundTag();
     private CompoundTag teams = new CompoundTag();
     private CompoundTag refunds = new CompoundTag();
@@ -311,7 +268,6 @@ public final class Hk3ResearchData extends SavedData {
         return hasLabBaseline(scope) && jobs.snapshot(scope,"LAB-ERM-BASE")!=null
                 && jobs.snapshot(scope,"LAB-ERM-AID")==null;
     }
-    /** 修订101 · 2026-09-29：新增三类真实回收账；不继承原队生产批次，不重复扣生产投入。 */
     public boolean recordRecovery(UUID scope, String category, CompoundTag receipt) {
         rejectComputerReentry();
         if (!Hk3ResearchBatchProofs.RECOVERY.contains(category) || !Hk3ResearchBatchProofs.valid(receipt)) return false;
@@ -323,7 +279,6 @@ public final class Hk3ResearchData extends SavedData {
     }
     public CompoundTag recoveryProofs(UUID scope) { return account(scope).getCompound("RecoveryProofs").copy(); }
     public boolean recoveryAuditReady(UUID scope) { return Hk3ResearchBatchProofs.recoveryReady(recoveryProofs(scope)); }
-    /** 修订101：生产工况不随成员复制；每个已定义工况只保留首份有效结算回执。 */
     public boolean recordProcessFact(UUID scope,String fact,CompoundTag receipt) {
         rejectComputerReentry();
         if(!Hk3ResearchExecutionContracts.factNames().contains(fact) || !Hk3ResearchBatchProofs.valid(receipt))return false;
@@ -640,5 +595,4 @@ public final class Hk3ResearchData extends SavedData {
         } finally { inRefundClaim = false; }
     }
 }
-
 

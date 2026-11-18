@@ -47,7 +47,7 @@ public final class Hk3ResearchRecipeRuntime {
     }
     private static boolean matches(Hk3ResearchProcessPlans.Plan plan,String recipe){
         if(plan==null)return false;
-        String path=Hk3ResearchProcessTypes.get(plan.role()).registryName.getPath()+"/"+plan.id();
+        String path=Hk3ResearchProcessTypes.of(plan).registryName.getPath()+"/"+plan.id();
         return recipe.equals("hk3gtl:"+path)||recipe.equals("gtceu:"+path);
     }
     private record Source(UUID owner,UUID team) {}
@@ -61,8 +61,8 @@ public final class Hk3ResearchRecipeRuntime {
         var p=PLANS.get(id);if(p==null||!Hk3IndustrialExtensionPolicy.permits(p.role(),p.provisional())
                 ||machine.getLevel()==null||machine.getLevel().getServer()==null)return false;
         var source=source(machine);if(source==null||source.owner()==null||source.team()==null)return false;
-        // 2026-10-15：必须实际注册对应类型；切换界面当前模式不能改变固定工艺身份。
-        if(!Arrays.asList(machine.getDefinition().getRecipeTypes()).contains(Hk3ResearchProcessTypes.get(p.role())))return false;
+        // 必须实际注册对应类型；切换界面当前模式不能改变固定工艺身份。
+        if(!Arrays.asList(machine.getDefinition().getRecipeTypes()).contains(Hk3ResearchProcessTypes.of(p)))return false;
         var data=Hk3ResearchData.get(machine.getLevel().getServer());var scope=source.team();
         if(machine instanceof Hk3LiquidProcessMachine){
             if(machine instanceof Hk3HonkaiAbsorptionMachine){

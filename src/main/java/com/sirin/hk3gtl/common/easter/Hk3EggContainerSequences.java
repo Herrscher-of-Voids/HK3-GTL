@@ -8,9 +8,7 @@ import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
 public final class Hk3EggContainerSequences {
     private static final String OWNER="hk3gtl_egg_chest_owner",VISIT="hk3gtl_egg_chest_visit",STALE="hk3gtl_egg_chest_stale";
     private Hk3EggContainerSequences(){}

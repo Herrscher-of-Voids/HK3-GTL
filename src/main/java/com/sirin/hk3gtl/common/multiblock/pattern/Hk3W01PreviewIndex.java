@@ -1,12 +1,8 @@
 package com.sirin.hk3gtl.common.multiblock.pattern;
 
-
-
-
-
-
-
-
+/**
+ * 共享W01有序实体布局，提供无空气数组的坐标查询与逐层、逐状态计数。
+ */
 public final class Hk3W01PreviewIndex {
     private final Hk3W01HallLayout layout;
     private final int[] layers;

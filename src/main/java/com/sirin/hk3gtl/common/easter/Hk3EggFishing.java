@@ -7,7 +7,6 @@ import net.minecraftforge.event.entity.player.ItemFishedEvent;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggFishing {
     private static final ThreadLocal<Map<FishingHook,ItemFishedEvent>> ACTIVE=ThreadLocal.withInitial(HashMap::new);

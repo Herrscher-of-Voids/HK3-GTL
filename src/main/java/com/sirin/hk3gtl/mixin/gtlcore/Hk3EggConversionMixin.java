@@ -6,8 +6,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 @Mixin(value=BlockConversionRoomMachine.class,remap=false)
-
-
 public abstract class Hk3EggConversionMixin {
     @Redirect(method="onWorking",at=@At(value="INVOKE",target="Lcom/lowdragmc/lowdraglib/misc/ItemStackTransfer;setStackInSlot(ILnet/minecraft/world/item/ItemStack;)V"))
     private void hk3gtl$converted(ItemStackTransfer inventory,int slot,ItemStack result){

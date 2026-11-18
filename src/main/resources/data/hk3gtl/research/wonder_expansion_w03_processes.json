@@ -966,7 +966,7 @@
       ]
     },
     {
-      "id": "wonder_w03_x46_spatial_probe_disassembly",
+      "id": "wonder_w03_x46_spatial_probe_salvage",
       "role": "W03",
       "requirements": [
         "RN-IAR",
@@ -1022,7 +1022,7 @@
       ]
     },
     {
-      "id": "wonder_w03_x46_navigation_module_disassembly",
+      "id": "wonder_w03_x46_navigation_module_salvage",
       "role": "W03",
       "requirements": [
         "RN-IAR",
@@ -1079,7 +1079,7 @@
       ]
     },
     {
-      "id": "wonder_w03_x46_termination_charge_disassembly",
+      "id": "wonder_w03_x46_termination_charge_salvage",
       "role": "W03",
       "requirements": [
         "RN-IAR",

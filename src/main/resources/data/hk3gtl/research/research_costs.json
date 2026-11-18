@@ -1216,7 +1216,7 @@
       "title": "无人世界泡采掘",
       "english": "Unmanned Expedition Dispatch",
       "evidence": "可用坐标与前项已造出的无人装置。",
-      "result": "解锁世界泡无人采掘调度台任务；同一真实世界泡最多10次采掘，资源含流体。",
+      "result": "解锁世界泡无人采掘调度台任务；每个已定位的真实世界泡只能采掘一次，资源含流体。",
       "points": 1790,
       "ticks": 16200,
       "materials": [

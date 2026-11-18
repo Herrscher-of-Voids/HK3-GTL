@@ -11,8 +11,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value=AdvancedWirelessTransferCover.class,remap=false)
-
-
 public abstract class Hk3EggAdvancedCoverMixin {
     @Redirect(method="moveInventoryItems",at=@At(value="INVOKE",target="Lcom/gregtechceu/gtceu/api/cover/filter/ItemFilter;test(Ljava/lang/Object;)Z"))
     private boolean hk3gtl$whitelist(com.gregtechceu.gtceu.api.cover.filter.ItemFilter filter,Object candidate){

@@ -5,7 +5,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-
 public final class Hk3EggCatalog {
     public record Egg(String id,String title,String body,String condition,String category,List<String> sources) {
         public Egg { sources=List.copyOf(sources); }

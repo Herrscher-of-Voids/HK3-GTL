@@ -3,14 +3,6 @@ package com.sirin.hk3gtl.common.communication;
 
 
 
-
-
-
-
-
-
-
-
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.sirin.hk3gtl.common.network.Hk3Network;
@@ -31,21 +23,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 
-
-
-
-
-
-
-
 @Mod.EventBusSubscriber(modid = "hk3gtl", bus = Mod.EventBusSubscriber.Bus.FORGE)
-
-
-
-
-
-
-
 public final class Hk3FirstContactService {
     private static final TagKey<Item> MAX_CIRCUIT = TagKey.create(Registries.ITEM,
             new ResourceLocation("gtceu", "circuits/max"));
@@ -71,7 +49,7 @@ public final class Hk3FirstContactService {
         Hk3FirstContactState before = Hk3CommunicationData.get(player).state(player.getUUID());
         checkInventory(player);
         Hk3TeamContactService.ensure(player);
-
+        
     }
 
     @SubscribeEvent public static void inventoryTick(net.minecraftforge.event.TickEvent.PlayerTickEvent event){

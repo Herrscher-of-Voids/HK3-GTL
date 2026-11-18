@@ -6,18 +6,6 @@ import com.sirin.hk3gtl.common.review.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3PersonalArchive {
     private Hk3PersonalArchive() {}
     public static String summary(ServerPlayer player) {
@@ -74,5 +62,4 @@ public final class Hk3PersonalArchive {
         return 1;
     }
 }
-
 

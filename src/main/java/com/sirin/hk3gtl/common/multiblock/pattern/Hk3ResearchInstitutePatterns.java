@@ -13,13 +13,6 @@ import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.BACK;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.RIGHT;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.UP;
 
-
-
-
-
-
-
-
 /**
  * 五阶研究所正式成型模板。
  *

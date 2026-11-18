@@ -11,14 +11,9 @@ import java.util.function.Consumer;
 
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialRecipes.*;
 
-
-
-
-
-
-
-
-
+/**
+ * 分别以金属压延、陶瓷保护气烧结、复合层压成板；加工同级棒、环、细线、箔、框架。
+ */
 final class Hk3MainMaterialFormRecipes {
     private static final Set<Integer> METALLIC = Set.of(Hk3Tiers.HBV, Hk3Tiers.HRV, Hk3Tiers.HDV, Hk3Tiers.IRV);
     private static final Set<Integer> CERAMIC = Set.of(Hk3Tiers.HCV, Hk3Tiers.IMV);

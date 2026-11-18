@@ -1,18 +1,12 @@
 package com.sirin.hk3gtl.common.dialogue.definition;
 
-
 import com.sirin.hk3gtl.common.dialogue.*;
 import com.sirin.hk3gtl.common.narrative.Hk3ApprovedProse;
 import java.util.*;
 
-
-
-
-
-
-
-
-
+/**
+ * 从审核原文生成逐句对白、二审分支与分系统校对目录；校对入口没有结算处理器。
+ */
 public final class Hk3ApprovedDialogues {
     public static final String LIBRARY = "hk3_approved_library";
     public static final String REVIEW_PREVIEW = "hk3_second_review_preview";

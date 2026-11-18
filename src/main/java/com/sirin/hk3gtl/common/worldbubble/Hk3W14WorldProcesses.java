@@ -43,6 +43,7 @@ public final class Hk3W14WorldProcesses {
         var recipe = new ResourceLocation(receipt.getString("Recipe"));
         String path = recipe.getPath();
         String id = path.substring(path.lastIndexOf('/') + 1);
+        if (id.equals("wonder_w14_unstable_world_disassembly")) id = "wonder_w14_unstable_world_salvage";
         if (!recipe.getNamespace().equals("hk3gtl") || !APPROVED.contains(id)) return NONE;
         long unstableIn = count(receipt.getCompound("Inputs"), "hk3gtl:unstable_simulated_world_bubble");
         long stableIn = count(receipt.getCompound("Inputs"), "hk3gtl:stable_simulated_world_bubble");
@@ -51,7 +52,7 @@ public final class Hk3W14WorldProcesses {
         if (unstableOut > 0) return new Process(Stage.CREATE, unstableOut);
         if (stableOut > 0) return new Process(unstableIn > 0 ? Stage.STABILIZE : Stage.CREATE_STABLE, stableOut);
         if (stableIn > 0) return new Process(Stage.TERMINATE, stableIn);
-        if (unstableIn > 0) return new Process(id.equals("wonder_w14_unstable_world_disassembly")
+        if (unstableIn > 0) return new Process(id.equals("wonder_w14_unstable_world_salvage")
                 ? Stage.DISCARD : Stage.STABILIZE_TERMINATE, unstableIn);
         return NONE;
     }

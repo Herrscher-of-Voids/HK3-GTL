@@ -1,39 +1,16 @@
 package com.sirin.hk3gtl.common.machine.trait;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 控制器自带的"玩家电网 EU"配方处理特征：多方块不再需要能源仓，
+ *   所有 EU 消耗直接从绑定玩家（UUID）的 GTMThings 无线电网中扣除。
+ * - 关键调用链：
+ *   1) WorkableMultiblockMachine.onStructureFormed -> 自身 trait 扫描 -> 本类注入 capabilitiesProxy(IN, EU)；
+ *   2) GTRecipe.matchTickRecipe / handleTickRecipeIO -> handleRecipeInner -> WirelessEnergyManager 扣电/充电；
+ *   3) WorkableElectricMultiblockMachine.getEnergyContainer -> 聚合本类（实现 IEnergyContainer），
+ *      研究矩阵 consumeEnergy / 双转换矩阵 fillGtEnergy 的反射调用零改动兼容。
+ *
+ */
 
 import com.gregtechceu.gtceu.api.capability.IEnergyContainer;
 import com.gregtechceu.gtceu.api.capability.recipe.EURecipeCapability;
@@ -61,21 +38,6 @@ import java.math.BigInteger;
  * 玩家电网 EU 特征：把控制器本体变成一个"电压极高、容量无限"的 EU 输入代理，
  * 背后的存量是 GTMThings 无线电网中绑定玩家（或其 FTB 队伍）的余额。
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3PlayerGridEnergyTrait extends NotifiableRecipeHandlerTrait<Long> implements IEnergyContainer {
 
     /** 名义输入电压（终焉 III 档）。仅影响 tier 显示与超频上限，实际扣电全按电网余额。 */
@@ -132,6 +94,12 @@ public class Hk3PlayerGridEnergyTrait extends NotifiableRecipeHandlerTrait<Long>
     private Hk3EnergyTick energyTick() {
         return getMachine() instanceof Hk3WorkableMultiblockMachine machine
                 && machine.getRecipeLogic() instanceof Hk3RecipeLogic logic ? logic.getEnergyTick() : null;
+    }
+
+    public boolean consumeEnergy(BigInteger amount) {
+        UUID owner = owner();
+        return owner != null && WirelessEnergyManager.getUserEU(owner).compareTo(amount) >= 0
+                && changeForTick(owner, amount.negate());
     }
 
     private boolean changeForTick(UUID owner, BigInteger delta) {

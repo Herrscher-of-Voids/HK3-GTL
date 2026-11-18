@@ -1,1 +1,491 @@
-{"key":"i19","machine":"hk3gtl:i19_small_honkai_reactor","controller":[95,3,20],"size_xyz":[191,123,175]}
+{
+  "key": "i19",
+  "machine": "hk3gtl:i19_small_honkai_reactor",
+  "source": "data/hk3gtl/approved_architecture/i19.json",
+  "sha256": "5b5c1d091f9a95fa8a26382f9a93827ccd1c7428b0e5f59c3c33be45ed42d663",
+  "template_sha256": "df74af24c4e9fd55962c67e2ed3b3f63dedeb7bf67b61e0320e433acfeb822b6",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\I19_小型崩坏能反应堆_单塔蓝湾独立候选_V3_20261023\\i19",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\I19_小型崩坏能反应堆_单塔蓝湾独立候选_V3_20261023\\i19\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\I19_小型崩坏能反应堆_单塔蓝湾独立候选_V3_20261023\\i19\\i19-hbv-coastal-single-unit-v3.nbt",
+  "source_nbt_sha256": "e899365656c3c57e7eb4270e7cf6eaf751de29e0183fe71df4a940c71c1e454e",
+  "controller": [
+    95,
+    3,
+    20
+  ],
+  "size_xyz": [
+    191,
+    123,
+    175
+  ],
+  "blocks": 256075,
+  "ports": [],
+  "target_voltage": "HBV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 12,
+  "source_diamond_count": 2,
+  "preserved_other_diamonds": 1,
+  "changes": [
+    {
+      "pos": [
+        95,
+        3,
+        20
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i19_small_honkai_reactor[facing=north]",
+      "block_entity_id": "hk3gtl:i19_small_honkai_reactor"
+    },
+    {
+      "pos": [
+        8,
+        3,
+        37
+      ],
+      "role": "C1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        8,
+        3,
+        53
+      ],
+      "role": "C2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        190,
+        3,
+        108
+      ],
+      "role": "F1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=east]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        190,
+        3,
+        139
+      ],
+      "role": "F2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=east]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        116,
+        4,
+        8
+      ],
+      "role": "E1",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        134,
+        4,
+        8
+      ],
+      "role": "E2",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        152,
+        4,
+        8
+      ],
+      "role": "E3",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        170,
+        4,
+        8
+      ],
+      "role": "E4",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i19_small_honkai_reactor",
+  "controller_json_state": "hk3gtl:i19_small_honkai_reactor",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "F1",
+      "pos": [
+        190,
+        3,
+        108
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_hbv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              190,
+              3,
+              107
+            ],
+            "state": "hk3gtl:voltage_machine_casing_hbv"
+          },
+          {
+            "pos": [
+              190,
+              3,
+              109
+            ],
+            "state": "hk3gtl:voltage_machine_casing_hbv"
+          },
+          {
+            "pos": [
+              190,
+              4,
+              108
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F2",
+      "pos": [
+        190,
+        3,
+        139
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_hbv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              190,
+              3,
+              138
+            ],
+            "state": "hk3gtl:voltage_machine_casing_hbv"
+          },
+          {
+            "pos": [
+              190,
+              3,
+              140
+            ],
+            "state": "hk3gtl:voltage_machine_casing_hbv"
+          },
+          {
+            "pos": [
+              190,
+              4,
+              139
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "C1",
+      "pos": [
+        8,
+        3,
+        37
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_hbv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              8,
+              3,
+              36
+            ],
+            "state": "hk3gtl:voltage_machine_casing_hbv"
+          },
+          {
+            "pos": [
+              8,
+              3,
+              38
+            ],
+            "state": "hk3gtl:voltage_machine_casing_hbv"
+          },
+          {
+            "pos": [
+              8,
+              4,
+              37
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "pos": [
+        8,
+        3,
+        53
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_hbv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              8,
+              3,
+              52
+            ],
+            "state": "hk3gtl:voltage_machine_casing_hbv"
+          },
+          {
+            "pos": [
+              8,
+              3,
+              54
+            ],
+            "state": "hk3gtl:voltage_machine_casing_hbv"
+          },
+          {
+            "pos": [
+              8,
+              4,
+              53
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "E1",
+      "pos": [
+        116,
+        4,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:advanced_computer_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              115,
+              4,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              117,
+              4,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              116,
+              3,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              116,
+              5,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "E2",
+      "pos": [
+        134,
+        4,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:advanced_computer_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              133,
+              4,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              135,
+              4,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              134,
+              3,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              134,
+              5,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "E3",
+      "pos": [
+        152,
+        4,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:advanced_computer_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              151,
+              4,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              153,
+              4,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              152,
+              3,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              152,
+              5,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "E4",
+      "pos": [
+        170,
+        4,
+        8
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:advanced_computer_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              169,
+              4,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              171,
+              4,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              170,
+              3,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              170,
+              5,
+              8
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

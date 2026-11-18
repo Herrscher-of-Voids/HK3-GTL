@@ -5,14 +5,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-
-
-
-
-
-
-
-
 public final class Hk3PersonalCommunicationData extends SavedData {
     private CompoundTag players = new CompoundTag();
     public static Hk3PersonalCommunicationData get(MinecraftServer server) {

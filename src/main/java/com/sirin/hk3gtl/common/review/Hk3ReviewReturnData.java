@@ -6,7 +6,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-
 public final class Hk3ReviewReturnData extends SavedData {
     public record ReturnPoint(UUID meeting,String dimension,double x,double y,double z,float yaw,float pitch){}
     private final Map<UUID,ReturnPoint> points=new LinkedHashMap<>();

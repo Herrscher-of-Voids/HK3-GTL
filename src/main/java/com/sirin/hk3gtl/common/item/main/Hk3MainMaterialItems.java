@@ -1,13 +1,8 @@
 package com.sirin.hk3gtl.common.item.main;
 
-
-
-
-
-
-
-
-
+/**
+ * 在现有物品注册器中登记十六阶主材料实体，并向配方提供校验后的物品栈。
+ */
 
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.item.Hk3Items;

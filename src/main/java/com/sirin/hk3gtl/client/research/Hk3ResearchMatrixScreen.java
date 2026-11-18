@@ -17,12 +17,6 @@ import net.minecraft.world.item.Items;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-
 public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int ROOT_BG = 0xE0101016;

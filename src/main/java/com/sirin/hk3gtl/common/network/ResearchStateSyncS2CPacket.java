@@ -1,19 +1,10 @@
 package com.sirin.hk3gtl.common.network;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 处理 ResearchStateSyncS2CPacket 网络同步与通信。
+ *
+ */
 import com.sirin.hk3gtl.client.network.ClientResearchStateSyncHandler;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;

@@ -9,9 +9,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ArmorStand.class)
-
-
-
 public abstract class Hk3EggArmorStandMixin {
     @Inject(method="setItemSlot",at=@At("TAIL"))private void hk3gtl$clearOwner(EquipmentSlot slot,ItemStack stack,org.spongepowered.asm.mixin.injection.callback.CallbackInfo ci){
         var stand=(ArmorStand)(Object)this;

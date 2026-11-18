@@ -1,1 +1,9 @@
-{"replace":false,"values":["hk3gtl:honkai_resonance_processor_mainframe","hk3gtl:quantum_bridge_computer","hk3gtl:qcv_assembly","hk3gtl:quantum_interference_processor"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:honkai_resonance_processor_mainframe",
+    "hk3gtl:quantum_bridge_computer",
+    "hk3gtl:qcv_assembly",
+    "hk3gtl:quantum_interference_processor"
+  ]
+}

@@ -11,10 +11,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
-
-
-
+/**
+ * 保留HK3自动建造入口，将GT结构匹配转入分批世界读取。
+ */
 @Mixin(value = BlockPattern.class, remap = false)
 public abstract class Hk3UniversalPatternMixin {
     @Inject(method="checkPatternAt(Lcom/gregtechceu/gtceu/api/pattern/MultiblockState;Z)Z",at=@At("HEAD"),cancellable=true)

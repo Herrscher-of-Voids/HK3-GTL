@@ -5,9 +5,6 @@ import net.minecraft.nbt.*;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.core.registries.BuiltInRegistries;
 import java.util.*;
-
-
-
 public final class Hk3EggBuildMemory extends SavedData {
     private record Cell(UUID owner,String block){}
     private static final int LIMIT=32768;

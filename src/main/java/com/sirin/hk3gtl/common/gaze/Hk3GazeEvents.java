@@ -9,13 +9,9 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-
-
-
-
-
-
-
+/**
+ * 注视状态每秒刷新及本人只读诊断入口。
+ */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3GazeEvents {
     private Hk3GazeEvents() {}

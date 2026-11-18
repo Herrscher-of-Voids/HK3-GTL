@@ -5,12 +5,6 @@ import net.minecraft.nbt.*;
 import java.util.*;
 import java.util.function.*;
 
-
-
-
-
-
-
 public final class Hk3ReviewRequirements {
     public record Requirement(String key,String label) {}
     public record Rules(List<Requirement> research,List<Requirement> facts) {
@@ -59,5 +53,4 @@ public final class Hk3ReviewRequirements {
         return new Evaluation(missing,sources);
     }
 }
-
 

@@ -6,18 +6,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import java.util.Set;
 
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3ResearchBatchProofs {
     private Hk3ResearchBatchProofs() {}
     public static final Set<String> RECOVERY = Set.of("medium", "heat", "spent_rods");

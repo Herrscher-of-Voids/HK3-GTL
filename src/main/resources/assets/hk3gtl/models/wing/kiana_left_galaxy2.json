@@ -1,1 +1,7 @@
-{"parent":"item/generated","render_type":"minecraft:translucent","textures":{"layer0":"hk3gtl:item/wing/kiana_left_galaxy2"}}
+{
+  "parent": "item/generated",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "layer0": "hk3gtl:item/wing/kiana_left_galaxy2"
+  }
+}

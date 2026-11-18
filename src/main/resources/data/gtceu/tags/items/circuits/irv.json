@@ -1,1 +1,9 @@
-{"replace":false,"values":["hk3gtl:imaginary_anchoring_processor_mainframe","hk3gtl:irv_computer","hk3gtl:causal_reconstruction_assembly","hk3gtl:world_weaving_processor"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:imaginary_anchoring_processor_mainframe",
+    "hk3gtl:irv_computer",
+    "hk3gtl:causal_reconstruction_assembly",
+    "hk3gtl:world_weaving_processor"
+  ]
+}

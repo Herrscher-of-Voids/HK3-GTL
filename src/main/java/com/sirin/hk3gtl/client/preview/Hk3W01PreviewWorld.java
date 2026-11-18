@@ -21,15 +21,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-
-
-
-
-
-
-
-
-
+/**
+ * W01只读预览世界，按原坐标读取全部实体和状态，不创建区块、物理tick或百万BlockInfo。
+ */
 public final class Hk3W01PreviewWorld extends TrackedDummyWorld {
     final Hk3W01HallLayout layout;
     final Hk3W01PreviewIndex index;

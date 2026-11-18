@@ -7,7 +7,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import com.sirin.hk3gtl.common.network.Hk3Network;
 import com.sirin.hk3gtl.common.easter.Hk3EggUiPacket;
 import java.util.*;
-
 public final class Hk3EggJeiReading {
     private static net.minecraft.client.gui.screens.Screen screen;
     private static long lastTick=-1;

@@ -1,0 +1,1290 @@
+{
+  "id": "W08",
+  "version": "0005-W08-A5",
+  "controller": "hk3gtl:w08_stellar_casting_furnace",
+  "blueprint": "hk3gtl:structures/w08_candidate.bin.gz",
+  "conversation": "0005",
+  "conversation_id": "01a1e02a-4d20-7d81-bdab-70404f66086d",
+  "appearance_approved": true,
+  "approval_basis": "负责人：实装一下A5，也就是W08。",
+  "source": "deliveries/0005_W08_双内环球面翻转_A5_20261116",
+  "source_geometry_sha256": "aae52af83c00025ed79ba86e246f40d664fed586cff39e9e0a31b856624645fd",
+  "source_npz_sha256": "ef20ac9a8575f109c2f805c3578b2b7350935c4c71bb8d730b01a9aae240440d",
+  "source_preview_payload_sha256": "74940216ff5d6a285e561898b5460f9ccccd8c544c4f749cc40791c103e2221e",
+  "source_approval_fields_preserved": true,
+  "external_approval_is_authoritative": true,
+  "size_xyz": [
+    512,
+    477,
+    512
+  ],
+  "size_wdh": [
+    512,
+    512,
+    477
+  ],
+  "source_origin_xyz": [
+    233,
+    -88,
+    205
+  ],
+  "blueprint_to_export_offset_xyz": [
+    -233,
+    88,
+    -205
+  ],
+  "controller_source_xyz": [
+    489,
+    150,
+    370
+  ],
+  "controller_xyz": [
+    256,
+    238,
+    165
+  ],
+  "source_facing": "north",
+  "block_count": 3854075,
+  "component_count": 40,
+  "source_component_voxels": 3854075,
+  "overlap_extra_memberships": 0,
+  "full_geometry": true,
+  "controller_previous_state": "minecraft:magma_block",
+  "controller_state": "hk3gtl:w08_stellar_casting_furnace[facing=north]",
+  "controller_nbt_blockentity_id": "hk3gtl:w08_stellar_casting_furnace",
+  "controller_replacements": 1,
+  "fixed_interface_positions": [],
+  "interface_policy": "除主控外，全部实体格均可替换合法通用接口，朝向自选。",
+  "production_recipe": "hk3gtl:wonder_stellar_forging_matrix",
+  "target_voltage": "CIV",
+  "research": "RN-SFF",
+  "material_counts": {
+    "gtceu:clean_machine_casing": 439816,
+    "minecraft:black_concrete": 147696,
+    "minecraft:gold_block": 93176,
+    "minecraft:orange_concrete": 1139098,
+    "minecraft:yellow_concrete": 528602,
+    "minecraft:sea_lantern": 131155,
+    "minecraft:light_blue_stained_glass": 25304,
+    "minecraft:orange_stained_glass": 61963,
+    "minecraft:red_stained_glass": 30547,
+    "minecraft:magma_block": 1256717,
+    "hk3gtl:w08_stellar_casting_furnace[facing=north]": 1
+  },
+  "runtime_format": "HK3P/2；线性坐标全局升序等差游程；主控原生方块实体NBT。",
+  "rle_record_count": 316778,
+  "blueprint_sha256": "bee89dbdcd0709b369a0a15ce07cf2c3a4813a315f385cab51a5edeebdf135cb",
+  "animation_scene": "hk3gtl:models/scene/w08_a5.json.gz",
+  "animation_scene_sha256": "5b38f29ff3aba10d4e1e0fd5f2de5aec6a4111fd5cec73c3343d9cabb3c34065",
+  "animation_atlas": "hk3gtl:textures/effect/w08_a5_atlas.png",
+  "animation_atlas_sha256": "f29eaf765d3cd8581e1d7fb801cd36bda4a03ac22038ac496ad963ce6f1617a9",
+  "animation_mesh_quads": 192762,
+  "animation_mesh_controller_hole": true,
+  "animation_mask": "hk3gtl:structures/w08_a5_mask.bin.gz",
+  "animation_mask_sha256": "cc6e782f5cc1acf4601d0d37c7a8cb14b6de294bd98dd6eae0080fa85945b5f7",
+  "animation_mask_sections": 2476,
+  "animation_mask_blocks": 3854074,
+  "animation_mask_scope": "全部40构件参考姿态，排除主控；合法接口由客户端保留原生绘制。",
+  "atlas_size_pixels": [
+    1024,
+    512
+  ],
+  "atlas_tile_pixels": 64,
+  "atlas_grid": [
+    16,
+    8
+  ],
+  "atlas_face_order": [
+    "east",
+    "west",
+    "south",
+    "north",
+    "down",
+    "up"
+  ],
+  "motion": {
+    "center_xyz": [
+      489,
+      150,
+      460
+    ],
+    "theta": {
+      "idle_radians_per_second": 0.025,
+      "work_radians_per_second": 0.07
+    },
+    "rings": {
+      "star_ring_01": {
+        "quaternion": "Rz(0.63*theta) * Rx(theta)",
+        "mode": "双轴球心翻转"
+      },
+      "star_ring_02": {
+        "quaternion": "Rz(0.47*theta) * Ry(-0.82*theta)",
+        "mode": "双轴球心翻转"
+      },
+      "star_ring_03": {
+        "quaternion": "Rz(theta)",
+        "mode": "原Z法线自转"
+      }
+    },
+    "quaternion_order": "右侧旋转先作用，所有旋转共用恒星球心。",
+    "prominence_mask": "每帧将各环原法线随同一刚体四元数旋转，日珥局部遮罩跟随当前环面。"
+  },
+  "motion_envelope": {
+    "coordinates": "原蓝图坐标；bounds.max为连续实体的上界，不是最后一格的基点。",
+    "scope": "内两环采用完整立方体球包络，外环采用法线自转柱包络；太阳与碎片保持静态。",
+    "static_cube_bounds": {
+      "min": [
+        233,
+        -88,
+        205
+      ],
+      "max": [
+        745,
+        389,
+        717
+      ]
+    },
+    "bounds": {
+      "min": [
+        233,
+        -89.0188277102873,
+        205
+      ],
+      "max": [
+        745,
+        389.01882771028727,
+        717
+      ]
+    },
+    "size_xyz": [
+      512,
+      478.03765542057454,
+      512
+    ],
+    "size_wdh": [
+      512,
+      512,
+      478.03765542057454
+    ],
+    "integer_cover_bounds": {
+      "min": [
+        233,
+        -90,
+        205
+      ],
+      "max": [
+        744,
+        389,
+        716
+      ]
+    },
+    "integer_cover_size_wdh": [
+      512,
+      512,
+      480
+    ],
+    "components": {
+      "star_compressed_supergiant": {
+        "static_cube_bounds": {
+          "min": [
+            399,
+            60,
+            370
+          ],
+          "max": [
+            580,
+            241,
+            551
+          ]
+        },
+        "bounds": {
+          "min": [
+            399,
+            60,
+            370
+          ],
+          "max": [
+            580,
+            241,
+            551
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_ring_01": {
+        "static_cube_bounds": {
+          "min": [
+            347,
+            144,
+            318
+          ],
+          "max": [
+            632,
+            160,
+            603
+          ]
+        },
+        "bounds": {
+          "min": [
+            345.9545526764308,
+            6.954552676430836,
+            316.9545526764308
+          ],
+          "max": [
+            632.0454473235692,
+            293.0454473235692,
+            603.0454473235692
+          ]
+        },
+        "method": "以实际完整立方体最大球半径包围双轴球心翻转。"
+      },
+      "star_ring_02": {
+        "static_cube_bounds": {
+          "min": [
+            483,
+            -40,
+            270
+          ],
+          "max": [
+            499,
+            341,
+            651
+          ]
+        },
+        "bounds": {
+          "min": [
+            297.9659716176199,
+            -41.034028382380086,
+            268.9659716176199
+          ],
+          "max": [
+            680.03402838238,
+            341.0340283823801,
+            651.03402838238
+          ]
+        },
+        "method": "以实际完整立方体最大球半径包围双轴球心翻转。"
+      },
+      "star_ring_03": {
+        "static_cube_bounds": {
+          "min": [
+            251,
+            -88,
+            454
+          ],
+          "max": [
+            728,
+            389,
+            470
+          ]
+        },
+        "bounds": {
+          "min": [
+            249.9811722897127,
+            -89.0188277102873,
+            454.0
+          ],
+          "max": [
+            728.0188277102873,
+            389.01882771028727,
+            470.0
+          ]
+        },
+        "method": "外环保持Z法线自转，以实际平面最大半径及完整轴向厚度包围。"
+      },
+      "star_dimension_fragment_01": {
+        "static_cube_bounds": {
+          "min": [
+            689,
+            -10,
+            449
+          ],
+          "max": [
+            706,
+            14,
+            472
+          ]
+        },
+        "bounds": {
+          "min": [
+            689,
+            -10,
+            449
+          ],
+          "max": [
+            706,
+            14,
+            472
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_02": {
+        "static_cube_bounds": {
+          "min": [
+            661,
+            -11,
+            552
+          ],
+          "max": [
+            682,
+            15,
+            576
+          ]
+        },
+        "bounds": {
+          "min": [
+            661,
+            -11,
+            552
+          ],
+          "max": [
+            682,
+            15,
+            576
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_03": {
+        "static_cube_bounds": {
+          "min": [
+            579,
+            -13,
+            628
+          ],
+          "max": [
+            610,
+            17,
+            655
+          ]
+        },
+        "bounds": {
+          "min": [
+            579,
+            -13,
+            628
+          ],
+          "max": [
+            610,
+            17,
+            655
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_04": {
+        "static_cube_bounds": {
+          "min": [
+            472,
+            -14,
+            656
+          ],
+          "max": [
+            506,
+            18,
+            681
+          ]
+        },
+        "bounds": {
+          "min": [
+            472,
+            -14,
+            656
+          ],
+          "max": [
+            506,
+            18,
+            681
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_05": {
+        "static_cube_bounds": {
+          "min": [
+            373,
+            -16,
+            629
+          ],
+          "max": [
+            398,
+            20,
+            654
+          ]
+        },
+        "bounds": {
+          "min": [
+            373,
+            -16,
+            629
+          ],
+          "max": [
+            398,
+            20,
+            654
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_06": {
+        "static_cube_bounds": {
+          "min": [
+            297,
+            -9,
+            552
+          ],
+          "max": [
+            320,
+            14,
+            578
+          ]
+        },
+        "bounds": {
+          "min": [
+            297,
+            -9,
+            552
+          ],
+          "max": [
+            320,
+            14,
+            578
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_07": {
+        "static_cube_bounds": {
+          "min": [
+            272,
+            -11,
+            445
+          ],
+          "max": [
+            292,
+            15,
+            476
+          ]
+        },
+        "bounds": {
+          "min": [
+            272,
+            -11,
+            445
+          ],
+          "max": [
+            292,
+            15,
+            476
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_08": {
+        "static_cube_bounds": {
+          "min": [
+            294,
+            -13,
+            342
+          ],
+          "max": [
+            320,
+            17,
+            372
+          ]
+        },
+        "bounds": {
+          "min": [
+            294,
+            -13,
+            342
+          ],
+          "max": [
+            320,
+            17,
+            372
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_09": {
+        "static_cube_bounds": {
+          "min": [
+            372,
+            -14,
+            266
+          ],
+          "max": [
+            397,
+            19,
+            292
+          ]
+        },
+        "bounds": {
+          "min": [
+            372,
+            -14,
+            266
+          ],
+          "max": [
+            397,
+            19,
+            292
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_10": {
+        "static_cube_bounds": {
+          "min": [
+            477,
+            -16,
+            239
+          ],
+          "max": [
+            503,
+            20,
+            266
+          ]
+        },
+        "bounds": {
+          "min": [
+            477,
+            -16,
+            239
+          ],
+          "max": [
+            503,
+            20,
+            266
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_11": {
+        "static_cube_bounds": {
+          "min": [
+            580,
+            -9,
+            267
+          ],
+          "max": [
+            606,
+            14,
+            290
+          ]
+        },
+        "bounds": {
+          "min": [
+            580,
+            -9,
+            267
+          ],
+          "max": [
+            606,
+            14,
+            290
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_12": {
+        "static_cube_bounds": {
+          "min": [
+            657,
+            -11,
+            339
+          ],
+          "max": [
+            684,
+            15,
+            373
+          ]
+        },
+        "bounds": {
+          "min": [
+            657,
+            -11,
+            339
+          ],
+          "max": [
+            684,
+            15,
+            373
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_13": {
+        "static_cube_bounds": {
+          "min": [
+            737,
+            144,
+            498
+          ],
+          "max": [
+            745,
+            179,
+            520
+          ]
+        },
+        "bounds": {
+          "min": [
+            737,
+            144,
+            498
+          ],
+          "max": [
+            745,
+            179,
+            520
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_14": {
+        "static_cube_bounds": {
+          "min": [
+            673,
+            142,
+            617
+          ],
+          "max": [
+            693,
+            181,
+            639
+          ]
+        },
+        "bounds": {
+          "min": [
+            673,
+            142,
+            617
+          ],
+          "max": [
+            693,
+            181,
+            639
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_15": {
+        "static_cube_bounds": {
+          "min": [
+            559,
+            140,
+            695
+          ],
+          "max": [
+            588,
+            183,
+            709
+          ]
+        },
+        "bounds": {
+          "min": [
+            559,
+            140,
+            695
+          ],
+          "max": [
+            588,
+            183,
+            709
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_16": {
+        "static_cube_bounds": {
+          "min": [
+            424,
+            148,
+            707
+          ],
+          "max": [
+            458,
+            175,
+            717
+          ]
+        },
+        "bounds": {
+          "min": [
+            424,
+            148,
+            707
+          ],
+          "max": [
+            458,
+            175,
+            717
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_17": {
+        "static_cube_bounds": {
+          "min": [
+            312,
+            146,
+            646
+          ],
+          "max": [
+            332,
+            177,
+            662
+          ]
+        },
+        "bounds": {
+          "min": [
+            312,
+            146,
+            646
+          ],
+          "max": [
+            332,
+            177,
+            662
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_18": {
+        "static_cube_bounds": {
+          "min": [
+            241,
+            144,
+            532
+          ],
+          "max": [
+            254,
+            179,
+            557
+          ]
+        },
+        "bounds": {
+          "min": [
+            241,
+            144,
+            532
+          ],
+          "max": [
+            254,
+            179,
+            557
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_19": {
+        "static_cube_bounds": {
+          "min": [
+            233,
+            142,
+            397
+          ],
+          "max": [
+            243,
+            181,
+            427
+          ]
+        },
+        "bounds": {
+          "min": [
+            233,
+            142,
+            397
+          ],
+          "max": [
+            243,
+            181,
+            427
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_20": {
+        "static_cube_bounds": {
+          "min": [
+            284,
+            140,
+            279
+          ],
+          "max": [
+            308,
+            183,
+            307
+          ]
+        },
+        "bounds": {
+          "min": [
+            284,
+            140,
+            279
+          ],
+          "max": [
+            308,
+            183,
+            307
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_21": {
+        "static_cube_bounds": {
+          "min": [
+            395,
+            148,
+            213
+          ],
+          "max": [
+            417,
+            175,
+            224
+          ]
+        },
+        "bounds": {
+          "min": [
+            395,
+            148,
+            213
+          ],
+          "max": [
+            417,
+            175,
+            224
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_22": {
+        "static_cube_bounds": {
+          "min": [
+            525,
+            146,
+            205
+          ],
+          "max": [
+            551,
+            177,
+            213
+          ]
+        },
+        "bounds": {
+          "min": [
+            525,
+            146,
+            205
+          ],
+          "max": [
+            551,
+            177,
+            213
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_23": {
+        "static_cube_bounds": {
+          "min": [
+            644,
+            144,
+            256
+          ],
+          "max": [
+            669,
+            179,
+            277
+          ]
+        },
+        "bounds": {
+          "min": [
+            644,
+            144,
+            256
+          ],
+          "max": [
+            669,
+            179,
+            277
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_24": {
+        "static_cube_bounds": {
+          "min": [
+            724,
+            142,
+            360
+          ],
+          "max": [
+            739,
+            181,
+            393
+          ]
+        },
+        "bounds": {
+          "min": [
+            724,
+            142,
+            360
+          ],
+          "max": [
+            739,
+            181,
+            393
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_25": {
+        "static_cube_bounds": {
+          "min": [
+            662,
+            290,
+            522
+          ],
+          "max": [
+            690,
+            325,
+            547
+          ]
+        },
+        "bounds": {
+          "min": [
+            662,
+            290,
+            522
+          ],
+          "max": [
+            690,
+            325,
+            547
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_26": {
+        "static_cube_bounds": {
+          "min": [
+            603,
+            296,
+            607
+          ],
+          "max": [
+            627,
+            318,
+            630
+          ]
+        },
+        "bounds": {
+          "min": [
+            603,
+            296,
+            607
+          ],
+          "max": [
+            627,
+            318,
+            630
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_27": {
+        "static_cube_bounds": {
+          "min": [
+            503,
+            294,
+            652
+          ],
+          "max": [
+            533,
+            320,
+            671
+          ]
+        },
+        "bounds": {
+          "min": [
+            503,
+            294,
+            652
+          ],
+          "max": [
+            533,
+            320,
+            671
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_28": {
+        "static_cube_bounds": {
+          "min": [
+            397,
+            293,
+            633
+          ],
+          "max": [
+            433,
+            322,
+            661
+          ]
+        },
+        "bounds": {
+          "min": [
+            397,
+            293,
+            633
+          ],
+          "max": [
+            433,
+            322,
+            661
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_29": {
+        "static_cube_bounds": {
+          "min": [
+            320,
+            291,
+            573
+          ],
+          "max": [
+            344,
+            324,
+            598
+          ]
+        },
+        "bounds": {
+          "min": [
+            320,
+            291,
+            573
+          ],
+          "max": [
+            344,
+            324,
+            598
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_30": {
+        "static_cube_bounds": {
+          "min": [
+            275,
+            290,
+            476
+          ],
+          "max": [
+            302,
+            325,
+            501
+          ]
+        },
+        "bounds": {
+          "min": [
+            275,
+            290,
+            476
+          ],
+          "max": [
+            302,
+            325,
+            501
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_31": {
+        "static_cube_bounds": {
+          "min": [
+            291,
+            296,
+            370
+          ],
+          "max": [
+            314,
+            319,
+            402
+          ]
+        },
+        "bounds": {
+          "min": [
+            291,
+            296,
+            370
+          ],
+          "max": [
+            314,
+            319,
+            402
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_32": {
+        "static_cube_bounds": {
+          "min": [
+            349,
+            294,
+            289
+          ],
+          "max": [
+            379,
+            320,
+            317
+          ]
+        },
+        "bounds": {
+          "min": [
+            349,
+            294,
+            289
+          ],
+          "max": [
+            379,
+            320,
+            317
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_33": {
+        "static_cube_bounds": {
+          "min": [
+            450,
+            293,
+            248
+          ],
+          "max": [
+            472,
+            322,
+            271
+          ]
+        },
+        "bounds": {
+          "min": [
+            450,
+            293,
+            248
+          ],
+          "max": [
+            472,
+            322,
+            271
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_34": {
+        "static_cube_bounds": {
+          "min": [
+            549,
+            291,
+            260
+          ],
+          "max": [
+            578,
+            323,
+            287
+          ]
+        },
+        "bounds": {
+          "min": [
+            549,
+            291,
+            260
+          ],
+          "max": [
+            578,
+            323,
+            287
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_35": {
+        "static_cube_bounds": {
+          "min": [
+            632,
+            290,
+            320
+          ],
+          "max": [
+            661,
+            325,
+            351
+          ]
+        },
+        "bounds": {
+          "min": [
+            632,
+            290,
+            320
+          ],
+          "max": [
+            661,
+            325,
+            351
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      },
+      "star_dimension_fragment_36": {
+        "static_cube_bounds": {
+          "min": [
+            681,
+            296,
+            415
+          ],
+          "max": [
+            699,
+            318,
+            449
+          ]
+        },
+        "bounds": {
+          "min": [
+            681,
+            296,
+            415
+          ],
+          "max": [
+            699,
+            318,
+            449
+          ]
+        },
+        "method": "静态实体完整单位立方体包围盒。"
+      }
+    }
+  },
+  "clearance_spherical_shells": {
+    "star_to_inner_ring": 8.528208503453342,
+    "inner_to_middle_ring": 5.177357939318767,
+    "middle_to_outer_ring": 5.070535562470525,
+    "outer_ring_to_fragments": 13.133467964699975
+  },
+  "overworld_vertical_span": 384,
+  "overworld_height_compatible": false,
+  "game_verified": false,
+  "native_animation_integrated": true,
+  "renderer": "com.sirin.hk3gtl.client.wonder.Hk3W08FxRenderer",
+  "animation_activation": "完整实体验证并成型后同步；待机与工作连续相位。",
+  "height_support": {
+    "existing_system": "Hk3HeightConfig",
+    "new_world_top_exclusive": 1024,
+    "controller_y_range_expanded_overworld": [
+      174,
+      785
+    ],
+    "existing_save_policy": "读取存档已有实际建高，建高不足由终端在扣料前拒绝。"
+  }
+}

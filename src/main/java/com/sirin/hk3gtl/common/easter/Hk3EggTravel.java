@@ -12,8 +12,6 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
 public final class Hk3EggTravel {
     private Hk3EggTravel(){}
     public static boolean home(ServerPlayer p,int radius){var at=p.getRespawnPosition();return at!=null&&p.getRespawnDimension().equals(p.level().dimension())&&p.position().distanceToSqr(Vec3.atCenterOf(at))<=radius*radius;}

@@ -11,9 +11,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
-
 public final class Hk3EggLifeEvents {
     private static final Map<UUID,PlayerSetSpawnEvent> SPAWN=new java.util.concurrent.ConcurrentHashMap<>();
     private static final Map<UUID,ShieldBlockEvent> SHIELD=new java.util.concurrent.ConcurrentHashMap<>();

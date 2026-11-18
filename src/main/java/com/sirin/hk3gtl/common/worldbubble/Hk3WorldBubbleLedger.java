@@ -12,30 +12,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 真实目标与模拟批次的公共状态账本，供服务端机器后续接入；不发放物品。
+ */
 public final class Hk3WorldBubbleLedger {
-    public static final int MAX_MINING = 10;
+    public static final int MAX_MINING = 1;
+    static final int LEGACY_MINING_LIMIT = 10;
+    private int miningLimit = MAX_MINING;
     public enum Domain { REAL, SIMULATED }
     public enum Action { MINE, CAPTURE, TERMINATE_REAL, STABILIZE_SIMULATION, TERMINATE_SIMULATION, DISCARD_SIMULATION }
     public enum Phase { RESERVED, SETTLED, CANCELLED }
@@ -89,7 +72,6 @@ public final class Hk3WorldBubbleLedger {
     public void createSimulation(UUID batch, UUID creator, String origin) {
         createSimulation(batch,creator,origin,new CompoundTag());
     }
-    /** 修订101：真实构筑保存投入产出回执；旧空回执批次不能冒充已验证构筑。 */
     public void createSimulation(UUID batch, UUID creator, String origin,CompoundTag receipt) {
         Objects.requireNonNull(batch); Objects.requireNonNull(creator); text(origin);
         Simulation old = simulated.get(batch);
@@ -193,7 +175,7 @@ public final class Hk3WorldBubbleLedger {
             RealTarget target = real.get(id);
             if (target == null) throw invalid("Unknown real target");
             boolean valid = switch (action) {
-                case MINE -> target.state == RealState.AVAILABLE && target.mined < MAX_MINING;
+                case MINE -> target.state == RealState.AVAILABLE && target.mined < miningLimit;
                 case CAPTURE -> target.state == RealState.AVAILABLE;
                 case TERMINATE_REAL -> target.state == RealState.CAPTURED;
                 default -> false;
@@ -250,6 +232,8 @@ public final class Hk3WorldBubbleLedger {
             if(tag.contains("CreationReceipt")&&!tag.contains("CreationReceipt",Tag.TAG_COMPOUND))throw invalid("Invalid creation receipt");
             ledger.createSimulation(id, uuid(tag, "Creator"), tag.getString("Origin"),tag.getCompound("CreationReceipt"));
         }
+        // 旧账本按当时的十次上限回放，已结算的收据和领取记录保持不变。
+        ledger.miningLimit = LEGACY_MINING_LIMIT;
         for (Tag entry : list(root, "Operations")) {
             CompoundTag tag = (CompoundTag) entry; UUID id = uuid(tag, "Id"), actor = uuid(tag, "Actor");
             for (String field : new String[]{"Domain", "Action", "Phase"}) requireType(tag, field, Tag.TAG_STRING);
@@ -263,9 +247,12 @@ public final class Hk3WorldBubbleLedger {
                 if (tag.getBoolean("Delivered")) ledger.acknowledge(id, actor);
             } else {
                 if (!tag.getCompound("Receipt").isEmpty() || tag.getBoolean("Delivered")) throw invalid("Unsettled delivery");
-                if (phase == Phase.CANCELLED) ledger.cancel(id, actor);
+                var tx = ledger.transaction(id);
+                if (phase == Phase.CANCELLED || tx.action() == Action.MINE && ledger.real(tx.target()).miningCount() >= MAX_MINING)
+                    ledger.cancel(id, actor);
             }
         }
+        ledger.miningLimit = MAX_MINING;
         ledger.changed = Objects.requireNonNull(changed); return ledger;
     }
     void onChange(Runnable changed) { this.changed = Objects.requireNonNull(changed); }

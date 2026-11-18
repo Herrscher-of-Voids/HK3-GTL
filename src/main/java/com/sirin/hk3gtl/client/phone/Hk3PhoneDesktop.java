@@ -5,13 +5,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import java.util.List;
 
-
-
-
-
-
-
-
 final class Hk3PhoneDesktop {
     private static final int PER_PAGE=9,ROW_HEIGHT=68;
     private final Hk3PhoneAppHintClient hints=new Hk3PhoneAppHintClient();

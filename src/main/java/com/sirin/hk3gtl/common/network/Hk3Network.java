@@ -2,32 +2,9 @@ package com.sirin.hk3gtl.common.network;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】协议13升至14，避免旧客户端错用新增研究布局与供电字段。
+ */
 
 
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
@@ -48,34 +25,9 @@ import net.minecraftforge.network.simple.SimpleChannel;
  *   <li>PROTOCOL_VERSION 变更会导致客户端/服务端版本不匹配被拒绝连接</li>
  * </ul>
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/** 修订198：通用对话包追加服务端逐段令牌，协议27拒绝旧端混连。 */
-
 public class Hk3Network {
 
     /** 协议版本号，客户端和服务端必须一致，否则握手失败 */
-
     private static final String PROTOCOL_VERSION = "40";
 
     /** 网络包自增索引，每注册一个包 +1，不可重复 */

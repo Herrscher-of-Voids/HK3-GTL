@@ -1,1 +1,410 @@
-{"key":"i42","machine":"hk3gtl:i42_wonder_component_prefabrication_factory","controller":[320,26,0],"size_xyz":[641,295,449]}
+{
+  "key": "i42",
+  "machine": "hk3gtl:i42_wonder_component_prefabrication_factory",
+  "source": "data/hk3gtl/approved_architecture/i42.json",
+  "sha256": "22eb2ffe27c7374426ab3fd59e4cb135d6027c9dba2c37529ffc0155aa4501df",
+  "template_sha256": "6533a1fb7079ca95ba563e24f607d30a2b333b1aa5f0fcfddfab477d486635c0",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_235744_579366_batch-10_03of05_I42_V1_WFV_外观已确认\\I42_奇观构件预制工厂_巨构龙骨与步进预制船坞_V1_20261028",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_235744_579366_batch-10_03of05_I42_V1_WFV_外观已确认\\I42_奇观构件预制工厂_巨构龙骨与步进预制船坞_V1_20261028\\manifest.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261028_235744_579366_batch-10_03of05_I42_V1_WFV_外观已确认\\I42_奇观构件预制工厂_巨构龙骨与步进预制船坞_V1_20261028\\i42\\hk3gtl-i42-prefabrication-dock-v1-20261028.nbt",
+  "source_nbt_sha256": "835dd6d1d889dbc8348163696e4f5c064437d94858d8186ca185c92bd5cf9594",
+  "controller": [
+    320,
+    26,
+    0
+  ],
+  "size_xyz": [
+    641,
+    295,
+    449
+  ],
+  "blocks": 14747313,
+  "ports": [],
+  "target_voltage": "WFV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 182,
+  "materials": 44,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        224,
+        26,
+        0
+      ],
+      "role": "魂钢精密骨架输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        248,
+        26,
+        0
+      ],
+      "role": "I40专用材料输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        272,
+        26,
+        0
+      ],
+      "role": "导能元件输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_bus[facing=north]",
+      "block_entity_id": "gtceu:max_input_bus"
+    },
+    {
+      "pos": [
+        296,
+        26,
+        0
+      ],
+      "role": "预制工艺介质输入",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        320,
+        26,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i42_wonder_component_prefabrication_factory[facing=north]",
+      "block_entity_id": "hk3gtl:i42_wonder_component_prefabrication_factory"
+    },
+    {
+      "pos": [
+        344,
+        26,
+        0
+      ],
+      "role": "专用预制构件交接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        368,
+        26,
+        0
+      ],
+      "role": "边角料分类回收",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=north]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        392,
+        26,
+        0
+      ],
+      "role": "图样与授权核验",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        416,
+        26,
+        0
+      ],
+      "role": "维护及流体汇接",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i42_wonder_component_prefabrication_factory",
+  "approved_version": "V1",
+  "external_approval_is_authoritative": true,
+  "source_manifest_approved_field_preserved": true,
+  "actual_bounds_xyz": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      640,
+      294,
+      448
+    ]
+  },
+  "process_scope": "完整批准建筑、主控、原位物品流体仓与全高JEI预览；能源、维护和研究接口保留占位，不声明能源调度或旅行逻辑已实现。",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "魂钢精密骨架输入",
+      "pos": [
+        224,
+        26,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_wfv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              223,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          },
+          {
+            "pos": [
+              225,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "I40专用材料输入",
+      "pos": [
+        248,
+        26,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_wfv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              247,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          },
+          {
+            "pos": [
+              249,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "导能元件输入",
+      "pos": [
+        272,
+        26,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_wfv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              271,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          },
+          {
+            "pos": [
+              273,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "预制工艺介质输入",
+      "pos": [
+        296,
+        26,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_wfv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              295,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          },
+          {
+            "pos": [
+              297,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "专用预制构件交接",
+      "pos": [
+        344,
+        26,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_wfv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              343,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          },
+          {
+            "pos": [
+              345,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "边角料分类回收",
+      "pos": [
+        368,
+        26,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_wfv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              367,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          },
+          {
+            "pos": [
+              369,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "图样与授权核验",
+      "pos": [
+        392,
+        26,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_wfv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              391,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          },
+          {
+            "pos": [
+              393,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          }
+        ]
+      }
+    },
+    {
+      "id": "维护及流体汇接",
+      "pos": [
+        416,
+        26,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_wfv",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              415,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          },
+          {
+            "pos": [
+              417,
+              26,
+              0
+            ],
+            "state": "hk3gtl:voltage_machine_casing_wfv"
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

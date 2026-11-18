@@ -1,0 +1,160 @@
+{
+  "id": "W06",
+  "version": "0005-W06-A1",
+  "controller": "hk3gtl:w06_cryogenic_condensed_factory",
+  "blueprint": "hk3gtl:structures/w06_candidate.bin.gz",
+  "conversation": "0005",
+  "conversation_id": "01a1d6b8-bd81-79d3-a6f4-4f590806cc8e",
+  "appearance_approved": true,
+  "approval_basis": "负责人：“可以就这台吧，接入吧”；随后要求使用GTL模组包已有方块并尽量保持配色。",
+  "source": "deliveries/0005_W06_作者蓝图原案_20261115",
+  "source_manifest_sha256": "b38b1d442585e3914f097d4cf89bc6f731e53bfbb271ed3ebce289d8742520bd",
+  "source_npz_sha256": "21ff7c8b2c51f1628dc30f65b73e448e68d06cce339d09774d5975be707d1c08",
+  "source_blueprint_sha256": "6473017b6f4da1ac9768199585a89fb008567d1c7959be110e1dde60ca79c3b2",
+  "size_xyz": [
+    817,
+    423,
+    761
+  ],
+  "size_wdh": [
+    817,
+    761,
+    423
+  ],
+  "source_origin_xyz": [
+    -7,
+    -40,
+    -19
+  ],
+  "controller_source_xyz": [
+    401,
+    45,
+    700
+  ],
+  "controller_xyz": [
+    408,
+    85,
+    719
+  ],
+  "source_facing": "north",
+  "block_count": 13265373,
+  "full_geometry": true,
+  "source_component_voxels": 14549426,
+  "unique_source_voxels": 13265373,
+  "overlap_extra_memberships": 1284053,
+  "overlap_material_policy": "按原案构件顺序后者覆盖前者；只处理体素重合，不改任何构件坐标。",
+  "production_recipe": "hk3gtl:wonder_cryogenic_condensation_matrix",
+  "target_voltage": "WSV",
+  "research": "RN-CCF",
+  "interface_policy": "沿用现有自由通用接口规则；蓝图不预装固定仓室。",
+  "materials": [
+    {
+      "label": "永霜银白装甲 · gtlcore:iridium_casing",
+      "block_state": "gtlcore:iridium_casing",
+      "texture": "materials/01_iridium_casing.png",
+      "archive": "gtl",
+      "entry": "assets/gtlcore/textures/block/casings/iridium_casing.png",
+      "transparent": false,
+      "opacity": 1,
+      "emissive": "#000000",
+      "emissiveIntensity": 0
+    },
+    {
+      "label": "深渊暗蓝排热层 · gtlcore:dimensionally_transcendent_casing",
+      "block_state": "gtlcore:dimensionally_transcendent_casing",
+      "texture": "materials/02_dimensionally_transcendent_casing.png",
+      "archive": "gtl",
+      "entry": "assets/gtlcore/textures/block/casings/dimensionally_transcendent_casing.png",
+      "transparent": false,
+      "opacity": 1,
+      "emissive": "#030b16",
+      "emissiveIntensity": 0.04
+    },
+    {
+      "label": "冰晶棱镜 · minecraft:light_blue_stained_glass",
+      "block_state": "minecraft:light_blue_stained_glass",
+      "texture": "materials/03_light_blue_stained_glass.png",
+      "archive": "minecraft",
+      "entry": "assets/minecraft/textures/block/light_blue_stained_glass.png",
+      "transparent": true,
+      "opacity": 0.72,
+      "emissive": "#000000",
+      "emissiveIntensity": 0
+    },
+    {
+      "label": "金色律者饰面 · gtlcore:blaze_blast_furnace_casing",
+      "block_state": "gtlcore:blaze_blast_furnace_casing",
+      "texture": "materials/04_blaze_blast_furnace_casing.png",
+      "archive": "gtl",
+      "entry": "assets/gtlcore/textures/block/blaze_blast_furnace_casing.png",
+      "transparent": false,
+      "opacity": 1,
+      "emissive": "#281b08",
+      "emissiveIntensity": 0.05
+    },
+    {
+      "label": "超导线圈 · gtlcore:lafium_mechanical_casing",
+      "block_state": "gtlcore:lafium_mechanical_casing",
+      "texture": "materials/05_lafium_mechanical_casing.png",
+      "archive": "gtl",
+      "entry": "assets/gtlcore/textures/block/casings/lafium_mechanical_casing.png",
+      "transparent": false,
+      "opacity": 1,
+      "emissive": "#070a1d",
+      "emissiveIntensity": 0.04
+    },
+    {
+      "label": "黑色律者核心 · gtlcore:hyper_mechanical_casing",
+      "block_state": "gtlcore:hyper_mechanical_casing",
+      "texture": "materials/06_hyper_mechanical_casing.png",
+      "archive": "gtl",
+      "entry": "assets/gtlcore/textures/block/casings/hyper_mechanical_casing.png",
+      "transparent": false,
+      "opacity": 1,
+      "emissive": "#160e04",
+      "emissiveIntensity": 0.03
+    },
+    {
+      "label": "极光能量格栅 · minecraft:cyan_stained_glass",
+      "block_state": "minecraft:cyan_stained_glass",
+      "texture": "materials/07_cyan_stained_glass.png",
+      "archive": "minecraft",
+      "entry": "assets/minecraft/textures/block/cyan_stained_glass.png",
+      "transparent": true,
+      "opacity": 0.72,
+      "emissive": "#000000",
+      "emissiveIntensity": 0
+    },
+    {
+      "label": "零点能池 · minecraft:sea_lantern",
+      "block_state": "minecraft:sea_lantern",
+      "texture": "materials/08_sea_lantern.png",
+      "archive": "minecraft",
+      "entry": "assets/minecraft/textures/block/sea_lantern.png",
+      "transparent": false,
+      "opacity": 1,
+      "emissive": "#64cedb",
+      "emissiveIntensity": 0.24
+    }
+  ],
+  "material_counts": {
+    "gtlcore:iridium_casing": 3358325,
+    "gtlcore:dimensionally_transcendent_casing": 6904177,
+    "minecraft:light_blue_stained_glass": 895636,
+    "gtlcore:blaze_blast_furnace_casing": 234969,
+    "gtlcore:lafium_mechanical_casing": 1368399,
+    "gtlcore:hyper_mechanical_casing": 31850,
+    "minecraft:cyan_stained_glass": 453570,
+    "minecraft:sea_lantern": 18446,
+    "hk3gtl:w06_cryogenic_condensed_factory[facing=north]": 1
+  },
+  "controller_previous_state": "gtlcore:hyper_mechanical_casing",
+  "controller_state": "hk3gtl:w06_cryogenic_condensed_factory[facing=north]",
+  "controller_replacements": 1,
+  "runtime_format": "HK3P/2；完整稀疏方块坐标与等差游程；主控实体NBT。",
+  "rle_record_count": 1658164,
+  "blueprint_sha256": "e9e79b7c518244c6a5175470473cf78b10cbb92813c8c638d11e629094c180d8",
+  "overworld_vertical_span": 384,
+  "overworld_height_compatible": false,
+  "game_verified": false
+}

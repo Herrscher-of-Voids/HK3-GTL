@@ -3,10 +3,6 @@ package com.sirin.hk3gtl.common.phone;
 
 
 
-
-
-
-
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.sirin.hk3gtl.common.network.Hk3Network;
@@ -24,37 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3PhoneService {
     private Hk3PhoneService(){}
     @SubscribeEvent public static void commands(RegisterCommandsEvent e){
@@ -200,5 +166,4 @@ public final class Hk3PhoneService {
         if(count>0)toast(player,"session_unread","收件箱有 "+count+" 条未读消息","历史正文和待处理事项已保留，可打开消息中心查看。","notice",2);
     }
 }
-
 

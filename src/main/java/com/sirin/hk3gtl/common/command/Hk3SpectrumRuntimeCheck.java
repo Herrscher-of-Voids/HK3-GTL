@@ -45,13 +45,6 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.UUID;
 
-
-
-
-
-
-
-
 @Mod.EventBusSubscriber(modid="hk3gtl", bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3SpectrumRuntimeCheck {
     private static UUID owner;
@@ -219,5 +212,4 @@ public final class Hk3SpectrumRuntimeCheck {
     private static void next(long now) { LogUtils.getLogger().info("[HK3-SPECTRUM64] PASS stage={}",stage++);since=now; }
     private static void require(boolean valid,String message) { if(!valid) throw new IllegalStateException(message); }
 }
-
 

@@ -1,1 +1,276 @@
-{"key":"s04","machine":"hk3gtl:s04_world_maintenance_institute","size":[73,55,73],"controller":[36,3,25]}
+{
+  "key": "s04",
+  "machine": "hk3gtl:s04_world_maintenance_institute",
+  "size": [
+    73,
+    55,
+    73
+  ],
+  "controller": [
+    36,
+    3,
+    25
+  ],
+  "paste_anchor": [
+    36,
+    3,
+    25
+  ],
+  "source": "src/main/resources/data/hk3gtl/approved_architecture/s04.json",
+  "sha256": "6ad665fc8b9d93ace78344d2f7df1f784637e73813739606dd2a02837f51cf90",
+  "template_sha256": "40099fafc2cd2771209df55ee86d1f0ec5f67f4559de786782da3a4d457673c2",
+  "review_snapshot": "deliveries/多方块确认归档/20261020_005209_151059_21形态_电压主色修订_已确认",
+  "approved_bundle_sha256": "5dd32253ae44d3c0290e71835479b707ee47b3a46817f933c08cebf0de61ab46",
+  "source_nbt_sha256": "af31f7dde03c0332660ff93d6c832bd04bc817f8e6123e6b78f314a0db3072c5",
+  "required_ability_counts": {},
+  "optional_abilities": [
+    "honkai_energy_input",
+    "wireless_honkai_input"
+  ],
+  "material_payment": "玩家背包和既有研究账本",
+  "eu_payment": "绑定玩家或FTB队伍无线电网",
+  "template_ports": "无固定接口；实体非主控格由玩家选择合法通用接口",
+  "formal_geometry_installed": true,
+  "game_verified": false,
+  "approved_blueprint_sha256": "5f78075f77f612aaadfe56908829db394dbe0afd1a67511084a7c12e23234aef",
+  "approved_nbt_sha256": "af31f7dde03c0332660ff93d6c832bd04bc817f8e6123e6b78f314a0db3072c5",
+  "target_voltage": "IRV",
+  "target_casing": "hk3gtl:voltage_machine_casing_irv",
+  "approval_quote": "采用整批21形态新配色",
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-20T00:52:09+08:00",
+      "reason": "负责人明确采用整批21形态新配色",
+      "deleted": "无；旧归档、候选原件与旧正式资源快照保留",
+      "added": "明确目标电压、新批准来源与本次修改身份",
+      "modified": "主体配色采用已批候选，控制器/仓室与能力合同沿用原正式实现",
+      "purpose": "使已有Pattern和放置模板读取批准配色；游戏成型与运行仍待验收"
+    }
+  ],
+  "ports": [],
+  "installed_hatches": {},
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "SAMPLE",
+      "pos": [
+        30,
+        3,
+        25
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              29,
+              3,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              30,
+              2,
+              25
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              30,
+              4,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MATERIAL",
+      "pos": [
+        32,
+        3,
+        25
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:advanced_computer_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              32,
+              2,
+              25
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              32,
+              4,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "POWER",
+      "pos": [
+        34,
+        3,
+        25
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              35,
+              3,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              34,
+              2,
+              25
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              34,
+              4,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RESULT",
+      "pos": [
+        38,
+        3,
+        25
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              37,
+              3,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              38,
+              2,
+              25
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              38,
+              4,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COOLANT",
+      "pos": [
+        40,
+        3,
+        25
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:advanced_computer_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              40,
+              2,
+              25
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              40,
+              4,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RETURN",
+      "pos": [
+        42,
+        3,
+        25
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              43,
+              3,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              42,
+              2,
+              25
+            ],
+            "state": "gtceu:advanced_computer_casing"
+          },
+          {
+            "pos": [
+              42,
+              4,
+              25
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    }
+  ],
+  "port_positions_faces_purposes_preserved": false,
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

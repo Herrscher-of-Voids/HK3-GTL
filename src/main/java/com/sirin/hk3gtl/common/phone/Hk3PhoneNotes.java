@@ -3,14 +3,7 @@ import java.util.*;
 import net.minecraft.nbt.*;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.server.level.ServerPlayer;
-
-
-
-
-
-
 public final class Hk3PhoneNotes extends SavedData {
-
     /** 待办起点独立于最后修改时间；编辑和勾选保留，取消待办后重新计时。 */
     public record Note(String id,String title,String body,int version,long time,int colors,boolean task,boolean done,int optimizations,long taskSince){
         public Note(String id,String title,String body,int version,long time){this(id,title,body,version,time,0,false,false,0,0);}

@@ -1,0 +1,2104 @@
+{
+  "schema": 1,
+  "before_export_sha256": "b4082e8e9817cdf8e5a26de5812c2ba8742dc7affffe6f724187ac213634cd96",
+  "migrations": [
+    {
+      "id": "gtceu:assembler/hk3gtl_abyss_measurement_array",
+      "previous_requirements": [
+        "R-AB-013"
+      ],
+      "requirements": [
+        "RN-DMT"
+      ],
+      "reason": "测量阵列采用 I07 前级探测器校准知识；DMT 首份校准报告不使用本阵列。",
+      "payload_sha256": "954606c6015fbb6c6a706d21b3ec48a1153cc2feb3b324517353c44a0f385753"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_abyss_reactor_core",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-FRP"
+      ],
+      "reason": "反应堆芯制造以燃料棒封装完成为前级资格；不要求小型堆工程完成后的真实发电事实，保留首堆启动路径。",
+      "payload_sha256": "ee018c14653115868adb79b028795f7754f023215d7b7da384b99116fa8bda1e"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_abyss_stable_frame",
+      "previous_requirements": [
+        "R-AB-006"
+      ],
+      "requirements": [
+        "RN-RAT"
+      ],
+      "reason": "稳定框架采用已验证的现实稳定原理；RAT 首次实验在 I02 完成，不要求先造使用本框架的锚。",
+      "payload_sha256": "f5f63c2db69c51e54e9f137a8186f2f920554f9a721484f17605a9f12f4347fe"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_anti_entropy_imaginary_core",
+      "previous_requirements": [
+        "R-AB-020"
+      ],
+      "requirements": [
+        "RN-CCE",
+        "RN-CPT"
+      ],
+      "reason": "现有计算结构核心同时采用核心结晶与电路封装测试知识；不以本核心物品直接授予研究或事实。",
+      "payload_sha256": "29e5caa60b14a95d3f3ca50b5dfaafd129736f3154f45ad3ce7a0d2d769a8618"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_imaginary_anchor",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "现有 QSV 专用机壳沿用第二电子平台的 RN-MCE 前级资格；旧虚数命名不映射晚期 RN-IAA，不要求使用机壳的后继设备先运行。",
+      "payload_sha256": "b3291664bbae0c762a57200b3fa386fc0a7dc785079bd4f7cdedd7f2f380ed55"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_imaginary_core",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "现有 QSV 专用机壳沿用第二电子平台的 RN-MCE 前级资格；旧虚数命名不映射晚期 RN-IAA，不要求使用机壳的后继设备先运行。",
+      "payload_sha256": "15a0213204912dcf636e548b5c021be28f92859b2d10151e5676384e9f3681ba"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_imaginary_lattice",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "现有 QSV 专用机壳沿用第二电子平台的 RN-MCE 前级资格；旧虚数命名不映射晚期 RN-IAA，不要求使用机壳的后继设备先运行。",
+      "payload_sha256": "a8fe91ecb0f3242d4f01bf2b0870007c1ea1f68e14b00b51cc1b6ba2eddaa3d2"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_imaginary_tree",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "现有 QSV 专用机壳沿用第二电子平台的 RN-MCE 前级资格；旧虚数命名不映射晚期 RN-IAA，不要求使用机壳的后继设备先运行。",
+      "payload_sha256": "4854f0745f7a22f7e31c0fcb0b6535ff8c3cd68997c071a68d19de251fedd65c"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_imaginary_weave",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "现有 QSV 专用机壳沿用第二电子平台的 RN-MCE 前级资格；旧虚数命名不映射晚期 RN-IAA，不要求使用机壳的后继设备先运行。",
+      "payload_sha256": "8a679740f0b6131434fe6e271c5dacd5c38f8aae25b46da7c958f7e3cb8a4dba"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_quantum_bubble",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "现有 IMV 专用机壳同时采用第三电子平台 RN-CQS 与 RN-WCP；不绑定需捕获、舰体或晚期锚首机运行的后继课题。",
+      "payload_sha256": "6a45122d39ad60059c7dee685e90d8934f1ec2151b321ee877b819bce8cdf09b"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_quantum_entangle",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "现有 IMV 专用机壳同时采用第三电子平台 RN-CQS 与 RN-WCP；不绑定需捕获、舰体或晚期锚首机运行的后继课题。",
+      "payload_sha256": "cfb17166079625f38a743ecab3793718490aee4fa2e5ab5c52cb694a5b50a1a9"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_quantum_flux",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "现有 IMV 专用机壳同时采用第三电子平台 RN-CQS 与 RN-WCP；不绑定需捕获、舰体或晚期锚首机运行的后继课题。",
+      "payload_sha256": "0e92b9c38fd606c77d1f5fb271b8d83a30d430d44e80295de3a107d034476886"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_quantum_sea",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "现有 IMV 专用机壳同时采用第三电子平台 RN-CQS 与 RN-WCP；不绑定需捕获、舰体或晚期锚首机运行的后继课题。",
+      "payload_sha256": "ae5053c73c1d636efdb7d6b6ad772ef9620e57b6dd0b9b156ccac2b390724277"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_casing_quantum_shipboard",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "现有 IMV 专用机壳同时采用第三电子平台 RN-CQS 与 RN-WCP；不绑定需捕获、舰体或晚期锚首机运行的后继课题。",
+      "payload_sha256": "478d628c7e9737b2824726527e39a3d2557a9bfe6c5a22b9c82e13c9466d68a0"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_hcv",
+      "previous_requirements": [
+        "R-AB-011"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "ac5a3c06ab5a2f3c800376c2c44b8960a385a89a3722dc7b9da55a52cc032e11"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_hdv",
+      "previous_requirements": [
+        "R-AB-021"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "8e2fbd6ba1a79770dac3b577c98ee2f9c5ee740cf8cd436edbdc403331658582"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_hrv",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "73cc9029bc27c6b77440072fb1686a45430ce2025274cd21d5d50c2be5b7db35"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_icv",
+      "previous_requirements": [
+        "R-QT-007"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "8aec3d9140f9727c42040bcfe10ad08624a86ad75c10437addf3a9d56797b804"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_imv",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "c7d6700e1775e61f0b34cec172cf3937d2c82efbeea24d32049994d69380d16a"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_irv",
+      "previous_requirements": [
+        "R-QT-010"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "6eaa4807255daf5d22676e6f43bd054a36b7a3f74269fcd32461bd1d69c77f99"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_iwv",
+      "previous_requirements": [
+        "R-QT-011"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "7b7c924d1bee2b1503676db08b0e8541d299dbf280131d18831bb093b79fbcbd"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_qav",
+      "previous_requirements": [
+        "R-IM-004"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "f2aa4aa67d73ec29c4adedbddbc9cce9f0df47e58ab43b6e2ebbda78f22b2a94"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_qcv",
+      "previous_requirements": [
+        "R-IM-002"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "05ccf8c8072bff75b4bced86eac3744c3ec72d37ae55cc905a7d9e18a6432e43"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_qev",
+      "previous_requirements": [
+        "R-IM-003"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "595ae9a74fa661b76f1f227ff6e931017240c661100cd07cf814a4ff63e46fb1"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_conveyor_qsv",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "a8ad63682ca51e80f48a59c145973a096d5ee0c8cf6bfee652daa0e60c77d219"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_hcv",
+      "previous_requirements": [
+        "R-AB-011"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "ace611bf003829f1b215cc7c127ba3599890692752e8e2aaea605a4522ba0211"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_hdv",
+      "previous_requirements": [
+        "R-AB-021"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "c9890a30a130249bafbe94c4707d46d07cb59e9f4089944c9c9b5bc2c1aa9345"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_hrv",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "194f5ce94f5e2cc3db7c4f6bf52fe123ad51bafe70b0446c45153170408fc2d0"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_icv",
+      "previous_requirements": [
+        "R-QT-007"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "e9b8430bed8e25f59d1f560a3d7faaf8336dab23349dcdaeddbf079a0a32ee33"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_imv",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "18515af4cab0c1b006006ea891d6524d6ec56420e8855fa31e68aa448009a90f"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_irv",
+      "previous_requirements": [
+        "R-QT-010"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "0377b75789185468fb09ea9ba385e966e1846fed47a3437ddcdae69972ee9490"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_iwv",
+      "previous_requirements": [
+        "R-QT-011"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "7bb2d0310f1ed976240139790a59b49a971d07ea1611ce714aea1fa182019760"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_qav",
+      "previous_requirements": [
+        "R-IM-004"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "79b912ec19631dafa52666ebe02f3a4f77784c1ae08e82c319c75235356cb423"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_qcv",
+      "previous_requirements": [
+        "R-IM-002"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "d5e0e16a74d71736e62a5d91398a8d0db8da328d881b424eddcf2c6bb4e79bb9"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_qev",
+      "previous_requirements": [
+        "R-IM-003"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "59ff4b4c205c367b8c9691ee56b2b50a52eecf0eac48b9f68858b0ae23ebe117"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_emitter_qsv",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "3cfab47eb3ca8c180a0cd5b341440e49374e007345b4579039952f76bd0f2691"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_hcv",
+      "previous_requirements": [
+        "R-AB-011"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "f166076c9e69a46aa4ea80472095163688d6ecf879c6b27b133ac19df8b43184"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_hdv",
+      "previous_requirements": [
+        "R-AB-021"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "821c71876f2b683f14eb586aafa44741345fa70599137b4701a833f3afb92484"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_hrv",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "a5863ced7c329209514b9526584a4f42a68bf088e1d174bc527683e20f1432e9"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_icv",
+      "previous_requirements": [
+        "R-QT-007"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "fb744e7454e1e551b85e6e91a25a78c4182f8435c595f6ee3a744af5f0f57199"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_imv",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "1704d271d00fc70b3980a72d72b2560a335a87269763aec27c60392f763c3dcf"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_irv",
+      "previous_requirements": [
+        "R-QT-010"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "71129d6ea12549b81e224bbcbed132e0691d74c080dd97605de5e4edf7a8a07f"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_iwv",
+      "previous_requirements": [
+        "R-QT-011"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "633e81c8d148a3d4dd62f2069417e17dc7f5a9074ec8d036ce3b5930078910f5"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_qav",
+      "previous_requirements": [
+        "R-IM-004"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "ec8d8d9d5a48c14f3262e90e20882ad830f9df7b7e573424084f4547b4614361"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_qcv",
+      "previous_requirements": [
+        "R-IM-002"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "88c538e9fb9360353a772d0ecf27b5238f76ee524f2d1404b4a1b5228922aace"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_qev",
+      "previous_requirements": [
+        "R-IM-003"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "9be24f30937e6a2a0bea83c19f4d03f5b0fd9b3f6893573f68e7d08d9a383a9f"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_field_gen_qsv",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "9ac3e85d6d2ec5b1063ab82801e4b25ba648aef1ebb216472f9025793440f41d"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_hcv",
+      "previous_requirements": [
+        "R-AB-011"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "a739eb6b1e28fe47a52f32266139dc922b0f852f6bdb5b8f4dcee1501907b66b"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_hdv",
+      "previous_requirements": [
+        "R-AB-021"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "6bbf50cd91f22e2a897893a8895e5421901ec2a2b497168843a7a2120e2454c2"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_hrv",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "5ed10f58681e0d099866a3a2dd49e0ff5cf30dca4a7c3ece12ec4782f428371d"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_icv",
+      "previous_requirements": [
+        "R-QT-007"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "38143b76fd771084c66950328a9acc078e467b43e454dbf0ee04a775df96d9bb"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_imv",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "76d16f7da1689c3c27ff748c71eb7db0a25957897069ec5648bc9479bc534516"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_irv",
+      "previous_requirements": [
+        "R-QT-010"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "aceb29f328033a18a71ffb7a7208e7eb28cdfb4f756cf7f998a760fb9e502954"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_iwv",
+      "previous_requirements": [
+        "R-QT-011"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "c18ecc14283f82ab752cde0feb9a8e8fd18039413ef429fd79c2d7ecb05699da"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_qav",
+      "previous_requirements": [
+        "R-IM-004"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "b125cfe4dab287e183b636ddef68f995c4d6538dfd98e7ff48b261ff1a9ca7a1"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_qcv",
+      "previous_requirements": [
+        "R-IM-002"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "ec7817f052e5eb9f934b1402654d0a89e289d6611b59f0aa0a8907804bf5da24"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_qev",
+      "previous_requirements": [
+        "R-IM-003"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "2663aaefc680a3dd9b350008a38c8f15e04c15464fa62c22ceab15862f6c3077"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_motor_qsv",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "4f43fe8831731f9cbcd973d15c9bed2eefcbe068d221351095397c98f34b8c88"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_hcv",
+      "previous_requirements": [
+        "R-AB-011"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "52d4e651c46f304799cffc914872e1cc646b3cbe0661cca147945258eae3d152"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_hdv",
+      "previous_requirements": [
+        "R-AB-021"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "27c2b952a742046be81a4fe439c6766723c8040cde48ffe0425485fe31c6d092"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_hrv",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "56071de5e1ff8f55ad8078f795a74ac54b77fa10fc31d586d3ee8039472e723d"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_icv",
+      "previous_requirements": [
+        "R-QT-007"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "00701d5590acc054884ef587850a2ad8a86dad9219952c7f26e6391bba1f24ea"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_imv",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "907ff8dca16f7f531b4044297a9b8fa7b2134f0e61141ce9f8581e1f65e8e5b4"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_irv",
+      "previous_requirements": [
+        "R-QT-010"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "5cfb04300b7644ba5e231e57f5d2fd1db7b33d82d6186a5da828fc741d40605e"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_iwv",
+      "previous_requirements": [
+        "R-QT-011"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "b7350ccd9f7039476e7c8a255578c258416db278d62dec96957cbd96bc75e8ac"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_qav",
+      "previous_requirements": [
+        "R-IM-004"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "92835448a518536d34894671d22aee1ae19d563790039a7c7b309528d2a76c8e"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_qcv",
+      "previous_requirements": [
+        "R-IM-002"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "878c202ca61cbe1ffb6c16f94ac634256427c3b5d65ee3ae935797011d6e905b"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_qev",
+      "previous_requirements": [
+        "R-IM-003"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "9a77392c4ffb745728c3e075aaa8179e652f1fb86901e9f1b92cc4e332203693"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_piston_qsv",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "6fe56651c121c594b493a2487bf199bdb538b5b1af211355d6e93a4c62026f9e"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_hcv",
+      "previous_requirements": [
+        "R-AB-011"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "bba325a483fc7455ee4e61773e47b70f5978461d941b80bb5fd2b50fed2e8fb8"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_hdv",
+      "previous_requirements": [
+        "R-AB-021"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "431ea7312c4beb5fd0f89e3c240e70f258c8e8af5a95364ff4675aefff3e5ed5"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_hrv",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "788ebee76c2f51e7903109114656fd230c8d712316fa748baaf81e9e2cfea915"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_icv",
+      "previous_requirements": [
+        "R-QT-007"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "dcc907e6cf06caf134264ddc33711c4f1a7ad272b0f08154b0ef80e3e79f9d9c"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_imv",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "ff7f09d5c531bd95e8de088e75c5580f9fffd375e4da5e1b8f4ec11c6e2303e7"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_irv",
+      "previous_requirements": [
+        "R-QT-010"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "62c7ed12c7d7dbcc5e25bab193280bbc0f54c0114f6e7375dbb3f70d52da4695"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_iwv",
+      "previous_requirements": [
+        "R-QT-011"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "28719382c8b4c860a5d0c5fb5f074077c6014ee8e70433e31551801280d8b65c"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_qav",
+      "previous_requirements": [
+        "R-IM-004"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "7ea3279e69620a35fcdd1c1385a4af0564b7a5416c699a1e35a39eed89a9b997"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_qcv",
+      "previous_requirements": [
+        "R-IM-002"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "b9669babf0731639b0982413acdcb33534e25adc0d3d4c3366e7fa2220d0b0a2"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_qev",
+      "previous_requirements": [
+        "R-IM-003"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "232e426284d814c9961e8e0c4cdafb644a2d005c453297210454a5f7216d6027"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_pump_qsv",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "60788db4bde38fdeb93ad13c44670aababe1b170b255880423749bddb9cfc43f"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_reactor_stabilizer",
+      "previous_requirements": [
+        "R-AB-014"
+      ],
+      "requirements": [
+        "RN-FRP",
+        "RN-SMR"
+      ],
+      "reason": "反应堆稳定器同时要求燃料封装与稳定介质再生；不引用需首堆已运行的冷却回流后继课题。",
+      "payload_sha256": "c4f416c5d77ac6b73aeb26ef5f779e98a72e9c0328d2465b66d08061310dd876"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_hcv",
+      "previous_requirements": [
+        "R-AB-011"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "46870b77942444673ed621bf03d979c6e4adf10d65b0736ccef86a57098265b2"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_hdv",
+      "previous_requirements": [
+        "R-AB-021"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "74b1cef639170333b6a3c884c320c626e418562392b0e383cf6ddc8117a64cef"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_hrv",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "3ca7b4db2b2e4df6bd86037e3a00c80a17e6ceddf36be614c7dab8ef982c432b"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_icv",
+      "previous_requirements": [
+        "R-QT-007"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "ef46b140567c4816701b84be2187364b5524fb43080436a2dba001edb2704d22"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_imv",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "87dddc979b123229fc39d69b4669a90a1f1155b8362dfa1fd95951ac1d6775a4"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_irv",
+      "previous_requirements": [
+        "R-QT-010"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "4f82cf35cec91c6f0091ea6a2e5714fa2376141742c49ea5ea53b54635402a2d"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_iwv",
+      "previous_requirements": [
+        "R-QT-011"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "8f5c97fa80490b3c2dd26d5363300b3142286424d086a7a65a3a0d209ffbc27f"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_qav",
+      "previous_requirements": [
+        "R-IM-004"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "8fb1888fbe47658c8d7eb2daa46ad528cba980f019e6b096033368140411269a"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_qcv",
+      "previous_requirements": [
+        "R-IM-002"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "e61a2f9ebf149b9910d6c8342383d6d99c9e8c06b24169619b107fb55b13ca6e"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_qev",
+      "previous_requirements": [
+        "R-IM-003"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "112ed089aecf47fa54766fd366af1c77a3ee193d32acce8b9baa161f7d70c920"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_robot_arm_qsv",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "2998cc1d2cd7967a4c9ad86a330c0356a707b3d83c79b7e0036a55bfeba2a629"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_schicksal_imaginary_core",
+      "previous_requirements": [
+        "R-AB-019"
+      ],
+      "requirements": [
+        "RN-CCE"
+      ],
+      "reason": "现有结构核心物料采用核心结晶能力；该门槛不授予九种完整仿制核心的独立能力与研究。",
+      "payload_sha256": "45be5002fc5ddb422723c80af5b24612636e7141ad14b0d6d1f537fb80609867"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_hcv",
+      "previous_requirements": [
+        "R-AB-011"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "aaa764a0115f25c9dfe924f531a3ba27fc8c6bbde5a9de759860c8edd6457845"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_hdv",
+      "previous_requirements": [
+        "R-AB-021"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "1a8f6498b27bc4585e6b8a9d33493f3f9dd6dc7b45e75f59bdd72a523474650e"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_hrv",
+      "previous_requirements": [
+        "R-AB-015"
+      ],
+      "requirements": [
+        "RN-BCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第1电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "9c38b449544b5fd245bc4763bacd0f48727364ffe98a765cb9a208db6fffc7b9"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_icv",
+      "previous_requirements": [
+        "R-QT-007"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "a9a0ac35cb3da89a3d8a4488586ba01424586119cc678bdb7badbb8b07cd8fad"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_imv",
+      "previous_requirements": [
+        "R-QT-001"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "fc3b1572f9da3e8d34c1a8bfbadce157b2f0c1c0f6640dbe6f5d94c3683a523e"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_irv",
+      "previous_requirements": [
+        "R-QT-010"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "26a67b0988f9f1c6931a1e8d3826e50bd20c77267ae08543f9bfa33cdbf7d25b"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_iwv",
+      "previous_requirements": [
+        "R-QT-011"
+      ],
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第3电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "274f5180da1841f514eaa57456d192a5cda5f96981bbdf273b2ac6dec431e90e"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_qav",
+      "previous_requirements": [
+        "R-IM-004"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "15187be4fe1534e72d19efdd75e7abacfc25870828e66e23a587b49774956e2a"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_qcv",
+      "previous_requirements": [
+        "R-IM-002"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "aa5956a34a43b1dfb444d9f6225adbd4eab05d21dc297cd295ed8c47fc2ad2e2"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_qev",
+      "previous_requirements": [
+        "R-IM-003"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "fc7e4b915d85af0cac3ec300922e454b6fff1253c31d99f4b21509e78f725dda"
+    },
+    {
+      "id": "gtceu:assembler/hk3gtl_sensor_qsv",
+      "previous_requirements": [
+        "R-IM-001"
+      ],
+      "requirements": [
+        "RN-MCE"
+      ],
+      "reason": "八大件与其对应电压电路共用现行第2电子平台知识；层内递进继续由已有对应电路和前级部件输入约束，不恢复旧研究或制造后继实验回锁。",
+      "payload_sha256": "2e711ad68f0239ba2469b6e2c087a9862e550b76e617c0662f858a4da3c8e60b"
+    }
+  ],
+  "replacements": [
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_hcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hcv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_hcv",
+      "previous_component": "hk3gtl:conveyor_module_hbv",
+      "material_input": "hk3gtl:constraint_gradient_composite_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_hdv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hdv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_hdv",
+      "previous_component": "hk3gtl:conveyor_module_hrv",
+      "material_input": "hk3gtl:ultradense_loadbearing_soulium_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_hrv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hrv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_hrv",
+      "previous_component": "hk3gtl:conveyor_module_hcv",
+      "material_input": "hk3gtl:resonance_oriented_lattice_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_icv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_icv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_icv",
+      "previous_component": "hk3gtl:conveyor_module_imv",
+      "material_input": "hk3gtl:imaginary_coupled_energy_band_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_imv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_imv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_imv",
+      "previous_component": "hk3gtl:conveyor_module_qav",
+      "material_input": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_irv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_irv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_irv",
+      "previous_component": "hk3gtl:conveyor_module_icv",
+      "material_input": "hk3gtl:imaginary_reconstructed_alloy_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_iwv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_iwv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_iwv",
+      "previous_component": "hk3gtl:conveyor_module_irv",
+      "material_input": "hk3gtl:worldweave_multiaxial_composite_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_qav",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qav_conveyor_module",
+      "output": "hk3gtl:conveyor_module_qav",
+      "previous_component": "hk3gtl:conveyor_module_qev",
+      "material_input": "hk3gtl:anchored_superlattice_structure_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_qcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qcv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_qcv",
+      "previous_component": "hk3gtl:conveyor_module_qsv",
+      "material_input": "hk3gtl:coherent_interconnect_grid_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_qev",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qev_conveyor_module",
+      "output": "hk3gtl:conveyor_module_qev",
+      "previous_component": "hk3gtl:conveyor_module_qcv",
+      "material_input": "hk3gtl:paired_entangled_lattice_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_conveyor_qsv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qsv_conveyor_module",
+      "output": "hk3gtl:conveyor_module_qsv",
+      "previous_component": "hk3gtl:conveyor_module_hdv",
+      "material_input": "hk3gtl:superposed_laminate_matrix_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_hcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hcv_emitter",
+      "output": "hk3gtl:emitter_hcv",
+      "previous_component": "hk3gtl:emitter_hbv",
+      "material_input": "hk3gtl:constraint_gradient_composite_rod",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_hdv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hdv_emitter",
+      "output": "hk3gtl:emitter_hdv",
+      "previous_component": "hk3gtl:emitter_hrv",
+      "material_input": "hk3gtl:ultradense_loadbearing_soulium_rod",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_hrv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hrv_emitter",
+      "output": "hk3gtl:emitter_hrv",
+      "previous_component": "hk3gtl:emitter_hcv",
+      "material_input": "hk3gtl:resonance_oriented_lattice_rod",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_icv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_icv_emitter",
+      "output": "hk3gtl:emitter_icv",
+      "previous_component": "hk3gtl:emitter_imv",
+      "material_input": "hk3gtl:imaginary_coupled_energy_band_rod",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_imv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_imv_emitter",
+      "output": "hk3gtl:emitter_imv",
+      "previous_component": "hk3gtl:emitter_qav",
+      "material_input": "hk3gtl:imaginary_phase_transfer_ceramic_rod",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_irv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_irv_emitter",
+      "output": "hk3gtl:emitter_irv",
+      "previous_component": "hk3gtl:emitter_icv",
+      "material_input": "hk3gtl:imaginary_reconstructed_alloy_rod",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_iwv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_iwv_emitter",
+      "output": "hk3gtl:emitter_iwv",
+      "previous_component": "hk3gtl:emitter_irv",
+      "material_input": "hk3gtl:worldweave_multiaxial_composite_rod",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_qav",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qav_emitter",
+      "output": "hk3gtl:emitter_qav",
+      "previous_component": "hk3gtl:emitter_qev",
+      "material_input": "hk3gtl:anchored_superlattice_structure_rod",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_qcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qcv_emitter",
+      "output": "hk3gtl:emitter_qcv",
+      "previous_component": "hk3gtl:emitter_qsv",
+      "material_input": "hk3gtl:coherent_interconnect_grid_rod",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_qev",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qev_emitter",
+      "output": "hk3gtl:emitter_qev",
+      "previous_component": "hk3gtl:emitter_qcv",
+      "material_input": "hk3gtl:paired_entangled_lattice_rod",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_emitter_qsv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qsv_emitter",
+      "output": "hk3gtl:emitter_qsv",
+      "previous_component": "hk3gtl:emitter_hdv",
+      "material_input": "hk3gtl:superposed_laminate_matrix_rod",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_hcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hcv_field_generator",
+      "output": "hk3gtl:field_generator_hcv",
+      "previous_component": "hk3gtl:field_generator_hbv",
+      "material_input": "hk3gtl:constraint_gradient_composite_frame",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_hdv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hdv_field_generator",
+      "output": "hk3gtl:field_generator_hdv",
+      "previous_component": "hk3gtl:field_generator_hrv",
+      "material_input": "hk3gtl:ultradense_loadbearing_soulium_frame",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_hrv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hrv_field_generator",
+      "output": "hk3gtl:field_generator_hrv",
+      "previous_component": "hk3gtl:field_generator_hcv",
+      "material_input": "hk3gtl:resonance_oriented_lattice_frame",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_icv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_icv_field_generator",
+      "output": "hk3gtl:field_generator_icv",
+      "previous_component": "hk3gtl:field_generator_imv",
+      "material_input": "hk3gtl:imaginary_coupled_energy_band_frame",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_imv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_imv_field_generator",
+      "output": "hk3gtl:field_generator_imv",
+      "previous_component": "hk3gtl:field_generator_qav",
+      "material_input": "hk3gtl:imaginary_phase_transfer_ceramic_frame",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_irv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_irv_field_generator",
+      "output": "hk3gtl:field_generator_irv",
+      "previous_component": "hk3gtl:field_generator_icv",
+      "material_input": "hk3gtl:imaginary_reconstructed_alloy_frame",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_iwv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_iwv_field_generator",
+      "output": "hk3gtl:field_generator_iwv",
+      "previous_component": "hk3gtl:field_generator_irv",
+      "material_input": "hk3gtl:worldweave_multiaxial_composite_frame",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_qav",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qav_field_generator",
+      "output": "hk3gtl:field_generator_qav",
+      "previous_component": "hk3gtl:field_generator_qev",
+      "material_input": "hk3gtl:anchored_superlattice_structure_frame",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_qcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qcv_field_generator",
+      "output": "hk3gtl:field_generator_qcv",
+      "previous_component": "hk3gtl:field_generator_qsv",
+      "material_input": "hk3gtl:coherent_interconnect_grid_frame",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_qev",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qev_field_generator",
+      "output": "hk3gtl:field_generator_qev",
+      "previous_component": "hk3gtl:field_generator_qcv",
+      "material_input": "hk3gtl:paired_entangled_lattice_frame",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_field_gen_qsv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qsv_field_generator",
+      "output": "hk3gtl:field_generator_qsv",
+      "previous_component": "hk3gtl:field_generator_hdv",
+      "material_input": "hk3gtl:superposed_laminate_matrix_frame",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_hcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hcv_electric_motor",
+      "output": "hk3gtl:electric_motor_hcv",
+      "previous_component": "hk3gtl:electric_motor_hbv",
+      "material_input": "hk3gtl:constraint_gradient_composite_fine_wire",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_hdv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hdv_electric_motor",
+      "output": "hk3gtl:electric_motor_hdv",
+      "previous_component": "hk3gtl:electric_motor_hrv",
+      "material_input": "hk3gtl:ultradense_loadbearing_soulium_fine_wire",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_hrv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hrv_electric_motor",
+      "output": "hk3gtl:electric_motor_hrv",
+      "previous_component": "hk3gtl:electric_motor_hcv",
+      "material_input": "hk3gtl:resonance_oriented_lattice_fine_wire",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_icv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_icv_electric_motor",
+      "output": "hk3gtl:electric_motor_icv",
+      "previous_component": "hk3gtl:electric_motor_imv",
+      "material_input": "hk3gtl:imaginary_coupled_energy_band_fine_wire",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_imv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_imv_electric_motor",
+      "output": "hk3gtl:electric_motor_imv",
+      "previous_component": "hk3gtl:electric_motor_qav",
+      "material_input": "hk3gtl:imaginary_phase_transfer_ceramic_fine_wire",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_irv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_irv_electric_motor",
+      "output": "hk3gtl:electric_motor_irv",
+      "previous_component": "hk3gtl:electric_motor_icv",
+      "material_input": "hk3gtl:imaginary_reconstructed_alloy_fine_wire",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_iwv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_iwv_electric_motor",
+      "output": "hk3gtl:electric_motor_iwv",
+      "previous_component": "hk3gtl:electric_motor_irv",
+      "material_input": "hk3gtl:worldweave_multiaxial_composite_fine_wire",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_qav",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qav_electric_motor",
+      "output": "hk3gtl:electric_motor_qav",
+      "previous_component": "hk3gtl:electric_motor_qev",
+      "material_input": "hk3gtl:anchored_superlattice_structure_fine_wire",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_qcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qcv_electric_motor",
+      "output": "hk3gtl:electric_motor_qcv",
+      "previous_component": "hk3gtl:electric_motor_qsv",
+      "material_input": "hk3gtl:coherent_interconnect_grid_fine_wire",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_qev",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qev_electric_motor",
+      "output": "hk3gtl:electric_motor_qev",
+      "previous_component": "hk3gtl:electric_motor_qcv",
+      "material_input": "hk3gtl:paired_entangled_lattice_fine_wire",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_motor_qsv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qsv_electric_motor",
+      "output": "hk3gtl:electric_motor_qsv",
+      "previous_component": "hk3gtl:electric_motor_hdv",
+      "material_input": "hk3gtl:superposed_laminate_matrix_fine_wire",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_hcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hcv_electric_piston",
+      "output": "hk3gtl:electric_piston_hcv",
+      "previous_component": "hk3gtl:electric_piston_hbv",
+      "material_input": "hk3gtl:constraint_gradient_composite_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_hdv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hdv_electric_piston",
+      "output": "hk3gtl:electric_piston_hdv",
+      "previous_component": "hk3gtl:electric_piston_hrv",
+      "material_input": "hk3gtl:ultradense_loadbearing_soulium_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_hrv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hrv_electric_piston",
+      "output": "hk3gtl:electric_piston_hrv",
+      "previous_component": "hk3gtl:electric_piston_hcv",
+      "material_input": "hk3gtl:resonance_oriented_lattice_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_icv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_icv_electric_piston",
+      "output": "hk3gtl:electric_piston_icv",
+      "previous_component": "hk3gtl:electric_piston_imv",
+      "material_input": "hk3gtl:imaginary_coupled_energy_band_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_imv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_imv_electric_piston",
+      "output": "hk3gtl:electric_piston_imv",
+      "previous_component": "hk3gtl:electric_piston_qav",
+      "material_input": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_irv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_irv_electric_piston",
+      "output": "hk3gtl:electric_piston_irv",
+      "previous_component": "hk3gtl:electric_piston_icv",
+      "material_input": "hk3gtl:imaginary_reconstructed_alloy_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_iwv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_iwv_electric_piston",
+      "output": "hk3gtl:electric_piston_iwv",
+      "previous_component": "hk3gtl:electric_piston_irv",
+      "material_input": "hk3gtl:worldweave_multiaxial_composite_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_qav",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qav_electric_piston",
+      "output": "hk3gtl:electric_piston_qav",
+      "previous_component": "hk3gtl:electric_piston_qev",
+      "material_input": "hk3gtl:anchored_superlattice_structure_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_qcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qcv_electric_piston",
+      "output": "hk3gtl:electric_piston_qcv",
+      "previous_component": "hk3gtl:electric_piston_qsv",
+      "material_input": "hk3gtl:coherent_interconnect_grid_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_qev",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qev_electric_piston",
+      "output": "hk3gtl:electric_piston_qev",
+      "previous_component": "hk3gtl:electric_piston_qcv",
+      "material_input": "hk3gtl:paired_entangled_lattice_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_piston_qsv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qsv_electric_piston",
+      "output": "hk3gtl:electric_piston_qsv",
+      "previous_component": "hk3gtl:electric_piston_hdv",
+      "material_input": "hk3gtl:superposed_laminate_matrix_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_hcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hcv_electric_pump",
+      "output": "hk3gtl:electric_pump_hcv",
+      "previous_component": "hk3gtl:electric_pump_hbv",
+      "material_input": "hk3gtl:constraint_gradient_composite_ring",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_hdv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hdv_electric_pump",
+      "output": "hk3gtl:electric_pump_hdv",
+      "previous_component": "hk3gtl:electric_pump_hrv",
+      "material_input": "hk3gtl:ultradense_loadbearing_soulium_ring",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_hrv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hrv_electric_pump",
+      "output": "hk3gtl:electric_pump_hrv",
+      "previous_component": "hk3gtl:electric_pump_hcv",
+      "material_input": "hk3gtl:resonance_oriented_lattice_ring",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_icv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_icv_electric_pump",
+      "output": "hk3gtl:electric_pump_icv",
+      "previous_component": "hk3gtl:electric_pump_imv",
+      "material_input": "hk3gtl:imaginary_coupled_energy_band_ring",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_imv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_imv_electric_pump",
+      "output": "hk3gtl:electric_pump_imv",
+      "previous_component": "hk3gtl:electric_pump_qav",
+      "material_input": "hk3gtl:imaginary_phase_transfer_ceramic_ring",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_irv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_irv_electric_pump",
+      "output": "hk3gtl:electric_pump_irv",
+      "previous_component": "hk3gtl:electric_pump_icv",
+      "material_input": "hk3gtl:imaginary_reconstructed_alloy_ring",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_iwv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_iwv_electric_pump",
+      "output": "hk3gtl:electric_pump_iwv",
+      "previous_component": "hk3gtl:electric_pump_irv",
+      "material_input": "hk3gtl:worldweave_multiaxial_composite_ring",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_qav",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qav_electric_pump",
+      "output": "hk3gtl:electric_pump_qav",
+      "previous_component": "hk3gtl:electric_pump_qev",
+      "material_input": "hk3gtl:anchored_superlattice_structure_ring",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_qcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qcv_electric_pump",
+      "output": "hk3gtl:electric_pump_qcv",
+      "previous_component": "hk3gtl:electric_pump_qsv",
+      "material_input": "hk3gtl:coherent_interconnect_grid_ring",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_qev",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qev_electric_pump",
+      "output": "hk3gtl:electric_pump_qev",
+      "previous_component": "hk3gtl:electric_pump_qcv",
+      "material_input": "hk3gtl:paired_entangled_lattice_ring",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_pump_qsv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qsv_electric_pump",
+      "output": "hk3gtl:electric_pump_qsv",
+      "previous_component": "hk3gtl:electric_pump_hdv",
+      "material_input": "hk3gtl:superposed_laminate_matrix_ring",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_hcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hcv_robot_arm",
+      "output": "hk3gtl:robot_arm_hcv",
+      "previous_component": "hk3gtl:robot_arm_hbv",
+      "material_input": "hk3gtl:constraint_gradient_composite_rod",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_hdv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hdv_robot_arm",
+      "output": "hk3gtl:robot_arm_hdv",
+      "previous_component": "hk3gtl:robot_arm_hrv",
+      "material_input": "hk3gtl:ultradense_loadbearing_soulium_rod",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_hrv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hrv_robot_arm",
+      "output": "hk3gtl:robot_arm_hrv",
+      "previous_component": "hk3gtl:robot_arm_hcv",
+      "material_input": "hk3gtl:resonance_oriented_lattice_rod",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_icv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_icv_robot_arm",
+      "output": "hk3gtl:robot_arm_icv",
+      "previous_component": "hk3gtl:robot_arm_imv",
+      "material_input": "hk3gtl:imaginary_coupled_energy_band_rod",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_imv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_imv_robot_arm",
+      "output": "hk3gtl:robot_arm_imv",
+      "previous_component": "hk3gtl:robot_arm_qav",
+      "material_input": "hk3gtl:imaginary_phase_transfer_ceramic_rod",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_irv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_irv_robot_arm",
+      "output": "hk3gtl:robot_arm_irv",
+      "previous_component": "hk3gtl:robot_arm_icv",
+      "material_input": "hk3gtl:imaginary_reconstructed_alloy_rod",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_iwv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_iwv_robot_arm",
+      "output": "hk3gtl:robot_arm_iwv",
+      "previous_component": "hk3gtl:robot_arm_irv",
+      "material_input": "hk3gtl:worldweave_multiaxial_composite_rod",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_qav",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qav_robot_arm",
+      "output": "hk3gtl:robot_arm_qav",
+      "previous_component": "hk3gtl:robot_arm_qev",
+      "material_input": "hk3gtl:anchored_superlattice_structure_rod",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_qcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qcv_robot_arm",
+      "output": "hk3gtl:robot_arm_qcv",
+      "previous_component": "hk3gtl:robot_arm_qsv",
+      "material_input": "hk3gtl:coherent_interconnect_grid_rod",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_qev",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qev_robot_arm",
+      "output": "hk3gtl:robot_arm_qev",
+      "previous_component": "hk3gtl:robot_arm_qcv",
+      "material_input": "hk3gtl:paired_entangled_lattice_rod",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_robot_arm_qsv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qsv_robot_arm",
+      "output": "hk3gtl:robot_arm_qsv",
+      "previous_component": "hk3gtl:robot_arm_hdv",
+      "material_input": "hk3gtl:superposed_laminate_matrix_rod",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_hcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hcv_sensor",
+      "output": "hk3gtl:sensor_hcv",
+      "previous_component": "hk3gtl:sensor_hbv",
+      "material_input": "hk3gtl:constraint_gradient_composite_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_hdv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hdv_sensor",
+      "output": "hk3gtl:sensor_hdv",
+      "previous_component": "hk3gtl:sensor_hrv",
+      "material_input": "hk3gtl:ultradense_loadbearing_soulium_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_hrv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_hrv_sensor",
+      "output": "hk3gtl:sensor_hrv",
+      "previous_component": "hk3gtl:sensor_hcv",
+      "material_input": "hk3gtl:resonance_oriented_lattice_plate",
+      "requirements": [
+        "RN-BCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_icv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_icv_sensor",
+      "output": "hk3gtl:sensor_icv",
+      "previous_component": "hk3gtl:sensor_imv",
+      "material_input": "hk3gtl:imaginary_coupled_energy_band_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_imv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_imv_sensor",
+      "output": "hk3gtl:sensor_imv",
+      "previous_component": "hk3gtl:sensor_qav",
+      "material_input": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_irv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_irv_sensor",
+      "output": "hk3gtl:sensor_irv",
+      "previous_component": "hk3gtl:sensor_icv",
+      "material_input": "hk3gtl:imaginary_reconstructed_alloy_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_iwv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_iwv_sensor",
+      "output": "hk3gtl:sensor_iwv",
+      "previous_component": "hk3gtl:sensor_irv",
+      "material_input": "hk3gtl:worldweave_multiaxial_composite_plate",
+      "requirements": [
+        "RN-CQS",
+        "RN-WCP"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_qav",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qav_sensor",
+      "output": "hk3gtl:sensor_qav",
+      "previous_component": "hk3gtl:sensor_qev",
+      "material_input": "hk3gtl:anchored_superlattice_structure_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_qcv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qcv_sensor",
+      "output": "hk3gtl:sensor_qcv",
+      "previous_component": "hk3gtl:sensor_qsv",
+      "material_input": "hk3gtl:coherent_interconnect_grid_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_qev",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qev_sensor",
+      "output": "hk3gtl:sensor_qev",
+      "previous_component": "hk3gtl:sensor_qcv",
+      "material_input": "hk3gtl:paired_entangled_lattice_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    },
+    {
+      "retired_id": "gtceu:assembler/hk3gtl_sensor_qsv",
+      "replacement_id": "gtceu:assembler/hk3gtl_main_component_qsv_sensor",
+      "output": "hk3gtl:sensor_qsv",
+      "previous_component": "hk3gtl:sensor_hdv",
+      "material_input": "hk3gtl:superposed_laminate_matrix_plate",
+      "requirements": [
+        "RN-MCE"
+      ]
+    }
+  ],
+  "_comment_r165": "【变更记录 #1】2026-10-17 16:38:51（修订165）：保留104条历史迁移哈希；新增88条经授权整族重写的组件替换清单，旧ID必须消失、新ID须保留研究且实际吃前级组件与本阶主材；其他16条仍严格保持原内容。"
+}

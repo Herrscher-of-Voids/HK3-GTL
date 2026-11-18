@@ -15,20 +15,6 @@ import com.gregtechceu.gtceu.api.GTValues;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3MachinesMaxStage {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -74,5 +60,4 @@ public class Hk3MachinesMaxStage {
         LOGGER.info("[HK3GTL] machine registration completed");
     }
 }
-
 

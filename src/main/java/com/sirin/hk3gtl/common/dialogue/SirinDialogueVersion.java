@@ -1,17 +1,10 @@
 package com.sirin.hk3gtl.common.dialogue;
 
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 维护 SirinDialogueVersion 的核心功能实现。
+ *
+ */
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraftforge.fml.ModList;
 

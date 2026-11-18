@@ -4,12 +4,9 @@ import net.minecraft.nbt.CompoundTag;
 import java.time.*;
 import java.util.Optional;
 
-
-
-
-
-
-
+/**
+ * 保存世界真实新建时间，按服务器时区判定满一个公历年。
+ */
 public record Hk3WorldOrigin(Instant createdAt) {
     public static final String TAG = "HK3GTLWorldOrigin";
     private static final String SOURCE = "hk3gtl:new-world-constructor:v1";

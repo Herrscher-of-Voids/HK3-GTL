@@ -22,13 +22,6 @@ import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-
-
-
-
-
-
-
 public final class Hk3MaterialTick {
     private record Work(Hk3EnergyTick ticket, GTRecipe recipe, RecipeLogic logic) {}
     private static final ThreadLocal<Work> CURRENT = new ThreadLocal<>();

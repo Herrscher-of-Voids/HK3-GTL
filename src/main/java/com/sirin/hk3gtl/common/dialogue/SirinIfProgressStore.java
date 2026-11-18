@@ -1,16 +1,5 @@
 package com.sirin.hk3gtl.common.dialogue;
 
-
-
-
-
-
-
-
-
-
-
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;

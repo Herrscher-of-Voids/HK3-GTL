@@ -3,25 +3,6 @@ package com.sirin.hk3gtl.common.research;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import net.minecraft.server.level.ServerPlayer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3RecipeEnvironment {
     private Hk3RecipeEnvironment() {}
     public static boolean throttlesByGaze(MetaMachine machine) {

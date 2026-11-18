@@ -1,15 +1,8 @@
 package com.sirin.hk3gtl.common.research;
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】落实获批复合压力、三倍加速上限及逐材料敏感度；S01免压，额外材料向上取整。
+ */
 
 
 public final class Hk3ResearchMath {

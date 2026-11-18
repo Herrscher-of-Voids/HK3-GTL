@@ -9,6 +9,7 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 
 public interface Hk3CampusLayoutVersion {
+    int CURRENT = 7;
     String FIELD = "hk3gtl_layout_version";
 
     int hk3gtl$layoutVersion();

@@ -4,20 +4,6 @@ import com.sirin.hk3gtl.common.item.Hk3Items;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class AbyssComponentItems {
 
     // ── 海渊 I（入门级部件，基础机器使用） ──

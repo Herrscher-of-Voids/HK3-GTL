@@ -8,15 +8,6 @@ package com.sirin.hk3gtl.client.phone;
 
 
 
-
-
-
-
-
-
-
-
-
 import com.sirin.hk3gtl.client.gui.Hk3FittedScreen;
 import com.sirin.hk3gtl.common.phone.Hk3PhoneConfig;
 import com.sirin.hk3gtl.common.phone.Hk3NotificationQueue;
@@ -27,43 +18,6 @@ import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import java.util.*;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -166,7 +120,6 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
             else if(mode.startsWith("social"))social.back();
             else if(mode.equals("machine_detail"))Hk3MachineOverviewPane.directory(view.getInt("Page"),view.getString("Filter"));
             else if(mode.equals("machines")||mode.equals("machine_unavailable"))command("hk3phone apps civilization");
-
             else if(mode.equals("archive_detail")&&view.getBoolean("CivilizationRead"))command("hk3phone apps civilization");
             else if(mode.equals("archive_detail")&&view.getBoolean("NoteRead"))command("hk3phone apps note "+view.getString("NoteId"));
             else if(mode.equals("instruction_read"))command(view.getBoolean("VoltagePage")?"hk3phone apps voltages":"hk3phone apps instructions");

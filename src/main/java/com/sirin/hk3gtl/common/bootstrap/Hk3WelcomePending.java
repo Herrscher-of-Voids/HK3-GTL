@@ -1,13 +1,8 @@
 package com.sirin.hk3gtl.common.bootstrap;
 
-
-
-
-
-
-
-
-
+/**
+ * 客户端主线程使用的单槽待显示说明；会话按连接对象身份隔离。
+ */
 public final class Hk3WelcomePending<T> {
     private Object session;
     private T value;

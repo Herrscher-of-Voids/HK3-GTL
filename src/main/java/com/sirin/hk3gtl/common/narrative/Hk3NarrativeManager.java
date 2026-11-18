@@ -1,18 +1,10 @@
 package com.sirin.hk3gtl.common.narrative;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 管理 Hk3NarrativeManager 叙事节点与档案显示数据。
+ *
+ */
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.nbt.CompoundTag;
@@ -44,13 +36,6 @@ import com.mojang.logging.LogUtils;
  * 使用"文明档案卷轴"可以查看（/give 或在崩坏三-GTL 创造栏可获取）
  * </pre>
  */
-
-
-
-
-
-
-
 public final class Hk3NarrativeManager {
 
     private static final Logger LOGGER = LogUtils.getLogger();

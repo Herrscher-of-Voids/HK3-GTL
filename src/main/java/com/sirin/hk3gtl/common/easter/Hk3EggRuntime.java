@@ -7,8 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import java.util.*;
 
-
-
 public final class Hk3EggRuntime {
     public static final String ROOT="hk3gtl_egg_v2";
     private static final java.util.concurrent.atomic.AtomicLong LAST_FAILURE=new java.util.concurrent.atomic.AtomicLong();

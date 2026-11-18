@@ -16,12 +16,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-
-
-
-
-
-
+/**
+ * 仅为W01稀疏预览启用MC原版相邻面遮挡，保留不完整和透明方块的原模型规则。
+ */
 @Mixin(value = WorldSceneRendererImpl.class, remap = false)
 public abstract class Hk3W01PreviewCullingMixin {
     @Inject(method = "renderBlocksForge", at = @At("HEAD"), cancellable = true)

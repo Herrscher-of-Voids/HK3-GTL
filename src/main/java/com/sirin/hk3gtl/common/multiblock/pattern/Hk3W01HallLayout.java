@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 
-/** W01全实体紧凑布局；保持Azu原坐标和全部状态，不展开约两亿空气格。2026-10-29。 */
+/** W01全实体紧凑布局；保持Azu原坐标和全部状态，不展开约两亿空气格。。 */
 public record Hk3W01HallLayout(int width, int height, int depth, int controllerX, int controllerY,
                              int controllerZ, List<String> palette, long[] cells) {
     public static Hk3W01HallLayout load() {

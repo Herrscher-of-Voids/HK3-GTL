@@ -8,13 +8,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-
-
-
-
-
-
-
+/**
+ * 增强版IV多任务执行器的工业降效，只拦截扣电与工时推进前的advance。
+ */
 @Pseudo
 @Mixin(targets = "com.gtl.enhancedcore.common.recipe.iv.IvRecipeLogic", remap = false)
 public abstract class EnhancedIndustrialGazeMixin {

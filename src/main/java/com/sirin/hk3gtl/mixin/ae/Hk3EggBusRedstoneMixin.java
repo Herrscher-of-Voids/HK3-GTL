@@ -7,8 +7,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value=IOBusPart.class,remap=false)
-
-
 public abstract class Hk3EggBusRedstoneMixin {
     @Shadow protected abstract boolean isSleeping();
     @Unique private boolean hk3gtl$known,hk3gtl$power,hk3gtl$changed;

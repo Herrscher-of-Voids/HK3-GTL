@@ -8,17 +8,9 @@ import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * I02 光谱分析阵列的兼容 Pattern；几何与已确认蓝图保持不变。
+ */
 public class Hk3I02SpectrumPatternImpl {
     protected Hk3I02SpectrumPatternImpl() {}
 

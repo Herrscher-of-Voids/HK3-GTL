@@ -1,51 +1,12 @@
 package com.sirin.hk3gtl.common.event;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 限制非创造模式玩家与 GT 创造级机器（创造箱 gtceu:creative_chest / 创造储罐 gtceu:creative_tank）交互。
+ * - 当前策略：保留获取途径，但在生存/冒险模式右键时阻止打开其 GUI，并由爱莉希雅(粉色)发话。
+ * - 关键调用链：Forge 事件总线 RightClickBlock -> onRightClickBlock -> 判定机器/模式 -> 拒绝 useBlock + 发话。
+ *
+ */
 
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;

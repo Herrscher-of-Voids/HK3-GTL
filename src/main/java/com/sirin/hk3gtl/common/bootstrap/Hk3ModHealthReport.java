@@ -16,36 +16,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 汇总模组注册健康状态，供进世界欢迎弹窗与日志使用。
+ * - 调用链：FMLCommonSetupEvent -> refresh() -> PlayerLoggedIn -> ModWelcomeS2CPacket。
+ *
+ */
 public final class Hk3ModHealthReport {
 
     private static volatile Snapshot cached = Snapshot.empty();
@@ -162,7 +138,5 @@ public final class Hk3ModHealthReport {
         }
     }
 }
-
-
 
 

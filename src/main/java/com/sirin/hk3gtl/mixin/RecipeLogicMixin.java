@@ -13,26 +13,7 @@ import org.slf4j.Logger;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-
-
-
-
-
-
 @Mixin(value = RecipeLogic.class, remap = false)
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class RecipeLogicMixin {
 
     private static final Logger LOGGER = LogUtils.getLogger();

@@ -1,23 +1,11 @@
 package com.sirin.hk3gtl.common.capability;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 维护按玩家 UUID 隔离的无线崩坏能 BigInteger 余额，并同步 Minecraft SavedData。
+ * - 关键调用链：双能源机器/注入器 -> 原子余额 API -> HonkaiWirelessSavedData。
+ *
+ */
 
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraft.server.MinecraftServer;
@@ -30,20 +18,7 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 import java.math.BigInteger;
 import java.util.UUID;
 
-
-
-
-
-
-
-
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-
-
-
-
-
-
 public final class HonkaiWirelessNetwork {
 
     public static final String UNLIMITED_CAPACITY_TEXT = "∞";

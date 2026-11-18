@@ -4,12 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.function.Function;
 import java.util.function.ToLongFunction;
 
-
-
-
-
-
-
 public final class Hk3WeightedCache<K, V> {
     private record Entry<V>(V value, long bytes) {}
     private final long limit;

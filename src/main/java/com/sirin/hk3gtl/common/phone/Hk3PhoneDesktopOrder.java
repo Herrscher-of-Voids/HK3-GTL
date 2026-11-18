@@ -1,15 +1,5 @@
 package com.sirin.hk3gtl.common.phone;
 import java.util.*;
-
-
-
-
-
-
-
-
-
-
 public final class Hk3PhoneDesktopOrder {
     public static final List<String> APPS=List.of("inbox","letters","ae","updates","settings","quiet","notes","trade","tiles2048","snake","civilization","social","cipher");
     private Hk3PhoneDesktopOrder(){}

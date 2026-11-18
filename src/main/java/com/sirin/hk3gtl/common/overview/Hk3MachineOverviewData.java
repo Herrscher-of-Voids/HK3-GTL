@@ -10,19 +10,9 @@ import net.minecraft.world.level.saveddata.SavedData;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 保存按团队隔离的机器实例索引；索引不含库存、个人能源或研究成果。
+ */
 public final class Hk3MachineOverviewData extends SavedData {
     public enum State {
         RUNNING("运行"), STOPPED("停机"), NEED_ENERGY("缺电"), NEED_INPUT("缺料"),

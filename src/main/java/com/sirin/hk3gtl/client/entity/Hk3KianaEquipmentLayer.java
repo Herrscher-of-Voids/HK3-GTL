@@ -18,16 +18,6 @@ import net.minecraft.world.item.Items;
 import java.util.List;
 import java.util.Map;
 
-
-
-
-
-
-
-
-
-
-
 public final class Hk3KianaEquipmentLayer extends RenderLayer<Hk3KianaReviewEntity, PlayerModel<Hk3KianaReviewEntity>> {
     public static final List<ResourceLocation> WING_MODELS = List.of(
             model("left_frame1"), model("left_galaxy1"), model("left_stars"), model("left_galaxy2"), model("left_frame2"),

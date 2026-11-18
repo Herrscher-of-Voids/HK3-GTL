@@ -6,26 +6,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 八大件使用统一电压定义显示名称，注册键与显示名称分离。
+ */
 public final class Hk3ComponentItem extends Item {
     private final int tier;
 

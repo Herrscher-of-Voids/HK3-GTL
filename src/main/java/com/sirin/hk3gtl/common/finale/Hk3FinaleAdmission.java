@@ -15,15 +15,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-
-
-
-
-
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
 public final class Hk3FinaleAdmission {
     private Hk3FinaleAdmission(){}
     private static Hk3FinaleRequirements.Fact recorded(boolean ready,String source,String detail){
@@ -135,5 +127,4 @@ public final class Hk3FinaleAdmission {
             .then(Commands.literal("resume").executes(c->resume(c.getSource().getPlayerOrException()))));
     }
 }
-
 

@@ -3,13 +3,9 @@ package com.sirin.hk3gtl.common.multiblock.build;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3W01HallLayout;
 
 /** 对已有实体坐标作按高度稳定排序；每格仅增加一个int索引，不展开空气。 */
-
-
-
-
-
-
-
+/**
+ * 按普通结构、重力方块、附着方块三个阶段及各阶段高度建立稳定稀疏索引。
+ */
 final class Hk3W01BuildOrder {
     private final long[] cells;
     private final int[] counts;

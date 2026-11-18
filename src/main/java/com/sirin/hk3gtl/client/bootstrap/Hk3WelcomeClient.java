@@ -10,17 +10,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 欢迎包只登记待显示内容，由客户端主线程在可阅读时打开。
+ */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3WelcomeClient {
     private static final Hk3WelcomePending<Notice> PENDING = new Hk3WelcomePending<>();

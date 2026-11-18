@@ -19,12 +19,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.time.Instant;
 
-
-
-
-
-
-
+/**
+ * 在新建世界公开构造入口捕获创建时刻，通过原生level.dat持久保存。
+ */
 @Mixin(PrimaryLevelData.class)
 public abstract class Hk3WorldOriginMixin implements Hk3WorldOriginData {
     @Unique private Hk3WorldOrigin hk3gtl$worldOrigin;

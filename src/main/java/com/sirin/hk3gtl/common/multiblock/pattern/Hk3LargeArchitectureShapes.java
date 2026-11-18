@@ -24,17 +24,9 @@ import java.util.zip.GZIPInputStream;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 无损串流读取巨构预览，保留GT标准完整坐标数组及所有实体方块。
+ */
 public final class Hk3LargeArchitectureShapes {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Set<String> STARTED = ConcurrentHashMap.newKeySet();

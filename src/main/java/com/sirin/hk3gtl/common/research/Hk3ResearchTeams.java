@@ -3,17 +3,9 @@ package com.sirin.hk3gtl.common.research;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】可选FTB团队事件触发重新对账；共享已完成知识与来源，原队待研任务不跟随付款人迁移。
+ */
 
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraft.server.MinecraftServer;
@@ -26,17 +18,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import java.util.UUID;
 
-/** 修订100 · 2026-09-29：FTB可选桥接；事件变更才重新对账，不在机器tick扫描所有团队。 */
-
 @Mod.EventBusSubscriber(modid=Hk3Constants.MOD_ID)
-
-
-
-
-
-
-
-
 public final class Hk3ResearchTeams {
     private static boolean dirty = true;
     private static boolean refreshing;
@@ -132,5 +114,4 @@ public final class Hk3ResearchTeams {
         }
     }
 }
-
 

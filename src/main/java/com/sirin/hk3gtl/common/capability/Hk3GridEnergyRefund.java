@@ -10,12 +10,6 @@ import java.math.BigInteger;
 import java.util.Map;
 import java.util.UUID;
 
-
-
-
-
-
-
 public record Hk3GridEnergyRefund(MinecraftServer server, Map<UUID, BigInteger> accounts,
                                   WirelessEnergySavaedData data, UUID account) {
     public static Hk3GridEnergyRefund capture(MinecraftServer server, UUID owner) {

@@ -1,58 +1,10 @@
 package com.sirin.hk3gtl.common.dialogue.definition;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 维护 SirinDialogueDefinitions 的核心功能实现。
+ *
+ */
 import com.sirin.hk3gtl.common.dialogue.*;
 import com.sirin.hk3gtl.common.dialogue.handler.SirinDialogueEndHandler;
 

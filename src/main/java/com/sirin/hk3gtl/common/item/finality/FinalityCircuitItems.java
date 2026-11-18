@@ -17,13 +17,6 @@ import net.minecraftforge.registries.RegistryObject;
  *
  * @see Hk3CircuitItems#getDetailedCircuit(String, String) 实际数据来源
  */
-
-
-
-
-
-
-
 public class FinalityCircuitItems {
 
     /** 终焉一·终序判定核 */

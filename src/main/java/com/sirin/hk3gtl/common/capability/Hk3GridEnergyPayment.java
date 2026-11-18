@@ -7,13 +7,9 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-
-
-
-
-
-
-
+/**
+ * 机器EU配方及直接取电的精确金额适配；后端负责实际账户和团队归属。
+ */
 public final class Hk3GridEnergyPayment {
     private static final BigInteger LONG_MAX = BigInteger.valueOf(Long.MAX_VALUE);
     private Hk3GridEnergyPayment() {}

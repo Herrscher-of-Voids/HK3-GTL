@@ -10,10 +10,7 @@ import net.minecraft.world.phys.*;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
 public final class Hk3EggObservation {
     private Hk3EggObservation(){}
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent e){

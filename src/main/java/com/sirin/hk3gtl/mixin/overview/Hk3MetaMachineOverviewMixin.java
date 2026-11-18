@@ -7,12 +7,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-
-
-
-
-
-
+/**
+ * 观察GT机器加载/卸载；卸载不会删除已登记位置或重新推断归属。
+ */
 @Mixin(value = MetaMachine.class, remap = false)
 public abstract class Hk3MetaMachineOverviewMixin {
     @Inject(method = "onLoad", at = @At("RETURN"))

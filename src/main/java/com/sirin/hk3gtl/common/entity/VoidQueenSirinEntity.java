@@ -1,56 +1,10 @@
 package com.sirin.hk3gtl.common.entity;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 维护 VoidQueenSirinEntity 的核心功能实现。
+ *
+ */
 import com.sirin.hk3gtl.archive.entrance.SirinEntranceAnimationArchive;
 import com.sirin.hk3gtl.common.badending.Hk3BadEndingData;
 import com.sirin.hk3gtl.common.badending.SirinBadEndingManager;
@@ -114,7 +68,6 @@ import java.util.concurrent.ConcurrentHashMap;
  *   <li>禁止移除无敌相关重写方法，会破坏终局安全性</li>
  * </ul>
  */
-
 public class VoidQueenSirinEntity extends Mob {
 
     private static final Logger LOGGER = LogUtils.getLogger();

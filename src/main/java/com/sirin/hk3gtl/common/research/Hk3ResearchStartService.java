@@ -1,16 +1,8 @@
 package com.sirin.hk3gtl.common.research;
 
-
-
-
-
-
-
-
-
-
-
-/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
+/**
+ * 【文件职责／本轮边界】从个人账户付费给固定团队任务，使用批准EU/t并保存实际支付，不重算存量收据。
+ */
 
 
 
@@ -19,20 +11,6 @@ import com.sirin.hk3gtl.common.constants.Hk3Values;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import java.util.List;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 public final class Hk3ResearchStartService {
     private Hk3ResearchStartService() {}
@@ -96,5 +74,4 @@ public final class Hk3ResearchStartService {
                 Hk3ResearchMath.materialCount(m.count(), lab, Math.max(0, gaze), suppression, m.sensitivity()), m.sensitivity())).toList();
     }
 }
-
 

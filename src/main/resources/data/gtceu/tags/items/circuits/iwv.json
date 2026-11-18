@@ -1,1 +1,9 @@
-{"replace":false,"values":["hk3gtl:iwv_processor_mainframe","hk3gtl:causal_reconstruction_computer","hk3gtl:world_weaving_assembly","hk3gtl:terminal_computation_processor"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:iwv_processor_mainframe",
+    "hk3gtl:causal_reconstruction_computer",
+    "hk3gtl:world_weaving_assembly",
+    "hk3gtl:terminal_computation_processor"
+  ]
+}

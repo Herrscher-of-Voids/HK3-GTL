@@ -14,13 +14,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.Map;
 
-
-
-
-
-
-
-
+/**
+ * 复核本人相邻灯笼、元宵观天、端午驾驶与重阳安全步行的服务器事实。
+ */
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggFestivalActions {
     private static final String MOVEMENT = "festivalMovement";

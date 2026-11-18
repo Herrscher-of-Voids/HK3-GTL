@@ -15,14 +15,9 @@ import net.minecraftforge.client.event.RenderLevelStageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-
-
-
-
-
-
-
-
+/**
+ * 仅在一审独立空间绘制球形终焉之茧，不注册人形实体、不操作世界方块。
+ */
 @Mod.EventBusSubscriber(modid="hk3gtl", value=Dist.CLIENT)
 public final class Hk3CocoonSceneRenderer {
     private static final ResourceLocation DIMENSION=new ResourceLocation("hk3gtl","cocoon_review");

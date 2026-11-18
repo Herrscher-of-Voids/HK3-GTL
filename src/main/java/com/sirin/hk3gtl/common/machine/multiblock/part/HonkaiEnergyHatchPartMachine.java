@@ -1,19 +1,10 @@
 package com.sirin.hk3gtl.common.machine.multiblock.part;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 定义 HonkaiEnergyHatchPartMachine 机器行为与结构逻辑。
+ *
+ */
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.multiblock.part.TieredIOPartMachine;

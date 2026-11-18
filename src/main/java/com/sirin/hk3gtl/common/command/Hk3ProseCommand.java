@@ -11,11 +11,9 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-
-
-
-
-
+/**
+ * 管理员在游戏内校对全部已审核正文；没有解锁、贸易交付或审查结算副作用。
+ */
 @Mod.EventBusSubscriber(modid="hk3gtl",bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3ProseCommand {
     private Hk3ProseCommand() {}

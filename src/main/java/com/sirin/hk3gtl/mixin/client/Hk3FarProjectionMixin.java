@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /** 统一原版与巨构远景的深度映射，仅延长裁切面，不改变加载和模拟距离。 */
-
 @Mixin(GameRenderer.class)
 public abstract class Hk3FarProjectionMixin {
     @Inject(method="getDepthFar",at=@At("RETURN"),cancellable=true)

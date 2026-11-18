@@ -19,14 +19,7 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
  *
  * <p>纯读取 {@link Hk3ClientGazeState} 客户端缓存，不做任何计算，渲染线程安全。</p>
  */
-
-
-
-
-
-
 @OnlyIn(Dist.CLIENT)
-
 public final class Hk3GazeHudOverlay implements IGuiOverlay {
 
     public static final Hk3GazeHudOverlay INSTANCE = new Hk3GazeHudOverlay();

@@ -6,30 +6,9 @@ import net.minecraft.nbt.CompoundTag;
 import java.math.BigInteger;
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 多个现有能源缓冲仓的精确分摊和可重试退款，不覆盖仓室余额快照。
+ */
 public final class Hk3PortPayment {
     private Hk3PortPayment() {}
     public interface Port {

@@ -1,0 +1,239 @@
+{
+  "id": "W12",
+  "version": "0005-W12-A3",
+  "controller": "hk3gtl:w12_global_energy_constraint_wall",
+  "blueprint": "hk3gtl:structures/w12_candidate.bin.gz",
+  "conversation": "0005",
+  "conversation_id": "01a1e02a-4d20-7d81-bdab-70404f66086d",
+  "appearance_approved": true,
+  "approval_basis": "负责人明确批准W12 A3并要求接入完整机器与特效。",
+  "source": "deliveries/0005_W12_三环翻转_A3_20261116",
+  "source_geometry_sha256": "da370cd37eb1ad1b5675c187968b7ba69415f81ec6dd5754a70031a54542c68a",
+  "source_npz_sha256": "9b22b62d2020d072a252bd6d7524e52edb36f561d6234cfcbaec3829ddba4941",
+  "source_preview_payload_sha256": "21762be30b0f58e3fa1fc7ec9228910681e9ef6926f229b555da1fe50cb1ac97",
+  "source_clearance_sha256": "e763f5adf4a57fa3c7581066ccb2d2f4ea57b7b7cc5684c11003f97f4fee74b7",
+  "source_approval_fields_preserved": true,
+  "external_approval_is_authoritative": true,
+  "size_xyz": [
+    1063,
+    347,
+    847
+  ],
+  "size_wdh": [
+    1063,
+    847,
+    347
+  ],
+  "source_bounds": {
+    "min": [
+      0,
+      -19,
+      0
+    ],
+    "max": [
+      1062,
+      327,
+      846
+    ]
+  },
+  "source_origin_xyz": [
+    0,
+    -19,
+    0
+  ],
+  "blueprint_to_export_offset_xyz": [
+    0,
+    19,
+    0
+  ],
+  "controller_source_xyz": [
+    531,
+    50,
+    10
+  ],
+  "controller_xyz": [
+    531,
+    69,
+    10
+  ],
+  "source_facing": "north",
+  "controller_location": "负Z前侧中央开放式黑白金审判操作台，替换原红石定位块，台面上方独立放置。",
+  "controller_neighbors": {
+    "east": "minecraft:air",
+    "west": "minecraft:air",
+    "up": "minecraft:air",
+    "down": "minecraft:gold_block",
+    "south": "minecraft:air",
+    "north": "minecraft:air"
+  },
+  "controller_entry": "玩家从前侧台阶登上Y49台面，直接操作Y50主控。",
+  "block_count": 23541415,
+  "component_count": 100,
+  "source_component_voxels": 25324000,
+  "overlap_extra_memberships": 1782585,
+  "full_geometry": true,
+  "merge_priority": "按A3构件顺序后写优先，全局去重后导出，每个实体坐标只出现一次。",
+  "controller_previous_state": "minecraft:redstone_block",
+  "controller_state": "hk3gtl:w12_global_energy_constraint_wall[facing=north]",
+  "controller_nbt_blockentity_id": "hk3gtl:w12_global_energy_constraint_wall",
+  "controller_replacements": 1,
+  "fixed_interface_positions": [],
+  "interface_policy": "除主控外，全部实体格均可替换合法通用接口，朝向自选。",
+  "production_recipe": "hk3gtl:wonder_global_energy_constraint_matrix",
+  "target_voltage": "CIV",
+  "research": "RN-ECB",
+  "material_counts": {
+    "minecraft:black_concrete": 0,
+    "gtceu:black_studs": 2856938,
+    "minecraft:gold_block": 4478688,
+    "gtceu:clean_machine_casing": 7245863,
+    "minecraft:yellow_concrete": 0,
+    "gtceu:yellow_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 790613,
+    "minecraft:purple_stained_glass": 0,
+    "minecraft:yellow_stained_glass": 697961,
+    "minecraft:deepslate_tiles": 0,
+    "minecraft:gilded_blackstone": 513828,
+    "minecraft:red_stained_glass": 0,
+    "gtceu:white_lamp[bloom=true,inverted=true,lit=true,powered=false]": 40297,
+    "hk3gtl:casing_colored_black": 6917226,
+    "minecraft:redstone_block": 0,
+    "hk3gtl:w12_global_energy_constraint_wall[facing=north]": 1
+  },
+  "runtime_format": "HK3P/2；Z最快线性坐标全局升序等差游程；主控原生方块实体NBT。",
+  "blueprint_linear_index": "(x*sizeY+y)*sizeZ+z",
+  "rle_record_count": 7236682,
+  "blueprint_sha256": "d092ce62ef92fef0202a76eff73c52932108f96b01c319331a2efe5c775bce76",
+  "animation_scene": "hk3gtl:models/scene/w12_a3.json.gz",
+  "animation_scene_sha256": "53fe58435fbc480d93540357f3211d95a600531b25476c9ff90cb9f7a63770dc",
+  "animation_scene_origins": "原蓝图坐标，保持A3全部构件及球心翻转pivot。",
+  "animation_atlas": "hk3gtl:textures/effect/w12_a3_atlas.png",
+  "animation_atlas_sha256": "e4b94d3400025ebe08f9d9aea59d73ca6cb9157ce5cfaf495fb0eba393e17ead",
+  "animation_mesh_quads": 4391672,
+  "animation_mesh_controller_hole": true,
+  "controller_hole_components": [
+    "judgement_controller_altar"
+  ],
+  "animation_mask": "hk3gtl:structures/w12_a3_mask.bin.gz",
+  "animation_mask_sha256": "421ce0bd33ba12ba3447789712a48aae474a71caa7d86497e1a18c5a6de693dc",
+  "animation_mask_magic": "0x5731324d",
+  "animation_mask_sections": 27136,
+  "animation_mask_blocks": 23541414,
+  "animation_mask_scope": "全部100构件参考姿态，排除主控；合法接口由客户端保留原生绘制。",
+  "animation_mask_section_index": "BlockPos.asLong(sectionX,sectionY,sectionZ)",
+  "interface_linear_index": "(y*sizeZ+z)*sizeX+x",
+  "atlas_size_pixels": [
+    1024,
+    512
+  ],
+  "atlas_tile_pixels": 64,
+  "atlas_grid": [
+    16,
+    8
+  ],
+  "atlas_face_order": [
+    "east",
+    "west",
+    "south",
+    "north",
+    "down",
+    "up"
+  ],
+  "motion_parameters": {
+    "core_gyroscope_1": {
+      "section": "core",
+      "pivot": [
+        531.0,
+        180.0,
+        423.0
+      ],
+      "motion_axis": [
+        0,
+        1,
+        0
+      ],
+      "motion_speed": 0.055,
+      "nominal_radius": 25,
+      "gold_radial_thickness": 3,
+      "white_edge_radius": 26,
+      "ring_normal": [
+        1,
+        0,
+        0
+      ],
+      "motion_kind": "绕球心直径翻转"
+    },
+    "core_gyroscope_2": {
+      "section": "core",
+      "pivot": [
+        531.0,
+        180.0,
+        423.0
+      ],
+      "motion_axis": [
+        0,
+        0,
+        1
+      ],
+      "motion_speed": -0.047,
+      "nominal_radius": 36,
+      "gold_radial_thickness": 3,
+      "white_edge_radius": 37,
+      "ring_normal": [
+        0,
+        1,
+        0
+      ],
+      "motion_kind": "绕球心直径翻转"
+    },
+    "core_gyroscope_3": {
+      "section": "core",
+      "pivot": [
+        531.0,
+        180.0,
+        423.0
+      ],
+      "motion_axis": [
+        1,
+        0,
+        0
+      ],
+      "motion_speed": 0.062,
+      "nominal_radius": 47,
+      "gold_radial_thickness": 3,
+      "white_edge_radius": 48,
+      "ring_normal": [
+        0,
+        0,
+        1
+      ],
+      "motion_kind": "绕球心直径翻转"
+    },
+    "white_singularity": {
+      "section": "core",
+      "radius": 14,
+      "pivot": [
+        531.0,
+        180.0,
+        423.0
+      ],
+      "motion_axis": [
+        0.3,
+        1,
+        0.15
+      ],
+      "motion_speed": 0.095
+    }
+  },
+  "known_pending": [
+    "核心以外链链与链廊固定交叠",
+    "冠环与四内塔、垂丝与墙塔固定交叠",
+    "1063×847占地比W10少240格，规模递增待修订"
+  ],
+  "overworld_vertical_span": 384,
+  "overworld_height_compatible": true,
+  "overworld_controller_y_range": [
+    5,
+    42
+  ],
+  "game_verified": false
+}

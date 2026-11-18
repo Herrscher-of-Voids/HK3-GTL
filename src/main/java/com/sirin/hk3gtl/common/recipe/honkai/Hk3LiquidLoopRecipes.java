@@ -9,14 +9,9 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.*;
 
-
-
-
-
-
-
-
-
+/**
+ * L1配套化工、母液回流与余料处置，沿液态配方唯一入口注册。
+ */
 public final class Hk3LiquidLoopRecipes {
     private Hk3LiquidLoopRecipes() {}
 
@@ -54,5 +49,4 @@ public final class Hk3LiquidLoopRecipes {
         }
     }
 }
-
 

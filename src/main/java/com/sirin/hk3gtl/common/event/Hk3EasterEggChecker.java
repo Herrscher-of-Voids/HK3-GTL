@@ -1,24 +1,10 @@
 package com.sirin.hk3gtl.common.event;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 处理 Hk3EasterEggChecker 相关事件分发与触发。
+ *
+ */
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
@@ -74,18 +60,6 @@ import java.util.Locale;
  * 彩蛋事件 E-EG-001~100 监听与触发（对应设计文档彩蛋事件总表）。
  */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3EasterEggChecker {
 
     private static final String LAST_SOULIUM = "last_soulium";
@@ -244,7 +218,7 @@ public final class Hk3EasterEggChecker {
 
   // ── Forge 事件 ──
 
-
+    
     public static void onContainerOpen(PlayerEvent.PlayerLoggedInEvent event) {
         // 登录时检查日期类彩蛋
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
@@ -252,7 +226,7 @@ public final class Hk3EasterEggChecker {
         checkDateEggsOnLogin(player);
     }
 
-
+    
     public static void onLivingAttack(LivingAttackEvent event) {
         if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
         if (event.getEntity().getType() == Hk3Entities.VOID_QUEEN_SIRIN.get()) {
@@ -260,7 +234,7 @@ public final class Hk3EasterEggChecker {
         }
     }
 
-
+    
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (event.getLevel().isClientSide() || !(event.getEntity() instanceof ServerPlayer player)) return;
         BlockPos pos = event.getPos();
@@ -307,7 +281,7 @@ public final class Hk3EasterEggChecker {
         }
     }
 
-
+    
     public static void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         BlockPos placed = event.getPos();
@@ -326,7 +300,7 @@ public final class Hk3EasterEggChecker {
         }
     }
 
-
+    
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         if (!(event.getPlayer() instanceof ServerPlayer player)) return;
         if (player.level().dimension() == Hk3Dimensions.IMAGINARY) {
@@ -802,5 +776,4 @@ public final class Hk3EasterEggChecker {
         return player.getInventory().contains(new ItemStack(item));
     }
 }
-
 

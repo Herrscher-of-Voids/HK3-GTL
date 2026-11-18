@@ -1,1 +1,337 @@
-{"key":"i16","machine":"hk3gtl:soulium_precision_processing_center","controller":[24,3,8],"size_xyz":[49,29,57]}
+{
+  "key": "i16",
+  "source": "data/hk3gtl/approved_architecture/i16.json",
+  "machine": "hk3gtl:soulium_precision_processing_center",
+  "sha256": "6ff8e6a423de26b54b66cff45bdb3cc15eecb9f4a8e000c402ad991f69607f66",
+  "template_sha256": "f9067929e320fb7dbdce98e7c669ef7652f68a774ec363fee109d53c09e14a90",
+  "approved_blueprint_sha256": "16fab7fa8f17ada48e4fa534dee8b24595202ba7026db77ab1aa124a45c34a7f",
+  "approved_nbt_sha256": "809e5842f5a96c0287ba5d56e295b35b955015afc25f143a9e9415020f7272e4",
+  "review_snapshot": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认",
+  "approval_manifest": "deliveries/多方块确认归档/20261023_133546_133059_I01-I18_主控居中融合V2_已确认/确认与校验清单.json",
+  "approval_manifest_sha256": "64bd1a57deeb43329f9dea941d598f14e86dcf9341df4e90c6efd9419f3f1eb8",
+  "controller": [
+    24,
+    3,
+    8
+  ],
+  "size_xyz": [
+    49,
+    29,
+    57
+  ],
+  "blocks": 18640,
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_input",
+    "item_output"
+  ],
+  "installed_hatches": {},
+  "installed_hatch_blocks": {
+    "BILLET": "gtceu:max_input_bus",
+    "COOLANT": "gtceu:max_input_hatch_4x",
+    "PRODUCT": "gtceu:max_output_bus",
+    "CHIPS": "gtceu:max_output_hatch_4x"
+  },
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室",
+  "game_verified": false,
+  "_change_records": [
+    {
+      "record": 1,
+      "time": "2026-10-23T13:41:15+08:00",
+      "revision": 175,
+      "reason": "负责人明确批准主控置中融合V2并要求实装",
+      "deleted": "I17旧海渊布局正式引用；批准归档无改动",
+      "added": "五台正式入口、精确几何、真实仓模板和批准来源身份",
+      "modified": "仅指定主控替换；模板仅另换声明接口为真实仓",
+      "purpose": "保持批准造型；配方开放、生存获取和实机成型另行验收"
+    }
+  ],
+  "ports": [],
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "BILLET",
+      "pos": [
+        9,
+        5,
+        4
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              8,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              10,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              9,
+              4,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              9,
+              6,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "POWER",
+      "pos": [
+        13,
+        5,
+        4
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              12,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              14,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              13,
+              4,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              13,
+              6,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COOLANT",
+      "pos": [
+        17,
+        5,
+        4
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              16,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              18,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              17,
+              4,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              17,
+              6,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PRODUCT",
+      "pos": [
+        31,
+        5,
+        4
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              30,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              32,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              31,
+              4,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              31,
+              6,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DATA",
+      "pos": [
+        35,
+        5,
+        4
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              34,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              36,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              35,
+              4,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              35,
+              6,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CHIPS",
+      "pos": [
+        39,
+        5,
+        4
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:clean_machine_casing",
+      "evidence": {
+        "kind": "matching_adjacent_surface",
+        "supports": [
+          {
+            "pos": [
+              38,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              40,
+              5,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              39,
+              4,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          },
+          {
+            "pos": [
+              39,
+              6,
+              4
+            ],
+            "state": "gtceu:clean_machine_casing"
+          }
+        ]
+      }
+    }
+  ],
+  "port_positions_faces_purposes_preserved": false
+}

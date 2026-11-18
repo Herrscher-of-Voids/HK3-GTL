@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><title>支配剧场 · 向内搭手操偶 F4</title></head>
+<body>
+<header><div class="eyebrow">0005 / 支配剧场 / F4</div><h1>支配剧场 · 向内搭手操偶</h1><p>弯腰俯视 · 双手向内搭墙 · 剧情动作 · 正面敞开 · <span id="actualSize"></span></p></header>
+<main><section id="stage"><div id="loading">载入剧场与演员…</div><div id="legend"><b id="modelName"></b><br>左键旋转 · 右键平移 · 滚轮缩放</div></section><aside>
+<section class="controls"><h2>提线动作 <output id="timeValue">0.0 秒</output></h2><div class="row"><button id="play" class="active">暂停</button><button id="rest">起始动作</button><select id="speed" style="width:85px;margin:0"><option value="0.5">半速</option><option value="1" selected>原速</option><option value="1.5">1.5倍</option></select></div><input id="time" type="range" min="0" max="16" step="0.02" value="0"><p class="animationNote">左侧歪头曲肘，右侧单臂高举；提线掌带动头、双腕与双膝。</p></section>
+<section class="controls"><div class="row"><button id="shellFull" class="active">完整建筑</button><button id="shellCutaway">侧墙剖面</button></div><div id="models" class="row" style="margin-top:7px"></div><p id="stats"></p></section>
+<section class="controls"><h2>观察视角</h2><div id="views" class="row"></div><div class="row" style="margin-top:8px"><button id="reset">复位</button><button id="screenshot">保存截图</button><button id="fullscreen">全屏</button></div></section>
+<section class="controls"><h2>方块剖切</h2><div class="slice"><select id="axis"><option value="y">Y 高度</option><option value="x">X 宽度</option><option value="z">Z 深度</option></select><output id="layerLabel"></output></div><input id="layer" type="range" step="1"><button id="fullLayer">显示全部</button></section>
+<details><summary>组合与材质</summary><div id="features"><p>乌合之众从腰部前倾65°，头再向下俯8.4°。两条主臂保持原骨长重算肘腕。双手手背朝上、手指朝内，掌面压住墙沿，指端越过内缘向下扣。</p><p>前墙与前端二层横廊实际删除，完整模式正面敞开。两只悬浮提线掌继续控制剧情姿态人偶。</p><p>真实单位格构件与原配色保留，演员动态绕关节旋转。当前为W11组合候选。</p></div></details>
+<p class="links"><a href="提线骨架.json">提线与关节</a> · <a href="演员整数格构件.npz">平掌与人偶构件</a><br><a href="整数格展开.json">巨像整数格展开</a> · <a href="建筑改造.json">建筑开口</a> · <a href="manifest.json">组合记录</a><br><a href="../0005_千人人偶_剧情动作参考_F3_20261117/index.html">剧情动作依据</a></p>
+</aside></main>
+<script src="theatre.js"></script><script src="actors.js"></script><script src="viewer.bundle.js"></script>
+</body></html>

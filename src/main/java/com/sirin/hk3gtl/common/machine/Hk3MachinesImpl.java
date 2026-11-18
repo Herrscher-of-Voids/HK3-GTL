@@ -1,8 +1,6 @@
 package com.sirin.hk3gtl.common.machine;
 
 
-
-
 import com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes;
 
 
@@ -25,66 +23,6 @@ import net.minecraft.resources.ResourceLocation;
 
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 public class Hk3MachinesImpl {
     public static MultiblockMachineDefinition I01_HONKAI_COLLECTION_TOWER;
@@ -137,7 +75,6 @@ public class Hk3MachinesImpl {
                 .appearanceBlock(() -> com.sirin.hk3gtl.common.multiblock.pattern.Hk3StructureBlocks.require("hk3gtl:industrial_port_casing"))
                 .pattern(def -> Hk3IndustrialApprovedPatterns.create(def, "i01"))
                 .shapeInfo(def -> Hk3ApprovedArchitectureShapes.create(def, "i01"))
-                // 2026-09-25：采用独立雷达面板与统一新机壳贴图；不改变结构校验及采集工艺。
                 .workableCasingRenderer(casingTex("industrial_controller_shell"),
                         new ResourceLocation("hk3gtl", "block/overlay/i01_appearance_0002_r7"))
                 .tooltips(
@@ -159,7 +96,6 @@ public class Hk3MachinesImpl {
                 .appearanceBlock(() -> com.sirin.hk3gtl.common.multiblock.pattern.Hk3StructureBlocks.require("hk3gtl:industrial_port_casing"))
                 .pattern(def -> Hk3IndustrialApprovedPatterns.create(def, "i03"))
                 .shapeInfo(def -> Hk3ApprovedArchitectureShapes.create(def, "i03"))
-                // 2026-09-25：分馏分支图标区分液态处理设备，空闲、运行和暂停使用对应贴图。
                 .workableCasingRenderer(casingTex("industrial_controller_shell"),
                         new ResourceLocation("hk3gtl", "block/overlay/i03_appearance_0002_r7"))
                 .tooltips(
@@ -223,7 +159,6 @@ public class Hk3MachinesImpl {
         HONKAI_FUEL_CONCENTRATION_PLANT = Hk3IndustrialExtensionMachines.registerConcentration();
         Hk3IndustrialExtensionMachines.init();
         Hk3LateIndustrialMachines.init();
-
         Hk3W01Machines.init();
         com.sirin.hk3gtl.common.machine.w02.Hk3W02Machines.init();
         com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionMachines.init();
@@ -242,7 +177,6 @@ public class Hk3MachinesImpl {
                 .appearanceBlock(() -> com.sirin.hk3gtl.common.multiblock.pattern.Hk3StructureBlocks.require("hk3gtl:industrial_port_casing"))
                 .pattern(Hk3ResearchMatrixPattern::createPattern)
                 .shapeInfo(def -> Hk3ApprovedArchitectureShapes.create(def, "s01"))
-                // 2026-09-25：研究网络面板仅更新视觉，不改变玩家背包扣费、研究点或接口能力。
                 .workableCasingRenderer(casingTex("industrial_controller_shell"),
                         new ResourceLocation("hk3gtl", "block/overlay/s01_appearance_0002_r7"))
                 .tooltips(
@@ -308,5 +242,4 @@ public class Hk3MachinesImpl {
     }
 
 }
-
 

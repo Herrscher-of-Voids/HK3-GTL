@@ -2,25 +2,6 @@ package com.sirin.hk3gtl.common.constants;
 
 import com.gregtechceu.gtceu.api.GTValues;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3ValuesImpl {
 
     // ── 颜色格式字符串（§ 开头的 Minecraft 聊天颜色码） ──

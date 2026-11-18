@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.registries.BuiltInRegistries;
-
 public final class Hk3EggLineBranch {
     private Hk3EggLineBranch(){}
     private static String endpoint(ItemRoutePath path){return path.getTargetPipePos().relative(path.getTargetFacing()).asLong()+":"+path.getTargetFacing().getName();}

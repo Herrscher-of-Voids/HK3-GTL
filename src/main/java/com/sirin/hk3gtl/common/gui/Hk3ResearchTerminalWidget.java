@@ -1,14 +1,8 @@
 package com.sirin.hk3gtl.common.gui;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】显示取消、领取和独立实验入口；按实际供电档位展示电流，新增区域沿用缩放逻辑。
+ */
 
 import com.lowdragmc.lowdraglib.gui.widget.Widget;
 import net.minecraft.client.Minecraft;
@@ -26,29 +20,7 @@ import java.util.Locale;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3ResearchTerminalWidget extends Widget {
-    /** 修订100 · 2026-09-29：增加原付款人取消与待领取材料入口，原有布局保留。 */
     public static final int WIDTH = 520, HEIGHT = 350;
     private static final int CYAN=0xff70e4ea, WHITE=0xffe4e9f6, MUTED=0xff9faec8, GOLD=0xffffd679;
     private final Supplier<CompoundTag> source;

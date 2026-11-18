@@ -323,4 +323,3 @@ public final class Hk3IndustrialContent {
     public static Map<String, RegistryObject<Block>> blocks() { return Collections.unmodifiableMap(BLOCKS); }
 }
 
-

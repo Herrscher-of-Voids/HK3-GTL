@@ -8,19 +8,11 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 服务端 -> 客户端 注视度同步包：把玩家当前注视度、上限、缓冲状态下发给客户端 HUD。
+ *
+ */
 public record GazeSyncS2CPacket(int gaze, int gazeMax, boolean bufferActive, int effectiveGaze, int teamGaze) {
 
     public static void encode(GazeSyncS2CPacket pkt, FriendlyByteBuf buf) {

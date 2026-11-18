@@ -2,8 +2,6 @@ package com.sirin.hk3gtl.common.easter;
 
 
 
-
-
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -11,19 +9,8 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
-
-
-
-
-
 public final class Hk3EggReading {
-
-
-
     private static boolean guarded(String id){return com.sirin.hk3gtl.common.phone.Hk3PhoneVoltagePages.managed(id)||com.sirin.hk3gtl.common.phone.Hk3SocialBuiltinTopics.managed(id)||com.sirin.hk3gtl.common.phone.Hk3PhoneCollectionService.managed(id)||com.sirin.hk3gtl.common.phone.Hk3PhoneCivilizationReading.managed(id)||com.sirin.hk3gtl.common.phone.Hk3PhoneInstructionPages.managed(id);}
     private static boolean authorized(ServerPlayer p,String id){if(com.sirin.hk3gtl.common.phone.Hk3PhoneVoltagePages.managed(id))return com.sirin.hk3gtl.common.phone.Hk3PhoneVoltagePages.authorize(p,id);if(com.sirin.hk3gtl.common.phone.Hk3SocialBuiltinTopics.managed(id))return com.sirin.hk3gtl.common.phone.Hk3SocialBuiltinTopics.authorize(p,id);if(com.sirin.hk3gtl.common.phone.Hk3PhoneCivilizationReading.managed(id))return com.sirin.hk3gtl.common.phone.Hk3PhoneCivilizationReading.authorize(p);if(com.sirin.hk3gtl.common.phone.Hk3PhoneInstructionPages.managed(id))return com.sirin.hk3gtl.common.phone.Hk3PhoneInstructionPages.authorize(p,id);return com.sirin.hk3gtl.common.phone.Hk3PhoneCollectionService.authorize(p,id);}
     private static final Hk3ReadingSessions READING = new Hk3ReadingSessions();
@@ -33,7 +20,6 @@ public final class Hk3EggReading {
     @SubscribeEvent public static void tick(net.minecraftforge.event.TickEvent.PlayerTickEvent e){if(e.phase==net.minecraftforge.event.TickEvent.Phase.END&&e.player instanceof ServerPlayer p){var open=OPEN.get(p.getUUID());if(open!=null){long now=p.server.overworld().getGameTime();if(guarded(open.id)&&(now>=open.expires||now<open.expires-36000||!authorized(p,open.id))){clear(p.getUUID());return;}long time=p.server.overworld().getDayTime();if(time==open.previous+1&&Math.floorMod(time,24000)==17000)open.crossed=true;open.previous=time;}}}
     public static void clear(UUID player){READING.clear(player);OPEN.remove(player);com.sirin.hk3gtl.common.phone.Hk3SocialBuiltinTopics.clear(player);com.sirin.hk3gtl.common.phone.Hk3PhoneCollectionService.clear(player);com.sirin.hk3gtl.common.narrative.Hk3LegacyArchiveService.clear(player);}
     public static void attach(ServerPlayer p,CompoundTag view){
-
         com.sirin.hk3gtl.common.phone.Hk3PhoneGallery.view(p,view);
         String mode=view.getString("Mode"),id=view.getString("Id");
         if(mode.equals("status")||mode.equals("toast"))return;

@@ -8,7 +8,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
 public final class Hk3EggLectern {
     private static final class View {LecternMenu menu;String book;BitSet read=new BitSet();int page=-1,ticks;long last;}
     private static final Map<UUID,View> VIEWS=new java.util.concurrent.ConcurrentHashMap<>();

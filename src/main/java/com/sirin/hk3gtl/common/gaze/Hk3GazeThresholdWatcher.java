@@ -7,12 +7,6 @@ import net.minecraft.server.level.ServerPlayer;
 /**
  * 注视阈值观察器：当注视跨越关键阈值时推送提醒，并触发与阈值绑定的核心事件。
  */
-
-
-
-
-
-
 public final class Hk3GazeThresholdWatcher {
 
     private static final int[] THRESHOLDS = {50, 100, 200, 300, 500, 700, 800, 900, 1000};

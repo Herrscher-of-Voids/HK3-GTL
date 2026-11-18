@@ -1,16 +1,9 @@
 package com.sirin.hk3gtl.common.communication;
 
+/**
+ * 【文件职责／本轮边界】增加服务端账本读取入口，使已收观察资料不依赖玩家在线。
+ */
 
-
-
-
-
-
-
-
-
-
-/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -19,7 +12,6 @@ import net.minecraft.world.level.saveddata.SavedData;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
-
 
 public final class Hk3CommunicationData extends SavedData {
     private static final String NAME = "hk3gtl_communication_v5";

@@ -7,39 +7,16 @@ import net.minecraft.world.item.ItemStack;
 import java.math.BigInteger;
 import java.util.Map;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ * - 维护 hk3gtl 16 个 canonical 高阶电路与 WMP GT 发电等级之间的稳定映射。
+ * - 关键调用链：WMP GTEnergyHelper/VoltageHelper Mixin -> 本类 -> tier 15~30 与 BigInteger 电压。
+ *
+ */
 public final class Hk3WmpCircuitCompat {
 
     private static final BigInteger FOUR = BigInteger.valueOf(4L);
-
+    
 
     private Hk3WmpCircuitCompat() {}
 

@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.communication;
 
-
 import net.minecraft.nbt.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -10,9 +9,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import com.sirin.hk3gtl.common.research.Hk3ResearchBatchProofs;
 import java.util.*;
-
-
-
 
 public final class Hk3CommunicationEvidence extends SavedData {
     private CompoundTag teams=new CompoundTag();

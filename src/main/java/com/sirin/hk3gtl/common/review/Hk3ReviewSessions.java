@@ -17,17 +17,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import java.util.*;
 
-
-
-
-
-
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
-
-
 public final class Hk3ReviewSessions {
     private static final org.slf4j.Logger LOGGER=com.mojang.logging.LogUtils.getLogger();
     private static final Map<UUID,Hk3ReviewFrame> FRAMES=new HashMap<>();

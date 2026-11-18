@@ -37,20 +37,9 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 导出当前服务器实际高度；隔离测试档可选探针验证高区段与方块实体的保存。
+ */
 @Mod.EventBusSubscriber(modid = "hk3gtl")
 public final class Hk3HeightRuntimeAudit {
     private static final Gson JSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();

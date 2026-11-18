@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/generated","textures":{"layer0":"hk3gtl:item/main_material/imaginary_phase_transfer_ceramic_frame"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hk3gtl:item/main_material/imaginary_phase_transfer_ceramic_frame"
+  }
+}

@@ -14,30 +14,9 @@ import java.util.Optional;
 import java.util.TreeMap;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 在首个Level构造前统一应用本世界注册类型，客户端只接收服务端原生注册表同步。
+ */
 public final class Hk3HeightService {
     private static final Logger LOGGER = LogUtils.getLogger();
     private Hk3HeightService() {}

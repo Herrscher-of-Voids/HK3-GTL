@@ -1,11 +1,5 @@
 package com.sirin.hk3gtl.common.network;
 
-
-
-
-
-
-
 import com.sirin.hk3gtl.common.dialogue.DialogueSessionManager;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;

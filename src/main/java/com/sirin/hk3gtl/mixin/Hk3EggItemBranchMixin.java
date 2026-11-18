@@ -7,7 +7,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value=ItemNetHandler.class,remap=false)
-
 public abstract class Hk3EggItemBranchMixin {
     @Shadow private ItemPipeNet net;
     @Shadow private ItemPipeBlockEntity pipe;

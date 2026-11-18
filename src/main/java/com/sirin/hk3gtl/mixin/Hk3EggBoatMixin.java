@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-/** 2026-11-11：原版放船只观察addFreshEntity真实结果，取消生成不能借成功交互结果领收藏。 */
+/** 原版放船只观察addFreshEntity真实结果，取消生成不能借成功交互结果领收藏。 */
 @Mixin(BoatItem.class)
 public abstract class Hk3EggBoatMixin {
     @Redirect(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z"))

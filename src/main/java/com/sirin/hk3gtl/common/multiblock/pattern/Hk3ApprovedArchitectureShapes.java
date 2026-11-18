@@ -19,13 +19,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
-
-
-
-
-
-
-
 public final class Hk3ApprovedArchitectureShapes {
     private static final boolean SPARSE_AIR_SUPPORTED = supportsSparseAir();
 

@@ -25,8 +25,6 @@ import java.util.Set;
  *   <li>所有公开方法必须在服务端主线程调用，persistentData 非线程安全</li>
  * </ul>
  */
-
-
 public final class Hk3NarrativeLog {
 
     /** 解锁标记的键前缀。一旦上线绝对不可更改 */

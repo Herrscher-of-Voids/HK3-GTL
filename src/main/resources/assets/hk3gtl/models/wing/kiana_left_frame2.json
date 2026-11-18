@@ -1,1 +1,7 @@
-{"parent":"item/generated","render_type":"minecraft:cutout","textures":{"layer0":"hk3gtl:item/wing/kiana_left_frame2"}}
+{
+  "parent": "item/generated",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "layer0": "hk3gtl:item/wing/kiana_left_frame2"
+  }
+}

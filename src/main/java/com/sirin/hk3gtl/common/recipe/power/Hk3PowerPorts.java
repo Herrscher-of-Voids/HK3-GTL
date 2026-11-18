@@ -21,19 +21,9 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 从GT实际配方代理取出可验证的现有能源缓冲仓，不按聚合电压猜测单仓供能。
+ */
 public final class Hk3PowerPorts {
     private Hk3PowerPorts() {}
     public static Hk3PortPayment.Port of(NotifiableEnergyContainer energy) { return new Buffer(energy); }

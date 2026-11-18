@@ -1,1 +1,214 @@
-{"key":"i23","machine":"hk3gtl:i23_honkai_phase_transition_generator","controller":[44,8,0],"size_xyz":[89,57,102]}
+{
+  "key": "i23",
+  "machine": "hk3gtl:i23_honkai_phase_transition_generator",
+  "source": "data/hk3gtl/approved_architecture/i23.json",
+  "sha256": "61cc3418ce90636d8ca4b5ea1587a51abcf516b904f02fa736d206ff3e1cc5bd",
+  "template_sha256": "1b1abb7b242e89c5a2c2886e9591e624f73ee405753afcdf656e0a6598f0bfc9",
+  "source_snapshot": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认\\I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024",
+  "source_metadata": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认\\I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024\\设计与检查.json",
+  "source_nbt": "C:\\Users\\OWNER\\Desktop\\progrem\\complate progrem\\HK3GTL\\deliveries\\多方块确认归档\\20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认\\I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024\\i23\\hk3gtl-i23-twin-lobe-phase-forge-v8-20261024.nbt",
+  "source_nbt_sha256": "08379b5c14bd49ff8b96ee0eef75ca6bfa5a9d2036106488ed34b15f44b817b8",
+  "controller": [
+    44,
+    8,
+    0
+  ],
+  "size_xyz": [
+    89,
+    57,
+    102
+  ],
+  "blocks": 58011,
+  "ports": [],
+  "target_voltage": "QCV",
+  "installed_hatches": {},
+  "required_abilities": [
+    "fluid_input",
+    "fluid_output",
+    "item_output"
+  ],
+  "game_verified": false,
+  "revision": 177,
+  "materials": 18,
+  "source_diamond_count": 1,
+  "preserved_other_diamonds": 0,
+  "changes": [
+    {
+      "pos": [
+        44,
+        8,
+        0
+      ],
+      "role": "controller",
+      "from": "minecraft:diamond_block",
+      "to": "hk3gtl:i23_honkai_phase_transition_generator[facing=north]",
+      "block_entity_id": "hk3gtl:i23_honkai_phase_transition_generator"
+    },
+    {
+      "pos": [
+        27,
+        8,
+        101
+      ],
+      "role": "SOLID-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_bus[facing=south]",
+      "block_entity_id": "gtceu:max_output_bus"
+    },
+    {
+      "pos": [
+        62,
+        8,
+        101
+      ],
+      "role": "EU-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    },
+    {
+      "pos": [
+        53,
+        14,
+        0
+      ],
+      "role": "G-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=north]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        0,
+        15,
+        47
+      ],
+      "role": "C-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_input_hatch[facing=west]",
+      "block_entity_id": "gtceu:max_input_hatch"
+    },
+    {
+      "pos": [
+        88,
+        15,
+        47
+      ],
+      "role": "HEAT-OUT",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtceu:max_output_hatch[facing=east]",
+      "block_entity_id": "gtceu:max_output_hatch"
+    },
+    {
+      "pos": [
+        77,
+        39,
+        45
+      ],
+      "role": "EU-IN",
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:industrial_port_casing",
+      "block_entity_id": "hk3gtl:industrial_port_casing"
+    }
+  ],
+  "geometry_nbt_json_per_block_verified": true,
+  "all_other_cells_unchanged": true,
+  "port_positions_faces_purposes_preserved": false,
+  "dense_volume_materialized": false,
+  "controller_nbt_blockentity_id": "hk3gtl:i23_honkai_phase_transition_generator",
+  "controller_json_state": "hk3gtl:i23_honkai_phase_transition_generator",
+  "default_ports_removed": "2026-11-13",
+  "default_surface_restoration": [
+    {
+      "id": "G-IN",
+      "pos": [
+        53,
+        14,
+        0
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认/I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024/设计与检查.json",
+        "field": "surface_state"
+      }
+    },
+    {
+      "id": "EU-IN",
+      "pos": [
+        77,
+        39,
+        45
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认/I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024/设计与检查.json",
+        "field": "surface_state"
+      }
+    },
+    {
+      "id": "C-IN",
+      "pos": [
+        0,
+        15,
+        47
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认/I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024/设计与检查.json",
+        "field": "surface_state"
+      }
+    },
+    {
+      "id": "SOLID-OUT",
+      "pos": [
+        27,
+        8,
+        101
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "gtlcore:law_filter_casing",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认/I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024/设计与检查.json",
+        "field": "surface_state"
+      }
+    },
+    {
+      "id": "EU-OUT",
+      "pos": [
+        62,
+        8,
+        101
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认/I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024/设计与检查.json",
+        "field": "surface_state"
+      }
+    },
+    {
+      "id": "HEAT-OUT",
+      "pos": [
+        88,
+        15,
+        47
+      ],
+      "from": "hk3gtl:industrial_port_casing",
+      "to": "hk3gtl:voltage_machine_casing_qcv",
+      "evidence": {
+        "kind": "recorded_surface",
+        "source": "deliveries/多方块确认归档/20261025_001407_313968_batch-07_02of05_I23_V8_QCV_已确认/I23_崩坏能相变释能机_双瓣相界锻炉_V8_20261024/设计与检查.json",
+        "field": "surface_state"
+      }
+    }
+  ],
+  "geometry_changes": "旧接口格恢复建筑表面；默认蓝图不预放工业接口或实际仓室"
+}

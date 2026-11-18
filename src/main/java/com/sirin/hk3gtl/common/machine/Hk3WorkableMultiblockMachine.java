@@ -1,16 +1,9 @@
 package com.sirin.hk3gtl.common.machine;
 
+/**
+ * 【文件职责／本轮边界】持久化独立研究团队归属；离队不迁移机器，重绑要求原队权限且无进行中的批次或研究。
+ */
 
-
-
-
-
-
-
-
-
-
-/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
 
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
@@ -76,48 +69,7 @@ import java.util.UUID;
  *   <li>寻找最近玩家时使用 64 格距离阈值避免给离线 / 远处玩家误派事件</li>
  * </ul>
  */
-
-
-
-
-
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMachine implements IMachineLife, IDualEnergyConsumer {
 
     /** 高阶固定工况不经过第三方浮点超频；后续合并仍允许在真实供能预算内精确并行。 */
@@ -404,17 +356,23 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
         Hk3EventManager.onMultiblockFormed(owner, getDefinition().getId().getPath());
     }
 
-    /**
-     * GUI 显示追加电网绑定状态行：已绑定显示玩家/队伍名，未绑定给出操作提示。
-     */
     @Override
     public void addDisplayText(List<Component> textList) {
         super.addDisplayText(textList);
-        // 无限并行 + 无限跨配方能力标注：仅对启用多配方逻辑（enableMultiRecipe()==true）的制造类机器显示，
-        // 研究矩阵 / 崩坏能转换器等重写为 false 的非配方机器不显示，避免错标。
         if (enableMultiRecipe()) {
             textList.add(Component.translatable("hk3gtl.machine.unlimited_parallel_cross_recipe")
                     .withStyle(net.minecraft.ChatFormatting.AQUA));
+            var logic = getRecipeLogic();
+            var running = logic.getLastRecipe();
+            if (running != null && (logic.isWorking() || logic.isWaiting())) {
+                var data = running.data;
+                boolean merged = data.getBoolean("hk3gtlMergedPlan");
+                if (!merged || data.contains(Hk3MultiRecipeLogic.PARALLEL_COUNT_KEY)) {
+                    textList.add(Component.translatable("hk3gtl.machine.running_parallel_cross_recipe",
+                            merged ? data.getLong(Hk3MultiRecipeLogic.PARALLEL_COUNT_KEY) : 1L,
+                            merged ? data.getInt(Hk3MultiRecipeLogic.RECIPE_COUNT_KEY) : 1));
+                }
+            }
         }
         if (ownerUUID == null) {
             textList.add(Component.translatable("hk3gtl.machine.player_grid.unbound"));
@@ -496,5 +454,4 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
     }
 
 }
-
 

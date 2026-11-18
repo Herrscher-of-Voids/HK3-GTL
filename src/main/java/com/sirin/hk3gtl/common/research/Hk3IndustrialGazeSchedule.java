@@ -1,12 +1,8 @@
 package com.sirin.hk3gtl.common.research;
 
-
-
-
-
-
-
-
+/**
+ * 工业执行刻的只读分段调度；不使用研究公式，不改变配方与资源。
+ */
 public final class Hk3IndustrialGazeSchedule {
     private Hk3IndustrialGazeSchedule() {}
 

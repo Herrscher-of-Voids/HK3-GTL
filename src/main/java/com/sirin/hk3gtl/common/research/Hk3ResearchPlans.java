@@ -1,15 +1,8 @@
 package com.sirin.hk3gtl.common.research;
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】加载100题实际EU/t及材料敏感度，校验数值，不以目录存在代替执行接线。
+ */
 
 
 import com.google.gson.JsonParser;
@@ -63,5 +56,4 @@ public final class Hk3ResearchPlans {
         } catch (Exception e) { throw new IllegalStateException("Cannot load research costs", e); }
     }
 }
-
 

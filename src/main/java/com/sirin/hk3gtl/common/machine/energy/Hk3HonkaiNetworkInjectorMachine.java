@@ -15,46 +15,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 崩坏能网络注入器（{@code honkai_network_injector}）—— 双能源引擎的"充网"入口。
+ *
+ * <h3>定位（审计项 D-01 配套）</h3>
+ * 双能源机器的崩坏能一律从无线网络直扣、没有输入仓，因此需要一台把
+ * 液态崩坏能 / 崩坏能结晶 / EU 变成网络余额的机器。三条路线用编程电路区分：
+ * <ol>
+ *   <li>meta=1：液态崩坏能 → 网络（1 mB = 1 崩坏能）</li>
+ *   <li>meta=2：崩坏能结晶 → 网络（1 结晶 = 100 崩坏能，便捷高价路线）</li>
+ *   <li>meta=3：纯 EU → 网络（1000 EU = 1 崩坏能，与全模组换算比一致）</li>
+ * </ol>
+ * 大型崩坏能反应堆 / 崩坏能-EU 转换器仍可作为 EU 侧的替代来源。
+ *
+ * <h3>实现方式</h3>
+ * 走标准 GT 配方（JEI 可见、仓室/超频/研究门控全兼容），产出"崩坏能"不是物品而是
+ * 网络余额：配方无物品产出，完成时 {@link #afterWorking()} 按 {@link #YIELDS}
+ * 登记的产额注入绑定玩家的 {@link HonkaiWirelessNetwork}。
+ * 无线池使用 BigInteger 无限容量，完成产额可直接全量写入，不再需要剩余容量预检。
+ *
+ */
 public class Hk3HonkaiNetworkInjectorMachine extends com.sirin.hk3gtl.common.machine.research.Hk3LiquidProcessMachine {
 
     private static final Logger LOGGER = LogUtils.getLogger();

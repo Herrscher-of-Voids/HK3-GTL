@@ -8,7 +8,6 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
 import java.util.*;
-
 public final class Hk3EggDispenser {
     private static final ThreadLocal<ArrayDeque<BlockSource>> ACTIVE=ThreadLocal.withInitial(ArrayDeque::new);
     private Hk3EggDispenser(){}

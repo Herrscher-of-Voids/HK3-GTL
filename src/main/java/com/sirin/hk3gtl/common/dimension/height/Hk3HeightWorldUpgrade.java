@@ -13,13 +13,9 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.UUID;
 
-
-
-
-
-
-
-
+/**
+ * 旧档按文件夹精确选择；创建Level前先校验元数据备份，不修改区块或原始存档。
+ */
 public final class Hk3HeightWorldUpgrade {
     private Hk3HeightWorldUpgrade() {}
 

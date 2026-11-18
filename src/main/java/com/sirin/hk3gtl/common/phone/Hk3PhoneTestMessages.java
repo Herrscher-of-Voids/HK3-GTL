@@ -1,11 +1,6 @@
 package com.sirin.hk3gtl.common.phone;
 import java.util.ArrayList;
 import java.util.List;
-
-
-
-
-
 public final class Hk3PhoneTestMessages {
     private Hk3PhoneTestMessages(){}
     public record Message(String id,String title,String body,String kind){}

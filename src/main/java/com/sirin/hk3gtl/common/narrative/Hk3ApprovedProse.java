@@ -5,12 +5,9 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-
-
-
-
-
-
+/**
+ * 已审核正文的公共目录；客户端与服务端从同一资源建立对白，不读取审核说明。
+ */
 public final class Hk3ApprovedProse {
     public record Choice(String text, String target) {}
     public record Entry(String id, String system, String title, String speaker, String source,

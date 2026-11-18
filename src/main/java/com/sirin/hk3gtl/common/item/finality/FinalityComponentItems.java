@@ -21,20 +21,6 @@ import net.minecraftforge.registries.RegistryObject;
  * @see ImaginaryComponentItems 虚数八大件（结构相同）
  * @see QuantumComponentItems 量子八大件（结构相同）
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class FinalityComponentItems {
 
     // ── 终焉 I（电机/活塞/泵/传送带/机械臂/场发生器/发射器/传感器）──

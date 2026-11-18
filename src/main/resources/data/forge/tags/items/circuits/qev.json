@@ -1,1 +1,9 @@
-{"replace":false,"values":["hk3gtl:quantum_bridge_processor_mainframe","hk3gtl:qev_computer","hk3gtl:quantum_interference_assembly","hk3gtl:entanglement_anchor_processor"]}
+{
+  "replace": false,
+  "values": [
+    "hk3gtl:quantum_bridge_processor_mainframe",
+    "hk3gtl:qev_computer",
+    "hk3gtl:quantum_interference_assembly",
+    "hk3gtl:entanglement_anchor_processor"
+  ]
+}

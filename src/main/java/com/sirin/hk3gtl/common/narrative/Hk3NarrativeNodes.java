@@ -33,15 +33,7 @@ import java.util.stream.Collectors;
  *   <li>eventId 映射变化 → 同步检查 Hk3EventManagerImpl，确认该 eventId 仍在被触发</li>
  * </ul>
  *
- * <h3>变更记录（2026-05-19）</h3>
- * <ul>
- *   <li>删除：彩蛋叙事仅覆盖 E-EG-001~030 的上限</li>
- *   <li>新增：E-EG-001~100 全量叙事节点注册，并为彩蛋节点挂 conditionKey</li>
- *   <li>修改：regEvent 支持自动派生 hk3gtl.event.egxxx.condition</li>
- *   <li>用途：让文明档案卷轴可完整展示 100 彩蛋条目与触发条件</li>
- * </ul>
  */
-
 public final class Hk3NarrativeNodes {
 
     /** 节点顺序表；LinkedHashMap 保证 GUI 显示顺序稳定 */

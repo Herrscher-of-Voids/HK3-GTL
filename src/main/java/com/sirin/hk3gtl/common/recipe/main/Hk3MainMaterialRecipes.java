@@ -16,14 +16,9 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.function.Consumer;
 
-
-
-
-
-
-
-
-
+/**
+ * 统一注册十六阶主材料实物工序、专属成板和有损回收，不新增机器或方块。
+ */
 public final class Hk3MainMaterialRecipes {
     private Hk3MainMaterialRecipes() {}
 

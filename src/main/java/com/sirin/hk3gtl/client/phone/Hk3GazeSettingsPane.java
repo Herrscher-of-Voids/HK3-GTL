@@ -5,10 +5,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.network.chat.Component;
-
-
-
-
 final class Hk3GazeSettingsPane {
     private int x,y,w,h,sw,sh;private double ratio,grabX,grabY;private boolean dragging;
     void layout(int left,int top,int available){

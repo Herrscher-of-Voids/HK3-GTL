@@ -6,12 +6,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
 
-
-
-
-
-
-
 public final class Hk3PackedArchitectureReader {
     private static final int BITS = 21, MASK = (1 << BITS) - 1;
     private static final Gson GSON = new Gson();

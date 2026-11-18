@@ -3,23 +3,15 @@ package com.sirin.hk3gtl.common.research;
 
 
 
-
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责】将服务端实际提交的首次回信记入当前团队的交流来源。
+ * 不读背包或静态任务标记；已回复档案只投影交流前置，不代替HCCO实验和付款。
+ */
 public final class Hk3CommunicationResearchProof {
     private Hk3CommunicationResearchProof() {}
     /** 读取本存档真实回信账本；旧记录不补造原发生时间或原团队，记录此次核验时间。 */
@@ -46,5 +38,4 @@ public final class Hk3CommunicationResearchProof {
         receipt.put("Inputs",input);receipt.put("Outputs",output);return receipt;
     }
 }
-
 

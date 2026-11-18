@@ -7,7 +7,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
-
 @Mixin(SignBlockEntity.class)
 public abstract class Hk3EggSignMixin {
     @Unique private boolean hk3gtl$authorized;

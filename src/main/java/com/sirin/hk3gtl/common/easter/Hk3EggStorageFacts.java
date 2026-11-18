@@ -1,9 +1,5 @@
 package com.sirin.hk3gtl.common.easter;
 import java.util.*;
-
-
-
-
 public final class Hk3EggStorageFacts {
     public record Stack(String id,int count,int damage,boolean food,String name,String potion){
         public boolean empty(){return count<=0;}

@@ -15,20 +15,9 @@ import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 保存研究账本和付款玩家的事务后像，重放时固定写回相同文件，重复执行不再扣料或发奖。
+ */
 public final class Hk3ResearchPaymentJournal {
     private Hk3ResearchPaymentJournal() {}
     public static final String LEDGER = "hk3gtl_research_v5";

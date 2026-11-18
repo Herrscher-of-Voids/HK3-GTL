@@ -24,7 +24,7 @@ import java.util.HashSet;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.BiPredicate;
 
-/** 2026-11-11：真实放船、放冰及旗舰交互的只读旁注；查询仅限已加载邻近区块索引。 */
+/** 真实放船、放冰及旗舰交互的只读旁注；查询仅限已加载邻近区块索引。 */
 public final class Hk3EggNativeMachineScenes {
     private static final AtomicLong LAST_FAILURE = new AtomicLong();
 

@@ -6,11 +6,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
-
-
-
-
 public final class Hk3ApprovedText {
     private static final Map<String, String> TEXT = load();
     private Hk3ApprovedText() {}

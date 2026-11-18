@@ -6,7 +6,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import java.util.UUID;
 
-
 final class Hk3PhoneAppHintClient {
     private UUID token;
     private String hover="";

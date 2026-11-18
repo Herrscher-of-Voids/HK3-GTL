@@ -5,13 +5,9 @@ import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkEvent;
 import java.util.function.Supplier;
 
-
-
-
-
-
-
-
+/**
+ * 手机亮屏后台状态请求；无客户端电量、玩家身份或权限载荷。
+ */
 public record Hk3PhoneStatusRequestC2SPacket() {
     public static void encode(Hk3PhoneStatusRequestC2SPacket packet, FriendlyByteBuf buffer) {}
     public static Hk3PhoneStatusRequestC2SPacket decode(FriendlyByteBuf buffer) {

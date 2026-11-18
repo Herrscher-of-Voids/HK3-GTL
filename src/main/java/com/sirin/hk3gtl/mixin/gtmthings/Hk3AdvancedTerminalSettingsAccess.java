@@ -7,7 +7,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-
 @Mixin(value=AdvancedTerminalBehavior.class,remap=false)
 public interface Hk3AdvancedTerminalSettingsAccess {
     @Accessor("itemStack") void hk3gtl$setItemStack(ItemStack stack);

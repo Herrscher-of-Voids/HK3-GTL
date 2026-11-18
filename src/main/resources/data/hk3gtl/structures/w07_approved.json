@@ -1,0 +1,191 @@
+{
+  "id": "W07",
+  "version": "0005-W07-N2",
+  "controller": "hk3gtl:w07_matter_regeneration_ark",
+  "recorded_at": "2026-11-18T02:09:30+08:00",
+  "conversation": "0005",
+  "conversation_id": "01a1e02a-4d20-7d81-bdab-70404f66086d",
+  "appearance_approved": true,
+  "approval_quote": "可以，没问题，实装一下",
+  "approval_basis": "负责人批准N2无底座扩大方舟并要求实装。",
+  "external_approval_is_authoritative": true,
+  "source_approval_fields_preserved": true,
+  "blueprint": "hk3gtl:structures/w07_candidate.bin.gz",
+  "source": "deliveries/0005_W07_无底座扩大方舟_N2_20261118",
+  "source_manifest_sha256": "41692feb565e71868f762269f18acbf3417e92dc09a618243a02fdf394e823f9",
+  "source_geometry_sha256": "2cc1bd51b995390ab11bf54ff50e8c53e82937ba53a203008cdd8a792059566d",
+  "source_materials_sha256": "2dfc37744b8b13b000cb0eed65a3788fa9ad7e61c024b450acf32274792db4ef",
+  "source_npz_sha256": "cf49ff18722588a6d0cb4035dd26bc0f31249c36fe3b3cd5cebf8e776a486aca",
+  "source_nbt": {
+    "file": "W07-无底座扩大方舟-N2.nbt",
+    "bytes": 25029758,
+    "sha256": "6b9717ddd0eb49a9b0cdd62b53982b1a6acc8868a0e8ed82af49b158ca4c60cf"
+  },
+  "size_xyz": [
+    485,
+    330,
+    1279
+  ],
+  "size_wdh": [
+    485,
+    1279,
+    330
+  ],
+  "source_bounds": {
+    "min": [
+      -240,
+      43,
+      -613
+    ],
+    "max": [
+      244,
+      372,
+      665
+    ]
+  },
+  "source_origin_xyz": [
+    -240,
+    43,
+    -613
+  ],
+  "blueprint_to_export_offset_xyz": [
+    240,
+    -43,
+    613
+  ],
+  "controller_source_xyz": [
+    0,
+    260,
+    537
+  ],
+  "controller_xyz": [
+    240,
+    217,
+    1150
+  ],
+  "source_facing": "south",
+  "controller_location": "船首甲板中央踏面，源坐标(0,260,537)，朝船首+Z。",
+  "controller_previous_state": "minecraft:redstone_block",
+  "controller_state": "hk3gtl:w07_matter_regeneration_ark[facing=south]",
+  "controller_replacements": 1,
+  "controller_nbt_blockentity_id": "hk3gtl:w07_matter_regeneration_ark",
+  "controller_access": {
+    "below_controller": {
+      "source_xyz": [
+        0,
+        259,
+        537
+      ],
+      "state": "gtceu:light_gray_metal_sheet"
+    },
+    "front": {
+      "source_xyz": [
+        0,
+        260,
+        538
+      ],
+      "state": "minecraft:air"
+    },
+    "front_head": {
+      "source_xyz": [
+        0,
+        261,
+        538
+      ],
+      "state": "minecraft:air"
+    },
+    "front_floor": {
+      "source_xyz": [
+        0,
+        259,
+        538
+      ],
+      "state": "gtceu:light_gray_metal_sheet"
+    }
+  },
+  "block_count": 9910363,
+  "source_block_count": 9910363,
+  "component_count": 21,
+  "source_component_voxels": 10207698,
+  "overlap_extra_memberships": 297335,
+  "full_geometry": true,
+  "geometry_source": "N2完整整数格NPZ，按XYZ顺序重排并替换唯一主控标记。",
+  "merge_priority": "沿用N2完整NPZ已完成的去重结果，每个实体坐标输出一次。",
+  "external_base": false,
+  "fixed_interface_positions": [],
+  "interface_policy": "除主控外，全部实体格均可替换合法通用接口，朝向自选。",
+  "target_voltage": "CIV",
+  "research": "RN-MRA",
+  "product": "hk3gtl:matter_regeneration_matrix",
+  "palette": [
+    "gtceu:black_metal_sheet",
+    "gtceu:black_studs",
+    "gtceu:gray_metal_sheet",
+    "gtceu:light_gray_metal_sheet",
+    "gtceu:clean_machine_casing",
+    "gtceu:white_metal_sheet",
+    "gtceu:computer_heat_vent",
+    "gtceu:computer_casing",
+    "minecraft:glass",
+    "gtceu:white_lamp[bloom=true,inverted=true,lit=true,powered=false]",
+    "minecraft:oak_log[axis=y]",
+    "minecraft:oak_leaves[distance=1,persistent=true,waterlogged=false]",
+    "minecraft:moss_block",
+    "minecraft:dirt",
+    "minecraft:calcite",
+    "hk3gtl:voltage_machine_casing_civ",
+    "minecraft:redstone_block",
+    "hk3gtl:w07_matter_regeneration_ark[facing=south]"
+  ],
+  "palette_count": 18,
+  "used_palette_count": 17,
+  "unique_block_types": 17,
+  "material_counts": {
+    "gtceu:black_metal_sheet": 1023397,
+    "gtceu:black_studs": 1743674,
+    "gtceu:gray_metal_sheet": 1640538,
+    "gtceu:light_gray_metal_sheet": 990031,
+    "gtceu:clean_machine_casing": 1967728,
+    "gtceu:white_metal_sheet": 1420751,
+    "gtceu:computer_heat_vent": 141487,
+    "gtceu:computer_casing": 464117,
+    "minecraft:glass": 204564,
+    "gtceu:white_lamp[bloom=true,inverted=true,lit=true,powered=false]": 38021,
+    "minecraft:oak_log[axis=y]": 1184,
+    "minecraft:oak_leaves[distance=1,persistent=true,waterlogged=false]": 3840,
+    "minecraft:moss_block": 12595,
+    "minecraft:dirt": 14720,
+    "minecraft:calcite": 225,
+    "hk3gtl:voltage_machine_casing_civ": 243490,
+    "minecraft:redstone_block": 0,
+    "hk3gtl:w07_matter_regeneration_ark[facing=south]": 1
+  },
+  "material_count_exception": {
+    "approved": true,
+    "scope": "仅W07 N2",
+    "unique_block_types": 17,
+    "required_unique_block_types": 58,
+    "approval_quote": "按 N2 原样实装，允许 W07 专项例外（推荐）",
+    "basis": "负责人明确批准N2原样实装，保留完整尺寸、配色与现有17种方块。"
+  },
+  "runtime_format": "HK3P/2；XYZ全局升序、Z连续游程；唯一主控附原生方块实体NBT。",
+  "blueprint_linear_index": "(x*sizeY+y)*sizeZ+z",
+  "rle_record_count": 651351,
+  "blueprint_sha256": "64b64ae5d3dae1a0c724b09bc658db28af8521ae59150cf5bba20b32020b3b43",
+  "blueprint_bytes": 2504752,
+  "entity_count": 0,
+  "minimum_dimension_height": 330,
+  "controller_relative_y_range": [
+    -217,
+    112
+  ],
+  "overworld_vertical_span": 384,
+  "overworld_height_compatible": true,
+  "scope": "无底座黑白双舷方舟N2完整模型，船体固定；黑侧分解、白侧创生。",
+  "animation_state": "黑色体素碎屑向中轴汇入，白金体素向白侧扩散，设备灯光脉动。",
+  "game_verified": false,
+  "jar_built": false,
+  "installed": false,
+  "game_started": false,
+  "material_exception_recorded_at": "2026-11-18T02:13:07+08:00"
+}

@@ -18,19 +18,9 @@ import net.minecraft.world.item.ItemStack;
 import java.util.Locale;
 import java.util.function.Consumer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 提供16种建筑机壳装配配方；颜色不代表电压处理能力。
+ */
 public final class Hk3VoltageCasingRecipes {
     private Hk3VoltageCasingRecipes() {}
     public static void register(Consumer<FinishedRecipe> provider) {
@@ -60,5 +50,4 @@ public final class Hk3VoltageCasingRecipes {
         }
     }
 }
-
 

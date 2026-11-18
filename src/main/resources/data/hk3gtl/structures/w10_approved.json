@@ -1,0 +1,197 @@
+{
+  "id": "W10",
+  "version": "0005-W10-A3",
+  "controller": "hk3gtl:w10_gravitational_singularity_forge",
+  "blueprint": "hk3gtl:structures/w10_candidate.bin.gz",
+  "conversation": "0005",
+  "conversation_id": "01a1e02a-4d20-7d81-bdab-70404f66086d",
+  "appearance_approved": true,
+  "approval_basis": "负责人批准W10 A3并要求游戏接入。",
+  "source": "deliveries/0005_W10_引力奇点刑架_净空修订_A3_20261116",
+  "source_geometry_sha256": "2f90bac7055552a1be711d2a7fd94c3bc7cec6ec2d07fdea8d0f5ac4a02ae381",
+  "source_npz_sha256": "313523730790d09e9a6286b81438fc80f8b17b3182aecb735a4ca4b8e327a06e",
+  "source_preview_payload_sha256": "c6defaad4b5c6ad46c2a01b64cb3cb973b112e4d77263a6237c8c23eb7ccb69b",
+  "source_clearance_sha256": "fc4cad9439de32d7de579aab1443a271d504e0a870194e64ef7a89045e35298f",
+  "source_approval_fields_preserved": true,
+  "external_approval_is_authoritative": true,
+  "size_xyz": [
+    949,
+    468,
+    949
+  ],
+  "size_wdh": [
+    949,
+    949,
+    468
+  ],
+  "source_bounds": {
+    "min": [
+      -474,
+      -14,
+      -474
+    ],
+    "max": [
+      474,
+      453,
+      474
+    ]
+  },
+  "source_origin_xyz": [
+    -474,
+    -14,
+    -474
+  ],
+  "blueprint_to_export_offset_xyz": [
+    474,
+    14,
+    474
+  ],
+  "controller_source_xyz": [
+    0,
+    64,
+    -462
+  ],
+  "controller_xyz": [
+    474,
+    78,
+    12
+  ],
+  "source_facing": "north",
+  "controller_location": "北侧中央防爆堤坝最高层，替换现有镀金黑石；上邻空气、下邻镀金黑石、北面外露。",
+  "block_count": 20110451,
+  "component_count": 62,
+  "source_component_voxels": 20737837,
+  "overlap_extra_memberships": 627386,
+  "full_geometry": true,
+  "merge_priority": "按A3构件顺序后写优先，全局去重后导出，每个实体坐标只出现一次。",
+  "controller_previous_state": "minecraft:gilded_blackstone",
+  "controller_state": "hk3gtl:w10_gravitational_singularity_forge[facing=north]",
+  "controller_nbt_blockentity_id": "hk3gtl:w10_gravitational_singularity_forge",
+  "controller_replacements": 1,
+  "fixed_interface_positions": [],
+  "interface_policy": "除主控外，全部实体格均可替换合法通用接口，朝向自选。",
+  "production_recipe": "hk3gtl:wonder_gravitational_singularity_matrix",
+  "target_voltage": "CIV",
+  "research": "RN-GSF",
+  "material_counts": {
+    "minecraft:black_concrete": 64698,
+    "gtceu:black_studs": 3763182,
+    "minecraft:gold_block": 1045430,
+    "gtceu:clean_machine_casing": 1616259,
+    "minecraft:yellow_concrete": 159608,
+    "gtceu:yellow_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 91951,
+    "minecraft:purple_stained_glass": 51848,
+    "minecraft:yellow_stained_glass": 628973,
+    "minecraft:deepslate_tiles": 5990733,
+    "minecraft:gilded_blackstone": 903337,
+    "minecraft:red_stained_glass": 8372,
+    "gtceu:white_lamp[bloom=true,inverted=true,lit=true,powered=false]": 19416,
+    "hk3gtl:casing_colored_black": 5766643,
+    "hk3gtl:w10_gravitational_singularity_forge[facing=north]": 1
+  },
+  "runtime_format": "HK3P/2；Z最快线性坐标全局升序等差游程；主控原生方块实体NBT。",
+  "blueprint_linear_index": "(x*sizeY+y)*sizeZ+z",
+  "rle_record_count": 2220729,
+  "blueprint_sha256": "9dfafdbf923078170e4cc9e5a20cd6737b6141801b3f9f563a9fec4d857ec208",
+  "animation_scene": "hk3gtl:models/scene/w10_a3.json.gz",
+  "animation_scene_sha256": "fc8920da07738ea2711793c20d9979338ecd51d8db46c0a33a35c846d418e288",
+  "animation_scene_origins": "原蓝图坐标，保持A3完整构件与运动pivot。",
+  "animation_atlas": "hk3gtl:textures/effect/w10_a3_atlas.png",
+  "animation_atlas_sha256": "9bc4cc31faaf419d81c061921989fdc22ea40094055f2bf3bcfabfd33d5b32d0",
+  "animation_mesh_quads": 1391106,
+  "animation_mesh_controller_hole": true,
+  "controller_hole_components": [
+    "base_blast_dike"
+  ],
+  "animation_mask": "hk3gtl:structures/w10_a3_mask.bin.gz",
+  "animation_mask_sha256": "6db97990c5c886e5d6a72b08e965a8fce5a8d0342c45076958b6de8b9ee11618",
+  "animation_mask_magic": "0x5731304d",
+  "animation_mask_sections": 19684,
+  "animation_mask_blocks": 20110450,
+  "animation_mask_scope": "全部62构件参考姿态，排除主控；合法接口由客户端保留原生绘制。",
+  "animation_mask_section_index": "BlockPos.asLong(sectionX,sectionY,sectionZ)",
+  "interface_linear_index": "(y*sizeZ+z)*sizeX+x",
+  "atlas_size_pixels": [
+    1024,
+    512
+  ],
+  "atlas_tile_pixels": 64,
+  "atlas_grid": [
+    16,
+    8
+  ],
+  "atlas_face_order": [
+    "east",
+    "west",
+    "south",
+    "north",
+    "down",
+    "up"
+  ],
+  "motion_parameters": {
+    "asteroid_belt_01": {
+      "section": "core",
+      "pivot": [
+        0,
+        230,
+        0
+      ],
+      "motion_axis": [
+        0.0,
+        0.9063077870366499,
+        0.42261826174069944
+      ],
+      "motion_speed": 0.025,
+      "radius": 220,
+      "tilt_degrees": 25,
+      "rock_count": 28,
+      "source": "双层半径220/310、倾角25度陨石环",
+      "translation_from_a2": [
+        0,
+        40,
+        0
+      ]
+    },
+    "asteroid_belt_02": {
+      "section": "core",
+      "pivot": [
+        0,
+        230,
+        0
+      ],
+      "motion_axis": [
+        0.0,
+        0.9063077870366499,
+        -0.42261826174069944
+      ],
+      "motion_speed": -0.02,
+      "radius": 310,
+      "tilt_degrees": 25,
+      "rock_count": 36,
+      "source": "双层半径220/310、倾角25度陨石环",
+      "translation_from_a2": [
+        0,
+        40,
+        0
+      ]
+    },
+    "core_accretion_disk": {
+      "section": "core",
+      "pivot": [
+        0.0,
+        222.0,
+        0.0
+      ],
+      "motion_axis": [
+        0,
+        1,
+        0
+      ],
+      "motion_speed": 0.015,
+      "source": "Y222、直径130、外暗红至内纯白"
+    }
+  },
+  "overworld_vertical_span": 384,
+  "overworld_height_compatible": false,
+  "game_verified": false
+}

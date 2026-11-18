@@ -18,13 +18,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID)
-
-
-
-
-
-
-
 public class ImaginaryDimensionHandler {
 
     private static final String DIALOGUE_DONE_TAG = "hk3gtl_dialogue_done";
@@ -62,7 +55,6 @@ public class ImaginaryDimensionHandler {
         ResearchStateSyncRequestC2SPacket.clearRateLimit(player.getUUID());
     }
 
-    /** 修订198：成功入场才保存个人模式；未毕业离开恢复原模式，毕业仍创造。 */
     @SubscribeEvent
     public static void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;

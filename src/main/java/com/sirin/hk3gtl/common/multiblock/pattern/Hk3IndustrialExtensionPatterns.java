@@ -14,15 +14,9 @@ import java.util.Map;
 import java.util.Set;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
-
-
-
-
-
-
-
-
-
+/**
+ * 读取I14–I18批准逐格资源，生成严格空气、状态与真实仓能力的成型判定。
+ */
 public final class Hk3IndustrialExtensionPatterns {
     public static final Set<String> IDS = Set.of("i14", "i15", "i16", "i17", "i18");
     private Hk3IndustrialExtensionPatterns() {}

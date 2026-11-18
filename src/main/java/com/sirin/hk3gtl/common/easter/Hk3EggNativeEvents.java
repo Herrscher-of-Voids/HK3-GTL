@@ -10,15 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.time.*;
 import java.util.*;
 
-
 @Mod.EventBusSubscriber(modid="hk3gtl")
-
-
-
-
-
-
-
 public final class Hk3EggNativeEvents {
     private Hk3EggNativeEvents(){}
     @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent e){
@@ -71,5 +63,4 @@ public final class Hk3EggNativeEvents {
                 "session_ticks",Long.toString(session),"online_ticks",Long.toString(total));
     }
 }
-
 

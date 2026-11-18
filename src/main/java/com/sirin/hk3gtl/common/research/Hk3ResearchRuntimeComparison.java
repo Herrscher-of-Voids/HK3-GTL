@@ -4,12 +4,9 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-
+/**
+ * 比较已批准配方与整包加载后快照；只返回差异，不修补或解锁游戏状态。
+ */
 public final class Hk3ResearchRuntimeComparison {
     private Hk3ResearchRuntimeComparison() {}
 

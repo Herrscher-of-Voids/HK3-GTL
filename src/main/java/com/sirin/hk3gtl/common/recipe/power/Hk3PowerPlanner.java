@@ -1,12 +1,8 @@
 package com.sirin.hk3gtl.common.recipe.power;
 
-
-
-
-
-
-
-
+/**
+ * 只读核验规划入口的继承身份，防止未知批次规划器绕过固定工况分流。
+ */
 public final class Hk3PowerPlanner {
     private Hk3PowerPlanner() {}
 

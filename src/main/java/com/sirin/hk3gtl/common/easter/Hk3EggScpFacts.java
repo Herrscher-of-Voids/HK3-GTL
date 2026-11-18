@@ -8,11 +8,9 @@ import java.text.Normalizer;
 import java.util.List;
 import java.util.UUID;
 
-
-
-
-
-
+/**
+ * 三条SCP场景的可测试边界；只判断服务端已经获得的事实。
+ */
 public final class Hk3EggScpFacts {
     public static final List<String> ARMOR_SLOTS = List.of("head", "chest", "legs", "feet");
     private Hk3EggScpFacts() {}

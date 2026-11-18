@@ -8,8 +8,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(RandomizableContainerBlockEntity.class)
-
-
 public abstract class Hk3EggNaturalChestMixin {
     @Shadow protected ResourceLocation lootTable;
     @Inject(method="unpackLootTable",at=@At("HEAD"))private void hk3gtl$loot(Player player,CallbackInfo ci){

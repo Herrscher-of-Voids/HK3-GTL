@@ -1,17 +1,5 @@
 package com.sirin.hk3gtl.common.block.energy;
 
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * 崩坏能仓的定义枚举 —— 把"是输入/输出/无线/创造"这种特征集中在一个值里，
  * 避免一份代码写 5 遍 Block + 5 遍 BlockEntity。

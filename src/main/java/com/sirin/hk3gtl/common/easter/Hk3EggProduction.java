@@ -9,29 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import java.util.*;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class Hk3EggProduction {
     public static final String OWNER="hk3gtl_egg_machine_owner";
     public static final String REACTOR_FUEL_SETTLED="hk3gtlEggReactorFuelSettled";

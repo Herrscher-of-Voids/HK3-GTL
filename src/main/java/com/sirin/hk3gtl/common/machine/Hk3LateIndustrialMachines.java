@@ -1,7 +1,5 @@
 package com.sirin.hk3gtl.common.machine;
 
-/** 2026-10-30（修订182）：接入I40–I45六台批准控制器、各自额定电压与独立三态面板；完整预览和工艺守卫沿用既有架构，不开放生存获取。 */
-
 
 
 import com.gregtechceu.gtceu.api.data.RotationState;
@@ -23,30 +21,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 正式注册I19至I33批准建筑的控制器及独立工艺类型。
+ */
 public final class Hk3LateIndustrialMachines {
     private static final ResourceLocation SHELL = new ResourceLocation("hk3gtl", "block/casings/industrial_controller_shell");
     private static final Map<String, MultiblockMachineDefinition> MACHINES = new ConcurrentHashMap<>();
@@ -102,7 +79,7 @@ public final class Hk3LateIndustrialMachines {
                 .tier(tier).rotationState(RotationState.NON_Y_AXIS)
                 .generator(Hk3ResearchProcessEnergy.isGenerator(role))
                 .allowFlip(false).allowExtendedFacing(false)
-                .recipeType(Hk3ResearchProcessTypes.get(role)).noRecipeModifier()
+                .recipeTypes(Hk3ResearchProcessTypes.machineTypes(role)).noRecipeModifier()
                 .appearanceBlock(() -> Hk3StructureBlocks.require("hk3gtl:industrial_port_casing"))
                 .pattern(def -> Hk3LateIndustrialPatterns.create(def, key))
                 .multiblockPreviewRenderer(true, true)

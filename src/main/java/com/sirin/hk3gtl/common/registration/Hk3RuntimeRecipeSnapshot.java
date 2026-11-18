@@ -11,12 +11,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import java.util.*;
 
-
-
-
-
-
-
+/**
+ * 把最终运行时配方和已解析标签候选导出成只读JSON，保留GT条件和非消耗模板。
+ */
 public final class Hk3RuntimeRecipeSnapshot {
     private Hk3RuntimeRecipeSnapshot() {}
 

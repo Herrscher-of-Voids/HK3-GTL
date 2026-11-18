@@ -1,15 +1,8 @@
 package com.sirin.hk3gtl.common.machine.research;
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 【文件职责／本轮边界】有电且区块加载时向绑定人的个人账户产点，不再要求本人在线。
+ */
 
 
 import com.gregtechceu.gtceu.api.GTValues;
@@ -44,13 +37,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.UUID;
-
-
-
-
-
-
-
 
 public final class Hk3ResearchComputerMachine extends TieredEnergyMachine implements IFancyUIMachine, IMachineLife {
     private static final ManagedFieldHolder FIELDS = new ManagedFieldHolder(Hk3ResearchComputerMachine.class,
@@ -148,5 +134,4 @@ public final class Hk3ResearchComputerMachine extends TieredEnergyMachine implem
         return stack.is(MAX_CIRCUIT) || stack.is(FORGE_MAX) ? 0 : -1;
     }
 }
-
 

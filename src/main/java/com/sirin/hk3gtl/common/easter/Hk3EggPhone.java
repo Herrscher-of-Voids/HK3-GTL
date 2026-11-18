@@ -4,16 +4,7 @@ import com.sirin.hk3gtl.common.item.Hk3PhoneItem;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.nbt.CompoundTag;
 import java.util.*;
-
-
-
-
-
-
-
-
 public final class Hk3EggPhone {
-
     private static final Set<String> LOCAL=Set.of("home","settings","notification_settings","gaze_settings","about","trade","tiles2048","snake","note","draft_exit","social_ai");
     private Hk3EggPhone(){}
     public static void finaleInspection(ServerPlayer p){

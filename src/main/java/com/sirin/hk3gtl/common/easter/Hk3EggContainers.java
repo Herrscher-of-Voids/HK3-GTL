@@ -6,15 +6,6 @@ import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.Container;
 import java.util.*;
-
-
-
-
-
-
-
-
-
 public final class Hk3EggContainers {
     private Hk3EggContainers(){}
     public static List<Hk3EggStorageFacts.Stack> snapshot(AbstractContainerMenu menu,ServerPlayer p){

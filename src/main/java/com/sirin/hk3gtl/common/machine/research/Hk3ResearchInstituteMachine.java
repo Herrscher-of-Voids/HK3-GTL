@@ -1,16 +1,8 @@
 package com.sirin.hk3gtl.common.machine.research;
 
-
-
-
-
-
-
-
-
-
-
-/** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
+/**
+ * 【文件职责／本轮边界】团队共享任务、成员个人付款、全队离线暂停正式研究；实验固定速度续做，空闲不计算注视度。
+ */
 
 
 
@@ -44,44 +36,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import java.math.BigInteger;
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/** 2026-11-12：实体ERM逐课题付费；W13请求接双边授权服务，仅真实母机可供能。 */
-
+/** 实体ERM逐课题付费；W13请求接双边授权服务，仅真实母机可供能。 */
 public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMachine {
     private static final ManagedFieldHolder FIELDS = new ManagedFieldHolder(
             Hk3ResearchInstituteMachine.class, HK3_MANAGED_FIELD_HOLDER);
@@ -477,5 +432,4 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
         return Hk3ResearchStartService.materials(plan, lab, gaze, suppression());
     }
 }
-
 

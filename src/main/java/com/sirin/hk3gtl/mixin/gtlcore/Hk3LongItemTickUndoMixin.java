@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.List;
 
-/** 2026-11-06 · 修订212：在GTLCore合并长计数执行器后捕获逐槽改量，沿用原配方、模拟及特殊动作边界。 */
 @Mixin(value = NotifiableItemStackHandler.class, remap = false, priority = 1100)
 public abstract class Hk3LongItemTickUndoMixin {
     @Dynamic("GTLCore合并到目标类的长计数执行方法")

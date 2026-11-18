@@ -19,33 +19,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * 隔离GT生命周期旁路观察；只在真实服务端主线程向总览账本提交。
+ */
 @Mod.EventBusSubscriber(modid = "hk3gtl")
 public final class Hk3MachineOverviewHooks {
     private enum Action { PLACED, REMOVED, OWNED_LOAD }

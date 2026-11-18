@@ -1,17 +1,10 @@
 package com.sirin.hk3gtl.common.communication;
 
 
-
-
 import net.minecraft.nbt.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
-
-
-
-
-
 
 public final class Hk3DiplomacyData extends SavedData {
     public record Topic(String id,String name,String first,String yes,String no,String agreed,String refused,String submit,String feedback,String retry,String resumed){}

@@ -12,19 +12,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Iterator;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * GTL多配方规划器在吃输入前，将显式HK工况转为保留data和long原价的独立单批。
+ */
 @Mixin(value = MultipleRecipesLogic.class, remap = false)
 public abstract class Hk3PowerBatchMixin {
     @Unique private boolean hk3gtl$selectingFixed;

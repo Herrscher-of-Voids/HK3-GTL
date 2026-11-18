@@ -7,12 +7,9 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-
-
-
-
-
-
+/**
+ * 仅客户端登记Forge模组配置按钮，专服不解析界面类。
+ */
 @Mod.EventBusSubscriber(modid="hk3gtl", bus=Mod.EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
 public final class Hk3HeightConfigSetup {
     private Hk3HeightConfigSetup() {}

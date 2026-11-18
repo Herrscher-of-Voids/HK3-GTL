@@ -12,14 +12,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.Flow;
 
-
-
-
-
-
-
-
-
 public final class Hk3SocialAiClient {
     public record Message(String role,String text){}
     public record Result(String text,String error){public boolean ok(){return error.isEmpty();}}
