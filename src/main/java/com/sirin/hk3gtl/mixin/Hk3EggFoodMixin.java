@@ -5,7 +5,7 @@ import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-/** 【变更记录 #1】2026-10-01 04:53:17（修订128）：删除无；新增原版饥饿系统tick前后恢复确认；用途：排除治疗药水等外部回血，吃过食物且自然回复到满血才记。 */
+ 
 @Mixin(FoodData.class)
 public abstract class Hk3EggFoodMixin {
     @Unique private float hk3gtl$health;

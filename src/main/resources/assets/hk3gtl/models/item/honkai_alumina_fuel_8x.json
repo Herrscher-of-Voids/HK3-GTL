@@ -1,0 +1,6 @@
+{
+  "parent": "hk3gtl:item/honkai_alumina_fuel",
+  "textures": {
+    "layer0": "hk3gtl:item/fuel_bundles/honkai_alumina_fuel_8x"
+  }
+}

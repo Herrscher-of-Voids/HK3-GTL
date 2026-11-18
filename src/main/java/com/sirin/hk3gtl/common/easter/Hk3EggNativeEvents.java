@@ -10,20 +10,23 @@ import net.minecraftforge.fml.common.Mod;
 import java.time.*;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 04:08:14（修订128）：删除无；新增服务器每秒时间/真实课题/注视事实；用途：不依赖客户端报完成，不强制加载区块，连续在线与累计在线分开保存。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 04:09:54（修订128）：删除：旧固定上限或被替代的分支；新增/修改：移除轮询注视授予，服务器日历改为明确配置时区；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 04:24:23（修订128）：删除：旧固定上限或被替代的分支；新增/修改：定期投递本人真实生产账本，包括本人离线时完成的已归属输出；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #4】2026-10-01 04:25:20（修订128）：删除：旧固定上限或被替代的分支；新增/修改：世界第0天彩蛋只检查首次加入，不允许以后改dayTime补触发；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #5】2026-10-01 04:27:55（修订128）：删除：旧固定上限或被替代的分支；新增/修改：跟踪同一实体手机电量，不用不同手机替换来伪装充电；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #6】2026-10-01 04:43:52（修订128）：删除：旧固定上限或被替代的分支；新增/修改：真实登出时间戳用于7日回归及3日离线阅读；缺历史数据不猜测；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #7】2026-10-01 05:11:58（修订128）：删除：旧固定上限或被替代的分支；新增/修改：AE与机器访问的三步顺序每次登录重置，不能跨连接拼接；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #8】2026-11-05 19:08:32（修订210）：删除无；新增登录时只读世界创建记录并接通380；修改无旧触发；用途：只有满公历一年后本人首次成功投递，不猜旧档生日。 */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 public final class Hk3EggNativeEvents {
     private Hk3EggNativeEvents(){}
     @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent e){
         if(e.getEntity() instanceof ServerPlayer p){
             var state=Hk3EggRuntime.state(p);state.putLong("sessionTicks",0);state.remove("aeMachineSequence");
+            Hk3EggResearchScenes.login(p);
+            if(com.sirin.hk3gtl.common.dimension.Hk3GraduationData.get(p.serverLevel()).isGraduated(p.getUUID()))
+                state.putBoolean("graduatedReturnLogin",true);
             if(!state.getBoolean("loggedBefore")&&p.getStats().getValue(net.minecraft.stats.Stats.CUSTOM.get(net.minecraft.stats.Stats.LEAVE_GAME))==0)clock(p,"first_login");
             long now=System.currentTimeMillis();
             long away=state.contains("lastLogoutMillis")?now-state.getLong("lastLogoutMillis"):0;
@@ -69,4 +72,4 @@ public final class Hk3EggNativeEvents {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

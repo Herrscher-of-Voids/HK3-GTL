@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "hk3gtl:block/research_computer_r12/side",
+    "north": "hk3gtl:block/research_computer_r12/front",
+    "south": "hk3gtl:block/research_computer_r12/back",
+    "east": "hk3gtl:block/research_computer_r12/side",
+    "west": "hk3gtl:block/research_computer_r12/side",
+    "up": "hk3gtl:block/research_computer_r12/top",
+    "down": "hk3gtl:block/research_computer_r12/side"
+  }
+}

@@ -2,9 +2,8 @@ package com.sirin.hk3gtl.common.multiblock.pattern;
 
 import java.io.*;
 import java.util.*;
-import java.util.zip.GZIPInputStream;
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 
-/** HK3P v1/v2: bounded streaming decoder shared by construction, layouts and previews. */
 public final class Hk3StructureStream implements AutoCloseable {
     public record Header(int width,int height,int depth,int cx,int cy,int cz,int count,List<String> palette) {
         public int volume() {return Math.multiplyExact(Math.multiplyExact(width,height),depth);}
@@ -16,7 +15,7 @@ public final class Hk3StructureStream implements AutoCloseable {
     private int remaining,runRemaining,runPosition,runStep,runState;
 
     public Hk3StructureStream(InputStream compressed) throws IOException {
-        input=new DataInputStream(new BufferedInputStream(new GZIPInputStream(compressed),65536));
+        input=new DataInputStream(new BufferedInputStream(Hk3PackedResources.open(compressed),65536));
         try {
             if(input.readInt()!=0x484b3350)throw new IOException("结构流格式错误");
             version=input.readInt();if(version!=1&&version!=2)throw new IOException("结构流版本错误");

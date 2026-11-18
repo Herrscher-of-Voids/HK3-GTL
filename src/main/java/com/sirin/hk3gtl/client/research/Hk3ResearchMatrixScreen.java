@@ -1,28 +1,6 @@
 package com.sirin.hk3gtl.client.research;
 
-
-/**
- * 【文件职责】
- * - 维护 Hk3ResearchMatrixScreen 研究流程与状态。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
-import com.sirin.hk3gtl.common.network.Hk3Network;
-import com.sirin.hk3gtl.common.network.ResearchSubmitPacket;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
-import com.sirin.hk3gtl.common.machine.research.ResearchDifficulty;
 import com.sirin.hk3gtl.common.research.Hk3ResearchManager;
 import com.sirin.hk3gtl.common.research.Hk3ResearchNode;
 import com.sirin.hk3gtl.common.research.Hk3ResearchNodes;
@@ -30,7 +8,6 @@ import com.sirin.hk3gtl.common.research.Hk3ResearchRequirement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -40,14 +17,12 @@ import net.minecraft.world.item.Items;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #1】2026-09-30 03:24:34（内测5修订108）
- * 删除：无。新增：批准色卡接线及版本追溯。
- * 修改：研究矩阵电压标签保留Component样式，截取首行不丢失RGB。
- * 用途：正确显示与核验，不修改研究逻辑。
- */
+ 
+
+
+
+
+
 public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int ROOT_BG = 0xE0101016;
@@ -88,7 +63,7 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
     private int footerButtonWidth;
 
     public Hk3ResearchMatrixScreen() {
-        super(Component.translatable("hk3gtl.gui.research_matrix.title"), 620, 360);
+        super(Component.literal("旧版研究档案"), 620, 360);
         this.allNodes = Hk3ResearchNodes.allNodes();
         this.selectedNode = this.allNodes.isEmpty() ? null : this.allNodes.get(0);
     }
@@ -114,8 +89,7 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
         int submitY = guiTop + guiHeight - FOOTER_HEIGHT + 6;
         if (submitButton == null) {
             submitButton = this.addRenderableWidget(Button.builder(
-                            Component.translatable("hk3gtl.gui.research_matrix.submit"),
-                            button -> submitSelectedResearch())
+                            Component.literal("只读档案"), button -> {})
                     .bounds(submitX, submitY, submitWidth, 20)
                     .build());
         } else {
@@ -131,9 +105,6 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
 
     @Override
     public void renderFitted(GuiGraphics gfx, int mouseX, int mouseY, float partialTick) {
-        // 每帧重新计算按钮可用状态，防止选中后偶发失活。
-        refreshSubmitButton();
-
         renderBackground(gfx);
         gfx.fill(0, 0, width, height, ROOT_BG);
 
@@ -149,7 +120,7 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
     private void renderHeader(GuiGraphics gfx) {
         gfx.fill(guiLeft + 1, guiTop + 1, guiLeft + guiWidth - 1, guiTop + HEADER_HEIGHT, 0xFF05080C);
         gfx.fill(guiLeft + 2, guiTop + HEADER_HEIGHT - 1, guiLeft + guiWidth - 2, guiTop + HEADER_HEIGHT, ACCENT_DIM);
-        gfx.drawString(font, Component.translatable("hk3gtl.gui.research_matrix.terminal_name"),
+        gfx.drawString(font, Component.literal("旧版77题 · 只读档案"),
                 guiLeft + 8, guiTop + 7, 0xFFFFFFFF, false);
 
         Player player = getLocalPlayer();
@@ -160,8 +131,7 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
             }
         }
         String stats = completed + "/" + allNodes.size();
-        String right = Component.translatable("hk3gtl.gui.research_matrix.progress", stats).getString()
-                + "  |  " + matrixHeaderText();
+        String right = "历史完成 " + stats + "  |  " + matrixHeaderText();
         gfx.drawString(font, trimToWidth(right, Math.max(80, guiWidth - 180)),
                 guiLeft + guiWidth - font.width(trimToWidth(right, Math.max(80, guiWidth - 180))) - 8,
                 guiTop + 7, TEXT_DIM, false);
@@ -241,11 +211,11 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
 
         String effect = Component.translatable(node.effectKey()).getString();
         cursorY = renderTextSection(gfx, x + 10, cursorY, detailWidth - 20,
-                Component.translatable("hk3gtl.gui.research_matrix.section.effect"), effect);
+                Component.literal("旧版效果（不授予现行权限）"), effect);
 
         String unlock = Component.translatable(node.unlockDescriptionKey()).getString();
         cursorY = renderTextSection(gfx, x + 10, cursorY + 4, detailWidth - 20,
-                Component.translatable("hk3gtl.gui.research_matrix.section.unlock"), unlock);
+                Component.literal("旧版解锁说明（仅供查阅）"), unlock);
 
         cursorY += 4;
         renderRequirements(gfx, x + 10, cursorY, detailWidth - 20, node);
@@ -259,25 +229,12 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
         gfx.drawString(font, Component.translatable("hk3gtl.gui.research_matrix.section.status"), x + 8, y + 8, TEXT_DIM, false);
         gfx.drawString(font, state.label, x + 8, y + 22, state.textColor, false);
         gfx.drawString(font, Component.translatable(node.typeDisplayKey()), x + 8, y + 38, TEXT, false);
-        // 第 4 行：有前置 → 显示前置研究名；没前置 → 回退为"海渊研究解析矩阵已激活"
-        Component requireLine;
-        int requireColor;
-        if (!node.prerequisites().isEmpty()) {
-            requireLine = Component.translatable("hk3gtl.gui.research_matrix.requires_prereq",
-                    formatPrerequisiteNames(node, left - 16));
-            requireColor = TEXT_WARN;
-        } else {
-            requireLine = Component.translatable("hk3gtl.gui.research_matrix.requires_matrix");
-            requireColor = node.requiresEvent() ? TEXT_WARN : TEXT_DIM;
-        }
-        gfx.drawString(font, requireLine, x + 8, y + 54, requireColor, false);
+        gfx.drawString(font, trimToWidth("旧成果不自动兑换新课题", left - 16), x + 8, y + 54, TEXT_WARN, false);
         int rx = x + left + 16;
-        gfx.drawString(font, Component.translatable("hk3gtl.gui.research_matrix.section.summary"), rx, y + 8, TEXT_DIM, false);
+        gfx.drawString(font, Component.literal("历史条目摘要"), rx, y + 8, TEXT_DIM, false);
         gfx.drawString(font, Component.translatable("hk3gtl.gui.research_matrix.summary.prereq", node.prerequisites().size()), rx, y + 22, TEXT, false);
         gfx.drawString(font, Component.translatable("hk3gtl.gui.research_matrix.summary.materials", node.requirements().size()), rx, y + 38, TEXT, false);
-        gfx.drawString(font, node.isAutoComplete()
-                ? Component.translatable("hk3gtl.gui.research_matrix.summary.auto")
-                : Component.translatable("hk3gtl.gui.research_matrix.summary.manual"), rx, y + 54, ACCENT, false);
+        gfx.drawString(font, trimToWidth("现行研究请使用研究所", w - left - 24), rx, y + 54, ACCENT, false);
     }
 
     private int renderTextSection(GuiGraphics gfx, int x, int y, int w, Component title, String body) {
@@ -291,7 +248,7 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
     }
 
     private void renderRequirements(GuiGraphics gfx, int x, int y, int w, Hk3ResearchNode node) {
-        gfx.drawString(font, Component.translatable("hk3gtl.gui.research_matrix.section.materials"), x, y, ACCENT, false);
+        gfx.drawString(font, Component.literal("旧版材料记录（不再收取）"), x, y, ACCENT, false);
         y += 12;
 
         if (node.requirements().isEmpty()) {
@@ -334,39 +291,9 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
         int w = detailWidth;
         drawPanel(gfx, x, y, w, FOOTER_HEIGHT - 4, PANEL_BG_ALT, BORDER);
 
-        NodeState state = selectedNode == null ? NodeState.LOCKED : getNodeState(selectedNode);
-        // 左半区：研究时间 / 剩余时间（实时倒计时）
-        Hk3ResearchNode node = getSelectedNode();
-        String timeTitle;
-        String timeValue;
-        int timeColor = TEXT;
-        if (node == null || node.isAutoComplete()) {
-            timeTitle = Component.translatable("hk3gtl.gui.research_matrix.research_time", "—").getString();
-            timeValue = state.label;
-            timeColor = state.textColor;
-        } else if (state == NodeState.COMPLETED) {
-            timeTitle = "";
-            timeValue = state.label;
-            timeColor = state.textColor;
-        } else if (isMatrixBusyForSelected()) {
-            int remaining = computeRemainingSeconds();
-            timeTitle = Component.translatable("hk3gtl.gui.research_matrix.research_remaining", remaining).getString();
-            timeValue = state.label;
-            timeColor = state.textColor;
-        } else if (isMatrixBusyForOtherSelected()) {
-            timeTitle = Component.translatable("hk3gtl.gui.research_matrix.busy_other").getString();
-            timeValue = state.label;
-            timeColor = state.textColor;
-        } else {
-            int seconds = Math.max(1, ResearchDifficulty.durationTicks(node) / 20);
-            timeTitle = Component.translatable("hk3gtl.gui.research_matrix.research_time", seconds).getString();
-            timeValue = state.label;
-            timeColor = state.textColor;
-        }
-        if (!timeTitle.isEmpty()) {
-            gfx.drawString(font, trimToWidth(timeTitle, footerLeftWidth - 12), x + 10, y + 6, ACCENT, false);
-        }
-        gfx.drawString(font, trimToWidth(timeValue, footerLeftWidth - 12), x + 10, y + 18, timeColor, false);
+        NodeState state = selectedNode == null ? NodeState.ARCHIVED : getNodeState(selectedNode);
+        gfx.drawString(font, trimToWidth("现行研究请使用研究所", footerLeftWidth - 12), x + 10, y + 6, ACCENT, false);
+        gfx.drawString(font, trimToWidth(state.label, footerLeftWidth - 12), x + 10, y + 18, state.textColor, false);
 
         int buttonArea = footerButtonWidth + 14;
         int progressX = x + footerLeftWidth + 8;
@@ -423,20 +350,8 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
         return false;
     }
 
-    private void submitSelectedResearch() {
-        Hk3ResearchNode node = getSelectedNode();
-        if (node != null) {
-            Hk3Network.CHANNEL.sendToServer(new ResearchSubmitPacket(node.id()));
-        }
-    }
-
     private void refreshSubmitButton() {
-        if (submitButton == null) return;
-        Hk3ResearchNode node = getSelectedNode();
-        NodeState state = node == null ? NodeState.LOCKED : getNodeState(node);
-        boolean canSubmit = node != null && node.isManualResearch() && state == NodeState.READY;
-        submitButton.visible = canSubmit;
-        submitButton.active = canSubmit;
+        submitButton.active = false;
     }
 
     private int getVisibleCount() {
@@ -477,15 +392,8 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
         return player.getPersistentData().getCompound("hk3gtl_research_matrix");
     }
 
-    private boolean matrixOnline() {
-        return matrixTag().getBoolean("present");
-    }
-
     private String matrixHeaderText() {
-        CompoundTag tag = matrixTag();
-        if (!tag.getBoolean("present")) return Component.translatable("hk3gtl.gui.research_matrix.matrix.offline").getString();
-        if (tag.getBoolean("busy")) return Component.translatable("hk3gtl.gui.research_matrix.matrix.busy").getString();
-        return Component.translatable("hk3gtl.gui.research_matrix.matrix.online").getString();
+        return matrixTag().getString("research").isEmpty() ? "旧版已退役" : "原在途任务已封存";
     }
 
     private static Component voltageLabel(Hk3ResearchNode node) {
@@ -500,89 +408,20 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
         return Hk3ResearchNodes.stripIdPrefix(Component.translatable(node.nameKey()).getString());
     }
 
-    /** 拼接前置研究的中文显示名，超长时截断为 "A, B…(+N)"。 */
-    private String formatPrerequisiteNames(Hk3ResearchNode node, int maxWidth) {
-        List<String> prereqIds = node.prerequisites();
-        if (prereqIds.isEmpty()) return "";
-        StringBuilder sb = new StringBuilder();
-        int shown = 0;
-        for (int i = 0; i < prereqIds.size(); i++) {
-            Hk3ResearchNode prereq = Hk3ResearchNodes.get(prereqIds.get(i));
-            String name = prereq != null ? displayName(prereq) : prereqIds.get(i);
-            String candidate = (sb.length() == 0 ? name : sb + ", " + name);
-            if (font.width(candidate) > maxWidth && shown > 0) {
-                int remaining = prereqIds.size() - i;
-                sb.append("…(+").append(remaining).append(")");
-                return sb.toString();
-            }
-            if (sb.length() > 0) sb.append(", ");
-            sb.append(name);
-            shown++;
-        }
-        return sb.toString();
-    }
-
-    /** 当前是否正在研究"选中节点"。仅当矩阵忙且 research id 一致时为 true。 */
-    private boolean isMatrixBusyForSelected() {
-        if (selectedNode == null) return false;
-        return isMatrixBusyForNode(selectedNode);
-    }
-
-    private boolean isMatrixBusyForOtherSelected() {
-        if (selectedNode == null) return false;
-        return isMatrixBusyForOtherNode(selectedNode);
-    }
-
-    private boolean isMatrixBusyForNode(Hk3ResearchNode node) {
-        if (node == null) return false;
-        CompoundTag tag = matrixTag();
-        if (!tag.getBoolean("busy")) return false;
-        return node.id().equals(tag.getString("research"));
-    }
-
-    private boolean isMatrixBusyForOtherNode(Hk3ResearchNode node) {
-        if (node == null) return false;
-        CompoundTag tag = matrixTag();
-        if (!tag.getBoolean("busy")) return false;
-        return !node.id().equals(tag.getString("research"));
-    }
-
-    private int computeRemainingSeconds() {
-        CompoundTag tag = matrixTag();
-        if (!tag.getBoolean("busy")) return 0;
-        int progress = tag.getInt("progress");
-        int total = Math.max(1, tag.getInt("total"));
-        int projected = projectedProgress(tag, progress, total);
-        return Math.max(0, (total - projected) / 20);
-    }
-
     private void renderMatrixProgress(GuiGraphics gfx, int x, int y, int w, int h) {
         CompoundTag tag = matrixTag();
         gfx.fill(x, y, x + w, y + h, 0xFF090D10);
         drawBorder(gfx, x, y, w, h, 0xFF1C6C7A);
-        if (!tag.getBoolean("busy")) {
-            gfx.drawString(font, matrixHeaderText(), x + 5, y + 4, matrixOnline() ? TEXT_OK : TEXT_BAD, false);
+        if (tag.getString("research").isEmpty()) {
+            gfx.drawString(font, trimToWidth(matrixHeaderText(), w - 10), x + 5, y + 4, TEXT_DIM, false);
             return;
         }
         int progress = tag.getInt("progress");
         int total = Math.max(1, tag.getInt("total"));
-        int projected = projectedProgress(tag, progress, total);
-        double speedFactor = Math.max(0.01D, tag.contains("speedFactor") ? tag.getDouble("speedFactor") : 1.0D);
-        int fill = Math.max(0, Math.min(w - 2, (int) ((w - 2) * (projected / (double) total))));
+        int fill = Math.max(0, Math.min(w - 2, (int) ((w - 2) * (progress / (double) total))));
         gfx.fill(x + 1, y + 1, x + 1 + fill, y + h - 1, 0xAA1FD8FF);
-        int remain = Math.max(0, (total - projected) / 20);
-        String label = Component.translatable("hk3gtl.gui.research_matrix.matrix.progress",
-                remain, total / 20).getString() + String.format("  x%.2f", speedFactor);
-        gfx.drawString(font, label, x + 5, y + 4, 0xFFFFFFFF, false);
-    }
-
-    private int projectedProgress(CompoundTag tag, int syncedProgress, int total) {
-        Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.level == null || !tag.contains("gameTime")) return syncedProgress;
-        long elapsedTicks = Math.max(0L, minecraft.level.getGameTime() - tag.getLong("gameTime"));
-        double speedFactor = Math.max(0.01D, tag.contains("speedFactor") ? tag.getDouble("speedFactor") : 1.0D);
-        int elapsed = (int) Math.min(Integer.MAX_VALUE, Math.floor(elapsedTicks * speedFactor));
-        return Math.min(total, syncedProgress + elapsed);
+        String label = "已封存 " + progress + "/" + total + " tick";
+        gfx.drawString(font, trimToWidth(label, w - 10), x + 5, y + 4, 0xFFFFFFFF, false);
     }
 
     private boolean isCompleted(Hk3ResearchNode node) {
@@ -590,36 +429,18 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
         return player != null && Hk3ResearchManager.isCompleted(player, node.id());
     }
 
-    private boolean prerequisitesMet(Hk3ResearchNode node) {
-        Player player = getLocalPlayer();
-        return player != null && Hk3ResearchManager.prerequisitesMetForDisplay(player, node);
-    }
-
-    private boolean hasRequirements(Hk3ResearchNode node) {
-        Player player = getLocalPlayer();
-        return player != null && Hk3ResearchManager.hasRequirementsForDisplay(player, node);
-    }
-
     private NodeState getNodeState(Hk3ResearchNode node) {
         if (isCompleted(node)) return NodeState.COMPLETED;
-        if (isMatrixBusyForNode(node)) return NodeState.IN_PROGRESS;
-        if (node.isAutoComplete()) return NodeState.AUTO_PENDING;
-        if (isMatrixBusyForOtherNode(node)) return NodeState.MATRIX_BUSY_OTHER;
-        if (!prerequisitesMet(node)) return NodeState.LOCKED;
-        if (!hasRequirements(node)) return NodeState.MISSING_ITEMS;
-        return NodeState.READY;
+        if (node.id().equals(matrixTag().getString("research"))) return NodeState.SEALED;
+        return NodeState.ARCHIVED;
     }
 
     private ItemStack getNodeIcon(Hk3ResearchNode node, NodeState state) {
         if (!node.requirements().isEmpty()) return node.requirements().get(0).createStack();
         return switch (state) {
             case COMPLETED -> new ItemStack(Items.KNOWLEDGE_BOOK);
-            case IN_PROGRESS -> new ItemStack(Items.CLOCK);
-            case READY -> new ItemStack(Items.EMERALD);
-            case AUTO_PENDING -> new ItemStack(Items.COMPASS);
-            case MISSING_ITEMS -> new ItemStack(Items.CHEST);
-            case MATRIX_BUSY_OTHER -> new ItemStack(Items.GRAY_STAINED_GLASS_PANE);
-            case LOCKED -> new ItemStack(Items.BARRIER);
+            case SEALED -> new ItemStack(Items.CLOCK);
+            case ARCHIVED -> new ItemStack(Items.BOOK);
         };
     }
 
@@ -666,13 +487,9 @@ public class Hk3ResearchMatrixScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
     }
 
     private enum NodeState {
-        COMPLETED("研究已解锁", "已完成", TEXT_OK, 0xAA2FBF79),
-        IN_PROGRESS("研究进行中", "研究中", ACCENT, 0xAA1F90AE),
-        AUTO_PENDING("自动完成（等待事件）", "等待事件", 0xFF7BC8FF, 0xAA3A7DAD),
-        MATRIX_BUSY_OTHER("目前正在研究其他研究", "矩阵占用", TEXT_WARN, 0xAA8A7644),
-        LOCKED("研究不可用", "前置锁定", TEXT_BAD, 0xAAAF4E4E),
-        MISSING_ITEMS("缺少材料", "材料不足", TEXT_WARN, 0xAAAD8841),
-        READY("研究可用", "可以提交", ACCENT, 0xAA1F90AE);
+        COMPLETED("旧版已完成", "历史完成", TEXT_OK, 0xAA2FBF79),
+        SEALED("原在途任务已封存", "已封存", TEXT_WARN, 0xAA8A7644),
+        ARCHIVED("旧版只读档案", "只读", TEXT_DIM, 0xAA5C687A);
 
         final String label;
         final String shortLabel;

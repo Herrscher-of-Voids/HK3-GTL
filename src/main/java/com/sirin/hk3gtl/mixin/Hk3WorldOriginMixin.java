@@ -19,12 +19,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.time.Instant;
 
-/**
- * 【文件职责】在新建世界公开构造入口捕获创建时刻，通过原生level.dat持久保存。
- * 【变更记录 #1】2026-11-05 19:08:32（修订210）
- * 删除：无。新增：新建捕获、旧档严格读取、原生保存；修改：无高度合同和旧档创建时间。
- * 用途：旧档parse路径不补当前时间，生日元数据缺失保持未知，不读取文件修改时间或LastPlayed。
- */
+ 
+
+
+
+
+
 @Mixin(PrimaryLevelData.class)
 public abstract class Hk3WorldOriginMixin implements Hk3WorldOriginData {
     @Unique private Hk3WorldOrigin hk3gtl$worldOrigin;

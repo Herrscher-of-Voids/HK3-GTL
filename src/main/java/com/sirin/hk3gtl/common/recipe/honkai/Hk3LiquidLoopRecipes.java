@@ -9,14 +9,14 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.*;
 
-/**
- * L1配套化工、母液回流与余料处置，沿液态配方唯一入口注册。
- * 【变更记录 #1】2026-09-27 02:26:24（第 1 次备注 · 内测5修订87）
- * 删除：无，不替换L2燃料调配、浓缩或网络注入工艺。
- * 新增：前级GT混合机配制分析试剂；I03使用7500mB新采液和500mB除杂母液回流；I05处理过剩物料。
- * 修改：复用主工艺的MAX电压、研究门禁和注册工具；回流保留与新鲜分馏相同的碳、滤芯、基质及工时。
- * 用途：补足再生试剂和独立排污出口；回收不授予重复实验，不从零库存自启动，不无耗材复制主产物。
- */
+ 
+
+
+
+
+
+
+
 public final class Hk3LiquidLoopRecipes {
     private Hk3LiquidLoopRecipes() {}
 
@@ -55,4 +55,4 @@ public final class Hk3LiquidLoopRecipes {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

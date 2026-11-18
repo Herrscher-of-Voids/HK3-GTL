@@ -7,33 +7,35 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 
-/**
- * 【变更记录 #1】2026-09-27 04:16:00（第 1 次备注 · 内测5修订90）
- * 删除：无。新增：主世界公共SavedData及账本修改自动标脏。
- * 修改：无旧账户/旧样本迁移；真实目标跨维度、跨机器共享，模拟批次独立。
- * 用途：后续机器从服务器取得同一账本，不依赖物品堆叠次数或机器移动；尚未接入工序和奖励交付。
- */
-/**
- * 【变更记录 #2】2026-09-27 04:32:00（第 2 次备注 · 内测5修订90）
- * 删除：加载失败后创建空账本的隐式退路。新增：Hk3SavedDataGuard接入。
- * 修改：现有文件无法读取时明确拒绝服务且保留原文件；用途：防止次数及终止记录重置。
- */
-/**
- * 【变更记录 #3】2026-09-29 23:37:35（内测5修订101）
- * 删除：本轮被替代的单前置或旧提示分支；其余历史保留。
- * 新增／修改：新增服务器线程的完成结算接口；尚无实际世界泡机器调用，不宣称物理任务已接通。
- * 用途：补足研究接线并如实保留未接物理执行器及结构审批边界。
- * 追溯：logs/research-mainline-r101；R101_FINAL_RECORD。
- */
-/**
- * 【变更记录 #4】2026-09-29 23:51:00（内测5修订102）
- * 删除：资源结算不核对资源包来源的入口。新增：同一SavedData保存已冻结包与事务。
- * 修改：真实完成后准备资源，逐包核对后结算；用途：取消/重启不重抽，输出交付仍单独确认。
- */
+ 
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
 public final class Hk3WorldBubbleData extends SavedData {
     private static final String NAME = "hk3gtl_world_bubbles_v5";
     private Hk3WorldBubbleLedger ledger = new Hk3WorldBubbleLedger();
     private Hk3WorldResourceBatches resources = new Hk3WorldResourceBatches();
+    private Hk3WorldResourceOutput output = new Hk3WorldResourceOutput();
+    private CompoundTag routes = new CompoundTag();
     public Hk3WorldBubbleData() { ledger.onChange(this::setDirty); resources.onChange(this::setDirty); }
 
     public static Hk3WorldBubbleData get(MinecraftServer server) {
@@ -42,28 +44,92 @@ public final class Hk3WorldBubbleData extends SavedData {
     }
     /** 调用方须保持服务器线程，不把可写账本暴露给客户端消息直接结算。 */
     public Hk3WorldBubbleLedger ledger() { return ledger; }
-    /** 工序实际成功后的原子结算；返回持久待交付收据，调用者仍须幂等输出并确认交付。 */
+    public java.util.List<java.util.UUID> routes(java.util.UUID team) {
+        return routes.getList(team.toString(), Tag.TAG_COMPOUND).stream()
+                .map(raw -> ((CompoundTag) raw).getUUID("Target")).toList();
+    }
+    public void discoverRoute(MinecraftServer server, java.util.UUID team, CompoundTag receipt) {
+        var entries = routes.getList(team.toString(), Tag.TAG_COMPOUND);
+        if (entries.stream().anyMatch(raw -> ((CompoundTag) raw).getUUID("Batch").equals(receipt.getUUID("Batch")))) return;
+        // 同一宇宙的第n条解析航路对应同一目标，换队或复制载体不能重置公共采掘次数。
+        var target = ledger.discover("catalog-v1/" + server.overworld().getSeed() + "/" + entries.size());
+        var token = new CompoundTag();
+        token.putString("id", "hk3gtl:located_real_world_bubble");
+        token.putInt("Count", 1);
+        token.putUUID("Source", target);
+        var entry = receipt.copy(); entry.putUUID("Target", target); entry.put("Token", token); entries.add(entry);
+        routes.put(team.toString(), entries); setDirty();
+    }
+    /** 工序完成时一并保存冻结收据与输出余量；实际仓储交付另行扣减。 */
     public CompoundTag completeWithResources(MinecraftServer server,java.util.UUID operation,java.util.UUID actor,
             java.util.UUID scope,CompoundTag completed,Hk3WorldResourceCatalog catalog){
+        return completeWithResources(server,operation,actor,scope,completed,catalog,true);
+    }
+    CompoundTag completeWithResources(MinecraftServer server,java.util.UUID operation,java.util.UUID actor,
+            java.util.UUID scope,CompoundTag completed,Hk3WorldResourceCatalog catalog,boolean project){
         if(!server.isSameThread())throw new IllegalStateException("World settlement requires server thread");
         var receipt=Hk3WorldResourceSettlement.prepare(ledger,resources,operation,actor,scope,completed,catalog,server.overworld().getSeed());
-        settleCompleted(server,operation,actor,scope,receipt);return receipt.copy();
+        settleCompleted(server,operation,actor,scope,receipt,project);return receipt.copy();
     }
     /** 修订101：已完成服务端工序的统一结算入口，证据只从持久账本投影。 */
     public void settleCompleted(MinecraftServer server,java.util.UUID operation,java.util.UUID actor,
             java.util.UUID scope,CompoundTag receipt) {
+        settleCompleted(server,operation,actor,scope,receipt,true);
+    }
+    private void settleCompleted(MinecraftServer server,java.util.UUID operation,java.util.UUID actor,
+            java.util.UUID scope,CompoundTag receipt,boolean project) {
         if(!server.isSameThread())throw new IllegalStateException("World settlement requires server thread");
         var tx=ledger.transaction(operation);
         if(tx==null)throw new IllegalArgumentException("Unknown world operation");
         Hk3WorldResourceSettlement.validate(ledger,resources,operation,actor,scope,receipt);
         ledger.settle(operation,actor,receipt);
-        Hk3WorldBubbleResearch.project(ledger,com.sirin.hk3gtl.common.research.Hk3ResearchData.get(server),scope);
+        if(output.stage(ledger.transaction(operation)))setDirty();
+        if(project)projectCompleted(server,scope);
+    }
+    public void deliverOutputs(MinecraftServer server,java.util.UUID scope,String role,String facility,
+            Hk3WorldOutputPorts ports){
+        if(!server.isSameThread())throw new IllegalStateException("World output requires server thread");
+        if (role.equals("I25")) {
+            for (var raw : routes.getList(scope.toString(), Tag.TAG_COMPOUND)) {
+                var entry = (CompoundTag) raw;
+                if (!entry.contains("Token") || !facility.equals(entry.getString("Facility"))) continue;
+                var token = entry.getCompound("Token");
+                Hk3WorldResourceOutput.deliverItem(token, ports, this::setDirty);
+                if (token.getInt("Count") == 0) entry.remove("Token");
+            }
+            return;
+        }
+        for(var operation:output.operations(scope,role,facility)){
+            var tx=ledger.transaction(operation);
+            var receipt=tx.receipt();
+            if(tx.delivered()||!Hk3WorldBubbleResearch.valid(receipt,scope,tx.id(),role)
+                    ||!facility.equals(receipt.getString("Facility")))continue;
+            if(output.deliver(ledger,tx,ports,this::setDirty))
+                com.sirin.hk3gtl.common.easter.Hk3EggProduction.worldDelivered(server,tx);
+        }
+    }
+    public CompoundTag remainingOutput(java.util.UUID operation,java.util.UUID actor){
+        var tx=ledger.transaction(operation);
+        if(tx==null||!tx.actor().equals(actor)||tx.phase()!=Hk3WorldBubbleLedger.Phase.SETTLED)
+            throw new IllegalArgumentException("Unknown settled world output");
+        if(tx.delivered())return new CompoundTag();
+        if(output.stage(tx))setDirty();
+        return output.remaining(operation);
     }
     public void createCompleted(MinecraftServer server,java.util.UUID batch,java.util.UUID actor,
             java.util.UUID scope,String origin,CompoundTag receipt) {
-        if(!server.isSameThread()||!Hk3WorldBubbleResearch.valid(receipt,scope,batch,"I29"))
+        createCompleted(server,batch,actor,scope,origin,receipt,true);
+    }
+    void createCompleted(MinecraftServer server,java.util.UUID batch,java.util.UUID actor,
+            java.util.UUID scope,String origin,CompoundTag receipt,boolean project) {
+        if(!server.isSameThread()||!Hk3WorldBubbleResearch.valid(receipt,scope,batch,"I29")
+                &&!(Hk3WorldBubbleResearch.validSimulation(receipt,scope,batch,"CREATE")
+                &&batch.equals(receipt.getUUID("WorldTarget"))))
             throw new IllegalArgumentException("Invalid completed simulation");
         ledger.createSimulation(batch,actor,origin,receipt);
+        if(project)projectCompleted(server,scope);
+    }
+    void projectCompleted(MinecraftServer server,java.util.UUID scope) {
         Hk3WorldBubbleResearch.project(ledger,com.sirin.hk3gtl.common.research.Hk3ResearchData.get(server),scope);
     }
     public static Hk3WorldBubbleData load(CompoundTag tag) {
@@ -73,14 +139,27 @@ public final class Hk3WorldBubbleData extends SavedData {
         if(tag.contains("Resources")&&!tag.contains("ResourceVersion",Tag.TAG_INT))throw new IllegalArgumentException("Missing resource schema");
         Hk3WorldBubbleData data = new Hk3WorldBubbleData();
         data.ledger = Hk3WorldBubbleLedger.load(tag.getCompound("Ledger"), data::setDirty);
-        if(tag.contains("Resources")){
-            if(!tag.contains("Resources",Tag.TAG_COMPOUND))throw new IllegalArgumentException("Invalid resource ledger");
-            data.resources=Hk3WorldResourceBatches.load(tag.getCompound("Resources"),data.ledger);
-            data.resources.onChange(data::setDirty);
+        data.routes = tag.getCompound("Routes").copy();
+        if(tag.contains("Resources")&&!tag.contains("Resources",Tag.TAG_COMPOUND))throw new IllegalArgumentException("Invalid resource ledger");
+        data.resources=Hk3WorldResourceBatches.load(tag.contains("Resources")
+                ?tag.getCompound("Resources"):data.resources.save(),data.ledger);
+        data.resources.onChange(data::setDirty);
+        if(tag.contains("OutputVersion")&&(!tag.contains("OutputVersion",Tag.TAG_INT)||tag.getInt("OutputVersion")!=1
+                ||!tag.contains("OutputBuffer",Tag.TAG_COMPOUND)))throw new IllegalArgumentException("世界泡输出缓冲缺失或版本不受支持");
+        if(tag.contains("OutputBuffer")){
+            if(!tag.contains("OutputBuffer",Tag.TAG_COMPOUND))throw new IllegalArgumentException("Invalid world output buffer");
+            data.output=Hk3WorldResourceOutput.load(tag.getCompound("OutputBuffer"),data.ledger);
+        }else{
+            for(var tx:data.ledger.settledTransactions())data.output.stage(tx);
         }
         return data;
     }
-    @Override public CompoundTag save(CompoundTag tag) { tag.put("Ledger", ledger.save());tag.putInt("ResourceVersion",1);tag.put("Resources",resources.save()); return tag; }
+    @Override public CompoundTag save(CompoundTag tag) {
+        for(var tx:ledger.settledTransactions())output.stage(tx);
+        tag.put("Ledger",ledger.save());tag.putInt("ResourceVersion",1);tag.put("Resources",resources.save());
+        tag.putInt("OutputVersion",1);tag.put("OutputBuffer",output.save());tag.put("Routes",routes.copy());
+        return tag;
+    }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

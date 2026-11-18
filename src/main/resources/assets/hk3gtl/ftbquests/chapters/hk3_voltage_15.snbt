@@ -1,395 +1,1232 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_15",
-  "id": "4B5C848C023C9B69",
-  "title": "HK3GTL · CIV · 统合压",
+  "id": "4B5A7F0760EDDB2A",
+  "title": "统合压 CIV",
   "subtitle": [
-    "Tier29 · 让不同工程协作"
+    "Tier29-CIV"
   ],
-  "group": "",
-  "order_index": 29,
-  "icon": "hk3gtl:electric_motor_civ",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 30,
+  "icon": "hk3gtl:voltage_machine_casing_civ",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B5A9BA13C79A943",
-      "title": "让不同工程协作",
-      "icon": "hk3gtl:civ_computer",
-      "x": 0.0,
-      "y": -4.0,
+      "id": "4B5DC75B96526111",
+      "title": "从WSV车间继续",
+      "subtitle": "WSV → CIV",
       "description": [
-        "空间锚定、物质再生、恒星熔铸、引力铸造与能量约束，开始成为同一文明的不同部分。",
-        "",
-        "逐条准备对应工程，并推进文明认知穹顶。前面的维系和验收经验，在这里仍然用得上。",
-        "{@pagebreak}",
-        "本页是CIV · 统合压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5729F3849DF0CE",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_intro_15"
-          ]
-        }
-      ],
-      "size": 2.0,
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B57AA663AD0B520",
-      "title": "电路与八大件",
-      "icon": "hk3gtl:electric_motor_civ",
-      "x": -4.0,
-      "y": -4.0,
-      "description": [
-        "进入CIV · 统合压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5485D718A46C22",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_15"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4B55EF1E9B3DACDA",
-      "title": "文明认知穹顶工程",
-      "icon": "hk3gtl:civilization_computing_array",
-      "x": 0.0,
-      "y": 0.0,
-      "description": [
-        "把维系试验、工程验收和始源协奏的成果汇集起来，推进文明认知穹顶。它会把路线带向最高一级研究所。",
-        "",
-        "解锁第五阶研究所，提供16个并行课题槽位。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "崩坏能/量子/虚数三领域可追溯研究与实验、世界维系试验平台运行、文明工程验收方法验收方法及始源群星协奏工程研究成果。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“文明认知穹顶工程”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：世界维系试验、文明工程验收方法、始源群星协奏工程。",
-        "基础研究费用：6920点；8 × WSV级电路；136 × 中子素板。",
-        "基础工期：32分钟；研究用电：540,431,955,284,459,520 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B55FDA8E3D65727",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_cle"
-          ]
-        }
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批CIV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
       ],
       "dependencies": [
-        "4B5B07B90B75E8EC",
-        "4B5D42853DBE1968",
-        "4B543D9716760D00"
+        "4B586D17875499F0"
       ],
-      "subtitle": "S04 · RN-CLE",
-      "shape": "hexagon",
-      "size": 1.3
+      "tasks": [
+        {
+          "id": "4B52786F32408A41",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_wsv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_wsv",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B58A59D17904637",
+      "title": "四系统互通背板",
+      "subtitle": "为四个系统保留独立端口",
+      "description": [
+        "将前级接口与文明四系统统合母材装成互通背板。四个系统通过各自的端口连接，后面的电路和执行组件按整块背板投入。"
+      ],
+      "dependencies": [
+        "4B5DCD37A1A4F6E4",
+        "4B52C7B2C8A73F92",
+        "4B58558AF88A1976"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DE98196D58242",
+          "type": "item",
+          "item": "hk3gtl:quadrisystem_interoperability_backplane",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:quadrisystem_interoperability_backplane",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5191B649C767F6",
+      "title": "四系统状态协调器",
+      "subtitle": "对齐各系统的状态与确认信号",
+      "description": [
+        "将局部计算、存储与时钟装成状态协调器，负责四个系统之间的状态对齐和确认。总装时另行投入承担工作计算的主机。"
+      ],
+      "dependencies": [
+        "4B58A59D17904637",
+        "4B54D6847FD5957F",
+        "4B5949A42E56A093"
+      ],
+      "tasks": [
+        {
+          "id": "4B540EBE2A0C7C0D",
+          "type": "item",
+          "item": "hk3gtl:quadrisystem_state_reconciler",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:quadrisystem_state_reconciler",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5CCF2A903FF555",
+      "title": "分域联锁作业核心",
+      "subtitle": "先完成域间联锁，再执行机械作业",
+      "description": [
+        "在前级支承上组装分域联锁机构，将四系统的作业条件接到同一执行核心。成品随后装入本级运动与输送部件。"
+      ],
+      "dependencies": [
+        "4B5191B649C767F6",
+        "4B510892DE6F743E",
+        "4B525BAF22D76495"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DC2E2DE669B78",
+          "type": "item",
+          "item": "hk3gtl:domain_interlocked_manipulator_core",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:domain_interlocked_manipulator_core",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B52162F5A7D0B45",
+      "title": "四系统热交换枢纽",
+      "subtitle": "分别引出四路换热回路",
+      "description": [
+        "把四路独立换热接口组装为热交换枢纽，保留各系统的供回路。气密组装产生的热冷却液单独排出。"
+      ],
+      "dependencies": [
+        "4B54D6847FD5957F",
+        "4B5DCD37A1A4F6E4",
+        "4B5EAB5D0766FEF5"
+      ],
+      "tasks": [
+        {
+          "id": "4B5ACBC1EDC96332",
+          "type": "item",
+          "item": "hk3gtl:quadrisystem_thermal_exchange_hub",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:quadrisystem_thermal_exchange_hub",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B59451C718B1F9B",
+      "title": "终序演算处理器主机",
+      "subtitle": "把演算整机接入四系统接口",
+      "description": [
+        "将两件终序演算超级计算机装入四系统统合框架，接入互通背板、状态协调器、热交换枢纽与共享存储，完成主机。"
+      ],
+      "dependencies": [
+        "4B5191B649C767F6",
+        "4B52162F5A7D0B45",
+        "4B510892DE6F743E",
+        "4B5F2E4515DC981D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5971B79C005A47",
+          "type": "item",
+          "item": "hk3gtl:terminal_computation_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:terminal_computation_processor_mainframe",
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5A1B643F27B96F",
+      "title": "文明恒续超级计算机",
+      "subtitle": "让四系统共享同一套工作计算",
+      "description": [
+        "用两件文明恒续处理器组装件完成超级计算机总装。四系统互通背板负责连接，状态协调器核对状态，热交换枢纽分别接出换热回路。"
+      ],
+      "dependencies": [
+        "4B5191B649C767F6",
+        "4B52162F5A7D0B45",
+        "4B510892DE6F743E"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C1953329673DE",
+          "type": "item",
+          "item": "hk3gtl:civ_computer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civ_computer",
+      "x": 50,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B55115F4A7426F9",
+      "title": "CIV 电动马达",
+      "subtitle": "将旧驱动与本阶执行组件合装",
+      "description": [
+        "以两件WSV电动马达为基础，加入分域联锁作业核心、四系统状态协调器和四系统热交换枢纽，再接入本级处理电路，制成CIV电动马达。"
+      ],
+      "dependencies": [
+        "4B5CCF2A903FF555",
+        "4B5A1B643F27B96F",
+        "4B55C1E63A21B3A4"
+      ],
+      "tasks": [
+        {
+          "id": "4B57399DFE96293A",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_motor_civ",
+      "x": 0,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5D45371582EB09",
+      "title": "CIV 电动活塞",
+      "subtitle": "先有本级马达，再组装直线执行机构",
+      "description": [
+        "将本级马达与两件WSV电动活塞合装，接入分域联锁作业核心和四系统热交换枢纽，完成本级活塞。"
+      ],
+      "dependencies": [
+        "4B55115F4A7426F9",
+        "4B55FCCCC9EE2F63"
+      ],
+      "tasks": [
+        {
+          "id": "4B572A45C9519A5E",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_piston_civ",
+      "x": 12,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5681A8C14DB9E0",
+      "title": "CIV 电动泵",
+      "subtitle": "把驱动、介质回路与状态组件装到一起",
+      "description": [
+        "以两件WSV电动泵为基础，装入本级马达、四系统热交换枢纽、分域联锁作业核心与四系统状态协调器，完成本级泵。"
+      ],
+      "dependencies": [
+        "4B55115F4A7426F9",
+        "4B5A9C26C12082CA"
+      ],
+      "tasks": [
+        {
+          "id": "4B529E6F52FB0BAD",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_pump_civ",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5686CEF885ED13",
+      "title": "CIV 传送带模块",
+      "subtitle": "把输送驱动接入本阶调度接口",
+      "description": [
+        "将两件WSV传送带模块与两件本级马达合装，连接四系统互通背板、四系统状态协调器和执行组件，制成新输送模块。"
+      ],
+      "dependencies": [
+        "4B55115F4A7426F9",
+        "4B5564A4DB90FCDB"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B3AB5CF1B9A4F",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_civ",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5AA2239404F68C",
+      "title": "CIV 机械臂",
+      "subtitle": "把旋转驱动与直线执行装在同一框架",
+      "description": [
+        "备齐两件本级马达和一件本级活塞，与两件WSV机械臂一起装配，再连接四系统互通背板和四系统状态协调器。"
+      ],
+      "dependencies": [
+        "4B5D45371582EB09",
+        "4B5FC954E717BFB4"
+      ],
+      "tasks": [
+        {
+          "id": "4B512A52BB3F7D16",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_civ",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5EBFF8A38C06F2",
+      "title": "CIV 传感器",
+      "subtitle": "通过本阶接口接出状态读数",
+      "description": [
+        "将两件WSV传感器与四系统互通背板、四系统状态协调器和四系统热交换枢纽合装，接好本级电路与结构件，制成新传感器。"
+      ],
+      "dependencies": [
+        "4B5A1B643F27B96F",
+        "4B59AE764DF3481F"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B90045D0BF7B4",
+          "type": "item",
+          "item": "hk3gtl:sensor_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_civ",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B502D8896D1E3DC",
+      "title": "CIV 发射器",
+      "subtitle": "把发射组件接入本阶控制与回路",
+      "description": [
+        "在两件WSV发射器的基础上，加入四系统互通背板、四系统状态协调器、四系统热交换枢纽和超短脉冲激光器，完成新发射器。"
+      ],
+      "dependencies": [
+        "4B5A1B643F27B96F",
+        "4B558B1BB8FB35FA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B89053B236A08",
+          "type": "item",
+          "item": "hk3gtl:emitter_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_civ",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B56BA011C237249",
+      "title": "CIV 力场发生器",
+      "subtitle": "把发射与测量组件汇入场控制",
+      "description": [
+        "先备齐四件本级发射器和两件本级传感器，再与两件WSV力场发生器、本级电路及接口组件一起总装。"
+      ],
+      "dependencies": [
+        "4B5EBFF8A38C06F2",
+        "4B502D8896D1E3DC",
+        "4B5DD049049F9406"
+      ],
+      "tasks": [
+        {
+          "id": "4B520CD783EABFBB",
+          "type": "item",
+          "item": "hk3gtl:field_generator_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_civ",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5A255D80872580",
+      "title": "四系统隔离背板",
+      "subtitle": "让四路功能分别接出端口",
+      "description": [
+        "用稳界约束壳材制作隔离背板，铺设贯穿互连与绝缘封边。导能、约束、重构、认知四个分支分别使用这块背板。"
+      ],
+      "dependencies": [
+        "4B5D42853DBE1968",
+        "4B5BBBF746435F75"
+      ],
+      "tasks": [
+        {
+          "id": "4B5183A214C18B85",
+          "type": "item",
+          "item": "hk3gtl:four_system_isolation_backplane",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:four_system_isolation_backplane",
+      "x": 30,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5E9B11E6FC3F4A",
+      "title": "四系统界面耦合剂",
+      "subtitle": "给四路模块准备共同的接合介质",
+      "description": [
+        "用调律源金、稳定液态崩坏能和新鲜载液配制界面耦合剂，分送四个模块的制造工位。"
+      ],
+      "dependencies": [
+        "4B5D42853DBE1968"
+      ],
+      "tasks": [
+        {
+          "id": "4B5276BBE0E3A66B",
+          "type": "custom",
+          "title": "实际完成四系统界面耦合剂",
+          "tags": [
+            "hk3gtl_quest_civ_n02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 34,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B59702C72F8EA6A",
+      "title": "独立导能系模块",
+      "subtitle": "把导能材料接到独立通道上",
+      "description": [
+        "以稳界约束壳材为主体，将虚数耦合导能带细线和阻抗渐变耦合带接入隔离背板，制成独立导能系模块。"
+      ],
+      "dependencies": [
+        "4B5A255D80872580",
+        "4B5E9B11E6FC3F4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B58D4D87EBA5869",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+      "x": 38,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5C31D41A029BA9",
+      "title": "独立约束系模块",
+      "subtitle": "把锚定边界与隔离层封在一起",
+      "description": [
+        "将锚定承力环、止扩夹层和界面材料装到独立背板上，制成约束系模块。"
+      ],
+      "dependencies": [
+        "4B5A255D80872580",
+        "4B5E9B11E6FC3F4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B31D59A7DB423",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+      "x": 42,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5E8E45E6A73A2C",
+      "title": "独立重构系模块",
+      "subtitle": "给重构分支装入实际补给材料",
+      "description": [
+        "在稳界约束壳材主体上装入虚数重构母合金、重构成分补给料与抗侵蚀涂层，再完成补料区封装。"
+      ],
+      "dependencies": [
+        "4B5A255D80872580",
+        "4B5E9B11E6FC3F4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5901C0CB15E41B",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+      "x": 46,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B54DDB801CC10C5",
+      "title": "独立认知系模块",
+      "subtitle": "让分区状态通过独立线路读出",
+      "description": [
+        "用魂钢数据基板、量子桥接处理器、时钟恢复组件和差分测量桥组成分区读出电路，再封装为认知系模块。"
+      ],
+      "dependencies": [
+        "4B5A255D80872580",
+        "4B5E9B11E6FC3F4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C38947CE47003",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_stage_4",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_stage_4",
+      "x": 50,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B57F0E902E7596D",
+      "title": "四系共固化坯",
+      "subtitle": "四种模块备齐后再合流",
+      "description": [
+        "将独立制造的导能、约束、重构与认知模块一起投入共固化工序。四种模块都要实际备齐，各路接口由隔离背板分别引出。"
+      ],
+      "dependencies": [
+        "4B59702C72F8EA6A",
+        "4B5C31D41A029BA9",
+        "4B5E8E45E6A73A2C",
+        "4B54DDB801CC10C5"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C9BC1F8B2EB57",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_stage_5",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_stage_5",
+      "x": 54,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B581957530663C4",
+      "title": "文明四系统统合母材标准坯",
+      "subtitle": "封装四路端口并完成定尺",
+      "description": [
+        "为共固化坯封装电、热、材料和读出接口，冷却后完成定尺。成品继续供给本级六种形态与后续恒续服役材料。"
+      ],
+      "dependencies": [
+        "4B57F0E902E7596D"
+      ],
+      "tasks": [
+        {
+          "id": "4B56A6FD26C9D675",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_billet",
+      "x": 54,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B56648313820E90",
+      "title": "四系分区统合板",
+      "subtitle": "从板面分别引出四路接口",
+      "description": [
+        "将导能、约束、重构、认知四区分别接到背板，制成四系分区统合板。"
+      ],
+      "dependencies": [
+        "4B581957530663C4"
+      ],
+      "tasks": [
+        {
+          "id": "4B57D7E7C6D0E1BA",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_plate",
+      "x": 50,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5169DF2F36CDFE",
+      "title": "四路隔离统合棒",
+      "subtitle": "让棒内四路通道分别端接",
+      "description": [
+        "在棒材内保留四路隔离通道，分别完成端接和封装，制成统合棒。"
+      ],
+      "dependencies": [
+        "4B581957530663C4",
+        "4B57C2F795B813DC"
+      ],
+      "tasks": [
+        {
+          "id": "4B52E2D49D6C9F5B",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_rod",
+      "x": 46,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B510892DE6F743E",
+      "title": "四系独立端口框架",
+      "subtitle": "把四角接口分别接给四个系统",
+      "description": [
+        "在框架四角安装各系统的独立接口，用贯穿阵列完成连接，制成四系独立端口框架。"
+      ],
+      "dependencies": [
+        "4B5169DF2F36CDFE",
+        "4B508B22870E1F24"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D24FA0B039DE1",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_frame",
+      "x": 42,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B54D6847FD5957F",
+      "title": "四象限接口统合环",
+      "subtitle": "每个象限保留一组系统端口",
+      "description": [
+        "按四个象限铺设接口和隔离层，再围合成环，保留四个系统各自的端口。"
+      ],
+      "dependencies": [
+        "4B5169DF2F36CDFE",
+        "4B56216F4E2D7726"
+      ],
+      "tasks": [
+        {
+          "id": "4B59710FB5CCDE66",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_ring",
+      "x": 38,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5DCD37A1A4F6E4",
+      "title": "四系开窗隔离箔",
+      "subtitle": "把薄区段的接点分别引出",
+      "description": [
+        "将背板加工为薄区段后开窗复合，分别连接四系接点，制成开窗隔离箔。"
+      ],
+      "dependencies": [
+        "4B56648313820E90",
+        "4B50212A69B5E25E"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F122D43C47633",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_foil",
+      "x": 34,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B52C7B2C8A73F92",
+      "title": "四路独立复合细线",
+      "subtitle": "十六根细线分成四路",
+      "description": [
+        "将细线分为四路，每路四根，再用隔离薄层与屏蔽材料分别封装，保留各系统的独立连接。"
+      ],
+      "dependencies": [
+        "4B5169DF2F36CDFE",
+        "4B588F9018481E6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B50F7715FD468EC",
+          "type": "item",
+          "item": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+      "x": 30,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5C0187E115F91B",
+      "title": "CIV机械方块",
+      "subtitle": "给前级核心装上四系统材料",
+      "description": [
+        "以WSV机械方块为核心，将四系统统合板、框架、环和端口装成新壳体，完成第一批CIV机械方块。首制工况为WSV。"
+      ],
+      "dependencies": [
+        "4B56648313820E90",
+        "4B510892DE6F743E",
+        "4B54D6847FD5957F",
+        "4B586D17875499F0"
+      ],
+      "tasks": [
+        {
+          "id": "4B538FB14C02E36B",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_civ",
+      "x": 30,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B59EBCC9EE3BC68",
+      "title": "拆解CIV机械方块",
+      "subtitle": "留下可复用壳体与完整结构件",
+      "description": [
+        "分层拆开CIV机械方块，取回WSV核心壳体和一半完整的板、框架、环。其余主体分成分类废料，专用功能件和封装材料随拆解消耗。"
+      ],
+      "dependencies": [
+        "4B5C0187E115F91B"
+      ],
+      "tasks": [
+        {
+          "id": "4B58EFBCC94FC75A",
+          "type": "custom",
+          "title": "实际完成拆解CIV机械方块",
+          "tags": [
+            "hk3gtl_quest_civ_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_wsv",
+      "x": 30,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B51CC05798CB04F",
+      "title": "文明四系统统合母材废料分离",
+      "subtitle": "把可重建组分与尾料分别收集",
+      "description": [
+        "用魂钢工艺溶剂洗脱分类废料的附着物，再进行离心分离。主体按75%回收组分、25%不可回收尾料分开，废溶剂单独接走。"
+      ],
+      "dependencies": [
+        "4B5D42853DBE1968"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A0EBF97877405",
+          "type": "custom",
+          "title": "实际完成文明四系统统合母材废料分离",
+          "tags": [
+            "hk3gtl_quest_civ_n17"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_recovered_fraction",
+      "x": 34,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B5E901714948949",
+      "title": "重建四种独立系统模块",
+      "subtitle": "补新主体并重新投入功能辅料",
+      "description": [
+        "将回收组分与新鲜主体按配方配合，重新投入全部功能辅料，制成四种独立系统模块。随后从原来的中间工序继续制造。"
+      ],
+      "dependencies": [
+        "4B5A255D80872580",
+        "4B5E9B11E6FC3F4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F5A25AFD47B07",
+          "type": "custom",
+          "title": "实际完成重建四种独立系统模块",
+          "tags": [
+            "hk3gtl_quest_civ_n18"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+      "x": 38,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B53686EBA2472F9",
+      "title": "文明四系统统合母材尾料封存",
+      "subtitle": "将损坏材料固化为惰性残渣",
+      "description": [
+        "把不可回收尾料固化为灰烬，送往一般灰尘用途。可重建组分从另一出口送回补料工序。"
+      ],
+      "dependencies": [
+        "4B5D42853DBE1968"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A79F8C06F4246",
+          "type": "custom",
+          "title": "实际完成文明四系统统合母材尾料封存",
+          "tags": [
+            "hk3gtl_quest_civ_n19"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 42,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B59DD5C06C14D59",
+      "title": "独立故障切换总成",
+      "subtitle": "给能流、约束和控制支路各留断开接口",
+      "description": [
+        "将各支路的断开接口组装为独立故障切换总成，供四系统工程及后续设施装配。"
+      ],
+      "dependencies": [
+        "4B5D8D141FECC519",
+        "4B5A9C26C12082CA",
+        "4B5DD049049F9406"
+      ],
+      "tasks": [
+        {
+          "id": "4B50129BC5E04C0C",
+          "type": "item",
+          "item": "hk3gtl:independent_failover_manifold",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:independent_failover_manifold",
+      "x": 0,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B51C820096302E2",
+      "title": "文明认知穹顶控制器",
+      "subtitle": "在前一阶研究所完成首建准备",
+      "description": [
+        "先在前一阶研究所完成文明认知穹顶工程的实验与RN-CLE正式研究，再制造文明认知穹顶控制器，继续扩展研究设施。"
+      ],
+      "dependencies": [
+        "4B55EF1E9B3DACDA",
+        "4B59DD5C06C14D59",
+        "4B5FC954E717BFB4",
+        "4B586D17875499F0"
+      ],
+      "tasks": [
+        {
+          "id": "4B59893FD0C13D2B",
+          "type": "item",
+          "item": "hk3gtl:s05_civilization_cognition_dome",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:s05_civilization_cognition_dome",
+      "x": 4,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5E0F6DC2D857F5",
+      "title": "死之律者·生息·物质再生方舟主控",
+      "subtitle": "从凝态工厂接续物质再生工程",
+      "description": [
+        "完成RN-CCF、RN-MRA研究，在冰之律者·永霜·极低温凝态工厂制造死之律者·生息·物质再生方舟主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B5DA22287EEF846",
+        "4B594D940B461D0C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C527480F7B139",
+          "type": "item",
+          "item": "hk3gtl:w07_matter_regeneration_ark",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:w07_matter_regeneration_ark",
+      "x": 30,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B50C398C1A91D2B",
+      "title": "炎之律者·劫焰·恒星熔铸炉主控",
+      "subtitle": "在再生方舟制造恒星熔铸炉主控",
+      "description": [
+        "完成RN-MRA、RN-SFF研究，在死之律者·生息·物质再生方舟制造炎之律者·劫焰·恒星熔铸炉主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B59E02E7D6A402B",
+        "4B5E0F6DC2D857F5"
+      ],
+      "tasks": [
+        {
+          "id": "4B51496FE452A8F3",
+          "type": "custom",
+          "title": "实际完成炎之律者·劫焰·恒星熔铸炉主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k08"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:w08_stellar_casting_furnace",
+      "x": 0,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B55CCA4D601F13B",
+      "title": "岩之律者·坠星·引力奇点铸造井主控",
+      "subtitle": "在共识矩阵制造引力铸造主控",
+      "description": [
+        "完成RN-CKV、RN-GSF研究，在识之律者·万象·文明共识矩阵制造岩之律者·坠星·引力奇点铸造井主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B5049156571FB42",
+        "4B500FF210FA8348"
+      ],
+      "tasks": [
+        {
+          "id": "4B53BB6F3E31259C",
+          "type": "custom",
+          "title": "实际完成岩之律者·坠星·引力奇点铸造井主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k10"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:w10_gravitational_singularity_forge",
+      "x": 4,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B59A48A5F3C2FD2",
+      "title": "约束之律者·戒律·全域能量约束壁主控",
+      "subtitle": "在统御阵制造全域约束壁主控",
+      "description": [
+        "完成RN-DIO、RN-ECB研究，在支配之律者·千律·分布式工业统御阵制造约束之律者·戒律·全域能量约束壁主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B5DBCCB3FAC3E98",
+        "4B529183EBE8C67D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F3A77F762206C",
+          "type": "custom",
+          "title": "实际完成约束之律者·戒律·全域能量约束壁主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k12"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:w12_global_energy_constraint_wall",
+      "x": 8,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B55D60F52DF9C9F",
+      "title": "矛盾报告复核",
+      "subtitle": "核对原报告、独立复验与公式结果",
+      "description": [
+        "在工程测试设备中比较两份原报告、任意精度复验和公式结果。区分已记录事实、得到的推论与本次无法判定的部分，形成矛盾复验记录。"
+      ],
+      "dependencies": [
+        "4B5446D7FAF60899"
+      ],
+      "tasks": [
+        {
+          "id": "4B54834AF0F0B8EA",
+          "type": "custom",
+          "title": "实际完成矛盾报告复核",
+          "tags": [
+            "hk3gtl_quest_existing_contradiction_review"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:analyzed_honkai_sample",
+      "x": 30,
+      "y": 56,
+      "optional": true
+    },
+    {
+      "id": "4B522E39065BAE09",
+      "title": "万象文明共识矩阵",
+      "subtitle": "RN-CKV · 实验与正式研究",
+      "description": [
+        "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。实际复验区分事实、推论与无法判定项，保留原文和实验来源；不靠选择预设立场获得证据；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择9690研究积分或CIV电路 × 10、三钛板 × 144支付基准费用；另需51,000 tick与2,161,727,821,137,838,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁识之律者·万象·文明共识矩阵及其知识验证工艺。"
+      ],
+      "dependencies": [
+        "4B51C820096302E2",
+        "4B55D60F52DF9C9F"
+      ],
+      "tasks": [
+        {
+          "id": "4B5964A8A8624B71",
+          "type": "custom",
+          "title": "完成万象文明共识矩阵",
+          "tags": [
+            "hk3gtl_quest_rn_ckv"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:cognitive_composite",
+      "x": 0,
+      "y": 42,
+      "optional": false
+    },
+    {
+      "id": "4B53A013546F4FF4",
+      "title": "千律分布式工业统御",
+      "subtitle": "RN-DIO · 实验与正式研究",
+      "description": [
+        "受检物：工业作业无人机×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。不同设备完成同一订单关联工序，投入、产物和权限回执对应；研究前可手动交接，不要求已有支配之律者·千律·分布式工业统御阵自动统御；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择9690研究积分或CIV电路 × 10、三钛板 × 144支付基准费用；另需51,000 tick与2,161,727,821,137,838,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁支配之律者·千律·分布式工业统御阵协调工艺，运行后再取得统御证明。"
+      ],
+      "dependencies": [
+        "4B51C820096302E2",
+        "4B5FED87D8CDDF57"
+      ],
+      "tasks": [
+        {
+          "id": "4B5993D6F13C6E7B",
+          "type": "custom",
+          "title": "完成千律分布式工业统御",
+          "tags": [
+            "hk3gtl_quest_rn_dio"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:civilization_singularity",
+      "x": 4,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B5DBCCB3FAC3E98",
       "title": "戒律能量约束壁",
-      "icon": "hk3gtl:confining_composite",
-      "x": 0.0,
-      "y": 3.0,
+      "subtitle": "RN-ECB · 实验与正式研究",
       "description": [
-        "约束核心与犹大的隔离经验，会用于戒律能量约束壁。先完成研究准备，再对实际工程进行独立验收。",
-        "",
-        "解锁约束之律者 · 戒律·全域能量约束壁建造与受控能量屏障验收。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制约束核心/仿制的犹大的誓约已开放能流隔离、崩坏能现实稳定锚稳定场与前级约束样件记录。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“戒律能量约束壁”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、仿制约束核心、仿制的犹大的誓约。",
-        "基础研究费用：6920点；8 × WSV级电路；136 × 中子素板。",
-        "基础工期：32分钟；研究用电：540,431,955,284,459,520 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：仿制约束之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。实际完成开启/解除约束和输入输出计量；验证不把抑制能量返充账户；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6920研究积分或WSV电路 × 8、中子素板 × 136支付基准费用；另需38,400 tick与540,431,955,284,459,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁约束之律者·戒律·全域能量约束壁建造与受控能量屏障验收。"
+      ],
+      "dependencies": [
+        "4B572144C9B98E32",
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B5BE77AF39C2F75",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成戒律能量约束壁",
           "tags": [
             "hk3gtl_quest_rn_ecb"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B5FE4E54508ABEF",
-        "4B5A928D87B43C2A"
-      ],
-      "subtitle": "S04 · RN-ECB",
-      "shape": "rsquare"
+      "icon": "hk3gtl:confining_composite",
+      "x": 8,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B5049156571FB42",
       "title": "坠星引力奇点铸造",
-      "icon": "hk3gtl:civilization_singularity",
-      "x": 0.0,
-      "y": 6.0,
+      "subtitle": "RN-GSF · 实验与正式研究",
       "description": [
-        "岩核心和伊甸之星的实验会继续用于引力奇点铸造。这里研究的是新的工程能力，并不是拿到一件道具就算建成。",
-        "",
-        "解锁岩之律者 · 坠星·引力奇点铸造井建造与奇点制备验收。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制岩核心/仿制的伊甸之星已有引力压缩工况、同批模拟构筑稳定记录与前级高密度试件。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“坠星引力奇点铸造”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、仿制岩核心、仿制的伊甸之星。",
-        "基础研究费用：6920点；8 × WSV级电路；136 × 中子素板。",
-        "基础工期：32分钟；研究用电：540,431,955,284,459,520 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。实际完成压缩响应并关联模拟种子工艺记录，试验不产文明工程奇点；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6920研究积分或WSV电路 × 8、中子素板 × 136支付基准费用；另需38,400 tick与540,431,955,284,459,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁岩之律者·坠星·引力奇点铸造井建造与奇点制备验收。"
+      ],
+      "dependencies": [
+        "4B574F1B6BD2B7AE",
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B5460FF3138F797",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成坠星引力奇点铸造",
           "tags": [
             "hk3gtl_quest_rn_gsf"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B54FB191FF02254",
-        "4B533F2846778D65"
-      ],
-      "subtitle": "S04 · RN-GSF",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B5802E842FF9314",
-      "title": "穹界虚数锚定环",
-      "icon": "hk3gtl:wonder_void_core_mount",
-      "x": 0.0,
-      "y": 9.0,
-      "description": [
-        "把虚数锚定、空核心与工程验收方法结合起来，研究穹界锚定环。更大规模的空间工程仍然建立在前面做过的锚定实验上。",
-        "",
-        "解锁空之律者 · 穹界·虚数锚定环建造与大范围锚定验收。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "虚数空间锚定阵列锚定、世界维系试验平台维系实际记录、已可达空间组件。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“穹界虚数锚定环”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、虚数空间锚定、仿制空核心。",
-        "基础研究费用：6920点；8 × WSV级电路；136 × 中子素板。",
-        "基础工期：32分钟；研究用电：540,431,955,284,459,520 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B539F1B1D234240",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_iar"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B5A07D34090C572",
-        "4B5FE5619D5A09F9"
-      ],
-      "subtitle": "S04 · RN-IAR",
-      "shape": "rsquare"
+      "icon": "hk3gtl:civilization_singularity",
+      "x": 12,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B5DA22287EEF846",
       "title": "生息物质再生方舟",
-      "icon": "hk3gtl:reconstructing_composite",
-      "x": 0.0,
-      "y": 12.0,
+      "subtitle": "RN-MRA · 实验与正式研究",
       "description": [
-        "燃料后处理与气体净化积累的经验，会汇入物质再生方舟。资源回收不再只是产线末端，而成为文明工程的一部分。",
-        "",
-        "解锁死之律者 · 生息·物质再生方舟材料再生工程，回收不制造净免费能量。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "既有固体后处理、液态介质再生和异质工艺气体净化气体净化回执及实际残渣。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“生息物质再生方舟”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、失活燃料后处理、异质工艺气体净化。",
-        "基础研究费用：6920点；8 × WSV级电路；136 × 中子素板。",
-        "基础工期：32分钟；研究用电：540,431,955,284,459,520 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：回收燃料壳体材料×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。核验真实投入、回收与不可回收残渣，排除重复统计同一批次；试验不额外生成回收物；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6920研究积分或WSV电路 × 8、中子素板 × 136支付基准费用；另需38,400 tick与540,431,955,284,459,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁死之律者·生息·物质再生方舟材料再生工程，回收不制造净免费能量。"
+      ],
+      "dependencies": [
+        "4B528AA97B0DF3A7",
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B570195B1173278",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成生息物质再生方舟",
           "tags": [
             "hk3gtl_quest_rn_mra"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B5FCABEEB611F12",
-        "4B528AA97B0DF3A7"
-      ],
-      "subtitle": "S04 · RN-MRA",
-      "shape": "rsquare"
+      "icon": "hk3gtl:reconstructing_composite",
+      "x": 16,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B59E02E7D6A402B",
       "title": "劫焰恒星熔铸",
-      "icon": "hk3gtl:extreme_casting_material",
-      "x": 0.0,
-      "y": 15.0,
+      "subtitle": "RN-SFF · 实验与正式研究",
       "description": [
-        "炎核心与究极反应堆的成果，构成恒星熔铸研究的基础。先把热源与能源配套准备好，再推进相应工程。",
-        "",
-        "解锁炎之律者 · 劫焰·恒星熔铸炉建造与极热工况验收。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制炎核心已开放高温工艺、究极崩坏能反应堆真实供能记录与前级铸造试件。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“劫焰恒星熔铸”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、仿制炎核心、究极反应堆工程。",
-        "基础研究费用：6920点；8 × WSV级电路；136 × 中子素板。",
-        "基础工期：32分钟；研究用电：540,431,955,284,459,520 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：极限铸造材料×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。实际完成高温加工、安全冷却和能耗回执核验，试件不是炎之律者·劫焰·恒星熔铸炉的正式产物；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6920研究积分或WSV电路 × 8、中子素板 × 136支付基准费用；另需38,400 tick与540,431,955,284,459,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁炎之律者·劫焰·恒星熔铸炉建造与极热工况验收。"
+      ],
+      "dependencies": [
+        "4B5C00437CD0C5D8",
+        "4B537DFEF740AACB",
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B528C97123B2ECA",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成劫焰恒星熔铸",
           "tags": [
             "hk3gtl_quest_rn_sff"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B59EE579EB6CE9A",
-        "4B5C00437CD0C5D8"
-      ],
-      "subtitle": "S04 · RN-SFF",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B5D2152BB22301C",
-      "linked_quest": "4B5FE4E54508ABEF",
-      "x": 0.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B568EA2B4202DAE",
-      "linked_quest": "4B5D42853DBE1968",
-      "x": 3.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5487ADA3754BFB",
-      "linked_quest": "4B59EE579EB6CE9A",
-      "x": 6.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5615EC6A6D6D3A",
-      "linked_quest": "4B54FB191FF02254",
-      "x": 9.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B52610DAFEC1A3C",
-      "linked_quest": "4B528AA97B0DF3A7",
-      "x": 12.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5CEEBF37516611",
-      "linked_quest": "4B543D9716760D00",
-      "x": 15.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5F7FB5C7358C30",
-      "linked_quest": "4B5A07D34090C572",
-      "x": 0.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B51BA1EB6D66B1D",
-      "linked_quest": "4B5A928D87B43C2A",
-      "x": 3.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B59473D9EDF8F96",
-      "linked_quest": "4B533F2846778D65",
-      "x": 6.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B570BA7CB7CFC35",
-      "linked_quest": "4B5FCABEEB611F12",
-      "x": 9.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B506B9D97474CBE",
-      "linked_quest": "4B5C00437CD0C5D8",
-      "x": 12.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B5E030D8409CEC8",
-      "linked_quest": "4B5FE5619D5A09F9",
-      "x": 15.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B58854101452D5F",
-      "linked_quest": "4B5B07B90B75E8EC",
-      "x": 0.0,
-      "y": -14.0
+      "icon": "hk3gtl:extreme_casting_material",
+      "x": 20,
+      "y": 42,
+      "optional": false
     }
   ]
 }

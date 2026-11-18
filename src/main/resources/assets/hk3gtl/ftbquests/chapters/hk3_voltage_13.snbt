@@ -1,247 +1,1616 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_13",
-  "id": "4B5D66A71EF5C669",
-  "title": "HK3GTL · WFV · 构界压",
+  "id": "4B5878BF7B7C20E6",
+  "title": "构界压 WFV",
   "subtitle": [
-    "Tier27 · 从设备走向工程"
+    "Tier27-WFV"
   ],
-  "group": "",
-  "order_index": 27,
-  "icon": "hk3gtl:electric_motor_wfv",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 28,
+  "icon": "hk3gtl:voltage_machine_casing_wfv",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B502EF76BC9257C",
-      "title": "从设备走向工程",
-      "icon": "hk3gtl:wfv_processor",
-      "x": 0.0,
-      "y": -4.0,
+      "id": "4B5A173AE878AE95",
+      "title": "世界维系原型运行",
+      "subtitle": "制成工程样本，保存真实维系记录",
       "description": [
-        "当能源、锚定与稳定场能够配合工作时，就可以开始世界维系试验。",
-        "",
-        "维系工况会指导奇观材料和构件预制。把材料线与负载协调一起做好，后面的工程会轻松很多。",
-        "{@pagebreak}",
-        "本页是WFV · 构界压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "在世界维系试验平台投入锚定组件、受控纳米群与魂钢板，完成原型运行。取得世界维系工程样本与真实维系回执，接续文明奇观材料研究及二审准备。"
+      ],
+      "dependencies": [
+        "4B58A95952974374"
       ],
       "tasks": [
         {
-          "id": "4B5E85D981ECE382",
-          "type": "checkmark",
-          "title": "读完这一页",
+          "id": "4B54C2D13D82DA40",
+          "type": "custom",
+          "title": "实际完成世界维系原型运行",
           "tags": [
-            "hk3gtl_quest_voltage_intro_13"
+            "hk3gtl_quest_existing_world_maintenance"
           ]
         }
       ],
-      "size": 2.0,
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B55795B84EE6B00",
-      "title": "电路与八大件",
-      "icon": "hk3gtl:electric_motor_wfv",
-      "x": -4.0,
-      "y": -4.0,
-      "description": [
-        "进入WFV · 构界压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5B2D29B7FCB14F",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_13"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4B5B07B90B75E8EC",
-      "title": "世界维系试验",
       "icon": "hk3gtl:world_maintenance_specimen",
-      "x": 0.0,
-      "y": 0.0,
-      "description": [
-        "让锚定、稳定场、产能与负载一起参加维系试验。单台设备能工作，还不代表整套维系系统已经能够配合。",
-        "",
-        "解锁世界维系试验平台维系原型与可检验记录。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "虚数空间锚定阵列实际锚定、崩坏能现实稳定锚稳定场、虚数能量整流中枢产能与文明能源调度中枢负载记录，已有模拟稳定资料。",
-        "",
-        "按JEI查找对应工艺，在仿制神之键装配中心完成对应实验后，到S04或更高等级研究所选择“世界维系试验”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：虚数空间锚定、文明能源调度。",
-        "基础研究费用：5380点；8 × IWV级电路；120 × 中子素板。",
-        "基础工期：28分钟；研究用电：33,776,997,205,278,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5C445C5C1DA4CB",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_wme"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B5A07D34090C572",
-        "4B5E3DA7F13B68CF"
-      ],
-      "subtitle": "S04 · RN-WME",
-      "shape": "rsquare"
+      "x": 30,
+      "y": 44,
+      "optional": true
     },
     {
-      "id": "4B5A778130252AF5",
-      "title": "能源负载协调",
-      "icon": "hk3gtl:high_dimensional_energy_conduit",
-      "x": 3.0,
-      "y": 0.0,
+      "id": "4B52CD74565E718E",
+      "title": "奇观构件预制",
+      "subtitle": "把四种复材装成通用预制构件",
       "description": [
-        "同时看产能与维系负载，研究怎样协调能源。别只记录理想情况下的输出，也要看看设备实际运行时需要多少。",
-        "",
-        "解锁负载排序与告警策略，不增加HKE人工容量或距离上限。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "文明能源调度中枢已登记负载、世界维系试验平台及其他已可运行设备的实际HW扣费与暂停记录。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S04或更高等级研究所选择“能源负载协调”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明能源调度、世界维系试验。",
-        "基础研究费用：5380点；8 × IWV级电路；120 × 中子素板。",
-        "基础工期：28分钟；研究用电：33,776,997,205,278,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "将导能、约束、重构与认知四种复材送入预制设备，配入IRV机壳。收集预制构件、边角料与热冷却液，保存这次实际预制记录，接续工程验收方法研究。"
+      ],
+      "dependencies": [
+        "4B5750C272E75E18",
+        "4B5FC4B53A78C492",
+        "4B5266CE4AF9372D",
+        "4B563C2684E9ADDF"
       ],
       "tasks": [
         {
-          "id": "4B5544C1C8919E9B",
+          "id": "4B596DD146B3BBAB",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成奇观构件预制",
           "tags": [
-            "hk3gtl_quest_rn_elc"
+            "hk3gtl_quest_existing_prefabrication"
           ]
         }
       ],
-      "dependencies": [
-        "4B5E3DA7F13B68CF",
-        "4B5B07B90B75E8EC"
+      "icon": "hk3gtl:wonder_prefabricated_component",
+      "x": 50,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B5750C272E75E18",
+      "title": "高维导能复合材料",
+      "subtitle": "把维系样本接到导能支线",
+      "description": [
+        "完成文明奇观材料与雷核心应用研究后，投入数据基板、维系样本和IRV机壳。以极化电磁材料与传力节点作工装，制成导能复材，收集边角料与用后维系介质。"
       ],
-      "subtitle": "S04 · RN-ELC",
-      "shape": "rsquare"
+      "dependencies": [
+        "4B5BD6FAD33255FB",
+        "4B5D34D3CE84E89A"
+      ],
+      "tasks": [
+        {
+          "id": "4B57DAE19ED3A9DD",
+          "type": "custom",
+          "title": "实际完成高维导能复合材料",
+          "tags": [
+            "hk3gtl_quest_existing_composite_conducting"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:conducting_composite",
+      "x": 34,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B5FC4B53A78C492",
+      "title": "高维约束复合材料",
+      "subtitle": "为约束用途建立独立复材支线",
+      "description": [
+        "以仿制约束核心和传力节点作工装，处理数据基板、维系样本与IRV机壳。取得约束复材，分别收集边角料与用后维系介质。"
+      ],
+      "dependencies": [
+        "4B5D34D3CE84E89A"
+      ],
+      "tasks": [
+        {
+          "id": "4B525D9D4BC63CF4",
+          "type": "custom",
+          "title": "实际完成高维约束复合材料",
+          "tags": [
+            "hk3gtl_quest_existing_composite_confining"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:confining_composite",
+      "x": 38,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B5266CE4AF9372D",
+      "title": "高维重构复合材料",
+      "subtitle": "为重构用途制备专用复材",
+      "description": [
+        "以仿制理核心和传力节点作工装，将数据基板、维系样本与IRV机壳制成重构复材。保存实际复材生产回执，接续预制与后续工程。"
+      ],
+      "dependencies": [
+        "4B5DA6E64F338B10",
+        "4B5D34D3CE84E89A"
+      ],
+      "tasks": [
+        {
+          "id": "4B51AE64AB9066F1",
+          "type": "custom",
+          "title": "实际完成高维重构复合材料",
+          "tags": [
+            "hk3gtl_quest_existing_composite_reconstructing"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:reconstructing_composite",
+      "x": 42,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B5C61FAC45F68A8",
+      "title": "高维认知复合材料",
+      "subtitle": "为认知工程制备独立材料",
+      "description": [
+        "以仿制侵蚀核心和传力节点作工装，制备认知复材。收集边角料和用后介质，四类复材分别备齐后再进入通用预制。"
+      ],
+      "dependencies": [
+        "4B5B5795A0A0443D",
+        "4B5D34D3CE84E89A"
+      ],
+      "tasks": [
+        {
+          "id": "4B57CDAAA5272BB3",
+          "type": "custom",
+          "title": "实际完成高维认知复合材料",
+          "tags": [
+            "hk3gtl_quest_existing_composite_cognitive"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:cognitive_composite",
+      "x": 46,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B54648CE5DE4B8D",
+      "title": "能源调度导体制备",
+      "subtitle": "把导能复材加工成极化电磁材料",
+      "description": [
+        "在能源调度设备中加工导能复材、数据基板与铌钛细线。仿制雷核心和整流开关堆作为工装保留，收集极化材料与热冷却液。"
+      ],
+      "dependencies": [
+        "4B5750C272E75E18",
+        "4B5CDCC7C5310141"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AD609E3354A91",
+          "type": "custom",
+          "title": "实际完成能源调度导体制备",
+          "tags": [
+            "hk3gtl_quest_existing_dispatch_conductor"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:polarized_electromagnetic_material",
+      "x": 54,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B50F00E0E9881D7",
+      "title": "从IWV车间继续",
+      "subtitle": "IWV → WFV",
+      "description": [
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批WFV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
+      ],
+      "dependencies": [
+        "4B50F2B1C6384AFB"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B59F15FF2C8B2",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_iwv",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B591FF9F0BA958C",
+      "title": "文明恒续介电隔离膜",
+      "subtitle": "给新工作表面分层绝缘",
+      "description": [
+        "在前平台介电膜上制备新的介电涂层，加入构界梯度纤维材作为这一层的结构材料。后面的基板、晶圆和接口组件都会用到它。"
+      ],
+      "dependencies": [
+        "4B5E50CE2001967B"
+      ],
+      "tasks": [
+        {
+          "id": "4B505B0B3E8BBFE6",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_dielectric_film",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B528B3F652C9A4A",
+      "title": "文明恒续定向互连网",
+      "subtitle": "为构型路径接出独立支路",
+      "description": [
+        "保留前平台互连网的连接单元，用新的导体接出本平台支路。将它送往基板、功能阵列与CPU封装工序。"
+      ],
+      "dependencies": [
+        "4B591FF9F0BA958C",
+        "4B583DDDF7D38C97"
+      ],
+      "tasks": [
+        {
+          "id": "4B539878BF28078F",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_interconnect_mesh",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5E704DD09737B9",
+      "title": "文明恒续电路基板",
+      "subtitle": "层压底座与旧制接口",
+      "description": [
+        "前平台基板负责结构底座，印刷板负责旧制接口。把它们与本平台的介电膜、互连网一同层压，得到后续显影所需的基板。"
+      ],
+      "dependencies": [
+        "4B528B3F652C9A4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D63B6054F2176",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_circuit_substrate",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_circuit_substrate",
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B510BEB9E372C04",
+      "title": "文明恒续印刷电路基板",
+      "subtitle": "把线路显在新基板上",
+      "description": [
+        "将层压好的基板送入化学浸洗工序，制出文明恒续印刷电路基板。废蚀刻液从独立出口送往既有再生支线。"
+      ],
+      "dependencies": [
+        "4B5E704DD09737B9"
+      ],
+      "tasks": [
+        {
+          "id": "4B58A694CDAA04D9",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_printed_circuit_board",
+      "x": 34,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B59601EAB9F4F32",
+      "title": "文明恒续外延晶圆",
+      "subtitle": "让旧逻辑裸片读出新工作区",
+      "description": [
+        "以虚数拓扑逻辑裸片作为读出部分，在外延表面形成新的功能工作区。制成的晶圆分送逻辑曝光与RAM压印两路。"
+      ],
+      "dependencies": [
+        "4B591FF9F0BA958C"
+      ],
+      "tasks": [
+        {
+          "id": "4B54F932645A182E",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_epitaxial_wafer",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5B1D7C445D5D2E",
+      "title": "文明恒续逻辑晶圆",
+      "subtitle": "用掩膜定义逻辑图形",
+      "description": [
+        "用电路光刻掩膜为外延晶圆曝光，再把逻辑晶圆送去切割。掩膜留在设备中供后续批次使用。"
+      ],
+      "dependencies": [
+        "4B59601EAB9F4F32"
+      ],
+      "tasks": [
+        {
+          "id": "4B518CE71B545CCE",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_logic_wafer",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_logic_wafer",
+      "x": 50,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B51F5B52E20A7A5",
+      "title": "文明恒续逻辑裸片",
+      "subtitle": "把晶圆切成可封装的芯粒",
+      "description": [
+        "切开逻辑晶圆，取得文明恒续逻辑裸片。切割产生的热崩坏工业冷却液接回既有冷却液调理线。"
+      ],
+      "dependencies": [
+        "4B5B1D7C445D5D2E"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AD0B0E3BB91C2",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_logic_die",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_logic_die",
+      "x": 30,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B554A2D53390BB3",
+      "title": "文明恒续RAM晶圆",
+      "subtitle": "保留存储阵列，重做读取与隔离层",
+      "description": [
+        "把虚数拓扑RAM晶圆与文明恒续外延晶圆压合。原有存储阵列继续使用，新的晶圆和介电膜承担这一平台的读取与隔离结构。"
+      ],
+      "dependencies": [
+        "4B59601EAB9F4F32"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DC145F9AB38BE",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_ram_wafer",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_ram_wafer",
+      "x": 54,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B515B42A5B15ED3",
+      "title": "文明恒续RAM晶片",
+      "subtitle": "给CPU与共享存储分别供片",
+      "description": [
+        "将RAM晶圆切成独立晶片，分别供给CPU封装和后续整机装配。为切割工位接好排热液出口。"
+      ],
+      "dependencies": [
+        "4B554A2D53390BB3"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D978E968DE50A",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_ram_chip",
+      "x": 30,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5BB0371B42F85B",
+      "title": "文明恒续贴片电容",
+      "subtitle": "为局部供电储存电荷",
+      "description": [
+        "在前级电容上增加本平台的介电层与连接材料，制成文明恒续贴片电容。它随后与其他四类器件一起封装成功能阵列。"
+      ],
+      "dependencies": [
+        "4B528B3F652C9A4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B57A37851E6A97C",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_smd_capacitor",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_smd_capacitor",
+      "x": 54,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B50D9163D37EA1A",
+      "title": "文明恒续贴片二极管",
+      "subtitle": "把单向导电器件接入新平台",
+      "description": [
+        "保留前级二极管的电学功能，为它装上文明恒续平台所需的功能层与连接材料。成品供给贴片功能阵列。"
+      ],
+      "dependencies": [
+        "4B528B3F652C9A4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B536A20FC93423B",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_smd_diode",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_smd_diode",
+      "x": 50,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B57E6802B71011C",
+      "title": "文明恒续贴片电阻",
+      "subtitle": "为新电路提供电阻元件",
+      "description": [
+        "将前级电阻与本平台主材、功能层一同装配。做好这一批电阻，贴片功能阵列才有完整的五类元件。"
+      ],
+      "dependencies": [
+        "4B528B3F652C9A4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B410C33F95B92",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_smd_resistor",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_smd_resistor",
+      "x": 46,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B53461957C95D2E",
+      "title": "文明恒续贴片晶体管",
+      "subtitle": "为开关与放大电路准备器件",
+      "description": [
+        "在前级晶体管的基础上完成本平台封装，将它送入文明恒续贴片功能阵列的装配线。"
+      ],
+      "dependencies": [
+        "4B528B3F652C9A4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5527BC1A2D7ADE",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_smd_transistor",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_smd_transistor",
+      "x": 42,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5D5EE113BA6278",
+      "title": "文明恒续贴片电感",
+      "subtitle": "为供电与信号电路准备电感",
+      "description": [
+        "保留前级电感的工作部分，再加入本平台的连接与封装材料。五类贴片器件到这里备齐，可以继续封装功能阵列。"
+      ],
+      "dependencies": [
+        "4B528B3F652C9A4A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B9C04E343C4D9",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_smd_inductor",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_smd_inductor",
+      "x": 38,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B585951EDE64C1B",
+      "title": "文明恒续贴片功能阵列",
+      "subtitle": "把五类器件装到同一载板",
+      "description": [
+        "按配方把电容、二极管、电阻、晶体管和电感装上印刷电路基板，并接入定向互连网。功能阵列负责芯片附近的局部电路。"
+      ],
+      "dependencies": [
+        "4B510BEB9E372C04",
+        "4B5BB0371B42F85B",
+        "4B50D9163D37EA1A",
+        "4B57E6802B71011C",
+        "4B53461957C95D2E",
+        "4B5D5EE113BA6278"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E24608F2CBE26",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_smd_array",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_smd_array",
+      "x": 34,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5C12E8A340718A",
+      "title": "文明恒续CPU",
+      "subtitle": "把裸片、缓存与局部供电一起封装",
+      "description": [
+        "将虚数拓扑CPU、新逻辑裸片、RAM晶片和功能阵列封装为文明恒续CPU。整机装配另行投入的RAM用于跨芯粒共享存储。"
+      ],
+      "dependencies": [
+        "4B51F5B52E20A7A5",
+        "4B515B42A5B15ED3",
+        "4B585951EDE64C1B"
+      ],
+      "tasks": [
+        {
+          "id": "4B5063E18201D401",
+          "type": "item",
+          "item": "hk3gtl:civilization_endurance_cpu",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_endurance_cpu",
+      "x": 42,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B531BD31DF7D0DE",
+      "title": "构界拓扑路由片",
+      "subtitle": "为构型作业安排连接路径",
+      "description": [
+        "把多轴织界背板、文明恒续印刷板与梯度纤维材接成路由片。前级接口保留为两个输入域，后面的电路和执行部件直接消耗成品路由片。"
+      ],
+      "dependencies": [
+        "4B510BEB9E372C04"
+      ],
+      "tasks": [
+        {
+          "id": "4B52834405226331",
+          "type": "item",
+          "item": "hk3gtl:world_topology_routing_tile",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:world_topology_routing_tile",
+      "x": 38,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B57D01EDBC1C4E4",
+      "title": "文明状态检查点核心",
+      "subtitle": "保存工艺状态与校验结果",
+      "description": [
+        "将CPU、RAM和时钟封装为独立的检查点核心，用来承接工艺状态的迁移与恢复。正式电路的工作计算仍由总装时投入的计算核心承担。"
+      ],
+      "dependencies": [
+        "4B5C12E8A340718A",
+        "4B531BD31DF7D0DE",
+        "4B58EE50644340CB"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E66CF703FED22",
+          "type": "item",
+          "item": "hk3gtl:civilization_state_checkpoint_core",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:civilization_state_checkpoint_core",
+      "x": 46,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B556E81648CE5E5",
+      "title": "梯度路径构型执行头",
+      "subtitle": "沿指定路径定位与作业",
+      "description": [
+        "在前级支承组件上增加梯度路径构型机构。先做好执行头，再把它装入本级马达、活塞、泵和机械臂等部件。"
+      ],
+      "dependencies": [
+        "4B57D01EDBC1C4E4",
+        "4B558B4335018F20"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CA52FD8C3FD3D",
+          "type": "item",
+          "item": "hk3gtl:gradient_path_formation_head",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:gradient_path_formation_head",
+      "x": 50,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5E6B8B68D9B5DA",
+      "title": "分级泄漏隔离阀",
+      "subtitle": "分段隔离供回路并预留排空",
+      "description": [
+        "保留前级通道，再用新管段与隔壁接出分级隔离回路。完成气密组装，收集测试产生的热崩坏工业冷却液。"
+      ],
+      "dependencies": [
+        "4B58EE50644340CB",
+        "4B5E50CE2001967B"
+      ],
+      "tasks": [
+        {
+          "id": "4B571B0B2731038A",
+          "type": "item",
+          "item": "hk3gtl:staged_leak_isolation_valve",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:staged_leak_isolation_valve",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B59E2A5B60BA9E8",
+      "title": "因果重构处理器主机",
+      "subtitle": "把两台前形态计算机接入新路径",
+      "description": [
+        "将两件因果重构超级计算机装入梯度纤维承力结构，接入路由片、检查点核心与共享存储，完成因果重构处理器主机。"
+      ],
+      "dependencies": [
+        "4B54209CEAB87ACB",
+        "4B57D01EDBC1C4E4",
+        "4B5E6B8B68D9B5DA",
+        "4B558B4335018F20"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AEFA1DD154BD0",
+          "type": "item",
+          "item": "hk3gtl:causal_reconstruction_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:causal_reconstruction_processor_mainframe",
+      "x": 54,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B56F3B0A5BF4A8C",
+      "title": "世界织构超级计算机",
+      "subtitle": "将处理器组装件扩成整机",
+      "description": [
+        "以两件世界织构处理器组装件为计算主体，补齐路由、检查点、共享RAM与重构映射芯片，组装世界织构超级计算机。"
+      ],
+      "dependencies": [
+        "4B589A4490F6D4F2",
+        "4B57D01EDBC1C4E4",
+        "4B5E6B8B68D9B5DA",
+        "4B558B4335018F20"
+      ],
+      "tasks": [
+        {
+          "id": "4B5ACD2C4E8EE8DB",
+          "type": "item",
+          "item": "hk3gtl:world_weaving_computer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:world_weaving_computer",
+      "x": 54,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B59DB139B2F5210",
+      "title": "终序演算处理器组装件",
+      "subtitle": "给处理器接好外部存储与支承",
+      "description": [
+        "将两件终序演算处理器装入新框架，连接路由片、检查点核心和共享RAM。多轴织界背板承担整组组件的连接。"
+      ],
+      "dependencies": [
+        "4B57E56EA35B69F4",
+        "4B57D01EDBC1C4E4",
+        "4B5E6B8B68D9B5DA",
+        "4B558B4335018F20"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EB8CEC9BCE706",
+          "type": "item",
+          "item": "hk3gtl:terminal_computation_assembly",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:terminal_computation_assembly",
+      "x": 50,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B51716ACB713DCE",
+      "title": "文明恒续处理器",
+      "subtitle": "用实体检查点承接运行状态",
+      "description": [
+        "将两件虚数重构处理器主机与文明恒续CPU、逻辑裸片及共享RAM合装。路由片安排连接路径，检查点核心负责状态记录与恢复确认。"
+      ],
+      "dependencies": [
+        "4B57D01EDBC1C4E4",
+        "4B5E6B8B68D9B5DA",
+        "4B558B4335018F20"
+      ],
+      "tasks": [
+        {
+          "id": "4B557715F5575871",
+          "type": "item",
+          "item": "hk3gtl:wfv_processor",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:wfv_processor",
+      "x": 46,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B588D52C7941E89",
+      "title": "WFV 电动马达",
+      "subtitle": "将旧驱动与本阶执行组件合装",
+      "description": [
+        "以两件IWV电动马达为基础，加入梯度路径构型执行头、文明状态检查点核心和分级泄漏隔离阀，再接入本级处理电路，制成WFV电动马达。"
+      ],
+      "dependencies": [
+        "4B556E81648CE5E5",
+        "4B51716ACB713DCE"
+      ],
+      "tasks": [
+        {
+          "id": "4B5208E39917BAEB",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_motor_wfv",
+      "x": 0,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5A4E71F28E7D7B",
+      "title": "WFV 电动活塞",
+      "subtitle": "先有本级马达，再组装直线执行机构",
+      "description": [
+        "将本级马达与两件IWV电动活塞合装，接入梯度路径构型执行头和分级泄漏隔离阀，完成本级活塞。"
+      ],
+      "dependencies": [
+        "4B588D52C7941E89"
+      ],
+      "tasks": [
+        {
+          "id": "4B54A9CD0DA3B9B5",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_piston_wfv",
+      "x": 12,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B549F522A6157BB",
+      "title": "WFV 电动泵",
+      "subtitle": "把驱动、介质回路与状态组件装到一起",
+      "description": [
+        "以两件IWV电动泵为基础，装入本级马达、分级泄漏隔离阀、梯度路径构型执行头与文明状态检查点核心，完成本级泵。"
+      ],
+      "dependencies": [
+        "4B588D52C7941E89"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B10190AEF5AF7",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_pump_wfv",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5E9F7D1509AD77",
+      "title": "WFV 传送带模块",
+      "subtitle": "把输送驱动接入本阶调度接口",
+      "description": [
+        "将两件IWV传送带模块与两件本级马达合装，连接构界拓扑路由片、文明状态检查点核心和执行组件，制成新输送模块。"
+      ],
+      "dependencies": [
+        "4B585480E9BCC91D",
+        "4B588D52C7941E89"
+      ],
+      "tasks": [
+        {
+          "id": "4B54CAC5354C2DFC",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_wfv",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5E853D08F25D97",
+      "title": "WFV 机械臂",
+      "subtitle": "把旋转驱动与直线执行装在同一框架",
+      "description": [
+        "备齐两件本级马达和一件本级活塞，与两件IWV机械臂一起装配，再连接构界拓扑路由片和文明状态检查点核心。"
+      ],
+      "dependencies": [
+        "4B5A4E71F28E7D7B"
+      ],
+      "tasks": [
+        {
+          "id": "4B51753CC7E4C5B6",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_wfv",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B56743739F941C6",
+      "title": "WFV 传感器",
+      "subtitle": "通过本阶接口接出状态读数",
+      "description": [
+        "将两件IWV传感器与构界拓扑路由片、文明状态检查点核心和分级泄漏隔离阀合装，接好本级电路与结构件，制成新传感器。"
+      ],
+      "dependencies": [
+        "4B51716ACB713DCE"
+      ],
+      "tasks": [
+        {
+          "id": "4B51DBE455E6F34B",
+          "type": "item",
+          "item": "hk3gtl:sensor_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_wfv",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5C9068264A5507",
+      "title": "WFV 发射器",
+      "subtitle": "把发射组件接入本阶控制与回路",
+      "description": [
+        "在两件IWV发射器的基础上，加入构界拓扑路由片、文明状态检查点核心、分级泄漏隔离阀和超短脉冲激光器，完成新发射器。"
+      ],
+      "dependencies": [
+        "4B51716ACB713DCE"
+      ],
+      "tasks": [
+        {
+          "id": "4B5853ECFA749B45",
+          "type": "item",
+          "item": "hk3gtl:emitter_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_wfv",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5189A9A37FFDAE",
+      "title": "WFV 力场发生器",
+      "subtitle": "把发射与测量组件汇入场控制",
+      "description": [
+        "先备齐四件本级发射器和两件本级传感器，再与两件IWV力场发生器、本级电路及接口组件一起总装。"
+      ],
+      "dependencies": [
+        "4B56743739F941C6",
+        "4B5C9068264A5507"
+      ],
+      "tasks": [
+        {
+          "id": "4B50B6E50F6B3509",
+          "type": "item",
+          "item": "hk3gtl:field_generator_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_wfv",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5DB4D4BB321C46",
+      "title": "梯度纤维定距套",
+      "subtitle": "为连续纤维划分处理区段",
+      "description": [
+        "用织界多轴复合材制作定距套。后面的连续纤维按这些间距分区上浆，定距套也随材料成品消耗。"
+      ],
+      "dependencies": [
+        "4B5793B57FF95411"
+      ],
+      "tasks": [
+        {
+          "id": "4B57770C2B1F35E1",
+          "type": "item",
+          "item": "hk3gtl:gradient_fiber_sizing_sleeve",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:gradient_fiber_sizing_sleeve",
+      "x": 30,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B523CE7A995B4FF",
+      "title": "梯度纤维上浆浴",
+      "subtitle": "给首批纤维准备新鲜处理液",
+      "description": [
+        "用新鲜载液和固体辅料配制上浆浴，送往纤维拉挤、梯度处理与构型铺设工序。"
+      ],
+      "dependencies": [
+        "4B5793B57FF95411"
+      ],
+      "tasks": [
+        {
+          "id": "4B575B3BA508589B",
+          "type": "custom",
+          "title": "实际完成梯度纤维上浆浴",
+          "tags": [
+            "hk3gtl_quest_wfv_n02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 34,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B54B15FA4260C5F",
+      "title": "实体增强纤维",
+      "subtitle": "先拉出连续纤维束",
+      "description": [
+        "将织界多轴母材制成背衬，与连续纤维芯一同拉挤成束。取得实体增强纤维后，再进行梯度处理。"
+      ],
+      "dependencies": [
+        "4B5DB4D4BB321C46",
+        "4B523CE7A995B4FF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F1108DD6F1001",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_stage_1",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_stage_1",
+      "x": 38,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B57DFA6F5D538B4",
+      "title": "分区梯度处理",
+      "subtitle": "在定距套之间分级上浆",
+      "description": [
+        "按定距套划出的区段处理连续纤维，加入晶界调制颗粒与界面材料，得到实测梯度处理纤维。"
+      ],
+      "dependencies": [
+        "4B54B15FA4260C5F"
+      ],
+      "tasks": [
+        {
+          "id": "4B56BC18682EA6EB",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_stage_2",
+      "x": 42,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B55BC5B3A2076F1",
+      "title": "梯度纤维构型铺设",
+      "subtitle": "让层间连接跨过铺层区域",
+      "description": [
+        "按构型铺放处理好的纤维，加入Z向束连接不同铺层，再用定距套保持间距，制成构型铺设坯。"
+      ],
+      "dependencies": [
+        "4B57DFA6F5D538B4"
+      ],
+      "tasks": [
+        {
+          "id": "4B57EF3F8213F6F4",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_stage_3",
+      "x": 46,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B56476707608210",
+      "title": "构界梯度纤维材标准坯",
+      "subtitle": "封好端口，保留梯度分区",
+      "description": [
+        "封闭构型坯的端口与边缘，再完成冷却和定尺。得到的标准坯继续加工为板、棒、框架、环、箔和复合细线。"
+      ],
+      "dependencies": [
+        "4B55BC5B3A2076F1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F0CE534B43EEC",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_billet",
+      "x": 50,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B52DF9964ED8F7C",
+      "title": "分区梯度铺纤板",
+      "subtitle": "把梯度纤维按区段铺到板面",
+      "description": [
+        "在不同表面区段分别上浆、定距铺纤，制成构界梯度纤维材板。前级背衬和界面材料一起留在成品里。"
+      ],
+      "dependencies": [
+        "4B56476707608210"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AD4EFD637BC36",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_plate",
+      "x": 54,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B5AF78C0F07FAC8",
+      "title": "定距梯度纤维棒",
+      "subtitle": "沿棒轴安排渐变纤维",
+      "description": [
+        "让纤维沿棒轴渐变布置，再用端部定距套固定纤维束，制成梯度纤维棒。"
+      ],
+      "dependencies": [
+        "4B56476707608210"
+      ],
+      "tasks": [
+        {
+          "id": "4B56B6528174A548",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_rod",
+      "x": 54,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B558B4335018F20",
+      "title": "渐变节点纤维框架",
+      "subtitle": "在节点处逐层过渡",
+      "description": [
+        "保留连续梁芯，在框架节点铺设渐变过渡层，制成梯度纤维框架。"
+      ],
+      "dependencies": [
+        "4B5AF78C0F07FAC8"
+      ],
+      "tasks": [
+        {
+          "id": "4B57E87B952ED07E",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_frame",
+      "x": 50,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B58EE50644340CB",
+      "title": "定向缠绕梯度环",
+      "subtitle": "沿环向分区上浆",
+      "description": [
+        "按环向铺设纤维，在接口处逐层过渡，制成用于连接的梯度环。"
+      ],
+      "dependencies": [
+        "4B5AF78C0F07FAC8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DE0500289FB59",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_ring",
+      "x": 46,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B5E50CE2001967B",
+      "title": "分段上浆梯度箔",
+      "subtitle": "把定尺微纤带铺成薄层",
+      "description": [
+        "将已经定尺的微纤带分区铺到薄箔上，保留各区的梯度和封边，制成梯度箔。"
+      ],
+      "dependencies": [
+        "4B52DF9964ED8F7C"
+      ],
+      "tasks": [
+        {
+          "id": "4B50AC143557ECF0",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_foil",
+      "x": 42,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B583DDDF7D38C97",
+      "title": "定距铺纤复合细线",
+      "subtitle": "保持连续线芯并固定端部",
+      "description": [
+        "沿线芯分段上浆、铺设连续纤维，再完成封边和端部固定，制成复合细线。"
+      ],
+      "dependencies": [
+        "4B5AF78C0F07FAC8"
+      ],
+      "tasks": [
+        {
+          "id": "4B53025B09A6C950",
+          "type": "item",
+          "item": "hk3gtl:worldforming_gradient_fiber_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_fine_wire",
+      "x": 38,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B580FDD510DA71E",
+      "title": "WFV机械方块",
+      "subtitle": "把梯度材料装到前级核心壳体上",
+      "description": [
+        "将IWV机械方块装入新的板、框架与连接环，补齐端口、屏蔽和封装材料，完成第一批WFV机械方块。首批材料沿IWV工作电压制造。"
+      ],
+      "dependencies": [
+        "4B52DF9964ED8F7C",
+        "4B558B4335018F20",
+        "4B58EE50644340CB"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F1DF3D6C7D8E4",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_wfv",
+      "x": 34,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B592BD1312EA808",
+      "title": "拆解WFV机械方块",
+      "subtitle": "留下可复用壳体与完整结构件",
+      "description": [
+        "分层拆开WFV机械方块，取回IWV核心壳体和一半完整的板、框架、环。其余主体分成分类废料，专用功能件和封装材料随拆解消耗。"
+      ],
+      "dependencies": [
+        "4B580FDD510DA71E"
+      ],
+      "tasks": [
+        {
+          "id": "4B573554D6997260",
+          "type": "custom",
+          "title": "实际完成拆解WFV机械方块",
+          "tags": [
+            "hk3gtl_quest_wfv_n14"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_iwv",
+      "x": 0,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B5146703249C567",
+      "title": "构界梯度纤维材废料分离",
+      "subtitle": "把可重建组分与尾料分别收集",
+      "description": [
+        "用魂钢工艺溶剂洗脱分类废料的附着物，再进行离心分离。主体按75%回收组分、25%不可回收尾料分开，废溶剂单独接走。"
+      ],
+      "dependencies": [
+        "4B5793B57FF95411"
+      ],
+      "tasks": [
+        {
+          "id": "4B57A52F9B381E2C",
+          "type": "custom",
+          "title": "实际完成构界梯度纤维材废料分离",
+          "tags": [
+            "hk3gtl_quest_wfv_n15"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_recovered_fraction",
+      "x": 4,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B5B9063E57084C5",
+      "title": "重建实体增强纤维",
+      "subtitle": "补新主体并重新投入功能辅料",
+      "description": [
+        "将回收组分与新鲜主体按配方配合，重新投入全部功能辅料，制成实体增强纤维。随后从原来的中间工序继续制造。"
+      ],
+      "dependencies": [
+        "4B5DB4D4BB321C46",
+        "4B523CE7A995B4FF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E41BBC6DCA326",
+          "type": "custom",
+          "title": "实际完成重建实体增强纤维",
+          "tags": [
+            "hk3gtl_quest_wfv_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:worldforming_gradient_fiber_stage_1",
+      "x": 8,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B5A3B7B349E75BF",
+      "title": "构界梯度纤维材尾料封存",
+      "subtitle": "将损坏材料固化为惰性残渣",
+      "description": [
+        "把不可回收尾料固化为灰烬，送往一般灰尘用途。可重建组分从另一出口送回补料工序。"
+      ],
+      "dependencies": [
+        "4B5793B57FF95411"
+      ],
+      "tasks": [
+        {
+          "id": "4B584C6D92028B4F",
+          "type": "custom",
+          "title": "实际完成构界梯度纤维材尾料封存",
+          "tags": [
+            "hk3gtl_quest_wfv_n17"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 12,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B56C50E895C73C6",
+      "title": "巨构载荷转接节点",
+      "subtitle": "把梁、锚和更换接口接成受力节点",
+      "description": [
+        "在已有制造设备中组装巨构载荷转接节点。梁、锚与可更换连接界面先在这里接好，再投入世界维系及巨构设施的主控制造。"
+      ],
+      "dependencies": [
+        "4B53368AA813BE19",
+        "4B58094B09D418D5"
+      ],
+      "tasks": [
+        {
+          "id": "4B5615B0F3B75A2F",
+          "type": "item",
+          "item": "hk3gtl:structural_load_transfer_node",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:structural_load_transfer_node",
+      "x": 0,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B58A95952974374",
+      "title": "世界维系试验平台控制器",
+      "subtitle": "接出维系试件的载荷与能流接口",
+      "description": [
+        "完成RN-WME研究后，在已有装配设备中制造世界维系试验平台控制器。专用组件负责试件的载荷和能流连接，成品随后用于搭建平台。"
+      ],
+      "dependencies": [
+        "4B5B07B90B75E8EC",
+        "4B5944B034A510E0",
+        "4B50F2B1C6384AFB",
+        "4B56C50E895C73C6"
+      ],
+      "tasks": [
+        {
+          "id": "4B59C4248C38ED66",
+          "type": "item",
+          "item": "hk3gtl:i37_world_maintenance_trial_platform",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i37_world_maintenance_trial_platform",
+      "x": 12,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5D34D3CE84E89A",
+      "title": "文明奇观材料合成中心控制器",
+      "subtitle": "为四系功能材料分别供料",
+      "description": [
+        "完成RN-WMS研究，先制造专用供料组件，再总装文明奇观材料合成中心控制器。四系材料的供料接口分别保留。"
+      ],
+      "dependencies": [
+        "4B5793B57FF95411"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F5EAB04531841",
+          "type": "item",
+          "item": "hk3gtl:i40_civilization_wonder_material_synthesis_center",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i40_civilization_wonder_material_synthesis_center",
+      "x": 4,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B563C2684E9ADDF",
+      "title": "奇观构件预制工厂控制器",
+      "subtitle": "为巨构预制件准备定位与承力接口",
+      "description": [
+        "完成RN-WPF研究后，制造奇观构件预制工厂控制器。预制工厂建成后，首座奇观的主控会在这里制造。"
+      ],
+      "dependencies": [
+        "4B5418002D905162"
+      ],
+      "tasks": [
+        {
+          "id": "4B569981C02941EC",
+          "type": "item",
+          "item": "hk3gtl:i42_wonder_component_prefabrication_factory",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i42_wonder_component_prefabrication_factory",
+      "x": 8,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5D42853DBE1968",
+      "title": "文明工程验收方法",
+      "subtitle": "RN-CEE · 实验与正式研究",
+      "description": [
+        "受检物：世界维系工程样本×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。真实检测已知基准件，并验证判定规则能区分合格/不合格样件；只形成验收方法证据；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6120研究积分或WFV电路 × 8、中子素板 × 128支付基准费用；另需36,000 tick与135,107,988,821,114,880 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁文明工程验收中心；验收方法研究不等于取得每座奇观的实际运行证明。"
+      ],
+      "dependencies": [
+        "4B52CD74565E718E"
+      ],
+      "tasks": [
+        {
+          "id": "4B5244CE407F4FC8",
+          "type": "custom",
+          "title": "完成文明工程验收方法",
+          "tags": [
+            "hk3gtl_quest_rn_cee"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:world_maintenance_specimen",
+      "x": 0,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B5793B57FF95411",
       "title": "文明奇观材料",
-      "icon": "hk3gtl:civilization_singularity",
-      "x": 3.0,
-      "y": 3.0,
+      "subtitle": "RN-WMS · 实验与正式研究",
       "description": [
-        "从实际维系原型的材料工况出发，研究文明奇观需要的材料。魂钢与加工介质仍然是基础，不必丢下已经建好的产线。",
-        "",
-        "解锁文明奇观材料合成中心起步巨构材料，避免用目标奇观自产材料造首座奇观。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "世界维系试验平台实际维系原型的材料工况记录、魂钢重构退火炉/魂钢精密加工中心可达魂钢、前级可得加工介质。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S04或更高等级研究所选择“文明奇观材料”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：世界维系试验、魂钢精密加工。",
-        "基础研究费用：5380点；8 × IWV级电路；120 × 中子素板。",
-        "基础工期：28分钟；研究用电：33,776,997,205,278,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：世界维系工程样本×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。试片真实制造并完成维系条件下的适配检测，不能将检测件当正式复合材料使用；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择5380研究积分或IWV电路 × 8、中子素板 × 120支付基准费用；另需33,600 tick与33,776,997,205,278,720 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁文明奇观材料合成中心起步巨构材料，避免用目标奇观自产材料造首座奇观。"
+      ],
+      "dependencies": [
+        "4B5A173AE878AE95"
       ],
       "tasks": [
         {
           "id": "4B58A1F33D3C2C30",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成文明奇观材料",
           "tags": [
             "hk3gtl_quest_rn_wms"
           ]
         }
       ],
-      "dependencies": [
-        "4B5B07B90B75E8EC",
-        "4B560A45C8B1AB68"
-      ],
-      "subtitle": "S04 · RN-WMS",
-      "shape": "rsquare"
+      "icon": "hk3gtl:civilization_singularity",
+      "x": 4,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B5418002D905162",
       "title": "奇观构件预制",
-      "icon": "hk3gtl:extreme_casting_material",
-      "x": 6.0,
-      "y": 0.0,
+      "subtitle": "RN-WPF · 实验与正式研究",
       "description": [
-        "复合材料准备好以后，用精密件和模具开展构件预制。先把标准构件做好，再把它们送去更大的工程。",
-        "",
-        "解锁奇观构件预制工厂各系列预制构件。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "文明奇观材料合成中心已能制造的起步复合材料、魂钢精密加工加工件、前级模具。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S04或更高等级研究所选择“奇观构件预制”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明奇观材料。",
-        "基础研究费用：5380点；8 × IWV级电路；120 × 中子素板。",
-        "基础工期：28分钟；研究用电：33,776,997,205,278,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：高维导能复合材料×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。实际完成接口、公差与承载试片检测，关联文明奇观材料合成中心产物批次；试片不是奇观控制器；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择5380研究积分或IWV电路 × 8、中子素板 × 120支付基准费用；另需33,600 tick与33,776,997,205,278,720 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁奇观构件预制工厂各系列预制构件。"
+      ],
+      "dependencies": [
+        "4B5C61FAC45F68A8"
       ],
       "tasks": [
         {
           "id": "4B543BBCB8E79D3B",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成奇观构件预制",
           "tags": [
             "hk3gtl_quest_rn_wpf"
           ]
         }
       ],
-      "dependencies": [
-        "4B5793B57FF95411"
-      ],
-      "subtitle": "S04 · RN-WPF",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B5DFA859FEC680D",
-      "linked_quest": "4B5E3DA7F13B68CF",
-      "x": 0.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5A69230179DBB3",
-      "linked_quest": "4B5A07D34090C572",
-      "x": 3.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B520D31A1BA0F9D",
-      "linked_quest": "4B560A45C8B1AB68",
-      "x": 6.0,
-      "y": -8.0
+      "icon": "hk3gtl:extreme_casting_material",
+      "x": 8,
+      "y": 42,
+      "optional": false
     }
   ]
 }

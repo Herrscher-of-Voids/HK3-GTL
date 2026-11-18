@@ -4,7 +4,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-/** 【变更记录 #1】2026-10-01 05:56:06（修订128）：删除无；新增叶荫下首次打开手机与四月雨中关屏仰望；修改无；用途：天气、视向和上方遮挡由服务器核验，不改变界面或天气。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggPhoneWeather {
     private Hk3EggPhoneWeather(){}

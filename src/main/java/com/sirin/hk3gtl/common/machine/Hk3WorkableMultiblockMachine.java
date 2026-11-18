@@ -1,19 +1,18 @@
 package com.sirin.hk3gtl.common.machine;
 
-/**
- * 【文件职责／本轮边界】持久化独立研究团队归属；离队不迁移机器，重绑要求原队权限且无进行中的批次或研究。
- * 【变更记录 #1】2026-09-29 21:06:40（第 1 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：持久化独立研究团队归属；离队不迁移机器，重绑要求原队权限且无进行中的批次或研究。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
 
 /** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.feature.IMachineLife;
@@ -74,52 +73,51 @@ import java.util.UUID;
  *   <li>若新增黑名单仓类型：修改 {@link #hasCreativeHatch()} 中的 contains 关键字</li>
  *   <li>若需接入更多"成型事件"：在 {@link #notifyMultiblockEvent()} 中扩展分发</li>
  *   <li>建议所有本模组的 MultiblockMachine 继承此类，而不是直接继承 GT 原版</li>
- *   <li>{@link #notifyMultiblockEvent()} 使用 try/catch 兜底避免单个异常导致整个结构成型崩溃</li>
  *   <li>寻找最近玩家时使用 64 格距离阈值避免给离线 / 远处玩家误派事件</li>
  * </ul>
  */
-/**
- * 【变更记录 #2】2026-09-30 15:50:54（内测5修订109）
- * 删除：无。新增：稳定锚提供者的加载登记与卸载清理。
- * 修改：不凭控制器名称登记普通机器；用途：研究按位置查询有效锚，不批准新结构。
- */
+ 
+
+
+
+
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-/**
- * 【变更记录 #3】2026-10-01 17:33:35（修订138）
- * 删除：单配方工厂返回未检查实际tick提交的原始执行器；新增：Hk3RecipeLogic共用入口。
- * 修改：单配方与多配方都传播实际提交失败；用途：保持所有本模组配方机器一致，不改研究所独立队列。
- */
-/**
- * 【变更记录 #4】2026-10-15 02:59:25（第4次备注 · 香港时间 · 内测5修订159）
- * 删除：本模组直接匹配及朝向更新绕过GT结构锁的并发入口；不删除GT异步扫描或匹配规则。
- * 新增：三种匹配入口与两种朝向更新共用父类每台控制器结构锁，异常时也在finally释放。
- * 修改：原始匹配仍调用pattern.checkPatternAt(state,false)，尝试检查不能取锁时立即返回false。
- * 用途：防止服务器朝向检查与后台扫描同时写同一个匹配上下文；同线程重入及预览假世界沿用原语义。
- */
-/**
- * 【变更记录 #5】2026-10-17 16:27:36（第5次备注 · 修订165）
- * 删除：显式高阶工况经第三方double超频/部件倍率产生饱和费用的路径。
- * 新增：固定工况原值副本入口；修改：标记配方只由HK精确并行规划器倍乘，未标记配方保持原超频行为。
- * 用途：额定要求、工时与计费基准一致，不把高阶价码经舍入变成免费产能，不新增机器或硬件。
- */
-/**
- * 【变更记录 #6】2026-10-19 02:09:59（第6次备注 · 修订171）
- * 删除：无，保留全部研究归属和工作逻辑。
- * 新增：总览索引随真实加载、放置、研究归属重绑及方块拆除同步。
- * 修改：卸载仅保留未加载快照，重绑成功后立即撤销旧队可见性；成型和失效仅提交只读观察。
- * 用途：以本类持久研究团队为权威归属，不按附近玩家或当前在线队伍重新分配机器。
- */
-/**
- * 【变更记录 #7】2026-10-19 02:19:20（第7次备注 · 修订171）
- * 删除：加载和放置回调内的提前索引写入。
- * 新增：无；修改：两类回调统一由总览GT钩子下tick重验同一BE后登记，已授权研究重绑仍立即登记。
- * 用途：Forge取消放置及回滚不提前改归属；普通卸载保留快照，重绑即时撤旧队可见性。
- */
-/**
- * 【变更记录 #8】2026-11-04 21:04:10（内测5修订200）
- * 删除：无。新增：真实拆除回调立即撤销本实例稳定源登记。
- * 修改：复用实例身份注销；用途：不等待区块卸载清理已拆除源，保留原生命周期处理。
- */
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
 public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMachine implements IMachineLife, IDualEnergyConsumer {
 
     /** 高阶固定工况不经过第三方浮点超频；后续合并仍允许在真实供能预算内精确并行。 */
@@ -131,6 +129,7 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
 
     /** 原始入口也持锁，覆盖GT朝向更新和其他直接匹配调用；不改变判定与空模式行为。 */
     @Override public boolean checkPattern() {
+        if(com.sirin.hk3gtl.common.multiblock.loading.Hk3MultiblockLoading.intercept(this))return false;
         return Hk3PatternLock.withLock(getPatternLock(), () -> {
             var pattern = getPattern();
             return pattern != null && pattern.checkPatternAt(getMultiblockState(), false);
@@ -216,6 +215,9 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
     @Nullable
     private UUID ownerUUID;
     @Persisted @Nullable private UUID researchTeamUUID;
+    @Persisted private UUID probabilityIdentity = UUID.randomUUID();
+
+    public UUID getProbabilityIdentity() { return probabilityIdentity; }
 
     /** 玩家电网 EU 特征：构造期挂载（MachineTrait 构造器自动 attachTraits），成型时被 GT 注入 EU IN 代理 */
     @SuppressWarnings("unused")
@@ -348,30 +350,16 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
         }
         // 需求 13 Phase A：扫描并缓存结构区域内的崩坏能仓，供子类机器 tick 使用
         scanHonkaiHatches();
+        com.sirin.hk3gtl.common.easter.Hk3EggEngineering.formed(this, ownerUUID);
         notifyMultiblockEvent();
         com.sirin.hk3gtl.common.overview.Hk3MachineOverviewHooks.changed(this);
 
-        // Phase 5 诊断：成型时输出控制器 + appearance + parts 数量，便于定位贴图问题
-        try {
-            String machineId = getDefinition().getId().toString();
-            String appearanceId = "?";
-            try {
-                var appearance = getDefinition().getAppearance();
-                if (appearance != null) {
-                    var st = appearance.get();
-                    if (st != null && st.getBlock() != null) {
-                        appearanceId = String.valueOf(net.minecraftforge.registries.ForgeRegistries.BLOCKS.getKey(st.getBlock()));
-                    }
-                }
-            } catch (Throwable ignored) {}
-            int partCount = 0;
-            try { partCount = getParts().size(); } catch (Throwable ignored) {}
-            LOGGER.info("[HK3GTL][texture-debug] formed machine={} appearanceBlock={} parts={} pos={}",
-                    machineId, appearanceId, partCount,
-                    (getHolder() instanceof BlockEntity be ? be.getBlockPos() : "?"));
-        } catch (Throwable ignored) {
-            // 诊断 LOG 失败不应影响成型流程
-        }
+        var appearance = getDefinition().getAppearance();
+        String appearanceId = appearance == null ? "?" : String.valueOf(
+                net.minecraftforge.registries.ForgeRegistries.BLOCKS.getKey(appearance.get().getBlock()));
+        LOGGER.info("[HK3GTL][texture-debug] formed machine={} appearanceBlock={} parts={} pos={}",
+                getDefinition().getId(), appearanceId, getParts().size(),
+                (getHolder() instanceof BlockEntity be ? be.getBlockPos() : "?"));
     }
 
     @Override
@@ -387,22 +375,17 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
      * <p>现在崩坏能仓已经升级为 GTCEu 原生 PartMachine，直接遍历 getParts() 即可拿到。</p>
      */
     private void scanHonkaiHatches() {
-        try {
-            List<HonkaiEnergyHatchPartMachine> hits = new ArrayList<>();
-            for (IMultiPart part : getParts()) {
-                if (part instanceof HonkaiEnergyHatchPartMachine hatch) {
-                    hits.add(hatch);
-                }
+        List<HonkaiEnergyHatchPartMachine> hits = new ArrayList<>();
+        for (IMultiPart part : getParts()) {
+            if (part instanceof HonkaiEnergyHatchPartMachine hatch) {
+                hits.add(hatch);
             }
-            honkaiHatches = List.copyOf(hits);
+        }
+        honkaiHatches = List.copyOf(hits);
 
-            if (!hits.isEmpty()) {
-                LOGGER.info("[HK3GTL] 多方块 {} 识别到 {} 个崩坏能仓",
-                        getDefinition().getId().getPath(), hits.size());
-            }
-        } catch (Exception e) {
-            LOGGER.warn("[HK3GTL] 崩坏能仓扫描失败", e);
-            honkaiHatches = Collections.emptyList();
+        if (!hits.isEmpty()) {
+            LOGGER.info("[HK3GTL] 多方块 {} 识别到 {} 个崩坏能仓",
+                    getDefinition().getId().getPath(), hits.size());
         }
     }
 
@@ -411,18 +394,14 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
      * 仅使用持久化 ownerUUID；未绑定、owner 离线或不在当前维度时不猜测归属。
      */
     private void notifyMultiblockEvent() {
-        try {
-            if (ownerUUID == null || !(getHolder() instanceof BlockEntity be)) return;
-            Level level = be.getLevel();
-            if (!(level instanceof ServerLevel serverLevel)) return;
+        if (ownerUUID == null || !(getHolder() instanceof BlockEntity be)) return;
+        Level level = be.getLevel();
+        if (!(level instanceof ServerLevel serverLevel)) return;
 
-            ServerPlayer owner = serverLevel.getServer().getPlayerList().getPlayer(ownerUUID);
-            if (owner == null || owner.level() != serverLevel) return;
+        ServerPlayer owner = serverLevel.getServer().getPlayerList().getPlayer(ownerUUID);
+        if (owner == null || owner.level() != serverLevel) return;
 
-            Hk3EventManager.onMultiblockFormed(owner, getDefinition().getId().getPath());
-        } catch (Exception e) {
-            LOGGER.warn("[HK3GTL] 多方块事件通知失败", e);
-        }
+        Hk3EventManager.onMultiblockFormed(owner, getDefinition().getId().getPath());
     }
 
     /**
@@ -431,35 +410,31 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
     @Override
     public void addDisplayText(List<Component> textList) {
         super.addDisplayText(textList);
-        try {
-            // 无限并行 + 无限跨配方能力标注：仅对启用多配方逻辑（enableMultiRecipe()==true）的制造类机器显示，
-            // 研究矩阵 / 崩坏能转换器等重写为 false 的非配方机器不显示，避免错标。
-            if (enableMultiRecipe()) {
-                textList.add(Component.translatable("hk3gtl.machine.unlimited_parallel_cross_recipe")
-                        .withStyle(net.minecraft.ChatFormatting.AQUA));
+        // 无限并行 + 无限跨配方能力标注：仅对启用多配方逻辑（enableMultiRecipe()==true）的制造类机器显示，
+        // 研究矩阵 / 崩坏能转换器等重写为 false 的非配方机器不显示，避免错标。
+        if (enableMultiRecipe()) {
+            textList.add(Component.translatable("hk3gtl.machine.unlimited_parallel_cross_recipe")
+                    .withStyle(net.minecraft.ChatFormatting.AQUA));
+        }
+        if (ownerUUID == null) {
+            textList.add(Component.translatable("hk3gtl.machine.player_grid.unbound"));
+        } else if (getLevel() != null) {
+            textList.add(Component.translatable("hk3gtl.machine.player_grid.bound",
+                    com.hepdd.gtmthings.utils.TeamUtil.GetName(getLevel(), ownerUUID)));
+        }
+        // 双能源机器：显示每 tick 崩坏能消耗 + 当前网络余额
+        long honkaiCost = Hk3DualEnergyCosts.getMachineDefault(getDefinition().getId().getPath());
+        if (honkaiCost > 0) {
+            BigInteger balance = ownerUUID == null ? BigInteger.ZERO : HonkaiWirelessNetwork.getStoredAmount(ownerUUID);
+            BigInteger defaultCost = BigInteger.valueOf(honkaiCost);
+            textList.add(Component.translatable("hk3gtl.machine.dual_energy.cost",
+                    Hk3HonkaiEnergyFormatter.formatEngineering(defaultCost, 4),
+                    Hk3HonkaiEnergyFormatter.formatCompact(balance))
+                    .withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
+            if (ownerUUID != null && balance.compareTo(defaultCost) < 0) {
+                textList.add(Component.translatable("hk3gtl.machine.dual_energy.insufficient")
+                        .withStyle(net.minecraft.ChatFormatting.RED));
             }
-            if (ownerUUID == null) {
-                textList.add(Component.translatable("hk3gtl.machine.player_grid.unbound"));
-            } else if (getLevel() != null) {
-                textList.add(Component.translatable("hk3gtl.machine.player_grid.bound",
-                        com.hepdd.gtmthings.utils.TeamUtil.GetName(getLevel(), ownerUUID)));
-            }
-            // 双能源机器：显示每 tick 崩坏能消耗 + 当前网络余额
-            long honkaiCost = Hk3DualEnergyCosts.getMachineDefault(getDefinition().getId().getPath());
-            if (honkaiCost > 0) {
-                BigInteger balance = ownerUUID == null ? BigInteger.ZERO : HonkaiWirelessNetwork.getStoredAmount(ownerUUID);
-                BigInteger defaultCost = BigInteger.valueOf(honkaiCost);
-                textList.add(Component.translatable("hk3gtl.machine.dual_energy.cost",
-                        Hk3HonkaiEnergyFormatter.formatEngineering(defaultCost, 4),
-                        Hk3HonkaiEnergyFormatter.formatCompact(balance))
-                        .withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
-                if (ownerUUID != null && balance.compareTo(defaultCost) < 0) {
-                    textList.add(Component.translatable("hk3gtl.machine.dual_energy.insufficient")
-                            .withStyle(net.minecraft.ChatFormatting.RED));
-                }
-            }
-        } catch (Throwable ignored) {
-            // 显示行失败不影响 GUI 主体
         }
     }
 
@@ -522,4 +497,4 @@ public class Hk3WorkableMultiblockMachine extends WorkableElectricMultiblockMach
 
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

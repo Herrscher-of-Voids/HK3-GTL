@@ -1,576 +1,1258 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_06",
-  "id": "4B526FA8D646A274",
-  "title": "HK3GTL · QCV · 相干压",
+  "id": "4B515114941CD050",
+  "title": "相干压 QCV",
   "subtitle": [
-    "Tier20 · 核心成为工具"
+    "Tier20-QCV"
   ],
-  "group": "",
-  "order_index": 20,
-  "icon": "hk3gtl:electric_motor_qcv",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 21,
+  "icon": "hk3gtl:voltage_machine_casing_qcv",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B5B61AE0F110DB9",
-      "title": "核心成为工具",
+      "id": "4B5A4EE36C5768ED",
+      "title": "从QSV车间继续",
+      "subtitle": "QSV → QCV",
+      "description": [
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批QCV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
+      ],
+      "dependencies": [
+        "4B531C5843C8CA9D"
+      ],
+      "tasks": [
+        {
+          "id": "4B590A81896539BC",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_qsv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qsv",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5F27DFD542861F",
+      "title": "干涉光程路由片",
+      "subtitle": "安排等长光程与对准窗口",
+      "description": [
+        "在前级接口上制备光程栅格，留好可对准窗口。参考与工作信号从各自的光路进入后续解码模块。"
+      ],
+      "dependencies": [
+        "4B5CF6430127290A",
+        "4B54610F11B937EC",
+        "4B59AFFCBEEBAFF8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FD6931665DA56",
+          "type": "item",
+          "item": "hk3gtl:interferometric_path_router",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:interferometric_path_router",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B560E71B07461A1",
+      "title": "相位差解码模块",
+      "subtitle": "读取光程差，展开相位变化",
+      "description": [
+        "将路由片接入局部计算、存储和时序部件，封成相位差解码模块。后续电路与执行件据此读取相位变化。"
+      ],
+      "dependencies": [
+        "4B5F27DFD542861F",
+        "4B5BC89DB94CBBA1",
+        "4B5FB4B284823B4C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E95434497E6CE",
+          "type": "item",
+          "item": "hk3gtl:phase_difference_decoder",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:phase_difference_decoder",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B51D710544E9513",
+      "title": "光栅闭环驱动包",
+      "subtitle": "让光栅读数参与定位",
+      "description": [
+        "给前级支承加入光栅编码与闭环执行部件，制成可独立安装的驱动包。"
+      ],
+      "dependencies": [
+        "4B560E71B07461A1",
+        "4B52A38ECBBC7D1B",
+        "4B5A550E2AF96DEE"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C65BBAA6995FD",
+          "type": "item",
+          "item": "hk3gtl:optical_encoder_drive_pack",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:optical_encoder_drive_pack",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B578111155CA2B0",
+      "title": "真空回流隔离歧管",
+      "subtitle": "隔开回流，并维持气密均温",
+      "description": [
+        "在前级管路上增加独立回流支路与隔壁。封好气密接口，给电路与执行件提供相应温控通路。"
+      ],
+      "dependencies": [
+        "4B5BC89DB94CBBA1",
+        "4B5CF6430127290A",
+        "4B545B327CB61E76"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CA62F434F0B03",
+          "type": "item",
+          "item": "hk3gtl:vacuum_return_flow_manifold",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:vacuum_return_flow_manifold",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5193E0D06811F7",
+      "title": "QCV 崩能谐振处理器主机",
+      "subtitle": "光程路由、相位差解码与独立回流",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成崩能谐振处理器主机。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B560E71B07461A1",
+        "4B578111155CA2B0",
+        "4B52A38ECBBC7D1B",
+        "4B50F0CCA9C3439A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C4E52F21F4DFC",
+          "type": "item",
+          "item": "hk3gtl:honkai_resonance_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:honkai_resonance_processor_mainframe",
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5FD77A9DD44CF7",
+      "title": "QCV 量子桥接超级计算机",
+      "subtitle": "光程路由、相位差解码与独立回流",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成量子桥接超级计算机。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B560E71B07461A1",
+        "4B578111155CA2B0",
+        "4B52A38ECBBC7D1B",
+        "4B5448698C68C1AF"
+      ],
+      "tasks": [
+        {
+          "id": "4B599B2FDFA485D3",
+          "type": "item",
+          "item": "hk3gtl:quantum_bridge_computer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:quantum_bridge_computer",
+      "x": 50,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B512C65CEF4309B",
+      "title": "QCV 量子相干处理器组装件",
+      "subtitle": "光程路由、相位差解码与独立回流",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成量子相干处理器组装件。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B560E71B07461A1",
+        "4B578111155CA2B0",
+        "4B52A38ECBBC7D1B"
+      ],
+      "tasks": [
+        {
+          "id": "4B53D41D0D7716A5",
+          "type": "item",
+          "item": "hk3gtl:qcv_assembly",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
       "icon": "hk3gtl:qcv_assembly",
-      "x": 0.0,
-      "y": -4.0,
+      "x": 54,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B520FFA3A70A471",
+      "title": "QCV 量子干涉处理器",
+      "subtitle": "光程路由、相位差解码与独立回流",
       "description": [
-        "结晶已经有了明确的性质，现在要把它们装进能够工作的部件里。",
-        "",
-        "一边完善气态采集、热管理与电路工况，一边研究神之键装配。千界一乘的空间测量会把路线带向下一页。",
-        "{@pagebreak}",
-        "本页是QCV · 相干压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成量子干涉处理器。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B560E71B07461A1",
+        "4B578111155CA2B0",
+        "4B52A38ECBBC7D1B"
       ],
       "tasks": [
         {
-          "id": "4B5152DAB7A36D51",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_intro_06"
-          ]
+          "id": "4B5C00D925CF6E80",
+          "type": "item",
+          "item": "hk3gtl:quantum_interference_processor",
+          "count": 1,
+          "consume_items": false
         }
       ],
-      "size": 2.0,
-      "shape": "rsquare"
+      "icon": "hk3gtl:quantum_interference_processor",
+      "x": 54,
+      "y": 12,
+      "optional": false
     },
     {
-      "id": "4B52C548C4B7ED90",
-      "title": "电路与八大件",
+      "id": "4B510190BA9A5D97",
+      "title": "QCV 电动马达",
+      "subtitle": "提供独立的旋转驱动",
+      "description": [
+        "将前级马达与本段承力、反馈部件总装，为后续设备备好旋转驱动。"
+      ],
+      "dependencies": [
+        "4B51D710544E9513",
+        "4B512C65CEF4309B",
+        "4B540596FFF57D7E"
+      ],
+      "tasks": [
+        {
+          "id": "4B56FF42AC39B6F7",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
       "icon": "hk3gtl:electric_motor_qcv",
-      "x": -4.0,
-      "y": -4.0,
-      "description": [
-        "进入QCV · 相干压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5D49E53F69726E",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_06"
-          ]
-        }
-      ]
+      "x": 50,
+      "y": 12,
+      "optional": false
     },
     {
-      "id": "4B5F116FA97D7110",
-      "title": "神之键部件装配",
-      "icon": "hk3gtl:divine_key_housing",
-      "x": 0.0,
-      "y": 0.0,
+      "id": "4B55A44A3D4741F4",
+      "title": "QCV 电动活塞",
+      "subtitle": "把驱动转换成受控直线运动",
       "description": [
-        "核心准备好了，装配还需要封装件、魂钢精密件和隔离工装。先掌握共用的神之键部件装配，再进入不同成品分支。",
-        "",
-        "解锁仿制神之键装配中心；具体神之键仍需对应专项课题。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "电路封装与工况测试封装件、魂钢精密加工魂钢精密件、仿制空核心已可造的空核心和隔离工装。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S02或更高等级研究所选择“神之键部件装配”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：电路封装与工况测试、仿制空核心。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "将前级活塞与本段定位、反馈部件总装，用于后续设备的受控推拉。"
+      ],
+      "dependencies": [
+        "4B510190BA9A5D97",
+        "4B56A2D62637B307"
       ],
       "tasks": [
         {
-          "id": "4B5E1D8FEFFC3D25",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_dke"
-          ]
+          "id": "4B58E8875AA6379C",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_qcv",
+          "count": 1,
+          "consume_items": false
         }
+      ],
+      "icon": "hk3gtl:electric_piston_qcv",
+      "x": 38,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B57494A173A8C55",
+      "title": "QCV 电动泵",
+      "subtitle": "为独立流路提供输送动力",
+      "description": [
+        "将前级泵与本段流路、反馈部件总装，接续后续设备的流体输送。"
+      ],
+      "dependencies": [
+        "4B510190BA9A5D97",
+        "4B540D45EA680892"
+      ],
+      "tasks": [
+        {
+          "id": "4B5299EC958CDC0C",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_pump_qcv",
+      "x": 34,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B510E092A9EA041",
+      "title": "QCV 传送带模块",
+      "subtitle": "连续移送已有产线中的物料",
+      "description": [
+        "将前级传送部件与本段驱动、读出结构总装，为后续设备备好连续移载组件。"
+      ],
+      "dependencies": [
+        "4B510190BA9A5D97",
+        "4B55D47F3B4611E4"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DC7F96F1A9305",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_qcv",
+      "x": 30,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B50C62B53949BDD",
+      "title": "QCV 机械臂",
+      "subtitle": "把定位和执行接到同一部件",
+      "description": [
+        "将前级机械臂与本段承力、定位和反馈结构总装，供后续装配与移载设备使用。"
+      ],
+      "dependencies": [
+        "4B55A44A3D4741F4",
+        "4B5A4C311E407536"
+      ],
+      "tasks": [
+        {
+          "id": "4B59594949AA6B83",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_qcv",
+      "x": 34,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5934F5CF3D7D6B",
+      "title": "QCV 传感器",
+      "subtitle": "把测量结果送入本级控制",
+      "description": [
+        "将前级传感器与本段接口、读出结构总装，保留独立的采样与反馈部件。"
+      ],
+      "dependencies": [
+        "4B512C65CEF4309B",
+        "4B5DBB54FFD6AAAB"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B1C126FE609C9",
+          "type": "item",
+          "item": "hk3gtl:sensor_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_qcv",
+      "x": 46,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5CE40EEEBE5CBD",
+      "title": "QCV 发射器",
+      "subtitle": "为本级设备准备发射部件",
+      "description": [
+        "将前级发射器与本段接口、承力和控制结构总装，供后续设备装配。"
+      ],
+      "dependencies": [
+        "4B512C65CEF4309B",
+        "4B59BB6EDF618991"
+      ],
+      "tasks": [
+        {
+          "id": "4B56175A8B4353A1",
+          "type": "item",
+          "item": "hk3gtl:emitter_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_qcv",
+      "x": 42,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B54A60A7117D269",
+      "title": "QCV 力场发生器",
+      "subtitle": "为本级设备准备力场部件",
+      "description": [
+        "将前级力场发生器与本段控制、支承结构总装，接续后续设备的力场部件需求。"
+      ],
+      "dependencies": [
+        "4B5934F5CF3D7D6B",
+        "4B5CE40EEEBE5CBD",
+        "4B51555675FC5DC0"
+      ],
+      "tasks": [
+        {
+          "id": "4B53954CC3037FE1",
+          "type": "item",
+          "item": "hk3gtl:field_generator_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_qcv",
+      "x": 30,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5E91E8EB7C1BE8",
+      "title": "相位匹配微栅隔距片",
+      "subtitle": "先把相邻导路的间距固定下来",
+      "description": [
+        "由前级材料制成独立隔距片。它会随主材工序消耗，用来固定微栅之间的距离。"
       ],
       "dependencies": [
         "4B5407261AA82797",
-        "4B5FE5619D5A09F9"
-      ],
-      "subtitle": "S02 · RN-DKE",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B5BE09A16080469",
-      "title": "受控演算优化",
-      "icon": "hk3gtl:research_point_computer",
-      "x": 0.0,
-      "y": 3.0,
-      "description": [
-        "用同一个固定演算任务比较结果，并准备侵蚀核心和控制回路。先有可信的对照，再讨论演算优化带来了什么变化。",
-        "",
-        "启用侵蚀研究加速模块；不把研究产点和研究速度混为同一指标。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制侵蚀核心已可造侵蚀核心、电路封装与工况测试控制回路、同一固定演算任务及已有普通研究结果。",
-        "",
-        "按JEI查找对应工艺，在第2级研究所完成对应实验后，到S02或更高等级研究所选择“受控演算优化”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：仿制侵蚀核心、电路封装与工况测试。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "4B54533414333ADC",
+        "4B5012D169BAEF41"
       ],
       "tasks": [
         {
-          "id": "4B5823F48E9645F3",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_erm"
-          ]
+          "id": "4B59592FE1BBC3A1",
+          "type": "item",
+          "item": "hk3gtl:phase_matched_mesh_spacer",
+          "count": 32,
+          "consume_items": false
         }
+      ],
+      "icon": "hk3gtl:phase_matched_mesh_spacer",
+      "x": 0,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5CA675A5D88771",
+      "title": "低温微栅浸润液",
+      "subtitle": "给微孔与介质涂覆准备新液",
+      "description": [
+        "以新料配制浸润液，供微栅界面工艺使用。把供液与排液分别接好，再开始连续涂覆。"
       ],
       "dependencies": [
-        "4B5B5795A0A0443D",
-        "4B5407261AA82797"
-      ],
-      "subtitle": "S02 · RN-ERM",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B5D74C9ED85BF0E",
-      "title": "气态崩坏能采集",
-      "icon": "hk3gtl:gaseous_honkai_detector",
-      "x": 0.0,
-      "y": 6.0,
-      "description": [
-        "液态与固态采集有了经验，下一步是更难控制的气态样本。准备封闭场试件，并先保证中型反应堆阶段的供电条件。",
-        "",
-        "解锁三阶塔与对应气态探测器。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "液态与固态采集回执、前级魂钢封闭场试件、中型反应堆工程后的可用供电。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S02或更高等级研究所选择“气态崩坏能采集”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：固态崩坏能采集、中型反应堆工程。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "4B5407261AA82797",
+        "4B54533414333ADC"
       ],
       "tasks": [
         {
-          "id": "4B5A3D3173B11772",
+          "id": "4B530938400DA574",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成低温微栅浸润液",
           "tags": [
-            "hk3gtl_quest_rn_gsc"
+            "hk3gtl_quest_qcv_n02"
           ]
         }
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B58F3AE0A156170",
+      "title": "相干导体微栅",
+      "subtitle": "在叠层基体上排列独立导路",
+      "description": [
+        "用完整QSV叠层基体承力，逐条排列并键合导路。隔距片固定间距，随后再处理低温介质层。"
       ],
       "dependencies": [
-        "4B5BD9A686D81920",
-        "4B544DD9CC0A571D"
-      ],
-      "subtitle": "S02 · RN-GSC",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B535AC10CB8CB3B",
-      "title": "仿制的千界一乘",
-      "icon": "hk3gtl:imitation_cosmic_juggernaut",
-      "x": 3.0,
-      "y": 0.0,
-      "description": [
-        "把仿制空核心和空间测量工装带到装配流程中。千界一乘这条路线会继续指向量子观测，先让基础测量可靠起来。",
-        "",
-        "解锁信标与静止列车两座结构；终审维度排除，神之键在配方中不消耗。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制空核心已可造空核心、仿制神之键装配中心基础装配件、前序空间测量工装。",
-        "",
-        "按JEI查找对应工艺，在仿制神之键装配中心完成对应实验后，到S02或更高等级研究所选择“仿制的千界一乘”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：神之键部件装配、仿制空核心。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "4B5E91E8EB7C1BE8"
       ],
       "tasks": [
         {
-          "id": "4B5E3A961B2A4F29",
+          "id": "4B5F3C8F6750345C",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_stage_1",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_stage_1",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B52D241D26A10D2",
+      "title": "低温介质涂覆坯",
+      "subtitle": "先浸润微孔，再贴绝缘膜",
+      "description": [
+        "处理微栅中的微孔，完成介质涂覆与贴膜。将排出的气体、工艺废液和废界面载液分别收集。"
+      ],
+      "dependencies": [
+        "4B5CA675A5D88771",
+        "4B58F3AE0A156170"
+      ],
+      "tasks": [
+        {
+          "id": "4B55DE9BC185E438",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_stage_2",
+      "x": 12,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5EA01A941CA282",
+      "title": "隔离封装栅格坯",
+      "subtitle": "各分区保留各自的贯穿连接",
+      "description": [
+        "接好独立贯穿阵列与分区屏蔽，封装导体微栅。各导路在封装后保持分隔，接着完成缓冷与定尺。"
+      ],
+      "dependencies": [
+        "4B52D241D26A10D2"
+      ],
+      "tasks": [
+        {
+          "id": "4B55EAF2ADDBDA78",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_stage_3",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B506BABD8501C6F",
+      "title": "相干互连栅格材标准坯",
+      "subtitle": "检查端部，完成缓冷与定尺",
+      "description": [
+        "缓冷栅格坯，补强并封好定尺端部。标准坯接着加工成六种工程形态，热冷却液引回处理。"
+      ],
+      "dependencies": [
+        "4B5EA01A941CA282"
+      ],
+      "tasks": [
+        {
+          "id": "4B5844B6DACA9C6E",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_billet",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5C19467E9C025E",
+      "title": "相干互连栅格材板",
+      "subtitle": "保留板面的并列微栅",
+      "description": [
+        "压合标准坯，接上背衬和独立接点。板面保持并列导路，供机壳与平台结构使用。"
+      ],
+      "dependencies": [
+        "4B506BABD8501C6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D5B6A33B2BF51",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_plate",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B50A4D83DED0382",
+      "title": "相干互连栅格材棒",
+      "subtitle": "沿棒芯保留贯通导路",
+      "description": [
+        "将标准坯与前级棒材复合，沿轴向安排微栅并在外层绝缘。后续框架、环和细线继续加工。"
+      ],
+      "dependencies": [
+        "4B506BABD8501C6F",
+        "4B55AA0198FA5388"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A9370475589F5",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_rod",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B52A38ECBBC7D1B",
+      "title": "相干互连栅格材框架",
+      "subtitle": "角接头也要留出独立贯穿",
+      "description": [
+        "将棒材接到前级框架，给角接头配置贯穿阵列。让完整框架承力，同时保留各自的导路。"
+      ],
+      "dependencies": [
+        "4B50A4D83DED0382",
+        "4B55E5EFF3DE4A90"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A07DE878DF16D",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_frame",
+      "x": 20,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5BC89DB94CBBA1",
+      "title": "相干互连栅格材环",
+      "subtitle": "按径向间距隔开环道",
+      "description": [
+        "沿接口环分布独立导电环道，用隔距与介质层保持分隔。完成接点后送往机壳总装。"
+      ],
+      "dependencies": [
+        "4B50A4D83DED0382",
+        "4B5451646EFDB638"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A1C4EB8A1376E",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_ring",
+      "x": 16,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5CF6430127290A",
+      "title": "相干互连栅格材箔",
+      "subtitle": "叠压之后留下连接开窗",
+      "description": [
+        "将隔离膜与微栅片叠压展薄，在所需位置保留连接窗口。薄箔继续参与封装与互连。"
+      ],
+      "dependencies": [
+        "4B5C19467E9C025E",
+        "4B59C3326165143C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5497E05B2CE572",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_foil",
+      "x": 12,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B54610F11B937EC",
+      "title": "相干互连栅格材复合细线",
+      "subtitle": "在金属芯周围设置分路绝缘",
+      "description": [
+        "保留连续金属导体，外加薄层微栅与独立绝缘。制成适合后续部件装配的复合细线。"
+      ],
+      "dependencies": [
+        "4B50A4D83DED0382",
+        "4B599500704705FB"
+      ],
+      "tasks": [
+        {
+          "id": "4B5230AC85B87518",
+          "type": "item",
+          "item": "hk3gtl:coherent_interconnect_grid_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_fine_wire",
+      "x": 8,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5216D08D96321D",
+      "title": "第一批QCV机械方块",
+      "subtitle": "把微栅结构装进完整QSV机壳",
+      "description": [
+        "汇集本级板、框和环，接到完整QSV机械方块上。封好各导路与低温接口，取得首批QCV机壳。"
+      ],
+      "dependencies": [
+        "4B5C19467E9C025E",
+        "4B52A38ECBBC7D1B",
+        "4B5BC89DB94CBBA1",
+        "4B531C5843C8CA9D"
+      ],
+      "tasks": [
+        {
+          "id": "4B50B7D17E0F8FE0",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qcv",
+      "x": 4,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B55EA59B981CD84",
+      "title": "QCV机壳分层拆解",
+      "subtitle": "取回前级核心与一部分外层",
+      "description": [
+        "拆出完整QSV核心，回收可直接使用的本级板、框与环。剩余主体转成分类废料，送去定量分离。"
+      ],
+      "dependencies": [
+        "4B5216D08D96321D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5589C8DB455F1C",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成QCV机壳分层拆解",
           "tags": [
-            "hk3gtl_quest_rn_cjk"
+            "hk3gtl_quest_qcv_n14"
           ]
         }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qsv",
+      "x": 30,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5E9A5DC86C96FB",
+      "title": "QCV分类废料分离",
+      "subtitle": "洗脱附着物，再分出可用主体",
+      "description": [
+        "在工艺溶剂中处理分类废料，再离心分出回收组分与不可回收尾料。两类产物分别进入重建和固化。"
+      ],
+      "dependencies": [
+        "4B5407261AA82797",
+        "4B54533414333ADC"
+      ],
+      "tasks": [
+        {
+          "id": "4B59F203A7D9CB88",
+          "type": "custom",
+          "title": "实际完成QCV分类废料分离",
+          "tags": [
+            "hk3gtl_quest_qcv_n15"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_recovered_fraction",
+      "x": 34,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5DA535DF89269D",
+      "title": "QCV回收组分补料重建",
+      "subtitle": "从导体微栅重新加工",
+      "description": [
+        "把回收主体与新鲜前级基体混合，重新投入隔距片、导路和其他功能辅料。重建导体微栅，再接回涂覆、封装与定尺。"
+      ],
+      "dependencies": [
+        "4B5E91E8EB7C1BE8"
+      ],
+      "tasks": [
+        {
+          "id": "4B52E55325AC1F3D",
+          "type": "custom",
+          "title": "实际完成QCV回收组分补料重建",
+          "tags": [
+            "hk3gtl_quest_qcv_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:coherent_interconnect_grid_stage_1",
+      "x": 38,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B56218873596DA3",
+      "title": "QCV尾料固化",
+      "subtitle": "结束不可回收材料的处理",
+      "description": [
+        "将尾料封入惰性残渣，取出灰烬，完成这部分栅格材料的末端处理。"
+      ],
+      "dependencies": [
+        "4B5407261AA82797",
+        "4B54533414333ADC"
+      ],
+      "tasks": [
+        {
+          "id": "4B51901E4A971BA2",
+          "type": "custom",
+          "title": "实际完成QCV尾料固化",
+          "tags": [
+            "hk3gtl_quest_qcv_n17"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 42,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5F972343DAAF05",
+      "title": "低温压差隔离总管",
+      "subtitle": "隔开冷热支路与相变压差",
+      "description": [
+        "在现有设备中先制出隔离总管，配好旁通与计量接口。后续相变释能设备从这里取得专用管路。"
+      ],
+      "dependencies": [
+        "4B5B95EB3F6F296A",
+        "4B540D45EA680892",
+        "4B51555675FC5DC0"
+      ],
+      "tasks": [
+        {
+          "id": "4B507F0F0680CB46",
+          "type": "item",
+          "item": "hk3gtl:cryogenic_pressure_header",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:cryogenic_pressure_header",
+      "x": 30,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5E7CF4C392AABC",
+      "title": "崩坏能相变释能机",
+      "subtitle": "把相变工况接入独立设备",
+      "description": [
+        "完成相变工程研究，装配释能机控制器。用隔离总管管理气固相变中的压差与流路。"
+      ],
+      "dependencies": [
+        "4B50866329B1DB0E",
+        "4B5F972343DAAF05",
+        "4B5A4C311E407536",
+        "4B531C5843C8CA9D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D2FBF76D06864",
+          "type": "item",
+          "item": "hk3gtl:i23_honkai_phase_transition_generator",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i23_honkai_phase_transition_generator",
+      "x": 46,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5B36362C6BF5DA",
+      "title": "仿制神之键装配中心",
+      "subtitle": "为仿制核心与魂钢部件准备装配设备",
+      "description": [
+        "完成对应研究后，备齐专用总管与前级工程部件，制造装配中心控制器，接续神之键精密装配。"
       ],
       "dependencies": [
         "4B5F116FA97D7110",
-        "4B5FE5619D5A09F9"
-      ],
-      "subtitle": "S02 · RN-CJK",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B512E947E431C10",
-      "title": "电路工况扩展",
-      "icon": "hk3gtl:circuit_encapsulation_part",
-      "x": 3.0,
-      "y": 3.0,
-      "description": [
-        "封装成功只是开始。引入气态隔离介质，拿已有电路样品做更广的工况试验，看看它在不同条件下是否仍然可靠。",
-        "",
-        "解锁电路高阶工况路线；逐级种子配方仍必须在前一电压可制造。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "电路封装与工况测试已开放封装件、气态崩坏能采集后气态隔离介质、既有电路样品。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S02或更高等级研究所选择“电路工况扩展”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：电路封装与工况测试、气态崩坏能采集。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "4B5F972343DAAF05",
+        "4B5A4C311E407536",
+        "4B531C5843C8CA9D"
       ],
       "tasks": [
         {
-          "id": "4B520994473C15CF",
+          "id": "4B5FB7BFB5CD343C",
+          "type": "item",
+          "item": "hk3gtl:i33_imitation_divine_key_assembly_center",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i33_imitation_divine_key_assembly_center",
+      "x": 50,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B57D65F2C2B4B06",
+      "title": "仿制的千界一乘·信标",
+      "subtitle": "为坐标同步设置独立信标",
+      "description": [
+        "完成千界一乘相关研究后，制造信标控制器，连接坐标同步所需的工程部件。"
+      ],
+      "dependencies": [
+        "4B535AC10CB8CB3B"
+      ],
+      "tasks": [
+        {
+          "id": "4B53AFB9425F344D",
+          "type": "item",
+          "item": "hk3gtl:i44_imitation_thousand_realms_beacon",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i44_imitation_thousand_realms_beacon",
+      "x": 34,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5A3E4A2B3E1509",
+      "title": "仿制的千界一乘·列车",
+      "subtitle": "接好空间联接与返程定位",
+      "description": [
+        "制造静止列车控制器，配齐空间联接和返程定位部件，继续准备千界一乘的工程设施。"
+      ],
+      "dependencies": [
+        "4B535AC10CB8CB3B"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E59A71D4F54C2",
+          "type": "item",
+          "item": "hk3gtl:i45_imitation_thousand_realms_train",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i45_imitation_thousand_realms_train",
+      "x": 38,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5814457AA6BFBC",
+      "title": "三阶气态崩坏能探测器",
+      "subtitle": "从固态探测继续升级采样能力",
+      "description": [
+        "用前级完整探测器与本段部件制造气态探测器。先完成探测器，再装配三阶采集塔。"
+      ],
+      "dependencies": [
+        "4B5D74C9ED85BF0E",
+        "4B5B95EB3F6F296A",
+        "4B540D45EA680892",
+        "4B51555675FC5DC0",
+        "4B56099C65254689"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A1C71083B7E80",
+          "type": "item",
+          "item": "hk3gtl:gaseous_honkai_detector",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:gaseous_honkai_detector",
+      "x": 42,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5351CD3A7AF772",
+      "title": "三阶崩坏能采集塔",
+      "subtitle": "给气态采集建立独立产线",
+      "description": [
+        "将已制成的气态探测器装进三阶采集塔控制器，接续气态崩坏能采集。"
+      ],
+      "dependencies": [
+        "4B5814457AA6BFBC",
+        "4B5F972343DAAF05",
+        "4B531C5843C8CA9D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CE7D47E2F1D62",
+          "type": "item",
+          "item": "hk3gtl:i01_3_honkai_collection_tower",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i01_3_honkai_collection_tower",
+      "x": 54,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B59EE579EB6CE9A",
+      "title": "仿制炎核心",
+      "subtitle": "RN-FCA · 实验与正式研究",
+      "description": [
+        "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。试晶在受控热输入下形成可重复检测回执；消耗或封存试晶，不能直接交付正式炎核心；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择580研究积分或HDV电路 × 4、钨钢板 × 56支付基准费用；另需7,200 tick与515,396,075,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制炎核心及特殊金属加热应用。"
+      ],
+      "dependencies": [
+        "4B5F2FBB98E65C9E"
+      ],
+      "tasks": [
+        {
+          "id": "4B559152F70FDE72",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成仿制炎核心",
           "tags": [
-            "hk3gtl_quest_rn_cqs"
+            "hk3gtl_quest_rn_fca"
           ]
         }
       ],
-      "dependencies": [
-        "4B5407261AA82797",
-        "4B5D74C9ED85BF0E"
-      ],
-      "subtitle": "S02 · RN-CQS",
-      "shape": "rsquare"
+      "icon": "hk3gtl:imitation_flame_core",
+      "x": 0,
+      "y": 32,
+      "optional": false
     },
     {
       "id": "4B528AA97B0DF3A7",
       "title": "异质工艺气体净化",
-      "icon": "hk3gtl:process_gas_filter",
-      "x": 3.0,
-      "y": 6.0,
+      "subtitle": "RN-GPR · 实验与正式研究",
       "description": [
-        "已有工艺产生的排气同样需要处理。准备过滤与洗涤介质，把净化流程接起来，别让排气成为产线被忽略的末端。",
-        "",
-        "解锁I52分气种净化与耗材回用。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "既有工艺真实排气、前级过滤介质和新鲜洗涤介质。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S02或更高等级研究所选择“异质工艺气体净化”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：气态崩坏能采集、稳定介质再生。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：失效工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。比较真实进出气样和过滤残渣，关联生成排气的批次；新鲜气体用于工况启动；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁稳定介质再生塔分气种净化与过滤介质回用工况；与液态介质再生分别配方。"
+      ],
+      "dependencies": [
+        "4B5D74C9ED85BF0E"
       ],
       "tasks": [
         {
           "id": "4B541EC17E442C80",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成异质工艺气体净化",
           "tags": [
             "hk3gtl_quest_rn_gpr"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D74C9ED85BF0E",
-        "4B5A130DF185C499"
-      ],
-      "subtitle": "S02 · RN-GPR",
-      "shape": "rsquare"
+      "icon": "hk3gtl:process_gas_filter",
+      "x": 16,
+      "y": 32,
+      "optional": false
     },
     {
-      "id": "4B5A928D87B43C2A",
-      "title": "仿制的犹大的誓约",
-      "icon": "hk3gtl:imitation_oath_of_judah",
-      "x": 3.0,
-      "y": 9.0,
+      "id": "4B5D74C9ED85BF0E",
+      "title": "气态崩坏能采集",
+      "subtitle": "RN-GSC · 实验与正式研究",
       "description": [
-        "约束核心配合已有隔离回路，才能继续做犹大的装配。把约束工具准备好，后面再考虑如何约束一个世界泡。",
-        "",
-        "解锁第十一神之键约束工艺，不凭抑制能量产生免费电力。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制约束核心已可造约束核心、仿制神之键装配中心装配件与既有隔离回路。",
-        "",
-        "按JEI查找对应工艺，在仿制神之键装配中心完成对应实验后，到S02或更高等级研究所选择“仿制的犹大的誓约”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：神之键部件装配、仿制约束核心。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。真实完成液固记录与试件的封闭场响应对照；试验不产可用气态崩坏能；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁三阶塔与对应气态探测器。"
+      ],
+      "dependencies": [
+        "4B544DD9CC0A571D"
       ],
       "tasks": [
         {
-          "id": "4B5254FFD16D98DD",
+          "id": "4B5A3D3173B11772",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成气态崩坏能采集",
           "tags": [
-            "hk3gtl_quest_rn_jok"
+            "hk3gtl_quest_rn_gsc"
           ]
         }
       ],
-      "dependencies": [
-        "4B5F116FA97D7110",
-        "4B5FE4E54508ABEF"
+      "icon": "hk3gtl:gaseous_honkai_detector",
+      "x": 4,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B54533414333ADC",
+      "title": "仿制冰核心",
+      "subtitle": "RN-ICA · 实验与正式研究",
+      "description": [
+        "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。实际记录降温及回温响应，冷却介质收支与试晶批次对应；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择580研究积分或HDV电路 × 4、钨钢板 × 56支付基准费用；另需7,200 tick与515,396,075,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制冰核心及特殊金属冷却应用。"
       ],
-      "subtitle": "S02 · RN-JOK",
-      "shape": "rsquare"
+      "dependencies": [
+        "4B5F2FBB98E65C9E"
+      ],
+      "tasks": [
+        {
+          "id": "4B581CD48F2AF075",
+          "type": "custom",
+          "title": "完成仿制冰核心",
+          "tags": [
+            "hk3gtl_quest_rn_ica"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_ice_core",
+      "x": 8,
+      "y": 32,
+      "optional": false
     },
     {
       "id": "4B50866329B1DB0E",
       "title": "相变释能工程",
-      "icon": "hk3gtl:honkai_heat_exchanger",
-      "x": 3.0,
-      "y": 12.0,
+      "subtitle": "RN-PCE · 实验与正式研究",
       "description": [
-        "拿气态采集得到的真实样本，结合冷却与热管理资料，研究相变释能。把能量释放和热量去向放在一起考虑。",
-        "",
-        "解锁崩坏能相变释能机气固转换及损耗计量。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "3阶崩坏能采集塔 · 气态真实气态样本、冷却剂换热回流已掌握冷却介质与热管理记录。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S02或更高等级研究所选择“相变释能工程”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：气态崩坏能采集、冷却剂换热回流。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。封装气态样本完成受控相变与能量损耗测量，不向电网返还未定量的试验能量；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁崩坏能相变释能机气固转换及损耗计量。"
+      ],
+      "dependencies": [
+        "4B5D74C9ED85BF0E"
       ],
       "tasks": [
         {
           "id": "4B560E4BF3C43852",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成相变释能工程",
           "tags": [
             "hk3gtl_quest_rn_pce"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D74C9ED85BF0E",
-        "4B569369C14396CA"
-      ],
-      "subtitle": "S02 · RN-PCE",
-      "shape": "rsquare"
+      "icon": "hk3gtl:conducting_composite",
+      "x": 20,
+      "y": 32,
+      "optional": false
     },
     {
-      "id": "4B533F2846778D65",
-      "title": "仿制的伊甸之星",
-      "icon": "hk3gtl:imitation_star_of_eden",
-      "x": 3.0,
-      "y": 15.0,
+      "id": "4B524978C39A250C",
+      "title": "仿制雷核心",
+      "subtitle": "RN-TCA · 实验与正式研究",
       "description": [
-        "仿制岩核心需要隔离装配件与压缩试件配合。把这次装配完成，后面的模拟世界与引力工程会继续用到它。",
-        "",
-        "解锁第九神之键，支持奇点和模拟世界泡；无时间加速能力。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制岩核心已可造岩核心、仿制神之键装配中心隔离装配件与前级压缩试件。",
-        "",
-        "按JEI查找对应工艺，在仿制神之键装配中心完成对应实验后，到S02或更高等级研究所选择“仿制的伊甸之星”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：神之键部件装配、仿制岩核心。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。真实完成既定脉冲输入和输出响应测量，输入电力照常消耗；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择580研究积分或HDV电路 × 4、钨钢板 × 56支付基准费用；另需7,200 tick与515,396,075,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制雷核心与电磁工艺模块。"
+      ],
+      "dependencies": [
+        "4B5F2FBB98E65C9E",
+        "4B5407261AA82797"
       ],
       "tasks": [
         {
-          "id": "4B57FE9050FFF2DE",
+          "id": "4B5868B66D7CD30B",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成仿制雷核心",
           "tags": [
-            "hk3gtl_quest_rn_sek"
+            "hk3gtl_quest_rn_tca"
           ]
         }
       ],
-      "dependencies": [
-        "4B5F116FA97D7110",
-        "4B54FB191FF02254"
-      ],
-      "subtitle": "S02 · RN-SEK",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B526B218167CA96",
-      "title": "仿制的虚空万藏",
-      "icon": "hk3gtl:imitation_void_archives",
-      "x": 3.0,
-      "y": 18.0,
-      "description": [
-        "把仿制理核心与基础装配件配合起来，使用已经掌握的结构档案。先完成这次装配，再考虑它能帮助你解析什么。",
-        "",
-        "解锁第一神之键与前文明档案研究许可；许可不直接完成其他研究。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制理核心已可造理核心、仿制神之键装配中心基础装配件、已掌握的结构档案。",
-        "",
-        "按JEI查找对应工艺，在仿制神之键装配中心完成对应实验后，到S02或更高等级研究所选择“仿制的虚空万藏”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：神之键部件装配、仿制理核心。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B581EB4A5CE26BC",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_vak"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B5F116FA97D7110",
-        "4B5DA6E64F338B10"
-      ],
-      "subtitle": "S02 · RN-VAK",
-      "shape": "rsquare"
+      "icon": "hk3gtl:imitation_thunder_core",
+      "x": 12,
+      "y": 32,
+      "optional": false
     },
     {
       "id": "4B55C2FACF1A9B92",
       "title": "仿制风核心",
-      "icon": "hk3gtl:imitation_wind_core",
-      "x": 3.0,
-      "y": 21.0,
+      "subtitle": "RN-WCA · 实验与正式研究",
       "description": [
-        "风核心实验用得到气态样本与流动工装。先把气态采集跑通，再研究结晶在这一工况下的性质。",
-        "",
-        "解锁仿制风核心与理想流体工艺模块。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制核心结晶反应室未定性结晶样件、3阶崩坏能采集塔 · 气态气态样本、前级流动工装。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S02或更高等级研究所选择“仿制风核心”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：仿制核心结晶、气态崩坏能采集。",
-        "基础研究费用：760点；4 × QSV级电路；64 × 钨钢板。",
-        "基础工期：7分钟；研究用电：2,061,584,302,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B52A21B8C56836C",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_wca"
-          ]
-        }
+        "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。实际消耗测试介质并记录压差/流量响应；回收部分与损耗分别记账；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制风核心与理想流体工艺模块。"
       ],
       "dependencies": [
         "4B5F2FBB98E65C9E",
         "4B5D74C9ED85BF0E"
       ],
-      "subtitle": "S02 · RN-WCA",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B59AF9D96158359",
-      "linked_quest": "4B5FE4E54508ABEF",
-      "x": 0.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5F6744CC4A041D",
-      "linked_quest": "4B5F2FBB98E65C9E",
-      "x": 3.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B55AE490C44F087",
-      "linked_quest": "4B5407261AA82797",
-      "x": 6.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5996EB2388ABF0",
-      "linked_quest": "4B5B5795A0A0443D",
-      "x": 9.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B56EEEB50E461FE",
-      "linked_quest": "4B54FB191FF02254",
-      "x": 12.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B54D03DBF2C26AE",
-      "linked_quest": "4B569369C14396CA",
-      "x": 15.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5D9E6D1FAF5F0C",
-      "linked_quest": "4B544DD9CC0A571D",
-      "x": 0.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B520DB66943BE4C",
-      "linked_quest": "4B5DA6E64F338B10",
-      "x": 3.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B55A9B1A02A59B9",
-      "linked_quest": "4B5A130DF185C499",
-      "x": 6.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B593483F59249CB",
-      "linked_quest": "4B5BD9A686D81920",
-      "x": 9.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B5371137EAB9E37",
-      "linked_quest": "4B5FE5619D5A09F9",
-      "x": 12.0,
-      "y": -11.0
+      "tasks": [
+        {
+          "id": "4B52A21B8C56836C",
+          "type": "custom",
+          "title": "完成仿制风核心",
+          "tags": [
+            "hk3gtl_quest_rn_wca"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_wind_core",
+      "x": 24,
+      "y": 32,
+      "optional": false
     }
   ]
 }

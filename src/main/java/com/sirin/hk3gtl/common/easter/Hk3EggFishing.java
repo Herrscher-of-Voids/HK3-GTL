@@ -7,7 +7,7 @@ import net.minecraftforge.event.entity.player.ItemFishedEvent;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:02:11（修订128）：删除无；新增原版钓获事件与retrieve完成配对；用途：读取最终取消状态，拉实体/空收竿/取消掉落不计，暂态在原调用结束清理。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggFishing {
     private static final ThreadLocal<Map<FishingHook,ItemFishedEvent>> ACTIVE=ThreadLocal.withInitial(HashMap::new);

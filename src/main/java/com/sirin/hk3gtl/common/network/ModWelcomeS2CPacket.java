@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-/**
- * 【文件职责】
- * - 服务端进世界时下发模组欢迎/加载状态，客户端弹出介绍界面。
- *
- * 【变更记录】2026-05-19
- * - 新增：内测二进世界自检结果同步包。
- */
-/** 【变更记录 #1】2026-10-01 16:11:00（修订133）：删除无限制长度读取；新增64条/每条1024字符边界与不可变快照；修改接收后等待安全阅读时机；用途：完整更新说明生命周期，不传内部变更日志。 */
-/** 【变更记录 #2】2026-10-31 15:36:22（第2次备注 · 修订188）：删除无；新增保留网络连接身份；修改客户端排队入口接收包所属连接；用途：断线后延迟执行的旧包不能绑定到新连接。 */
+ 
+
+
+
+
+
+
+ 
+ 
 public record ModWelcomeS2CPacket(String modVersion, List<String> statusLines) {
     public ModWelcomeS2CPacket {
         if (modVersion.length() > 128 || statusLines.size() > 64 || statusLines.stream().anyMatch(s -> s.length() > 1024))

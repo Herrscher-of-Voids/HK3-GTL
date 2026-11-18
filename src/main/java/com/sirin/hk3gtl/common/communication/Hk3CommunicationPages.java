@@ -7,8 +7,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 00:56:35（修订124）：删除无；新增手机内的历史、个人目录与队长显式授权管理；修改操作使用当前团队及目标成员复核；用途：完整交流无需手打管理指令，每页不超过八个操作。 */
-/** 【变更记录 #2】2026-10-01 01:01:52（修订124）：删除无；新增只读成员权限状态标签；修改不向普通成员显示可授权措辞；用途：界面与真实权限一致。 */
+ 
+ 
 public final class Hk3CommunicationPages {
     private static final String ROOT="hk3letter diplomacy records";
     private Hk3CommunicationPages() {}
@@ -66,4 +66,4 @@ public final class Hk3CommunicationPages {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

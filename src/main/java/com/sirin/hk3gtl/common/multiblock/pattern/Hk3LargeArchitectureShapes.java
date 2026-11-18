@@ -24,17 +24,17 @@ import java.util.zip.GZIPInputStream;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * 【文件职责】无损串流读取巨构预览，保留GT标准完整坐标数组及所有实体方块。
- * 【变更记录 #1】2026-10-26 21:57:03（修订178）
- * 删除：预览先展开百万NBT复合对象及逐空气BlockInfo的需求。
- * 新增：紧凑调色板、位置与必要方块实体数据的逐条解码，损坏或重复记录拒绝载入。
- * 修改：空气仅为null引用，普通BlockInfo按状态共享；本类不缓存或主动求值其他机器形状，JEI可逐台调用材料索引。
- * 用途：恢复I19至I28完整游戏内预览；标准数组仍随包围盒增长，不冒充无限内存方案。
- * 【变更记录 #2】2026-10-26 22:36:20（修订179）
- * 删除：仅有成功日志时无法区分未调用和解码失败的诊断缺口；新增：每台首次准备入口日志。
- * 修改：完整显式形状与Pattern回退共用此入口；用途：定位实际游戏预览路由及准备失败。
- */
+ 
+
+
+
+
+
+
+
+
+
+
 public final class Hk3LargeArchitectureShapes {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Set<String> STARTED = ConcurrentHashMap.newKeySet();

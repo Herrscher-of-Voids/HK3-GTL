@@ -1,9 +1,8 @@
 {
   "schema": 1,
-  "revision": 131,
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：17个电压页，153任务；现有任务ID、真实前置与完成来源不变。",
+  "revision": 282,
   "chapters": [
-    "hk3_voltage_00",
+    "hk3_stargate",
     "hk3_voltage_01",
     "hk3_voltage_02",
     "hk3_voltage_03",
@@ -23,340 +22,52 @@
   ],
   "entries": [
     {
+      "key": "stargate-start",
+      "kind": "reading",
+      "value": "",
+      "quest": "4B557312C16A1494",
+      "task": "4B502D5DF3D9133E",
+      "chapter": "hk3_stargate"
+    },
+    {
+      "key": "stargate-activate",
+      "kind": "player_event",
+      "value": "stargate-classic-activation",
+      "quest": "4B5ED88C534BA149",
+      "task": "4B57BFB65232912B",
+      "chapter": "hk3_stargate"
+    },
+    {
+      "key": "stargate-dial",
+      "kind": "player_event",
+      "value": "stargate-outgoing-connection",
+      "quest": "4B51AD5256FB6064",
+      "task": "4B59D23DB73ED97B",
+      "chapter": "hk3_stargate"
+    },
+    {
+      "key": "stargate-return",
+      "kind": "player_event",
+      "value": "stargate-round-trip",
+      "quest": "4B5A7AC59C392D25",
+      "task": "4B5FEF64E351F76C",
+      "chapter": "hk3_stargate"
+    },
+    {
+      "key": "stargate-archive",
+      "kind": "reading",
+      "value": "",
+      "quest": "4B5D2A33F0DB2367",
+      "task": "4B5D3B313B6A4B66",
+      "chapter": "hk3_stargate"
+    },
+    {
       "key": "guide-start",
       "kind": "reading",
       "value": "",
       "quest": "4B5599133D72B718",
       "task": "4B53D67DB22F6091",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-letters",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B502E04A41B814B",
-      "task": "4B5E1FDE4A4A6ABC",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-sampling",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5067381071A449",
-      "task": "4B5CC2B92C3B5DD6",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-research",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5ABC85A066F673",
-      "task": "4B59F211EF113B71",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-power",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B570DA621F2C1C4",
-      "task": "4B5E0AE01E7538F1",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-pressure",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B52D5AB68F2DBCD",
-      "task": "4B54EB1B50BDA86D",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-refund",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5AE6D3C4A3B09D",
-      "task": "4B5808F2975BAF86",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-phone",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5B569E312A08A9",
-      "task": "4B53D2990BCE353E",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-social",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5EA5534A8FE63B",
-      "task": "4B5B7D5483943EA1",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "guide-blocked",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5B3CBA4FED63C0",
-      "task": "4B5C249765BF02F5",
-      "chapter": "hk3_voltage_00"
-    },
-    {
-      "key": "voltage-intro-01",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5CE0C6C0C8D233",
-      "task": "4B5698972312C6BD",
       "chapter": "hk3_voltage_01"
-    },
-    {
-      "key": "voltage-parts-01",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5629222B0E71B1",
-      "task": "4B5A7E3423BBECC9",
-      "chapter": "hk3_voltage_01"
-    },
-    {
-      "key": "voltage-intro-02",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5626F5B3175377",
-      "task": "4B51E2EF09417023",
-      "chapter": "hk3_voltage_02"
-    },
-    {
-      "key": "voltage-parts-02",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B527DCBF3C8A21A",
-      "task": "4B58537C6DFAA34D",
-      "chapter": "hk3_voltage_02"
-    },
-    {
-      "key": "voltage-intro-03",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B525B993C288F21",
-      "task": "4B555456812307D9",
-      "chapter": "hk3_voltage_03"
-    },
-    {
-      "key": "voltage-parts-03",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B536C82EDD6A7CD",
-      "task": "4B5B0F98DB432FAB",
-      "chapter": "hk3_voltage_03"
-    },
-    {
-      "key": "voltage-intro-04",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B51AF4765209882",
-      "task": "4B540E34774CB8E4",
-      "chapter": "hk3_voltage_04"
-    },
-    {
-      "key": "voltage-parts-04",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5FC3045C0F0D09",
-      "task": "4B55A6BAD6C1028A",
-      "chapter": "hk3_voltage_04"
-    },
-    {
-      "key": "voltage-intro-05",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5CCAFB065F53BA",
-      "task": "4B5CAB0A21046262",
-      "chapter": "hk3_voltage_05"
-    },
-    {
-      "key": "voltage-parts-05",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B542D66F554FA09",
-      "task": "4B5FD88636CB5AA7",
-      "chapter": "hk3_voltage_05"
-    },
-    {
-      "key": "voltage-intro-06",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5B61AE0F110DB9",
-      "task": "4B5152DAB7A36D51",
-      "chapter": "hk3_voltage_06"
-    },
-    {
-      "key": "voltage-parts-06",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B52C548C4B7ED90",
-      "task": "4B5D49E53F69726E",
-      "chapter": "hk3_voltage_06"
-    },
-    {
-      "key": "voltage-intro-07",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B56FD250E317184",
-      "task": "4B5114C2C2B97943",
-      "chapter": "hk3_voltage_07"
-    },
-    {
-      "key": "voltage-parts-07",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5447192CD830E2",
-      "task": "4B585FCBAD372EE0",
-      "chapter": "hk3_voltage_07"
-    },
-    {
-      "key": "voltage-intro-08",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B515A4E8B84CCDD",
-      "task": "4B5153DEA3774B0A",
-      "chapter": "hk3_voltage_08"
-    },
-    {
-      "key": "voltage-parts-08",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B56305E0E92DE80",
-      "task": "4B5C2B4B0658336E",
-      "chapter": "hk3_voltage_08"
-    },
-    {
-      "key": "voltage-intro-09",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B58FFB0C5DC54C7",
-      "task": "4B57FFA46E4D2FBA",
-      "chapter": "hk3_voltage_09"
-    },
-    {
-      "key": "voltage-parts-09",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5302F89011CDE1",
-      "task": "4B574D513000F596",
-      "chapter": "hk3_voltage_09"
-    },
-    {
-      "key": "voltage-intro-10",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5FA0E6DFC9BA3A",
-      "task": "4B52FBC12946886D",
-      "chapter": "hk3_voltage_10"
-    },
-    {
-      "key": "voltage-parts-10",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B57D6AFD51AB96A",
-      "task": "4B51530091267A90",
-      "chapter": "hk3_voltage_10"
-    },
-    {
-      "key": "voltage-intro-11",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5EF7C114518765",
-      "task": "4B5C7CBFC5DFAD59",
-      "chapter": "hk3_voltage_11"
-    },
-    {
-      "key": "voltage-parts-11",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B553DE52DD716EE",
-      "task": "4B5694DA189EE0A0",
-      "chapter": "hk3_voltage_11"
-    },
-    {
-      "key": "voltage-intro-12",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5620A5E6A78131",
-      "task": "4B59CB732ECAB700",
-      "chapter": "hk3_voltage_12"
-    },
-    {
-      "key": "voltage-parts-12",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5C35D85014DC14",
-      "task": "4B5DE5459E7962D3",
-      "chapter": "hk3_voltage_12"
-    },
-    {
-      "key": "voltage-intro-13",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B502EF76BC9257C",
-      "task": "4B5E85D981ECE382",
-      "chapter": "hk3_voltage_13"
-    },
-    {
-      "key": "voltage-parts-13",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B55795B84EE6B00",
-      "task": "4B5B2D29B7FCB14F",
-      "chapter": "hk3_voltage_13"
-    },
-    {
-      "key": "voltage-intro-14",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5BDE0BA9709898",
-      "task": "4B545F48BFFF6887",
-      "chapter": "hk3_voltage_14"
-    },
-    {
-      "key": "voltage-parts-14",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B52E12C204E6CD0",
-      "task": "4B5FA9F276561038",
-      "chapter": "hk3_voltage_14"
-    },
-    {
-      "key": "voltage-intro-15",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5A9BA13C79A943",
-      "task": "4B5729F3849DF0CE",
-      "chapter": "hk3_voltage_15"
-    },
-    {
-      "key": "voltage-parts-15",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B57AA663AD0B520",
-      "task": "4B5485D718A46C22",
-      "chapter": "hk3_voltage_15"
-    },
-    {
-      "key": "voltage-intro-16",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5971A68C850F57",
-      "task": "4B584A641B7DA3FA",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "voltage-parts-16",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B59DC68A76196C6",
-      "task": "4B52D20AF0347BE1",
-      "chapter": "hk3_voltage_16"
     },
     {
       "key": "RN-HED",
@@ -364,7 +75,7 @@
       "value": "RN-HED",
       "quest": "4B52B08CFC461F2C",
       "task": "4B546F275EF1842E",
-      "chapter": "hk3_voltage_00"
+      "chapter": "hk3_voltage_01"
     },
     {
       "key": "RN-HSA",
@@ -372,7 +83,15 @@
       "value": "RN-HSA",
       "quest": "4B5CF2EB987405D1",
       "task": "4B5169BE3F15D266",
-      "chapter": "hk3_voltage_00"
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-extractant",
+      "kind": "process",
+      "value": "approved_hbv_a03",
+      "quest": "4B5EFBBF652DADD7",
+      "task": "4B5CA2E4D4CBB2DD",
+      "chapter": "hk3_voltage_01"
     },
     {
       "key": "RN-LSE",
@@ -380,7 +99,23 @@
       "value": "RN-LSE",
       "quest": "4B5932E463E1338F",
       "task": "4B5FF1B1CEED8B2B",
-      "chapter": "hk3_voltage_00"
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-stabilization-medium",
+      "kind": "process",
+      "value": "approved_hbv_r16",
+      "quest": "4B50E15FA6696E03",
+      "task": "4B5FF7EDB65419F2",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-coolant",
+      "kind": "process",
+      "value": "approved_hbv_r17",
+      "quest": "4B55EB47DE47E9B6",
+      "task": "4B544F79877EE0D7",
+      "chapter": "hk3_voltage_01"
     },
     {
       "key": "RN-LES",
@@ -388,7 +123,111 @@
       "value": "RN-LES",
       "quest": "4B5BE03D48DB244E",
       "task": "4B5158267B22C05A",
-      "chapter": "hk3_voltage_00"
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-mother-reflux",
+      "kind": "process",
+      "value": "approved_hbv_c01",
+      "quest": "4B5D6484B5CE7D14",
+      "task": "4B5780F09B8ACEDC",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-medium-recycle",
+      "kind": "process",
+      "value": "approved_hbv_c02",
+      "quest": "4B55059A70EA0AD8",
+      "task": "4B5B2D5373A5D7D6",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-coolant-recycle",
+      "kind": "process",
+      "value": "approved_hbv_c03",
+      "quest": "4B50B00190928E93",
+      "task": "4B59932140F0060F",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-residual-recycle",
+      "kind": "process",
+      "value": "approved_hbv_c04",
+      "quest": "4B59A15358465868",
+      "task": "4B5777C8779B0729",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-extractant-recycle",
+      "kind": "process",
+      "value": "approved_hbv_a04",
+      "quest": "4B5335F3E77C71D6",
+      "task": "4B5845310EDA8506",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-effluent-solidification",
+      "kind": "process",
+      "value": "approved_hbv_c05",
+      "quest": "4B50BBFB748CDEBA",
+      "task": "4B5E2EBAD60BFF93",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-residue-separation",
+      "kind": "process",
+      "value": "approved_hbv_c06",
+      "quest": "4B523278A94C800E",
+      "task": "4B5E74B07F696579",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-continuous-soulium",
+      "kind": "process",
+      "value": "approved_hbv_u01",
+      "quest": "4B51A65E81ECCCC7",
+      "task": "4B5539C80950DB3D",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-continuous-plate",
+      "kind": "process",
+      "value": "approved_hbv_u02",
+      "quest": "4B54AC90FFB725D4",
+      "task": "4B564986C2441E61",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hbv-foundation",
+      "kind": "reading",
+      "value": "",
+      "quest": "4B5FB7AE702E80CA",
+      "task": "4B5B440858270FF7",
+      "chapter": "hk3_voltage_01"
+    },
+    {
+      "key": "hcv-start",
+      "kind": "research",
+      "value": "RN-LES",
+      "quest": "4B554BD2F769695B",
+      "task": "4B5D21921711FF57",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-growth-medium",
+      "kind": "process",
+      "value": "approved_hcv_e04",
+      "quest": "4B5A3EEACCA48D02",
+      "task": "4B5F36292738B7BE",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-etchant",
+      "kind": "process",
+      "value": "approved_hcv_e05",
+      "quest": "4B527BA26FBBE1A4",
+      "task": "4B5F1FBA88CE1A92",
+      "chapter": "hk3_voltage_02"
     },
     {
       "key": "RN-BCE",
@@ -396,23 +235,23 @@
       "value": "RN-BCE",
       "quest": "4B5042942BCE6960",
       "task": "4B50BBA395373660",
-      "chapter": "hk3_voltage_00"
+      "chapter": "hk3_voltage_02"
     },
     {
-      "key": "RN-DMT",
-      "kind": "research",
-      "value": "RN-DMT",
-      "quest": "4B5AFD2871AE846D",
-      "task": "4B55C052C4234D90",
-      "chapter": "hk3_voltage_01"
+      "key": "hcv-primer",
+      "kind": "process",
+      "value": "approved_x_c01",
+      "quest": "4B5F1D9A9FA58EF9",
+      "task": "4B5F5393AE728630",
+      "chapter": "hk3_voltage_02"
     },
     {
-      "key": "RN-HFB",
-      "kind": "research",
-      "value": "RN-HFB",
-      "quest": "4B5DDDF726D08AE2",
-      "task": "4B58F21B0A280468",
-      "chapter": "hk3_voltage_01"
+      "key": "hcv-bootstrap-hw",
+      "kind": "process",
+      "value": "approved_hcv_p04",
+      "quest": "4B5B96450FAE8C9D",
+      "task": "4B568C4704A81FDC",
+      "chapter": "hk3_voltage_02"
     },
     {
       "key": "RN-SMR",
@@ -420,54 +259,30 @@
       "value": "RN-SMR",
       "quest": "4B5A130DF185C499",
       "task": "4B529FC372589B36",
-      "chapter": "hk3_voltage_01"
-    },
-    {
-      "key": "RN-FRP",
-      "kind": "research",
-      "value": "RN-FRP",
-      "quest": "4B527E9BB472CF89",
-      "task": "4B50C0EBF2AFD393",
-      "chapter": "hk3_voltage_01"
-    },
-    {
-      "key": "RN-SRE",
-      "kind": "research",
-      "value": "RN-SRE",
-      "quest": "4B50645A14FB0B24",
-      "task": "4B560ECC7D8DB607",
-      "chapter": "hk3_voltage_01"
-    },
-    {
-      "key": "RN-HLC",
-      "kind": "research",
-      "value": "RN-HLC",
-      "quest": "4B569369C14396CA",
-      "task": "4B509E5D0C54E4CC",
       "chapter": "hk3_voltage_02"
     },
     {
-      "key": "RN-RAT",
+      "key": "RN-HFB",
       "kind": "research",
-      "value": "RN-RAT",
-      "quest": "4B5E4351A34E6E51",
-      "task": "4B5E873D88DE2073",
+      "value": "RN-HFB",
+      "quest": "4B5DDDF726D08AE2",
+      "task": "4B58F21B0A280468",
       "chapter": "hk3_voltage_02"
     },
     {
-      "key": "RN-SFR",
-      "kind": "research",
-      "value": "RN-SFR",
-      "quest": "4B5FCABEEB611F12",
-      "task": "4B52E786250589FA",
+      "key": "hcv-continuous-hw",
+      "kind": "process",
+      "value": "approved_hcv_p10",
+      "quest": "4B52FA95AA4321A1",
+      "task": "4B50D86E3EDEA291",
       "chapter": "hk3_voltage_02"
     },
     {
-      "key": "RN-OPR",
-      "kind": "research",
-      "value": "RN-OPR",
-      "quest": "4B5DE41A832D8754",
-      "task": "4B5A60A224A3F151",
+      "key": "hcv-solvent",
+      "kind": "process",
+      "value": "approved_hcv_p13",
+      "quest": "4B5E7D421070F130",
+      "task": "4B5FE4AE081E28A0",
       "chapter": "hk3_voltage_02"
     },
     {
@@ -476,7 +291,23 @@
       "value": "RN-SSP",
       "quest": "4B508E8A7D8E0D07",
       "task": "4B564D8531EC52D1",
-      "chapter": "hk3_voltage_03"
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-slurry",
+      "kind": "process",
+      "value": "approved_x_s02",
+      "quest": "4B53F9D98D99C3DA",
+      "task": "4B5BD1C973EDE7DF",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-precursor",
+      "kind": "process",
+      "value": "approved_hcv_p14",
+      "quest": "4B58FB857BA8E864",
+      "task": "4B5643EFD2343DF9",
+      "chapter": "hk3_voltage_02"
     },
     {
       "key": "RN-NBS",
@@ -484,7 +315,15 @@
       "value": "RN-NBS",
       "quest": "4B5236D09B7CBB39",
       "task": "4B595E38111D2063",
-      "chapter": "hk3_voltage_03"
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-passivation",
+      "kind": "process",
+      "value": "approved_x_n05",
+      "quest": "4B587FE7B81DCDBB",
+      "task": "4B5B8CB24DFE9148",
+      "chapter": "hk3_voltage_02"
     },
     {
       "key": "RN-NRA",
@@ -492,7 +331,7 @@
       "value": "RN-NRA",
       "quest": "4B51F36779451456",
       "task": "4B5DF414ECA936B1",
-      "chapter": "hk3_voltage_03"
+      "chapter": "hk3_voltage_02"
     },
     {
       "key": "RN-NSP",
@@ -500,6 +339,182 @@
       "value": "RN-NSP",
       "quest": "4B5DE0289470D651",
       "task": "4B5303F2405038C3",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "RN-HRC",
+      "kind": "research",
+      "value": "RN-HRC",
+      "quest": "4B555AB7503AC71A",
+      "task": "4B58FDD070DB9004",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-suspension",
+      "kind": "process",
+      "value": "approved_hcv_m03",
+      "quest": "4B54CE87B24796F7",
+      "task": "4B52CCA0DB3BCB62",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-sealing-liquid",
+      "kind": "process",
+      "value": "approved_x_n09",
+      "quest": "4B534EFD6935EDAE",
+      "task": "4B509679D0824BAA",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-media-recovery-task-1",
+      "kind": "process",
+      "value": "approved_hcv_p27",
+      "quest": "4B53701A7D232201",
+      "task": "4B57BAD1C5F22537",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-media-recovery-task-2",
+      "kind": "process",
+      "value": "approved_hcv_p28",
+      "quest": "4B53701A7D232201",
+      "task": "4B5331661EC551E5",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-media-recovery-task-3",
+      "kind": "process",
+      "value": "approved_hcv_p29",
+      "quest": "4B53701A7D232201",
+      "task": "4B5E1A706AF41A6A",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-nano-recovery-task-1",
+      "kind": "process",
+      "value": "approved_hcv_p30",
+      "quest": "4B58B599C65FBE9A",
+      "task": "4B56FE42193BB865",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-nano-recovery-task-2",
+      "kind": "process",
+      "value": "approved_hcv_p31",
+      "quest": "4B58B599C65FBE9A",
+      "task": "4B5E3E4E7B767798",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-nano-recovery-task-3",
+      "kind": "process",
+      "value": "approved_hcv_p32",
+      "quest": "4B58B599C65FBE9A",
+      "task": "4B55E9359A1B1804",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-nano-recovery-task-4",
+      "kind": "process",
+      "value": "approved_hcv_p33",
+      "quest": "4B58B599C65FBE9A",
+      "task": "4B58E4F6F3198858",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-nucleation-recovery",
+      "kind": "process",
+      "value": "approved_x_s05",
+      "quest": "4B51D85C822B1086",
+      "task": "4B52C0A9AC58DDB7",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-passivation-recovery",
+      "kind": "process",
+      "value": "approved_x_n06",
+      "quest": "4B50BDDBFC2DC169",
+      "task": "4B508F9C7E4F86CE",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-primer-recovery",
+      "kind": "process",
+      "value": "approved_x_c06",
+      "quest": "4B56C24CD5AFC07B",
+      "task": "4B5527043D0FD2C5",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-composite-recovery-task-1",
+      "kind": "process",
+      "value": "approved_hcv_m15",
+      "quest": "4B5F1FF3D6A563DE",
+      "task": "4B549E11798DAD1C",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-composite-recovery-task-2",
+      "kind": "process",
+      "value": "approved_hcv_m16",
+      "quest": "4B5F1FF3D6A563DE",
+      "task": "4B564C6A7C1A2E84",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-vehicle-recovery",
+      "kind": "process",
+      "value": "approved_hcv_m17",
+      "quest": "4B5FFEE440C35A2B",
+      "task": "4B5CAE4CCE95B430",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-casing-service",
+      "kind": "process",
+      "value": "approved_hcv_m18",
+      "quest": "4B5CE1843D3943FE",
+      "task": "4B5E40CB83CD0988",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-legacy-reject",
+      "kind": "process",
+      "value": "approved_hcv_m20",
+      "quest": "4B51E1D0ABAA56F7",
+      "task": "4B5B7D11371B22DC",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-continuous",
+      "kind": "process",
+      "value": "approved_hcv_m19",
+      "quest": "4B52B7A57DA236D3",
+      "task": "4B579E1281D8D544",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-precision-prerequisite",
+      "kind": "research",
+      "value": "RN-SPM",
+      "quest": "4B5C16BE079A2488",
+      "task": "4B51579F5CB7198B",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hcv-foundation",
+      "kind": "reading",
+      "value": "",
+      "quest": "4B579412BD231A64",
+      "task": "4B5E9FDF147CFCF0",
+      "chapter": "hk3_voltage_02"
+    },
+    {
+      "key": "hrv-start",
+      "kind": "research",
+      "value": "RN-HRC",
+      "quest": "4B51EEA9FC0829EF",
+      "task": "4B553E01794C87A6",
       "chapter": "hk3_voltage_03"
     },
     {
@@ -511,12 +526,36 @@
       "chapter": "hk3_voltage_03"
     },
     {
-      "key": "RN-HRC",
+      "key": "hrv-substrate-growth",
+      "kind": "process",
+      "value": "approved_hrv_e18",
+      "quest": "4B5DFFE8E43A3568",
+      "task": "4B58FD1FA7AC60B8",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-detector",
       "kind": "research",
-      "value": "RN-HRC",
-      "quest": "4B555AB7503AC71A",
-      "task": "4B58FDD070DB9004",
-      "chapter": "hk3_voltage_04"
+      "value": "RN-DMT",
+      "quest": "4B57DC4F6BB9CE55",
+      "task": "4B5B7C947B5E5CF8",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-dispersion",
+      "kind": "process",
+      "value": "approved_hrv_s02",
+      "quest": "4B5DCCEEED3B64AC",
+      "task": "4B57415AF5D1FC85",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-coating",
+      "kind": "process",
+      "value": "approved_hrv_s03",
+      "quest": "4B5E921AB4D9FB4C",
+      "task": "4B53C191EA06BF30",
+      "chapter": "hk3_voltage_03"
     },
     {
       "key": "RN-SPC",
@@ -524,7 +563,7 @@
       "value": "RN-SPC",
       "quest": "4B5D35B3254D971A",
       "task": "4B5889300E76E375",
-      "chapter": "hk3_voltage_04"
+      "chapter": "hk3_voltage_03"
     },
     {
       "key": "RN-SRA",
@@ -532,7 +571,7 @@
       "value": "RN-SRA",
       "quest": "4B5BC58B8D006F63",
       "task": "4B541C230419FAD8",
-      "chapter": "hk3_voltage_04"
+      "chapter": "hk3_voltage_03"
     },
     {
       "key": "RN-SPM",
@@ -540,6 +579,446 @@
       "value": "RN-SPM",
       "quest": "4B560A45C8B1AB68",
       "task": "4B58E80CB999F893",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-growth-liquid",
+      "kind": "process",
+      "value": "approved_hrv_m01",
+      "quest": "4B5C3F0875E3F9DA",
+      "task": "4B5CD7570C3C6756",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-swarf-recovery",
+      "kind": "process",
+      "value": "approved_hrv_s19",
+      "quest": "4B56D20ECA8DE73E",
+      "task": "4B53CB9128DC48BF",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-coating-recovery",
+      "kind": "process",
+      "value": "approved_hrv_s20",
+      "quest": "4B56B1DB58EA5FDA",
+      "task": "4B563AC44674A6D6",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-inoculant-recovery",
+      "kind": "process",
+      "value": "approved_hrv_s21",
+      "quest": "4B57D28E5420D095",
+      "task": "4B52B1499313CDC0",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-anneal-continuous",
+      "kind": "process",
+      "value": "approved_hrv_s22",
+      "quest": "4B5D7551240A5C4F",
+      "task": "4B52C4BF4995E953",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-casing-service",
+      "kind": "process",
+      "value": "approved_hrv_m15",
+      "quest": "4B56E0A8546920BC",
+      "task": "4B5D4EEF0A4AD291",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-scrap-separation",
+      "kind": "process",
+      "value": "approved_hrv_m16",
+      "quest": "4B56811CD786020F",
+      "task": "4B5C902644A7FD17",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-precursor-recovery",
+      "kind": "process",
+      "value": "approved_hrv_m17",
+      "quest": "4B583698911880B5",
+      "task": "4B56B78A1062E670",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-growth-liquid-recovery",
+      "kind": "process",
+      "value": "approved_hrv_m18",
+      "quest": "4B5B7C1BB8921667",
+      "task": "4B537C13A7B9A85C",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-legacy-reject",
+      "kind": "process",
+      "value": "approved_hrv_m19",
+      "quest": "4B5F63D8A588FAD1",
+      "task": "4B5CB83B314795D0",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-growth-continuous",
+      "kind": "process",
+      "value": "approved_hrv_m20",
+      "quest": "4B521EF6780A5406",
+      "task": "4B533DAEC482E681",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-tail",
+      "kind": "process",
+      "value": "approved_hrv_m21",
+      "quest": "4B5AF7E3350B9CCD",
+      "task": "4B5B586091281923",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "hrv-foundation",
+      "kind": "reading",
+      "value": "",
+      "quest": "4B51372F71E2A4E1",
+      "task": "4B538A2E499D9EA7",
+      "chapter": "hk3_voltage_03"
+    },
+    {
+      "key": "RN-FRP",
+      "kind": "research",
+      "value": "RN-FRP",
+      "quest": "4B527E9BB472CF89",
+      "task": "4B50C0EBF2AFD393",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "RN-SRE",
+      "kind": "research",
+      "value": "RN-SRE",
+      "quest": "4B50645A14FB0B24",
+      "task": "4B560ECC7D8DB607",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p13",
+      "kind": "process",
+      "value": "approved_hdv_p13",
+      "quest": "4B5DE0FCC1251CE1",
+      "task": "4B51D12626AF5D26",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p14",
+      "kind": "process",
+      "value": "approved_hdv_p14",
+      "quest": "4B5FEE30138C7AD8",
+      "task": "4B5C814E29210D8A",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p15",
+      "kind": "process",
+      "value": "approved_hdv_p15",
+      "quest": "4B5CD2F4B16A729F",
+      "task": "4B506DFD8A3EC875",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "RN-HLC",
+      "kind": "research",
+      "value": "RN-HLC",
+      "quest": "4B569369C14396CA",
+      "task": "4B509E5D0C54E4CC",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "RN-SFR",
+      "kind": "research",
+      "value": "RN-SFR",
+      "quest": "4B5FCABEEB611F12",
+      "task": "4B52E786250589FA",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p22",
+      "kind": "process",
+      "value": "approved_hdv_p22",
+      "quest": "4B5A707C25895C91",
+      "task": "4B57A968F885BAE8",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p23",
+      "kind": "process",
+      "value": "approved_hdv_p23",
+      "quest": "4B54CE53B5BC8A43",
+      "task": "4B509195EECF42AA",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p24",
+      "kind": "process",
+      "value": "approved_hdv_p24",
+      "quest": "4B59BFF742C95222",
+      "task": "4B553ADA533F9BEA",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p25",
+      "kind": "process",
+      "value": "approved_hdv_p25",
+      "quest": "4B517C8BFA0855D3",
+      "task": "4B550E7A43DAF2D0",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p26",
+      "kind": "process",
+      "value": "approved_hdv_p26",
+      "quest": "4B5EEB005FD1EB50",
+      "task": "4B5936E6EAF849EE",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-p27",
+      "kind": "process",
+      "value": "approved_hdv_p27",
+      "quest": "4B5D69D7321224EA",
+      "task": "4B512CDF50A7D9DE",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m04",
+      "kind": "process",
+      "value": "approved_hdv_m04",
+      "quest": "4B5959B17D970531",
+      "task": "4B5215FC36B3B773",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m16",
+      "kind": "process",
+      "value": "approved_hdv_m16",
+      "quest": "4B573B18A38E0020",
+      "task": "4B5D81F1740B19F2",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m17",
+      "kind": "process",
+      "value": "approved_hdv_m17",
+      "quest": "4B588ED5E0AFC8A6",
+      "task": "4B56D0DB2484B777",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m18",
+      "kind": "process",
+      "value": "approved_hdv_m18",
+      "quest": "4B5990878384C676",
+      "task": "4B5519ECFC545B9B",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m19",
+      "kind": "process",
+      "value": "approved_hdv_m19",
+      "quest": "4B5A25FFD65C962C",
+      "task": "4B5D809DC71EB96C",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m20",
+      "kind": "process",
+      "value": "approved_hdv_m20",
+      "quest": "4B58F8772CDFCA7C",
+      "task": "4B58742F0F140DF9",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m21",
+      "kind": "process",
+      "value": "approved_hdv_m21",
+      "quest": "4B59F84B3E747B9D",
+      "task": "4B5E148D34DA04EA",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m22",
+      "kind": "process",
+      "value": "approved_hdv_m22",
+      "quest": "4B50663507455303",
+      "task": "4B5D3DC4020637AE",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "hdv-m23",
+      "kind": "process",
+      "value": "approved_hdv_m23",
+      "quest": "4B547AFDF39AB15F",
+      "task": "4B5A86D387E5A0EC",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-t01",
+      "kind": "process",
+      "value": "approved_energy_t01",
+      "quest": "4B54C944F42D95D6",
+      "task": "4B51034D1AB446C9",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-f01",
+      "kind": "process",
+      "value": "approved_energy_f01",
+      "quest": "4B5C18F6D27F90AE",
+      "task": "4B53B0E35E66A568",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-small-basic",
+      "kind": "process",
+      "value": "industrial_reactor_i19|industrial_reactor_i19_4x|industrial_reactor_i19_8x|industrial_reactor_i19_16x",
+      "quest": "4B5187F9CD1460D6",
+      "task": "4B532AE3347724CD",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-01",
+      "kind": "process",
+      "value": "i19-01-01|i19-01-04|i19-01-08|i19-01-16",
+      "quest": "4B50BFC4F68E1880",
+      "task": "4B55EC74249D2660",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-02",
+      "kind": "process",
+      "value": "i19-02-01|i19-02-04|i19-02-08|i19-02-16",
+      "quest": "4B545F26B5C09A8A",
+      "task": "4B56BAF29BE0DD1D",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-03",
+      "kind": "process",
+      "value": "i19-03-01|i19-03-04|i19-03-08|i19-03-16",
+      "quest": "4B5591CFD32CFFCA",
+      "task": "4B5A4B700CC5E175",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-04",
+      "kind": "process",
+      "value": "i19-04-01|i19-04-04|i19-04-08|i19-04-16",
+      "quest": "4B584CC63BEE32D2",
+      "task": "4B5AC35D349233F4",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-05",
+      "kind": "process",
+      "value": "i19-05-01|i19-05-04|i19-05-08|i19-05-16",
+      "quest": "4B5894E17B3132E5",
+      "task": "4B5961CE937D93C4",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-06",
+      "kind": "process",
+      "value": "i19-06-01|i19-06-04|i19-06-08|i19-06-16",
+      "quest": "4B556F27E11A55CE",
+      "task": "4B5D40EE35D99BF0",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-07",
+      "kind": "process",
+      "value": "i19-07-01|i19-07-04|i19-07-08|i19-07-16",
+      "quest": "4B5774A9AAA75DF0",
+      "task": "4B5E65AA95EB926A",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-08",
+      "kind": "process",
+      "value": "i19-08-01|i19-08-04|i19-08-08|i19-08-16",
+      "quest": "4B5DAE4D8FDA8DF5",
+      "task": "4B5C37F663D79C14",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-09",
+      "kind": "process",
+      "value": "i19-09-01|i19-09-04|i19-09-08|i19-09-16",
+      "quest": "4B5E897EEE8833C4",
+      "task": "4B5D09F361C1E619",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-10",
+      "kind": "process",
+      "value": "i19-10-01|i19-10-04|i19-10-08|i19-10-16",
+      "quest": "4B5295A3E70BEF3E",
+      "task": "4B5825273D8A6D75",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-11",
+      "kind": "process",
+      "value": "i19-11-01|i19-11-04|i19-11-08|i19-11-16",
+      "quest": "4B547BEEA4B5A496",
+      "task": "4B5D713217477E21",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-12",
+      "kind": "process",
+      "value": "i19-12-01|i19-12-04|i19-12-08|i19-12-16",
+      "quest": "4B5246374B53EDF2",
+      "task": "4B5D6946395D7D86",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-13",
+      "kind": "process",
+      "value": "i19-13-01|i19-13-04|i19-13-08|i19-13-16",
+      "quest": "4B53E9CB87F9BFB9",
+      "task": "4B53D52141571DF2",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-14",
+      "kind": "process",
+      "value": "i19-14-01|i19-14-04|i19-14-08|i19-14-16",
+      "quest": "4B5CE54F74539BA1",
+      "task": "4B54571483A65723",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "energy-i19-15",
+      "kind": "process",
+      "value": "i19-15-01|i19-15-04|i19-15-08|i19-15-16",
+      "quest": "4B5CF412D58F44F2",
+      "task": "4B5648F0FBF08ACC",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "RN-DMT",
+      "kind": "research",
+      "value": "RN-DMT",
+      "quest": "4B5AFD2871AE846D",
+      "task": "4B55C052C4234D90",
+      "chapter": "hk3_voltage_04"
+    },
+    {
+      "key": "RN-OPR",
+      "kind": "research",
+      "value": "RN-OPR",
+      "quest": "4B5DE41A832D8754",
+      "task": "4B5A60A224A3F151",
       "chapter": "hk3_voltage_04"
     },
     {
@@ -548,7 +1027,7 @@
       "value": "RN-MCE",
       "quest": "4B50CFC15772EED2",
       "task": "4B510573473D4502",
-      "chapter": "hk3_voltage_04"
+      "chapter": "hk3_voltage_05"
     },
     {
       "key": "RN-ALE",
@@ -556,14 +1035,6 @@
       "value": "RN-ALE",
       "quest": "4B5DF2FDA879723E",
       "task": "4B5A17A37D441B35",
-      "chapter": "hk3_voltage_04"
-    },
-    {
-      "key": "RN-SSC",
-      "kind": "research",
-      "value": "RN-SSC",
-      "quest": "4B5BD9A686D81920",
-      "task": "4B53CE09282E5F84",
       "chapter": "hk3_voltage_05"
     },
     {
@@ -572,6 +1043,214 @@
       "value": "RN-SSQ",
       "quest": "4B5DA9B39AA3192A",
       "task": "4B57CD5C3173E28B",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m03",
+      "kind": "process",
+      "value": "approved_qsv_m03",
+      "quest": "4B54CF51446B10A0",
+      "task": "4B5A7D7FBA727182",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m16",
+      "kind": "process",
+      "value": "approved_qsv_m16",
+      "quest": "4B5DEE87B3588CA4",
+      "task": "4B5F3AC4573B9229",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m17",
+      "kind": "process",
+      "value": "approved_qsv_m17",
+      "quest": "4B5239DF93F013EF",
+      "task": "4B53AC758D704792",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m18",
+      "kind": "process",
+      "value": "approved_qsv_m18",
+      "quest": "4B553F7D85CD763F",
+      "task": "4B5F3AA9FBF27593",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m19",
+      "kind": "process",
+      "value": "approved_qsv_m19",
+      "quest": "4B51741762CFFB5C",
+      "task": "4B5DF5A0EFEE29F5",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m20",
+      "kind": "process",
+      "value": "approved_qsv_m20",
+      "quest": "4B5798995F334AC7",
+      "task": "4B50A68DD96B2C36",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m21",
+      "kind": "process",
+      "value": "approved_qsv_m21",
+      "quest": "4B548CC965ACFCE8",
+      "task": "4B5AD6F9A5AD692A",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m22",
+      "kind": "process",
+      "value": "approved_qsv_m22",
+      "quest": "4B58A8456F326C13",
+      "task": "4B586904E2E38E10",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "qsv-m23",
+      "kind": "process",
+      "value": "approved_qsv_m23",
+      "quest": "4B5BC918DBFA2C25",
+      "task": "4B525EC6D912DB76",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-t02",
+      "kind": "process",
+      "value": "approved_energy_t02",
+      "quest": "4B5BAE40F5AFC07D",
+      "task": "4B59A313473024CD",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-f02",
+      "kind": "process",
+      "value": "approved_energy_f02",
+      "quest": "4B5F99569660B4DB",
+      "task": "4B56C7A2F1A50E09",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-01",
+      "kind": "process",
+      "value": "i20-01-01|i20-01-04|i20-01-08|i20-01-16",
+      "quest": "4B540C3CD6E1C789",
+      "task": "4B5EFF06B2155DF7",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-02",
+      "kind": "process",
+      "value": "i20-02-01|i20-02-04|i20-02-08|i20-02-16",
+      "quest": "4B58A5775A7230DA",
+      "task": "4B5BBD878E3D2871",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-03",
+      "kind": "process",
+      "value": "i20-03-01|i20-03-04|i20-03-08|i20-03-16",
+      "quest": "4B5BB623214E3C62",
+      "task": "4B5F63F93E4E3276",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-04",
+      "kind": "process",
+      "value": "i20-04-01|i20-04-04|i20-04-08|i20-04-16",
+      "quest": "4B57AB116142B3B6",
+      "task": "4B5E4BADE13EDCED",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-05",
+      "kind": "process",
+      "value": "i20-05-01|i20-05-04|i20-05-08|i20-05-16",
+      "quest": "4B58F179C19823AE",
+      "task": "4B51C5909CFE69E3",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-06",
+      "kind": "process",
+      "value": "i20-06-01|i20-06-04|i20-06-08|i20-06-16",
+      "quest": "4B588E0EF334DB23",
+      "task": "4B57DBE26C5982D3",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-07",
+      "kind": "process",
+      "value": "i20-07-01|i20-07-04|i20-07-08|i20-07-16",
+      "quest": "4B59F2737629294D",
+      "task": "4B5F0447668E5DDB",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-08",
+      "kind": "process",
+      "value": "i20-08-01|i20-08-04|i20-08-08|i20-08-16",
+      "quest": "4B5DBAA8EF6B7BDC",
+      "task": "4B5E44AC65B06A37",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-09",
+      "kind": "process",
+      "value": "i20-09-01|i20-09-04|i20-09-08|i20-09-16",
+      "quest": "4B5CF9B3E6C83416",
+      "task": "4B558A2B8F2A9A84",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-10",
+      "kind": "process",
+      "value": "i20-10-01|i20-10-04|i20-10-08|i20-10-16",
+      "quest": "4B5C875F0F840506",
+      "task": "4B5B9CD2E8F5FA32",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-11",
+      "kind": "process",
+      "value": "i20-11-01|i20-11-04|i20-11-08|i20-11-16",
+      "quest": "4B5F816F94FE7BFE",
+      "task": "4B5288B782F1C2B8",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-12",
+      "kind": "process",
+      "value": "i20-12-01|i20-12-04|i20-12-08|i20-12-16",
+      "quest": "4B5B82EECA40B5BD",
+      "task": "4B56F96A6A65DCC3",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-13",
+      "kind": "process",
+      "value": "i20-13-01|i20-13-04|i20-13-08|i20-13-16",
+      "quest": "4B51A7449D9CEBE5",
+      "task": "4B5E1D1F45D8966F",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-14",
+      "kind": "process",
+      "value": "i20-14-01|i20-14-04|i20-14-08|i20-14-16",
+      "quest": "4B5E3495D5B76DBB",
+      "task": "4B5E43D95DB597AF",
+      "chapter": "hk3_voltage_05"
+    },
+    {
+      "key": "energy-i20-15",
+      "kind": "process",
+      "value": "i20-15-01|i20-15-04|i20-15-08|i20-15-16",
+      "quest": "4B5CEE063BAA2B6B",
+      "task": "4B5DE68BC22B03C3",
       "chapter": "hk3_voltage_05"
     },
     {
@@ -599,43 +1278,11 @@
       "chapter": "hk3_voltage_05"
     },
     {
-      "key": "RN-ECA",
-      "kind": "research",
-      "value": "RN-ECA",
-      "quest": "4B5B5795A0A0443D",
-      "task": "4B5C79C2674FFC63",
-      "chapter": "hk3_voltage_05"
-    },
-    {
-      "key": "RN-ERA",
-      "kind": "research",
-      "value": "RN-ERA",
-      "quest": "4B5B96C20B5486BC",
-      "task": "4B585D43462CF5DB",
-      "chapter": "hk3_voltage_05"
-    },
-    {
-      "key": "RN-FCA",
-      "kind": "research",
-      "value": "RN-FCA",
-      "quest": "4B59EE579EB6CE9A",
-      "task": "4B559152F70FDE72",
-      "chapter": "hk3_voltage_05"
-    },
-    {
       "key": "RN-GCA",
       "kind": "research",
       "value": "RN-GCA",
       "quest": "4B54FB191FF02254",
       "task": "4B5410C4DC16EC16",
-      "chapter": "hk3_voltage_05"
-    },
-    {
-      "key": "RN-ICA",
-      "kind": "research",
-      "value": "RN-ICA",
-      "quest": "4B54533414333ADC",
-      "task": "4B581CD48F2AF075",
       "chapter": "hk3_voltage_05"
     },
     {
@@ -647,75 +1294,67 @@
       "chapter": "hk3_voltage_05"
     },
     {
-      "key": "RN-RCA",
+      "key": "RN-RAT",
       "kind": "research",
-      "value": "RN-RCA",
-      "quest": "4B5DA6E64F338B10",
-      "task": "4B5601807F5A49AC",
+      "value": "RN-RAT",
+      "quest": "4B5E4351A34E6E51",
+      "task": "4B5E873D88DE2073",
       "chapter": "hk3_voltage_05"
     },
     {
-      "key": "RN-TCA",
+      "key": "RN-SSC",
       "kind": "research",
-      "value": "RN-TCA",
-      "quest": "4B524978C39A250C",
-      "task": "4B5868B66D7CD30B",
+      "value": "RN-SSC",
+      "quest": "4B5BD9A686D81920",
+      "task": "4B53CE09282E5F84",
       "chapter": "hk3_voltage_05"
     },
     {
-      "key": "RN-BCA",
-      "kind": "research",
-      "value": "RN-BCA",
-      "quest": "4B5FE4E54508ABEF",
-      "task": "4B592C34BDB52288",
-      "chapter": "hk3_voltage_05"
-    },
-    {
-      "key": "RN-VCA",
-      "kind": "research",
-      "value": "RN-VCA",
-      "quest": "4B5FE5619D5A09F9",
-      "task": "4B545B1407712981",
-      "chapter": "hk3_voltage_05"
-    },
-    {
-      "key": "RN-DKE",
-      "kind": "research",
-      "value": "RN-DKE",
-      "quest": "4B5F116FA97D7110",
-      "task": "4B5E1D8FEFFC3D25",
+      "key": "qcv-n02",
+      "kind": "process",
+      "value": "approved_qcv_n02",
+      "quest": "4B5CA675A5D88771",
+      "task": "4B530938400DA574",
       "chapter": "hk3_voltage_06"
     },
     {
-      "key": "RN-ERM",
-      "kind": "research",
-      "value": "RN-ERM",
-      "quest": "4B5BE09A16080469",
-      "task": "4B5823F48E9645F3",
+      "key": "qcv-n14",
+      "kind": "process",
+      "value": "approved_qcv_n14",
+      "quest": "4B55EA59B981CD84",
+      "task": "4B5589C8DB455F1C",
       "chapter": "hk3_voltage_06"
     },
     {
-      "key": "RN-GSC",
-      "kind": "research",
-      "value": "RN-GSC",
-      "quest": "4B5D74C9ED85BF0E",
-      "task": "4B5A3D3173B11772",
+      "key": "qcv-n15",
+      "kind": "process",
+      "value": "approved_qcv_n15",
+      "quest": "4B5E9A5DC86C96FB",
+      "task": "4B59F203A7D9CB88",
       "chapter": "hk3_voltage_06"
     },
     {
-      "key": "RN-CJK",
-      "kind": "research",
-      "value": "RN-CJK",
-      "quest": "4B535AC10CB8CB3B",
-      "task": "4B5E3A961B2A4F29",
+      "key": "qcv-n16",
+      "kind": "process",
+      "value": "approved_qcv_n16",
+      "quest": "4B5DA535DF89269D",
+      "task": "4B52E55325AC1F3D",
       "chapter": "hk3_voltage_06"
     },
     {
-      "key": "RN-CQS",
+      "key": "qcv-n17",
+      "kind": "process",
+      "value": "approved_qcv_n17",
+      "quest": "4B56218873596DA3",
+      "task": "4B51901E4A971BA2",
+      "chapter": "hk3_voltage_06"
+    },
+    {
+      "key": "RN-FCA",
       "kind": "research",
-      "value": "RN-CQS",
-      "quest": "4B512E947E431C10",
-      "task": "4B520994473C15CF",
+      "value": "RN-FCA",
+      "quest": "4B59EE579EB6CE9A",
+      "task": "4B559152F70FDE72",
       "chapter": "hk3_voltage_06"
     },
     {
@@ -727,11 +1366,19 @@
       "chapter": "hk3_voltage_06"
     },
     {
-      "key": "RN-JOK",
+      "key": "RN-GSC",
       "kind": "research",
-      "value": "RN-JOK",
-      "quest": "4B5A928D87B43C2A",
-      "task": "4B5254FFD16D98DD",
+      "value": "RN-GSC",
+      "quest": "4B5D74C9ED85BF0E",
+      "task": "4B5A3D3173B11772",
+      "chapter": "hk3_voltage_06"
+    },
+    {
+      "key": "RN-ICA",
+      "kind": "research",
+      "value": "RN-ICA",
+      "quest": "4B54533414333ADC",
+      "task": "4B581CD48F2AF075",
       "chapter": "hk3_voltage_06"
     },
     {
@@ -743,19 +1390,11 @@
       "chapter": "hk3_voltage_06"
     },
     {
-      "key": "RN-SEK",
+      "key": "RN-TCA",
       "kind": "research",
-      "value": "RN-SEK",
-      "quest": "4B533F2846778D65",
-      "task": "4B57FE9050FFF2DE",
-      "chapter": "hk3_voltage_06"
-    },
-    {
-      "key": "RN-VAK",
-      "kind": "research",
-      "value": "RN-VAK",
-      "quest": "4B526B218167CA96",
-      "task": "4B581EB4A5CE26BC",
+      "value": "RN-TCA",
+      "quest": "4B524978C39A250C",
+      "task": "4B5868B66D7CD30B",
       "chapter": "hk3_voltage_06"
     },
     {
@@ -767,12 +1406,260 @@
       "chapter": "hk3_voltage_06"
     },
     {
-      "key": "RN-QOM",
-      "kind": "research",
-      "value": "RN-QOM",
-      "quest": "4B5CD71B4E04B8A3",
-      "task": "4B5E70C662FA8E9A",
+      "key": "qev-n02",
+      "kind": "process",
+      "value": "approved_qev_n02",
+      "quest": "4B54B484937513B1",
+      "task": "4B5481F197BBE1AC",
       "chapter": "hk3_voltage_07"
+    },
+    {
+      "key": "qev-n15",
+      "kind": "process",
+      "value": "approved_qev_n15",
+      "quest": "4B57BD3093906481",
+      "task": "4B55C61880918D59",
+      "chapter": "hk3_voltage_07"
+    },
+    {
+      "key": "qev-n16",
+      "kind": "process",
+      "value": "approved_qev_n16",
+      "quest": "4B5DDF371174C139",
+      "task": "4B53B52C3B5D3FA6",
+      "chapter": "hk3_voltage_07"
+    },
+    {
+      "key": "qev-n17",
+      "kind": "process",
+      "value": "approved_qev_n17",
+      "quest": "4B558EFD1D3BCC1D",
+      "task": "4B5F69D05D80BF50",
+      "chapter": "hk3_voltage_07"
+    },
+    {
+      "key": "qev-n18",
+      "kind": "process",
+      "value": "approved_qev_n18",
+      "quest": "4B5B58129091C610",
+      "task": "4B500CA2DAA7F056",
+      "chapter": "hk3_voltage_07"
+    },
+    {
+      "key": "RN-CQS",
+      "kind": "research",
+      "value": "RN-CQS",
+      "quest": "4B512E947E431C10",
+      "task": "4B520994473C15CF",
+      "chapter": "hk3_voltage_07"
+    },
+    {
+      "key": "existing-spatial-module",
+      "kind": "process",
+      "value": "industrial_spatial_module",
+      "quest": "4B50E097E4620CD6",
+      "task": "4B5B03A6D23C5531",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-key-housing",
+      "kind": "process",
+      "value": "industrial_key_housing",
+      "quest": "4B5128436BF42BF8",
+      "task": "4B5896E90C4A08F8",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-imitation-star-of-eden",
+      "kind": "process",
+      "value": "industrial_imitation_star_of_eden",
+      "quest": "4B5E53F8300CA9AF",
+      "task": "4B5FD1840FDFBA4F",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-ship-blueprint-copy",
+      "kind": "process",
+      "value": "industrial_ship_blueprint_copy",
+      "quest": "4B5BF1D51D97F209",
+      "task": "4B57A94BBCE313AD",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-enhanced-beacon-signal",
+      "kind": "process",
+      "value": "industrial_enhanced_beacon_signal",
+      "quest": "4B5427832AA9F882",
+      "task": "4B57D3862CE029D5",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-electromagnetic-worktest",
+      "kind": "process",
+      "value": "industrial_electromagnetic_worktest",
+      "quest": "4B5BD6FAD33255FB",
+      "task": "4B5827533612C0C8",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-cryogenic-worktest",
+      "kind": "process",
+      "value": "industrial_cryogenic_worktest",
+      "quest": "4B538067A289069C",
+      "task": "4B5D41D5CE9B9482",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-flame-worktest",
+      "kind": "process",
+      "value": "industrial_flame_worktest",
+      "quest": "4B537DFEF740AACB",
+      "task": "4B543E8C83FD9E54",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-compression-worktest",
+      "kind": "process",
+      "value": "industrial_compression_worktest",
+      "quest": "4B574F1B6BD2B7AE",
+      "task": "4B5B8A1181104688",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-flow-worktest",
+      "kind": "process",
+      "value": "industrial_flow_worktest",
+      "quest": "4B582C794236C289",
+      "task": "4B5EF3912EC2F10A",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-train-navigation-module",
+      "kind": "process",
+      "value": "industrial_train_navigation_module",
+      "quest": "4B5A997BBB8B2A33",
+      "task": "4B5A324A4A928572",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-coordinate-solution",
+      "kind": "process",
+      "value": "industrial_coordinate_solution",
+      "quest": "4B5B4A3512E04E63",
+      "task": "4B51E5C75C89902C",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "qav-n02",
+      "kind": "process",
+      "value": "approved_qav_n02",
+      "quest": "4B5113D26D467BBB",
+      "task": "4B54AA41B4E909BD",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "qav-n14",
+      "kind": "process",
+      "value": "approved_qav_n14",
+      "quest": "4B519447EE37117D",
+      "task": "4B5E8631A9990096",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "qav-n15",
+      "kind": "process",
+      "value": "approved_qav_n15",
+      "quest": "4B57FEAD1D60670D",
+      "task": "4B581EFCA220D924",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "qav-n16",
+      "kind": "process",
+      "value": "approved_qav_n16",
+      "quest": "4B563815A9812551",
+      "task": "4B55956EECFE6857",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "qav-n17",
+      "kind": "process",
+      "value": "approved_qav_n17",
+      "quest": "4B577B0E20011BC1",
+      "task": "4B5E0F91A7E8FA94",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-reverse-engineering-specimen",
+      "kind": "process",
+      "value": "industrial_reverse_engineering_specimen",
+      "quest": "4B587E7100C837E4",
+      "task": "4B5269111434FFF2",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "existing-unmanned-mining-dispatch",
+      "kind": "process",
+      "value": "industrial_unmanned_mining_dispatch",
+      "quest": "4B5CB334EBC7110A",
+      "task": "4B594FB4E932FD43",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "RN-CJK",
+      "kind": "research",
+      "value": "RN-CJK",
+      "quest": "4B535AC10CB8CB3B",
+      "task": "4B5E3A961B2A4F29",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "RN-DKE",
+      "kind": "research",
+      "value": "RN-DKE",
+      "quest": "4B5F116FA97D7110",
+      "task": "4B5E1D8FEFFC3D25",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "RN-ERA",
+      "kind": "research",
+      "value": "RN-ERA",
+      "quest": "4B5B96C20B5486BC",
+      "task": "4B585D43462CF5DB",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "RN-HBD",
+      "kind": "research",
+      "value": "RN-HBD",
+      "quest": "4B5E49064FACFD59",
+      "task": "4B5E990386559768",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "RN-HCC",
+      "kind": "research",
+      "value": "RN-HCC",
+      "quest": "4B581DA378E5DC04",
+      "task": "4B5E9260570B61F6",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "RN-HVI",
+      "kind": "research",
+      "value": "RN-HVI",
+      "quest": "4B50C826B7C24906",
+      "task": "4B5A8CF9B4FC6FD6",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "RN-LTA",
+      "kind": "research",
+      "value": "RN-LTA",
+      "quest": "4B56C2D92B2592ED",
+      "task": "4B503D52DC07630C",
+      "chapter": "hk3_voltage_08"
     },
     {
       "key": "RN-QLE",
@@ -780,15 +1667,23 @@
       "value": "RN-QLE",
       "quest": "4B5488E425C5FF10",
       "task": "4B5F15D0D5E9EDB9",
-      "chapter": "hk3_voltage_07"
+      "chapter": "hk3_voltage_08"
     },
     {
-      "key": "RN-WCP",
+      "key": "RN-QOM",
       "kind": "research",
-      "value": "RN-WCP",
-      "quest": "4B54804DF6CCFEB5",
-      "task": "4B5072E26AD74851",
-      "chapter": "hk3_voltage_07"
+      "value": "RN-QOM",
+      "quest": "4B5CD71B4E04B8A3",
+      "task": "4B5E70C662FA8E9A",
+      "chapter": "hk3_voltage_08"
+    },
+    {
+      "key": "RN-SEK",
+      "kind": "research",
+      "value": "RN-SEK",
+      "quest": "4B533F2846778D65",
+      "task": "4B57FE9050FFF2DE",
+      "chapter": "hk3_voltage_08"
     },
     {
       "key": "RN-UAA",
@@ -807,35 +1702,243 @@
       "chapter": "hk3_voltage_08"
     },
     {
-      "key": "RN-LTA",
+      "key": "RN-VCA",
       "kind": "research",
-      "value": "RN-LTA",
-      "quest": "4B56C2D92B2592ED",
-      "task": "4B503D52DC07630C",
+      "value": "RN-VCA",
+      "quest": "4B5FE5619D5A09F9",
+      "task": "4B545B1407712981",
       "chapter": "hk3_voltage_08"
     },
     {
-      "key": "RN-HBD",
+      "key": "RN-WCP",
       "kind": "research",
-      "value": "RN-HBD",
-      "quest": "4B5E49064FACFD59",
-      "task": "4B5E990386559768",
+      "value": "RN-WCP",
+      "quest": "4B54804DF6CCFEB5",
+      "task": "4B5072E26AD74851",
       "chapter": "hk3_voltage_08"
     },
     {
-      "key": "RN-BCC",
-      "kind": "research",
-      "value": "RN-BCC",
-      "quest": "4B53AFBD8F5499DB",
-      "task": "4B5661ABCCE3B38A",
+      "key": "imv-n02",
+      "kind": "process",
+      "value": "approved_imv_n02",
+      "quest": "4B58995F28EDFECA",
+      "task": "4B57F404242595FF",
       "chapter": "hk3_voltage_09"
     },
     {
-      "key": "RN-HCC",
-      "kind": "research",
-      "value": "RN-HCC",
-      "quest": "4B581DA378E5DC04",
-      "task": "4B5E9260570B61F6",
+      "key": "imv-n14",
+      "kind": "process",
+      "value": "approved_imv_n14",
+      "quest": "4B532C29B77787DE",
+      "task": "4B530B2B9752F65F",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-n15",
+      "kind": "process",
+      "value": "approved_imv_n15",
+      "quest": "4B5DAEB02D96FEF4",
+      "task": "4B5344F56374CA0A",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-n16",
+      "kind": "process",
+      "value": "approved_imv_n16",
+      "quest": "4B52B7D13D3FD0E0",
+      "task": "4B57713F11D0832D",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-n17",
+      "kind": "process",
+      "value": "approved_imv_n17",
+      "quest": "4B58594CCCCF2831",
+      "task": "4B5EA6D9F6B49372",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-f01",
+      "kind": "process",
+      "value": "approved_imv_f01",
+      "quest": "4B589702DC029F9A",
+      "task": "4B53FE64FCC43820",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-k21",
+      "kind": "process",
+      "value": "approved_imv_k21",
+      "quest": "4B58B6FC383BF579",
+      "task": "4B51D6556AD7D9D4",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-k27",
+      "kind": "process",
+      "value": "approved_imv_k27",
+      "quest": "4B527B4505AD67DB",
+      "task": "4B52D945A28A8DBC",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-k28",
+      "kind": "process",
+      "value": "approved_imv_k28",
+      "quest": "4B5AE7672501970C",
+      "task": "4B50C961B28A76E4",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-g04",
+      "kind": "process",
+      "value": "approved_imv_g04",
+      "quest": "4B50F95FD0FE0059",
+      "task": "4B5B68CD5220E7C6",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "imv-g06",
+      "kind": "process",
+      "value": "approved_imv_g06",
+      "quest": "4B5D57814FE4D3C3",
+      "task": "4B535716C01E7C80",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-t03",
+      "kind": "process",
+      "value": "approved_energy_t03",
+      "quest": "4B5BA171379664CC",
+      "task": "4B5FA383D72AC9DA",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-f03",
+      "kind": "process",
+      "value": "approved_energy_f03",
+      "quest": "4B5FFE2FA5B8C97F",
+      "task": "4B517A9C0867E464",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-01",
+      "kind": "process",
+      "value": "i21-01-01|i21-01-04|i21-01-08|i21-01-16",
+      "quest": "4B5D8B4510122249",
+      "task": "4B54E0188C577242",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-02",
+      "kind": "process",
+      "value": "i21-02-01|i21-02-04|i21-02-08|i21-02-16",
+      "quest": "4B5AF9C193C1225E",
+      "task": "4B5D12677A3E6BA8",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-03",
+      "kind": "process",
+      "value": "i21-03-01|i21-03-04|i21-03-08|i21-03-16",
+      "quest": "4B5A512F4D2B08FF",
+      "task": "4B53D195F3D7B4E8",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-04",
+      "kind": "process",
+      "value": "i21-04-01|i21-04-04|i21-04-08|i21-04-16",
+      "quest": "4B59A5EA531887E6",
+      "task": "4B57DE25ECE28C44",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-05",
+      "kind": "process",
+      "value": "i21-05-01|i21-05-04|i21-05-08|i21-05-16",
+      "quest": "4B5B164EEDF57442",
+      "task": "4B5A2C0FA30EE7F9",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-06",
+      "kind": "process",
+      "value": "i21-06-01|i21-06-04|i21-06-08|i21-06-16",
+      "quest": "4B52EC57B8BA6349",
+      "task": "4B5E6C38A18EAAF3",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-07",
+      "kind": "process",
+      "value": "i21-07-01|i21-07-04|i21-07-08|i21-07-16",
+      "quest": "4B5E1C5E408060A6",
+      "task": "4B533005462E2551",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-08",
+      "kind": "process",
+      "value": "i21-08-01|i21-08-04|i21-08-08|i21-08-16",
+      "quest": "4B594DF57FFFFA74",
+      "task": "4B5A9595FD85FC7F",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-09",
+      "kind": "process",
+      "value": "i21-09-01|i21-09-04|i21-09-08|i21-09-16",
+      "quest": "4B5A01890D5DA8E5",
+      "task": "4B5F7138DD09BE6C",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-10",
+      "kind": "process",
+      "value": "i21-10-01|i21-10-04|i21-10-08|i21-10-16",
+      "quest": "4B5163920A7A0E32",
+      "task": "4B57C0A0AE369AC9",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-11",
+      "kind": "process",
+      "value": "i21-11-01|i21-11-04|i21-11-08|i21-11-16",
+      "quest": "4B58C9A8796A786A",
+      "task": "4B5D66927AEC200D",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-12",
+      "kind": "process",
+      "value": "i21-12-01|i21-12-04|i21-12-08|i21-12-16",
+      "quest": "4B580B91DC7A6A67",
+      "task": "4B5D56B65A4049D5",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-13",
+      "kind": "process",
+      "value": "i21-13-01|i21-13-04|i21-13-08|i21-13-16",
+      "quest": "4B5EDF98AEBC94D1",
+      "task": "4B59AEB3E4018975",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-14",
+      "kind": "process",
+      "value": "i21-14-01|i21-14-04|i21-14-08|i21-14-16",
+      "quest": "4B514DE6340A7812",
+      "task": "4B5EA435227F1C58",
+      "chapter": "hk3_voltage_09"
+    },
+    {
+      "key": "energy-i21-15",
+      "kind": "process",
+      "value": "i21-15-01|i21-15-04|i21-15-08|i21-15-16",
+      "quest": "4B50222A3B881CAF",
+      "task": "4B5DDED7CCE3FFB4",
       "chapter": "hk3_voltage_09"
     },
     {
@@ -847,83 +1950,299 @@
       "chapter": "hk3_voltage_09"
     },
     {
-      "key": "RN-LTB",
-      "kind": "research",
-      "value": "RN-LTB",
-      "quest": "4B5CDBDB34190D72",
-      "task": "4B58ED9722B733A5",
-      "chapter": "hk3_voltage_09"
-    },
-    {
-      "key": "RN-UPR",
-      "kind": "research",
-      "value": "RN-UPR",
-      "quest": "4B5FCE050AB21FEF",
-      "task": "4B51E5BB2F4FE219",
-      "chapter": "hk3_voltage_09"
-    },
-    {
-      "key": "RN-HVI",
-      "kind": "research",
-      "value": "RN-HVI",
-      "quest": "4B50C826B7C24906",
-      "task": "4B5A8CF9B4FC6FD6",
-      "chapter": "hk3_voltage_09"
-    },
-    {
-      "key": "RN-WBC",
-      "kind": "research",
-      "value": "RN-WBC",
-      "quest": "4B5BC0B208AF6B1C",
-      "task": "4B5093BC8C71942A",
-      "chapter": "hk3_voltage_09"
-    },
-    {
-      "key": "RN-WTR",
-      "kind": "research",
-      "value": "RN-WTR",
-      "quest": "4B5278C607A98950",
-      "task": "4B55923277BE872A",
-      "chapter": "hk3_voltage_09"
-    },
-    {
-      "key": "RN-SWC",
-      "kind": "research",
-      "value": "RN-SWC",
-      "quest": "4B5C62FF4A7DBDB8",
-      "task": "4B57FCAA2626D158",
+      "key": "icv-n02",
+      "kind": "process",
+      "value": "approved_icv_n02",
+      "quest": "4B53DABD20AC907D",
+      "task": "4B58B24DB62CD081",
       "chapter": "hk3_voltage_10"
     },
     {
-      "key": "RN-SWS",
-      "kind": "research",
-      "value": "RN-SWS",
-      "quest": "4B5E2A17490F6E44",
-      "task": "4B5BCC6CDC2F6696",
+      "key": "icv-n14",
+      "kind": "process",
+      "value": "approved_icv_n14",
+      "quest": "4B5BC3A92825FB02",
+      "task": "4B5B616F12CA2621",
       "chapter": "hk3_voltage_10"
     },
     {
-      "key": "RN-SWR",
-      "kind": "research",
-      "value": "RN-SWR",
-      "quest": "4B59EB10C899A33B",
-      "task": "4B5EF97ABA517A6D",
+      "key": "icv-n15",
+      "kind": "process",
+      "value": "approved_icv_n15",
+      "quest": "4B5EE51F503A4F6B",
+      "task": "4B5577D57FB352C6",
       "chapter": "hk3_voltage_10"
     },
     {
-      "key": "RN-VRC",
-      "kind": "research",
-      "value": "RN-VRC",
-      "quest": "4B5AC8840C9BC9EB",
-      "task": "4B5C7A15BC4B034F",
+      "key": "icv-n16",
+      "kind": "process",
+      "value": "approved_icv_n16",
+      "quest": "4B591435EBAD80F6",
+      "task": "4B54F484AC9B0810",
       "chapter": "hk3_voltage_10"
     },
     {
-      "key": "RN-IOP",
+      "key": "icv-n17",
+      "kind": "process",
+      "value": "approved_icv_n17",
+      "quest": "4B55598C6C1A9970",
+      "task": "4B5DD5C19387EE51",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "icv-f01",
+      "kind": "process",
+      "value": "approved_icv_f01",
+      "quest": "4B5C9B61E9F3F834",
+      "task": "4B525BA9A4950E61",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "icv-k29",
+      "kind": "process",
+      "value": "approved_icv_k29",
+      "quest": "4B5CB701BE9957C3",
+      "task": "4B5A89D01D25FEC3",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "icv-k30",
+      "kind": "process",
+      "value": "approved_icv_k30",
+      "quest": "4B50C16AC50F4768",
+      "task": "4B51073FFE683BA8",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "icv-k31",
+      "kind": "process",
+      "value": "approved_icv_k31",
+      "quest": "4B5318E2082C834E",
+      "task": "4B52A83D4D67F9A3",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "icv-k39",
+      "kind": "process",
+      "value": "approved_icv_k39",
+      "quest": "4B55DE40DABD7BDD",
+      "task": "4B57750C74C7822F",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "icv-g05",
+      "kind": "process",
+      "value": "approved_icv_g05",
+      "quest": "4B5F0E90DB9EEA8C",
+      "task": "4B5EFADCD16B2466",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "existing-bounded-computation",
+      "kind": "process",
+      "value": "industrial_bounded_computation",
+      "quest": "4B52E449306ED7FC",
+      "task": "4B560E7FA8F5596C",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "RN-ECA",
       "kind": "research",
-      "value": "RN-IOP",
-      "quest": "4B5DECCFE43C883B",
-      "task": "4B5374973DA0E79F",
+      "value": "RN-ECA",
+      "quest": "4B5B5795A0A0443D",
+      "task": "4B5C79C2674FFC63",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "RN-ERM",
+      "kind": "research",
+      "value": "RN-ERM",
+      "quest": "4B5BE09A16080469",
+      "task": "4B5823F48E9645F3",
+      "chapter": "hk3_voltage_10"
+    },
+    {
+      "key": "existing-imitation-void-archives",
+      "kind": "process",
+      "value": "industrial_imitation_void_archives",
+      "quest": "4B5B4E2E70BE302B",
+      "task": "4B57FBE594BC2BD0",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-imitation-oath-of-judah",
+      "kind": "process",
+      "value": "industrial_imitation_oath_of_judah",
+      "quest": "4B585FD4ED211C2C",
+      "task": "4B58D5DE860C1DE1",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-binding-worktest",
+      "kind": "process",
+      "value": "industrial_binding_worktest",
+      "quest": "4B572144C9B98E32",
+      "task": "4B5BB4A0E8494CD1",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-imaginary-anchor",
+      "kind": "process",
+      "value": "industrial_imaginary_anchor",
+      "quest": "4B5F5CC41DB9BC86",
+      "task": "4B547CE288F104FA",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-world-bubble-capture",
+      "kind": "process",
+      "value": "industrial_world_bubble_capture",
+      "quest": "4B5E2B16BECEA3F2",
+      "task": "4B509E3A5AB5D77F",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-world-bubble-termination",
+      "kind": "process",
+      "value": "industrial_world_bubble_termination",
+      "quest": "4B53196505DB3E55",
+      "task": "4B51311EE0549922",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-simulated-world-construction",
+      "kind": "process",
+      "value": "industrial_simulated_world_construction",
+      "quest": "4B5ADBB041563AE4",
+      "task": "4B521320D5567951",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-simulated-world-stabilization",
+      "kind": "process",
+      "value": "industrial_simulated_world_stabilization",
+      "quest": "4B54B882F404DD20",
+      "task": "4B57B256077AA6C1",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-simulated-world-termination",
+      "kind": "process",
+      "value": "industrial_simulated_world_termination",
+      "quest": "4B5BD7EC611C294E",
+      "task": "4B59F9B786633760",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-route-relay-module",
+      "kind": "process",
+      "value": "industrial_route_relay_module",
+      "quest": "4B58ABAB7F336F17",
+      "task": "4B52BD418C6B63BC",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "existing-three-domain-analysis",
+      "kind": "process",
+      "value": "industrial_three_domain_analysis",
+      "quest": "4B5BBAC5EA88F163",
+      "task": "4B5266346FE208F4",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-n02",
+      "kind": "process",
+      "value": "approved_irv_n02",
+      "quest": "4B592C39965F122F",
+      "task": "4B58F7A7E23CCD36",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-n14",
+      "kind": "process",
+      "value": "approved_irv_n14",
+      "quest": "4B58D78CB6592823",
+      "task": "4B594D3A7CEA18A1",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-n15",
+      "kind": "process",
+      "value": "approved_irv_n15",
+      "quest": "4B526962D238FB21",
+      "task": "4B5FF0FBDFAFF7D3",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-n16",
+      "kind": "process",
+      "value": "approved_irv_n16",
+      "quest": "4B56C31918DE41CA",
+      "task": "4B5ABE97015B2BB7",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-n17",
+      "kind": "process",
+      "value": "approved_irv_n17",
+      "quest": "4B58CE8B88BF118B",
+      "task": "4B5852D24C63ABE5",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-f01",
+      "kind": "process",
+      "value": "approved_irv_f01",
+      "quest": "4B5243C159E2EDD1",
+      "task": "4B58A74CBCE61C12",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-k34",
+      "kind": "process",
+      "value": "approved_irv_k34",
+      "quest": "4B54FCE963897479",
+      "task": "4B514F579FE4A825",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-k35",
+      "kind": "process",
+      "value": "approved_irv_k35",
+      "quest": "4B5C8D8E0D9C8913",
+      "task": "4B50C78D2F8D9230",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "irv-s04",
+      "kind": "process",
+      "value": "approved_irv_s04",
+      "quest": "4B593B79B2C2A8E1",
+      "task": "4B529B37E7573336",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-BCA",
+      "kind": "research",
+      "value": "RN-BCA",
+      "quest": "4B5FE4E54508ABEF",
+      "task": "4B592C34BDB52288",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-BCC",
+      "kind": "research",
+      "value": "RN-BCC",
+      "quest": "4B53AFBD8F5499DB",
+      "task": "4B5661ABCCE3B38A",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-IAA",
+      "kind": "research",
+      "value": "RN-IAA",
+      "quest": "4B5A07D34090C572",
+      "task": "4B5AFF1C41B5C06E",
       "chapter": "hk3_voltage_11"
     },
     {
@@ -935,12 +2254,212 @@
       "chapter": "hk3_voltage_11"
     },
     {
-      "key": "RN-IAA",
+      "key": "RN-IOP",
       "kind": "research",
-      "value": "RN-IAA",
-      "quest": "4B5A07D34090C572",
-      "task": "4B5AFF1C41B5C06E",
+      "value": "RN-IOP",
+      "quest": "4B5DECCFE43C883B",
+      "task": "4B5374973DA0E79F",
       "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-JOK",
+      "kind": "research",
+      "value": "RN-JOK",
+      "quest": "4B5A928D87B43C2A",
+      "task": "4B5254FFD16D98DD",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-LTB",
+      "kind": "research",
+      "value": "RN-LTB",
+      "quest": "4B5CDBDB34190D72",
+      "task": "4B58ED9722B733A5",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-RCA",
+      "kind": "research",
+      "value": "RN-RCA",
+      "quest": "4B5DA6E64F338B10",
+      "task": "4B5601807F5A49AC",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-SWC",
+      "kind": "research",
+      "value": "RN-SWC",
+      "quest": "4B5C62FF4A7DBDB8",
+      "task": "4B57FCAA2626D158",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-SWR",
+      "kind": "research",
+      "value": "RN-SWR",
+      "quest": "4B59EB10C899A33B",
+      "task": "4B5EF97ABA517A6D",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-SWS",
+      "kind": "research",
+      "value": "RN-SWS",
+      "quest": "4B5E2A17490F6E44",
+      "task": "4B5BCC6CDC2F6696",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-UPR",
+      "kind": "research",
+      "value": "RN-UPR",
+      "quest": "4B5FCE050AB21FEF",
+      "task": "4B51E5BB2F4FE219",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-VAK",
+      "kind": "research",
+      "value": "RN-VAK",
+      "quest": "4B526B218167CA96",
+      "task": "4B581EB4A5CE26BC",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-VRC",
+      "kind": "research",
+      "value": "RN-VRC",
+      "quest": "4B5AC8840C9BC9EB",
+      "task": "4B5C7A15BC4B034F",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-WBC",
+      "kind": "research",
+      "value": "RN-WBC",
+      "quest": "4B5BC0B208AF6B1C",
+      "task": "4B5093BC8C71942A",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "RN-WTR",
+      "kind": "research",
+      "value": "RN-WTR",
+      "quest": "4B5278C607A98950",
+      "task": "4B55923277BE872A",
+      "chapter": "hk3_voltage_11"
+    },
+    {
+      "key": "iwv-n02",
+      "kind": "process",
+      "value": "approved_iwv_n02",
+      "quest": "4B512AFF5875857B",
+      "task": "4B5325F19E5677D8",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-n16",
+      "kind": "process",
+      "value": "approved_iwv_n16",
+      "quest": "4B5F389F4A583D51",
+      "task": "4B5EEEF734399F60",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-n17",
+      "kind": "process",
+      "value": "approved_iwv_n17",
+      "quest": "4B599A9B720C1F77",
+      "task": "4B5C3F1FDFA52A63",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-n18",
+      "kind": "process",
+      "value": "approved_iwv_n18",
+      "quest": "4B5E289AA63CCF1B",
+      "task": "4B51613E0AAA7AE8",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-n19",
+      "kind": "process",
+      "value": "approved_iwv_n19",
+      "quest": "4B5D344F2EE1A485",
+      "task": "4B5559A7EF8CE1F4",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-f01",
+      "kind": "process",
+      "value": "approved_iwv_f01",
+      "quest": "4B56FADB5DACAA9F",
+      "task": "4B5CB4DE99C27086",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-k38",
+      "kind": "process",
+      "value": "approved_iwv_k38",
+      "quest": "4B5E623A97B45459",
+      "task": "4B56F32BDD7728AC",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-k41",
+      "kind": "process",
+      "value": "approved_iwv_k41",
+      "quest": "4B5CDCC7C5310141",
+      "task": "4B5D7A68C08A5FA0",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-d01",
+      "kind": "process",
+      "value": "approved_iwv_d01",
+      "quest": "4B537F2A387BAC7A",
+      "task": "4B5E4E5DC2F61A97",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "iwv-d02",
+      "kind": "process",
+      "value": "approved_iwv_d02",
+      "quest": "4B53803FCB6ED34E",
+      "task": "4B5CD248A39066AA",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "existing-energy-rectification-gas",
+      "kind": "process",
+      "value": "industrial_energy_rectification_gas",
+      "quest": "4B59E838F2B595FA",
+      "task": "4B5178F9EDE2DCB7",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "existing-energy-rectification-core",
+      "kind": "process",
+      "value": "industrial_energy_rectification_core",
+      "quest": "4B555AA9979ADAFC",
+      "task": "4B59E3456F20CC7B",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "RN-CED",
+      "kind": "research",
+      "value": "RN-CED",
+      "quest": "4B5E3DA7F13B68CF",
+      "task": "4B5D02BE6DEF6E9C",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "RN-ELC",
+      "kind": "research",
+      "value": "RN-ELC",
+      "quest": "4B5A778130252AF5",
+      "task": "4B5544C1C8919E9B",
+      "chapter": "hk3_voltage_12"
     },
     {
       "key": "RN-ESC",
@@ -959,27 +2478,115 @@
       "chapter": "hk3_voltage_12"
     },
     {
-      "key": "RN-CED",
-      "kind": "research",
-      "value": "RN-CED",
-      "quest": "4B5E3DA7F13B68CF",
-      "task": "4B5D02BE6DEF6E9C",
-      "chapter": "hk3_voltage_12"
-    },
-    {
       "key": "RN-WME",
       "kind": "research",
       "value": "RN-WME",
       "quest": "4B5B07B90B75E8EC",
       "task": "4B5C445C5C1DA4CB",
+      "chapter": "hk3_voltage_12"
+    },
+    {
+      "key": "existing-world-maintenance",
+      "kind": "process",
+      "value": "industrial_world_maintenance",
+      "quest": "4B5A173AE878AE95",
+      "task": "4B54C2D13D82DA40",
       "chapter": "hk3_voltage_13"
     },
     {
-      "key": "RN-ELC",
+      "key": "existing-prefabrication",
+      "kind": "process",
+      "value": "industrial_prefabrication",
+      "quest": "4B52CD74565E718E",
+      "task": "4B596DD146B3BBAB",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "existing-composite-conducting",
+      "kind": "process",
+      "value": "industrial_composite_conducting",
+      "quest": "4B5750C272E75E18",
+      "task": "4B57DAE19ED3A9DD",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "existing-composite-confining",
+      "kind": "process",
+      "value": "industrial_composite_confining",
+      "quest": "4B5FC4B53A78C492",
+      "task": "4B525D9D4BC63CF4",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "existing-composite-reconstructing",
+      "kind": "process",
+      "value": "industrial_composite_reconstructing",
+      "quest": "4B5266CE4AF9372D",
+      "task": "4B51AE64AB9066F1",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "existing-composite-cognitive",
+      "kind": "process",
+      "value": "industrial_composite_cognitive",
+      "quest": "4B5C61FAC45F68A8",
+      "task": "4B57CDAAA5272BB3",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "existing-dispatch-conductor",
+      "kind": "process",
+      "value": "industrial_dispatch_conductor",
+      "quest": "4B54648CE5DE4B8D",
+      "task": "4B5AD609E3354A91",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "wfv_n02",
+      "kind": "process",
+      "value": "approved_wfv_n02",
+      "quest": "4B523CE7A995B4FF",
+      "task": "4B575B3BA508589B",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "wfv_n14",
+      "kind": "process",
+      "value": "approved_wfv_n14",
+      "quest": "4B592BD1312EA808",
+      "task": "4B573554D6997260",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "wfv_n15",
+      "kind": "process",
+      "value": "approved_wfv_n15",
+      "quest": "4B5146703249C567",
+      "task": "4B57A52F9B381E2C",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "wfv_n16",
+      "kind": "process",
+      "value": "approved_wfv_n16",
+      "quest": "4B5B9063E57084C5",
+      "task": "4B5E41BBC6DCA326",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "wfv_n17",
+      "kind": "process",
+      "value": "approved_wfv_n17",
+      "quest": "4B5A3B7B349E75BF",
+      "task": "4B584C6D92028B4F",
+      "chapter": "hk3_voltage_13"
+    },
+    {
+      "key": "RN-CEE",
       "kind": "research",
-      "value": "RN-ELC",
-      "quest": "4B5A778130252AF5",
-      "task": "4B5544C1C8919E9B",
+      "value": "RN-CEE",
+      "quest": "4B5D42853DBE1968",
+      "task": "4B5244CE407F4FC8",
       "chapter": "hk3_voltage_13"
     },
     {
@@ -999,19 +2606,259 @@
       "chapter": "hk3_voltage_13"
     },
     {
-      "key": "RN-CEE",
-      "kind": "research",
-      "value": "RN-CEE",
-      "quest": "4B5D42853DBE1968",
-      "task": "4B5244CE407F4FC8",
+      "key": "existing-bounded-result-verification",
+      "kind": "process",
+      "value": "industrial_bounded_result_verification",
+      "quest": "4B591448503FE870",
+      "task": "4B596BDD2C7F5AC9",
       "chapter": "hk3_voltage_14"
     },
     {
-      "key": "RN-URE",
-      "kind": "research",
-      "value": "RN-URE",
-      "quest": "4B5C00437CD0C5D8",
-      "task": "4B5B32F126E3F952",
+      "key": "existing-contradictory-source-sampling",
+      "kind": "process",
+      "value": "industrial_contradictory_source_sampling",
+      "quest": "4B5132710E761772",
+      "task": "4B521F4F7FD7240B",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "existing-contradiction-sample-retest",
+      "kind": "process",
+      "value": "industrial_contradiction_sample_retest",
+      "quest": "4B5446D7FAF60899",
+      "task": "4B5C8F0E53DD06F0",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "existing-cross-machine-order-verification",
+      "kind": "process",
+      "value": "industrial_cross_machine_order_verification",
+      "quest": "4B5FED87D8CDDF57",
+      "task": "4B5AE31A870EB127",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wsv_n02",
+      "kind": "process",
+      "value": "approved_wsv_n02",
+      "quest": "4B543CAC364A7E4B",
+      "task": "4B57708D4B975FCB",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wsv_n14",
+      "kind": "process",
+      "value": "approved_wsv_n14",
+      "quest": "4B542CCF25B0473F",
+      "task": "4B523BD2B5A96942",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wsv_n15",
+      "kind": "process",
+      "value": "approved_wsv_n15",
+      "quest": "4B527B071B7AF4C7",
+      "task": "4B5812F34C1855F1",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wsv_n16",
+      "kind": "process",
+      "value": "approved_wsv_n16",
+      "quest": "4B5855ED5B444920",
+      "task": "4B5F52EB1B749E55",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wsv_n17",
+      "kind": "process",
+      "value": "approved_wsv_n17",
+      "quest": "4B576A45F4448EA3",
+      "task": "4B52ECE391E99CB5",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wonder_k02",
+      "kind": "process",
+      "value": "approved_wonder_k02",
+      "quest": "4B54661355BC87B1",
+      "task": "4B5206F02623D861",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wonder_k03",
+      "kind": "process",
+      "value": "approved_wonder_k03",
+      "quest": "4B5ACDE76D49906A",
+      "task": "4B570D64AB9F178B",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wonder_k04",
+      "kind": "process",
+      "value": "approved_wonder_k04",
+      "quest": "4B5CAF3D1BC26045",
+      "task": "4B598979266BAAEB",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wonder_k05",
+      "kind": "process",
+      "value": "approved_wonder_k05",
+      "quest": "4B5FCAEF25658770",
+      "task": "4B51A996064A48A1",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "wonder_k06",
+      "kind": "process",
+      "value": "approved_wonder_k06",
+      "quest": "4B594D940B461D0C",
+      "task": "4B5E1EFB87AAB664",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-t04",
+      "kind": "process",
+      "value": "approved_energy_t04",
+      "quest": "4B5F2667B34BBF42",
+      "task": "4B5997D4FE889CDB",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-f04",
+      "kind": "process",
+      "value": "approved_energy_f04",
+      "quest": "4B5780CFA496A087",
+      "task": "4B5D3BE6D9A38606",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-01",
+      "kind": "process",
+      "value": "i22-01-01|i22-01-04|i22-01-08|i22-01-16",
+      "quest": "4B5674771C836BBE",
+      "task": "4B5130479FCA8A9B",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-02",
+      "kind": "process",
+      "value": "i22-02-01|i22-02-04|i22-02-08|i22-02-16",
+      "quest": "4B5EF80CFD842FDA",
+      "task": "4B570B4DA96B0129",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-03",
+      "kind": "process",
+      "value": "i22-03-01|i22-03-04|i22-03-08|i22-03-16",
+      "quest": "4B54A1AF2237F26E",
+      "task": "4B5E41DBC95F1390",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-04",
+      "kind": "process",
+      "value": "i22-04-01|i22-04-04|i22-04-08|i22-04-16",
+      "quest": "4B53417463EEAAA2",
+      "task": "4B566DD8A610BD20",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-05",
+      "kind": "process",
+      "value": "i22-05-01|i22-05-04|i22-05-08|i22-05-16",
+      "quest": "4B50F49CE18E4E19",
+      "task": "4B5F11B41ECF0D4C",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-06",
+      "kind": "process",
+      "value": "i22-06-01|i22-06-04|i22-06-08|i22-06-16",
+      "quest": "4B5B39F50C5753C1",
+      "task": "4B54EFFD2D0A64DF",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-07",
+      "kind": "process",
+      "value": "i22-07-01|i22-07-04|i22-07-08|i22-07-16",
+      "quest": "4B54BA4BFE6514E8",
+      "task": "4B5F1B37DFBEF750",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-08",
+      "kind": "process",
+      "value": "i22-08-01|i22-08-04|i22-08-08|i22-08-16",
+      "quest": "4B5DCED2196296A4",
+      "task": "4B5AF3F2A0AA1BFD",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-09",
+      "kind": "process",
+      "value": "i22-09-01|i22-09-04|i22-09-08|i22-09-16",
+      "quest": "4B5951675108E6DE",
+      "task": "4B5678ABDF658DDA",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-10",
+      "kind": "process",
+      "value": "i22-10-01|i22-10-04|i22-10-08|i22-10-16",
+      "quest": "4B51503E4708C13C",
+      "task": "4B54195957B0B700",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-11",
+      "kind": "process",
+      "value": "i22-11-01|i22-11-04|i22-11-08|i22-11-16",
+      "quest": "4B532DEE8B706E28",
+      "task": "4B5B99353913CDC0",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-12",
+      "kind": "process",
+      "value": "i22-12-01|i22-12-04|i22-12-08|i22-12-16",
+      "quest": "4B5DFD1BB3C8DBFE",
+      "task": "4B5285D7225D1295",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-13",
+      "kind": "process",
+      "value": "i22-13-01|i22-13-04|i22-13-08|i22-13-16",
+      "quest": "4B57F8D4FBEA7A34",
+      "task": "4B5A4FD0C05BAB72",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-14",
+      "kind": "process",
+      "value": "i22-14-01|i22-14-04|i22-14-08|i22-14-16",
+      "quest": "4B5BA96687894518",
+      "task": "4B5D639B9F612D15",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "energy-i22-15",
+      "kind": "process",
+      "value": "i22-15-01|i22-15-04|i22-15-08|i22-15-16",
+      "quest": "4B5D282233023236",
+      "task": "4B5333F57C10CC22",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "existing-lab-four-interface-analysis",
+      "kind": "process",
+      "value": "industrial_lab_four_interface_analysis",
+      "quest": "4B5511DDFAFAE31B",
+      "task": "4B59BCB21665FF23",
       "chapter": "hk3_voltage_14"
     },
     {
@@ -1031,11 +2878,27 @@
       "chapter": "hk3_voltage_14"
     },
     {
+      "key": "RN-CLE",
+      "kind": "research",
+      "value": "RN-CLE",
+      "quest": "4B55EF1E9B3DACDA",
+      "task": "4B55FDA8E3D65727",
+      "chapter": "hk3_voltage_14"
+    },
+    {
       "key": "RN-HCCO",
       "kind": "research",
       "value": "RN-HCCO",
       "quest": "4B543D9716760D00",
       "task": "4B5C798B2F1237AE",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "RN-IAR",
+      "kind": "research",
+      "value": "RN-IAR",
+      "quest": "4B5802E842FF9314",
+      "task": "4B539F1B1D234240",
       "chapter": "hk3_voltage_14"
     },
     {
@@ -1055,11 +2918,99 @@
       "chapter": "hk3_voltage_14"
     },
     {
-      "key": "RN-CLE",
+      "key": "RN-URE",
       "kind": "research",
-      "value": "RN-CLE",
-      "quest": "4B55EF1E9B3DACDA",
-      "task": "4B55FDA8E3D65727",
+      "value": "RN-URE",
+      "quest": "4B5C00437CD0C5D8",
+      "task": "4B5B32F126E3F952",
+      "chapter": "hk3_voltage_14"
+    },
+    {
+      "key": "civ_n02",
+      "kind": "process",
+      "value": "approved_civ_n02",
+      "quest": "4B5E9B11E6FC3F4A",
+      "task": "4B5276BBE0E3A66B",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "civ_n16",
+      "kind": "process",
+      "value": "approved_civ_n16",
+      "quest": "4B59EBCC9EE3BC68",
+      "task": "4B58EFBCC94FC75A",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "civ_n17",
+      "kind": "process",
+      "value": "approved_civ_n17",
+      "quest": "4B51CC05798CB04F",
+      "task": "4B5A0EBF97877405",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "civ_n18",
+      "kind": "process",
+      "value": "approved_civ_n18",
+      "quest": "4B5E901714948949",
+      "task": "4B5F5A25AFD47B07",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "civ_n19",
+      "kind": "process",
+      "value": "approved_civ_n19",
+      "quest": "4B53686EBA2472F9",
+      "task": "4B5A79F8C06F4246",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "wonder_k08",
+      "kind": "process",
+      "value": "approved_wonder_k08",
+      "quest": "4B50C398C1A91D2B",
+      "task": "4B51496FE452A8F3",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "wonder_k10",
+      "kind": "process",
+      "value": "approved_wonder_k10",
+      "quest": "4B55CCA4D601F13B",
+      "task": "4B53BB6F3E31259C",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "wonder_k12",
+      "kind": "process",
+      "value": "approved_wonder_k12",
+      "quest": "4B59A48A5F3C2FD2",
+      "task": "4B5F3A77F762206C",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "existing-contradiction-review",
+      "kind": "process",
+      "value": "industrial_contradiction_review",
+      "quest": "4B55D60F52DF9C9F",
+      "task": "4B54834AF0F0B8EA",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "RN-CKV",
+      "kind": "research",
+      "value": "RN-CKV",
+      "quest": "4B522E39065BAE09",
+      "task": "4B5964A8A8624B71",
+      "chapter": "hk3_voltage_15"
+    },
+    {
+      "key": "RN-DIO",
+      "kind": "research",
+      "value": "RN-DIO",
+      "quest": "4B53A013546F4FF4",
+      "task": "4B5993D6F13C6E7B",
       "chapter": "hk3_voltage_15"
     },
     {
@@ -1079,14 +3030,6 @@
       "chapter": "hk3_voltage_15"
     },
     {
-      "key": "RN-IAR",
-      "kind": "research",
-      "value": "RN-IAR",
-      "quest": "4B5802E842FF9314",
-      "task": "4B539F1B1D234240",
-      "chapter": "hk3_voltage_15"
-    },
-    {
       "key": "RN-MRA",
       "kind": "research",
       "value": "RN-MRA",
@@ -1103,35 +3046,75 @@
       "chapter": "hk3_voltage_15"
     },
     {
+      "key": "existing-three-domain-difference",
+      "kind": "process",
+      "value": "industrial_three_domain_difference",
+      "quest": "4B517FCB2C3DA737",
+      "task": "4B55F50D8D6C93A8",
+      "chapter": "hk3_voltage_16"
+    },
+    {
+      "key": "cev_n02",
+      "kind": "process",
+      "value": "approved_cev_n02",
+      "quest": "4B5F4C2DA483A40E",
+      "task": "4B55D3239682F8CD",
+      "chapter": "hk3_voltage_16"
+    },
+    {
+      "key": "cev_n16",
+      "kind": "process",
+      "value": "approved_cev_n16",
+      "quest": "4B594BFC1472C1F8",
+      "task": "4B5AD2275D4A8314",
+      "chapter": "hk3_voltage_16"
+    },
+    {
+      "key": "cev_n17",
+      "kind": "process",
+      "value": "approved_cev_n17",
+      "quest": "4B59361147764D33",
+      "task": "4B57D3BDBC23A2B8",
+      "chapter": "hk3_voltage_16"
+    },
+    {
+      "key": "cev_n18",
+      "kind": "process",
+      "value": "approved_cev_n18",
+      "quest": "4B524AB0A1CADE88",
+      "task": "4B50D3111C27FB45",
+      "chapter": "hk3_voltage_16"
+    },
+    {
+      "key": "cev_n19",
+      "kind": "process",
+      "value": "approved_cev_n19",
+      "quest": "4B5C758B92F11F79",
+      "task": "4B5EB7051C6C5C71",
+      "chapter": "hk3_voltage_16"
+    },
+    {
+      "key": "wonder_k14",
+      "kind": "process",
+      "value": "approved_wonder_k14",
+      "quest": "4B5255658774BFB7",
+      "task": "4B5C89C42EFD86E0",
+      "chapter": "hk3_voltage_16"
+    },
+    {
+      "key": "wonder_k15",
+      "kind": "process",
+      "value": "approved_wonder_k15",
+      "quest": "4B5918482D84D530",
+      "task": "4B5ED33AA3218409",
+      "chapter": "hk3_voltage_16"
+    },
+    {
       "key": "RN-ASR",
       "kind": "research",
       "value": "RN-ASR",
       "quest": "4B5F75BA5DA29F9C",
       "task": "4B5201043FD06781",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "RN-CKV",
-      "kind": "research",
-      "value": "RN-CKV",
-      "quest": "4B522E39065BAE09",
-      "task": "4B5964A8A8624B71",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "RN-DIO",
-      "kind": "research",
-      "value": "RN-DIO",
-      "quest": "4B53A013546F4FF4",
-      "task": "4B5993D6F13C6E7B",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "RN-WCE",
-      "kind": "research",
-      "value": "RN-WCE",
-      "quest": "4B5024CC6F0E23DA",
-      "task": "4B537D8AFE1F512E",
       "chapter": "hk3_voltage_16"
     },
     {
@@ -1159,99 +3142,13 @@
       "chapter": "hk3_voltage_16"
     },
     {
-      "key": "civ-1",
-      "kind": "civilization",
-      "value": "1",
-      "quest": "4B528432CB9FB45F",
-      "task": "4B5739E21E836030",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "civ-2",
-      "kind": "civilization",
-      "value": "2",
-      "quest": "4B536B7F08A3D6BC",
-      "task": "4B58F8225F351AAC",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "civ-3",
-      "kind": "civilization",
-      "value": "3",
-      "quest": "4B5526CE0599C8D6",
-      "task": "4B596B9C1AEB610A",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "civ-4",
-      "kind": "civilization",
-      "value": "4",
-      "quest": "4B5A1771DC3DE126",
-      "task": "4B546952288DCA17",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "civ-5",
-      "kind": "civilization",
-      "value": "5",
-      "quest": "4B5C116022F1531D",
-      "task": "4B5AA92EF4CFCAE0",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "civ-6",
-      "kind": "civilization",
-      "value": "6",
-      "quest": "4B588D6ADED8073B",
-      "task": "4B58B0BE4AF3AED9",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "civ-7",
-      "kind": "civilization",
-      "value": "7",
-      "quest": "4B5242FC0FDA9F2B",
-      "task": "4B5DA85712158867",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "guide-civilization",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5C0A5950A39473",
-      "task": "4B5BD4B37D20A3DD",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "review-1",
-      "kind": "review",
-      "value": "1",
-      "quest": "4B54DF6E21FC6256",
-      "task": "4B5AC86E318077EB",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "review-2",
-      "kind": "review",
-      "value": "2",
-      "quest": "4B5F2880EADC9DA0",
-      "task": "4B55DFB4D36F6D41",
-      "chapter": "hk3_voltage_16"
-    },
-    {
-      "key": "guide-finale",
-      "kind": "reading",
-      "value": "",
-      "quest": "4B5A5593F7472C35",
-      "task": "4B589CEC60996374",
+      "key": "RN-WCE",
+      "kind": "research",
+      "value": "RN-WCE",
+      "quest": "4B5024CC6F0E23DA",
+      "task": "4B537D8AFE1F512E",
       "chapter": "hk3_voltage_16"
     }
   ],
-  "_changes": [
-    {
-      "revision": 161,
-      "time": "2026-10-17 14:12:15",
-      "reason": "删除活动标识的版本前缀，使用长期业务名称；物料数量、研究门槛和配方参数保持；魂钢链沿用修订160修复。"
-    }
-  ]
+  "layout": "approved-stargate-and-voltage"
 }

@@ -38,41 +38,41 @@ import java.math.BigInteger;
 import java.nio.file.Path;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-09-24 17:02:00（内测5修订66）
- * 删除：无。新增：指定Prism专用新存档的七机四向成型、破坏恢复及生产验收。
- * 修改：只从正式逐格定义和已加载配方建立夹具，不创建预览文件。
- * 用途：逐机验证真实接口及输出；夹具明确预置原料和前置研究，不冒充生存全流程验证。
- * 仅创造模式管理员显式启动；拒绝非空场地、错误实例或其他存档，不覆盖玩家建筑。
- *
- * 【变更记录 #2】2026-09-24 17:22:00（内测5修订66）
- * 删除：固定起点导致失败后无法再次验收的限制。
- * 新增：可指定空地起点，仍逐格检查空地；启用创造飞行以免测试者坠落。
- * 修改：只有本轮创建的区块加载标记会释放；用途：重跑不覆盖旧夹具或玩家建筑。
- *
- * 【变更记录 #3】2026-09-24 18:56:36（内测5修订67）
- * 修改：验收夹具的物品/流体仓由 HV 改为 MAX，结构服务口改用 MAX 海渊能源机壳。
- * 用途：验收材料等级必须与第一条工业线的 MAX 配方和 Pattern 契约一致，避免测试夹具掩盖低阶结构问题。
- *
- * 【变更记录 #4】2026-09-24 19:40:00（内测5修订68）
- * 新增：交替夹具将同类输入仓与输出仓对调，验证 Pattern 允许端口互换且机器仍能按能力分类取放资源。
- * 修改：夹具日志记录端口方向；物品与流体端口仍严格保持类型隔离。
- * 用途：把端口互换从静态代码约定提升为指定实例中的实际成型与生产验收。
- */
-/**
- * 【变更记录 #5】2026-09-25 02:19:54（内测5修订70）
- * 删除：旧建筑退出四机正式入口，历史文件已归档。
- * 新增：已确认逐格建筑及一致的模板与验收入口。
- * 修改：同步主控坐标、材料或测试夹具，不改配方和研究扣费。
- * 用途：使预览、正式结构及游戏放置相互对应；未将静态验证写作实机通过。
- */
-/**
- * 【变更记录 #6】2026-09-27 02:38:43（第 6 次备注 · 内测5修订87 · 正式六机接入）
- * 删除：相关正式入口对旧I04/I05结构的依赖；历史备注与旧布局数据保留。
- * 新增：I03/I04/I05使用批准模板与真实尺寸；同类端口轮换保持数量，破坏恢复夹具使用实际通道与端口。
- * 修改：沿获批逐格资源接入23×27×23稳定塔与27×19×23再生中心，数量与方向由正式资源确定。
- * 用途：统一成型、放置模板和诊断坐标；不改变研究费用，不启动游戏，不视为成型验收。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl",bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3LiquidLineRuntimeCheck {
     private static final String[] IDS={"liquid_honkai_fractionation_center","liquid_honkai_stabilization_tower",
@@ -147,19 +147,6 @@ public final class Hk3LiquidLineRuntimeCheck {
                 case WEST -> net.minecraft.world.level.block.Rotation.COUNTERCLOCKWISE_90;
                 default -> net.minecraft.world.level.block.Rotation.NONE;};
             controller=Hk3ApprovedStructureCommands.place(p.createCommandSourceStack(),approved,first,rotation);
-            // 在同类槽之间轮换既有方块，保留输入输出数量，I03的2进4出不可反转成4进2出。
-            if(swapPorts)for(String prefix:new String[]{"M","F"}) {
-                var ports=com.sirin.hk3gtl.common.multiblock.pattern.Hk3ApprovedArchitecture.get(approved).ports().stream()
-                        .filter(port->port.id().startsWith(prefix)).toList();
-                var states=new ArrayList<BlockState>();
-                for(var port:ports){int[] q=port.pos();states.add(level.getBlockState(position(kind,facing,q[0],q[1],q[2])));}
-                for(int i=0;i<ports.size();i++) {
-                    int[] q=ports.get(i).pos();var pos=position(kind,facing,q[0],q[1],q[2]);
-                    level.setBlockAndUpdate(pos,states.get((i+1)%states.size()));
-                    var part=MetaMachine.getMachine(level,pos);
-                    if(part!=null)part.setFrontFacing(rotation.rotate(Direction.byName(ports.get(i).face())));
-                }
-            }
             machine(p).getRecipeLogic().setWorkingEnabled(false);return;
         }
         var layout=Hk3LiquidLineLayout.create(kind);
@@ -274,8 +261,9 @@ public final class Hk3LiquidLineRuntimeCheck {
                     String approved=approvedId(kind);
                     if(approved!=null) {
                         var data=com.sirin.hk3gtl.common.multiblock.pattern.Hk3ApprovedArchitecture.get(approved);
+                        var solid=Hk3ApprovedStructureRuntimeCheck.solidCell(data);
                         int[] q=stage==1?new int[]{8,0,8}:stage==3?
-                                new int[]{data.size()[0]/2,2,5}:data.ports().get(0).pos();
+                                new int[]{data.size()[0]/2,2,5}:new int[]{solid.getX(),solid.getY(),solid.getZ()};
                         // I03的纵向通道位于X=16，其余两台位于正中。
                         if(stage==3&&approved.equals("i03"))q=new int[]{16,2,5};
                         changed=position(kind,facing,q[0],q[1],q[2]);
@@ -321,4 +309,4 @@ public final class Hk3LiquidLineRuntimeCheck {
     private static void require(boolean ok,String message){if(!ok)throw new IllegalStateException(message);}
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

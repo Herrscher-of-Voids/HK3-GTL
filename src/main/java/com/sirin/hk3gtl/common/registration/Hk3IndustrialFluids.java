@@ -10,18 +10,16 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #1】2026-09-27 02:26:24（第 1 次备注 · 内测5修订87）
- * 删除：无，保留历史备注、稳定注册键和不相关工艺。
- * 新增：clarified_honkai_mother_liquor除杂母液，沿现有GT材质流体注册及纹理生成方式注册。
- * 修改：原含能母液保留为晶种提取原料，不以同一ID同时表示净化前后流体。
- * 用途：隔离脏母液与回流液，避免旁路净化复制产物；实际使用受配方新采液和耗材约束。
- */
+ 
+
+
+
+
+
+
 public final class Hk3IndustrialFluids {
     private static final Map<String, Material> MATERIALS = new LinkedHashMap<>();
     private Hk3IndustrialFluids() {}
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static void register() {
         add("crude_honkai_energy", false); // 粗制液态崩坏能 / Crude Honkai Energy
         add("clarified_honkai_mother_liquor", false); // 净化附产，须与新采液共同回流。
@@ -59,8 +57,56 @@ public final class Hk3IndustrialFluids {
         add("honkai_circuit_etchant", false); // 崩坏电路蚀刻液 / Honkai Circuit Etchant
         add("spent_honkai_etchant", false); // 废崩坏电路蚀刻液 / Spent Honkai Etchant
         add("stable_transport_medium", false); // 稳定输运介质 / Stable Transport Medium
+        add("loaded_honkai_separation_medium", 0x9468C8, 300);
+        add("spent_honkai_separation_medium", 0x74666D, 300);
+        add("copper_electrolyte", 0x238FC3, 300);
+        add("contaminated_copper_electrolyte", 0x4E7478, 300);
+        add("secondary_heat_transfer_medium", 0x4C91B5, 300);
+        add("warm_secondary_heat_transfer_medium", 0xD7A44C, 450);
+        add("hot_secondary_heat_transfer_medium", 0xE66B3D, 900);
+        add("phase_modulation_medium", 0xA78DE0, 300);
+        add("spent_phase_modulation_medium", 0x6D687C, 300);
+        add("anchor_stress_transfer_grout", 0xFFFFFF, 300);
+        add("constraint_ceramic_suspension", 0xFFFFFF, 300);
+        add("cryogenic_grid_infiltrant", 0xFFFFFF, 300);
+        add("fatigue_isolation_encapsulant", 0xFFFFFF, 300);
+        add("gradient_fiber_sizing_bath", 0xFFFFFF, 300);
+        add("honkai_interface_priming_liquid", 0xFFFFFF, 300);
+        add("honkai_selective_extractant", 0xFFFFFF, 300);
+        add("impedance_matching_coupling_gel", 0xFFFFFF, 300);
+        add("low_volatility_lamination_resin", 0xFFFFFF, 300);
+        add("multiaxial_cocure_infusion_resin", 0xFFFFFF, 300);
+        add("nano_barrier_ceramic_dispersion", 0xFFFFFF, 300);
+        add("nano_surface_passivation_liquid", 0xFFFFFF, 300);
+        add("nanocarbon_predispersion_slurry", 0xFFFFFF, 300);
+        add("paired_seed_growth_bath", 0xFFFFFF, 300);
+        add("phase_transfer_ceramic_sol", 0xFFFFFF, 300);
+        add("quadrisystem_interface_couplant", 0xFFFFFF, 300);
+        add("reconstruction_composition_flux", 0xFFFFFF, 300);
+        add("resonance_growth_solution", 0xFFFFFF, 300);
+        add("reversible_service_bonding_medium", 0xFFFFFF, 300);
+        add("spent_constraint_ceramic_vehicle", 0xFFFFFF, 300);
+        add("spent_honkai_interface_carrier", 0xFFFFFF, 300);
+        add("spent_honkai_selective_extractant", 0xFFFFFF, 300);
+        add("spent_lamination_resin", 0xFFFFFF, 300);
+        add("spent_nano_passivation_liquid", 0xFFFFFF, 300);
+        add("spent_resonance_growth_solution", 0xFFFFFF, 300);
+        add("spent_stress_relief_conditioning_bath", 0xFFFFFF, 300);
+        add("stress_relief_conditioning_bath", 0xFFFFFF, 300);
+        add("zirconium_carbide_nano_sealing_liquid", 0xFFFFFF, 300);
+        add("continuity_confined_honkai_fuel", 0xFFFFFF, 300);
+        add("imaginary_coupled_honkai_fuel", 0xFFFFFF, 300);
+        add("resonance_activated_honkai_fuel", 0xFFFFFF, 300);
+        add("supercritical_honkai_fuel", 0xFFFFFF, 300);
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
+    private static void add(String id, int color, int temperature) {
+        FluidBuilder fluid = new FluidBuilder().name(id).translation("material.hk3gtl." + id)
+                .textures(true, true).temperature(temperature).state(FluidState.LIQUID);
+        Material material = new Material.Builder(new ResourceLocation("hk3gtl", id))
+                .fluid(FluidStorageKeys.LIQUID, fluid)
+                .color(color).iconSet(MaterialIconSet.FLUID).buildAndRegister();
+        MATERIALS.put(id, material);
+    }
     private static void add(String id, boolean gas) {
         if (MATERIALS.containsKey(id)) throw new IllegalStateException("Duplicate industrial fluid: " + id);
         FluidBuilder fluid = new FluidBuilder().name(id).translation("material.hk3gtl." + id)
@@ -71,8 +117,7 @@ public final class Hk3IndustrialFluids {
                 .color(0xB68CEC).iconSet(MaterialIconSet.FLUID).buildAndRegister();
         MATERIALS.put(id, material);
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Map<String, Material> materials() { return Collections.unmodifiableMap(MATERIALS); }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

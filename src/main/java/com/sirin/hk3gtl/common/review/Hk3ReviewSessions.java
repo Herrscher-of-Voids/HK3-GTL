@@ -17,17 +17,17 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-10-01 18:42:57（修订140）
- * 删除：无；新增：真实准入至正式会面、三问代表同步、二审合法分支、个人补行和返回调度。
- * 修改：复用持久审查账本，每页令牌只可消费一次；重播保留题序，暂停不结算，正文预览不授许可。
- * 用途：服务端主线程闭合审查流程；特效使用独立场景适配器，资格仍由真实生产者提供。
- */
+ 
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 18:51:55（修订140）：删除无；新增已完成成员只读陪同；修改旁观不参与三问、阅读屏障和许可，结束或中止统一送返；用途：多人规则与本人亲历保持隔离。 */
-/** 【变更记录 #3】2026-10-01 18:54:07（修订140）：删除旧页面关闭一概拒绝的时序死等；新增32页有界暂停窗口；修改关闭帧与停服清理同步销毁窗口；用途：ESC与组播交错可退出，旧选择和旧会面仍拒绝。 */
-/** 【变更记录 #4】2026-11-04 18:48:13（修订199）：删除：仅一审核验维度的选择前置；新增：两审共用场景存活校验及关闭时释放临时锚点；修改：失效投影不能在轮询前继续结算；用途：阻断跨场景迟到选择，断线返程仍保留持久票据。 */
-/** 【变更记录 #5】2026-11-05 22:19:02（修订211）：新增合法两问关闭、代表重连重播确认题及已完成成员陪同至会面结算的169至171事实；修改不改变会面资格、题序、令牌及结算规则。 */
+ 
+ 
+ 
+ 
 public final class Hk3ReviewSessions {
     private static final org.slf4j.Logger LOGGER=com.mojang.logging.LogUtils.getLogger();
     private static final Map<UUID,Hk3ReviewFrame> FRAMES=new HashMap<>();
@@ -53,6 +53,9 @@ public final class Hk3ReviewSessions {
         catch(RuntimeException failure){LOGGER.warn("[HK3GTL] 一审陪同未进入",failure);pause(p,false,false);return 0;}
     }
     public static int begin(ServerPlayer p,Hk3ReviewLedger.Kind kind){
+        return begin(p,kind,false);
+    }
+    private static int begin(ServerPlayer p,Hk3ReviewLedger.Kind kind,boolean automatic){
         if(!available(p)){message(p,"busy");return 0;}
         var scope=Hk3ResearchTeams.scope(p.server,p.getUUID());Hk3ReviewQualification.refresh(p.server,scope);
         var data=Hk3ReviewData.get(p.server);var ledger=data.snapshot();
@@ -60,9 +63,10 @@ public final class Hk3ReviewSessions {
         if(ledger.experienced(p.getUUID(),kind)){message(p,"already");return 0;}
         if(kind==Hk3ReviewLedger.Kind.FIRST&&!Hk3ReviewScene.available(p)){message(p,"no_scene");return 0;}
         var paused=ledger.sessions(scope).stream().filter(m->m.kind()==kind&&m.phase()==Hk3ReviewLedger.Phase.PAUSED&&(kind==Hk3ReviewLedger.Kind.FIRST||m.representative().equals(p.getUUID()))).findFirst().orElse(null);
-        var members=kind==Hk3ReviewLedger.Kind.FIRST?p.server.getPlayerList().getPlayers().stream().filter(q->scope.equals(Hk3ResearchTeams.scope(p.server,q.getUUID()))&&available(q)&&!ledger.experienced(q.getUUID(),kind)).map(ServerPlayer::getUUID).toList():List.of(p.getUUID());
+        var members=kind==Hk3ReviewLedger.Kind.FIRST?p.server.getPlayerList().getPlayers().stream().filter(q->scope.equals(Hk3ResearchTeams.scope(p.server,q.getUUID()))&&available(q)&&!ledger.experienced(q.getUUID(),kind)&&(!automatic||!INVITED.contains(q.getUUID()+"/"+scope+"/"+kind))).map(ServerPlayer::getUUID).toList():List.of(p.getUUID());
         var m=data.change(l->kind==Hk3ReviewLedger.Kind.FIRST?(paused==null?l.beginFirst(scope,members,new Random()):l.restartFirst(paused.id(),p.getUUID(),members,new Random())):(paused==null?l.beginSecond(scope,p.getUUID()):l.resumeSecond(paused.id(),p.getUUID())));
         if(m==null){message(p,"busy");return 0;}
+        com.sirin.hk3gtl.common.easter.Hk3EggVanilla.caseEvent(p,19);
         try{
             for(UUID id:m.participants())FRAMES.put(id,Hk3ReviewFrame.issue(m.id(),scope,Hk3ReviewDialogues.id(kind),""));
             if(kind==Hk3ReviewLedger.Kind.FIRST){
@@ -76,6 +80,7 @@ public final class Hk3ReviewSessions {
                     if(m.supplement())message(member,"supplement");
                 }
                 showFirst(p.server,m,true);
+                for(UUID id:m.participants())INVITED.add(id+"/"+scope+"/"+kind);
             }else{
                 Hk3ReviewScene.projection(p);show(p,m,paused==null?m.checkpoint():"SP06",true);
             }
@@ -169,6 +174,7 @@ public final class Hk3ReviewSessions {
         if(result==null)return;
         closeFrame(p);Hk3ReviewScene.removeProjection(p.getUUID());
         if(m.kind()==Hk3ReviewLedger.Kind.FIRST)Hk3ReviewScene.returnHome(p);
+        else com.sirin.hk3gtl.common.narrative.story.Hk3StoryService.fact(p,"second_review_completed");
         Hk3ReviewProgress.sync(p);message(p,result.firstTeamSettlement()?"settled":"personal_complete");
         if(Hk3ReviewData.get(p.server).snapshot().meeting(m.id()).phase()==Hk3ReviewLedger.Phase.COMPLETE){
             BARRIERS.remove(m.id());
@@ -208,9 +214,15 @@ public final class Hk3ReviewSessions {
             }else if(server.getTickCount()%100==0&&p.isAlive()){
                 if(Hk3ReviewReturnData.get(server).point(p.getUUID())!=null){Hk3ReviewScene.returnHome(p);continue;}
                 var scope=Hk3ResearchTeams.scope(server,p.getUUID());var l=Hk3ReviewData.get(server).snapshot();
-                for(var kind:Hk3ReviewLedger.Kind.values())if(l.qualified(scope,kind)&&!l.experienced(p.getUUID(),kind)&&(kind==Hk3ReviewLedger.Kind.FIRST||l.experienced(p.getUUID(),Hk3ReviewLedger.Kind.FIRST))&&INVITED.add(p.getUUID()+"/"+scope+"/"+kind)){
-                    String command=kind==Hk3ReviewLedger.Kind.FIRST?"/hk3review first":"/hk3review second";
-                    p.sendSystemMessage(Component.translatable("hk3gtl.review.invite",kind==Hk3ReviewLedger.Kind.FIRST?"一审":"二审",command).withStyle(s->s.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,command))));
+                for(var kind:Hk3ReviewLedger.Kind.values())if(l.qualified(scope,kind)&&!l.experienced(p.getUUID(),kind)&&(kind==Hk3ReviewLedger.Kind.FIRST||l.experienced(p.getUUID(),Hk3ReviewLedger.Kind.FIRST))&&!INVITED.contains(p.getUUID()+"/"+scope+"/"+kind)){
+                    if(kind==Hk3ReviewLedger.Kind.FIRST){
+                        if(available(p)&&Hk3ReviewScene.available(p)&&l.sessions(scope).stream().noneMatch(m->m.kind()==kind&&m.phase()!=Hk3ReviewLedger.Phase.PAUSED&&m.phase()!=Hk3ReviewLedger.Phase.COMPLETE&&m.phase()!=Hk3ReviewLedger.Phase.ABANDONED))begin(p,kind,true);
+                    }else{
+                        INVITED.add(p.getUUID()+"/"+scope+"/"+kind);
+                        com.sirin.hk3gtl.common.narrative.story.Hk3StoryService.teamFact(server,scope,"second_review_ready");
+                        String command="/hk3review second";
+                        p.sendSystemMessage(Component.translatable("hk3gtl.review.invite","二审",command).withStyle(s->s.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,command))));
+                    }
                 }
             }
         }

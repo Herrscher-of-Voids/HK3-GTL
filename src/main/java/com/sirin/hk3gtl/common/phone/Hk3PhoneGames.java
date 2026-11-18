@@ -1,9 +1,9 @@
 package com.sirin.hk3gtl.common.phone;
 import java.util.*;
-/**
- * 【变更记录 #1】2026-09-30 18:58:24（内测5修订114）
- * 删除：无；新增：2048和贪吃蛇纯逻辑；修改：无；用途：手机小游戏无奖励、不修改研究，支持确定种子回归。
- */
+ 
+
+
+
 public final class Hk3PhoneGames {
     private Hk3PhoneGames(){}
     public static final class Tiles {

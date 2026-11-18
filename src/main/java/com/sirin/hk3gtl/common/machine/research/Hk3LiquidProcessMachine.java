@@ -1,20 +1,21 @@
 package com.sirin.hk3gtl.common.machine.research;
 
-/** 【变更记录 #7】2026-10-01 00:14:30（修订122）：删除无；新增/修改：合并配方保留稳定化子批次，公开不会混入同机其他工艺；用途：五方首信与真实批次分开记账，防止错误公开。 */
+import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport;
+ 
 
-/** 【变更记录 #6】2026-10-01 00:14:30（修订122）：删除无；新增/修改：真实稳定化输出留下投入/产出与副产物规格，不凭空补出回收状态；用途：真实成果、团队授权与个人阅读分离，不开放贸易或免费完成研究。 */
+ 
 
 
 
-/**
- * 【文件职责／本轮边界】I03至I05真实输出结算按固定团队授权并记录来源，离线不伪造或漏记已完成实验。
- * 【变更记录 #4】2026-09-29 21:06:40（第 4 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：I03至I05真实输出结算按固定团队授权并记录来源，离线不伪造或漏记已完成实验。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
 
 /** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
@@ -28,50 +29,60 @@ import com.sirin.hk3gtl.common.machine.Hk3MultiRecipeLogic;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.machine.ParallelData;
 import com.sirin.hk3gtl.common.communication.Hk3CommunicationData;
+import com.sirin.hk3gtl.common.constants.Hk3Values;
+import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessEnergy;
 import com.sirin.hk3gtl.common.research.Hk3ResearchData;
 import com.sirin.hk3gtl.common.research.Hk3RecipeAccess;
 import com.sirin.hk3gtl.common.research.Hk3ResearchRequirementPolicy;
 import com.sirin.hk3gtl.common.research.Hk3ProcessReceipts;
 import com.sirin.hk3gtl.common.research.Hk3ResearchRecipeRuntime;
+import com.sirin.hk3gtl.common.research.Hk3OutputReceiptDispatch;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import java.math.BigInteger;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-/**
- * 第一条工业线的归属、实验和批次结算入口；仅在真实输出成功后授予实验证据。
- * 【变更记录 #1】2026-09-24 16:36:00（内测5修订66）
- * 删除：不再依靠持有产物推测实验。新增：多配方原始研究权限和实验集合持久化。
- * 修改：输出阻塞时保留完成批次，停止再次扣料；注入量按各原配方实际并行求和。
- * 用途：离线、缺研究、模拟匹配及中断不能提前获得实验；首轮信息缺失时拒绝运行。
- *
- * 【变更记录 #2】2026-09-24 17:22:00（内测5修订66）
- * 删除：完成时借用handleRecipeIO输出的调用，GTL已将该方法改写成输入结算。
- * 新增：真实输出助手的成功回调、批次结算标志和单配方回退的实际并行产额。
- * 修改：完成前只模拟容量，输出交由GTL单次提交；启动时复制元数据并清除旧标志。
- * 用途：修复已扣料但没有产出的卡机，避免回退批处理少记网络余额及重复记账。
- *
- * 【变更记录 #3】2026-09-24 17:26:25（内测5修订66）
- * 删除：仅用外层并行计数推算网络产额的方法。
- * 新增：按原配方与最终批次首项消耗的精确比例计算产额，非整数比例拒绝结算。
- * 修改：同时覆盖部件倍乘、跨配方倍乘与GTL批处理；用途：使记账与实际扣料一致。
- */
-/**
- * 【变更记录 #5】2026-09-29 23:37:35（内测5修订101）
- * 删除：本轮被替代的单前置或旧提示分支；其余历史保留。
- * 新增／修改：保留合并批次的全部权限与工艺回执，真实输出完成才结算研究实验及三类回收来源。
- * 用途：补足研究接线并如实保留未接物理执行器及结构审批边界。
- * 追溯：logs/research-mainline-r101；R101_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
     public static final String EXPERIMENT="hk3gtlExperiment", EXPERIMENTS="hk3gtlExperiments";
     public static final String REQUIREMENTS=Hk3ResearchRequirementPolicy.METADATA_KEY, CREDIT="hk3gtlNetworkCredit";
     private static final String SETTLED="hk3gtlLiquidOutputSettled";
+    private static final String REQUIRED_SETTLED="hk3gtlLiquidRequiredOutputSettled";
     public Hk3LiquidProcessMachine(IMachineBlockEntity holder) { super(holder); }
     @Override public boolean keepSubscribing() { return true; }
+    @Override public long getMaxVoltage() {
+        return Hk3Values.getV(Hk3ResearchProcessEnergy.executionVoltageTier(
+                getDefinition().getRecipeTypes(), getDefinition().getTier()));
+    }
+    @Override public long getOverclockVoltage() { return getMaxVoltage(); }
 
     protected ServerPlayer informedOwner() {
         if(isRemote()||getLevel()==null||getLevel().getServer()==null||getOwnerUUID()==null)return null;
@@ -124,15 +135,29 @@ public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
     }
     /** GTL直接调用输出助手，必须在其真实输出成功后回调，不能调用已被改写为输入的handleRecipeIO。 */
     public final void onLiquidOutputSettled(GTRecipe recipe) {
-        if(recipe==null||recipe.data.getBoolean(SETTLED)||!allowed(recipe)||!isFormed())return;
-        onProcessOutput(recipe);
-        recipe.data.putBoolean(SETTLED,true);
+        Hk3OutputReceiptDispatch.dispatch(true,
+                () -> recipe!=null&&!recipe.data.getBoolean(SETTLED)&&allowed(recipe)&&isFormed(),
+                () -> {
+                    // 必要入账成功与旁注完成分开，回执失败后重入不能重复发放HW。
+                    if(!recipe.data.getBoolean(REQUIRED_SETTLED)) {
+                        onRequiredProcessOutput(recipe);
+                        recipe.data.putBoolean(REQUIRED_SETTLED,true);
+                    }
+                },
+                () -> {
+                    onProcessOutput(recipe);
+                    recipe.data.putBoolean(SETTLED,true);
+                },
+                failure -> com.mojang.logging.LogUtils.getLogger().error("HK3GTL液态工艺已输出，但实验或批次回执记录失败：{}",getPos(),failure));
     }
+    /** 必要生产结算不能随旁注异常一起吞掉；默认工艺无额外输出。 */
+    protected void onRequiredProcessOutput(GTRecipe recipe) {}
     /** 注入配方的消耗顺序在倍乘时保持不变；优先比较燃料流体，否则比较首项消耗物品。 */
     private static BigInteger creditFor(GTRecipe original,GTRecipe consumed) {
-        long unit=original.data.getLong(CREDIT);
-        if(unit<0)throw new IllegalArgumentException("网络注入产额不能为负数");
-        if(unit==0)return BigInteger.ZERO;
+        BigInteger unit=original.data.contains(CREDIT,Tag.TAG_STRING)
+                ?new BigInteger(original.data.getString(CREDIT)):BigInteger.valueOf(original.data.getLong(CREDIT));
+        if(unit.signum()<0)throw new IllegalArgumentException("网络注入产额不能为负数");
+        if(unit.signum()==0)return BigInteger.ZERO;
         long base=0,actual=0;
         var fluids=original.getInputContents(com.gregtechceu.gtceu.api.capability.recipe.FluidRecipeCapability.CAP);
         for(int i=0;i<fluids.size();i++)if(fluids.get(i).chance>0) {
@@ -149,7 +174,7 @@ public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
             }
         }
         if(base<=0||actual<base||actual%base!=0)throw new IllegalStateException("注入批次消耗比例无效："+original.id);
-        return BigInteger.valueOf(unit).multiply(BigInteger.valueOf(actual/base));
+        return unit.multiply(BigInteger.valueOf(actual/base));
     }
     @Override protected RecipeLogic createRecipeLogic(Object... args) { return new ProcessLogic(this); }
 
@@ -188,14 +213,15 @@ public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
             running.data.put(Hk3ProcessReceipts.RECEIPTS,receipts);
             running.data.put(Hk3ResearchRecipeRuntime.MERGED,executionPlans);
             running.data.put("hk3gtlCommunicationBatches",communicationBatches);
-            running.data.remove(SETTLED);return running;
+            running.data.remove(SETTLED);running.data.remove(REQUIRED_SETTLED);return running;
         }
         private static ListTag strings(Set<String> values) {
             var list=new ListTag();values.forEach(v->list.add(StringTag.valueOf(v)));return list;
         }
         @Override public void setupRecipe(GTRecipe recipe) {
             // 续跑时必须用新副本清理输出标志，不修改仍在使用的上一批次。
-            var next=recipe.copy();next.data=recipe.data.copy();next.data.remove(SETTLED);super.setupRecipe(next);
+            var next=recipe.copy();next.data=recipe.data.copy();next.data.remove(SETTLED);next.data.remove(REQUIRED_SETTLED);
+            next.data.remove(com.sirin.hk3gtl.common.easter.Hk3EggProduction.REACTOR_FUEL_SETTLED);super.setupRecipe(next);
         }
         @Override protected boolean handleTickRecipeIO(GTRecipe recipe,IO io) {
             return process.allowed(recipe)&&super.handleTickRecipeIO(recipe,io);
@@ -214,7 +240,10 @@ public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
         }
         @Override public void onRecipeFinish() {
             if(lastRecipe==null)return;
-            if(!process.allowed(lastRecipe)||!org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper.matchRecipeOutput(process,lastRecipe)) {
+            boolean escrow=Hk3ProbabilitySupport.AVAILABLE
+                    &&com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilityOrderService.escrowsOutput(lastRecipe);
+            if(!process.allowed(lastRecipe)||!escrow
+                    &&!org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper.matchRecipeOutput(process,lastRecipe)) {
                 setWaiting(Component.translatable("hk3gtl.machine.liquid_line.waiting_output"));return;
             }
             // GTL完成函数直接调用RecipeRunnerHelper输出；服务端同一调用栈中先模拟，再单次提交。
@@ -224,4 +253,4 @@ public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

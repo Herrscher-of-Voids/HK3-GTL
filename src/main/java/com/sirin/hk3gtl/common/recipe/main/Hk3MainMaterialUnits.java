@@ -2,14 +2,14 @@ package com.sirin.hk3gtl.common.recipe.main;
 
 import java.util.Map;
 
-/**
- * 【文件职责】维护主材相含量的形态折算；不是所有外加树脂、导体与溶剂的原子质量模型。
- * 【变更记录 #1】2026-10-17 16:28:36（第1次备注 · 修订165）
- * - 删除：无；不继承GT自动冶炼、粉碎或材料回收配方。
- * - 新增：坯/板144、棒72、细线18、环/箔36、框架576与回收细分18的统一账本。
- * - 修改：形态配方显式验算相含量，负值和不守恒转换拒绝注册。
- * - 用途：防止棒、环、细线、箔与框架的分割/回收出现增殖；独立于Minecraft注册表便于负例测试。
- */
+ 
+
+
+
+
+
+
+
 public final class Hk3MainMaterialUnits {
     private static final Map<String, Integer> UNITS = Map.ofEntries(
             Map.entry("billet", 144), Map.entry("plate", 144), Map.entry("rod", 72),

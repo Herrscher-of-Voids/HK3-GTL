@@ -7,15 +7,19 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.phys.AABB;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 04:51:18（修订128）：删除无；新增合法展示框装入、蛋糕食用及告示牌保存后的场景旁注；用途：只读已加载局部方块与本人实际操作，不生成联动实体。 */
-/** 【变更记录 #2】2026-10-01 05:44:13（修订128）：删除：旧固定上限或被替代的分支；新增/修改：蛋糕与小麦读取会在任何拆换后撤销的实际放置归属，不沿用旧坐标布尔标记；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 05:53:29（修订128）：删除：无；新增/修改：隔离牌和腐肉支持任意合法先后次序；单双箱共用真实库存；药箱支持命名与告示牌；入睡前重新核验蘑菇煲；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #4】2026-10-01 05:59:33（修订128）：删除：无；新增/修改：现有成功交互串联本人装饰、存取与自然场景检测；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
+ 
+ 
 public final class Hk3EggDecor {
     private static final String OWNER="hk3gtl_egg_frame_author";
     private Hk3EggDecor(){}
     public static void framed(ServerPlayer p,ItemFrame frame){
         frame.getPersistentData().putUUID(OWNER,p.getUUID());
+        if(Set.of("artifact_void_archives","imitation_void_archives","imitation_star_of_eden","imitation_oath_of_judah")
+                .contains(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(frame.getItem().getItem()).getPath())
+                &&net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(frame.getItem().getItem()).getNamespace().equals("hk3gtl"))
+            Hk3EggRuntime.observe(p,"divine_key_displayed",Map.of("display","item_frame","inserted","true"));
         if(frame.getItem().is(Items.CARVED_PUMPKIN))Hk3EggVanilla.caseEvent(p,386);
         for(var other:p.level().getEntitiesOfClass(ItemFrame.class,frame.getBoundingBox().inflate(5),f->f!=frame)){
             var n=other.getPersistentData();if(!n.hasUUID(OWNER)||!n.getUUID(OWNER).equals(p.getUUID())||frame.getDirection()!=other.getDirection())continue;
@@ -55,6 +59,9 @@ public final class Hk3EggDecor {
         }
     }
     public static void sleeping(ServerPlayer p){
+        if(p.getSleepingPos().filter(at->com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionMachine
+                .containsVerifiedInterior(p.serverLevel(),at)).isPresent())
+            Hk3EggRuntime.observe(p,"flagship_bed_entered",Map.of("sleeping","true","verified_interior","true"));
         var s=Hk3EggRuntime.state(p);if(!s.contains("stewChest")||!s.contains("stewBed")||!s.getString("stewBedDim").equals(p.level().dimension().location().toString()))return;
         var bed=p.getSleepingPos();if(bed.isEmpty()||bed.get().distSqr(BlockPos.of(s.getLong("stewBed")))>1)return;
         var at=BlockPos.of(s.getLong("stewChest"));if(!p.level().hasChunkAt(at)||!(p.level().getBlockEntity(at) instanceof ChestBlockEntity chest))return;

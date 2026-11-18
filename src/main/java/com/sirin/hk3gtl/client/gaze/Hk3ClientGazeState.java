@@ -9,12 +9,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
  * <p>纯客户端状态，不参与任何业务计算；所有权威数据以服务端 {@code Hk3GazeManager} 为准。
  * 字段用 volatile 保证网络线程写入、渲染线程读取的可见性。</p>
  */
-/**
- * 【变更记录 #1】2026-09-30 15:49:23（第1次编号备注 · 内测5修订109）
- * 删除：过期的计算或无运行依据的分支；保留历史备注。
- * 新增／修改：缓存服务端有效注视及团队研究口径，退出清空，防止跨存档残留。
- * 用途：统一注视与研究联动，服务端判定；不新增结构或贴图。
- */
+ 
+
+
+
+
+
 @OnlyIn(Dist.CLIENT)
 public final class Hk3ClientGazeState {
 

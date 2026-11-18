@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.registration;
 
-
-/**
- * 【文件职责】
- * - 维护 Hk3CreativeTabsImpl 的核心功能实现。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.sirin.hk3gtl.common.block.Hk3Blocks;
@@ -59,21 +40,19 @@ import java.util.stream.Collectors;
  *   <li>物品（材料/功能性/杂项）</li>
  * </ol>
  */
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #64】2026-09-25 03:57:37（第 64 次备注 · 内测5修订71）
- * 删除：单一电路形态或旧电压显示限制。新增：统一系列及电压映射。
- * 修改：创造栏按七个系列展示28种正式电路。
- * 用途：保持同级电路可替换、资源与游戏行为一致。
- */
-/**
- * 【变更记录 #65】2026-09-30 02:17:47（第65次备注 · 内测5修订107）
- * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
- * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
- * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
- * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
- */
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
 public class Hk3CreativeTabsImpl {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -115,31 +94,7 @@ public class Hk3CreativeTabsImpl {
     };
 
     private static final String[] BLOCK_ORDER = {
-            "casing_soulium",
-            "casing_reinforced_soulium",
-            "casing_abyss_mechanical",
-            "casing_abyss_research",
-            "casing_abyss_energy",
-            "casing_imaginary_tree",
-            "casing_imaginary_lattice",
-            "casing_imaginary_core",
-            "casing_imaginary_anchor",
-            "casing_imaginary_weave",
-            "casing_quantum_sea",
-            "casing_quantum_bubble",
-            "casing_quantum_flux",
-            "casing_quantum_entangle",
-            "casing_quantum_shipboard",
-            "casing_finality_void",
-            "casing_finality_sanctum",
-            "casing_finality_dominion",
-            "casing_finality_hyperion",
-            "casing_finality_wonder",
-            "glass_honkai_stabilized",
-            "coil_abyss_flux",
-            "structure_abyss_cooling_unit",
-            "structure_communication_array",
-            "structure_data_pillar"
+            "glass_honkai_stabilized"
     };
 
     private static final String[] PRIMARY_ITEM_ORDER = {
@@ -181,9 +136,8 @@ public class Hk3CreativeTabsImpl {
 
     /** 60 台多方块控制器清单（v0.3，与 Hk3Machines*Stage 注册严格一致） */
     private static final String[] MULTIBLOCK_CONTROLLER_PATHS = {
-            // 【变更记录 #63】2026-09-24 00:04:00（内测5修订63）
+             
             // 删除：无；新增：审核控制器分类。用途：创造机器页直接获取，不混入普通零件。
-            // 中文备注：该处说明已按当前代码行为整理。
             "i01_honkai_collection_tower",
             "i01_2_honkai_collection_tower",
             "i01_3_honkai_collection_tower",
@@ -482,4 +436,4 @@ public class Hk3CreativeTabsImpl {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

@@ -1,25 +1,23 @@
 package com.sirin.hk3gtl.client.narrative;
 
+ 
 
-/**
- * 【文件职责】
- * - 管理 Hk3NarrativeCodexScreen 叙事节点与档案显示数据。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 左侧阵营 Button 列表（超出面板高度会截断末尾「彩蛋」项）。
- * - 新增：
- *   1) 「全部」下方固定「彩蛋/残篇」筛选；阵营列表可滚动。
- *   2) 节点/详情/阵营滚动条支持鼠标拖拽。
- * - 修改：
- *   1) 阵营筛选改为自绘列表 + factionScroll，确保 100 条彩蛋档案可进入。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeFaction;
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeLog;
 import com.sirin.hk3gtl.common.narrative.Hk3NarrativeNode;
@@ -43,12 +41,11 @@ import java.util.List;
  * <p>2026-05-19 变更：
  * 新增彩蛋条件展示与可视化滚动条，便于 100 条彩蛋档案快速浏览。</p>
  */
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/** 【变更记录 #1】2026-10-01 00:44:40（修订123）：删除无；新增/修改：卷轴增加服务端正式经历分页，旧收藏保留独立切换；正式页不使用滚轮；用途：个人交流、团队决定及额外收藏分开，保留真实记录。 */
-/** 【变更记录 #2】2026-10-01 01:54:14（修订127）：删除：被替代的旧分支；新增/修改：三栏目录保留，正文及完整触发条件改翻页；底部进度避让切换按钮，与手机同源分类说明；用途：个人收藏与正式资格分离，保留历史记录。 */
-/** 【变更记录 #3】2026-10-01 01:59:30（修订127）：删除：被替代的旧分支；新增/修改：卷轴目录和数量读取此次打开的服务端本人快照，调试与复活后不显示过期进度；用途：个人收藏与正式资格分离，保留历史记录。 */
-/** 【变更记录 #4】2026-10-01 22:47:35（第4次备注 · 内测5修订155）：删除玩家展示中的旧电压及开发说明；新增现行正文投影或对应回归；修改仅限呈现与检索，不改变进度、回执、触发条件或权限；用途：统一发布版玩家文案，历史备注保留。 */
-/** 【变更记录 #5】2026-11-04 06:08:10（第5次备注 · 内测5修订196）：删除64正式收藏列表的旧标题投影；新增共享迁移标题入口；修改仅当前收藏列表，锁定项与终审正文不变；用途：列表与详情显示同一获准新版档案。 */
+ 
+ 
+ 
+ 
+ 
 public class Hk3NarrativeCodexScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int GUI_WIDTH = 420;
@@ -423,7 +420,7 @@ public class Hk3NarrativeCodexScreen extends com.sirin.hk3gtl.client.gui.Hk3Fitt
 
     private List<String> wrapParagraph(String text, int maxWidth) {
         List<String> lines = new ArrayList<>();
-        if (text == null || text.isEmpty()) {
+        if (text.isEmpty()) {
             lines.add("");
             return lines;
         }

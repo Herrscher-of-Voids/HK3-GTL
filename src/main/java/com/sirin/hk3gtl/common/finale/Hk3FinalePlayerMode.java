@@ -13,10 +13,12 @@ public final class Hk3FinalePlayerMode {
         if (!data.contains(KEY)) data.putString(KEY, original.name());
     }
     public static GameType take(CompoundTag data) {
-        if (!data.contains(KEY)) return null;
-        GameType original = GameType.valueOf(data.getString(KEY));
+        GameType original = readSavedMode(data);
         data.remove(KEY);
         return original;
+    }
+    private static GameType readSavedMode(CompoundTag data) {
+        return data.contains(KEY) ? GameType.valueOf(data.getString(KEY)) : null;
     }
     public static boolean hasSavedMode(ServerPlayer player) {
         return player.getPersistentData().contains(KEY);
@@ -26,8 +28,13 @@ public final class Hk3FinalePlayerMode {
         player.setGameMode(GameType.ADVENTURE);
     }
     public static void leave(ServerPlayer player) {
-        GameType original = take(player.getPersistentData());
-        if (Hk3GraduationData.get(player.serverLevel()).isGraduated(player.getUUID())) player.setGameMode(GameType.CREATIVE);
-        else if (original != null) player.setGameMode(original);
+        CompoundTag data = player.getPersistentData();
+        GameType original = readSavedMode(data);
+        GameType target = Hk3GraduationData.get(player.serverLevel()).isGraduated(player.getUUID())
+                ? GameType.CREATIVE : original;
+        if (target == null) return;
+        // 模式变更可能被取消或改写，确认实际恢复后才消费记录。
+        if (player.gameMode.getGameModeForPlayer() != target) player.setGameMode(target);
+        if (player.gameMode.getGameModeForPlayer() == target) data.remove(KEY);
     }
 }

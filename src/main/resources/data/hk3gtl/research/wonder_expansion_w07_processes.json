@@ -1,0 +1,1934 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w07_x46_nano_scrap_precursor_assist",
+      "role": "W07",
+      "zh_name": "纳米装配废料补料再构",
+      "purpose": "十六份装配废料的常规回收上限为四个构筑单元；本工艺另投硅与实体模板，省去新制前驱液但保留失活损耗。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR",
+        "RN-NBS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 16
+        },
+        {
+          "id": "gtceu:silicon_dust",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_microstructure_template",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_nano_assembly",
+        "wonder_w07_nano_scrap_reprogramming"
+      ],
+      "baseline_recipe": "industrial_recovery_nano_scrap|industrial_nano_building",
+      "process_family": "纳米再制造"
+    },
+    {
+      "id": "wonder_w07_x46_inactive_unit_controller_rebuild",
+      "role": "W07",
+      "zh_name": "失活单元控制层重装",
+      "purpose": "十六个失活单元按既有二比一回收只提供八个构筑单元等价，另加四个新单元；十二个单元最多重装六台未编程机器人。",
+      "requirements": [
+        "RN-MRA",
+        "RN-NSP",
+        "RN-NRA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 4
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:unprogrammed_nanobot",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 216
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_nano_control"
+      ],
+      "baseline_recipe": "wonder_w07_inactive_nano_unit_reactivation|industrial_nano_assembly",
+      "process_family": "纳米再制造"
+    },
+    {
+      "id": "wonder_w07_x46_coated_swarm_delamination",
+      "role": "W07",
+      "zh_name": "耐蚀纳米群有损退涂层",
+      "purpose": "八份涂覆群最多含十二份原受控群；只收回四份受控群和两份失活单元，涂层全部转入用后液。",
+      "requirements": [
+        "RN-MRA",
+        "RN-HRC",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:coated_nano_swarm",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        },
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_nano_coating",
+        "main_material/worldweave_multiaxial_composite/independent_reinforcement_4"
+      ],
+      "baseline_recipe": "industrial_nano_coating",
+      "process_family": "纳米退役"
+    },
+    {
+      "id": "wonder_w07_x46_swarm_control_layer_retirement",
+      "role": "W07",
+      "zh_name": "受控纳米群退役解编程",
+      "purpose": "销毁控制层后只回收四台未编程机器人与两份失活单元；不返还规则载体或任何研究。",
+      "requirements": [
+        "RN-MRA",
+        "RN-NSP",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:unprogrammed_nanobot",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_nano_control",
+        "wonder_w07_x46_nanobot_structural_salvage"
+      ],
+      "baseline_recipe": "industrial_nano_control",
+      "process_family": "纳米退役"
+    },
+    {
+      "id": "wonder_w07_x46_nanobot_structural_salvage",
+      "role": "W07",
+      "zh_name": "未编程纳米机结构回收",
+      "purpose": "八台机器人原需十六个构筑单元；退役只返八个单元与两份装配废料，不返还金箔和电路基板。",
+      "requirements": [
+        "RN-MRA",
+        "RN-NRA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:unprogrammed_nanobot",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_nano_assembly",
+        "wonder_w07_x46_nano_scrap_precursor_assist"
+      ],
+      "baseline_recipe": "industrial_nano_assembly",
+      "process_family": "纳米结构回收"
+    },
+    {
+      "id": "wonder_w07_x46_polymerization_residue_titanium",
+      "role": "W07",
+      "zh_name": "聚合残渣钛相浸出",
+      "purpose": "每份聚合残渣来自消耗八份钛粉及两份铂粉的前驱液工艺；十六份残渣仅取回四份钛，不返铂或崩坏能。",
+      "requirements": [
+        "RN-MRA",
+        "RN-SSP",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_polymerization_residue",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:titanium_dust",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_soulium_precursor"
+      ],
+      "baseline_recipe": "industrial_soulium_precursor",
+      "process_family": "湿法金属精炼"
+    },
+    {
+      "id": "wonder_w07_x46_fuel_casing_barrier_remanufacture",
+      "role": "W07",
+      "zh_name": "回收棒壳屏障再制造",
+      "purpose": "十六份壳体回收料相当于最多四个完整棒壳；配合新中子素板及聚合物箔，仅再制四个电子封装屏障。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR",
+        "RN-CPT"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:recovered_fuel_casing_material",
+          "count": 16
+        },
+        {
+          "id": "gtceu:neutronium_plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        },
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "industrial_circuit_packaging"
+      ],
+      "baseline_recipe": "industrial_recovery_fuel_casing|hk3gtl_electronic_encapsulation",
+      "process_family": "退役壳体再制造"
+    },
+    {
+      "id": "wonder_w07_x46_package_reject_contact_rebuild",
+      "role": "W07",
+      "zh_name": "不合格封装触点补料重装",
+      "purpose": "八个拒收包按既有拆解最多提供两个封装件；另投常规四件的新触点与壳料，固定输出六件，保留新拒收与纳米废料。",
+      "requirements": [
+        "RN-MRA",
+        "RN-CPT",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:rejected_circuit_package",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 4
+        },
+        {
+          "id": "gtceu:polytetrafluoroethylene_plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:rejected_circuit_package",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "wonder_w07_rejected_package_component_salvage"
+      ],
+      "baseline_recipe": "industrial_circuit_packaging|wonder_w07_rejected_package_component_salvage",
+      "process_family": "电子废料再制造"
+    },
+    {
+      "id": "wonder_w07_x46_failed_layer_reseed_etch",
+      "role": "W07",
+      "zh_name": "失败线路层补底重蚀",
+      "purpose": "十六份失败层只允许救回四份线路；另消耗四份新适配基板，八份合格层与四份再拒收层均为固定产物。",
+      "requirements": [
+        "RN-MRA",
+        "RN-CPT",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:failed_circuit_layer",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:failed_circuit_layer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 2000
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 2000
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_circuit_packaging",
+        "hk3gtl_electronic_civilization_endurance_circuit_substrate"
+      ],
+      "baseline_recipe": "industrial_circuit_etching|wonder_w07_failed_layer_copper_recovery",
+      "process_family": "电子废料再制造"
+    },
+    {
+      "id": "wonder_w07_x46_defective_substrate_new_backing",
+      "role": "W07",
+      "zh_name": "缺陷基板新背板重构",
+      "purpose": "旧基板只保留可用功能相，新魂钢板与铜箔提供实体背板；十六份缺陷批只产四份适配基板，余料降级回收。",
+      "requirements": [
+        "RN-MRA",
+        "RN-CPT",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:defective_circuit_substrate",
+          "count": 16
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:copper_foil",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:defective_circuit_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 2000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 2000
+        },
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_circuit_etching",
+        "industrial_nano_assembly"
+      ],
+      "baseline_recipe": "wonder_w07_defective_substrate_delamination",
+      "process_family": "电子废料再制造"
+    },
+    {
+      "id": "wonder_w07_x46_offcut_substrate_backplane",
+      "role": "W07",
+      "zh_name": "复合边角料背板重铺",
+      "purpose": "三十二份边角料按常规只能返回四份数据基板；新魂钢与细线只补足界面，不增加这四份的回收上限。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 32
+        },
+        {
+          "id": "material:soulium/ingot",
+          "count": 2
+        },
+        {
+          "id": "material:soulium/fine_wire",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1500
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 144
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2500,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_composite_conducting",
+        "industrial_composite_confining",
+        "industrial_key_housing"
+      ],
+      "baseline_recipe": "industrial_recovery_composite_offcut",
+      "process_family": "复合废料再制造"
+    },
+    {
+      "id": "wonder_w07_x46_worldshell_wire_rod_dismantling",
+      "role": "W07",
+      "zh_name": "稳界细线与棒材分相拆解",
+      "purpose": "三十二根细线含四坯相、四根棒含两坯相；只得到六份同阶分类料，不直接返回成材。",
+      "requirements": [
+        "RN-MRA",
+        "RN-WME",
+        "RN-WMS",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_classified_scrap",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldstabilizing_confinement_shell/lossy_phase_separation"
+      ],
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/dismantle_fine_wire|main_material/worldstabilizing_confinement_shell/dismantle_rod",
+      "process_family": "主材分相拆解"
+    },
+    {
+      "id": "wonder_w07_x46_paired_reject_phase_sorting",
+      "role": "W07",
+      "zh_name": "纠缠配对拒收批整对解离",
+      "purpose": "八份拒收批作为整对解离；固定回收四十八份细分组分、十六份尾料，保持原75%相回收上限。",
+      "requirements": [
+        "RN-MRA",
+        "RN-QOM",
+        "RN-CQS",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:paired_entangled_lattice_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:paired_entangled_lattice_recovered_fraction",
+          "count": 48
+        },
+        {
+          "id": "hk3gtl:paired_entangled_lattice_unrecoverable_tailings",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/paired_entangled_lattice/fresh_feed_reconstitution",
+        "main_material/paired_entangled_lattice/irreversible_tailings_inerting"
+      ],
+      "baseline_recipe": "main_material/paired_entangled_lattice/lossy_phase_separation",
+      "process_family": "配对废晶解离"
+    },
+    {
+      "id": "wonder_w07_x46_coherent_reject_dielectric_strip",
+      "role": "W07",
+      "zh_name": "相干拒收栅格选择性剥离",
+      "purpose": "聚合物与陶瓷隔离层进入用后溶剂；八份拒收批仅回收四十份细分相，二十四份转尾料。",
+      "requirements": [
+        "RN-MRA",
+        "RN-CPT",
+        "RN-ICA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_recovered_fraction",
+          "count": 40
+        },
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_unrecoverable_tailings",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 2000
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/coherent_interconnect_grid/fresh_feed_reconstitution",
+        "main_material/coherent_interconnect_grid/irreversible_tailings_inerting"
+      ],
+      "baseline_recipe": "main_material/coherent_interconnect_grid/lossy_phase_separation",
+      "process_family": "介电层废料精炼"
+    },
+    {
+      "id": "wonder_w07_x46_phase_ceramic_acid_leach",
+      "role": "W07",
+      "zh_name": "相转移陶瓷分类料湿法浸出",
+      "purpose": "已分类的陶瓷相进行酸洗除杂，八份分类料只回收四十份细分相，拒绝整坯无损返回。",
+      "requirements": [
+        "RN-MRA",
+        "RN-SSQ",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_classified_scrap",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_recovered_fraction",
+          "count": 40
+        },
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_unrecoverable_tailings",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 2000
+        },
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_phase_transfer_ceramic/fresh_feed_reconstitution",
+        "main_material/imaginary_phase_transfer_ceramic/irreversible_tailings_inerting"
+      ],
+      "baseline_recipe": "main_material/imaginary_phase_transfer_ceramic/lossy_phase_separation",
+      "process_family": "陶瓷废料精炼"
+    },
+    {
+      "id": "wonder_w07_x46_reconstructed_alloy_direct_refine",
+      "role": "W07",
+      "zh_name": "重构合金废料补铸精炼",
+      "purpose": "八份分类料的1152相单位拆为五坯及二十四份尾料；每坯仍另投四张新Shirabon箔，不返还新料。",
+      "requirements": [
+        "RN-MRA",
+        "RN-UPR",
+        "RN-SPM",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_classified_scrap",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 20
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 5
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_unrecoverable_tailings",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 24000
+        },
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_reconstructed_alloy/oriented_metal_plate",
+        "main_material/imaginary_reconstructed_alloy/irreversible_tailings_inerting"
+      ],
+      "baseline_recipe": "main_material/imaginary_reconstructed_alloy/lossy_phase_separation|main_material/imaginary_reconstructed_alloy/fresh_feed_reconstitution",
+      "process_family": "合金精炼复铸"
+    },
+    {
+      "id": "wonder_w07_x46_gradient_fiber_reject_reweave",
+      "role": "W07",
+      "zh_name": "梯度纤维拒收批补丝重织",
+      "purpose": "八份高阶拒收相最多恢复六坯；另投织界新坯和纤维网补界面，三十二份尾料包括损失相及被替换填料。",
+      "requirements": [
+        "RN-MRA",
+        "RN-WMS",
+        "RN-WCP",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_billet",
+          "count": 2
+        },
+        {
+          "id": "gtceu:carbon_fiber_mesh",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_unrecoverable_tailings",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 2000
+        },
+        {
+          "id": "spent_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldforming_gradient_fiber/composite_laminate_plate",
+        "main_material/worldforming_gradient_fiber/irreversible_tailings_inerting"
+      ],
+      "baseline_recipe": "main_material/worldforming_gradient_fiber/lossy_phase_separation",
+      "process_family": "纤维废料重织"
+    },
+    {
+      "id": "wonder_w07_x46_quadrisystem_reject_interface_repair",
+      "role": "W07",
+      "zh_name": "四系统拒收批界面补料再制",
+      "purpose": "回收相来自既成四系统拒收批，六坯产率不高于原75%；新WSV坯与陶瓷只补界面，并额外形成尾料。",
+      "requirements": [
+        "RN-MRA",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_unrecoverable_tailings",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 1152
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 4000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/civilization_quadrisystem_matrix/composite_laminate_plate",
+        "main_material/civilization_quadrisystem_matrix/irreversible_tailings_inerting"
+      ],
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/lossy_phase_separation|main_material/civilization_quadrisystem_matrix/fresh_feed_reconstitution",
+      "process_family": "四系界面再制造"
+    },
+    {
+      "id": "wonder_w07_x46_solvent_carbon_polishing",
+      "role": "W07",
+      "zh_name": "魂钢溶剂碳吸附补液",
+      "purpose": "四千用后溶剂加一千新水与两百试剂，得到三千六百可用溶剂及一千六百废液；碳与滤芯持续消耗。",
+      "requirements": [
+        "RN-MRA",
+        "RN-LES",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 200
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 3600
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 1600
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_soulium_precursor",
+        "industrial_nano_control"
+      ],
+      "baseline_recipe": "industrial_process_solvent|industrial_treat_spent_soulium_solvent",
+      "process_family": "溶剂有损再生"
+    },
+    {
+      "id": "wonder_w07_x46_nano_tail_fractionation",
+      "role": "W07",
+      "zh_name": "纳米反应尾液分段回用",
+      "purpose": "四千尾液只保留两百可作分离介质的馏分，三千八百进入不可回收废液，不返纳米单元。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 16
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "nano_reaction_tail_liquid",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_separation_medium",
+          "amount": 200
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 3800
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_honkai_separation"
+      ],
+      "baseline_recipe": "industrial_treat_nano_reaction_tail_liquid",
+      "process_family": "尾液分段精制"
+    },
+    {
+      "id": "wonder_w07_x46_stabilizer_seeded_regeneration",
+      "role": "W07",
+      "zh_name": "稳定介质补晶种再生",
+      "purpose": "以五百新介质补充失活功能相，四千用后介质仍有一千净损失，不输出液态崩坏能或HW。",
+      "requirements": [
+        "RN-MRA",
+        "RN-LES",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "spent_honkai_stabilization_medium",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 3500
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_soulium_reconstruction",
+        "wonder_w10_hdv_pump_housing_finish_assembly"
+      ],
+      "baseline_recipe": "industrial_soulium_reconstruction",
+      "process_family": "稳定介质有损再生"
+    },
+    {
+      "id": "wonder_w07_x46_coolant_solids_separation",
+      "role": "W07",
+      "zh_name": "崩坏冷却液固杂分离",
+      "purpose": "四千热冷却液加一千16级蒸馏水，只回三千冷液；损失冷却剂与洗涤废水分别输出。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:grade_16_purified_water",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 3000
+        },
+        {
+          "id": "lost_coolant_residue",
+          "amount": 1000
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w06_primary_coolant_reconditioning",
+        "industrial_crystal_growth"
+      ],
+      "baseline_recipe": "wonder_w06_primary_coolant_reconditioning",
+      "process_family": "冷却剂固液分离"
+    },
+    {
+      "id": "wonder_w07_x46_fuel_refining_bottoms_inerting",
+      "role": "W07",
+      "zh_name": "燃料精炼重残液矿化",
+      "purpose": "只处理精炼尾液，不再提取可燃物或崩坏能；碳与滤芯消耗后产惰性灰和等量不可回收废液。",
+      "requirements": [
+        "RN-MRA",
+        "RN-SFR",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:ash_dust",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "fuel_refining_residual",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "不可回收废液终端处置",
+        "GT灰粉后处理"
+      ],
+      "baseline_recipe": "industrial_honkai_carbon_spent_recovery",
+      "process_family": "燃料废物矿化"
+    },
+    {
+      "id": "wonder_w07_x46_crystallization_liquor_polishing",
+      "role": "W07",
+      "zh_name": "结晶残液洗涤级回用",
+      "purpose": "残液只降级提取少量分离介质，不能返还稳定崩坏能或晶种；其余进入最终废液。",
+      "requirements": [
+        "RN-MRA",
+        "RN-CCE",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "crystallization_residual_liquid",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_separation_medium",
+          "amount": 200
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 3800
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_honkai_separation"
+      ],
+      "baseline_recipe": "industrial_crystal_growth",
+      "process_family": "结晶尾液精制"
+    },
+    {
+      "id": "wonder_w07_x46_analysis_reagent_neutralization",
+      "role": "W07",
+      "zh_name": "分析试剂中和补醇再生",
+      "purpose": "四千用后试剂补五百乙醇及碱，只回三千二百试剂；一千三百废液带走污染物。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        },
+        {
+          "id": "gtceu:sodium_hydroxide_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:ethanol",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 3200
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 1300
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_recovery_soulium_swarf",
+        "industrial_honkai_carbon_spent_recovery"
+      ],
+      "baseline_recipe": "wonder_w05_analysis_reagent_reclamation",
+      "process_family": "分析介质有损再生"
+    },
+    {
+      "id": "wonder_w07_x46_electrolyte_copper_replenishment",
+      "role": "W07",
+      "zh_name": "污染镀铜液除杂补铜",
+      "purpose": "补铜、补酸与新水后仍损失一千五百液体，不从污染电解液额外产铜箔或金属。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        },
+        {
+          "id": "gtceu:copper_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:sodium_hydroxide_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "contaminated_copper_electrolyte",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:sulfuric_acid",
+          "amount": 500
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "copper_electrolyte",
+          "amount": 3500
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w07_failed_layer_copper_recovery"
+      ],
+      "baseline_recipe": "wonder_w07_contaminated_copper_electrolyte_regeneration",
+      "process_family": "电解液有损再生"
+    },
+    {
+      "id": "wonder_w07_x46_gas_impurity_wet_inerting",
+      "role": "W07",
+      "zh_name": "工艺气杂质湿式固化",
+      "purpose": "三十二份气体杂质只生成四份惰性灰；不假定滤出物仍有完整活性炭或金属价值。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:process_gas_impurity",
+          "count": 32
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:ash_dust",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "GT灰粉后处理",
+        "不可回收废液终端处置"
+      ],
+      "baseline_recipe": "industrial_process_gas_filter",
+      "process_family": "气体净化末端处置"
+    },
+    {
+      "id": "wonder_w07_x46_separation_residue_cementation",
+      "role": "W07",
+      "zh_name": "分离残渣湿式惰化",
+      "purpose": "将分离残渣与碳共同固化，全部作为低价值灰与废液输出，不恢复此前已损失的主材料相。",
+      "requirements": [
+        "RN-MRA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 32
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:ash_dust",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "GT灰粉后处理",
+        "不可回收废液终端处置"
+      ],
+      "baseline_recipe": "industrial_recovery_soulium_swarf",
+      "process_family": "湿法残渣末端处置"
+    },
+    {
+      "id": "wonder_w07_x46_damaged_fuel_shared_wash",
+      "role": "W07",
+      "zh_name": "破损碳与沸石棒共线清洗",
+      "purpose": "两类破损棒各八根，按现有每八根最多回两份壳料合计回四份；不返填料、燃料或HW。",
+      "requirements": [
+        "RN-MRA",
+        "RN-SFR",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:broken_honkai_carbon_fuel",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:broken_honkai_zeolite_fuel",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:recovered_fuel_casing_material",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "fuel_waste_processing_fluid",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_recovery_fuel_casing",
+        "wonder_w05_fuel_waste_final_treatment"
+      ],
+      "baseline_recipe": "industrial_honkai_carbon_damaged_recovery|industrial_honkai_zeolite_damaged_recovery",
+      "process_family": "破损燃料分流回收"
+    },
+    {
+      "id": "wonder_w07_x46_spent_carbon_zeolite_sorting",
+      "role": "W07",
+      "zh_name": "乏碳与乏沸石棒分相回收",
+      "purpose": "两种乏棒保持各自已存在的填料与壳料回收数量，合并清洗但不提高总产率，燃料尾液仍独立处理。",
+      "requirements": [
+        "RN-MRA",
+        "RN-SFR",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:depleted_honkai_carbon_fuel",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:depleted_honkai_zeolite_fuel",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:activated_carbon_dust",
+          "count": 4
+        },
+        {
+          "id": "gtceu:zeolite_sieving_pellets_dust",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:recovered_fuel_casing_material",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "fuel_waste_processing_fluid",
+          "amount": 3000
+        },
+        {
+          "id": "fuel_refining_residual",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_recovery_fuel_casing",
+        "wonder_w07_x46_fuel_refining_bottoms_inerting",
+        "wonder_w05_fuel_waste_final_treatment"
+      ],
+      "baseline_recipe": "industrial_honkai_carbon_spent_recovery|industrial_honkai_zeolite_spent_recovery",
+      "process_family": "乏燃料分类精炼"
+    }
+  ]
+}

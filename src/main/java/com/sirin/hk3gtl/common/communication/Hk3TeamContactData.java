@@ -4,10 +4,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-/** 【变更记录 #1】2026-09-30 23:58:50（修订121）：删除旧个人答复自动代表新队的生产路径；新增/修改：以团队UUID保存唯一回信、队长授权、个人阅读和三步补谈；真实来源回执可恢复；用途：团队外交、阅读与个人经历分账，不发研究或物品奖励。 */
-/** 【变更记录 #2】2026-10-01 00:03:22（修订121）：删除损坏步数钳制为已完成的处理；新增/修改：结算态必须有真实答复人和时间，异常个人步数拒绝继续；用途：损坏数据不授予个人经历。 */
-/** 【变更记录 #3】2026-10-01 00:44:06（修订123）：删除无；新增/修改：从真实三步完成记录读取本人跨队历史，未参加者不继承；用途：个人交流、团队决定及额外收藏分开，保留真实记录。 */
-/** 【变更记录 #4】2026-10-01 00:59:10（修订124）：删除无；新增/修改：首信补谈增加批准的观察资料附件；旧三步进度保留，补附件后完成；账本加载失败拒绝空白重置；用途：按五方交流系统整链收口，真实权限和本人经历不混用。 */
+ 
+ 
+ 
+ 
+ 
 public final class Hk3TeamContactData extends SavedData {
     public static final int PERSONAL_STEPS=4;
     private CompoundTag teams=new CompoundTag();
@@ -19,6 +20,8 @@ public final class Hk3TeamContactData extends SavedData {
     public boolean available(UUID team){var r=row(team);return r.hasUUID("Event")&&r.hasUUID("Owner")&&r.contains("DiscoveredAt",Tag.TAG_LONG)&&r.getLong("DiscoveredAt")>=0&&Set.of("PENDING","ACCEPTED","DECLINED").contains(r.getString("State"))&&(r.getString("State").equals("PENDING")||(r.hasUUID("Actor")&&r.contains("DecidedAt",Tag.TAG_LONG)&&r.getLong("DecidedAt")>=0));}
     public UUID event(UUID team){return available(team)?row(team).getUUID("Event"):null;}
     public String state(UUID team){return available(team)?row(team).getString("State"):"LOCKED";}
+    public String route(UUID team){return row(team).getBoolean("CooperationStopped")?"STOPPED":state(team);}
+    public boolean cooperationActive(UUID team){return route(team).equals("ACCEPTED")&&!row(team).getBoolean("CooperationClosed");}
     public boolean settled(UUID team){return state(team).equals("ACCEPTED")||state(team).equals("DECLINED");}
     /** 存在损坏或未来状态时拒绝重置；发现来源仅由服务器实际首信资格调用。 */
     public boolean discover(UUID team,UUID owner,long tick){
@@ -46,8 +49,16 @@ public final class Hk3TeamContactData extends SavedData {
     public boolean hasRead(UUID team,UUID actor){return available(team)&&row(team).getCompound("Readers").getBoolean(actor.toString());}
     /** 提交时再核成员、队长/授权、事件身份与当前状态，不信任客户端按钮。 */
     public boolean decide(UUID team,UUID actor,UUID owner,boolean member,UUID expectedEvent,boolean accepted,long tick){
-        if(!canDecide(team,actor,owner,member)||!hasRead(team,actor)||!state(team).equals("PENDING")||!Objects.equals(event(team),expectedEvent)||tick<0)return false;
+        if(!canDecide(team,actor,owner,member)||!state(team).equals("PENDING")||!Objects.equals(event(team),expectedEvent)||tick<0)return false;
         var r=row(team);r.putString("State",accepted?"ACCEPTED":"DECLINED");r.putUUID("Actor",actor);r.putLong("DecidedAt",tick);put(team,r);return true;
+    }
+    public boolean stopCooperation(UUID team,UUID actor,UUID owner,boolean member,UUID expectedEvent,long tick){
+        if(!canDecide(team,actor,owner,member)||!cooperationActive(team)||!Objects.equals(event(team),expectedEvent))return false;
+        var r=row(team);r.putBoolean("CooperationStopped",true);r.putUUID("CooperationStoppedBy",actor);r.putLong("CooperationStoppedAt",tick);put(team,r);return true;
+    }
+    public void closeCooperation(UUID team,long tick){
+        if(!available(team)||row(team).getBoolean("CooperationClosed"))return;
+        var r=row(team);r.putBoolean("CooperationClosed",true);r.putLong("CooperationClosedAt",tick);put(team,r);
     }
     public CompoundTag receipt(UUID team){
         if(!settled(team))return new CompoundTag();var r=row(team);if(!r.hasUUID("Actor")||!r.contains("DecidedAt",Tag.TAG_LONG))return new CompoundTag();

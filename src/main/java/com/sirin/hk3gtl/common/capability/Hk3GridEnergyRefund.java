@@ -10,20 +10,27 @@ import java.math.BigInteger;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * 【变更记录 #1】2026-10-01 17:47:00（修订139）
- * 删除：无；新增：实际EU付款前捕获原服务器、账本、存档对象及团队账户。
- * 修改：退款只反向抵消本次成功改量，不重新解析团队或恢复旧余额快照。
- * 用途：换绑/换队不退错账户；后端身份变化拒绝写入，交由工作票据暂停重试。
- */
+ 
+
+
+
+
+
 public record Hk3GridEnergyRefund(MinecraftServer server, Map<UUID, BigInteger> accounts,
                                   WirelessEnergySavaedData data, UUID account) {
     public static Hk3GridEnergyRefund capture(MinecraftServer server, UUID owner) {
         if (server == null || !server.isSameThread() || server != ServerLifecycleHooks.getCurrentServer()
                 || WirelessEnergySavaedData.INSTANCE == null)
             throw new IllegalStateException("EU账本未就绪或不在服务器线程");
+        return forAccount(server, TeamUtil.getTeamUUID(owner));
+    }
+
+    public static Hk3GridEnergyRefund forAccount(MinecraftServer server, UUID account) {
+        if (server == null || !server.isSameThread() || server != ServerLifecycleHooks.getCurrentServer()
+                || WirelessEnergySavaedData.INSTANCE == null || account == null)
+            throw new IllegalStateException("原EU退款账户未就绪");
         return new Hk3GridEnergyRefund(server, GlobalVariableStorage.GlobalEnergy,
-                WirelessEnergySavaedData.INSTANCE, TeamUtil.getTeamUUID(owner));
+                WirelessEnergySavaedData.INSTANCE, account);
     }
 
     public void undo(BigInteger applied) {

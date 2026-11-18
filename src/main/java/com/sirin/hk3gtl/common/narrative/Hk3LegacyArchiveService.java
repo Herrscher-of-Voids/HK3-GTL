@@ -15,11 +15,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-11-04 06:12:15（第1次备注 · 内测5修订196）
- * 删除：无；新增：正式新版档案补投递、本人全文会话及完成回执服务。
- * 修改：复用原手机和连续分片阅读，不增加研究/赠物/许可；用途：准确来源、原队、正文与令牌全程绑定，离线漏投可补，换队或断线未完会话作废。
- */
+ 
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3LegacyArchiveService {
     private record Pending(MinecraftServer server,UUID scope,String event,String hash,UUID token,String action,long expires) {}

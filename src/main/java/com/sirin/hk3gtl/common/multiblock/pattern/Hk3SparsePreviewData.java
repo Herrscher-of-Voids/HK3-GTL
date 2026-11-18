@@ -10,16 +10,29 @@ import java.util.*;
 /** 自家预览直接读取正式实体源；JEI注册只读身份，打开页面后才准备完整蓝图。 */
 public final class Hk3SparsePreviewData {
     public record Data(Hk3W01HallLayout layout,Map<Long,CompoundTag> entities,Direction front) {}
-    private record Source(String key,Direction front) {}
+    public record Source(String key,Direction front) {}
     private static final Map<String,Source> SOURCES=sources();
     private Hk3SparsePreviewData() {}
     public static boolean supported(String id) { return SOURCES.containsKey(id); }
+    public static Source source(String id) { return SOURCES.get(id); }
     public static Set<String> machines() { return SOURCES.keySet(); }
     private static Map<String,Source> sources() {
         Map<String,Source> sources=new HashMap<>();
         sources.put("hk3gtl:w01_origin_stellar_concert_court",new Source("w01",Direction.WEST));
         sources.put("hk3gtl:omnia_autonomous_industrial_matrix",new Source("w02_19c_a2",Direction.SOUTH));
         sources.put("hk3gtl:void_anchor_ring",new Source("w03_c9",Direction.NORTH));
+        sources.put("hk3gtl:w04_thunder_superconducting_axis",new Source("w04_candidate",Direction.SOUTH));
+        sources.put("hk3gtl:w05_ideal_fluid_circulation_array",new Source("w05_candidate",Direction.NORTH));
+        sources.put("hk3gtl:w06_cryogenic_condensed_factory",new Source("w06_candidate",Direction.NORTH));
+        sources.put("hk3gtl:w07_matter_regeneration_ark",new Source("w07_candidate",Direction.SOUTH));
+        sources.put("hk3gtl:w08_stellar_casting_furnace",new Source("w08_candidate",Direction.NORTH));
+        sources.put("hk3gtl:w09_civilization_consensus_matrix",new Source("w09_candidate",Direction.SOUTH));
+        sources.put("hk3gtl:w10_gravitational_singularity_forge",new Source("w10_candidate",Direction.NORTH));
+        sources.put("hk3gtl:w11_distributed_industrial_command",new Source("w11_candidate",Direction.SOUTH));
+        sources.put("hk3gtl:w12_global_energy_constraint_wall",new Source("w12_candidate",Direction.NORTH));
+        sources.put("hk3gtl:w13_self_computing_research_mother",new Source("w13_candidate",Direction.SOUTH));
+        sources.put("hk3gtl:w14_world_bubble_recurrence_engine",new Source("w14_candidate",Direction.SOUTH));
+        sources.put("hk3gtl:w15_tree_sea_audience_throne",new Source("w15_candidate",Direction.SOUTH));
         sources.put("hk3gtl:hyperion_flagship",new Source("hyperion_construction",Direction.EAST));
         for(String key:Hk3ApprovedArchitecture.IDS) {
             try(var stream=Hk3SparsePreviewData.class.getResourceAsStream("/data/hk3gtl/compact_architecture/"+key+".json")) {

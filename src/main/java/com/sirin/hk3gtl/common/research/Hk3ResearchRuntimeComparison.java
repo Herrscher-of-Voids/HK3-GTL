@@ -4,12 +4,12 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 【文件职责】比较已批准配方与整包加载后快照；只返回差异，不修补或解锁游戏状态。
- * 【变更记录 #1】2026-09-30 00:54:00（第1次备注 · 内测5修订103）
- * 删除：无。新增：配方缺失、定义、门槛及空标签检查；修改：无旧机制替换。
- * 用途：让KubeJS覆盖、空标签和丢失门槛在实际实例验收中明确失败，不把静态检查当成可玩证明。
- */
+ 
+
+
+
+
+
 public final class Hk3ResearchRuntimeComparison {
     private Hk3ResearchRuntimeComparison() {}
 

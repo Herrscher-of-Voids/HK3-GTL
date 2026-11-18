@@ -7,14 +7,14 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.network.chat.Component;
 
-/**
- * 【变更记录 #1】2026-09-30 18:18:05（内测5修订112）
- * 删除：无；新增：屏幕缩略预览、直接拖动通知卡与连续缩放滑条。
- * 修改：位置保存为可用空间比例；用途：预览和真实通知共用尺寸、缩放及边界。
- */
-/** 【变更记录 #2】2026-09-30 18:44:46（修订113）：删除固定宽度；新增可用宽度参数；修改手机纵屏适配；用途：预览不越界。 */
-/** 【变更记录 #3】2026-10-01 04:27:55（修订128）：删除：旧固定上限或被替代的分支；新增/修改：实际拖动松手保存后传归一化坐标，界面预览保持原样；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #4】2026-10-01 05:09:29（修订128）：删除：旧固定上限或被替代的分支；新增/修改：拖动松手须实际改变显示坐标才发旁注，原地按下松开不算移动；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+
+
+
+
+ 
+ 
+ 
 final class Hk3PhoneSettingsPane {
     private int x,y,w,h;private double ratio,grabX,grabY;private boolean dragging;private int originalX,originalY;
     private int sw,sh;

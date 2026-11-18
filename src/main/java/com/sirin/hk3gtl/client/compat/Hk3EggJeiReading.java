@@ -7,7 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import com.sirin.hk3gtl.common.network.Hk3Network;
 import com.sirin.hk3gtl.common.easter.Hk3EggUiPacket;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 12:13:33（修订128）：删除：无；新增/修改：JEI真实绘制后停留一秒记录配方；标签页只统计鼠标实际查看的同页物品，页面切换清空；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public final class Hk3EggJeiReading {
     private static net.minecraft.client.gui.screens.Screen screen;
     private static long lastTick=-1;

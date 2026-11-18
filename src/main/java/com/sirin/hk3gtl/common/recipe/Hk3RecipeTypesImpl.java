@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.recipe;
 
-
-/**
- * 【文件职责】
- * - 负责 Hk3RecipeTypesImpl 对应的配方注册与门槛绑定。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
@@ -49,17 +30,15 @@ import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection
  * <h3>子类分布</h3>
  * {@link Hk3RecipeTypesImaginary}(10) → {@link Hk3RecipeTypesQuantum}(12) → {@link Hk3RecipeTypesFinality}(13) → {@link Hk3RecipeTypesWonder}(12)
  */
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #1】2026-10-01 21:41:57（第1次备注 · 内测5修订151）
- * 删除：内测1—4旧结构相关入口。新增：无替代结构。
- * 修改：移除无工艺使用的旧吸收/冷凝配方类型；其他生产配方定义保留待新设备接入。
- * 用途：落实旧结构全部退役；内测5未审批设备仍待接入，不保留空注册兼容。
- */
+ 
+
+
+
+
+
 public class Hk3RecipeTypesImpl {
 
     /** 内测5活动配方类型已迁移到 Hk3Beta5RecipeTypes，本类保留旧类型兼容入口。 */
-    // 中文备注：该处说明已按当前代码行为整理。
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -170,6 +149,6 @@ public class Hk3RecipeTypesImpl {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 
 
-// 【变更记录 · 修订162】2026-10-17 14:38:46：移除旧四版设备配方类型注册及其专用注册入口，不保留兼容字段或空常量；仅保留研究所分析类型与现行工业工艺初始化。历史备注原样保留，本次退役不声明现行规划已完成。
+ 

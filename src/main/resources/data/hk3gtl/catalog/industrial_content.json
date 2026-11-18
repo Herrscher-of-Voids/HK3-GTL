@@ -1,5 +1,5 @@
 {
-  "revision": 45,
+  "revision": 46,
   "entries": [
     {
       "id": "prototype_honkai_detector",
@@ -63,6 +63,14 @@
       "en": "Honkai Reference Sample",
       "kind": "item",
       "source": "I02–I08",
+      "family": "sample"
+    },
+    {
+      "id": "failed_engineering_specimen",
+      "zh": "失败工程样本",
+      "en": "Failed Engineering Specimen",
+      "kind": "item",
+      "source": "I02/I05/I11/I16",
       "family": "sample"
     },
     {
@@ -346,6 +354,14 @@
       "family": "bubble"
     },
     {
+      "id": "located_real_world_bubble",
+      "zh": "已定位的真实世界泡",
+      "en": "Located Real World Bubble",
+      "kind": "item",
+      "source": "I25",
+      "family": "bubble"
+    },
+    {
       "id": "sealed_real_world_bubble",
       "zh": "封存的真实世界泡",
       "en": "Sealed Real World Bubble",
@@ -413,14 +429,6 @@
       "id": "reverse_engineering_specimen",
       "zh": "逆向工程复现样本",
       "en": "Reverse Engineering Specimen",
-      "kind": "item",
-      "source": "I24–I32/I51/I53",
-      "family": "bubble"
-    },
-    {
-      "id": "failed_engineering_specimen",
-      "zh": "失败工程样本",
-      "en": "Failed Engineering Specimen",
       "kind": "item",
       "source": "I24–I32/I51/I53",
       "family": "bubble"
@@ -642,153 +650,73 @@
       "family": "ship"
     },
     {
-      "id": "unencapsulated_flame_core",
-      "zh": "未封装仿制炎之律者核心",
-      "en": "Unencapsulated Flame Core",
-      "kind": "item",
-      "source": "I08/I33",
-      "family": "crystal"
-    },
-    {
       "id": "imitation_flame_core",
       "zh": "仿制炎之律者核心",
       "en": "Imitation Flame Core",
       "kind": "item",
-      "source": "I33",
-      "family": "core"
-    },
-    {
-      "id": "unencapsulated_ice_core",
-      "zh": "未封装仿制冰之律者核心",
-      "en": "Unencapsulated Ice Core",
-      "kind": "item",
       "source": "I08/I33",
-      "family": "crystal"
+      "family": "core"
     },
     {
       "id": "imitation_ice_core",
       "zh": "仿制冰之律者核心",
       "en": "Imitation Ice Core",
       "kind": "item",
-      "source": "I33",
+      "source": "I08/I33",
       "family": "core"
-    },
-    {
-      "id": "unencapsulated_reason_core",
-      "zh": "未封装仿制理之律者核心",
-      "en": "Unencapsulated Reason Core",
-      "kind": "item",
-      "source": "I08/I33",
-      "family": "crystal"
-    },
-    {
-      "id": "unencapsulated_void_core",
-      "zh": "未封装仿制空之律者核心",
-      "en": "Unencapsulated Void Core",
-      "kind": "item",
-      "source": "I08/I33",
-      "family": "crystal"
     },
     {
       "id": "imitation_void_core",
       "zh": "仿制空之律者核心",
       "en": "Imitation Void Core",
       "kind": "item",
-      "source": "I33",
-      "family": "core"
-    },
-    {
-      "id": "unencapsulated_corruption_core",
-      "zh": "未封装仿制侵蚀之律者核心",
-      "en": "Unencapsulated Corruption Core",
-      "kind": "item",
       "source": "I08/I33",
-      "family": "crystal"
+      "family": "core"
     },
     {
       "id": "imitation_corruption_core",
       "zh": "仿制侵蚀之律者核心",
       "en": "Imitation Corruption Core",
       "kind": "item",
-      "source": "I33",
-      "family": "core"
-    },
-    {
-      "id": "unencapsulated_rock_core",
-      "zh": "未封装仿制岩之律者核心",
-      "en": "Unencapsulated Rock Core",
-      "kind": "item",
       "source": "I08/I33",
-      "family": "crystal"
+      "family": "core"
     },
     {
       "id": "imitation_rock_core",
       "zh": "仿制岩之律者核心",
       "en": "Imitation Rock Core",
       "kind": "item",
-      "source": "I33",
-      "family": "core"
-    },
-    {
-      "id": "unencapsulated_binding_core",
-      "zh": "未封装仿制约束之律者核心",
-      "en": "Unencapsulated Binding Core",
-      "kind": "item",
       "source": "I08/I33",
-      "family": "crystal"
+      "family": "core"
     },
     {
       "id": "imitation_binding_core",
       "zh": "仿制约束之律者核心",
       "en": "Imitation Binding Core",
       "kind": "item",
-      "source": "I33",
-      "family": "core"
-    },
-    {
-      "id": "unencapsulated_thunder_core",
-      "zh": "未封装仿制雷之律者核心",
-      "en": "Unencapsulated Thunder Core",
-      "kind": "item",
       "source": "I08/I33",
-      "family": "crystal"
+      "family": "core"
     },
     {
       "id": "imitation_thunder_core",
       "zh": "仿制雷之律者核心",
       "en": "Imitation Thunder Core",
       "kind": "item",
-      "source": "I33",
-      "family": "core"
-    },
-    {
-      "id": "unencapsulated_wind_core",
-      "zh": "未封装仿制风之律者核心",
-      "en": "Unencapsulated Wind Core",
-      "kind": "item",
       "source": "I08/I33",
-      "family": "crystal"
+      "family": "core"
     },
     {
       "id": "imitation_wind_core",
       "zh": "仿制风之律者核心",
       "en": "Imitation Wind Core",
       "kind": "item",
-      "source": "I33",
+      "source": "I08/I33",
       "family": "core"
     },
     {
       "id": "imitation_void_archives",
       "zh": "仿制的虚空万藏",
       "en": "Imitation Void Archives",
-      "kind": "item",
-      "source": "I33/RN divine keys",
-      "family": "key"
-    },
-    {
-      "id": "imitation_cosmic_juggernaut",
-      "zh": "仿制的千界一乘",
-      "en": "Imitation Cosmic Juggernaut",
       "kind": "item",
       "source": "I33/RN divine keys",
       "family": "key"
@@ -1098,750 +1026,6 @@
       "family": "liquid"
     },
     {
-      "id": "honkai_collection_casing",
-      "zh": "崩坏能采集机壳",
-      "en": "Honkai Collection Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "honkai_separation_casing",
-      "zh": "崩坏能分离机壳",
-      "en": "Honkai Separation Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "honkai_stabilization_casing",
-      "zh": "崩坏能稳定机壳",
-      "en": "Honkai Stabilization Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "soulium_chemical_casing",
-      "zh": "魂钢化工机壳",
-      "en": "Soulium Chemical Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "nano_assembly_casing",
-      "zh": "纳米装配机壳",
-      "en": "Nano Assembly Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "honkai_fuel_processing_casing",
-      "zh": "崩坏燃料处理机壳",
-      "en": "Honkai Fuel Processing Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "small_honkai_reactor_vessel",
-      "zh": "小型崩坏反应堆压力壳",
-      "en": "Small Honkai Reactor Vessel",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "medium_honkai_reactor_vessel",
-      "zh": "中型崩坏反应堆压力壳",
-      "en": "Medium Honkai Reactor Vessel",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "large_honkai_reactor_vessel",
-      "zh": "大型崩坏反应堆压力壳",
-      "en": "Large Honkai Reactor Vessel",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "ultimate_honkai_reactor_vessel",
-      "zh": "终极崩坏反应堆压力壳",
-      "en": "Ultimate Honkai Reactor Vessel",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "quantum_observation_casing",
-      "zh": "量子观测机壳",
-      "en": "Quantum Observation Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "world_bubble_containment_casing",
-      "zh": "世界泡收容机壳",
-      "en": "World Bubble Containment Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "world_simulation_casing",
-      "zh": "世界模拟机壳",
-      "en": "World Simulation Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "imaginary_anchor_casing",
-      "zh": "虚数锚定机壳",
-      "en": "Imaginary Anchor Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "high_dimensional_assembly_casing",
-      "zh": "高维装配机壳",
-      "en": "High Dimensional Assembly Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "precision_circuit_casing",
-      "zh": "精密电路机壳",
-      "en": "Precision Circuit Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "research_institute_casing",
-      "zh": "崩坏研究所机壳",
-      "en": "Research Institute Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "advanced_research_casing",
-      "zh": "高阶崩坏研究所机壳",
-      "en": "Advanced Research Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "quantum_research_casing",
-      "zh": "量子研究所机壳",
-      "en": "Quantum Research Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "imaginary_research_casing",
-      "zh": "虚数研究所机壳",
-      "en": "Imaginary Research Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "civilization_cognition_casing",
-      "zh": "文明认知穹顶机壳",
-      "en": "Civilization Cognition Casing",
-      "kind": "block",
-      "source": "I01–I53/S01–S05",
-      "family": "casing"
-    },
-    {
-      "id": "honkai_collection_antenna",
-      "zh": "崩坏能采集天线组件",
-      "en": "Honkai Collection Antenna",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "spectral_analysis_lens",
-      "zh": "频谱分析透镜组件",
-      "en": "Spectral Analysis Lens",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "nano_reconstruction_chamber",
-      "zh": "纳米重构腔体",
-      "en": "Nano Reconstruction Chamber",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "honkai_heat_exchanger",
-      "zh": "崩坏工业换热组件",
-      "en": "Honkai Heat Exchanger",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "quantum_confinement_coil",
-      "zh": "量子约束线圈",
-      "en": "Quantum Confinement Coil",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "imaginary_anchor_ring",
-      "zh": "虚数锚定环组件",
-      "en": "Imaginary Anchor Ring",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "high_dimensional_energy_conduit",
-      "zh": "高维导能构件",
-      "en": "High Dimensional Energy Conduit",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "civilization_computing_array",
-      "zh": "文明计算阵列",
-      "en": "Civilization Computing Array",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "hyperion_armored_hull",
-      "zh": "仿制休伯利安装甲舰壳",
-      "en": "Hyperion Armored Hull",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "hyperion_structural_frame",
-      "zh": "仿制休伯利安结构框架",
-      "en": "Hyperion Structural Frame",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "hyperion_engine_nozzle",
-      "zh": "仿制休伯利安引擎喷口",
-      "en": "Hyperion Engine Nozzle",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "hyperion_bridge_panel",
-      "zh": "仿制休伯利安舰桥面板",
-      "en": "Hyperion Bridge Panel",
-      "kind": "block",
-      "source": "I01–I53/H01",
-      "family": "structure"
-    },
-    {
-      "id": "wonder_origin_casing",
-      "zh": "始源·奇观外壳",
-      "en": "Wonder Origin Casing",
-      "kind": "block",
-      "source": "W01/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_origin_support",
-      "zh": "始源·奇观支撑",
-      "en": "Wonder Origin Support",
-      "kind": "block",
-      "source": "W01/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_origin_interface",
-      "zh": "始源·奇观接口",
-      "en": "Wonder Origin Interface",
-      "kind": "block",
-      "source": "W01/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_origin_core_mount",
-      "zh": "始源·奇观核心座",
-      "en": "Wonder Origin Core Mount",
-      "kind": "block",
-      "source": "W01/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_reason_casing",
-      "zh": "理·奇观外壳",
-      "en": "Wonder Reason Casing",
-      "kind": "block",
-      "source": "W02/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_reason_support",
-      "zh": "理·奇观支撑",
-      "en": "Wonder Reason Support",
-      "kind": "block",
-      "source": "W02/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_reason_interface",
-      "zh": "理·奇观接口",
-      "en": "Wonder Reason Interface",
-      "kind": "block",
-      "source": "W02/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_reason_core_mount",
-      "zh": "理·奇观核心座",
-      "en": "Wonder Reason Core Mount",
-      "kind": "block",
-      "source": "W02/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_void_casing",
-      "zh": "空·奇观外壳",
-      "en": "Wonder Void Casing",
-      "kind": "block",
-      "source": "W03/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_void_support",
-      "zh": "空·奇观支撑",
-      "en": "Wonder Void Support",
-      "kind": "block",
-      "source": "W03/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_void_interface",
-      "zh": "空·奇观接口",
-      "en": "Wonder Void Interface",
-      "kind": "block",
-      "source": "W03/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_void_core_mount",
-      "zh": "空·奇观核心座",
-      "en": "Wonder Void Core Mount",
-      "kind": "block",
-      "source": "W03/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_thunder_casing",
-      "zh": "雷·奇观外壳",
-      "en": "Wonder Thunder Casing",
-      "kind": "block",
-      "source": "W04/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_thunder_support",
-      "zh": "雷·奇观支撑",
-      "en": "Wonder Thunder Support",
-      "kind": "block",
-      "source": "W04/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_thunder_interface",
-      "zh": "雷·奇观接口",
-      "en": "Wonder Thunder Interface",
-      "kind": "block",
-      "source": "W04/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_thunder_core_mount",
-      "zh": "雷·奇观核心座",
-      "en": "Wonder Thunder Core Mount",
-      "kind": "block",
-      "source": "W04/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_wind_casing",
-      "zh": "风·奇观外壳",
-      "en": "Wonder Wind Casing",
-      "kind": "block",
-      "source": "W05/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_wind_support",
-      "zh": "风·奇观支撑",
-      "en": "Wonder Wind Support",
-      "kind": "block",
-      "source": "W05/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_wind_interface",
-      "zh": "风·奇观接口",
-      "en": "Wonder Wind Interface",
-      "kind": "block",
-      "source": "W05/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_wind_core_mount",
-      "zh": "风·奇观核心座",
-      "en": "Wonder Wind Core Mount",
-      "kind": "block",
-      "source": "W05/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_ice_casing",
-      "zh": "冰·奇观外壳",
-      "en": "Wonder Ice Casing",
-      "kind": "block",
-      "source": "W06/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_ice_support",
-      "zh": "冰·奇观支撑",
-      "en": "Wonder Ice Support",
-      "kind": "block",
-      "source": "W06/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_ice_interface",
-      "zh": "冰·奇观接口",
-      "en": "Wonder Ice Interface",
-      "kind": "block",
-      "source": "W06/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_ice_core_mount",
-      "zh": "冰·奇观核心座",
-      "en": "Wonder Ice Core Mount",
-      "kind": "block",
-      "source": "W06/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_death_casing",
-      "zh": "死·奇观外壳",
-      "en": "Wonder Death Casing",
-      "kind": "block",
-      "source": "W07/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_death_support",
-      "zh": "死·奇观支撑",
-      "en": "Wonder Death Support",
-      "kind": "block",
-      "source": "W07/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_death_interface",
-      "zh": "死·奇观接口",
-      "en": "Wonder Death Interface",
-      "kind": "block",
-      "source": "W07/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_death_core_mount",
-      "zh": "死·奇观核心座",
-      "en": "Wonder Death Core Mount",
-      "kind": "block",
-      "source": "W07/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_flame_casing",
-      "zh": "炎·奇观外壳",
-      "en": "Wonder Flame Casing",
-      "kind": "block",
-      "source": "W08/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_flame_support",
-      "zh": "炎·奇观支撑",
-      "en": "Wonder Flame Support",
-      "kind": "block",
-      "source": "W08/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_flame_interface",
-      "zh": "炎·奇观接口",
-      "en": "Wonder Flame Interface",
-      "kind": "block",
-      "source": "W08/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_flame_core_mount",
-      "zh": "炎·奇观核心座",
-      "en": "Wonder Flame Core Mount",
-      "kind": "block",
-      "source": "W08/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_sentience_casing",
-      "zh": "识·奇观外壳",
-      "en": "Wonder Sentience Casing",
-      "kind": "block",
-      "source": "W09/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_sentience_support",
-      "zh": "识·奇观支撑",
-      "en": "Wonder Sentience Support",
-      "kind": "block",
-      "source": "W09/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_sentience_interface",
-      "zh": "识·奇观接口",
-      "en": "Wonder Sentience Interface",
-      "kind": "block",
-      "source": "W09/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_sentience_core_mount",
-      "zh": "识·奇观核心座",
-      "en": "Wonder Sentience Core Mount",
-      "kind": "block",
-      "source": "W09/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_rock_casing",
-      "zh": "岩·奇观外壳",
-      "en": "Wonder Rock Casing",
-      "kind": "block",
-      "source": "W10/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_rock_support",
-      "zh": "岩·奇观支撑",
-      "en": "Wonder Rock Support",
-      "kind": "block",
-      "source": "W10/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_rock_interface",
-      "zh": "岩·奇观接口",
-      "en": "Wonder Rock Interface",
-      "kind": "block",
-      "source": "W10/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_rock_core_mount",
-      "zh": "岩·奇观核心座",
-      "en": "Wonder Rock Core Mount",
-      "kind": "block",
-      "source": "W10/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_domination_casing",
-      "zh": "支配·奇观外壳",
-      "en": "Wonder Domination Casing",
-      "kind": "block",
-      "source": "W11/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_domination_support",
-      "zh": "支配·奇观支撑",
-      "en": "Wonder Domination Support",
-      "kind": "block",
-      "source": "W11/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_domination_interface",
-      "zh": "支配·奇观接口",
-      "en": "Wonder Domination Interface",
-      "kind": "block",
-      "source": "W11/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_domination_core_mount",
-      "zh": "支配·奇观核心座",
-      "en": "Wonder Domination Core Mount",
-      "kind": "block",
-      "source": "W11/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_binding_casing",
-      "zh": "约束·奇观外壳",
-      "en": "Wonder Binding Casing",
-      "kind": "block",
-      "source": "W12/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_binding_support",
-      "zh": "约束·奇观支撑",
-      "en": "Wonder Binding Support",
-      "kind": "block",
-      "source": "W12/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_binding_interface",
-      "zh": "约束·奇观接口",
-      "en": "Wonder Binding Interface",
-      "kind": "block",
-      "source": "W12/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_binding_core_mount",
-      "zh": "约束·奇观核心座",
-      "en": "Wonder Binding Core Mount",
-      "kind": "block",
-      "source": "W12/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_corruption_casing",
-      "zh": "侵蚀·奇观外壳",
-      "en": "Wonder Corruption Casing",
-      "kind": "block",
-      "source": "W13/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_corruption_support",
-      "zh": "侵蚀·奇观支撑",
-      "en": "Wonder Corruption Support",
-      "kind": "block",
-      "source": "W13/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_corruption_interface",
-      "zh": "侵蚀·奇观接口",
-      "en": "Wonder Corruption Interface",
-      "kind": "block",
-      "source": "W13/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_corruption_core_mount",
-      "zh": "侵蚀·奇观核心座",
-      "en": "Wonder Corruption Core Mount",
-      "kind": "block",
-      "source": "W13/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_finality_casing",
-      "zh": "终焉·奇观外壳",
-      "en": "Wonder Finality Casing",
-      "kind": "block",
-      "source": "W14/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_finality_support",
-      "zh": "终焉·奇观支撑",
-      "en": "Wonder Finality Support",
-      "kind": "block",
-      "source": "W14/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_finality_interface",
-      "zh": "终焉·奇观接口",
-      "en": "Wonder Finality Interface",
-      "kind": "block",
-      "source": "W14/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_finality_core_mount",
-      "zh": "终焉·奇观核心座",
-      "en": "Wonder Finality Core Mount",
-      "kind": "block",
-      "source": "W14/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_tree_sea_casing",
-      "zh": "树海·奇观外壳",
-      "en": "Wonder Tree Sea Casing",
-      "kind": "block",
-      "source": "W15/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_tree_sea_support",
-      "zh": "树海·奇观支撑",
-      "en": "Wonder Tree Sea Support",
-      "kind": "block",
-      "source": "W15/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_tree_sea_interface",
-      "zh": "树海·奇观接口",
-      "en": "Wonder Tree Sea Interface",
-      "kind": "block",
-      "source": "W15/I42",
-      "family": "wonder"
-    },
-    {
-      "id": "wonder_tree_sea_core_mount",
-      "zh": "树海·奇观核心座",
-      "en": "Wonder Tree Sea Core Mount",
-      "kind": "block",
-      "source": "W15/I42",
-      "family": "wonder"
-    },
-    {
       "id": "liquid_honkai_energy",
       "zh": "液态崩坏能",
       "en": "Liquid Honkai Energy",
@@ -1864,7 +1048,7 @@
       "zh": "仿制理之律者核心",
       "en": "Imitation Reason Core",
       "kind": "item",
-      "source": "I33",
+      "source": "I08/I33",
       "family": "core",
       "reuse": true
     },
@@ -1920,12 +1104,5 @@
     "experiment receipts",
     "diplomacy reputation",
     "judgment eligibility"
-  ],
-  "_changes": [
-    {
-      "revision": 161,
-      "time": "2026-10-17 14:12:15",
-      "reason": "删除活动标识的版本前缀，使用长期业务名称；物料数量、研究门槛和配方参数保持；魂钢链沿用修订160修复。"
-    }
   ]
 }

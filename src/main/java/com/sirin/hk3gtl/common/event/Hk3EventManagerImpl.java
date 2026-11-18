@@ -1,7 +1,5 @@
 package com.sirin.hk3gtl.common.event;
 
-
-/** 中文说明：该处说明已按当前代码行为整理。*/
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.sirin.hk3gtl.common.communication.Hk3FirstContactService;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
@@ -54,39 +52,39 @@ import java.util.Locale;
  * - 多方块首次建成
  * - P2 第一版研究事件桥接
  */
-/**
- * 【变更记录 #3】2026-09-30 15:49:23（第3次编号备注 · 内测5修订109）
- * 删除：过期的计算或无运行依据的分支；保留历史备注。
- * 新增／修改：原有注视事件增加明确来源键和持久去重；数值与触发条件不变，不追补旧记录，不以此完成新课题。
- * 用途：统一注视与研究联动，服务端判定；不新增结构或贴图。
- */
-/**
- * 【变更记录 #4】2026-09-30 16:20:43（内测5修订110）
- * 删除：被新版通知读取流程替代的旧分支，历史备注保留。
- * 新增／修改：事件后附带提示持久入箱并按键去重；物品操作与命令反馈保持原入口。
- * 用途：通知与业务结果分离，服务端授权和个人持久化；不改结构、贴图和贸易。
- */
+ 
+
+
+
+
+
+ 
+
+
+
+
+
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-/**
- * 【变更记录 #1】2026-09-26 23:56:20（第 1 次备注 · 内测5修订76）
- * - 删除：无，保留存档、历史备注和所有能量数值。
- * - 新增：本地崩坏能仓余额与容量的 HW 单位。
- * - 修改：仅右键查询显示文字，与双能源 GUI 单位一致。
- * - 用途：统一玩家可见单位，不改变充放电、换算或持久化逻辑。
- */
-/**
- * 【变更记录 #2】2026-09-30 02:17:47（第2次备注 · 内测5修订107）
- * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
- * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
- * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
- * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
- */
-/** 【变更记录 #5】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：毕业/传送/彩蛋/调试改为查询当前玩家，实体避免在已有坏结局演出时开启新会面；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
-/** 【变更记录 #6】2026-10-01 01:56:49（修订127）：删除：被替代的旧分支；新增/修改：移除未调用且日期错误的旧彩蛋时间副本，保留统一时钟入口与命名彩蛋；用途：个人收藏与正式资格分离，保留历史记录。 */
-/** 【变更记录 #7】2026-10-01 03:55:10（修订128）：删除：旧固定上限或被替代的分支；新增/修改：铁砧彩蛋取出时复核成品真实名称，非目标名立即清预览缓存，防取消改名后误触发；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #8】2026-10-01 04:09:54（修订128）：删除：旧固定上限或被替代的分支；新增/修改：真实铁砧取出后按成品精确中文名匹配独立规则，不承认预览或英文别名；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #9】2026-10-01 04:21:47（修订128）：删除：旧固定上限或被替代的分支；新增/修改：停止已退役的旧彩蛋轮询，其余正式剧情事件原样保留；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #10】2026-10-01 16:49:18（修订135）：删除E-MS-006持电路自动传送及孤立传送函数；新增无；修改仅保留原里程碑提示，正式终审由权威资格申请进入；用途：避免跳过100课题、工程及个人经历，旧实现保存在修订定向备份。 */
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
 public class Hk3EventManagerImpl {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -143,7 +141,6 @@ public class Hk3EventManagerImpl {
         }
 
         // 内测5首信仅记录情报，禁止调用旧奖励/研究桥接；旧触发完整源码已归档。
-        // 中文备注：该处说明已按当前代码行为整理。
         Hk3FirstContactService.checkInventory(player);
 
         // E-MS-002: 魂钢文明诞生 — 首次获得魂钢锭
@@ -552,7 +549,6 @@ public class Hk3EventManagerImpl {
         return false;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static boolean inventoryContains(Inventory inv, Item item) {
         for (int i = 0; i < inv.getContainerSize(); i++) {
             if (inv.getItem(i).is(item)) return true;
@@ -569,7 +565,6 @@ public class Hk3EventManagerImpl {
         return inventoryContains(inv, item);
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static boolean inventoryContainsSouliumIngot(Inventory inv) {
         if (souliumIngotRef == null) {
             souliumIngotRef = ChemicalHelper.get(TagPrefix.ingot, SouliumMaterial.SOULIUM);

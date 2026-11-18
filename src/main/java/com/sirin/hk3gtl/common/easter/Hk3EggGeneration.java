@@ -8,8 +8,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import java.util.*;
 import java.math.BigInteger;
-/** 【变更记录 #1】2026-10-01 06:45:17（修订128）：删除：无；新增/修改：新增配方输出实际EU计量及只读阅读关闭回执，模拟与网络搬运均不计发电；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #2】2026-10-01 13:40:41（修订128）：删除：无；新增/修改：发电读取单项计数且只写一次已满足回执，减少高频分配与重复脏标记；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggGeneration {
     private record Capture(MetaMachine machine,long[] energy){}
     private static final ThreadLocal<ArrayDeque<Capture>> ACTIVE=ThreadLocal.withInitial(ArrayDeque::new);

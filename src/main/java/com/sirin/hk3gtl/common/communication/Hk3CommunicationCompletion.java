@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.communication;
 
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 00:55:45（修订124）：删除无；新增正式通信六组目录只读核验；修改手机与卷轴使用同一缺项结果；用途：互斥路线择一、本人回执有效，通信目录完成不等于全卷轴或终审资格。 */
+ 
 public final class Hk3CommunicationCompletion {
     public record Status(int completed,List<String> missing) {
         public Status { missing=List.copyOf(missing); }

@@ -8,7 +8,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 13:34:51（修订128）：删除：无；新增/修改：本人装水瓶、实际按相邻按钮、默认发射行为成功生成水瓶实体三步配对；投掷器和瓶子变泥行为不算发射；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public final class Hk3EggDispenser {
     private static final ThreadLocal<ArrayDeque<BlockSource>> ACTIVE=ThreadLocal.withInitial(ArrayDeque::new);
     private Hk3EggDispenser(){}

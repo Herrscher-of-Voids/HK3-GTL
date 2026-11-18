@@ -1,21 +1,21 @@
 package com.sirin.hk3gtl.client.phone;
 
-/** 【变更记录 #24】2026-10-31 01:06:22（第24次备注 · 修订187）：删除无；新增完整阅读确认包的当前页处理；修改收到确认后重绘按钮；用途：保留当前页与正文，不打开额外界面。 */
+ 
 
-/** 【变更记录 #23】2026-10-31 00:46:39（第23次备注 · 修订187）：删除仅到末页即可确认的条件；新增完整阅读状态；修改完成时重绘按钮；用途：正常翻页后可确认，跳末页不能代替阅读。 */
+ 
 
-/** 【变更记录 #14】2026-10-01 00:20:13（修订122）：删除无；新增/修改：正式来信在同屏返回所属主题；旧队历史不显示处理入口；用途：服务端主题状态与阅读权限一致。 */
+ 
 
-/** 【变更记录 #13】2026-10-01 00:17:25（修订122）：删除无；新增/修改：正式往来阅读回执纳入本人已读机制；用途：五方首信与团队限定交流保持一致。 */
+ 
 
-/** 【变更记录 #12】2026-10-01 00:14:30（修订122）：删除无；新增/修改：信件App内同屏五方联络、分页摘要与显式确认，不加入新贴图；用途：真实成果、团队授权与个人阅读分离，不开放贸易或免费完成研究。 */
+ 
 
-/** 【变更记录 #11】2026-10-01 00:00:53（修订121）：删除无；新增/修改：跨队历史阅读无回信/补谈入口，避免旧消息错连新队；用途：个人与团队记录隔离，保留历史与权限。 */
+ 
 
-/** 【变更记录 #10】2026-09-30 23:58:50（修订121）：删除旧个人答复自动代表新队的生产路径；新增/修改：回信预览只向授权者启用确认；三步补谈同屏分页且不把回看算经历；用途：团队外交、阅读与个人经历分账，不发研究或物品奖励。 */
+ 
 
-/** 【变更记录 #1】2026-09-29 18:57:18（内测5修订95）：手机主页、分页通知和轻量右侧弹窗；阅读从服务端私人账本获取。 */
-/** 【变更记录 #2】2026-09-29 19:50:20（内测5修订99）：删除：手机贸易App入口并重排剩余四个应用；新增：无；修改：按负责人决定撤下五方贸易；用途：保留其他系统独立运行。 */
+ 
+ 
 
 import com.sirin.hk3gtl.client.gui.Hk3FittedScreen;
 import com.sirin.hk3gtl.common.phone.Hk3PhoneConfig;
@@ -28,44 +28,45 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import java.util.*;
 
-/**
- * 【变更记录 #3】2026-09-30 16:19:31（内测5修订110）
- * 删除：被新版通知读取流程替代的旧分支，历史备注保留。
- * 新增／修改：用不抢焦点的排队浮层替代覆盖；新增全部/未读/待处理、单篇滚动与触控翻页、通知设置，正文打开后才确认已读，断线清空客户端。
- * 用途：通知与业务结果分离，服务端授权和个人持久化；不改结构、贴图和贸易。
- */
+ 
 
-/**
- * 【变更记录 #4】2026-09-30 18:18:05（内测5修订112）
- * 删除：手机IF全览入口、滚动行号、切信即关闭屏幕与循环位置按钮。
- * 新增：固定终端布局、信件/通知同屏阅读、整页按钮与拖动预览。
- * 修改：原信件包转入本屏，已有屏幕原位更新，已读确认仍在正文打开后。
- * 用途：统一交互并保留安装、回信与服务器校验；独立IF指令不受影响。
- */
 
-/**
- * 【变更记录 #5】2026-09-30 18:44:46（内测5修订113）
- * 删除：桌面侧栏布局；新增：纵向手机、游戏时间/日期/环境/电量/AE状态、可拖动App。
- * 修改：子应用仍在同一屏幕原位切换，电量从服务端采样；用途：真正手机桌面体验与统一翻页阅读。
- */
-/**
- * 【变更记录 #6】2026-09-30 19:08:08（内测5修订114）
- * 删除：无；新增分组设定、搜索讯息卡、应用路由和草稿离开确认；修改同屏导航及缩放编辑框接入。
- * 用途：手机应用集成，保留既有电量和阅读权限；交易只展示不结算。
- */
-/** 【变更记录 #7】2026-09-30 19:20:11（内测5修订115）：删除缺电时的半透明叠字覆盖；新增缺电独立渲染分支、HUD设置；修改缺电不绘制桌面正文；用途：解决文字穿透与位置调整。 */
-/** 【变更记录 #8】2026-09-30 19:49:34（修订116）：删除无；新增微讯息接入；修改：增加社交面板与断线清理；用途：保留原手机布局与权限，AI不进入服务器业务。 */
-/** 【变更记录 #9】2026-09-30 23:43:42（修订120）：删除无；新增/修改：文明里程碑路由纳入既有同屏应用白名单；用途：按真实团队事实展示文明进度，不给机器/配方增加等级锁。 */
-/** 【变更记录 #15】2026-10-01 00:44:06（修订123）：删除无；新增/修改：个人补谈末页确认与团队发送分别路由，保持同屏分页阅读；用途：个人交流、团队决定及额外收藏分开，保留真实记录。 */
-/** 【变更记录 #16】2026-10-01 00:59:10（修订124）：删除无；新增/修改：首信附件四步分页确认；已批准稍后处理可取消未提交预览，外交首页完整八入口；用途：按五方交流系统整链收口，真实权限和本人经历不混用。 */
-/** 【变更记录 #17】2026-10-01 01:01:52（修订124）：删除无；新增按钮长标题按实际字体宽度省略；修改历史正文/离线成员长名称的边界；用途：避免完整交流入口文字越出按钮。 */
-/** 【变更记录 #18】2026-10-01 01:54:14（修订127）：删除：被替代的旧分支；新增/修改：收藏阅读返回原筛选和页码，继续沿用同屏阅读；用途：个人收藏与正式资格分离，保留历史记录。 */
-/** 【变更记录 #19】2026-10-01 04:19:02（修订128）：删除：旧固定上限或被替代的分支；新增/修改：显示一秒后提交实际页片段，界面布局与原页码不变，离开页面终止会话；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #20】2026-10-01 04:27:32（修订128）：删除：旧固定上限或被替代的分支；新增/修改：实际本地App打开和主动关闭回报，不将切换其他屏幕当主动退出；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #21】2026-10-01 16:30:04（修订134）：删除无；新增首页日期详情按钮与同框日期页；修改日期由服务端主世界时间实时同步；用途：完成即死年真实界面依赖，保留应用顺序及材质。 */
-/** 【变更记录 #22】2026-10-19 02:05:08（第22次备注 · 修订171）：删除无；新增团队机器目录和详情返回路由；修改详情返回时保留服务端页码与筛选，目录返回文明总览；用途：在既有缩放手机内提供只读机器查询，不增设操作入口或桌面图标。 */
-/** 【变更记录 #25】2026-11-01 00:36:24（第25次备注 · 内测5修订192）：删除每20tick发送hk3phone status聊天命令的后台路径；新增无载荷C2S状态请求；修改仍每20tick调用服务端原poll；用途：长篇阅读不因后台轮询累积聊天垃圾计数被踢，耗电及服务端限流保持原口径。 */
-/** 【变更记录 #26】2026-11-05 01:51:41（第26次备注 · 内测5修订204）：删除无；新增保存笔记逐段阅读的主动翻页及说明读完后主动收藏按钮；修改返回路径识别笔记正文；用途：按钮依赖服务端完整阅读确认，沿用既有连续片段协议。 */
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 public final class Hk3PhoneScreen extends Hk3FittedScreen {
     private static final Hk3NotificationQueue TOASTS=new Hk3NotificationQueue();
     private static List<Hk3NotificationQueue.Card> previous=List.of();
@@ -81,12 +82,13 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
     private final Hk3SocialPane social=new Hk3SocialPane(this);
     private net.minecraft.client.gui.components.EditBox search;
     private String query="";
-    private static final int PER_PAGE=16;
+    private static final int BODY_WIDTH=348,BODY_HEIGHT=608,BEZEL=3,PER_PAGE=12;
+    private static final float READING_SCALE=1.5F;
     private int page,x,y,cx,pollTicks;
     private final Hk3EggReadClient eggReading=new Hk3EggReadClient();
     private String lastFilter="all",lastArchiveFilter="all";private int lastInboxPage,lastArchivePage;
     private Hk3PhoneScreen(CompoundTag view){super(Component.literal("HK3GTL · 手机"),380,640);this.view=view.copy();desktop.accept(view);gallery.accept(view);}
-    public static void reset(){Hk3SocialPane.reset();TOASTS.clear();previous=List.of();installed=false;runtime=new CompoundTag();}
+    public static void reset(){Hk3SocialPane.reset();Hk3PhoneCipherPane.reset();TOASTS.clear();previous=List.of();installed=false;runtime=new CompoundTag();}
     public static void open(CompoundTag view){
         if(view.getString("Mode").equals("read_complete")){
             if(view.hasUUID("ReadToken")&&Minecraft.getInstance().screen instanceof Hk3PhoneScreen phone){phone.eggReading.confirm(view.getUUID("ReadToken"));phone.initFitted();}
@@ -124,13 +126,13 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
     private static long now(){return System.nanoTime()/1_000_000L;}
     static void command(String cmd){var c=Minecraft.getInstance().getConnection();if(c!=null)c.sendCommand(cmd);}
     boolean powered(){return !outOfPower();}
-    private boolean outOfPower(){return installed&&(!runtime.getBoolean("Present")||runtime.getLong("Charge")<8);}
+    private boolean outOfPower(){return !mode().equals("letter")&&installed&&(!runtime.getBoolean("Present")||runtime.getLong("Charge")<8);}
     Button button(String title,int bx,int by,int w,Runnable action){
         String label=font.width(title)>w-14?font.plainSubstrByWidth(title,Math.max(1,w-24))+"…":title;
         return addRenderableWidget(Hk3PhoneStyle.button(label,bx,by,w,26,action));
     }
     private void inbox(String filter,int index){lastFilter=filter;lastInboxPage=index;command(query.isBlank()?"hk3phone notifications "+filter+" "+index:"hk3phone search "+filter+" "+index+" "+query);}
-    private boolean reading(){return mode().equals("detail")||mode().equals("letter")||mode().equals("archive_detail")||mode().equals("diplomacy_read");}
+    private boolean reading(){return mode().equals("detail")||mode().equals("letter")||mode().equals("archive_detail")||mode().equals("instruction_read")||mode().equals("diplomacy_read");}
     String mode(){return view.getString("Mode");}
     void clip(GuiGraphics g,int x1,int y1,int x2,int y2){fittedScissor(g,x1,y1,x2,y2);}
     void refresh(){initFitted();}
@@ -142,6 +144,7 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         desktop.launch(id);
         switch(id){
             case "social"->command("hk3phone social");
+            case "cipher"->command("hk3phone apps cipher");
             case "inbox"->inbox("all",0);case "letters"->command("hk3letter diplomacy");case "ae"->command("hk3phone ae");
             case "notes"->command("hk3phone apps notes");case "civilization"->command("hk3phone apps civilization");
             case "trade","tiles2048","snake"->local(id);
@@ -149,36 +152,51 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
             case "quiet"->{TOASTS.clear();previous=List.of();}
         }
     }
+    @Override protected double fittedScale(int realWidth,int realHeight){
+        return Hk3PhoneConfig.PHONE_SIZE.get()/100.0*Math.min((double)realWidth/(BODY_WIDTH+2*BEZEL),
+                (double)realHeight/(BODY_HEIGHT+2*BEZEL));
+    }
     @Override protected void initFitted(){
         if(mode().equals("archive")){lastArchiveFilter=view.getString("Filter");lastArchivePage=view.getInt("Page");}
-        clearWidgets();search=null;x=(width-348)/2;y=(height-608)/2;cx=x+18;String mode=view.getString("Mode");
+        clearWidgets();search=null;x=(width-BODY_WIDTH)/2;y=(height-BODY_HEIGHT)/2;cx=x+18;String mode=view.getString("Mode");
         button("返回",cx,y+558,92,()->extras.navigate(()->{
             gallery.close();
+            if(mode.equals("instruction_read"))eggReading.leaveInstruction(view);
             if(mode.equals("gallery"))command("hk3phone apps civilization");
             else if(mode.startsWith("social"))social.back();
             else if(mode.equals("machine_detail"))Hk3MachineOverviewPane.directory(view.getInt("Page"),view.getString("Filter"));
             else if(mode.equals("machines")||mode.equals("machine_unavailable"))command("hk3phone apps civilization");
-            // 【变更记录 #207】2026-11-05：文明总览全文返回原总览，不误入收藏目录。
+             
             else if(mode.equals("archive_detail")&&view.getBoolean("CivilizationRead"))command("hk3phone apps civilization");
             else if(mode.equals("archive_detail")&&view.getBoolean("NoteRead"))command("hk3phone apps note "+view.getString("NoteId"));
+            else if(mode.equals("instruction_read"))command(view.getBoolean("VoltagePage")?"hk3phone apps voltages":"hk3phone apps instructions");
             else if(mode.equals("archive_detail"))command("hk3phone apps archive "+lastArchivePage+" "+lastArchiveFilter);
-            else if(mode.equals("archive")||mode.equals("civilization_milestones"))command("hk3phone apps civilization");
+            else if(mode.equals("archive")||mode.equals("civilization_milestones")||mode.equals("voltage_catalog")||mode.equals("instructions"))command("hk3phone apps civilization");
             else if(mode.equals("note")||mode.equals("todos"))command("hk3phone apps notes");
             else if(mode.equals("notification_settings")||mode.equals("gaze_settings")||mode.equals("about"))local("settings");
+            else if(view.getBoolean("Story")&&mode.equals("diplomacy_read"))command("hk3phone apps story");
+            else if(view.getBoolean("Story"))command("hk3phone apps civilization");
+            else if(!view.getString("ProgressStage").isEmpty())command("hk3letter progress");
             else if(mode.startsWith("diplomacy"))command("hk3letter diplomacy");
             else if(reading())inbox(lastFilter,lastInboxPage);else command("hk3phone");
         }));
-        button("桌面",cx+110,y+558,92,()->extras.navigate(()->{gallery.close();command("hk3phone");}));
+        button("桌面",cx+110,y+558,92,()->extras.navigate(()->{gallery.close();if(mode.equals("instruction_read"))eggReading.leaveInstruction(view);command("hk3phone");}));
         button("息屏",cx+220,y+558,92,this::onClose);
         if(mode.equals("home")){
             desktop.layout(cx,y+257);
             addRenderableWidget(Hk3PhoneStyle.button(Component.translatable("hk3gtl.phone.date.open").getString(),cx+190,y+109,122,26,()->command("hk3phone apps date")));
+            button("上一页",cx+142,y+493,80,()->{desktop.turn(-1);initFitted();}).active=desktop.page()>0;
+            button("下一页",cx+232,y+493,80,()->{desktop.turn(1);initFitted();}).active=desktop.page()+1<desktop.pages();
         }else if(mode.equals("settings")){
             widget(new Hk3PhoneAppCard("关于手机","电量、安装与充电","终端状态  ›",cx,y+115,312,69,0xFFB3C9DE,()->local("about")));
             widget(new Hk3PhoneAppCard("通知与显示","拖动位置 · 提示音 · 闲话提醒","个性化  ›",cx,y+193,312,69,0xFFBEA9EE,()->local("notification_settings")));
             widget(new Hk3PhoneAppCard("注视度 HUD","拖动位置 · 缩放 · 避让其他界面","位置预览  ›",cx,y+271,312,69,0xFF87D6E9,()->local("gaze_settings")));
             widget(new Hk3PhoneAppCard("AE 设备互联","携带已绑定且有电的无线终端","打开 AE 终端  ›",cx,y+349,312,69,0xFF8DDFC0,()->command("hk3phone ae")));
             widget(new Hk3PhoneAppCard("更新详情","查看本次内测更新","版本记录  ›",cx,y+427,312,69,0xFFE8C673,()->command("hk3updates")));
+            int size=Hk3PhoneConfig.PHONE_SIZE.get();
+            button(Component.translatable("hk3gtl.phone.bodySize",size).getString(),cx,y+505,312,()->{
+                Hk3PhoneConfig.PHONE_SIZE.set(size<72?72:size<86?86:60);Hk3PhoneConfig.SPEC.save();init();
+            });
         }else if(mode.equals("gaze_settings")){
             gazeSettings.layout(cx,y+157,312);widget(Hk3GazeSettingsPane.slider(cx,y+388));
             button("恢复默认位置与大小",cx,y+438,312,()->{Hk3PhoneConfig.GAZE_X.set(-1.0);Hk3PhoneConfig.GAZE_Y.set(-1.0);Hk3PhoneConfig.GAZE_SCALE.set(1.0);Hk3PhoneConfig.SPEC.save();initFitted();});
@@ -199,7 +217,7 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         }else if(reading()){
             lines.clear();
             for(String paragraph:view.getString("Body").split("\n",-1)){
-                if(paragraph.isEmpty())lines.add(FormattedCharSequence.EMPTY);else lines.addAll(font.split(Component.literal(paragraph),292));
+                if(paragraph.isEmpty())lines.add(FormattedCharSequence.EMPTY);else lines.addAll(font.split(Component.literal(paragraph),(int)(292/READING_SCALE)));
             }
             page=com.sirin.hk3gtl.common.phone.Hk3PhoneLayout.page(page,lines.size(),PER_PAGE);
             button("上一页",cx+142,y+389,80,()->{page--;initFitted();}).active=page>0;
@@ -209,9 +227,13 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
             }else if(view.getBoolean("CollectionExplanation"))button("主动收藏这条说明",cx,y+439,312,()->command("hk3phone apps collect "+view.getString("Token"))).active=page+1==pageCount()&&eggReading.complete(view);
             if(mode.equals("letter"))letterActions();
             if(mode.equals("diplomacy_read")&&!view.getString("Topic").isEmpty())button("查看本主题与答复",cx,y+440,312,()->command("hk3letter diplomacy topic "+view.getString("Topic")));
-            if(mode.equals("diplomacy_read")&&!view.getString("Token").isEmpty())button(view.getBoolean("PersonalSupplement")?"已阅读，确认本步补谈":"确认发送这份预览",cx,y+479,312,()->command("hk3letter diplomacy "+(view.getBoolean("PersonalSupplement")?"continue ":"confirm ")+view.getString("Token"))).active=page+1==pageCount()&&eggReading.complete(view);
+            if(mode.equals("diplomacy_read")&&!view.getString("Token").isEmpty())button(view.getBoolean("PersonalSupplement")?"已阅读，确认本步补谈":"确认发送这份回信",cx,y+479,312,()->command("hk3letter diplomacy "+(view.getBoolean("PersonalSupplement")?"continue ":"confirm ")+view.getString("Token"))).active=!view.getBoolean("PersonalSupplement")||page+1==pageCount()&&eggReading.complete(view);
             if(mode.equals("diplomacy_read")&&!view.getString("Token").isEmpty()&&!view.getBoolean("PersonalSupplement"))button("稍后处理",cx,y+516,312,()->command("hk3letter diplomacy defer"));
-            if(mode.equals("diplomacy_read")&&view.getBoolean("ReadOnly"))button("只读：由队长或授权成员确认",cx,y+479,312,()->{}).active=false;
+            if(mode.equals("diplomacy_read")&&view.getBoolean("ReadOnly")&&(view.getString("ProgressStage").isEmpty()||view.getBoolean("ProgressPreview")))button("只读：由队长或授权成员确认",cx,y+479,312,()->{}).active=false;
+            if(mode.equals("diplomacy_read")){
+                int row=0;for(Tag raw:view.getList("Actions",Tag.TAG_COMPOUND)){var action=(CompoundTag)raw;button(action.getString("Title"),cx,y+440+row++*39,312,()->command(action.getString("Command")));}
+                if(view.getBoolean("ProgressPreview")&&!view.getString("ProgressToken").isEmpty())button("确认发送这封回信",cx,y+479,312,()->command("hk3letter progress reply "+view.getString("ProgressStage")+" "+view.getInt("ProgressChoice")+" "+view.getString("ProgressToken")));
+            }
         }else if(mode.equals("diplomacy")){
             int row=0;for(Tag raw:view.getList("Actions",Tag.TAG_COMPOUND)){var action=(CompoundTag)raw;button(action.getString("Title"),cx,y+202+row++*43,312,()->command(action.getString("Command")));}
         }else if(mode.equals("notifications")){
@@ -255,7 +277,11 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
             }
         }else{
             button("返回原信",cx,y+440,312,()->command("hk3letter"));
-            if(canReply&&(doc==1||doc==2))button(view.getBoolean("CanDecide")?"确认发送这封回信":"只读：由队长或授权成员确认",cx,y+479,312,()->command((doc==1?"hk3letter accept ":"hk3letter decline ")+view.getString("Token"))).active=view.getBoolean("CanDecide")&&!view.getString("Token").isEmpty()&&page+1==pageCount()&&eggReading.complete(view);
+            if(canReply&&(doc==1||doc==2))button(view.getBoolean("CanDecide")?"确认发送这封回信":"只读：由队长或授权成员确认",cx,y+479,312,()->command((doc==1?"hk3letter accept ":"hk3letter decline ")+view.getString("Token"))).active=view.getBoolean("CanDecide")&&!view.getString("Token").isEmpty();
+            if(replied){
+                button("持续来信与研究往来",cx,y+479,312,()->command("hk3letter progress"));
+                button("五方联络与成果公开",cx,y+516,312,()->command("hk3letter diplomacy"));
+            }
         }
     }
     private int pageCount(){return com.sirin.hk3gtl.common.phone.Hk3PhoneLayout.pages(lines.size(),PER_PAGE);}
@@ -266,6 +292,14 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         }
     }
     private String clock(){long minute=Math.floorMod(runtime.getLong("DayTime")+6000,24000)*1440/24000;return String.format(java.util.Locale.ROOT,"%02d:%02d",minute/60,minute%60);}
+    private boolean inContent(double mx,double my){return mx>=x+10&&mx<x+338&&my>=y+58&&my<y+BODY_HEIGHT-58;}
+    private void renderWidgets(GuiGraphics g,int mx,int my,float delta,boolean navigation){
+        for(var child:children())if(child instanceof net.minecraft.client.gui.components.AbstractWidget widget&&(widget.getY()>=y+558)==navigation)widget.render(g,mx,my,delta);
+    }
+    private void navigation(GuiGraphics g,int mx,int my,float delta){
+        renderWidgets(g,mx,my,delta,true);
+        g.fill(x+141,y+597,x+207,y+600,0xFFC5C6D1);
+    }
     private void header(GuiGraphics g){
         g.drawString(font,clock(),cx+4,y+24,0xFFF5F1FF,false);
         round(g,x+136,y+15,76,20,0xFF11121D,10);
@@ -289,35 +323,39 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         round(g,cx,y+217,312,25,0x70202439,10);
         g.drawCenteredString(font,"应用程序  ·  按住拖动调整位置",x+174,y+225,0xFFF4EEF9);
         desktop.render(g);
+        g.drawString(font,Component.translatable("hk3gtl.phone.pages",desktop.page()+1,desktop.pages()),cx,y+502,0xFFD5DBEF,false);
         g.drawCenteredString(font,runtime.getBoolean("AE")?"无线终端在范围内 · AE可连接":"AE未连接 · 携带已绑定且有电的无线终端",x+174,y+534,0xFFD5DBEF);
     }
     @Override protected void renderFitted(GuiGraphics g,int mx,int my,float delta){
         g.fill(0,0,width,height,0x85040710);
-        round(g,x-3,y-3,354,614,0xFF9091A5,26);round(g,x,y,348,608,0xFF151828,24);
-        g.fillGradient(x+9,y+44,x+339,y+547,0xFF76637E,0xFF1C476B);
-        // 自绘抽象壁纸，无外部图片依赖；所有应用共用同一手机外框。
+        round(g,x-BEZEL,y-BEZEL,BODY_WIDTH+2*BEZEL,BODY_HEIGHT+2*BEZEL,0xFF9091A5,26);round(g,x,y,BODY_WIDTH,BODY_HEIGHT,0xFF151828,24);
+        g.fillGradient(x+9,y+44,x+339,y+BODY_HEIGHT-58,0xFF76637E,0xFF1C476B);
+        fittedScissor(g,x+10,y+44,x+338,y+BODY_HEIGHT-58);
         for(int row=0;row<240;row++){
             double t=row/240.0;int w=(int)(80+180*Math.sin(t*Math.PI));int left=x+18;
             g.fill(left,y+45+row,left+w,y+46+row,0x205DD7DC);
         }
         String mode=view.getString("Mode");boolean home=mode.equals("home");
-        if(!home)g.fill(x+10,y+58,x+338,y+540,0xF0191E30);
+        if(!home)g.fill(x+10,y+58,x+338,y+BODY_HEIGHT-58,0xF0191E30);
+        g.disableScissor();
         header(g);
+        fittedScissor(g,x+10,y+58,x+338,y+BODY_HEIGHT-58);
         if(outOfPower()){
             g.fill(x+10,y+55,x+338,y+546,0xFF121624);
             g.drawCenteredString(font,runtime.getBoolean("Present")?"电量不足":"未携带实体手机",x+174,y+190,Hk3PhoneStyle.GOLD);
             int row=0;for(var line:font.split(Component.literal("把手机放进 GT 兼容电力物品充电槽（LV 或以上）。充好后随身携带，再打开手机。安装不会消耗手机。"),272))
                 g.drawString(font,line,cx+20,y+226+row++*15,Hk3PhoneStyle.INK,false);
-            for(var child:children())if(child instanceof net.minecraft.client.gui.components.AbstractWidget widget&&widget.getY()>=y+550)widget.render(g,mx,my,delta);
-            g.fill(x+141,y+597,x+207,y+600,0xFFC5C6D1);return;
+            g.disableScissor();navigation(g,mx,my,delta);return;
         }
         if(home)home(g);
         else{
-            g.drawString(font,mode.equals("date")?Component.translatable("hk3gtl.phone.date.title").getString():mode.equals("notifications")?"讯息":Hk3PhoneExtraApps.heading(mode),cx,y+77,Hk3PhoneStyle.GOLD,false);
+            g.drawString(font,view.getBoolean("Story")?"文明往来":mode.equals("date")?Component.translatable("hk3gtl.phone.date.title").getString():mode.equals("instructions")||mode.equals("instruction_read")?Component.translatable("hk3gtl.phone.instructions.title").getString():mode.equals("notifications")?"讯息":Hk3PhoneExtraApps.heading(mode),cx,y+77,Hk3PhoneStyle.GOLD,false);
             if(mode.equals("date"))Hk3PhoneDatePane.render(g,runtime,cx,y);
             if(reading()){
                 int n=0;for(var part:font.split(Component.literal(view.getString("Title")),312)){if(n==3)break;g.drawString(font,part,cx,y+107+n++*13,Hk3PhoneStyle.GOLD,false);}
-                for(int i=0;i<PER_PAGE&&page*PER_PAGE+i<lines.size();i++)g.drawString(font,lines.get(page*PER_PAGE+i),cx+8,y+166+i*12,Hk3PhoneStyle.INK,false);
+                g.pose().pushPose();g.pose().translate(cx+8,y+166,0);g.pose().scale(READING_SCALE,READING_SCALE,1);
+                for(int i=0;i<PER_PAGE&&page*PER_PAGE+i<lines.size();i++)g.drawString(font,lines.get(page*PER_PAGE+i),0,i*12,Hk3PhoneStyle.INK,false);
+                g.pose().popPose();
                 g.drawString(font,Component.translatable("hk3gtl.phone.pages",page+1,pageCount()),cx,y+398,Hk3PhoneStyle.MUTED,false);
                 if(view.getBoolean("NoteRead"))g.drawString(font,"已保存正文 · 第 "+(view.getInt("NotePage")+1)+" / "+view.getInt("NoteTotal")+" 段",cx,y+420,Hk3PhoneStyle.MUTED,false);
             }else if(mode.equals("diplomacy")){
@@ -338,14 +376,24 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         if(mode.equals("about")){
             g.drawWordWrap(font,Component.literal("HK3GTL 通讯终端\n\n安装后可用快捷键或右键打开，安装不会消耗手机。\n\n电池："+runtime.getLong("Charge")+" / "+runtime.getLong("Capacity")+" EU\n\n屏幕开启每秒消耗 8 EU；息屏不耗电。将实体手机放入 GT 兼容电力物品充电槽（LV 或以上）即可充电。\n\n时间与日期来自当前存档。"),cx+8,y+123,296,Hk3PhoneStyle.INK);
         }
-        super.renderFitted(g,mx,my,delta);
-        if(home)desktop.tooltip(g,mx,my);
-        g.fill(x+141,y+597,x+207,y+600,0xFFC5C6D1);
+        renderWidgets(g,mx,my,delta,false);
+        g.disableScissor();navigation(g,mx,my,delta);
+        if(home&&inContent(mx,my)){
+            g.pose().pushPose();g.pose().translate(0,0,200);desktop.tooltip(g,mx,my);g.pose().popPose();
+        }
     }
-    @Override public void tick(){super.tick();boolean wasRead=eggReading.complete(view);if(reading()&&!outOfPower())eggReading.tick(view,lines,page,PER_PAGE);else eggReading.close();if(wasRead!=eggReading.complete(view))initFitted();social.tick();extras.tick(!outOfPower(),mode());if(search!=null)search.tick();if(++pollTicks>=20){pollTicks=0;if(Minecraft.getInstance().getConnection()!=null)com.sirin.hk3gtl.common.network.Hk3Network.CHANNEL.sendToServer(new com.sirin.hk3gtl.common.phone.Hk3PhoneStatusRequestC2SPacket());}}
-    @Override protected boolean scrollFitted(double x,double y,double d){return reading()||super.scrollFitted(x,y,d);}
+    @Override public void tick(){
+        super.tick();boolean wasRead=eggReading.complete(view);
+        if(reading()&&!outOfPower()){
+            eggReading.tick(view,lines,page,PER_PAGE,0,Math.min(PER_PAGE,lines.size()-page*PER_PAGE));
+        }else eggReading.close();
+        if(wasRead!=eggReading.complete(view))initFitted();social.tick();extras.tick(!outOfPower(),mode());if(search!=null)search.tick();
+        if(++pollTicks>=20){pollTicks=0;if(Minecraft.getInstance().getConnection()!=null)com.sirin.hk3gtl.common.network.Hk3Network.CHANNEL.sendToServer(new com.sirin.hk3gtl.common.phone.Hk3PhoneStatusRequestC2SPacket());}
+    }
     @Override protected boolean clickFitted(double mx,double my,int button){
-        if(outOfPower()&&my<y+550)return true;
+        if(my>=y+BODY_HEIGHT-52&&my<y+BODY_HEIGHT-20)return super.clickFitted(mx,my,button);
+        if(!inContent(mx,my))return false;
+        if(outOfPower())return true;
         if(mode().equals("gaze_settings")&&gazeSettings.click(mx,my,button))return true;
         if(view.getString("Mode").equals("home")&&desktop.press(mx,my,button))return true;
         if(view.getString("Mode").equals("notification_settings")&&settings.click(mx,my,button))return true;
@@ -358,12 +406,13 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         return super.dragFitted(mx,my,button,dx,dy);
     }
     @Override protected boolean releaseFitted(double mx,double my,int button){
+        boolean visible=inContent(mx,my);
         if(mode().equals("gaze_settings")&&button==0&&gazeSettings.release())return true;
-        if(view.getString("Mode").equals("home")&&button==0){String id=desktop.release(mx,my);if(!id.isEmpty())app(id);}
+        if(view.getString("Mode").equals("home")&&button==0){String id=desktop.release(visible?mx:-1,visible?my:-1);if(!id.isEmpty())app(id);}
         if(view.getString("Mode").equals("notification_settings")&&button==0&&settings.release())return true;
         return super.releaseFitted(mx,my,button);
     }
-    @Override public void onClose(){extras.navigate(()->{gallery.close();Hk3EggUiClient.send("close",mode());super.onClose();});}
+    @Override public void onClose(){extras.navigate(()->{gallery.close();if(mode().equals("instruction_read"))eggReading.leaveInstruction(view);Hk3EggUiClient.send("close",mode());super.onClose();});}
     @Override public void removed(){gallery.cancel();desktop.removed();eggReading.close();gazeSettings.release();settings.release();Hk3PhoneConfig.SPEC.save();super.removed();}
     @Override public boolean keyPressed(int key,int scan,int modifiers){
         if(outOfPower()&&key!=256)return true;
@@ -372,7 +421,8 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         if(mode().equals("notifications")&&key==257&&search!=null){query=search.getValue().strip();inbox(lastFilter,0);return true;}
         if(reading()&&(key==266||key==267||key==268||key==269)){
             page=switch(key){case 266->page-1;case 267->page+1;case 268->0;default->pageCount()-1;};initFitted();return true;
-        }return super.keyPressed(key,scan,modifiers);
+        }
+        return super.keyPressed(key,scan,modifiers);
     }
     @Override public boolean charTyped(char c,int modifiers){return outOfPower()||extras.pending()||super.charTyped(c,modifiers);}
     public static void renderToast(GuiGraphics g){

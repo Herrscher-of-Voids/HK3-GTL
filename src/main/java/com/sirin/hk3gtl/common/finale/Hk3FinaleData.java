@@ -4,7 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 
-/** 【变更记录 #1】2026-10-01 16:49:18（修订135）：删除无；新增终审会面存盘壳；修改只在副本事务成功后替换；用途：重启保留快照与检查点，不读取玩家可编辑物品NBT。 */
+ 
 public final class Hk3FinaleData extends SavedData {
     private Hk3FinaleLedger ledger=new Hk3FinaleLedger();
     private boolean changing;

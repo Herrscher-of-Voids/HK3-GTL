@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.mixin.adastra;
 
-/** 【变更记录 #1】2026-10-31 00:46:39（第1次备注 · 修订187）：删除无；新增合同扩高维度的49柱高度图避障；修改降落前的玩家及着陆器共同入口；用途：不扫描整片建筑，不把着陆点放进高层结构。 */
+ 
 
 import com.sirin.hk3gtl.common.dimension.height.Hk3HeightLandingPolicy;
 import com.sirin.hk3gtl.common.dimension.height.Hk3HeightService;

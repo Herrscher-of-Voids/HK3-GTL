@@ -11,9 +11,9 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 06:19:47（修订128）：删除无；新增真实操作及连续状态旁注；修改无；用途：只读已加载世界与本人回执，不改游戏结果、不授研究资格。 */
-/** 【变更记录 #2】2026-10-01 06:35:47（修订128）：删除：无；新增/修改：展示盔甲按四个实际操作部位记录本人，拆下清除归属，不只判断最后一件操作者；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 16:30:04（修订134）：删除SCP5000只在保存瞬间且8格内检查的单向限制；新增穿齐盔甲后回查本人已存笔记、完成盔甲架定位回执；修改两种操作顺序都重检真实四件及归属；用途：不把他人盔甲或客户端文字当作本人条件。 */
+ 
+ 
+ 
 public final class Hk3EggPersonalScenes {
     private Hk3EggPersonalScenes(){}
     public static void note(ServerPlayer p,String title,String body){

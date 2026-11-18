@@ -1,0 +1,1982 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w15_x46_cev_electric_motor_billet_line",
+      "role": "W15",
+      "zh_name": "CEV 电动马达坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动马达装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 9
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 8
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_cev",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_piston",
+        "hk3gtl_main_component_cev_electric_pump",
+        "hk3gtl_main_component_cev_conveyor_module",
+        "hk3gtl_main_component_cev_robot_arm"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_cev_electric_motor; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_cev_electric_piston_billet_line",
+      "role": "W15",
+      "zh_name": "CEV 电动活塞坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动活塞装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_piston_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 13
+        },
+        {
+          "id": "hk3gtl:electric_motor_cev",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_piston_cev",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_robot_arm"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_cev_electric_piston; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_cev_electric_pump_billet_line",
+      "role": "W15",
+      "zh_name": "CEV 电动泵坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动泵装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_pump_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:electric_motor_cev",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_pump_cev",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_x46_terminal_mechatronic_prefabrication"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_cev_electric_pump; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_cev_conveyor_module_billet_line",
+      "role": "W15",
+      "zh_name": "CEV 传送带模块坯料直装",
+      "purpose": "在同一工序完成主材成形与两件传送带模块装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:conveyor_module_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_motor_cev",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:conveyor_module_cev",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_x46_terminal_mechatronic_prefabrication"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_cev_conveyor_module; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_cev_robot_arm_billet_line",
+      "role": "W15",
+      "zh_name": "CEV 机械臂坯料直装",
+      "purpose": "在同一工序完成主材成形与两件机械臂装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:robot_arm_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_motor_cev",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_piston_cev",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:robot_arm_cev",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_x46_terminal_mechatronic_prefabrication"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_cev_robot_arm; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_cev_field_generator_billet_line",
+      "role": "W15",
+      "zh_name": "CEV 力场发生器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件力场发生器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 4
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_cev",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_x46_terminal_field_metrology_maintenance"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_cev_field_generator; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_cev_emitter_billet_line",
+      "role": "W15",
+      "zh_name": "CEV 发射器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件发射器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_cev",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_four_system_engineering_singularity"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_cev_emitter; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_cev_sensor_billet_line",
+      "role": "W15",
+      "zh_name": "CEV 传感器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件传感器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 5
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_cev",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_x46_terminal_field_metrology_maintenance"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_cev_sensor; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_wfv_processor_inline_board_assembly",
+      "role": "W15",
+      "zh_name": "wfv_processor现场蚀刻总装",
+      "purpose": "把本级PCB蚀刻并入电路装配；完整保留主材、RAM、互连和上一形态，不跳过电路系列。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_circuit_substrate",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wfv_processor",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 2000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wfv_electric_motor",
+        "hk3gtl_main_circuit_wsv_assembly"
+      ],
+      "process_family": "末段电路装配",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_printed_circuit_board; hk3gtl_main_circuit_wfv_processor"
+    },
+    {
+      "id": "wonder_w15_x46_wsv_assembly_inline_board_assembly",
+      "role": "W15",
+      "zh_name": "wsv_assembly现场蚀刻总装",
+      "purpose": "把本级PCB蚀刻并入电路装配；完整保留主材、RAM、互连和上一形态，不跳过电路系列。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wfv_processor",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 4000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_motor",
+        "hk3gtl_main_circuit_civ_computer"
+      ],
+      "process_family": "末段电路装配",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_printed_circuit_board; hk3gtl_main_circuit_wsv_assembly"
+    },
+    {
+      "id": "wonder_w15_x46_civ_computer_inline_board_assembly",
+      "role": "W15",
+      "zh_name": "civ_computer现场蚀刻总装",
+      "purpose": "把本级PCB蚀刻并入电路装配；完整保留主材、RAM、互连和上一形态，不跳过电路系列。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-CEE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_circuit_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 8000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_motor",
+        "hk3gtl_main_circuit_cev_processor_mainframe"
+      ],
+      "process_family": "末段电路装配",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_printed_circuit_board; hk3gtl_main_circuit_civ_computer"
+    },
+    {
+      "id": "wonder_w15_x46_cev_processor_mainframe_inline_board_assembly",
+      "role": "W15",
+      "zh_name": "cev_processor_mainframe现场蚀刻总装",
+      "purpose": "把本级PCB蚀刻并入电路装配；完整保留主材、RAM、互连和上一形态，不跳过电路系列。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_circuit_substrate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_plate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 16000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_motor"
+      ],
+      "process_family": "末段电路装配",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_printed_circuit_board; hk3gtl_main_circuit_cev_processor_mainframe"
+    },
+    {
+      "id": "wonder_w15_x46_perennial_final_plate_line",
+      "role": "W15",
+      "zh_name": "恒续复核态终检与plate直制",
+      "purpose": "从修复复核态做固定拒收分离后成形；可用相严格等效十四坯。细线补导体并返七坯余料，框架尾数返板。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_plate",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "voltage_machine_casing_cev",
+        "hk3gtl_main_component_cev_electric_piston",
+        "hk3gtl_main_component_cev_electric_pump",
+        "hk3gtl_main_component_cev_sensor",
+        "hk3gtl_main_circuit_cev_processor_mainframe"
+      ],
+      "process_family": "CEV终检备料",
+      "baseline_recipe": "main_material/perennial_service_composite/surface_finish_and_batch_separation; main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/functional_fine_wire",
+      "circuit": 1
+    },
+    {
+      "id": "wonder_w15_x46_perennial_final_rod_line",
+      "role": "W15",
+      "zh_name": "恒续复核态终检与rod直制",
+      "purpose": "从修复复核态做固定拒收分离后成形；可用相严格等效十四坯。细线补导体并返七坯余料，框架尾数返板。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_rod",
+          "count": 28
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_motor",
+        "hk3gtl_main_component_cev_electric_piston",
+        "hk3gtl_main_component_cev_robot_arm",
+        "hk3gtl_main_component_cev_emitter"
+      ],
+      "process_family": "CEV终检备料",
+      "baseline_recipe": "main_material/perennial_service_composite/surface_finish_and_batch_separation; main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/functional_fine_wire",
+      "circuit": 2
+    },
+    {
+      "id": "wonder_w15_x46_perennial_final_ring_line",
+      "role": "W15",
+      "zh_name": "恒续复核态终检与ring直制",
+      "purpose": "从修复复核态做固定拒收分离后成形；可用相严格等效十四坯。细线补导体并返七坯余料，框架尾数返板。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_ring",
+          "count": 56
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_motor",
+        "hk3gtl_main_component_cev_electric_piston",
+        "hk3gtl_main_component_cev_electric_pump",
+        "hk3gtl_main_component_cev_sensor"
+      ],
+      "process_family": "CEV终检备料",
+      "baseline_recipe": "main_material/perennial_service_composite/surface_finish_and_batch_separation; main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/functional_fine_wire",
+      "circuit": 3
+    },
+    {
+      "id": "wonder_w15_x46_perennial_final_foil_line",
+      "role": "W15",
+      "zh_name": "恒续复核态终检与foil直制",
+      "purpose": "从修复复核态做固定拒收分离后成形；可用相严格等效十四坯。细线补导体并返七坯余料，框架尾数返板。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_foil",
+          "count": 56
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_pump",
+        "hk3gtl_main_component_cev_conveyor_module",
+        "hk3gtl_main_component_cev_field_generator",
+        "hk3gtl_main_component_cev_emitter"
+      ],
+      "process_family": "CEV终检备料",
+      "baseline_recipe": "main_material/perennial_service_composite/surface_finish_and_batch_separation; main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/functional_fine_wire",
+      "circuit": 4
+    },
+    {
+      "id": "wonder_w15_x46_perennial_final_frame_line",
+      "role": "W15",
+      "zh_name": "恒续复核态终检与frame直制",
+      "purpose": "从修复复核态做固定拒收分离后成形；可用相严格等效十四坯。细线补导体并返七坯余料，框架尾数返板。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_frame",
+          "count": 3
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_field_generator",
+        "voltage_machine_casing_cev"
+      ],
+      "process_family": "CEV终检备料",
+      "baseline_recipe": "main_material/perennial_service_composite/surface_finish_and_batch_separation; main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/functional_fine_wire",
+      "circuit": 5
+    },
+    {
+      "id": "wonder_w15_x46_perennial_final_fine_wire_line",
+      "role": "W15",
+      "zh_name": "恒续复核态终检与fine_wire直制",
+      "purpose": "从修复复核态做固定拒收分离后成形；可用相严格等效十四坯。细线补导体并返七坯余料，框架尾数返板。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 56
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_fine_wire",
+          "count": 56
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 7
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_motor",
+        "hk3gtl_main_component_cev_field_generator"
+      ],
+      "process_family": "CEV终检备料",
+      "baseline_recipe": "main_material/perennial_service_composite/surface_finish_and_batch_separation; main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w15_x46_cev_motor_forming_set",
+      "role": "W15",
+      "zh_name": "CEV 驱动绕组与轴系联产",
+      "purpose": "按两台驱动绕组与轴系所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 9
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rod",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_ring",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_motor"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/formed_interface_rings; main_material/perennial_service_composite/functional_thin_layers; main_material/perennial_service_composite/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w15_x46_cev_piston_forming_set",
+      "role": "W15",
+      "zh_name": "CEV 承压活塞与密封联产",
+      "purpose": "按两台承压活塞与密封所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 13
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_rod",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_ring",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_piston"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/formed_interface_rings; main_material/perennial_service_composite/functional_thin_layers; main_material/perennial_service_composite/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w15_x46_cev_field_forming_set",
+      "role": "W15",
+      "zh_name": "CEV 场线圈与承力框架联产",
+      "purpose": "按两台场线圈与承力框架所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_frame",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_field_generator"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/formed_interface_rings; main_material/perennial_service_composite/functional_thin_layers; main_material/perennial_service_composite/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w15_x46_perennial_functional_layer_to_service_laminate",
+      "role": "W15",
+      "zh_name": "恒续功能层与服役坯直联",
+      "purpose": "十六坯文明主材分别承担八件维修层和八件基材；六十四件Shirabon和PBI均消耗，产物仍须老化拆解。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 16
+        },
+        {
+          "id": "gtceu:shirabon_ingot",
+          "count": 64
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_2",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/perennial_service_composite/accelerated_service_ageing",
+        "wonder_w14_x46_service_ageing_dismantling_line"
+      ],
+      "process_family": "CEV有限服役备料",
+      "baseline_recipe": "main_material/perennial_service_composite/repairable_functional_layer; main_material/perennial_service_composite/service_laminate_assembly"
+    },
+    {
+      "id": "wonder_w15_x46_perennial_laminate_to_repaired_preform",
+      "role": "W15",
+      "zh_name": "恒续服役坯补料复核联线",
+      "purpose": "一次老化、拆解和新料修复，保留八坯文明补料与六十四份永久损失；不返新的服役坯。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_2",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 32000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 64000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 32000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 4000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_x46_perennial_final_plate_line",
+        "wonder_w15_x46_perennial_final_frame_line"
+      ],
+      "process_family": "CEV有限服役备料",
+      "baseline_recipe": "main_material/perennial_service_composite/accelerated_service_ageing; main_material/perennial_service_composite/service_piece_dismantling; main_material/perennial_service_composite/fresh_feed_repair_cure"
+    },
+    {
+      "id": "wonder_w15_x46_perennial_fresh_feed_to_finished_plate",
+      "role": "W15",
+      "zh_name": "恒续新料全线终板",
+      "purpose": "二十四坯文明新料承担功能层、基材及补料；十四板、两批拒收、六十四份尾料均实出，氩气含修复和终检两段。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 24
+        },
+        {
+          "id": "gtceu:shirabon_ingot",
+          "count": 64
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_plate",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 32000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 80000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 32000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 5600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "voltage_machine_casing_cev",
+        "hk3gtl_main_circuit_cev_processor_mainframe"
+      ],
+      "process_family": "CEV有限服役备料",
+      "baseline_recipe": "main_material/perennial_service_composite/repairable_functional_layer; main_material/perennial_service_composite/service_laminate_assembly; main_material/perennial_service_composite/accelerated_service_ageing; main_material/perennial_service_composite/service_piece_dismantling; main_material/perennial_service_composite/fresh_feed_repair_cure; main_material/perennial_service_composite/surface_finish_and_batch_separation; main_material/perennial_service_composite/composite_laminate_plate"
+    },
+    {
+      "id": "wonder_w15_x46_civilization_logic_epitaxy_line",
+      "role": "W15",
+      "zh_name": "文明恒续逻辑裸片外延切割直联",
+      "purpose": "保留中子素晶圆、构界承载板、介电层和前平台逻辑裸片；存储分支另消费两件前平台RAM晶圆，工装固定执行光刻与切割。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_civilization_cpu_line",
+        "hk3gtl_main_circuit_cev_processor_mainframe"
+      ],
+      "process_family": "末段电子备料",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_epitaxial_wafer; hk3gtl_electronic_civilization_endurance_logic_wafer; hk3gtl_electronic_civilization_endurance_logic_die"
+    },
+    {
+      "id": "wonder_w15_x46_civilization_memory_epitaxy_line",
+      "role": "W15",
+      "zh_name": "文明恒续RAM外延切割直联",
+      "purpose": "保留中子素晶圆、构界承载板、介电层和前平台逻辑裸片；存储分支另消费两件前平台RAM晶圆，工装固定执行光刻与切割。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_wafer",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 32
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w15_civilization_cpu_line",
+        "hk3gtl_main_circuit_cev_processor_mainframe"
+      ],
+      "process_family": "末段电子备料",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_epitaxial_wafer; hk3gtl_electronic_civilization_endurance_ram_wafer; hk3gtl_electronic_civilization_endurance_ram_chip"
+    },
+    {
+      "id": "wonder_w15_x46_civilization_energy_constraint_dual_branch",
+      "role": "W15",
+      "zh_name": "文明导能与约束双支线共制",
+      "purpose": "八坯稳界新料分两路各四坯，分别消耗导能细线与陶瓷/PBI，不把同一基材复制成两个模块。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/civilization_quadrisystem_matrix/quadrisystem_cocure",
+        "wonder_w15_terminal_prefabrication"
+      ],
+      "process_family": "四系末段汇流",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/independent_energy_module; main_material/civilization_quadrisystem_matrix/independent_constraint_module"
+    },
+    {
+      "id": "wonder_w15_x46_civilization_reconstruction_cognitive_dual_branch",
+      "role": "W15",
+      "zh_name": "文明重构与认知双支线共制",
+      "purpose": "八坯稳界新料分别入重构与认知支线，独立消耗八坯IRV合金和十六颗虚数拓扑CPU；只输出待共固化模块。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_4",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 16000
+        },
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/civilization_quadrisystem_matrix/quadrisystem_cocure",
+        "wonder_w15_terminal_prefabrication"
+      ],
+      "process_family": "四系末段汇流",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/independent_reconstruction_module; main_material/civilization_quadrisystem_matrix/independent_cognitive_module"
+    },
+    {
+      "id": "wonder_w15_x46_terminal_billet_frame_prefabrication",
+      "role": "W15",
+      "zh_name": "恒续框架直成终局预制",
+      "purpose": "八坯恒续主材先成两框架，再同四系独立模块和铸材预制；不省略高阶框架或四路实体成本。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WPF"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_4",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_bounded_research_model",
+        "wonder_civilization_cycle_model",
+        "wonder_global_energy_constraint_matrix"
+      ],
+      "process_family": "四系末段汇流",
+      "baseline_recipe": "main_material/perennial_service_composite/formed_loadbearing_rods; main_material/perennial_service_composite/loadbearing_frame_assembly; wonder_w15_terminal_prefabrication"
+    },
+    {
+      "id": "wonder_w15_x46_terminal_mechatronic_prefabrication",
+      "role": "W15",
+      "zh_name": "CEV机电单元内嵌预制",
+      "purpose": "将CEV泵、传送带和机械臂作为实物内嵌到四系预制件，增加八件机电预制产量；组件被消费且无逆拆返还入口。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WPF"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_4",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:electric_pump_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:conveyor_module_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:robot_arm_cev",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_bounded_research_model",
+        "wonder_civilization_cycle_model",
+        "wonder_global_energy_constraint_matrix"
+      ],
+      "process_family": "CEV组件实体末端",
+      "baseline_recipe": "wonder_w15_terminal_prefabrication; hk3gtl_main_component_cev_electric_pump; hk3gtl_main_component_cev_conveyor_module; hk3gtl_main_component_cev_robot_arm"
+    },
+    {
+      "id": "wonder_w15_x46_terminal_field_metrology_maintenance",
+      "role": "W15",
+      "zh_name": "CEV闭环力场维护样件",
+      "purpose": "一件CEV力场内含的两件CIV前驱承担双批维护，另消耗CEV传感器实现闭环计量；板材和约束材仍各按双批投入，稳界介质由两桶降为一桶。",
+      "requirements": [
+        "RN-TAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WME",
+        "RN-BCA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:sensor_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_composite_conducting",
+        "industrial_composite_confining",
+        "industrial_composite_reconstructing",
+        "industrial_composite_cognitive"
+      ],
+      "process_family": "CEV组件实体末端",
+      "baseline_recipe": "wonder_w12_maintenance_load_specimen; hk3gtl_main_component_cev_field_generator; hk3gtl_main_component_cev_sensor"
+    }
+  ]
+}

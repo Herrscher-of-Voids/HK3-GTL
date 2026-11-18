@@ -3,7 +3,7 @@ package com.sirin.hk3gtl.common.phone;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-/** 【变更记录 #1】2026-11-05（修订208）：按本人桌面会话记录连续悬停与实际打开，关闭后不保留临时阅读记录。 */
+ 
 public final class Hk3PhoneAppHintSessions {
     public static final long READ_TICKS=20, EXPIRE_TICKS=6000, LAUNCH_TICKS=40;
     private final Map<UUID,Session> sessions=new ConcurrentHashMap<>();

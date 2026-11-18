@@ -1,0 +1,6 @@
+{
+  "parent": "hk3gtl:item/honkai_tungsten_fuel",
+  "textures": {
+    "layer0": "hk3gtl:item/fuel_bundles/honkai_tungsten_fuel_16x"
+  }
+}

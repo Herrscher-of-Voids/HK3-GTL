@@ -1,38 +1,22 @@
 package com.sirin.hk3gtl.client.dialogue;
 
+ 
 
-/**
- * 【文件职责】
- * - 负责 Hk3DialogueScreen 客户端渲染或 UI 逻辑。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【变更记录 #2】2026-05-31 22:45:00（第 2 次备注 · 内测三第 2 次更新）
- * - 修改：
- *   1) buildFilteredChoiceRows 中西琳终局掩码默认值由 0b11111(5 位) 改为 (1<<IF_BRANCH_COUNT)-1。
- *   2) showChoices 选项布局由单列改为“每列最多 5 行”的多列布局：≤5 个仍单列满宽，6~10 个自动分 2 列。
- * - 用途：
- *   1) 客户端按掩码渲染可选 IF 选项；扩展到 10 条后，无掩码兜底也应放行全部 10 个，避免后 5 条不显示。
- *   2) 10 个按钮单列高 260px 会溢出 240px 面板，分列后控制在 5 行(130px)内，保证全部可见可点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
-/**
- * 【变更记录 #3】2026-09-29 17:51:46（内测5修订93）
- * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
- * - 新增／修改：逐句显示；IF分页保留选项索引，满五选只禁用未选分支；ESC暂停，正常读完才发送完成标记；校对显示只读状态。
- * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
- */
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
 import com.sirin.hk3gtl.common.dialogue.*;
 import com.sirin.hk3gtl.common.dialogue.definition.SirinDialogueDefinitions;
 import com.sirin.hk3gtl.common.network.DialogueCloseC2SPacket;
@@ -58,13 +42,12 @@ import java.util.List;
  * 布局：全屏暗幕 + 底部面板(文本) + 角色名牌 + 选项按钮。
  * 支持逐字显示、多 segment 跳转、动态选项过滤。
  */
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/** 【变更记录 #4】2026-10-01 04:34:58（修订128）：删除：旧固定上限或被替代的分支；新增/修改：已逐字完整显示后才发送本句阅读片段，不调整任何句子与演出节奏；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #5】2026-10-01 04:35:52（修订128）：删除：旧固定上限或被替代的分支；新增/修改：鼠标在完整显示当帧快速继续时先提交阅读，再推进下一句，避免漏记；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #6】2026-10-01 05:33:27（修订128）：删除：旧固定上限或被替代的分支；新增/修改：只有已展开可操作终审页回报按键与待选心跳；关闭先清理等待，仍由原界面处理选项；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #7】2026-10-01 05:33:55（修订128）：删除：旧固定上限或被替代的分支；新增/修改：遵循现有缩放屏幕clickFitted扩展点，不覆盖final坐标转换方法；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #8】2026-10-01 05:34:21（修订128）：删除：旧固定上限或被替代的分支；新增/修改：合并到已有鼠标处理方法，保留文字推进与选项点击原控制逻辑；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #9】2026-10-01 18:42:57（修订140）：删除正式审查沿通用结束包结算的可能；新增独立审查令牌包；修改逐句界面保留、关闭只请求暂停；用途：预览与真实经历隔离。 */
+ 
+ 
+ 
+ 
+ 
+ 
 public class Hk3DialogueScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int CHARS_PER_TICK = 2;
@@ -209,7 +192,6 @@ public class Hk3DialogueScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScre
         int targetPanelY = height - PANEL_HEIGHT - PANEL_BOTTOM_MARGIN;
         int panelY = (int) (height + (targetPanelY - height) * animProgress);
 
-        // 获取当前说话者主题
         DialogueSpeakerTheme theme = getCurrentSpeakerTheme();
         int accentColor = theme != null ? theme.accentColor() : 0xFF888888;
 
@@ -308,13 +290,11 @@ public class Hk3DialogueScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScre
 
         Hk3EggDialogueClient.revealed(dialogueId,currentSegmentId,lineIndex,fullText);
 
-        // 若当前行有选项，显示选项
         if (line.choices() != null && !line.choices().isEmpty()) {
             showChoices(line.choices());
             return;
         }
 
-        // 推进到下一行
         lineIndex++;
         charsRevealed = 0;
         textFullyRevealed = false;

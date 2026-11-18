@@ -45,15 +45,13 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.UUID;
 
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/**
- * 【变更记录 #1】2026-09-25 02:19:54（内测5修订70）
- * 删除：旧建筑退出四机正式入口，历史文件已归档。
- * 新增：已确认逐格建筑及一致的模板与验收入口。
- * 修改：同步主控坐标、材料或测试夹具，不改配方和研究扣费。
- * 用途：使预览、正式结构及游戏放置相互对应；未将静态验证写作实机通过。
- */
+ 
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl", bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3SpectrumRuntimeCheck {
     private static UUID owner;
@@ -63,7 +61,6 @@ public final class Hk3SpectrumRuntimeCheck {
     private static final BlockPos LAB = new BlockPos(190, 100, 160), CANNER = new BlockPos(212, 100, 164);
     private Hk3SpectrumRuntimeCheck() {}
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     public static boolean begin(ServerPlayer player) {
         String appdata=System.getenv("APPDATA");
         if (appdata==null || owner!=null || !player.isCreative()
@@ -77,28 +74,23 @@ public final class Hk3SpectrumRuntimeCheck {
         owner=player.getUUID();stage=0;since=started=player.server.overworld().getGameTime();return true;
     }
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     @SubscribeEvent public static void stop(ServerStoppedEvent event) { owner=null; }
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     private static void chunks(ServerPlayer player, boolean forced) {
         for (int x=7;x<=14;x++) for(int z=7;z<=11;z++) player.serverLevel().setChunkForced(x,z,forced);
     }
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     private static List<ItemBusPartMachine> buses(Hk3WorkableMultiblockMachine machine, IO io) {
         return machine.getParts().stream().filter(p -> p instanceof ItemBusPartMachine b && b.getInventory().getHandlerIO()==io)
                 .map(p -> (ItemBusPartMachine)p).toList();
     }
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     private static int outputCount(Hk3WorkableMultiblockMachine machine, Item item) {
         int count=0; for(var bus:buses(machine,IO.OUT)) for(int i=0;i<bus.getInventory().getSlots();i++) {
             var stack=bus.getInventory().getStackInSlot(i); if(stack.is(item)) count+=stack.getCount();
         } return count;
     }
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     private static void fundMaterials(ServerPlayer player) {
         var tag=TagKey.create(Registries.ITEM,new ResourceLocation("gtceu","circuits/max"));
         var circuit=BuiltInRegistries.ITEM.getTag(tag).orElseThrow().iterator().next().value();
@@ -106,7 +98,6 @@ public final class Hk3SpectrumRuntimeCheck {
         require(player.getInventory().add(ChemicalHelper.get(TagPrefix.plate,GTMaterials.Steel,16)),"plates fit inventory");
     }
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     @SubscribeEvent public static void tick(TickEvent.ServerTickEvent event) {
         if (event.phase!=TickEvent.Phase.END || owner==null) return;
         var player=event.getServer().getPlayerList().getPlayer(owner); if(player==null) return;
@@ -119,7 +110,6 @@ public final class Hk3SpectrumRuntimeCheck {
                 analyzerPos=Hk3ApprovedStructureCommands.place(player.createCommandSourceStack(),"i02",new BlockPos(208,100,128),Rotation.NONE);
                 Hk3ApprovedStructureCommands.place(player.createCommandSourceStack(),"s01",LAB.offset(-8,-2,-2),Rotation.NONE);
                 player.serverLevel().setBlockAndUpdate(CANNER,GTMachines.CANNER[GTValues.LV].getBlock().defaultBlockState());
-                // 中文维护备注：历史说明已整理；当前实现以代码为准。
                 player.teleportTo(player.serverLevel(),190.5,102,160.5,180,0);
                 next(now); return;
             }
@@ -128,7 +118,6 @@ public final class Hk3SpectrumRuntimeCheck {
             var lab=(Hk3ResearchInstituteMachine)MetaMachine.getMachine(player.level(),LAB);
             var canner=(SimpleTieredMachine)MetaMachine.getMachine(player.level(),CANNER);
             var data=Hk3ResearchData.get(player);
-            // 中文维护备注：历史说明已整理；当前实现以代码为准。
             if ((now-since)%200==0) {
                 var active=stage<=2?tower:analyzer;
                 var type=stage<=2?com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes.COLLECTION
@@ -144,7 +133,6 @@ public final class Hk3SpectrumRuntimeCheck {
                         modified!=null && org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper.matchRecipe(active,modified),
                         active.getRecipeLogic().isWorkingEnabled());
             }
-            // 中文维护备注：历史说明已整理；当前实现以代码为准。
             canner.energyContainer.changeEnergy(32000);
             if(stage==1) {
                 if(!tower.isFormed() || !analyzer.isFormed() || !lab.isFormed()) return;
@@ -228,9 +216,8 @@ public final class Hk3SpectrumRuntimeCheck {
             player.sendSystemMessage(Component.literal("Spectrum verification failed: "+error.getMessage()));chunks(player,false);owner=null;
         }
     }
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     private static void next(long now) { LogUtils.getLogger().info("[HK3-SPECTRUM64] PASS stage={}",stage++);since=now; }
     private static void require(boolean valid,String message) { if(!valid) throw new IllegalStateException(message); }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

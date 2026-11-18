@@ -23,19 +23,18 @@ import org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper;
 import java.math.BigInteger;
 import java.util.*;
 
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/**
- * 【变更记录 #1】2026-10-17 16:27:36（第1次备注 · 修订165）
- * 删除：高阶标记工况EU倍乘依赖double与合并仅保留首配方数据的路径。
- * 新增：精确EU倍乘、超long标记拒绝、最高额定要求和全部费用合并。
- * 修改：未标记配方沿用原算法；用途：规划失败不投料，不让饱和少付或首配方低电压掩盖高阶工况。
- */
-/**
- * 【变更记录 #2】2026-11-04 00:11:25（第2次备注 · 内测5修订193）
- * 删除：合并批次只保留首配方研究权限的路径。
- * 新增：原方及实际处理副本的全部门槛去重快照，非法元数据直接拒绝规划。
- * 修改：单方与多方均复制数据后写入权限；用途：运行、续跑及重启复检不能漏掉后续配方，不改能源和工业审批。
- */
+ 
+
+
+
+
+
+ 
+
+
+
+
+
 public final class Hk3RecipeCalculationHelper {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -116,13 +115,10 @@ public final class Hk3RecipeCalculationHelper {
     }
 
     private static long getRecipeEUt(GTRecipe recipe) {
-        if (recipe == null) return 0L;
-
         long inputEU = getFirstEUContent(recipe.getTickInputContents(EURecipeCapability.CAP));
         if (inputEU != 0L) return inputEU;
 
-        long outputEU = getFirstEUContent(recipe.getTickOutputContents(EURecipeCapability.CAP));
-        return outputEU == 0L ? 0L : -outputEU;
+        return -getFirstEUContent(recipe.getTickOutputContents(EURecipeCapability.CAP));
     }
 
     private static long getFirstEUContent(List<Content> contents) {
@@ -154,14 +150,7 @@ public final class Hk3RecipeCalculationHelper {
         for (GTRecipe raw : recipes) {
             if (remainingParallel <= 0) break;
 
-            GTRecipe modified;
-            try {
-                modified = fullModifier.modify(raw);
-            } catch (Exception e) {
-                LOGGER.warn("[HK3GTL-diag] fullModify 异常: recipe={} error={}", raw.id, e.toString());
-                skippedModify++;
-                continue;
-            }
+            GTRecipe modified = fullModifier.modify(raw);
             if (modified == null) {
                 skippedModify++;
                 continue;
@@ -216,14 +205,7 @@ public final class Hk3RecipeCalculationHelper {
         int skippedModifyF = 0, skippedParallelF = 0;
 
         for (GTRecipe raw : recipes) {
-            GTRecipe modified;
-            try {
-                modified = fullModifier.modify(raw);
-            } catch (Exception e) {
-                LOGGER.warn("[HK3GTL-diag] fullModify 异常(fair): recipe={} error={}", raw.id, e.toString());
-                skippedModifyF++;
-                continue;
-            }
+            GTRecipe modified = fullModifier.modify(raw);
             if (modified == null) {
                 skippedModifyF++;
                 continue;
@@ -435,6 +417,6 @@ public final class Hk3RecipeCalculationHelper {
     /** 配方修改器（超频 + 自定义修改）。输入原始配方 → 修改后配方。 */
     @FunctionalInterface
     public interface FullRecipeModifier {
-        GTRecipe modify(GTRecipe raw) throws Exception;
+        GTRecipe modify(GTRecipe raw);
     }
 }

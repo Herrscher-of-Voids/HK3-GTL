@@ -21,15 +21,15 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-/**
- * 【文件职责】W01只读预览世界，按原坐标读取全部实体和状态，不创建区块、物理tick或百万BlockInfo。
- * 【变更记录 #1】2026-10-29 23:12:35（第1次备注 · 本轮高度与预览修复）
- * 删除：无；新增：原布局的稀疏世界及惰性坐标集合；修改：主控预览替换原钻石占位。
- * 用途：让原生JEI场景使用真实MC模型；切层只控制可见层，不改蓝图、数量或游戏世界。
- * 【变更记录 #2】2026-10-30 00:08:31（第2次备注 · 内测5修订183）
- * 删除：预览主控固定朝北；新增：无；修改：新入口主控正面朝西，与原坐标零转布局一致。
- * 用途：JEI继续显示完整修订建筑及实际GT主控，不把侧面误作可操作入口。
- */
+ 
+
+
+
+
+
+
+
+
 public final class Hk3W01PreviewWorld extends TrackedDummyWorld {
     final Hk3W01HallLayout layout;
     final Hk3W01PreviewIndex index;
@@ -56,23 +56,23 @@ public final class Hk3W01PreviewWorld extends TrackedDummyWorld {
         this.entities = entities;
         controller = new BlockPos(layout.controllerX(), layout.controllerY(), layout.controllerZ());
         controllerState = definition.getBlock().defaultBlockState().setValue(RotationState.NON_Y_AXIS.property, front);
-        // 只有实际带BE的少量方块需要实例；普通石材不生成方块实体。
-        for (long cell : layout.cells()) {
+        long controllerCell = Hk3W01HallLayout.pack(controller.getX(), controller.getY(), controller.getZ(), 0);
+        if (layer < 0 || layer == controller.getY()) createPreviewEntity(controllerCell, controllerState);
+        for (long cell : index.blockEntityCells()) {
             int y = Hk3W01HallLayout.y(cell);
             if (layer >= 0 && layer != y) continue;
-            BlockState state = states[Hk3W01HallLayout.state(cell)];
-            if (!state.hasBlockEntity() && !(Hk3W01HallLayout.x(cell) == controller.getX()
-                    && y == controller.getY() && Hk3W01HallLayout.z(cell) == controller.getZ())) continue;
-            var pos = new BlockPos(Hk3W01HallLayout.x(cell), y, Hk3W01HallLayout.z(cell));
-            if (pos.equals(controller)) state = controllerState;
-            if (state.hasBlockEntity()) {
-                BlockInfo info = BlockInfo.fromBlockState(state);
-                CompoundTag tag = entities.get(cell >>> 16);
-                if (tag != null) info.setTag(tag.copy());
-                BlockEntity entity = info.getBlockEntity(pos);
-                if (entity != null) { entity.setLevel(this); previewEntities.put(pos, entity); }
-            }
+            if ((cell >>> 16) == (controllerCell >>> 16)) continue;
+            createPreviewEntity(cell, states[Hk3W01HallLayout.state(cell)]);
         }
+    }
+
+    private void createPreviewEntity(long cell, BlockState state) {
+        var pos = new BlockPos(Hk3W01HallLayout.x(cell), Hk3W01HallLayout.y(cell), Hk3W01HallLayout.z(cell));
+        BlockInfo info = BlockInfo.fromBlockState(state);
+        CompoundTag tag = entities.get(cell >>> 16);
+        if (tag != null) info.setTag(tag.copy());
+        BlockEntity entity = info.getBlockEntity(pos);
+        if (entity != null) { entity.setLevel(this); previewEntities.put(pos, entity); }
     }
 
     @Override public BlockState getBlockState(BlockPos pos) {
@@ -92,8 +92,14 @@ public final class Hk3W01PreviewWorld extends TrackedDummyWorld {
     }
 
     AbstractSet<BlockPos> positions() {
+        return positions(index.renderCells());
+    }
+
+    AbstractSet<BlockPos> positions(int[] rendered) {
+        long[] cells = layout.cells();
+        int size = layer < 0 ? rendered.length : cells.length;
         return new AbstractSet<>() {
-            @Override public int size() { return index.countLayer(layer); }
+            @Override public int size() { return layer < 0 ? rendered.length : index.countLayer(layer); }
             @Override public boolean contains(Object value) {
                 return value instanceof BlockPos pos && (layer < 0 || layer == pos.getY())
                         && index.stateAt(pos.getX(), pos.getY(), pos.getZ()) >= 0;
@@ -102,13 +108,13 @@ public final class Hk3W01PreviewWorld extends TrackedDummyWorld {
                 return new Iterator<>() {
                     int next = advance(0);
                     private int advance(int from) {
-                        while (from < layout.cells().length && layer >= 0 && Hk3W01HallLayout.y(layout.cells()[from]) != layer) from++;
+                        while (from < size && layer >= 0 && Hk3W01HallLayout.y(cells[from]) != layer) from++;
                         return from;
                     }
-                    @Override public boolean hasNext() { return next < layout.cells().length && !Thread.currentThread().isInterrupted(); }
+                    @Override public boolean hasNext() { return next < size && !Thread.currentThread().isInterrupted(); }
                     @Override public BlockPos next() {
                         if (!hasNext()) throw new NoSuchElementException();
-                        long cell = layout.cells()[next];
+                        long cell = cells[layer < 0 ? rendered[next] : next];
                         next = advance(next + 1);
                         return new BlockPos(Hk3W01HallLayout.x(cell), Hk3W01HallLayout.y(cell), Hk3W01HallLayout.z(cell));
                     }

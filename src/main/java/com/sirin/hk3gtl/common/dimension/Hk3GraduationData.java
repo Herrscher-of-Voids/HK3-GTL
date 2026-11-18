@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.dimension;
 
-
-/**
- * 【文件职责】
- * - 维护 Hk3GraduationData 的核心功能实现。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
@@ -43,8 +24,8 @@ import com.mojang.logging.LogUtils;
  *   <li>调试重置：调用 resetForDebug()（仅供 /hk3debug 使用）</li>
  * </ul>
  */
-/** 【变更记录 #1】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：UUID通过集合、幂等个人通过与个人调试重置，旧世界标记不自动迁移给全队；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
-/** 【变更记录 #2】2026-10-01 17:04:49（修订136）：删除结局账本加载失败后创建空账本的入口；新增根标记与个人UUID严格校验；修改统一使用防覆盖读取，旧世界标记仍只保留历史；用途：避免损坏后正常通过历史被清空或奖励重复结算。 */
+ 
+ 
 public class Hk3GraduationData extends SavedData {
 
     private static final Logger LOGGER = LogUtils.getLogger();

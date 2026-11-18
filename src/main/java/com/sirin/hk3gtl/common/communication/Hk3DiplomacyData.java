@@ -1,18 +1,18 @@
 package com.sirin.hk3gtl.common.communication;
 
-/** 【变更记录 #3】2026-10-01 00:20:13（修订122）：删除无；新增/修改：损坏公开/主题保留拒绝重置；固定五方分批时序，待处理随真实状态变化；用途：服务端主题状态与阅读权限一致。 */
+ 
 
-/** 【变更记录 #2】2026-10-01 00:17:25（修订122）：删除无；新增/修改：发布/提交仅接受对应主题的完整脱敏快照，错误主题与空记录拒绝；用途：五方首信与团队限定交流保持一致。 */
+ 
 import net.minecraft.nbt.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 00:14:30（修订122）：删除无；新增/修改：五方主题版本状态、已公开摘要与历史正文持久化；拒绝后重谈不覆盖历史；用途：真实成果、团队授权与个人阅读分离，不开放贸易或免费完成研究。 */
-/** 【变更记录 #4】2026-10-01 00:44:06（修订123）：删除无；新增/修改：从当前已结算路径提供个人补谈目录，真实交付仍要求原团队有效摘要；用途：个人交流、团队决定及额外收藏分开，保留真实记录。 */
-/** 【变更记录 #5】2026-10-01 00:47:26（修订123）：删除无；新增最初拒绝奥托的既有分支补谈；修改不强迫玩家先同意再完成经历；用途：保留互斥路线可完成性。 */
-/** 【变更记录 #6】2026-10-01 00:59:10（修订124）：删除无；新增/修改：正式交流/批次原始存档损坏拒绝空白回退，兼容有Teams的既有版本；用途：按五方交流系统整链收口，真实权限和本人经历不混用。 */
-/** 【变更记录 #7】2026-10-01 01:01:52（修订124）：删除无；新增团队及正文容器写前格式保护；修改损坏条目不由发布/来信静默重置；用途：保留既有外交事实。 */
+ 
+ 
+ 
+ 
+ 
 public final class Hk3DiplomacyData extends SavedData {
     public record Topic(String id,String name,String first,String yes,String no,String agreed,String refused,String submit,String feedback,String retry,String resumed){}
     public static final List<Topic> TOPICS=List.of(new Topic("schicksal","天命","A05","N01","N02","A05","N04","N03","A07","N05","N06"),new Topic("anti_entropy","逆熵","A08","N07","N08","N09","N10","N11","N12","N23","N24"),new Topic("world_serpent","世界蛇","A09","N13","N14","N15","N16","N17","N18","N25","N26"),new Topic("elysian_realm","往世乐土","ER01","ER02","ER03","ER04","ER05","","ER04","ER06","ER04"),new Topic("st_freya","圣芙蕾雅学园","SF01","SF02","SF03","SF04","SF05","","SF04","SF06","SF04"));
@@ -50,8 +50,6 @@ public final class Hk3DiplomacyData extends SavedData {
         }
         var r=row(team);var n=r.getCompound(id).copy();n.putString("State",next);n.putInt("Version",expected+1);n.putUUID("Actor",actor);if(action.equals("submit"))n.put("Submitted",evidence.copy());r.put(id,n);document(r,request);document(r,response);if(id.equals("schicksal")&&action.equals("retry"))document(r,t.first);put(team,r);return true;
     }
-    public static long contactDelay(String id){return switch(id){case "anti_entropy"->600;case "world_serpent"->1200;case "elysian_realm"->1800;case "st_freya"->2400;default->Long.MAX_VALUE;};}
-    public boolean due(UUID team,String id,long now){return !published(team).isEmpty()&&now>=publishedTick(team)&&now-publishedTick(team)>=contactDelay(id);}
     public boolean pendingDocument(UUID team,String document){
         for(var t:TOPICS){String state=state(team,t.id);if(state.equals("OFFERED")&&t.first.equals(document))return true;if(state.equals("ACCEPTED")&&(t.agreed.equals(document)||t.resumed.equals(document)))return true;}return false;
     }

@@ -10,11 +10,9 @@ import com.sirin.hk3gtl.common.machine.research.Hk3ResearchMachines;
 import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class Hk3ResearchComputerRecipes {
     private Hk3ResearchComputerRecipes() {}
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static void register(Consumer<FinishedRecipe> provider) {
         GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("hk3gtl_research_point_computer")
                 .inputItems(CustomTags.MAX_CIRCUITS, 4)

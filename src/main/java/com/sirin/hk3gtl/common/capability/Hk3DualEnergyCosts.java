@@ -11,36 +11,36 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * 双能源消耗登记表 —— 记录"哪些配方/机器在 EU 之外还要每 tick 扣多少崩坏能"。
- *
- * <h3>两级查找（配方级优先）</h3>
- * <ol>
- *   <li><b>配方级</b>：{@link #bindRecipe}，Key = 配方 ResourceLocation（即设计文档中的
- *       配方 {@code honkaiCost} 字段，与 {@link com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate}
- *       同一侧表模式，避免侵入 GTRecipe 序列化）</li>
- *   <li><b>机器级</b>：{@link #bindMachine}，Key = 机器注册 ID path（如 "soulium_smeltery"），
- *       作为该机器全部配方的默认值</li>
- * </ol>
- *
- * <h3>数值口径</h3>
- * 全部为"每 tick 崩坏能单位"（1 崩坏能 = 1000 EU），与 EUt 语义对齐。
- * 机器级默认值按四大阶段递增：海渊 64 → 虚数 256 → 量子 1024 → 终焉 4096。
- *
- * <h3>线程侧</h3>
- * 注册发生在启动期（单线程），查询发生在服务端 tick；用 ConcurrentHashMap 兜底。
- *
- * 【变更记录 #1】2026-07-19 19:16:14（第 1 次备注 · 内测四第 31 次更新）
- * - 删除：
- *   1) 删除合并配方只能按合成 recipe id 回查一次机器默认成本的错误语义。
- * - 新增：
- *   1) 新增 calculateMergedCost，按 Σ(原配方成本×实际并行量) 使用 BigInteger 精确求和。
- *   2) 新增权威成本 NBT 写入/读取 API，以十进制字符串保存任意精度每 tick 成本，零成本也明确记录。
- * - 修改：
- *   1) 写入成本前深复制 GTRecipe.data，避免 GTCEu copy() 共享 CompoundTag 时污染原始配方。
- * - 用途：
- *   1) 让 Hk3MultiRecipeLogic 将原配方身份和实际并行计费结果传递给 RecipeLogicMixin。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3DualEnergyCosts {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -113,8 +113,9 @@ public final class Hk3DualEnergyCosts {
             long parallel = parallels[index];
             if (parallel <= 0) throw new IllegalArgumentException("并行量必须大于零");
             GTRecipe recipe = originRecipes.get(index);
-            long unitCost = resolve(recipe == null ? null : recipe.id, machineIdPath);
-            total = total.add(BigInteger.valueOf(unitCost).multiply(BigInteger.valueOf(parallel)));
+            BigInteger unitCost = getMergedCost(recipe);
+            if (unitCost == null) unitCost = BigInteger.valueOf(resolve(recipe.id, machineIdPath));
+            total = total.add(unitCost.multiply(BigInteger.valueOf(parallel)));
         }
         return total;
     }
@@ -165,7 +166,14 @@ public final class Hk3DualEnergyCosts {
         // ── 量子桶（1024/t） ──
         bindMachine("quantum_entanglement_computer", COST_QUANTUM);
         bindMachine("thousand_realms_train", COST_QUANTUM);
-        bindMachine("world_bubble_meltdown_furnace", COST_QUANTUM);
+        // 本轮正式合同：I25–I31统一1024 HW/t，独立于旧世界泡熔解工艺。
+        bindMachine("i25_world_bubble_coordinate_analysis_center", COST_QUANTUM);
+        bindMachine("i26_world_bubble_unmanned_mining_dispatch", COST_QUANTUM);
+        bindMachine("i27_world_bubble_capture_array", COST_QUANTUM);
+        bindMachine("i28_world_bubble_termination_reclaimer", COST_QUANTUM);
+        bindMachine("i29_simulated_world_bubble_synthesizer", COST_QUANTUM);
+        bindMachine("i30_simulated_world_bubble_stabilizer", COST_QUANTUM);
+        bindMachine("i31_simulated_world_bubble_termination_reclaimer", COST_QUANTUM);
         bindMachine("quantum_superconductor_lattice_factory", COST_QUANTUM);
         bindMachine("quantum_thought_forge", COST_QUANTUM);
         bindMachine("finality_pressure_buffer_array", COST_QUANTUM);

@@ -3,16 +3,17 @@ import java.util.*;
 import net.minecraft.nbt.*;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.server.level.ServerPlayer;
-/**
- * 【变更记录 #1】2026-09-30 18:58:24（内测5修订114）
- * 删除：无；新增：按玩家隔离的个人笔记账本；修改：无。
- * 用途：存档持久化、64条上限、标题64字/正文4096字、版本冲突保护，客户端不指定他人UUID。
- */
-/** 【变更记录 #2】2026-10-01 17:04:49（修订136）：删除坏条目静默跳过与空账本回退；新增完整类型/身份/重复项/数量检查及防覆盖加载；修改读取须全部合法才返回；用途：避免下一次保存覆盖玩家笔记，正常旧格式保持可读。 */
+ 
+
+
+
+
+ 
 public final class Hk3PhoneNotes extends SavedData {
-    /** 【变更记录 #3】2026-11-05（修订205）：新增本人颜色标签、待办勾选与已完成任务的连续实质修改；旧笔记默认无标签，状态和版本一起提交。 */
-    public record Note(String id,String title,String body,int version,long time,int colors,boolean task,boolean done,int optimizations){
-        public Note(String id,String title,String body,int version,long time){this(id,title,body,version,time,0,false,false,0);}
+     
+    /** 待办起点独立于最后修改时间；编辑和勾选保留，取消待办后重新计时。 */
+    public record Note(String id,String title,String body,int version,long time,int colors,boolean task,boolean done,int optimizations,long taskSince){
+        public Note(String id,String title,String body,int version,long time){this(id,title,body,version,time,0,false,false,0,0);}
     }
     private final Map<UUID,LinkedHashMap<String,Note>> users=new HashMap<>();
     public static Hk3PhoneNotes get(ServerPlayer p){return com.sirin.hk3gtl.common.util.Hk3SavedDataGuard.get(p.server,"hk3gtl_phone_notes",Hk3PhoneNotes::load,Hk3PhoneNotes::new);}
@@ -33,13 +34,14 @@ public final class Hk3PhoneNotes extends SavedData {
         }
         boolean done=task&&old!=null&&old.done();
         int edits=done&&old.title().contains("优化")&&title.contains("优化")&&!old.title().equals(title)&&!old.body().equals(body)?Math.min(3,old.optimizations()+1):0;
-        var saved=new Note(id,title,body,expected+1,time,colors,task,done,edits);
+        long since=task?(old!=null&&old.task()?old.taskSince():time):0;
+        var saved=new Note(id,title,body,expected+1,time,colors,task,done,edits,since);
         notes.put(id,saved);setDirty();return saved;
     }
     public Note checkTask(UUID user,String id,int expected,boolean done,long time){
         var old=find(user,id);
         if(old==null||!old.task()||old.done()==done||old.version()!=expected||expected==Integer.MAX_VALUE)return null;
-        var saved=new Note(id,old.title(),old.body(),expected+1,time,old.colors(),true,done,0);
+        var saved=new Note(id,old.title(),old.body(),expected+1,time,old.colors(),true,done,0,old.taskSince());
         users.get(user).put(id,saved);setDirty();return saved;
     }
     public boolean delete(UUID user,String id,int expected){
@@ -70,7 +72,9 @@ public final class Hk3PhoneNotes extends SavedData {
                         &&n.getByte("Task")>=0&&n.getByte("Task")<=1&&n.getByte("Done")>=0&&n.getByte("Done")<=1
                         &&(!done||task)&&(edits==0||done&&title.contains("优化"))&&edits<n.getInt("Version"),"笔记标签或待办状态");
                 }
-                rows.put(id,new Note(id,title,body,n.getInt("Version"),n.getLong("Time"),colors,task,done,edits));
+                if(n.contains("TaskSince"))com.sirin.hk3gtl.common.util.Hk3LedgerValidation.type(n,"TaskSince",Tag.TAG_LONG);
+                long since=task?(n.contains("TaskSince")?n.getLong("TaskSince"):n.getLong("Time")):0;
+                rows.put(id,new Note(id,title,body,n.getInt("Version"),n.getLong("Time"),colors,task,done,edits,since));
             }data.users.put(user,rows);
         }
         return data;
@@ -80,6 +84,7 @@ public final class Hk3PhoneNotes extends SavedData {
             var rows=new ListTag();notes.values().forEach(note->{
                 var n=new CompoundTag();n.putString("Id",note.id());n.putString("Title",note.title());n.putString("Body",note.body());n.putInt("Version",note.version());n.putLong("Time",note.time());rows.add(n);
                 n.putInt("Colors",note.colors());n.putBoolean("Task",note.task());n.putBoolean("Done",note.done());n.putInt("Optimizations",note.optimizations());
+                n.putLong("TaskSince",note.taskSince());
             });root.put(id.toString(),rows);
         });tag.put("Users",root);return tag;
     }

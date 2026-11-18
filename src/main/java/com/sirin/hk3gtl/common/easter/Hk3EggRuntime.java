@@ -7,8 +7,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 04:08:14（修订128）：删除无；新增经过服务端操作确认的彩蛋事实入口；用途：只投递个人收藏，隔离研究、外交、阶段授予；投递失败不提前写去重标记。 */
-/** 【变更记录 #2】2026-10-01 05:50:31（修订128）：删除：无；新增/修改：信箱或收藏投递异常限频记录，不向已完成的真实交互回调传播；未投递不提前写去重；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggRuntime {
     public static final String ROOT="hk3gtl_egg_v2";
     private static final java.util.concurrent.atomic.AtomicLong LAST_FAILURE=new java.util.concurrent.atomic.AtomicLong();

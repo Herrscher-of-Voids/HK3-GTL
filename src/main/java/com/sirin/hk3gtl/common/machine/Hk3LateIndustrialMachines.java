@@ -23,30 +23,30 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 
-/**
- * 【文件职责】正式注册I19至I33批准建筑的控制器及独立工艺类型。
- * 【变更记录 #1】2026-10-26 19:57:03（修订177）
- * 删除：无。新增：十台批准控制器、真实发电标识及固定电压定义。
- * 修改：禁翻转和扩展朝向，不生成百万方块JEI形状；完整HTML预览继续独立提供。
- * 用途：接入正式成型与工作仓，保留暂定配方、世界泡任务和生存获取未验收边界。
- * 【变更记录 #2】2026-10-26 21:57:03（修订178）
- * 删除：将十台机器排除出游戏内结构信息的预览禁用标记。
- * 新增：从正式模板无损生成的完整形状及世界投影注册。
- * 修改：形状按所选机器懒读取紧凑流，普通状态共享；用途：恢复完整游戏预览而不改成型建筑。
- * 【变更记录 #3】2026-10-26 22:36:20（修订179）
- * 删除：仅依赖构建器收集形状的绑定；新增：注册完成后显式设置完整形状供应器。
- * 修改：采用既有I02的setShapes口径并保留Pattern完整回退；用途：阻止单主控占位进入预览。
- * 【变更记录 #4】2026-10-27（修订180）
- * 删除：正式注册止于I28的限制；新增：I29至I33批准V1及五套独立三态材质。
- * 修改：复用完整巨构Pattern与显式预览供应器；用途：接入第8批，暂定工艺及世界泡任务仍关闭。
- */
-/**
- * 【变更记录 #5】2026-10-27 22:31:22（第5次备注 · 内测5修订181）
- * - 删除：无，原15台正式控制器的身份、电压、形状与材质地址保留。
- * - 新增：batch09五台获批控制器、对应电压以及各自修订181三态材质地址。
- * - 修改：新增设备复用严格原位Pattern和完整紧凑预览，I37不注册。
- * - 用途：批准建筑进入正式游戏入口；暂定工艺、未实现任务与生存配方仍不开放。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 public final class Hk3LateIndustrialMachines {
     private static final ResourceLocation SHELL = new ResourceLocation("hk3gtl", "block/casings/industrial_controller_shell");
     private static final Map<String, MultiblockMachineDefinition> MACHINES = new ConcurrentHashMap<>();
@@ -72,6 +72,7 @@ public final class Hk3LateIndustrialMachines {
         register("i34_imaginary_tree_observation_array", "i34", Hk3Tiers.IRV);
         register("i35_imaginary_space_anchoring_array", "i35", Hk3Tiers.IRV);
         register("i36_honkai_reality_stability_anchor", "i36", Hk3Tiers.QSV);
+        register("i37_world_maintenance_trial_platform", "i37", Hk3Tiers.WFV);
         register("i38_imaginary_energy_rectification_hub", "i38", Hk3Tiers.IWV);
         register("i39_unmanned_cross_boundary_route_relay", "i39", Hk3Tiers.ICV);
         register("i40_civilization_wonder_material_synthesis_center", "i40", Hk3Tiers.WFV);
@@ -90,8 +91,13 @@ public final class Hk3LateIndustrialMachines {
 
     private static void register(String name, String key, int tier) {
         String role = key.toUpperCase(Locale.ROOT);
+        String overlay = key.equals("i37") ? "i35" : key;
         var definition = Hk3Gtl.REGISTRATE.multiblock(name, holder -> key.equals("i34")
                 ? new com.sirin.hk3gtl.common.machine.tree.Hk3TreeObservationMachine(holder)
+                : key.equals("i36")
+                ? new com.sirin.hk3gtl.common.machine.research.Hk3RealityStabilityAnchorMachine(holder)
+                : com.sirin.hk3gtl.common.recipe.honkai.Hk3ReactorFuels.reactor(role)
+                ? new com.sirin.hk3gtl.common.machine.energy.Hk3ReactorMachine(holder, role)
                 : new Hk3LateIndustrialMachine(holder, role))
                 .tier(tier).rotationState(RotationState.NON_Y_AXIS)
                 .generator(Hk3ResearchProcessEnergy.isGenerator(role))
@@ -100,13 +106,14 @@ public final class Hk3LateIndustrialMachines {
                 .appearanceBlock(() -> Hk3StructureBlocks.require("hk3gtl:industrial_port_casing"))
                 .pattern(def -> Hk3LateIndustrialPatterns.create(def, key))
                 .multiblockPreviewRenderer(true, true)
-                .workableCasingRenderer(SHELL, new ResourceLocation("hk3gtl", "block/overlay/" + key
+                .workableCasingRenderer(SHELL, new ResourceLocation("hk3gtl", "block/overlay/" + overlay
                         + (Integer.parseInt(key.substring(1)) >= 40 ? "_unique_r182"
                         : Integer.parseInt(key.substring(1)) >= 34 ? "_unique_r181"
                         : Integer.parseInt(key.substring(1)) >= 29 ? "_unique_r180" : "_unique_r178")))
-                .tooltips(Component.translatable("hk3gtl.machine.late_industry.structure_ready"),
-                        Component.translatable("hk3gtl.machine.industrial_extension.provisional_locked"),
-                        Component.translatable("hk3gtl.machine.industrial_extension.survival_unverified"))
+                .tooltips(Component.translatable("hk3gtl.machine." + name + ".tooltip.0"),
+                        Component.translatable("hk3gtl.machine." + name + ".tooltip.1"),
+                        Component.translatable("hk3gtl.machine." + name + ".tooltip.2"),
+                        Component.translatable("hk3gtl.machine.controller.research_required"))
                 .register();
         definition.setShapes(() -> java.util.List.of(Hk3LargeArchitectureShapes.create(definition, key)));
         if (MACHINES.putIfAbsent(key, definition) != null)

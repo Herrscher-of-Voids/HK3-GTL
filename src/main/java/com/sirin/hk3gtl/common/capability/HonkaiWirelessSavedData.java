@@ -1,30 +1,20 @@
 package com.sirin.hk3gtl.common.capability;
 
-/**
- * 【文件职责】
- * - 持久化每个玩家的任意精度无线崩坏能余额。
- * - 关键调用链：HonkaiWirelessNetwork 写入 -> SavedData dirty -> 世界保存/启动镜像。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【变更记录 #2】2026-07-19 19:16:14（第 2 次备注 · 内测四第 31 次更新）
- * - 删除：
- *   1) 删除 Map<UUID, Long> 与 NBT Long 的 64 位存储上限。
- * - 新增：
- *   1) 新增十进制字符串 BigInteger 序列化；损坏、空值或负数记录加载时安全跳过。
- * - 修改：
- *   1) getAmount/setAmount/mirrorToMemory 全部升级为 BigInteger，零值继续删除记录以控制 NBT 体积。
- * - 用途：
- *   1) 确保超 Long.MAX_VALUE 的崩坏能余额跨服务器重启后精确恢复，不发生截断或回绕。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -52,19 +42,19 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 
-/**
- * 【变更记录 #3】2026-10-01 17:17:43（修订137）
- * 删除：静默跳过坏记录、重复余额及启动时向第二份静态余额复制的分支。
- * 新增：严格整账读取、防覆盖加载、原子充值/扣款和同步临时文件落盘。
- * 修改：本账本成为唯一余额来源；保存成功才清待保存标记，失败保留原文件并等待重试。
- * 用途：保护个人HW充值、机器耗能及重启恢复；保留UUID隔离、任意精度和既有费用。
- */
-/**
- * 【变更记录 #4】2026-10-01 17:45:00（修订139）
- * 删除：无；新增：本账本一次工作HW预留，精确退款仍写回相同实例和UUID。
- * 修改：实际预留与反向记录共用方法供生产与隔离回归调用。
- * 用途：验证失败全退、成功只扣一次及并发账户守恒，不创建第二份静态余额。
- */
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
 public final class HonkaiWirelessSavedData extends SavedData {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -74,6 +64,7 @@ public final class HonkaiWirelessSavedData extends SavedData {
     private static final String AMOUNT_KEY = "amt";
 
     private final Map<UUID, BigInteger> pools = new ConcurrentHashMap<>();
+    private final Map<String, CompoundTag> pendingRefunds = new ConcurrentHashMap<>();
 
     public HonkaiWirelessSavedData() {}
 
@@ -92,6 +83,14 @@ public final class HonkaiWirelessSavedData extends SavedData {
             BigInteger amount = new BigInteger(raw);
             if (amount.signum() > 0) data.pools.put(id, amount);
         }
+        if (tag.contains("PendingRefunds")) {
+            for (Tag value : Hk3LedgerValidation.list(tag, "PendingRefunds", Tag.TAG_COMPOUND)) {
+                var row = (CompoundTag) value;
+                Hk3RefundJournal.validate(row);
+                Hk3LedgerValidation.require(data.pendingRefunds.putIfAbsent(row.getString("Key"), row.copy()) == null,
+                        "重复机器退款日志");
+            }
+        }
         return data;
     }
 
@@ -107,6 +106,9 @@ public final class HonkaiWirelessSavedData extends SavedData {
             list.add(entry);
         }
         tag.put(POOLS_KEY, list);
+        var pending = new ListTag();
+        for (var row : pendingRefunds.values()) { Hk3RefundJournal.validate(row); pending.add(row.copy()); }
+        tag.put("PendingRefunds", pending);
         return tag;
     }
 
@@ -124,8 +126,26 @@ public final class HonkaiWirelessSavedData extends SavedData {
         if (amount == null || amount.signum() < 0) throw new IllegalArgumentException("无效HW费用");
         if (amount.signum() == 0) return true;
         if (playerId == null || !tryExtractExact(playerId, amount)) return false;
-        tick.undoWith(() -> insert(playerId, amount, false));
+        tick.undoWith(Hk3RefundActions.hw(this, playerId, amount));
         return true;
+    }
+
+    synchronized CompoundTag pendingRefund(String key) {
+        var row = pendingRefunds.get(key);
+        return row == null ? null : row.copy();
+    }
+
+    synchronized void putPendingRefund(String key, CompoundTag controller, CompoundTag row) {
+        var existing = pendingRefunds.get(key);
+        if (existing != null && !Hk3RefundTarget.sameIdentity(existing.getCompound("Controller"), controller))
+            throw new IllegalStateException("原控制器退款尚未处理，禁止覆盖或清除其日志");
+        if (row == null) {
+            if (pendingRefunds.remove(key) != null) setDirty();
+        } else {
+            Hk3RefundJournal.validate(row);
+            pendingRefunds.put(key, row.copy());
+            setDirty();
+        }
     }
 
     public synchronized void setAmount(UUID playerId, BigInteger amount) {

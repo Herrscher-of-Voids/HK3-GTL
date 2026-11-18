@@ -5,6 +5,7 @@ import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.state.BlockState;
 import java.io.DataInputStream;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -36,8 +37,9 @@ public final class Hk3W03FieldScenes {
         }
     }
     public static void clear(){scenes=List.of();level=null;}
-    public static boolean hidden(BlockPos world){
+    public static boolean hidden(BlockPos world,BlockState state){
         var data=mask;if(data==null||scenes.isEmpty()||!Hk3W03FxRenderer.ready())return false;
+        if(com.sirin.hk3gtl.common.multiblock.pattern.Hk3InterfacePredicates.isInterface(state))return false;
         for(var scene:scenes){
             var s=scene.state;int dx=world.getX()-s.pos().getX(),y=world.getY()-s.pos().getY()+27,dz=world.getZ()-s.pos().getZ();
             int x=dx,z=dz;
@@ -48,12 +50,11 @@ public final class Hk3W03FieldScenes {
                 default->{}
             }
             x+=416;z+=187;if(x<0||x>=833||y<0||y>=636||z<0||z>=833)continue;
-            if(y==27&&z==187&&(x==416||Arrays.binarySearch(PORT_X,x)>=0))continue;
+            if(y==27&&z==187&&x==416)continue;
             var bits=data.get(BlockPos.asLong(x>>4,y>>4,z>>4));int bit=((y&15)*16+(z&15))*16+(x&15);
             if(bits!=null&&(bits[bit>>>6]&(1L<<(bit&63)))!=0)return true;
         }return false;
     }
-    private static final int[] PORT_X={398,402,406,410,422,426,430,434};
     private static void loadMask(){
         try(var raw=Hk3W03FieldScenes.class.getResourceAsStream("/data/hk3gtl/structures/w03_c9_mask.bin.gz");
             var input=new DataInputStream(new GZIPInputStream(Objects.requireNonNull(raw)))){

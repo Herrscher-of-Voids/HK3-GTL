@@ -31,14 +31,11 @@ import net.minecraftforge.fml.loading.FMLLoader;
 import com.mojang.logging.LogUtils;
 import java.util.UUID;
 
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/**
- * 【变更记录 #1】2026-09-25 02:23:27（内测5修订70）
- * 删除：旧三格研究所夹具的执行入口。新增：指向新验收的提示。
- * 修改：历史实现留在私有归档方法，不再放置。用途：避免新大结构覆盖旧夹具场地。
- */
+ 
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl",bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3ResearchRuntimeCheck {
     private static UUID playerId;
@@ -48,7 +45,6 @@ public final class Hk3ResearchRuntimeCheck {
     private static final BlockPos TOWER=new BlockPos(96,-58,64), LAB=new BlockPos(104,-58,64);
     private Hk3ResearchRuntimeCheck() {}
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     public static int begin(ServerPlayer p) {
         // 修订70：旧夹具仅按3格研究所预留空间，不得再放置放大后的正式研究所。
         // 当前正式包只允许通过指定实例的新版结构／光谱验收入口启动，历史实现保留便于追溯。
@@ -65,11 +61,9 @@ public final class Hk3ResearchRuntimeCheck {
         }
         if (p.getInventory().getFreeSlot()<0) return 0;
         place(p,TOWER,"honkai_absorption_tower"); place(p,LAB,"abyss_research_analysis_matrix");
-        // 中文备注：该处说明已按当前代码行为整理。
-        // 中文维护备注：历史说明已整理；当前实现以代码为准。
         int port=0;
         for (BlockPos pos:BlockPos.betweenClosed(TOWER.offset(-2,-1,-3),TOWER.offset(2,1,3))) {
-            if (!p.level().getBlockState(pos).is(com.sirin.hk3gtl.common.block.CasingBlocks.CASING_ABYSS_ENERGY.get())) continue;
+            if (!p.level().getBlockState(pos).is(com.sirin.hk3gtl.common.multiblock.pattern.Hk3StructureBlocks.require("gtceu:max_machine_casing"))) continue;
             var block=(port==0 ? com.gregtechceu.gtceu.common.data.GTMachines.ITEM_IMPORT_BUS[1]
                     : com.gregtechceu.gtceu.common.data.GTMachines.FLUID_EXPORT_HATCH[1]).getBlock();
             p.serverLevel().setBlockAndUpdate(pos,block.defaultBlockState());
@@ -80,7 +74,6 @@ public final class Hk3ResearchRuntimeCheck {
         playerId=p.getUUID();stage=0;start=p.server.overworld().getGameTime();
         p.sendSystemMessage(Component.literal("研究运行测试已启动；使用真实游戏刻，不授予实验凭据或知识。")); return 1;
     }
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     private static void place(ServerPlayer p,BlockPos pos,String id) {
         var block=BuiltInRegistries.BLOCK.get(new ResourceLocation("hk3gtl",id));
         p.serverLevel().setBlockAndUpdate(pos,block.defaultBlockState());
@@ -88,7 +81,6 @@ public final class Hk3ResearchRuntimeCheck {
         ((com.gregtechceu.gtceu.api.machine.feature.IMachineLife)m).onMachinePlaced(p,new ItemStack(block));
         m.getPattern().autoBuild(p,m.getMultiblockState());
     }
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     @SubscribeEvent public static void stopped(ServerStoppedEvent event) { playerId=null; }
     @SubscribeEvent public static void tick(TickEvent.ServerTickEvent event) {
         if (event.phase!=TickEvent.Phase.END || playerId==null || FMLLoader.isProduction()) return;
@@ -103,8 +95,6 @@ public final class Hk3ResearchRuntimeCheck {
                 if (!tower.isFormed() || !lab.isFormed()) return;
                 check(!data.hasExperiment(playerId,"RN-HED"),"新账号状态");
                 check(lab.requestResearch(p,"RN-HED",false)==Hk3ResearchStartService.Result.LOCKED,"缺少实验凭据时应拒绝开题");
-                // 中文维护备注：历史说明已整理；当前实现以代码为准。
-                // 中文备注：该处说明已按当前代码行为整理。
                 var maxTag=net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM,new ResourceLocation("gtceu","circuits/max"));
                 var maxCircuit=BuiltInRegistries.ITEM.getTag(maxTag).orElseThrow().iterator().next().value();
                 check(p.getInventory().add(new ItemStack(maxCircuit)),"MAX入口电路可以放入背包");
@@ -179,4 +169,4 @@ public final class Hk3ResearchRuntimeCheck {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

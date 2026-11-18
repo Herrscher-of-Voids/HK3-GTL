@@ -1,0 +1,1767 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w06_x46_microgrid_cold_dielectric",
+      "role": "W06",
+      "zh_name": "相干微栅低温介电沉积",
+      "purpose": "在微栅表面沉积陶瓷隔离层；保留全部陶瓷与液氢投入，供后续封装而非直接生成成品。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CPT",
+        "RN-ICA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_stage_1",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_stage_2",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:liquid_hydrogen",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/coherent_interconnect_grid/grid_isolation_encapsulation"
+      ],
+      "baseline_recipe": "main_material/coherent_interconnect_grid/cryogenic_dielectric_coating",
+      "process_family": "低温介电工程"
+    },
+    {
+      "id": "wonder_w06_x46_band_ceramic_interface",
+      "role": "W06",
+      "zh_name": "导能带陶瓷界面冷浸渍",
+      "purpose": "液氢冷阱抑制界面团聚，仍消耗整批陶瓷箔与聚合物；输出待隔离带材。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-ICA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_stage_1",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_stage_2",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 9216
+        },
+        {
+          "id": "gtceu:liquid_hydrogen",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 3200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_coupled_energy_band/cryogenic_band_isolation"
+      ],
+      "baseline_recipe": "main_material/imaginary_coupled_energy_band/multilayer_ceramic_impregnation",
+      "process_family": "低温界面工程"
+    },
+    {
+      "id": "wonder_w06_x46_paired_seed_synchronization",
+      "role": "W06",
+      "zh_name": "双晶种低温同步配对",
+      "purpose": "A、B两支晶种各消耗八份，整批同步为十六份配对坯，不允许用单侧晶种复制配对。",
+      "requirements": [
+        "RN-CCF",
+        "RN-QOM",
+        "RN-CQS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:paired_entangled_lattice_stage_1",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:paired_entangled_lattice_stage_2",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:paired_entangled_lattice_stage_3",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/paired_entangled_lattice/paired_lattice_ageing"
+      ],
+      "baseline_recipe": "main_material/paired_entangled_lattice/paired_lattice_assembly",
+      "process_family": "双晶配对"
+    },
+    {
+      "id": "wonder_w06_x46_paired_lattice_cold_acceptance",
+      "role": "W06",
+      "zh_name": "整对晶格低温验收",
+      "purpose": "仅检验已经完成时效的配对坯，十二份合格与四份拒收保持偶数配对及原固定良率。",
+      "requirements": [
+        "RN-CCF",
+        "RN-QOM",
+        "RN-CQS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:paired_entangled_lattice_stage_4",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:paired_entangled_lattice_billet",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:paired_entangled_lattice_rejected_batch",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/paired_entangled_lattice/composite_laminate_plate",
+        "main_material/paired_entangled_lattice/dismantle_rejected_batch"
+      ],
+      "baseline_recipe": "main_material/paired_entangled_lattice/surface_finish_and_batch_separation",
+      "process_family": "低温质检"
+    },
+    {
+      "id": "wonder_w06_x46_phase_ceramic_cold_acceptance",
+      "role": "W06",
+      "zh_name": "相转移陶瓷裂纹冷筛",
+      "purpose": "已淬火陶瓷经冷态尺寸筛分，保持十四份合格与两份实体拒收，不跳过相转移。",
+      "requirements": [
+        "RN-CCF",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_stage_3",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_phase_transfer_ceramic/protected_atmosphere_ceramic_plate",
+        "main_material/imaginary_phase_transfer_ceramic/dismantle_rejected_batch"
+      ],
+      "baseline_recipe": "main_material/imaginary_phase_transfer_ceramic/surface_finish_and_batch_separation",
+      "process_family": "低温质检"
+    },
+    {
+      "id": "wonder_w06_x46_worldshell_cold_acceptance",
+      "role": "W06",
+      "zh_name": "稳界壳热疲劳后冷筛",
+      "purpose": "只接收完成热疲劳处理的第三态壳坯；保持原十四比二的固定分选。",
+      "requirements": [
+        "RN-CCF",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_3",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldstabilizing_confinement_shell/composite_laminate_plate",
+        "main_material/worldstabilizing_confinement_shell/dismantle_rejected_batch"
+      ],
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/surface_finish_and_batch_separation",
+      "process_family": "低温质检"
+    },
+    {
+      "id": "wonder_w06_x46_microgrid_insulation_screen",
+      "role": "W06",
+      "zh_name": "相干栅封装绝缘冷筛",
+      "purpose": "完成隔离封装后筛去两份缺陷栅格，保护完整量产工序与固定拒收支线。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CPT",
+        "RN-ICA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_stage_3",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/coherent_interconnect_grid/composite_laminate_plate",
+        "main_material/coherent_interconnect_grid/dismantle_rejected_batch"
+      ],
+      "baseline_recipe": "main_material/coherent_interconnect_grid/surface_finish_and_batch_separation",
+      "process_family": "低温绝缘筛选"
+    },
+    {
+      "id": "wonder_w06_x46_energy_band_cold_acceptance",
+      "role": "W06",
+      "zh_name": "虚数导能带冷态验收",
+      "purpose": "低温隔离带材逐批确认界面完整性，保留两份拒收料及其同阶回收身份。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-ICA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_stage_3",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_coupled_energy_band/composite_laminate_plate",
+        "main_material/imaginary_coupled_energy_band/dismantle_rejected_batch"
+      ],
+      "baseline_recipe": "main_material/imaginary_coupled_energy_band/surface_finish_and_batch_separation",
+      "process_family": "低温导能验收"
+    },
+    {
+      "id": "wonder_w06_x46_quantum_logic_dicing",
+      "role": "W06",
+      "zh_name": "量子逻辑晶圆独立深冷切割",
+      "purpose": "按逻辑裸片需求单独切片；四片晶圆固定得到三十二枚裸片，冷却液等量变热。",
+      "requirements": [
+        "RN-CCF",
+        "RN-MCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_wafer",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 32
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1500,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_cpu",
+        "wonder_w13_quantum_coherence_logic_chiplet"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_logic_die",
+      "process_family": "低温晶圆切割"
+    },
+    {
+      "id": "wonder_w06_x46_quantum_memory_dicing",
+      "role": "W06",
+      "zh_name": "量子存储晶圆独立深冷切割",
+      "purpose": "四片存储晶圆固定切出六十四枚芯片，避免为单一存储需求强制联产逻辑裸片。",
+      "requirements": [
+        "RN-CCF",
+        "RN-MCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_ram_wafer",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1500,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_cpu",
+        "hk3gtl_main_circuit_qav_processor_mainframe"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_ram_chip",
+      "process_family": "低温存储切割"
+    },
+    {
+      "id": "wonder_w06_x46_imaginary_logic_dicing",
+      "role": "W06",
+      "zh_name": "虚数拓扑逻辑裸片冷切",
+      "purpose": "以在线光学反馈替代反复停机测量，不改变每片八枚裸片的物料产率。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_wafer",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 32
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1700,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu",
+        "wonder_w13_imaginary_topology_logic_chiplet"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_logic_die",
+      "process_family": "低温晶圆切割"
+    },
+    {
+      "id": "wonder_w06_x46_imaginary_memory_dicing",
+      "role": "W06",
+      "zh_name": "虚数拓扑存储芯片冷切",
+      "purpose": "低温夹持限制脆性存储片翘曲；四片晶圆仍只得到六十四枚芯片。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_ram_wafer",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1700,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu",
+        "hk3gtl_main_circuit_iwv_processor_mainframe"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_ram_chip",
+      "process_family": "低温存储切割"
+    },
+    {
+      "id": "wonder_w06_x46_endurance_logic_dicing",
+      "role": "W06",
+      "zh_name": "文明恒续逻辑裸片冷切",
+      "purpose": "独立加工恒续逻辑片，保留平台研究与晶圆实体投入，不复制已封装CPU。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_wafer",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 32
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1900,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "wonder_w13_civilization_endurance_logic_chiplet"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_logic_die",
+      "process_family": "低温晶圆切割"
+    },
+    {
+      "id": "wonder_w06_x46_endurance_memory_dicing",
+      "role": "W06",
+      "zh_name": "文明恒续存储芯片冷切",
+      "purpose": "独立供给终局电路的存储芯片；产率固定为每片十六枚，无概率筛选。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_wafer",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1900,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "hk3gtl_main_circuit_cev_processor_mainframe"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_ram_chip",
+      "process_family": "低温存储切割"
+    },
+    {
+      "id": "wonder_w06_x46_quantum_interconnect_cold_layup",
+      "role": "W06",
+      "zh_name": "量子互连网冷态层叠",
+      "purpose": "保留三十二根本平台细线与四层介电膜；低温夹具合并压合与冷却，八份互连网不额外增殖。",
+      "requirements": [
+        "RN-CCF",
+        "RN-MCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_dielectric_film",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_circuit_substrate",
+        "hk3gtl_electronic_quantum_coherence_cpu"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_interconnect_mesh",
+      "process_family": "低温微互连"
+    },
+    {
+      "id": "wonder_w06_x46_quantum_cpu_cold_package",
+      "role": "W06",
+      "zh_name": "量子CPU低应力共封装",
+      "purpose": "保留双裸片、四存储、贴片阵列、互连、壳体及前平台CPU；新增凝态隔离填料用于四颗CPU的低温接合。",
+      "requirements": [
+        "RN-CCF",
+        "RN-MCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_cpu",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_cpu",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_qsv_processor",
+        "hk3gtl_electronic_imaginary_topology_cpu"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_cpu",
+      "process_family": "低温芯片封装"
+    },
+    {
+      "id": "wonder_w06_x46_imaginary_cpu_stress_package",
+      "role": "W06",
+      "zh_name": "虚数拓扑CPU热应力隔离封装",
+      "purpose": "以四颗前平台CPU作为实体升级核心，完整消耗本平台逻辑、存储与封装料，凝态填料承担热应力缓冲。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_cpu",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 3000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_imv_processor",
+        "hk3gtl_electronic_civilization_endurance_cpu"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_cpu",
+      "process_family": "低温芯片封装"
+    },
+    {
+      "id": "wonder_w06_x46_endurance_cpu_barrier_package",
+      "role": "W06",
+      "zh_name": "文明恒续CPU深冷屏障封装",
+      "purpose": "四颗CPU各保留前平台处理器与完整电子件成本；深冷屏障增加凝态材料，不用成品返工复制CPU。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 3000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_wfv_processor",
+        "hk3gtl_main_component_wsv_field_generator"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_cpu",
+      "process_family": "低温芯片封装"
+    },
+    {
+      "id": "wonder_w06_x46_wsv_sensor_cold_bridge",
+      "role": "W06",
+      "zh_name": "WSV传感器低温读出桥",
+      "purpose": "保留WFV传感器、本阶电路与完整读出器件；额外凝态隔离块用于抑制热漂移。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1700,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_sensor"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_sensor",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w06_x46_wsv_emitter_cold_alignment",
+      "role": "W06",
+      "zh_name": "WSV发射器冷态光轴装配",
+      "purpose": "前阶发射器与本阶电路继续消耗，深冷夹持完成光轴接合，保留全部主材和逻辑件。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:emitter_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_emitter"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_emitter",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w06_x46_wfv_motor_cold_winding",
+      "role": "W06",
+      "zh_name": "WFV电机低温绕组装配",
+      "purpose": "沿用IWV电机升级与WFV电路，凝态材料只承担绕组绝缘和装配工艺，不替代导体主材。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_iwv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wfv_processor",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_wfv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_motor"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wfv_electric_motor",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w06_x46_wsv_pump_cold_seal",
+      "role": "W06",
+      "zh_name": "WSV电泵低温密封装配",
+      "purpose": "泵体主材、转子、前阶电泵和本阶电路完整投入；新增冷态界面料供低温密封。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_pump_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_pump_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 250
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 250
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_pump"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_pump",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w06_x46_wsv_field_cold_insulation",
+      "role": "W06",
+      "zh_name": "WSV场发生器冷态绝缘装配",
+      "purpose": "保留前阶场发生器与本阶电路，低温层间绝缘减少装配占时而不减去CPU和框架。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_field_generator"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_field_generator",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w06_x46_worldshell_cold_plate",
+      "role": "W06",
+      "zh_name": "稳界壳冷态层压成板",
+      "purpose": "八坯成八板，冷态夹持与涂层合并；主材相含量不因低温增加。",
+      "requirements": [
+        "RN-CCF",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_piston",
+        "hk3gtl_main_component_wsv_sensor"
+      ],
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/composite_laminate_plate",
+      "process_family": "低温复合成材"
+    },
+    {
+      "id": "wonder_w06_x46_worldshell_cold_seal_rings",
+      "role": "W06",
+      "zh_name": "稳界壳低温密封环成形",
+      "purpose": "四根棒材成八个环，冷态工装控制接缝，涂层为消耗辅料。",
+      "requirements": [
+        "RN-CCF",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 250
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 250
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_pump",
+        "hk3gtl_main_component_wsv_sensor"
+      ],
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_interface_rings",
+      "process_family": "低温密封成形"
+    },
+    {
+      "id": "wonder_w06_x46_coherent_grid_cold_foil",
+      "role": "W06",
+      "zh_name": "相干栅介电复合薄层",
+      "purpose": "四板展成十六层复合箔；并非把陶瓷当金属冷轧，聚合物承担支撑层。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CPT",
+        "RN-ICA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_plate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 576
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_qcv_electric_pump",
+        "hk3gtl_main_component_qcv_emitter"
+      ],
+      "baseline_recipe": "main_material/coherent_interconnect_grid/functional_thin_layers",
+      "process_family": "低温复合薄层"
+    },
+    {
+      "id": "wonder_w06_x46_coupled_band_cold_wire",
+      "role": "W06",
+      "zh_name": "导能带复合细线冷拉",
+      "purpose": "四根功能棒与十六根Shirabon细线共加工十六根复合细线，保留非金属主材的额外导体。",
+      "requirements": [
+        "RN-CCF",
+        "RN-CQS",
+        "RN-ICA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_rod",
+          "count": 4
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_fine_wire",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_icv_electric_motor",
+        "main_material/civilization_quadrisystem_matrix/independent_energy_module"
+      ],
+      "baseline_recipe": "main_material/imaginary_coupled_energy_band/functional_fine_wire",
+      "process_family": "低温复合导体"
+    },
+    {
+      "id": "wonder_w06_x46_phase_ceramic_cold_membrane",
+      "role": "W06",
+      "zh_name": "相转移陶瓷支撑薄膜",
+      "purpose": "陶瓷板作为功能相，聚合物提供展薄支撑；四板只产十六份原有复合箔。",
+      "requirements": [
+        "RN-CCF",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 576
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1900,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_coupled_energy_band/multilayer_ceramic_impregnation",
+        "hk3gtl_main_component_imv_electric_pump"
+      ],
+      "baseline_recipe": "main_material/imaginary_phase_transfer_ceramic/functional_thin_layers",
+      "process_family": "低温陶瓷薄层"
+    },
+    {
+      "id": "wonder_w06_x46_anchor_lattice_cold_rods",
+      "role": "W06",
+      "zh_name": "锚定超晶格冷态承力棒",
+      "purpose": "四份合格锚定坯加工为八根承力棒，低温夹具保留超晶格取向，不越过固化或质量分选。",
+      "requirements": [
+        "RN-CCF",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_rod",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1200
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1200
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_qav_electric_piston",
+        "main_material/anchored_superlattice_structure/loadbearing_frame_assembly"
+      ],
+      "baseline_recipe": "main_material/anchored_superlattice_structure/formed_loadbearing_rods",
+      "process_family": "低温取向成形"
+    }
+  ]
+}

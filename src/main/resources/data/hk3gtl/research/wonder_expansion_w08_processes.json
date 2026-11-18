@@ -1,0 +1,1877 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w08_x46_phase_ceramic_hot_plate",
+      "role": "W08",
+      "zh_name": "相转移陶瓷保护气烧结板",
+      "purpose": "八份合格陶瓷坯在保护气下烧结成八板，保留专属陶瓷路线，不以普通金属压延冒充。",
+      "requirements": [
+        "RN-SFF",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_imv_electric_piston",
+        "hk3gtl_main_component_imv_sensor"
+      ],
+      "baseline_recipe": "main_material/imaginary_phase_transfer_ceramic/protected_atmosphere_ceramic_plate",
+      "process_family": "陶瓷高温成材"
+    },
+    {
+      "id": "wonder_w08_x46_gradient_ceramic_hot_rods",
+      "role": "W08",
+      "zh_name": "约束陶瓷承力棒烧结",
+      "purpose": "四份约束梯度坯形成八根承力棒，保护气与热媒承担成形工况，主材相守恒。",
+      "requirements": [
+        "RN-SFF",
+        "RN-HRC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:constraint_gradient_composite_billet",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:constraint_gradient_composite_rod",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_hcv_electric_motor",
+        "main_material/constraint_gradient_composite/formed_interface_rings"
+      ],
+      "baseline_recipe": "main_material/constraint_gradient_composite/formed_loadbearing_rods",
+      "process_family": "陶瓷高温成材"
+    },
+    {
+      "id": "wonder_w08_x46_gradient_ceramic_joined_rings",
+      "role": "W08",
+      "zh_name": "约束陶瓷环热接合",
+      "purpose": "四根陶瓷复合棒生成八个环，聚合物界面料参与热接合而不增加主材数量。",
+      "requirements": [
+        "RN-SFF",
+        "RN-HRC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:constraint_gradient_composite_rod",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:constraint_gradient_composite_ring",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 288
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_hcv_electric_pump",
+        "hk3gtl_main_component_hcv_sensor"
+      ],
+      "baseline_recipe": "main_material/constraint_gradient_composite/formed_interface_rings",
+      "process_family": "陶瓷热接合"
+    },
+    {
+      "id": "wonder_w08_x46_reconstructed_alloy_hot_plate",
+      "role": "W08",
+      "zh_name": "重构合金定向热轧板",
+      "purpose": "八份合格重构坯形成八板，以保护气及热媒同步完成定向热轧和出炉冷却。",
+      "requirements": [
+        "RN-SFF",
+        "RN-UPR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_plate",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 3000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_irv_electric_piston",
+        "hk3gtl_main_component_irv_sensor"
+      ],
+      "baseline_recipe": "main_material/imaginary_reconstructed_alloy/oriented_metal_plate",
+      "process_family": "定向热轧",
+      "circuit": 1
+    },
+    {
+      "id": "wonder_w08_x46_reconstructed_alloy_continuous_rods",
+      "role": "W08",
+      "zh_name": "重构合金连续热挤棒",
+      "purpose": "八坯仅得十六棒；连续热挤保持合金整体性，冷却热量进入次级热媒。",
+      "requirements": [
+        "RN-SFF",
+        "RN-UPR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_rod",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 3000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_irv_electric_piston",
+        "main_material/imaginary_reconstructed_alloy/loadbearing_frame_assembly"
+      ],
+      "baseline_recipe": "main_material/imaginary_reconstructed_alloy/formed_loadbearing_rods",
+      "process_family": "连续热挤",
+      "circuit": 2
+    },
+    {
+      "id": "wonder_w08_x46_reconstructed_alloy_hot_foil",
+      "role": "W08",
+      "zh_name": "重构合金热态展箔",
+      "purpose": "四板展为十六箔，辅助热媒只缩短温度转换，不产生额外合金相。",
+      "requirements": [
+        "RN-SFF",
+        "RN-UPR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_plate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 1500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_irv_electric_pump",
+        "hk3gtl_main_component_irv_emitter"
+      ],
+      "baseline_recipe": "main_material/imaginary_reconstructed_alloy/functional_thin_layers",
+      "process_family": "热态薄材"
+    },
+    {
+      "id": "wonder_w08_x46_reconstructed_alloy_brazed_frame",
+      "role": "W08",
+      "zh_name": "重构合金框架保护气钎焊",
+      "purpose": "三十二根棒材提供四个框架的全部结构相，新焊料仅连接节点，不能回收为额外主材。",
+      "requirements": [
+        "RN-SFF",
+        "RN-UPR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_rod",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_frame",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 576
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_irv_field_generator"
+      ],
+      "baseline_recipe": "main_material/imaginary_reconstructed_alloy/loadbearing_frame_assembly",
+      "process_family": "框架热接合"
+    },
+    {
+      "id": "wonder_w08_x46_ultradense_hot_extrusion",
+      "role": "W08",
+      "zh_name": "超致密魂钢承压棒热挤",
+      "purpose": "四份合格承压坯成八棒，热挤只改变形态，不跳过热等静压、退火和应力释放。",
+      "requirements": [
+        "RN-SFF",
+        "RN-SPM",
+        "RN-HLC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_billet",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_rod",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_hdv_electric_piston",
+        "wonder_w10_pump_housing_pressure_consolidation"
+      ],
+      "baseline_recipe": "main_material/ultradense_loadbearing_soulium/formed_loadbearing_rods",
+      "process_family": "承压金属热挤"
+    },
+    {
+      "id": "wonder_w08_x46_ultradense_hot_mandrel_rings",
+      "role": "W08",
+      "zh_name": "超致密承压环热芯轴成形",
+      "purpose": "八棒成十六环，热芯轴工装复用，承压主材不由模具或能源凭空生成。",
+      "requirements": [
+        "RN-SFF",
+        "RN-SPM",
+        "RN-HLC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_rod",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_ring",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:ultradense_pump_housing_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_hdv_electric_pump",
+        "wonder_w10_hdv_pump_housing_finish_assembly"
+      ],
+      "baseline_recipe": "main_material/ultradense_loadbearing_soulium/formed_interface_rings",
+      "process_family": "承压环热成形"
+    },
+    {
+      "id": "wonder_w08_x46_ultradense_frame_hot_welding",
+      "role": "W08",
+      "zh_name": "超致密承压框架热焊",
+      "purpose": "三十二棒焊接四个框架，额外焊料与保护气降低接头工序占用，保持结构相数量。",
+      "requirements": [
+        "RN-SFF",
+        "RN-SPM",
+        "RN-HLC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_rod",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_frame",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 576
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 12000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w08_pump_die_thermal_tooling",
+        "wonder_w10_empty_vessel_pressure_assembly"
+      ],
+      "baseline_recipe": "main_material/ultradense_loadbearing_soulium/loadbearing_frame_assembly",
+      "process_family": "承压框架热接合"
+    },
+    {
+      "id": "wonder_w08_x46_worldshell_diffusion_bonded_plate",
+      "role": "W08",
+      "zh_name": "稳界壳隔层扩散接合板",
+      "purpose": "八份合格壳坯与耐蚀界面层共同热接合，输出八板，避免复合隔层在冷轧中剥离。",
+      "requirements": [
+        "RN-SFF",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 12000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 3000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_piston",
+        "wonder_w08_fuel_casing_joint_forge"
+      ],
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/composite_laminate_plate",
+      "process_family": "复合层热接合"
+    },
+    {
+      "id": "wonder_w08_x46_quadrisystem_hot_laminate_foil",
+      "role": "W08",
+      "zh_name": "文明四系复合箔热层压",
+      "purpose": "四系合格板只展为十六复合箔，聚合物支撑层防止四路功能相分离，不替代四系汇流。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 576
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_pump",
+        "hk3gtl_main_component_civ_field_generator"
+      ],
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/functional_thin_layers",
+      "process_family": "四系热层压"
+    },
+    {
+      "id": "wonder_w08_x46_worldweave_ceramic_hot_layer",
+      "role": "W08",
+      "zh_name": "织界陶瓷增强层热制备",
+      "purpose": "独立陶瓷支线消耗四份IRV坯及十六份纳米陶瓷，仅产四份陶瓷增强层，不复制其它三路。",
+      "requirements": [
+        "RN-SFF",
+        "RN-SWC",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_stage_1",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldweave_multiaxial_composite/multiaxial_four_layer_cocure"
+      ],
+      "baseline_recipe": "main_material/worldweave_multiaxial_composite/independent_reinforcement_1",
+      "process_family": "独立高温增强支线"
+    },
+    {
+      "id": "wonder_w08_x46_worldweave_conductor_hot_layer",
+      "role": "W08",
+      "zh_name": "织界导体增强层热铺设",
+      "purpose": "四份IRV坯与十六根Shirabon细线形成导体支线；该层不能替代陶瓷、承力或修复增强层。",
+      "requirements": [
+        "RN-SFF",
+        "RN-SWC",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 4
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_stage_2",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldweave_multiaxial_composite/multiaxial_four_layer_cocure"
+      ],
+      "baseline_recipe": "main_material/worldweave_multiaxial_composite/independent_reinforcement_2",
+      "process_family": "独立高温增强支线"
+    },
+    {
+      "id": "wonder_w08_x46_worldweave_fiber_hot_layer",
+      "role": "W08",
+      "zh_name": "织界承力增强层热固化",
+      "purpose": "实体碳纤维与IRV基材共同固化为四份承力支线；没有新注册纤维或虚构中间件。",
+      "requirements": [
+        "RN-SFF",
+        "RN-SWC",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 4
+        },
+        {
+          "id": "gtceu:carbon_fibers",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_stage_3",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldweave_multiaxial_composite/multiaxial_four_layer_cocure"
+      ],
+      "baseline_recipe": "main_material/worldweave_multiaxial_composite/independent_reinforcement_3",
+      "process_family": "独立高温增强支线"
+    },
+    {
+      "id": "wonder_w08_x46_worldshell_barrier_hot_precursor",
+      "role": "W08",
+      "zh_name": "稳界封隔前体热浸渍",
+      "purpose": "八份构界坯与三十二份纳米陶瓷消耗完整聚合物配额，形成八份封隔前体，仍须纤维叠层和热疲劳处理。",
+      "requirements": [
+        "RN-SFF",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_1",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 9216
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 3200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldstabilizing_confinement_shell/fiber_barrier_multilayer"
+      ],
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/constraint_barrier_precursor",
+      "process_family": "高温界面浸渍"
+    },
+    {
+      "id": "wonder_w08_x46_quadrisystem_reconstruction_hot_module",
+      "role": "W08",
+      "zh_name": "文明重构系模块高温熔合",
+      "purpose": "四份WSV坯与八份IRV坯在空间介质中熔合，只输出独立重构支线，不把其余三系删掉。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 16000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 4000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/civilization_quadrisystem_matrix/quadrisystem_cocure"
+      ],
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/independent_reconstruction_module",
+      "process_family": "四系独立高温支线"
+    },
+    {
+      "id": "wonder_w08_x46_reconstructed_alloy_hot_composition",
+      "role": "W08",
+      "zh_name": "重构母合金炉内补料调成",
+      "purpose": "八份初料保留十六份新Shirabon及四千稳定崩坏能的调成成本，产物仍是待退火第二态。",
+      "requirements": [
+        "RN-SFF",
+        "RN-UPR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_stage_1",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_ingot",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_stage_2",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 3600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_reconstructed_alloy/reconstructed_alloy_anneal",
+        "wonder_w08_reconstructed_alloy_anneal_finish"
+      ],
+      "baseline_recipe": "main_material/imaginary_reconstructed_alloy/fresh_alloy_composition_adjustment",
+      "process_family": "炉内合金调成"
+    },
+    {
+      "id": "wonder_w08_x46_wsv_motor_hot_rotor",
+      "role": "W08",
+      "zh_name": "WSV电机转子热装",
+      "purpose": "保留WFV电机、WSV电路及所有绕组主材；少量极限铸材承担转子热装定位。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_motor"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_motor",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w08_x46_civ_pump_cast_housing",
+      "role": "W08",
+      "zh_name": "CIV电泵铸壳热接合",
+      "purpose": "前阶电泵、本阶电路和常规全部主材继续消耗，承压壳坯作为附加壳体加强件，不越阶替代CIV材料。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_pump_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:ultradense_pump_housing_blank",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_pump_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 1500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:ultradense_pump_housing_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_pump"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_pump",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w08_x46_civ_conveyor_hot_cure",
+      "role": "W08",
+      "zh_name": "CIV传送组件耐蚀热固化",
+      "purpose": "完整投入WSV传送件、CIV电路、驱动与互连；耐蚀层热固化负责表面寿命而非替代主材。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:conveyor_module_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:conveyor_module_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 1500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_conveyor_module"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_civ_conveyor_module",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w08_x46_civ_emitter_hot_ceramic_seal",
+      "role": "W08",
+      "zh_name": "CIV发射器金属陶瓷热封",
+      "purpose": "保留前阶发射器、本阶电路与完整光电件；极限铸材只增加高温壳体，封口涂层持续消耗。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:emitter_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 250
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 250
+        },
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_emitter"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_civ_emitter",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w08_x46_civ_sensor_hot_feedthrough",
+      "role": "W08",
+      "zh_name": "CIV传感器高温引线封口",
+      "purpose": "保留读出CPU、四存储和完整CIV主材，新增陶瓷用于金属引线贯穿封口。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_sensor"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_civ_sensor",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w08_x46_wsv_piston_hot_shrinkfit",
+      "role": "W08",
+      "zh_name": "WSV电动活塞热缩装配",
+      "purpose": "前阶活塞、WSV电机与本阶电路不能跳过，热缩装配只合并机械接合与温度恢复。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_piston_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_piston_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_piston"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_piston",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w08_x46_wsv_conveyor_thermal_laminate",
+      "role": "W08",
+      "zh_name": "WSV传送组件耐热层压",
+      "purpose": "维持前阶传送组件和双电机成本，以附加陶瓷层压支持热端输送，不把材料烧结当作免费升级。",
+      "requirements": [
+        "RN-SFF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:conveyor_module_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:conveyor_module_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 288
+        },
+        {
+          "id": "secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_secondary_heat_transfer_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_conveyor_module"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_conveyor_module",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w08_x46_empty_vessel_hot_structural_weld",
+      "role": "W08",
+      "zh_name": "空白世界泡容器热焊骨架",
+      "purpose": "只制造空容器：完整投入框架、壳板、锚件与仿制约束核心，附加极限铸材承担热焊节点；不授予世界捕获事实。",
+      "requirements": [
+        "RN-SFF",
+        "RN-BCC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_casting_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 4000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "世界泡实际捕获工艺"
+      ],
+      "baseline_recipe": "wonder_w10_empty_vessel_pressure_assembly",
+      "process_family": "大型容器热接合"
+    },
+    {
+      "id": "wonder_w08_x46_key_housing_hot_feedthrough",
+      "role": "W08",
+      "zh_name": "神之键壳体热接合与贯通",
+      "purpose": "普通壳体所需八基板、两封装件仍实际投入；结构框架、重构板和陶瓷另建实体外壳，不生成神之键成品或研究事实。",
+      "requirements": [
+        "RN-SFF",
+        "RN-DKE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:divine_key_housing",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 1000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "神之键实际装配工艺"
+      ],
+      "baseline_recipe": "industrial_key_housing|wonder_w10_divine_housing_pressure_join",
+      "process_family": "装备壳体热接合"
+    },
+    {
+      "id": "wonder_w08_x46_template_hot_microstructure_fixing",
+      "role": "W08",
+      "zh_name": "魂钢模板热定型",
+      "purpose": "完整投入四套普通模板的新钨钢、铂箔和晶种，并另加陶瓷固定热形变；模板作为实体消耗品供前驱液与纳米线。",
+      "requirements": [
+        "RN-SFF",
+        "RN-LES"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 8
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_microstructure_template",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_soulium_precursor",
+        "industrial_nano_building"
+      ],
+      "baseline_recipe": "industrial_soulium_template",
+      "process_family": "工艺热端工装"
+    },
+    {
+      "id": "wonder_w08_x46_silicon_carbide_fuel_hot_charge_seal",
+      "role": "W08",
+      "zh_name": "碳化硅燃料载体热装封棒",
+      "purpose": "合并载体注液与热封：四份载体、四壳、八封装件和四千液态燃料全部消耗，不从空壳或热量生成燃料。",
+      "requirements": [
+        "RN-SFF",
+        "RN-FRP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_silicon_carbide_carrier",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_fuel_rod_casing",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:fuel_encapsulation_part",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_silicon_carbide_fuel",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "liquid_honkai_fuel",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_casting_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I19至I22碳化硅燃料运行配方"
+      ],
+      "baseline_recipe": "industrial_honkai_silicon_carbide_loading|industrial_honkai_silicon_carbide_encapsulation",
+      "process_family": "固态载体热封燃料"
+    },
+    {
+      "id": "wonder_w08_x46_boron_carbide_fuel_hot_charge_seal",
+      "role": "W08",
+      "zh_name": "碳化硼燃料载体热装封棒",
+      "purpose": "碳化硼载体单独计料，保留完整液态燃料和封装成本；不能把碳化硅或其它填料直接改名。",
+      "requirements": [
+        "RN-SFF",
+        "RN-FRP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_boron_carbide_carrier",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_fuel_rod_casing",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:fuel_encapsulation_part",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_boron_carbide_fuel",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "liquid_honkai_fuel",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_casting_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I19至I22碳化硼燃料运行配方"
+      ],
+      "baseline_recipe": "industrial_honkai_boron_carbide_loading|industrial_honkai_boron_carbide_encapsulation",
+      "process_family": "固态载体热封燃料"
+    },
+    {
+      "id": "wonder_w08_x46_zirconia_fuel_hot_charge_seal",
+      "role": "W08",
+      "zh_name": "氧化锆燃料载体热装封棒",
+      "purpose": "氧化锆陶瓷载体以保护气封口，液态燃料定量投入；低阶原封装入口保留，热端路线只减少转运工序。",
+      "requirements": [
+        "RN-SFF",
+        "RN-FRP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_zirconia_carrier",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_fuel_rod_casing",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:fuel_encapsulation_part",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_zirconia_fuel",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "liquid_honkai_fuel",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_casting_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I19至I22氧化锆燃料运行配方"
+      ],
+      "baseline_recipe": "industrial_honkai_zirconia_loading|industrial_honkai_zirconia_encapsulation",
+      "process_family": "陶瓷载体热封燃料"
+    }
+  ]
+}

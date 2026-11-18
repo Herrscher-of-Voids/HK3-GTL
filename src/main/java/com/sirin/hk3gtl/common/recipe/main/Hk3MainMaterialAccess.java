@@ -2,14 +2,14 @@ package com.sirin.hk3gtl.common.recipe.main;
 
 import java.util.List;
 
-/**
- * 【文件职责】主材首制/量产的电压与研究条件；纯策略不访问Forge注册表。
- * 【变更记录 #1】2026-10-17 16:37:41（第1次备注 · 修订165）
- * - 删除：候选IMV、ICV首制对RN-IAA的自锁依赖；IAA本身及CIV统合条件保留。
- * - 新增：HBV独有MAX首制豁免、其余先阶初制/本阶量产窗口及逐族已有研究条件。
- * - 修改：RN-IAA付款需ICV电路，故IMV先用SSQ，ICV先用CQS/ICA；不能制作ICV主材前就付ICV电路。
- * - 用途：由工序注册器统一绑定，MAX启动不要求研究；策略可独立验证，不代表全部课题实机可达。
- */
+ 
+
+
+
+
+
+
+
 public final class Hk3MainMaterialAccess {
     private static final int FIRST = 15;
     private static final int LAST = 30;

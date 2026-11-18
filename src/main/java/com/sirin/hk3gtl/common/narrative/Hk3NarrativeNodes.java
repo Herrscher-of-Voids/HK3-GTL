@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.narrative;
 
-
-/**
- * 【文件职责】
- * - 管理 Hk3NarrativeNodes 叙事节点与档案显示数据。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,39 +9,39 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * 世界文本叙事系统首批叙事节点注册表（22 个节点，对齐设计文档 v0.2）。
- *
- * <h3>节点来源</h3>
- * <ul>
- *   <li>阶段里程碑 E-MS-001~004 → 5 个节点（玩家的"我做到了"视角）</li>
- *   <li>空之律者 E-HQ-001~005 → 5 个节点（终局叙事主线）</li>
- *   <li>奥托/天命 E-OT-001~003 → 3 个</li>
- *   <li>瓦尔特 E-WL-001~002 → 2 个</li>
- *   <li>符华 E-FH-001 → 1 个</li>
- *   <li>爱莉希雅 E-EL-001~002 → 2 个</li>
- *   <li>世界蛇 E-WS-001 → 1 个</li>
- *   <li>逆熵 E-AE-001 → 1 个</li>
- *   <li>彩蛋 E-EG-001~002 → 2 个</li>
- * </ul>
- *
- * <h3>修改指南</h3>
- * <ul>
- *   <li>新增节点 → 使用 {@link #reg} 工厂方法，同时在 lang 文件补 title/body/author 翻译键</li>
- *   <li>修改节点内容 → 只改语言文件即可，本类的结构不应变动</li>
- *   <li>绝对不要修改节点 id —— 已写入玩家存档，改 id 等于让所有玩家档案清零</li>
- *   <li>eventId 映射变化 → 同步检查 Hk3EventManagerImpl，确认该 eventId 仍在被触发</li>
- * </ul>
- *
- * <h3>变更记录（2026-05-19）</h3>
- * <ul>
- *   <li>删除：彩蛋叙事仅覆盖 E-EG-001~030 的上限</li>
- *   <li>新增：E-EG-001~100 全量叙事节点注册，并为彩蛋节点挂 conditionKey</li>
- *   <li>修改：regEvent 支持自动派生 hk3gtl.event.egxxx.condition</li>
- *   <li>用途：让文明档案卷轴可完整展示 100 彩蛋条目与触发条件</li>
- * </ul>
- */
-/** 【变更记录 #1】2026-10-01 03:50:42（修订128）：删除：旧固定上限或被替代的分支；新增/修改：从已审核资源目录注册稳定彩蛋ID，保留正式剧情和历史残篇节点；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 public final class Hk3NarrativeNodes {
 
     /** 节点顺序表；LinkedHashMap 保证 GUI 显示顺序稳定 */
@@ -206,22 +187,7 @@ public final class Hk3NarrativeNodes {
     //  内部辅助
     // ═══════════════════════════════════════════════════
 
-    /**
-     * 节点注册工厂：自动按约定生成 titleKey / bodyKeys / authorKey 的翻译键位置。
-     * <p>翻译键约定：</p>
-     * <ul>
-     *   <li>标题 {@code hk3gtl.narrative.<id>.title}</li>
-     *   <li>正文段 {@code hk3gtl.narrative.<id>.body.1 ~ .body.N}</li>
-     *   <li>署名由 authorKey 参数显式传入（允许多个节点共享同一署名）</li>
-     * </ul>
-     *
-     * @param id 节点 ID（如 "HQ-001"），持久化 key 片段
-     * @param faction 所属阵营分类
-     * @param order 同阵营内显示排序
-     * @param authorKey 署名翻译键；没有作者传 null
-     * @param paragraphs 段落数（自动生成 body.1 ~ body.N 翻译键列表）
-     * @param unlockEventId 该节点由哪个事件 ID 解锁
-     */
+    /** 翻译键按节点ID生成，署名可由多个节点共享。 */
     private static Hk3NarrativeNode reg(String id, Hk3NarrativeFaction faction, int order,
                                         @Nullable String authorKey, int paragraphs,
                                         String unlockEventId) {
@@ -255,15 +221,7 @@ public final class Hk3NarrativeNodes {
     }
 
     private static int parseOrder(String eventId) {
-        int dash = eventId.lastIndexOf('-');
-        if (dash < 0 || dash + 1 >= eventId.length()) {
-            return 0;
-        }
-        try {
-            return Integer.parseInt(eventId.substring(dash + 1));
-        } catch (NumberFormatException ignored) {
-            return 0;
-        }
+        return Integer.parseInt(eventId.substring(eventId.lastIndexOf('-') + 1));
     }
 
     private static void regEvents(Hk3NarrativeFaction faction, String... eventIds) {

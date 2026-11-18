@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.registries.BuiltInRegistries;
-/** 【变更记录 #1】2026-10-01 13:36:23（修订128）：删除：无；新增/修改：已有真实生产且交付过的GT物品线新增本人管道端点，旧端点仍可达且新端点实际接收；等待目标机实际消耗该物料并产出；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public final class Hk3EggLineBranch {
     private Hk3EggLineBranch(){}
     private static String endpoint(ItemRoutePath path){return path.getTargetPipePos().relative(path.getTargetFacing()).asLong()+":"+path.getTargetFacing().getName();}

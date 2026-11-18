@@ -1,0 +1,1039 @@
+{
+  "schema": 1,
+  "revision": 267,
+  "recipes": [
+    {
+      "id": "wonder_civilization_cooperation_archive",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 4
+        },
+        {
+          "id": "minecraft:paper",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_cooperation_archive",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 1600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W01"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15",
+        "W09"
+      ]
+    },
+    {
+      "id": "wonder_autonomous_fabrication_matrix",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:autonomous_fabrication_matrix",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 4000
+        }
+      ],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W02"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15",
+        "W11"
+      ]
+    },
+    {
+      "id": "wonder_imaginary_anchor_matrix",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_anchor_matrix",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W03"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_superconducting_polarization_matrix",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:superconducting_polarization_matrix",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:polarized_electromagnetic_material",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W04"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_ideal_flow_exchange_matrix",
+      "role": "W05",
+      "requirements": [
+        "RN-IFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ideal_flow_exchange_matrix",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 8000
+        },
+        {
+          "id": "stable_transport_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 7800
+        },
+        {
+          "id": "lost_coolant_residue",
+          "amount": 200
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W05"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_cryogenic_condensation_matrix",
+      "role": "W06",
+      "requirements": [
+        "RN-CCF"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:cryogenic_condensation_matrix",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W06"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_matter_regeneration_matrix",
+      "role": "W07",
+      "requirements": [
+        "RN-MRA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:matter_regeneration_matrix",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 3500
+        },
+        {
+          "id": "nano_reaction_tail_liquid",
+          "amount": 500
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W07"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_stellar_forging_matrix",
+      "role": "W08",
+      "requirements": [
+        "RN-SFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:stellar_forging_matrix",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W08"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_civilization_consensus_archive",
+      "role": "W09",
+      "requirements": [
+        "RN-CKV"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_cooperation_archive",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W09"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15",
+        "W09/CAV"
+      ]
+    },
+    {
+      "id": "wonder_gravitational_singularity_matrix",
+      "role": "W10",
+      "requirements": [
+        "RN-GSF"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:gravitational_singularity_matrix",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_singularity",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W10"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_distributed_industrial_contract",
+      "role": "W11",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:autonomous_fabrication_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:distributed_industrial_contract",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stable_transport_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W11"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15",
+        "W09/CAV"
+      ]
+    },
+    {
+      "id": "wonder_global_energy_constraint_matrix",
+      "role": "W12",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:global_energy_constraint_matrix",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 3500
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W12"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_bounded_research_model",
+      "role": "W13",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:bounded_research_model",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W13"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15",
+        "W09/CAV"
+      ]
+    },
+    {
+      "id": "wonder_civilization_cycle_model",
+      "role": "W14",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_singularity",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_cycle_model",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W14"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15",
+        "W09/CAV"
+      ]
+    },
+    {
+      "id": "wonder_cross_domain_validation",
+      "role": "W09",
+      "requirements": [
+        "RN-CAV"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:distributed_industrial_contract",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bounded_research_model",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_cycle_model",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:cross_domain_validation_report",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [
+        "cross_domain_report"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_tree_sea_audience_credential",
+      "role": "W15",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_cooperation_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:autonomous_fabrication_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_anchor_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:superconducting_polarization_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:ideal_flow_exchange_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensation_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:matter_regeneration_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:stellar_forging_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:gravitational_singularity_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:distributed_industrial_contract",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:global_energy_constraint_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bounded_research_model",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_cycle_model",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:cross_domain_validation_report",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:ship_engineering_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:electric_motor_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:electric_piston_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:conveyor_module_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:electric_pump_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:robot_arm_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:sensor_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:emitter_cev",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:field_generator_cev",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [
+        "wonder_W15",
+        "wonder_application"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "finale_application"
+      ]
+    },
+    {
+      "id": "hyperion_shipboard_engineering",
+      "role": "H01",
+      "requirements": [
+        "RN-HVI"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:hyperion_keel_segment",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:hyperion_thruster_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:hyperion_navigation_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:hyperion_bridge_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ship_engineering_archive",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [
+        "hyperion_engineering",
+        "ship_acceptance"
+      ],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W15",
+        "RN-TAA"
+      ]
+    }
+  ]
+}

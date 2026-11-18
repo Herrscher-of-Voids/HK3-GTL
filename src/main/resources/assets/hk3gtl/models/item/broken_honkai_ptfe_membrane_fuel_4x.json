@@ -1,0 +1,6 @@
+{
+  "parent": "hk3gtl:item/broken_honkai_ptfe_membrane_fuel",
+  "textures": {
+    "layer0": "hk3gtl:item/fuel_bundles/broken_honkai_ptfe_membrane_fuel_4x"
+  }
+}

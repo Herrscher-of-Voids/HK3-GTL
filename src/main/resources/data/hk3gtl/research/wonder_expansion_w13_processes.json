@@ -1,0 +1,2063 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w13_x46_quantum_coherence_substrate_to_board_line",
+      "role": "W13",
+      "zh_name": "quantum_coherence基板层压蚀刻直联",
+      "purpose": "从本平台主材坯现场成板、层压基板并完成蚀刻；保留前平台基板和PCB两类实体，不将高级基板视为空白复制品。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_smd_array",
+        "hk3gtl_main_circuit_qsv_processor"
+      ],
+      "process_family": "实体基板制备",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_circuit_substrate; hk3gtl_electronic_quantum_coherence_printed_circuit_board"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_epitaxy_to_logic_dies",
+      "role": "W13",
+      "zh_name": "quantum_coherence逻辑光刻切割直联",
+      "purpose": "在同一母机工序完成外延片光刻与八裸片切割；固定掩膜工装和实际切割冷却液均保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_epitaxial_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_cpu",
+        "wonder_w13_quantum_coherence_logic_chiplet"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_logic_wafer; hk3gtl_electronic_quantum_coherence_logic_die"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_epitaxy_to_memory_chips",
+      "role": "W13",
+      "zh_name": "quantum_coherence存储成层切割直联",
+      "purpose": "用本平台外延片及一件前平台RAM晶圆制备十六颗RAM；不省略跨平台存储前驱。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_epitaxial_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_cpu",
+        "wonder_w13_quantum_coherence_io_chiplet"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_ram_wafer; hk3gtl_electronic_quantum_coherence_ram_chip"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_smd_capacitor_precursor_line",
+      "role": "W13",
+      "zh_name": "quantum_coherence电容介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电容；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_capacitor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_smd_capacitor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1500
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_dielectric_film; hk3gtl_electronic_quantum_coherence_interconnect_mesh; hk3gtl_electronic_quantum_coherence_smd_capacitor"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_smd_diode_precursor_line",
+      "role": "W13",
+      "zh_name": "quantum_coherence二极管介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件二极管；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_diode",
+          "count": 64
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_smd_diode",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1500
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_dielectric_film; hk3gtl_electronic_quantum_coherence_interconnect_mesh; hk3gtl_electronic_quantum_coherence_smd_diode"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_smd_resistor_precursor_line",
+      "role": "W13",
+      "zh_name": "quantum_coherence电阻介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电阻；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_resistor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_smd_resistor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1500
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_dielectric_film; hk3gtl_electronic_quantum_coherence_interconnect_mesh; hk3gtl_electronic_quantum_coherence_smd_resistor"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_smd_transistor_precursor_line",
+      "role": "W13",
+      "zh_name": "quantum_coherence晶体管介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件晶体管；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_transistor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_smd_transistor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1500
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_dielectric_film; hk3gtl_electronic_quantum_coherence_interconnect_mesh; hk3gtl_electronic_quantum_coherence_smd_transistor"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_smd_inductor_precursor_line",
+      "role": "W13",
+      "zh_name": "quantum_coherence电感介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电感；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_inductor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_smd_inductor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1500
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_dielectric_film; hk3gtl_electronic_quantum_coherence_interconnect_mesh; hk3gtl_electronic_quantum_coherence_smd_inductor"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_billet_to_epitaxy",
+      "role": "W13",
+      "zh_name": "quantum_coherence坯料介电外延直制",
+      "purpose": "五坯主材分别承担四片承载板与八片介电层的实体用量；两件中子素晶圆、前平台裸片及全部生长液保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 5
+        },
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_logic_die",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_epitaxial_wafer",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 500
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w13_x46_quantum_coherence_epitaxy_to_logic_dies",
+        "wonder_w13_x46_quantum_coherence_epitaxy_to_memory_chips"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_dielectric_film; hk3gtl_electronic_quantum_coherence_epitaxial_wafer"
+    },
+    {
+      "id": "wonder_w13_x46_quantum_coherence_logic_wafer_to_cpu_line",
+      "role": "W13",
+      "zh_name": "quantum_coherence晶圆切割与CPU封装直联",
+      "purpose": "先从逻辑晶圆切出八颗裸片并封装四颗CPU；RAM、贴片阵列、互连、封装与四颗前平台CPU逐项保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-MCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_cpu",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_cpu",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_qsv_processor"
+      ],
+      "process_family": "CPU实体封装",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_logic_die; hk3gtl_electronic_quantum_coherence_cpu"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_substrate_to_board_line",
+      "role": "W13",
+      "zh_name": "imaginary_topology基板层压蚀刻直联",
+      "purpose": "从本平台主材坯现场成板、层压基板并完成蚀刻；保留前平台基板和PCB两类实体，不将高级基板视为空白复制品。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1500
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 3000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_smd_array",
+        "hk3gtl_main_circuit_imv_processor"
+      ],
+      "process_family": "实体基板制备",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_circuit_substrate; hk3gtl_electronic_imaginary_topology_printed_circuit_board"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_epitaxy_to_logic_dies",
+      "role": "W13",
+      "zh_name": "imaginary_topology逻辑光刻切割直联",
+      "purpose": "在同一母机工序完成外延片光刻与八裸片切割；固定掩膜工装和实际切割冷却液均保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_epitaxial_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu",
+        "wonder_w13_imaginary_topology_logic_chiplet"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_logic_wafer; hk3gtl_electronic_imaginary_topology_logic_die"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_epitaxy_to_memory_chips",
+      "role": "W13",
+      "zh_name": "imaginary_topology存储成层切割直联",
+      "purpose": "用本平台外延片及一件前平台RAM晶圆制备十六颗RAM；不省略跨平台存储前驱。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_epitaxial_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu",
+        "wonder_w13_imaginary_topology_io_chiplet"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_ram_wafer; hk3gtl_electronic_imaginary_topology_ram_chip"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_smd_capacitor_precursor_line",
+      "role": "W13",
+      "zh_name": "imaginary_topology电容介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电容；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_capacitor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_capacitor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 6000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_dielectric_film; hk3gtl_electronic_imaginary_topology_interconnect_mesh; hk3gtl_electronic_imaginary_topology_smd_capacitor"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_smd_diode_precursor_line",
+      "role": "W13",
+      "zh_name": "imaginary_topology二极管介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件二极管；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_diode",
+          "count": 64
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_diode",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 6000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_dielectric_film; hk3gtl_electronic_imaginary_topology_interconnect_mesh; hk3gtl_electronic_imaginary_topology_smd_diode"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_smd_resistor_precursor_line",
+      "role": "W13",
+      "zh_name": "imaginary_topology电阻介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电阻；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_resistor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_resistor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 6000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_dielectric_film; hk3gtl_electronic_imaginary_topology_interconnect_mesh; hk3gtl_electronic_imaginary_topology_smd_resistor"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_smd_transistor_precursor_line",
+      "role": "W13",
+      "zh_name": "imaginary_topology晶体管介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件晶体管；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_transistor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_transistor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 6000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_dielectric_film; hk3gtl_electronic_imaginary_topology_interconnect_mesh; hk3gtl_electronic_imaginary_topology_smd_transistor"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_smd_inductor_precursor_line",
+      "role": "W13",
+      "zh_name": "imaginary_topology电感介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电感；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_inductor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_inductor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 6000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_dielectric_film; hk3gtl_electronic_imaginary_topology_interconnect_mesh; hk3gtl_electronic_imaginary_topology_smd_inductor"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_billet_to_epitaxy",
+      "role": "W13",
+      "zh_name": "imaginary_topology坯料介电外延直制",
+      "purpose": "五坯主材分别承担四片承载板与八片介电层的实体用量；两件中子素晶圆、前平台裸片及全部生长液保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 5
+        },
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_epitaxial_wafer",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 750
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 6000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 10000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w13_x46_imaginary_topology_epitaxy_to_logic_dies",
+        "wonder_w13_x46_imaginary_topology_epitaxy_to_memory_chips"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_dielectric_film; hk3gtl_electronic_imaginary_topology_epitaxial_wafer"
+    },
+    {
+      "id": "wonder_w13_x46_imaginary_topology_logic_wafer_to_cpu_line",
+      "role": "W13",
+      "zh_name": "imaginary_topology晶圆切割与CPU封装直联",
+      "purpose": "先从逻辑晶圆切出八颗裸片并封装四颗CPU；RAM、贴片阵列、互连、封装与四颗前平台CPU逐项保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_cpu",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_imv_processor"
+      ],
+      "process_family": "CPU实体封装",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_logic_die; hk3gtl_electronic_imaginary_topology_cpu"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_substrate_to_board_line",
+      "role": "W13",
+      "zh_name": "civilization_endurance基板层压蚀刻直联",
+      "purpose": "从本平台主材坯现场成板、层压基板并完成蚀刻；保留前平台基板和PCB两类实体，不将高级基板视为空白复制品。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array",
+        "hk3gtl_main_circuit_wfv_processor"
+      ],
+      "process_family": "实体基板制备",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_circuit_substrate; hk3gtl_electronic_civilization_endurance_printed_circuit_board"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_epitaxy_to_logic_dies",
+      "role": "W13",
+      "zh_name": "civilization_endurance逻辑光刻切割直联",
+      "purpose": "在同一母机工序完成外延片光刻与八裸片切割；固定掩膜工装和实际切割冷却液均保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "wonder_w13_civilization_endurance_logic_chiplet"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_logic_wafer; hk3gtl_electronic_civilization_endurance_logic_die"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_epitaxy_to_memory_chips",
+      "role": "W13",
+      "zh_name": "civilization_endurance存储成层切割直联",
+      "purpose": "用本平台外延片及一件前平台RAM晶圆制备十六颗RAM；不省略跨平台存储前驱。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "wonder_w13_civilization_endurance_io_chiplet"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_ram_wafer; hk3gtl_electronic_civilization_endurance_ram_chip"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_smd_capacitor_precursor_line",
+      "role": "W13",
+      "zh_name": "civilization_endurance电容介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电容；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_capacitor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_capacitor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 3000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 5000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_dielectric_film; hk3gtl_electronic_civilization_endurance_interconnect_mesh; hk3gtl_electronic_civilization_endurance_smd_capacitor"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_smd_diode_precursor_line",
+      "role": "W13",
+      "zh_name": "civilization_endurance二极管介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件二极管；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_diode",
+          "count": 64
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_diode",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 3000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 5000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_dielectric_film; hk3gtl_electronic_civilization_endurance_interconnect_mesh; hk3gtl_electronic_civilization_endurance_smd_diode"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_smd_resistor_precursor_line",
+      "role": "W13",
+      "zh_name": "civilization_endurance电阻介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电阻；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_resistor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_resistor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 3000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 5000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_dielectric_film; hk3gtl_electronic_civilization_endurance_interconnect_mesh; hk3gtl_electronic_civilization_endurance_smd_resistor"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_smd_transistor_precursor_line",
+      "role": "W13",
+      "zh_name": "civilization_endurance晶体管介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件晶体管；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_transistor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_transistor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 3000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 5000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_dielectric_film; hk3gtl_electronic_civilization_endurance_interconnect_mesh; hk3gtl_electronic_civilization_endurance_smd_transistor"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_smd_inductor_precursor_line",
+      "role": "W13",
+      "zh_name": "civilization_endurance电感介电互连直制",
+      "purpose": "现场用三板份主材制二十四片介电层、八坯份主材及独立Shirabon导体制互连，再装六十四件电感；前平台同类元件六十四件及本元件功能材料均实际消耗。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 11
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_inductor",
+          "count": 64
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_inductor",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 3000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 5000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "process_family": "功能贴片原料联线",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_dielectric_film; hk3gtl_electronic_civilization_endurance_interconnect_mesh; hk3gtl_electronic_civilization_endurance_smd_inductor"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_billet_to_epitaxy",
+      "role": "W13",
+      "zh_name": "civilization_endurance坯料介电外延直制",
+      "purpose": "五坯主材分别承担四片承载板与八片介电层的实体用量；两件中子素晶圆、前平台裸片及全部生长液保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 5
+        },
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w13_x46_civilization_endurance_epitaxy_to_logic_dies",
+        "wonder_w13_x46_civilization_endurance_epitaxy_to_memory_chips"
+      ],
+      "process_family": "半导体连线",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_dielectric_film; hk3gtl_electronic_civilization_endurance_epitaxial_wafer"
+    },
+    {
+      "id": "wonder_w13_x46_civilization_endurance_logic_wafer_to_cpu_line",
+      "role": "W13",
+      "zh_name": "civilization_endurance晶圆切割与CPU封装直联",
+      "purpose": "先从逻辑晶圆切出八颗裸片并封装四颗CPU；RAM、贴片阵列、互连、封装与四颗前平台CPU逐项保留。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_wfv_processor"
+      ],
+      "process_family": "CPU实体封装",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_logic_die; hk3gtl_electronic_civilization_endurance_cpu"
+    },
+    {
+      "id": "wonder_w13_x46_feedback_head_metrology_line",
+      "role": "W13",
+      "zh_name": "光栅计量与反馈头直装",
+      "purpose": "从中子素、玻璃、金箔及紫水晶现场制光栅，再与空间校准、偏振材料、RAM和封装装成真实反馈头。",
+      "requirements": [
+        "RN-ASR",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-TCA"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:glass_plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 4
+        },
+        {
+          "id": "minecraft:amethyst_shard",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:polarized_electromagnetic_material",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w13_quantum_coherence_chiplet_cpu",
+        "wonder_w13_imaginary_topology_chiplet_cpu",
+        "wonder_w13_civilization_endurance_chiplet_cpu"
+      ],
+      "process_family": "计量工装实体化",
+      "baseline_recipe": "wonder_w13_reference_grating_metrology; wonder_w13_closed_loop_optical_head"
+    }
+  ]
+}

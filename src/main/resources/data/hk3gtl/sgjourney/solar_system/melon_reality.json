@@ -1,0 +1,20 @@
+{
+  "name": "西瓜之海",
+  "symbols": "sgjourney:terra",
+  "symbol_prefix": 1,
+  "extragalactic_address": {
+    "address": [3, 17, 22, 8, 31, 14, 26],
+    "randomizable": true
+  },
+  "addresses": [
+    {
+      "galaxy": "sgjourney:milky_way",
+      "address": {
+        "address": [3, 17, 22, 8, 31, 14],
+        "randomizable": true
+      }
+    }
+  ],
+  "point_of_origin": "sgjourney:terra",
+  "dimensions": ["hk3gtl:melon_reality"]
+}

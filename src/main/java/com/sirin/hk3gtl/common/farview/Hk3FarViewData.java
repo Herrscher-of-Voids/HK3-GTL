@@ -20,15 +20,20 @@ public final class Hk3FarViewData extends SavedData {
     private static final Map<ServerLevel,Hk3FarViewData> LOADED=new WeakHashMap<>();
     final Long2ObjectLinkedOpenHashMap<Tile> tiles=new Long2ObjectLinkedOpenHashMap<>();
     private long revision=1;
+    private long membershipRevision;
     private long[] legacy=new long[0];
     private final BitSet captured=new BitSet();
-    private int captureCursor;
+    private int captureCursor,capturedCount;
     Hk3FarViewData() {}
     void putTile(long key,Tile tile) {
-        // 达到内存上限后淘汰最久未实读的分区，不能永久拒收后来搭建的建筑。
-        if(!tiles.containsKey(key)&&tiles.size()>=MAX_TILES)tiles.removeFirst();
+        if(!tiles.containsKey(key)){
+            membershipRevision++;
+            if(tiles.size()>=MAX_TILES)tiles.removeFirst();
+        }
         tiles.putAndMoveToLast(key,tile);
     }
+    long revision(){return revision;}
+    long membershipRevision(){return membershipRevision;}
     public static Hk3FarViewData get(ServerLevel level) {
         return LOADED.computeIfAbsent(level,l->{
             var data=l.getDataStorage().computeIfAbsent(Hk3FarViewData::load,Hk3FarViewData::new,"hk3gtl_farview_v2");
@@ -40,11 +45,24 @@ public final class Hk3FarViewData extends SavedData {
     public static void clear(){LOADED.clear();}
     public static long key(BlockPos pos){return BlockPos.asLong(pos.getX()>>4,pos.getY()>>4,pos.getZ()>>4);}
     private static int index(BlockPos pos){return Hk3FarMesh.index(pos.getX()&15,pos.getY()&15,pos.getZ()&15);}
+    public static void ensureSection(ServerLevel level,BlockPos pos) {
+        get(level).ensureTile(key(pos));
+    }
+    private Tile ensureTile(long key) {
+        var tile=tiles.getAndMoveToLast(key);
+        if(tile==null){tile=new Tile();putTile(key,tile);}
+        return tile;
+    }
     public static void observe(ServerLevel level,BlockPos pos,BlockState actual) {
         if(actual.isAir())return;
-        var data=get(level);long key=key(pos);var tile=data.tiles.getAndMoveToLast(key);
-        if(tile==null){tile=new Tile();data.putTile(key,tile);}
+        var data=get(level);var tile=data.ensureTile(key(pos));
         data.update(tile,index(pos),Block.getId(actual)+1);
+    }
+    public static void changed(ServerLevel level,BlockPos pos) {
+        var data=LOADED.get(level);if(data==null)return;
+        var tile=data.tiles.getAndMoveToLast(key(pos));if(tile==null)return;
+        var actual=level.getBlockState(pos);
+        data.update(tile,index(pos),actual.isAir()?0:Block.getId(actual)+1);
     }
     public static void changed(ServerLevel level,BlockPos pos,BlockState actual) {
         var data=LOADED.get(level);if(data==null)return;
@@ -54,9 +72,8 @@ public final class Hk3FarViewData extends SavedData {
     private void update(Tile tile,int index,int state) {
         if(tile.section.set(index,state)){tile.version=++revision;setDirty();}
     }
-    /** 每tick至多重读一个已加载16³分区，自动替换旧图范围内的缓存；不要求玩家拆除或重建。 */
     public void refresh(ServerLevel level) {
-        int count=legacy.length*64;if(count==0)return;
+        int count=legacy.length*64;if(capturedCount==count)return;
         long deadline=System.nanoTime()+500_000L;
         for(int n=0;n<256&&System.nanoTime()<deadline;n++) {
             int at=captureCursor;captureCursor=(captureCursor+1)%count;if(captured.get(at))continue;
@@ -69,7 +86,7 @@ public final class Hk3FarViewData extends SavedData {
                 var state=chunk.getBlockState(pos.set(x*16+i/256,y*16+i/16%16,z*16+i%16));
                 if(!state.isAir()){tile.section.set(i,Block.getId(state)+1);any=true;}
             }
-            captured.set(at);
+            captured.set(at);capturedCount++;
             if(any||tiles.containsKey(key)){tile.version=++revision;putTile(key,tile);setDirty();}
             return;
         }

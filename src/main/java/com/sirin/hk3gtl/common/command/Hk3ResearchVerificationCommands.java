@@ -13,11 +13,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLLoader;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 @Mod.EventBusSubscriber(modid="hk3gtl", bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3ResearchVerificationCommands {
     private Hk3ResearchVerificationCommands() {}
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @SubscribeEvent public static void register(RegisterCommandsEvent event) {
         if (FMLLoader.isProduction()) return;
         event.getDispatcher().register(Commands.literal("hk3researchverify")
@@ -32,7 +30,6 @@ public final class Hk3ResearchVerificationCommands {
                 var machine=MetaMachine.getMachine(p.level(),pos);
                 if (!(machine instanceof MultiblockControllerMachine multiblock)) return 0;
                 // 玩家明确指定控制器，沿用其注册Pattern，不创建替代占位建筑。
-                // 中文备注：该处说明已按当前代码行为整理。
                 multiblock.getPattern().autoBuild(p,multiblock.getMultiblockState());
                 c.getSource().sendSuccess(() -> Component.literal("Pattern built; wait for actual formation check."),false);return 1;
             })))
@@ -47,4 +44,4 @@ public final class Hk3ResearchVerificationCommands {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

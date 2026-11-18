@@ -1,14 +1,14 @@
 package com.sirin.hk3gtl.common.recipe.honkai;
 
-/**
- * 【文件职责／本轮边界】分析试剂、冷却剂和残液的扩展回收改由RN-SMR开放；基础再生保留原起步门槛。
- * 【变更记录 #3】2026-09-29 21:06:40（第 3 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：分析试剂、冷却剂和残液的扩展回收改由RN-SMR开放；基础再生保留原起步门槛。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
@@ -30,23 +30,24 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtlcore.gtlcore.common.data.GTLMaterials;
 import java.util.function.Consumer;
 
-/**
- * 液态工业线的正式工艺、冷却和损耗处理；数量分别为物品个数、流体mB、tick和EU/t。
- * 【变更记录 #1】2026-09-24 16:45:00（内测5修订66）
- * 删除：旧全类型工艺、低于MAX的错误能耗以及无新鲜来源的介质回路。
- * 新增：七设备分工、基础介质、校准报告、回收及最终废物处理，真实生产实验元数据。
- * 修改：初始实验只要求前一研究，不能要求它自己将授予凭据的研究；回收均有损耗。
- * 用途：从MAX基础材料启动到液体燃料入网，保留后续固态及燃料棒系统的独立边界。
- */
-/**
- * 【变更记录 #2】2026-09-27 02:26:24（第 2 次备注 · 内测5修订87）
- * 删除：无，保留历史备注、稳定注册键和不相关工艺。
- * 新增：净化附产500mB独立除杂母液；调用Hk3LiquidLoopRecipes注册化工补充、回流与排污。
- * 修改：净化粒子256→320；每次介质再生残渣16→8、杂质8→4；5000mB粗液和800mB稳定液不变。
- * 用途：使4批分馏供5批稳定化的80晶种，消除再生耗材赤字；新鲜启动不依赖I05回收或回流库存。
- */
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 public final class Hk3LiquidLineRecipes {
     private static final long MAX=Hk3Values.VA_LONG[GTValues.MAX];
     private Hk3LiquidLineRecipes() {}
@@ -87,7 +88,7 @@ public final class Hk3LiquidLineRecipes {
                 .inputItems(TagPrefix.dust,GTMaterials.Sodium,16).inputItems(TagPrefix.dust,GTMaterials.Platinum,2)
                 .outputFluids(fluid("honkai_stabilization_medium",1500)).save(provider);
         recipe(GTRecipeTypes.MIXER_RECIPES,"industrial_fresh_honkai_coolant",2,500,null,null)
-                .inputFluids(GTMaterials.DistilledWater.getFluid(4000))
+                .inputFluids(GTLMaterials.GradePurifiedWater16.getFluid(4000))
                 .inputItems(TagPrefix.dust,GTMaterials.Silver,8).inputItems(TagPrefix.dust,GTMaterials.Carbon,16)
                 .outputFluids(fluid("honkai_coolant",4000)).save(provider);
 
@@ -109,7 +110,7 @@ public final class Hk3LiquidLineRecipes {
                 .inputItems(item("fuel_matrix",32),new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(),32),item("honkai_reference_sample",4),item("separation_residue",8))
                 .outputFluids(fluid("liquid_honkai_fuel",600),fluid("fuel_refining_residual",180))
                 .outputItems(item("fuel_blending_residue",4)).save(provider);
-        // 液体浓缩起步工艺不依赖尚未开放的固态采集；后续RN-CFR正式路线仍保留原研究前置。
+        // I17浓缩仅需RN-HFB；第二参数只标记RN-CFR取证目标。
         recipe(Hk3IndustrialRecipeTypes.CONCENTRATION,"industrial_liquid_fuel_concentration",6,2800,"RN-HFB","RN-CFR")
                 .inputFluids(fluid("liquid_honkai_fuel",1200),fluid("honkai_stabilization_medium",400),fluid("honkai_coolant",300))
                 .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get(),128),item("fuel_matrix",16),item("concentrated_honkai_impurity",4),item("honkai_adapted_circuit_substrate",8))
@@ -145,7 +146,7 @@ public final class Hk3LiquidLineRecipes {
                     .inputItems(TagPrefix.dust,GTMaterials.Carbon,16)
                     .outputFluids(fluid("honkai_separation_medium",200),fluid("unrecoverable_process_effluent",800)).save(provider);
         recipe(Hk3IndustrialRecipeTypes.REGENERATION,"industrial_coolant_reconditioning",9,600,"RN-SMR",null)
-                .inputFluids(fluid("hot_honkai_coolant",500),GTMaterials.DistilledWater.getFluid(1000))
+                .inputFluids(fluid("hot_honkai_coolant",500),GTLMaterials.GradePurifiedWater16.getFluid(1000))
                 .inputItems(item("separation_filter",1)).inputItems(TagPrefix.dust,GTMaterials.Silver,1)
                 .outputFluids(fluid("honkai_coolant",450),fluid("lost_coolant_residue",50)).save(provider);
         recipe(Hk3IndustrialRecipeTypes.REGENERATION,"industrial_lost_coolant_treatment",10,400,"RN-BCE",null)
@@ -177,4 +178,4 @@ public final class Hk3LiquidLineRecipes {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

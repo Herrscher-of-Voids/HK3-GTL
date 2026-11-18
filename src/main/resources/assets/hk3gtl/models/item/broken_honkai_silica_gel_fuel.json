@@ -1,0 +1,6 @@
+{
+  "parent": "hk3gtl:item/broken_honkai_fuel_rod",
+  "textures": {
+    "layer0": "hk3gtl:item/broken_honkai_silica_gel_fuel"
+  }
+}

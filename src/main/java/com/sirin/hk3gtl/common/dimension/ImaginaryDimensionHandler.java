@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.dimension;
 
-
-/**
- * 【文件职责】
- * - 维护 ImaginaryDimensionHandler 的核心功能实现。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.dialogue.DialogueSessionManager;
 import com.sirin.hk3gtl.common.entity.VoidQueenSirinEntity;
@@ -37,13 +18,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID)
-/** 【变更记录 #1】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：毕业/传送/彩蛋/调试改为查询当前玩家，实体避免在已有坏结局演出时开启新会面；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
-/**
- * 【变更记录 #2】2026-10-17 14:44:46（第2次备注 · 内测5修订162）
- * 删除：退役虚数锚扫描缓存专用的维度卸载回调和依赖。
- * 新增：无。修改：保留维度加载、实体、玩家登录/离线和毕业传送处理。
- * 用途：解绑无设备消费者的旧约束，不改变现行维度与终局行为。
- */
+ 
+ 
+
+
+
+
+
 public class ImaginaryDimensionHandler {
 
     private static final String DIALOGUE_DONE_TAG = "hk3gtl_dialogue_done";

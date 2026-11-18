@@ -5,7 +5,7 @@ import com.sirin.hk3gtl.common.dialogue.definition.Hk3ApprovedDialogues;
 import com.sirin.hk3gtl.common.narrative.Hk3ApprovedProse;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 18:42:57（修订140）：删除无；新增正式审查逐句图及三问菜单；修改首次和补行使用不同收束；用途：仅定义显示，许可由服务端会面核验，不改已批准正文。 */
+ 
 public final class Hk3ReviewDialogues {
     public static final String FIRST="hk3_review_first", SECOND="hk3_review_second", NOTICE="hk3_review_notice";
     private Hk3ReviewDialogues(){}

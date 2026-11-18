@@ -13,14 +13,14 @@ import java.util.function.Consumer;
 
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialRecipes.*;
 
-/**
- * 【文件职责】HBV至QAV八阶主材料实体制备；首制与L1、L3量产明确分开。
- * 【变更记录 #1】2026-10-17 16:26:09（第1次备注 · 修订165）
- * - 删除：无；不删除魂钢八步主线，不用新主材冒充旧魂钢。
- * - 新增：MAX三步首制、HBV稳定液魂钢量产、梯度/晶格/致密/层压/栅格/配对/锚定工序。
- * - 修改：每级先级实体必消耗，支线先制备再合流；配对A/B批料各自消耗后才形成配对坯。
- * - 用途：使用既有SPS、大化工、压机和线材类型；静态实体配方不冒充随机缺陷检测或同步量子态模拟。
- */
+ 
+
+
+
+
+
+
+
 final class Hk3MainMaterialProductionLower {
     private Hk3MainMaterialProductionLower() {}
 

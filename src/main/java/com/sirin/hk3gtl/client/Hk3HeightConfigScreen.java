@@ -9,19 +9,19 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-/**
- * 【文件职责】Forge配置界面仅编辑未来新世界模式和上界，不能给当前或旧档启用/缩高。
- * 【变更记录 #1】2026-10-17 21:26:10（第1次备注 · 修订166）
- * - 删除：无。新增：三种创建模式、合法上界输入与保存拒绝提示。
- * - 修改：不向服务器发送高度设置，不热改世界；用途：与服务端同一配置验证且明确旧档边界。
- */
-/**
- * 【变更记录 #2】2026-10-29 23:06:53（第2次备注 · 本轮高度与预览修复）
- * - 删除：设置页不能为旧档选择升级的限制；不新增热修改世界入口。
- * - 新增：分号分隔的准确文件夹名单输入及非法路径、通配符、空条目校验。
- * - 修改：与Common配置同步保存，显示重开生效和不可直接缩高说明；小窗口保留底部按钮。
- * - 用途：新档和显式名单旧档均能选择既定高度方案，实际边界仍由服务端冻结合同决定。
- */
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
 public final class Hk3HeightConfigScreen extends Screen {
     private final Screen parent;
     private Hk3HeightConfig.NewWorldMode mode;

@@ -2,12 +2,12 @@ package com.sirin.hk3gtl.common.phone;
 
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-09-30 16:16:37（内测5修订110）
- * 删除：被新版通知读取流程替代的旧分支，历史备注保留。
- * 新增／修改：新增纯逻辑浮层队列：最多32待显示组、6秒、研究2秒合并、待处理优先、溢出汇总；不修改收件箱已读。
- * 用途：通知与业务结果分离，服务端授权和个人持久化；不改结构、贴图和贸易。
- */
+ 
+
+
+
+
+
 public final class Hk3NotificationQueue {
     public record Notice(String id,String title,String body,String kind,int priority) {}
     public record Card(String title,String body,int count,int priority,String kind) {}

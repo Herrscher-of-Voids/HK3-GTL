@@ -5,8 +5,8 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 04:08:14（修订128）：删除无；新增服务端事实匹配规则；用途：缺字段与空条件关闭，不接受自由文本作为已完成事件，不将目录数量当作执行覆盖。 */
-/** 【变更记录 #2】2026-10-01 05:09:29（修订128）：删除：旧固定上限或被替代的分支；新增/修改：执行规则必须携带当前审核条件全文且逐字相同，防止目录更新后无声沿用旧来源；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggRules {
     public enum Operation { EQ, CONTAINS, AT_LEAST, AT_MOST }
     public record Check(String field,Operation op,String value){

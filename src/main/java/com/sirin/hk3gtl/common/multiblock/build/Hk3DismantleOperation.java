@@ -6,14 +6,13 @@ import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiController;
 import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine;
 import com.gregtechceu.gtceu.api.pattern.MultiblockState;
-import com.sirin.hk3gtl.mixin.gtceu.Hk3MultiblockStateAccess;
+import com.sirin.hk3gtl.common.multiblock.pattern.Hk3InterfacePredicates;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import org.gtlcore.gtlcore.common.item.UltimateTerminalBehavior.AutoBuildSetting;
@@ -35,23 +34,21 @@ final class Hk3DismantleOperation {
     }
 
     boolean matches(Hk3BuildPlan plan, int index, BlockPos pos, BlockState actual,
-                    BlockState expected, Rotation rotation) {
+                    BlockState expected) {
         if (pos.equals(controller.getPos()) || actual.isAir()
                 || setting.shouldPreserveDuringDismantle(actual.getBlock())) return false;
         var machine = MetaMachine.getMachine(probe.world,pos);
         if (machine instanceof IMultiController) return false;
         if (machine instanceof IMultiPart part) {
-            if (plan.dismantlePort(index) == null || setting.isNoHatchMode()
+            if (!plan.isMachinePartSlot(plan.x(index),plan.y(index),plan.z(index))
+                    || !Hk3InterfacePredicates.isInterface(actual)
+                    || setting.isNoHatchMode()
                     || part.getControllers().stream().anyMatch(other -> other != controller)) return false;
-            Direction face = plan.portFacing(index);
-            if (face != null && machine.getFrontFacing() != rotation.rotate(face)) return false;
         }
-        var predicate = plan.dismantlePort(index);
-        if (predicate == null) return actual == expected || expected.getBlock() instanceof ActiveBlock active
-                && actual == active.changeActive(expected,!active.isActive(expected));
-        var access = (Hk3MultiblockStateAccess)(Object)probe;
-        access.hk3gtl$clean();
-        return access.hk3gtl$update(pos.immutable(),predicate) && predicate.test(probe);
+        if (actual == expected || expected.getBlock() instanceof ActiveBlock active
+                && actual == active.changeActive(expected,!active.isActive(expected))) return true;
+        return plan.isMachinePartSlot(plan.x(index),plan.y(index),plan.z(index))
+                && Hk3InterfacePredicates.isInterface(actual);
     }
 
     boolean permitted(ServerPlayer player, BlockPos pos) {

@@ -1,18 +1,17 @@
 package com.sirin.hk3gtl.common.research;
 
-/**
- * 【文件职责／本轮边界】保留最大流扣料分配，并返回逐需求分配以区分耗材与不消耗工装。
- * 【变更记录 #1】2026-09-29 21:06:40（第 1 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：保留最大流扣料分配，并返回逐需求分配以区分耗材与不消耗工装。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
 
 import java.util.Arrays;
 
-/** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
 public final class Hk3MaterialAllocation {
     private Hk3MaterialAllocation() {}
 

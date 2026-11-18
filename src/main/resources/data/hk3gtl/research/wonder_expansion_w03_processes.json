@@ -1,0 +1,1898 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w03_x46_qav_billet_ring",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "zh_name": "锚场锚定超晶格坯料环件联制",
+      "purpose": "两份坯料先成四根棒，再闭合八个界面环；主材相含量288对288，锚定工装只控制成形。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_ring",
+          "count": 8
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "坯料多段成形",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/formed_interface_rings",
+      "output_consumers": [
+        "hk3gtl_main_component_qav_sensor",
+        "hk3gtl_main_component_qav_electric_pump"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_qav_billet_frame",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "zh_name": "锚场锚定超晶格框架联制",
+      "purpose": "四份坯料成八根承力棒并装为一个框架；相含量576对576，不绕过本级主材生产。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_frame",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "坯料多段成形",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/loadbearing_frame_assembly",
+      "output_consumers": [
+        "hk3gtl_main_component_qav_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_wsv_billet_ring",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "zh_name": "锚场稳界约束壳坯料环件联制",
+      "purpose": "两份坯料先成四根棒，再闭合八个界面环；主材相含量288对288，锚定工装只控制成形。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 8
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "坯料多段成形",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_interface_rings",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_sensor",
+        "hk3gtl_main_component_wsv_electric_pump"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_wsv_billet_frame",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "zh_name": "锚场稳界约束壳框架联制",
+      "purpose": "四份坯料成八根承力棒并装为一个框架；相含量576对576，不绕过本级主材生产。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "坯料多段成形",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/loadbearing_frame_assembly",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_wsv_billet_interconnect",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "zh_name": "锚场稳界约束壳导体成形联线",
+      "purpose": "两份坯料制四根载体棒，再补十六根Shirabon细导体制十六根复合细线；非金属载体的导电补料不省略。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 2
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "载体与复合导体成形",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/functional_fine_wire",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_motor",
+        "hk3gtl_main_component_wsv_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_qav_billet_interconnect",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "zh_name": "锚场锚定超晶格导体成形联线",
+      "purpose": "两份坯料制四根载体棒，再补十六根Shirabon细导体制十六根复合细线；非金属载体的导电补料不省略。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 2
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_fine_wire",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "载体与复合导体成形",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/functional_fine_wire",
+      "output_consumers": [
+        "hk3gtl_main_component_qav_electric_motor",
+        "hk3gtl_main_component_qav_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_imv_billet_foil",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-SSQ"
+      ],
+      "zh_name": "虚数陶瓷烧结展薄联线",
+      "purpose": "八份虚数陶瓷坯先经氩气保护烧结成板，再形成三十二层功能箔；完整保留陶瓷的保护气需求。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_foil",
+          "count": 32
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "保护气烧结与功能展薄",
+      "baseline_recipe": "main_material/imaginary_phase_transfer_ceramic/protected_atmosphere_ceramic_plate",
+      "output_consumers": [
+        "hk3gtl_main_component_imv_emitter",
+        "hk3gtl_main_component_imv_electric_pump"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_wfv_billet_foil",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "zh_name": "构界纤维铺层展薄联线",
+      "purpose": "八份构界纤维坯先层压成板，再分成三十二份功能薄层；不把纤维当作可直接金属轧制的材料。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 32
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "复合铺层与功能展薄",
+      "baseline_recipe": "main_material/worldforming_gradient_fiber/composite_laminate_plate",
+      "output_consumers": [
+        "hk3gtl_main_component_wfv_emitter",
+        "hk3gtl_main_component_wfv_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_shell_vessel_integration",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-SPM",
+        "RN-JOK",
+        "RN-BCC"
+      ],
+      "zh_name": "魂钢壳体成形与容器校准",
+      "purpose": "十六块魂钢板与四个封装件先形成壳体，再消耗校准模块及仿制约束核心制成空容器；两段冷却与稳定介质完整保留。",
+      "item_inputs": [
+        {
+          "id": "material:soulium/plate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        },
+        {
+          "id": "spent_honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "ticks": 3800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "容器壳体与校准",
+      "baseline_recipe": "industrial_vessel_calibration",
+      "output_consumers": [
+        "industrial_world_bubble_capture"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_proto_vessel_integration",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-SPM",
+        "RN-JOK",
+        "RN-BCC"
+      ],
+      "zh_name": "稳定原质直达世界泡容器",
+      "purpose": "十六份稳定原质先制十六块魂钢板及三十二根细线，板材全部用于壳体；副产细线与八份切屑实体输出，容器仍消耗约束核心。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stabilized_soulium_proto_mass",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        },
+        {
+          "id": "material:soulium/fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:soulium_swarf",
+          "count": 8
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1500
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1500
+        },
+        {
+          "id": "spent_honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "ticks": 5200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "多产物容器集成",
+      "baseline_recipe": "industrial_soulium_processing",
+      "output_consumers": [
+        "industrial_world_bubble_capture",
+        "industrial_circuit_etching"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_container_remnant_wet_recovery",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-OPR",
+        "RN-BCC"
+      ],
+      "zh_name": "破损世界泡容器湿法拆解",
+      "purpose": "四份容器残骸只回收一份封装与四份魂钢屑；不返回世界泡、核心、世界物质种子或完整容器。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_swarf",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        },
+        {
+          "id": "soulium_protective_gas",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        },
+        {
+          "id": "spent_soulium_process_gas",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "空间容器退役",
+      "baseline_recipe": "industrial_world_bubble_termination",
+      "output_consumers": [
+        "industrial_recovery_soulium_swarf",
+        "industrial_circuit_packaging"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_navigation_calibration_integration",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-CJK",
+        "RN-WCP"
+      ],
+      "zh_name": "导航校准与舰船模块联制",
+      "purpose": "四块数据基板先制两份空间校准件，再与六块数据基板、三个封装和输运介质组装导航；不删除两份校准件的物料。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 3
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:hyperion_navigation_module",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 250
+        },
+        {
+          "id": "stable_transport_medium",
+          "amount": 400
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 432
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 250
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "校准与导航装配",
+      "baseline_recipe": "wonder_w03_hyperion_navigation_module",
+      "output_consumers": [
+        "H01休伯利安制造"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_termination_calibration_integration",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WTR",
+        "RN-SPM"
+      ],
+      "zh_name": "校准件与世界泡终止组件联制",
+      "purpose": "先由两块数据基板制校准件，再投入两块基板和一个封装组装终止组件；保留校准分析试剂与焊料。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 125
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 216
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 125
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "校准与终止工装",
+      "baseline_recipe": "wonder_w03_bubble_termination_charge",
+      "output_consumers": [
+        "industrial_world_bubble_termination",
+        "industrial_simulated_world_termination"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_anchored_model_sample",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-QOM"
+      ],
+      "zh_name": "锚定建模与世界泡样本制备",
+      "purpose": "实体锚定件、数据基板和标准样本先承载模型，再以石英岩和稳定液制四份观察样本；不生成捕获凭据。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_reference_sample",
+          "count": 1
+        },
+        {
+          "id": "gtceu:quartzite_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_bubble_sample",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 125
+        },
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 125
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "锚定模型采样",
+      "baseline_recipe": "wonder_w03_world_model_carrier",
+      "output_consumers": [
+        "世界泡研究实体提交"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_anchor_maintenance_integration",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-RAT",
+        "RN-WME"
+      ],
+      "zh_name": "锚定件制造与维系样本联制",
+      "purpose": "按普通来源制四份锚定件并全部用于四份维系样本；钨钢、铂箔、适配基板、纳米群、魂钢板和稳定液各自完整保留。",
+      "item_inputs": [
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 32
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 4
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "ticks": 4200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "锚定制造与维系备料",
+      "baseline_recipe": "industrial_world_maintenance",
+      "output_consumers": [
+        "industrial_composite_conducting",
+        "industrial_composite_confining",
+        "industrial_composite_reconstructing",
+        "industrial_composite_cognitive"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_calibration_module_retirement",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-OPR"
+      ],
+      "zh_name": "退役空间校准件介质回收",
+      "purpose": "四个校准模块最多回收两块数据基板和两份边角料，不返还仿制空之核心或额外校准件，兼容本机无核心制法的成本下界。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "校准介质退役",
+      "baseline_recipe": "wonder_w03_spatial_calibration_module",
+      "output_consumers": [
+        "industrial_spatial_probe",
+        "industrial_recovery_composite_offcut"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_spatial_probe_disassembly",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-CJK",
+        "RN-OPR"
+      ],
+      "zh_name": "空间探针有损拆解",
+      "purpose": "一支探针仅回收一块数据基板和一个封装，其余降为一份边角料；不返还可能未投入的核心或锚定件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:spatial_probe",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "空间探针退役",
+      "baseline_recipe": "industrial_spatial_probe",
+      "output_consumers": [
+        "industrial_unmanned_resource_probe",
+        "industrial_recovery_composite_offcut"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_navigation_module_disassembly",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-CJK",
+        "RN-WCP",
+        "RN-OPR"
+      ],
+      "zh_name": "退役舰船导航模块分离",
+      "purpose": "一份导航模块只保留一个校准件、一个封装和两份拆解料；六块以上数据基板及输运介质不回生。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:hyperion_navigation_module",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:drone_disassembly_scrap",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "导航模块退役",
+      "baseline_recipe": "wonder_w03_hyperion_navigation_module",
+      "output_consumers": [
+        "industrial_train_navigation_module",
+        "industrial_recovery_drone_scrap"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_termination_charge_disassembly",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WTR",
+        "RN-OPR"
+      ],
+      "zh_name": "冗余终止组件拆解",
+      "purpose": "未使用的终止组件只回收一个封装和一份边角料，不产出第二个终止组件或任何世界物质种子。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 250
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "终止工装退役",
+      "baseline_recipe": "wonder_w03_bubble_termination_charge",
+      "output_consumers": [
+        "industrial_circuit_packaging",
+        "industrial_recovery_composite_offcut"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_empty_vessel_retirement",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-BCC",
+        "RN-OPR"
+      ],
+      "zh_name": "备用空容器有损退役",
+      "purpose": "一份空容器仅返回一个封装与四份魂钢屑，约束核心和大部分壳材退出闭环；不能制造世界泡或观测事实。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_swarf",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "空间容器退役",
+      "baseline_recipe": "industrial_vessel_calibration",
+      "output_consumers": [
+        "industrial_recovery_soulium_swarf",
+        "industrial_circuit_packaging"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_imv_dielectric_mesh_integration",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数介电膜与互连网联制",
+      "purpose": "一块虚数陶瓷板形成八片膜，再与六十四根本族细线制十六张互连网；两道工序的聚合箔、生长液和稳定液全额保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_fine_wire",
+          "count": 64
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 750
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 1000
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "介电成膜与互连铺设",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_interconnect_mesh",
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_circuit_substrate",
+        "hk3gtl_electronic_imaginary_topology_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_imv_film_epitaxy_integration",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数介电成膜与外延联制",
+      "purpose": "先制八片膜，随后以两片中子素晶圆、四块额外载体和八颗前代逻辑裸片生长四片外延片；不免除前代裸片。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+          "count": 5
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_epitaxial_wafer",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 750
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 6000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "成膜与外延生长",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_epitaxial_wafer",
+      "output_consumers": [
+        "wonder_w01_x46_imaginary_topology_logic_photodicing",
+        "wonder_w01_x46_imaginary_topology_memory_press_dicing"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_imv_epitaxy_memory_integration",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数外延存储压印切割联制",
+      "purpose": "一轮外延制两片载片，两份前代RAM母片分别参与压印，最终切三十二颗RAM；载体、介电膜与前代逻辑裸片保留。",
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_wafer",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 32
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "ticks": 4800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "外延与存储集成",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_ram_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_wsv_billet_sensor",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "稳界坯料传感器联制",
+      "purpose": "四份稳界坯分流两板与四棒，一棒制两环供传感器，余下三棒返回；前级传感器、同阶电路及CPU和RAM完整投入。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:sensor_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 3
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "主材成形与传感装配",
+      "baseline_recipe": "hk3gtl_main_component_wsv_sensor",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_sensor"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_wsv_billet_field_generator",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "稳界坯料力场发生器联制",
+      "purpose": "十二份坯料按两框、十六细线与八箔的相含量分流；非金属细线补Shirabon导体，保留前级发生器、WSV电路及两颗CPU。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 12
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:field_generator_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "主材成形与锚场装配",
+      "baseline_recipe": "hk3gtl_main_component_wsv_field_generator",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_qav_scrap_to_frame",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-ERA",
+        "RN-SSQ",
+        "RN-OPR"
+      ],
+      "zh_name": "锚定超晶格废料复配框架",
+      "purpose": "八份分类废料分离为四十八份可用组分与十六份尾料，补二十四张新Shirabon箔重构六坯，四坯制框、两坯返回；主材仅回收75%。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_classified_scrap",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_frame",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 5200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "有损回收与结构重构",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/lossy_phase_separation",
+      "output_consumers": [
+        "hk3gtl_main_component_qav_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_wsv_scrap_to_frame",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-WME",
+        "RN-WMS",
+        "RN-OPR"
+      ],
+      "zh_name": "稳界约束壳废料复配框架",
+      "purpose": "八份分类废料分离为四十八份可用组分与十六份尾料，补二十四张新Shirabon箔重构六坯，四坯制框、两坯返回；主材仅回收75%。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_classified_scrap",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 5200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "有损回收与结构重构",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/lossy_phase_separation",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_fresh_world_medium_maintenance",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-SWS",
+        "RN-WME"
+      ],
+      "zh_name": "新鲜稳定液与维系样本联制",
+      "purpose": "晶种、稳定介质和新溶剂先配世界稳定液，再用于维系备料；不依赖废液开机，工艺结束输出废世界稳定液和废溶剂。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 4
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 3800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "介质配制与维系集成",
+      "baseline_recipe": "industrial_world_medium",
+      "output_consumers": [
+        "industrial_composite_conducting",
+        "industrial_composite_confining"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_simulated_world_build_stabilize",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-SWC",
+        "RN-SWS"
+      ],
+      "zh_name": "模拟世界构建与稳定联线",
+      "purpose": "世界物质种子、魂钢板、数据基板与仿制约束核心先构建模拟泡，再以四份锚定件稳定；两阶段六千毫桶废稳定液独立排出。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 4000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 6000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "ticks": 6400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "模拟世界构建集成",
+      "baseline_recipe": "industrial_simulated_world_construction",
+      "output_consumers": [
+        "industrial_simulated_world_termination"
+      ]
+    },
+    {
+      "id": "wonder_w03_x46_simulated_world_charge_termination",
+      "role": "W03",
+      "requirements": [
+        "RN-IAR",
+        "RN-SWR",
+        "RN-WTR",
+        "RN-SPM"
+      ],
+      "zh_name": "模拟世界终止组件现场制造",
+      "purpose": "现场以新基板、校准件、封装和焊料制造一个终止组件，再消耗模拟世界泡；仅返回其原有一个种子与容器残骸。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2250
+        }
+      ],
+      "ticks": 4400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "终止工装制造与回收",
+      "baseline_recipe": "industrial_simulated_world_termination",
+      "output_consumers": [
+        "industrial_simulated_world_construction",
+        "wonder_w03_x46_container_remnant_wet_recovery"
+      ]
+    }
+  ]
+}

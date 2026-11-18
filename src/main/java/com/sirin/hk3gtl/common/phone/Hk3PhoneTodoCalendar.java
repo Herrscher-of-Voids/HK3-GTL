@@ -8,7 +8,7 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/** 【变更记录 #1】2026-11-05（修订206）：日历只读服务器配置时区；真实待办页、成功勾选和手机关闭回调接入378/379，客户端不能申报日期或完成事实。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3PhoneTodoCalendar {
     private static final Hk3TodoCalendarSessions SESSIONS=new Hk3TodoCalendarSessions();

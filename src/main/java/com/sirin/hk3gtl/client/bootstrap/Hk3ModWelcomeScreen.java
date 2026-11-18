@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.client.bootstrap;
 
-/**
- * 【变更记录 #3】2026-09-29 17:51:46（内测5修订93）
- * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
- * - 新增／修改：更新窗口接入审核正文与反馈QQ，完整换行；确认后记录已读，稍后阅读不记录。未实现系统的宣传不放进当前更新窗口。
- * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
- */
+ 
+
+
+
+
+
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -15,20 +15,19 @@ import net.minecraft.network.chat.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 【文件职责】
- * - 内测进世界欢迎弹窗：注册自检 + 面向玩家的版本亮点（语言键，非内部 changelog.json）。
- *
- * 【变更记录 #1】2026-05-19（内测二首轮）
- *
- * 【变更记录 #2】2026-05-19 05:30:00（第 2 次备注 · 内测二第 7 次更新）
- * - 删除：直接解析 changelog.json 展示给玩家（含 revision/reason/技术条目）。
- * - 新增：按当前版本读取 hk3gtl.welcome.release.&lt;ver&gt;.* 玩家向说明。
- * - 用途：changelog.json 仅作开发审计，欢迎界面只展示「本版本新增什么」。
- */
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/** 【变更记录 #4】2026-10-01 16:12:34（修订133）：删除逐行滚动及未调用的旧版本说明入口；新增分类整页阅读、独立历史说明、复制反馈信息、返回来源屏幕；修改登录展示交由队列、确认携带实际正文版本；用途：准确展示发布边界，加载检查不代表可通关。 */
-/** 【变更记录 #5】2026-10-31 15:36:22（第5次备注 · 修订188）：删除健康警告的模糊子串匹配；新增带连接身份的网络包入口、返回来源读取及确认/关闭连接校验；修改连续手动重读保留手机父屏，只有六类注册检查的准确失败值触发警告；用途：防止旧会话页面影响新连接，并准确反映健康检查范围。 */
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+ 
 public class Hk3ModWelcomeScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
     private static final int PANEL_W = 420, PANEL_H = 310;
     private static final String[] TABS = {"current", "compatibility", "health", "history", "feedback"};

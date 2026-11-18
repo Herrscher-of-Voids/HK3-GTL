@@ -10,8 +10,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 06:09:22（修订128）：删除无；新增已加载普通房间的封闭地板/屋顶有界检测；修改无；用途：仅确认安全回屋与本人蘑菇小屋，不生成建筑、不触发工程成型。 */
-/** 【变更记录 #2】2026-10-01 06:23:20（修订128）：删除：无；新增/修改：封闭房间保留原地板基线，扩建新增至少九格本人地板才授收藏；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggRooms {
     public record Room(Set<BlockPos> floor,Set<BlockPos> boundary){}
     private Hk3EggRooms(){}

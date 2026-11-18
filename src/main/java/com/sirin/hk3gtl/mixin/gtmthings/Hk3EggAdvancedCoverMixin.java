@@ -11,9 +11,15 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value=AdvancedWirelessTransferCover.class,remap=false)
-/** 【变更记录 #1】2026-10-01 06:15:25（修订128）：删除无；新增实际传输返回后的归属旁注；修改无；用途：模拟/零接收不算交付，不修改传输函数。 */
-/** 【变更记录 #2】2026-10-01 13:24:37（修订128）：删除：无；新增/修改：安装时记录目标变更，实际插入返回后确认279；不要求过滤卡存在；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public abstract class Hk3EggAdvancedCoverMixin {
+    @Redirect(method="moveInventoryItems",at=@At(value="INVOKE",target="Lcom/gregtechceu/gtceu/api/cover/filter/ItemFilter;test(Ljava/lang/Object;)Z"))
+    private boolean hk3gtl$whitelist(com.gregtechceu.gtceu.api.cover.filter.ItemFilter filter,Object candidate){
+        boolean accepted=filter.test((ItemStack)candidate);
+        if(!accepted&&!filter.isBlackList()&&((AdvancedWirelessTransferCover)(Object)this).getFilterHandlerItem().isFilterPresent())Hk3EggCovers.whitelistRejected((CoverBehavior)(Object)this);
+        return accepted;
+    }
     @Inject(method="onAttached",at=@At("RETURN"))private void hk3gtl$attached(ItemStack stack,ServerPlayer p,CallbackInfo ci){Hk3EggCovers.attached((CoverBehavior)(Object)this,p);Hk3EggCovers.target((CoverBehavior)(Object)this,p,stack);}
     @Redirect(method="moveInventoryItems",at=@At(value="INVOKE",target="Lcom/lowdragmc/lowdraglib/side/item/ItemTransferHelper;insertItem(Lcom/lowdragmc/lowdraglib/side/item/IItemTransfer;Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;"))
     private ItemStack hk3gtl$insert(IItemTransfer target,ItemStack stack,boolean simulate){

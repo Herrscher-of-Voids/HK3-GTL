@@ -6,7 +6,7 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 04:48:51（修订128）：删除无；新增个人小游戏操作重放；用途：仅接种子和方向，不接分数/任意彩蛋编号；每tick限32次操作，断线释放，离线App游戏本身仍可运行。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggGames {
     private static final class Session {Hk3PhoneGames.Tiles tiles;Hk3PhoneGames.Snake snake;long tick=-1;int requests;}

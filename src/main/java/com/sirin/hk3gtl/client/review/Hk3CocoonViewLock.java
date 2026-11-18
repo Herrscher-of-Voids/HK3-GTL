@@ -14,13 +14,13 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/**
- * 【文件职责】一审空间固定第一人称观礼镜头，输入和渲染阶段共同约束。
- * 【变更记录 #1】2026-10-01 20:19:52（内测5修订147）
- * - 删除：无；新增：移动输入屏蔽、每帧朝向锁定、临时第一人称及离场恢复。
- * - 修改：只在cocoon_review维度启用，不拦截对话鼠标或退出键；用途：防止走到茧背面或转开镜头。
- * - 边界：返回其他维度、世界卸载、断线均还原进入前的相机模式，不改存盘选项或玩家飞行权限。
- */
+ 
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl", value=Dist.CLIENT)
 public final class Hk3CocoonViewLock {
     private static final ResourceLocation DIMENSION=new ResourceLocation("hk3gtl","cocoon_review");

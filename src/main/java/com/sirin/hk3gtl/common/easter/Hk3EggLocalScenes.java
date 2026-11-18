@@ -11,8 +11,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 13:27:41（修订128）：删除：无；新增/修改：新增3/6/9独立红石灯、同一命名僵尸受伤后隔离、天然地牢放火把后停门口，均查现有世界与本人真实行为；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #2】2026-10-01 13:28:18（修订128）：删除：无；新增/修改：拆分Java禁止的var多变量声明，保持门口检测逻辑；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggLocalScenes {
     private Hk3EggLocalScenes(){}
     public static void hurt(LivingEntity target,DamageSource source,float before){

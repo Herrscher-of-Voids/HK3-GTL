@@ -3,13 +3,13 @@ package com.sirin.hk3gtl.common.finale;
 import net.minecraft.nbt.*;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-10-01 16:49:18（修订135）
- * 删除：无；新增：终审固定准入清单、缺失与未接入的区分及完整来源快照。
- * 修改：只接受服务端适配器提供的事实，缺任一项不产生资格，不把库存或历史最高等级当现状。
- * 用途：个人经历与团队工程分开核对；未接入提供者必须返回等待，不开放客户端赋值入口。
- */
-/** 【变更记录 #2】2026-10-01 22:50:14（第2次备注 · 内测5修订155）：删除玩家展示中的旧电压及开发说明；新增现行正文投影或对应回归；修改仅限呈现与检索，不改变进度、回执、触发条件或权限；用途：统一发布版玩家文案，历史备注保留。 */
+ 
+
+
+
+
+
+ 
 public final class Hk3FinaleRequirements {
     public enum State { COMPLETE, MISSING, WAITING }
     public record Requirement(String key,String label) {}
@@ -33,7 +33,7 @@ public final class Hk3FinaleRequirements {
         list.add(new Requirement("c7","当前已核验C7文明事实"));
         for(int i=1;i<=15;i++)list.add(new Requirement(String.format(Locale.ROOT,"W%02d",i),String.format(Locale.ROOT,"W%02d 本队真实验收且当前结构完整",i)));
         list.add(new Requirement("hyperion","仿制休伯利安真实工程验收"));
-        list.add(new Requirement("application","W15本次实际运行的申请校验回执"));
+        list.add(new Requirement("application","W15最近实际运行的申请校验回执及当前同机完整"));
         REQUIREMENTS=List.copyOf(list);
     }
     public static final class Evaluation {

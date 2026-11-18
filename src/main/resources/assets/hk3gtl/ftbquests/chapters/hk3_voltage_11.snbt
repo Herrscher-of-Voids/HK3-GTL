@@ -1,208 +1,1714 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_11",
-  "id": "4B5274E79D3E56EF",
-  "title": "HK3GTL · IRV · 重构压",
+  "id": "4B595DD41265D085",
+  "title": "重构压 IRV",
   "subtitle": [
-    "Tier25 · 寻找虚数联系"
+    "Tier25-IRV"
   ],
-  "group": "",
-  "order_index": 25,
-  "icon": "hk3gtl:electric_motor_irv",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 26,
+  "icon": "hk3gtl:voltage_machine_casing_irv",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B5EF7C114518765",
-      "title": "寻找虚数联系",
-      "icon": "hk3gtl:irv_computer",
-      "x": 0.0,
-      "y": -4.0,
+      "id": "4B5B4E2E70BE302B",
+      "title": "仿制的虚空万藏",
+      "subtitle": "将仿制理核心装进神之键框架",
       "description": [
-        "把模拟世界泡的完整运行过程和跨目标观测放在一起，看看其中是否存在稳定的联系。",
-        "",
-        "先完成虚数初观与研究所工程，再研究空间锚定。别急着直接寻找最终产物，观测是这条路线的起点。",
-        "{@pagebreak}",
-        "本页是IRV · 重构压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "完成对应研究后，在装配中心组合神之键框架与仿制理核心，制成仿制的虚空万藏。低温压差隔离总管作为工装保留。"
+      ],
+      "dependencies": [
+        "4B526B218167CA96"
       ],
       "tasks": [
         {
-          "id": "4B5C7CBFC5DFAD59",
-          "type": "checkmark",
-          "title": "读完这一页",
+          "id": "4B57FBE594BC2BD0",
+          "type": "custom",
+          "title": "实际完成仿制的虚空万藏",
           "tags": [
-            "hk3gtl_quest_voltage_intro_11"
+            "hk3gtl_quest_existing_imitation_void_archives"
           ]
         }
       ],
-      "size": 2.0,
-      "shape": "rsquare"
+      "icon": "hk3gtl:imitation_void_archives",
+      "x": 0,
+      "y": 32,
+      "optional": true
     },
     {
-      "id": "4B553DE52DD716EE",
-      "title": "电路与八大件",
-      "icon": "hk3gtl:electric_motor_irv",
-      "x": -4.0,
-      "y": -4.0,
+      "id": "4B585FD4ED211C2C",
+      "title": "仿制的犹大的誓约",
+      "subtitle": "给仿制约束核心完成成品封装",
       "description": [
-        "进入IRV · 重构压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
+        "将神之键框架与仿制约束核心装成仿制的犹大的誓约，保留对应研究与部件来源。"
+      ],
+      "dependencies": [
+        "4B5A928D87B43C2A"
       ],
       "tasks": [
         {
-          "id": "4B5694DA189EE0A0",
-          "type": "checkmark",
-          "title": "读完这一页",
+          "id": "4B58D5DE860C1DE1",
+          "type": "custom",
+          "title": "实际完成仿制的犹大的誓约",
           "tags": [
-            "hk3gtl_quest_voltage_parts_11"
+            "hk3gtl_quest_existing_imitation_oath_of_judah"
           ]
         }
-      ]
+      ],
+      "icon": "hk3gtl:imitation_oath_of_judah",
+      "x": 4,
+      "y": 32,
+      "optional": true
     },
     {
-      "id": "4B5DECCFE43C883B",
-      "title": "虚数联系初观",
+      "id": "4B572144C9B98E32",
+      "title": "约束开闭工况",
+      "subtitle": "检查约束投入后的实际响应",
+      "description": [
+        "以仿制约束核心作工装，完成装配中心的约束工况。受检基板原量返还，保存开闭响应与冷却记录，接续戒律专项研究。"
+      ],
+      "dependencies": [
+        "4B5A928D87B43C2A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BB4A0E8494CD1",
+          "type": "custom",
+          "title": "实际完成约束开闭工况",
+          "tags": [
+            "hk3gtl_quest_existing_binding_worktest"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:soulium_data_substrate",
+      "x": 8,
+      "y": 32,
+      "optional": true
+    },
+    {
+      "id": "4B5F5CC41DB9BC86",
+      "title": "虚数锚定工况",
+      "subtitle": "让锚定组件实际进入工作状态",
+      "description": [
+        "在虚数锚定设备中运行锚定组件与校准模块，消耗稳定介质并收集用后介质。两类实物原量返还，实际锚定回执供后续采集与维系研究使用。"
+      ],
+      "dependencies": [
+        "4B5C8D8E0D9C8913"
+      ],
+      "tasks": [
+        {
+          "id": "4B547CE288F104FA",
+          "type": "custom",
+          "title": "实际完成虚数锚定工况",
+          "tags": [
+            "hk3gtl_quest_existing_imaginary_anchor"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:soulium_anchor_component",
+      "x": 12,
+      "y": 32,
+      "optional": true
+    },
+    {
+      "id": "4B5E2B16BECEA3F2",
+      "title": "真实世界泡整体捕获",
+      "subtitle": "将有效目标封入独立收容容器",
+      "description": [
+        "在捕获阵列中准备空收容容器、锚定组件与约束介质，完成真实目标捕获。取得封存世界泡并保存捕获回执，接着研究真实终止回收。"
+      ],
+      "dependencies": [
+        "4B527B4505AD67DB"
+      ],
+      "tasks": [
+        {
+          "id": "4B509E3A5AB5D77F",
+          "type": "custom",
+          "title": "实际完成真实世界泡整体捕获",
+          "tags": [
+            "hk3gtl_quest_existing_world_bubble_capture"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:sealed_real_world_bubble",
+      "x": 16,
+      "y": 32,
+      "optional": true
+    },
+    {
+      "id": "4B53196505DB3E55",
+      "title": "真实世界泡终止回收",
+      "subtitle": "对已捕获目标完成一次真实结算",
+      "description": [
+        "把封存的真实世界泡与终止组件送入回收机，完成终止回收并保存对应目标的回收记录。收集容器残件、魂钢碎屑及热冷却液，再继续研究模拟构筑。"
+      ],
+      "dependencies": [
+        "4B5AE7672501970C"
+      ],
+      "tasks": [
+        {
+          "id": "4B51311EE0549922",
+          "type": "custom",
+          "title": "实际完成真实世界泡终止回收",
+          "tags": [
+            "hk3gtl_quest_existing_world_bubble_termination"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:bubble_container_remnant",
+      "x": 20,
+      "y": 32,
+      "optional": true
+    },
+    {
+      "id": "4B5ADBB041563AE4",
+      "title": "模拟世界泡构筑",
+      "subtitle": "从物质种子建立一个新模拟批次",
+      "description": [
+        "在构筑机投入物质种子、魂钢板、数据基板与仿制约束核心，建立新的模拟批次。记录实际构筑来源，取得不稳定模拟世界泡，再继续稳定研究与加工。"
+      ],
+      "dependencies": [
+        "4B5CB701BE9957C3"
+      ],
+      "tasks": [
+        {
+          "id": "4B521320D5567951",
+          "type": "custom",
+          "title": "实际完成模拟世界泡构筑",
+          "tags": [
+            "hk3gtl_quest_existing_simulated_world_construction"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:unstable_simulated_world_bubble",
+      "x": 24,
+      "y": 32,
+      "optional": true
+    },
+    {
+      "id": "4B54B882F404DD20",
+      "title": "模拟世界泡稳定",
+      "subtitle": "对同一个构筑批次完成稳定",
+      "description": [
+        "将已构筑的模拟世界泡与锚定组件送入稳定设备，消耗维系介质与冷却液。保留该批次身份，取得稳定模拟世界泡与实际稳定回执。"
+      ],
+      "dependencies": [
+        "4B50C16AC50F4768"
+      ],
+      "tasks": [
+        {
+          "id": "4B57B256077AA6C1",
+          "type": "custom",
+          "title": "实际完成模拟世界泡稳定",
+          "tags": [
+            "hk3gtl_quest_existing_simulated_world_stabilization"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:stable_simulated_world_bubble",
+      "x": 24,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5BD7EC611C294E",
+      "title": "模拟世界泡终止回收",
+      "subtitle": "把同批构筑、稳定与回收接齐",
+      "description": [
+        "把同一批已经构筑并稳定的模拟世界泡送入回收机。完成终止结算，收集容器残件和物质种子，由完整同批回执接齐二审所需的模拟全链记录。"
+      ],
+      "dependencies": [
+        "4B5318E2082C834E"
+      ],
+      "tasks": [
+        {
+          "id": "4B59F9B786633760",
+          "type": "custom",
+          "title": "实际完成模拟世界泡终止回收",
+          "tags": [
+            "hk3gtl_quest_existing_simulated_world_termination"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:bubble_container_remnant",
+      "x": 20,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B58ABAB7F336F17",
+      "title": "航路中继模块工况",
+      "subtitle": "在航路设备中补制空间校准模块",
+      "description": [
+        "将两件空间探针、数据基板和封装件送入航路设备，配入稳定运输介质。保留信标与世界晶格匣工装，取得后续空间工程使用的校准模块。"
+      ],
+      "dependencies": [
+        "4B55DE40DABD7BDD"
+      ],
+      "tasks": [
+        {
+          "id": "4B52BD418C6B63BC",
+          "type": "custom",
+          "title": "实际完成航路中继模块工况",
+          "tags": [
+            "hk3gtl_quest_existing_route_relay_module"
+          ]
+        }
+      ],
       "icon": "hk3gtl:spatial_calibration_module",
-      "x": 0.0,
-      "y": 0.0,
-      "description": [
-        "把同一模拟批次从构筑到终止的资料，与跨目标观测一并分析。先完成这次联系初观，才有理由继续建造新的研究设施。",
-        "",
-        "解锁虚数之树观测阵列首次虚数观测，作为研究所升级证据来源。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "同一模拟批次的构筑、稳定、模拟世界泡终止回收机真实终止记录，以及无人跨界航路中继所用跨目标观测资料。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S03或更高等级研究所选择“虚数联系初观”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：模拟世界泡终止回收、无人跨界航路中继。",
-        "基础研究费用：3030点；6 × ICV级电路；104 × 硅岩合金板。",
-        "基础工期：18分钟；研究用电：2,111,062,325,329,920 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5374973DA0E79F",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_iop"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B59EB10C899A33B",
-        "4B5AC8840C9BC9EB"
-      ],
-      "subtitle": "S03 · RN-IOP",
-      "shape": "rsquare"
+      "x": 16,
+      "y": 36,
+      "optional": true
     },
     {
-      "id": "4B5C5F6C9A6EBA8C",
-      "title": "虚数研究所工程",
-      "icon": "hk3gtl:imaginary_research_casing",
-      "x": 3.0,
-      "y": 0.0,
+      "id": "4B5BBAC5EA88F163",
+      "title": "三领域来源对照",
+      "subtitle": "分别核对采集、模拟构筑与虚数观测",
       "description": [
-        "第一次虚数观测成功后，保留设备与工况资料，推进虚数研究所工程。这里需要的是一次成功观测，不只是打开过观测设备。",
-        "",
-        "解锁第四阶研究所，不要求先完成世界维系工程。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "虚数之树观测阵列首次成功虚数观测的原始设备、工况与观测记录。",
-        "",
-        "按JEI查找对应工艺，在虚数之树观测阵列完成对应实验后，到S03或更高等级研究所选择“虚数研究所工程”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：虚数联系初观。",
-        "基础研究费用：3030点；6 × ICV级电路；104 × 硅岩合金板。",
-        "基础工期：18分钟；研究用电：2,111,062,325,329,920 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "在逆向实验室处理标准样本，并核对液态采集、模拟构筑和虚数观测三个不同批次的真实记录。保存三领域来源及分析结果，供接口联调与后续复验使用。"
+      ],
+      "dependencies": [
+        "4B5C5F6C9A6EBA8C"
       ],
       "tasks": [
         {
-          "id": "4B5B766B6EBD6E9C",
+          "id": "4B5266346FE208F4",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成三领域来源对照",
           "tags": [
-            "hk3gtl_quest_rn_ile"
+            "hk3gtl_quest_existing_three_domain_analysis"
           ]
         }
       ],
-      "dependencies": [
-        "4B5DECCFE43C883B"
+      "icon": "hk3gtl:analyzed_honkai_sample",
+      "x": 12,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B509B843BB675ED",
+      "title": "从ICV车间继续",
+      "subtitle": "ICV → IRV",
+      "description": [
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批IRV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
       ],
-      "subtitle": "S03 · RN-ILE",
-      "shape": "hexagon",
-      "size": 1.3
+      "dependencies": [
+        "4B56262CD0FE0662"
+      ],
+      "tasks": [
+        {
+          "id": "4B53A79AF97C1899",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_icv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_icv",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5A107779BBFE70",
+      "title": "重构映射芯片",
+      "subtitle": "为重构接口保存连接映射",
+      "description": [
+        "将定向导能中介层与重构合金板、箔、线加工成映射芯片。芯片提供后续设备能够核对的连接点。"
+      ],
+      "dependencies": [
+        "4B55FA9B6755D3AE",
+        "4B51AB271C65658D",
+        "4B5858E0D29AF645"
+      ],
+      "tasks": [
+        {
+          "id": "4B5700D5400727DB",
+          "type": "item",
+          "item": "hk3gtl:reconstruction_mapping_tile",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:reconstruction_mapping_tile",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5E0DA0C9780DBB",
+      "title": "可逆拓扑调度器",
+      "subtitle": "把结构映射表和作业顺序分开保存",
+      "description": [
+        "由前级调度核心接入映射芯片，封装本地CPU与RAM。可逆拓扑调度器负责重构作业的连接表和执行次序。"
+      ],
+      "dependencies": [
+        "4B504A00AE9D3080",
+        "4B5A107779BBFE70",
+        "4B5C12D4075281D2"
+      ],
+      "tasks": [
+        {
+          "id": "4B56E51F72E0BE34",
+          "type": "item",
+          "item": "hk3gtl:reversible_topology_scheduler",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:reversible_topology_scheduler",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B51D732F51F5539",
+      "title": "可分度再制造关节",
+      "subtitle": "让重构接头可以分度定位",
+      "description": [
+        "在隔离伺服块上加入重构合金棒环与调度器，装成再制造关节。关节为重复拆装预留定位与预载结构。"
+      ],
+      "dependencies": [
+        "4B5D8F353CB429BB",
+        "4B5E0DA0C9780DBB",
+        "4B53A74264E8AA6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B5276C165E37FF6",
+          "type": "item",
+          "item": "hk3gtl:indexed_remanufacture_joint",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:indexed_remanufacture_joint",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5ACE2380A763DC",
+      "title": "分质介质换热块",
+      "subtitle": "把不同工艺介质分路换热",
+      "description": [
+        "在原逆流冷板上扩展独立通道和排液接口。换热块供重构作业分别处理不同介质，完成后接回各自回路。"
+      ],
+      "dependencies": [
+        "4B5516FD206DEE91",
+        "4B5C12D4075281D2",
+        "4B51AB271C65658D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B17C37B1753CE",
+          "type": "item",
+          "item": "hk3gtl:segregated_media_exchange_block",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:segregated_media_exchange_block",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5ED1C5745F2E12",
+      "title": "虚数锚定处理器主机",
+      "subtitle": "给锚定主机接上结构映射",
+      "description": [
+        "以两件前级超级计算机为计算单元，装入映射芯片、调度器与分质换热块。主机由此管理重构接口的连接状态。"
+      ],
+      "dependencies": [
+        "4B53A7CC1286325B",
+        "4B5E0DA0C9780DBB",
+        "4B5ACE2380A763DC",
+        "4B53A74264E8AA6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B59FD5D25C7F569",
+          "type": "item",
+          "item": "hk3gtl:imaginary_anchoring_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_anchoring_processor_mainframe",
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5D33359A605FEA",
+      "title": "虚数重构超级计算机",
+      "subtitle": "把重构计算和共享存储接齐",
+      "description": [
+        "将两件前级处理器组装件接成超级计算机，增配共享RAM与重构合金承力结构。接口作业由拓扑调度器管理。"
+      ],
+      "dependencies": [
+        "4B5E0DA0C9780DBB",
+        "4B5ACE2380A763DC",
+        "4B53A74264E8AA6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C7C3EA2AE0C16",
+          "type": "item",
+          "item": "hk3gtl:irv_computer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:irv_computer",
+      "x": 50,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B585ADA0A40EFE7",
+      "title": "因果重构处理器组装件",
+      "subtitle": "让计算组装件保留可核对的连接点",
+      "description": [
+        "组合前级因果重构处理器与本级映射芯片、冷却和调度模块。组装件会继续供应世界织构计算与后续执行部件。"
+      ],
+      "dependencies": [
+        "4B52BA4C892CF039",
+        "4B5E0DA0C9780DBB",
+        "4B5ACE2380A763DC",
+        "4B53A74264E8AA6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B53514E8CC97C17",
+          "type": "item",
+          "item": "hk3gtl:causal_reconstruction_assembly",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:causal_reconstruction_assembly",
+      "x": 54,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5D9240452A2528",
+      "title": "世界织构处理器",
+      "subtitle": "完成世界织构的计算器件",
+      "description": [
+        "把完整前级组装件接到新的映射与调度结构上，装入共享存储和分质冷却。处理器供后续织界设备使用。"
+      ],
+      "dependencies": [
+        "4B5E0DA0C9780DBB",
+        "4B5ACE2380A763DC",
+        "4B53A74264E8AA6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B51082AE7D8490B",
+          "type": "item",
+          "item": "hk3gtl:world_weaving_processor",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:world_weaving_processor",
+      "x": 54,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B56F24FD29A2397",
+      "title": "IRV 电动马达",
+      "subtitle": "为驱动单元加上可分度接口",
+      "description": [
+        "在完整ICV马达外安装再制造关节与拓扑调度器。驱动接口的连接位置留有映射记录，便于后续拆装。"
+      ],
+      "dependencies": [
+        "4B5ADBC654FD075A",
+        "4B51D732F51F5539",
+        "4B5D33359A605FEA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BFB5E776A6672",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_motor_irv",
+      "x": 50,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B561F9B4DFFF5FE",
+      "title": "IRV 电动活塞",
+      "subtitle": "让直线执行器按连接表装配",
+      "description": [
+        "将前级活塞与IRV马达、可分度关节组装。伸缩驱动与新连接处分别固定，接入本级调度。"
+      ],
+      "dependencies": [
+        "4B5BA315DA657B47",
+        "4B56F24FD29A2397"
+      ],
+      "tasks": [
+        {
+          "id": "4B5239BE6FA68B7C",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_piston_irv",
+      "x": 38,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5C0479AE802EA5",
+      "title": "IRV 电动泵",
+      "subtitle": "为重构介质准备分路输送",
+      "description": [
+        "将完整前级泵接上IRV马达和分质换热块。泵体与温控通道分别装配，供不同介质保持独立流路。"
+      ],
+      "dependencies": [
+        "4B5D193DE5C2E2BD",
+        "4B56F24FD29A2397"
+      ],
+      "tasks": [
+        {
+          "id": "4B55586217D759ED",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_pump_irv",
+      "x": 34,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B562188ED56D095",
+      "title": "IRV 传送带模块",
+      "subtitle": "把输送段接到可重装关节上",
+      "description": [
+        "保留前级传送机构，使用IRV马达和可分度连接件完成升级。各段位置与动作顺序由拓扑调度器管理。"
+      ],
+      "dependencies": [
+        "4B50E9A4DA5B625B",
+        "4B56F24FD29A2397"
+      ],
+      "tasks": [
+        {
+          "id": "4B58F1C749EBC8FD",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_irv",
+      "x": 30,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5EEF4595E0877B",
+      "title": "IRV 机械臂",
+      "subtitle": "给机械臂留下可复装定位",
+      "description": [
+        "组合本级马达、活塞与前级机械臂，用再制造关节固定各连接处。映射和调度模块记录关节对应关系。"
+      ],
+      "dependencies": [
+        "4B53BF5C8FB823E3",
+        "4B561F9B4DFFF5FE"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A6BE6E5A6CFF0",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_irv",
+      "x": 34,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5B4ED784F8069B",
+      "title": "IRV 传感器",
+      "subtitle": "读取重构接口的实际状态",
+      "description": [
+        "在前级传感器上安装映射芯片与拓扑调度器，接好独立温控。读数供本级设备核对结构连接与作业状态。"
+      ],
+      "dependencies": [
+        "4B5ABFDF19A0A33D",
+        "4B5D33359A605FEA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5089C7195196BD",
+          "type": "item",
+          "item": "hk3gtl:sensor_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_irv",
+      "x": 46,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5F8F94848446F8",
+      "title": "IRV 发射器",
+      "subtitle": "让发射部件对应明确的结构接口",
+      "description": [
+        "把前级发射器接入重构映射与调度系统，再完成本级导电和绝缘封装。发射支路随连接表一同组织。"
+      ],
+      "dependencies": [
+        "4B5DFDB2A827F525",
+        "4B5D33359A605FEA"
+      ],
+      "tasks": [
+        {
+          "id": "4B557B23475EDE03",
+          "type": "item",
+          "item": "hk3gtl:emitter_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_irv",
+      "x": 42,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B536F4EABD4A6C1",
+      "title": "IRV 力场发生器",
+      "subtitle": "组装能够核对连接的场控装置",
+      "description": [
+        "把IRV发射器、传感器与前级力场发生器组合，加入映射和分质冷却。各场控部件保留独立连接点。"
+      ],
+      "dependencies": [
+        "4B5F472E0F24ECF5",
+        "4B5B4ED784F8069B",
+        "4B5F8F94848446F8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C6173DF492A49",
+          "type": "item",
+          "item": "hk3gtl:field_generator_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_irv",
+      "x": 30,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5323CDF34FBF11",
+      "title": "重构成分补给料",
+      "subtitle": "先准备全新成分补给料",
+      "description": [
+        "由前级导能板和新鲜金属粉制备补给料。首批重构合金从这条独立配料线取得成分，回收支线随后接入。"
+      ],
+      "dependencies": [
+        "4B5FCE050AB21FEF",
+        "4B59F40187D45DFA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F35EB1EFF77DB",
+          "type": "item",
+          "item": "hk3gtl:reconstruction_composition_charge",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:reconstruction_composition_charge",
+      "x": 0,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B592C39965F122F",
+      "title": "重构成分均化熔剂",
+      "subtitle": "给均化步骤配好新熔剂",
+      "description": [
+        "将工艺溶剂、稳定崩坏能与空间流体配成均化熔剂，再加入润湿和分散组分。它供装填、补料与形态加工使用。"
+      ],
+      "dependencies": [
+        "4B5FCE050AB21FEF"
+      ],
+      "tasks": [
+        {
+          "id": "4B58F7A7E23CCD36",
+          "type": "custom",
+          "title": "实际完成重构成分均化熔剂",
+          "tags": [
+            "hk3gtl_quest_irv_n02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5972DB662ACA13",
+      "title": "分类重构前料",
+      "subtitle": "以全新ICV主体装填前料",
+      "description": [
+        "把导能带基材、补给料与魂钢分批混合，制成分类重构前料。先用新料完成一次完整生产，再处理旧废料。"
+      ],
+      "dependencies": [
+        "4B5323CDF34FBF11",
+        "4B592C39965F122F"
+      ],
+      "tasks": [
+        {
+          "id": "4B58C68EBC6B27BF",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_stage_1",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_stage_1",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5A9BE55B90DE53",
+      "title": "补料调成合金坯",
+      "subtitle": "把重构需要的成分补齐",
+      "description": [
+        "向前料加入明确消耗的补给料和晶界调制颗粒，让熔剂润湿界面。调成合金坯随后进入熔合退火。"
+      ],
+      "dependencies": [
+        "4B5972DB662ACA13"
+      ],
+      "tasks": [
+        {
+          "id": "4B579462AB43DF85",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_stage_2",
+      "x": 12,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B54AEA642F57FB3",
+      "title": "重构熔合退火坯",
+      "subtitle": "先熔合连接处，再安排退火",
+      "description": [
+        "用扩散结合薄层重建合金界面，借既有取向箔控制结晶方向。熔合完成后退火，得到可释压的重构坯。"
+      ],
+      "dependencies": [
+        "4B5A9BE55B90DE53"
+      ],
+      "tasks": [
+        {
+          "id": "4B52B798685FE740",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_stage_3",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B564701EFE5A89C",
+      "title": "虚数重构母合金标准坯",
+      "subtitle": "释去内应力，再封闭表面",
+      "description": [
+        "对退火坯作应力调理，加入表面保护层并冷却定尺。标准坯从这道工序取得，热冷却液与废调理液分别排出。"
+      ],
+      "dependencies": [
+        "4B54AEA642F57FB3"
+      ],
+      "tasks": [
+        {
+          "id": "4B57908768FAE8A7",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_billet",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5C28B4D0219CF4",
+      "title": "虚数重构母合金板",
+      "subtitle": "补齐板面成分后再结合",
+      "description": [
+        "将标准坯与前级导能板复合，补入板面所需组分，经扩散结合和释压得到重构合金板。"
+      ],
+      "dependencies": [
+        "4B564701EFE5A89C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F265BF52C43F4",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_plate",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5C227BCE87D1A0",
+      "title": "虚数重构母合金棒",
+      "subtitle": "给棒芯补料并留出释压层",
+      "description": [
+        "沿前级棒芯补齐合金成分，在外周加入结合薄层。成形后的复合棒继续供应框架、环和细线加工。"
+      ],
+      "dependencies": [
+        "4B556778AEBFB12D",
+        "4B564701EFE5A89C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AA1CB3F8931C6",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_rod",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B53A74264E8AA6F",
+      "title": "虚数重构母合金框架组件",
+      "subtitle": "重构框架的接头单独补料",
+      "description": [
+        "保留前级框架作为连续骨架，用本级棒材和补给料熔合角接处。框架装好后供IRV机壳和电子设备承力。"
+      ],
+      "dependencies": [
+        "4B54BDB7E73E5568",
+        "4B5C227BCE87D1A0"
+      ],
+      "tasks": [
+        {
+          "id": "4B53FC167692C249",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_frame",
+      "x": 20,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5C12D4075281D2",
+      "title": "虚数重构母合金环",
+      "subtitle": "在环口局部补料后退火",
+      "description": [
+        "用重构棒与前级环形成连续环道，环口另外补料并结合。释压后的环件供本级连接与封装使用。"
+      ],
+      "dependencies": [
+        "4B5DE43995DE47BB",
+        "4B5C227BCE87D1A0"
+      ],
+      "tasks": [
+        {
+          "id": "4B54A150783323DF",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_ring",
+      "x": 16,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B51AB271C65658D",
+      "title": "虚数重构母合金箔",
+      "subtitle": "把成分过渡做进薄层",
+      "description": [
+        "先细化补给组分，再将重构合金板与前级箔扩散结合。渐变结合层用于连接不同成分的工作表面。"
+      ],
+      "dependencies": [
+        "4B5CDD530DF0530D",
+        "4B5C28B4D0219CF4"
+      ],
+      "tasks": [
+        {
+          "id": "4B5442F896907604",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_foil",
+      "x": 12,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5858E0D29AF645",
+      "title": "虚数重构母合金复合细线",
+      "subtitle": "在连续线芯外重建合金微层",
+      "description": [
+        "保留前级复合细线的连续芯，补入合金组分并形成薄包覆层。成品细线供本级电子接口使用。"
+      ],
+      "dependencies": [
+        "4B5E95308F894527",
+        "4B5C227BCE87D1A0"
+      ],
+      "tasks": [
+        {
+          "id": "4B5277312ADD9DDF",
+          "type": "item",
+          "item": "hk3gtl:imaginary_reconstructed_alloy_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_fine_wire",
+      "x": 8,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5047CFCF54095D",
+      "title": "IRV机械方块",
+      "subtitle": "用新鲜重构合金完成IRV机壳",
+      "description": [
+        "在完整ICV机械方块上加装本级板、框、环与接口辅件。首批机壳沿补料、熔合退火和释压路线制造。"
+      ],
+      "dependencies": [
+        "4B56262CD0FE0662",
+        "4B5C28B4D0219CF4",
+        "4B53A74264E8AA6F",
+        "4B5C12D4075281D2"
+      ],
+      "tasks": [
+        {
+          "id": "4B5ABFEE2674F674",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_irv",
+      "x": 4,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B58D78CB6592823",
+      "title": "IRV机壳分层拆解",
+      "subtitle": "拆下可继续使用的机壳层",
+      "description": [
+        "分层拆开IRV机械方块，保留ICV核心并取回一部分板、框和环。破损主体进入分类料，薄层与连接辅材另行消耗。"
+      ],
+      "dependencies": [
+        "4B5047CFCF54095D"
+      ],
+      "tasks": [
+        {
+          "id": "4B594D3A7CEA18A1",
+          "type": "custom",
+          "title": "实际完成IRV机壳分层拆解",
+          "tags": [
+            "hk3gtl_quest_irv_n14"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_icv",
+      "x": 30,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B526962D238FB21",
+      "title": "虚数重构母合金回收组分",
+      "subtitle": "把失效合金分成主体和尾料",
+      "description": [
+        "用溶剂洗脱分类废料，再离心取出可重建组分。四分之三主体继续补料，剩余尾料送去固化。"
+      ],
+      "dependencies": [
+        "4B5FCE050AB21FEF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FF0FBDFAFF7D3",
+          "type": "custom",
+          "title": "实际完成虚数重构母合金回收组分",
+          "tags": [
+            "hk3gtl_quest_irv_n15"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_recovered_fraction",
+      "x": 34,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B56C31918DE41CA",
+      "title": "IRV回收料重制",
+      "subtitle": "回收主体也要重新补齐成分",
+      "description": [
+        "用回收组分替换一半新主体，重新加入完整功能辅料并制成重构前料。之后照常补料、熔合、退火和释压。"
+      ],
+      "dependencies": [
+        "4B5323CDF34FBF11",
+        "4B592C39965F122F"
+      ],
+      "tasks": [
+        {
+          "id": "4B5ABE97015B2BB7",
+          "type": "custom",
+          "title": "实际完成IRV回收料重制",
+          "tags": [
+            "hk3gtl_quest_irv_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reconstructed_alloy_stage_1",
+      "x": 38,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B58CE8B88BF118B",
+      "title": "IRV尾料固化",
+      "subtitle": "把重构尾料封进惰性残渣",
+      "description": [
+        "将分离出的失效组分与混凝土固化。它在重构合金流程中退出，随后按灰烬的一般用途处理。"
+      ],
+      "dependencies": [
+        "4B5FCE050AB21FEF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5852D24C63ABE5",
+          "type": "custom",
+          "title": "实际完成IRV尾料固化",
+          "tags": [
+            "hk3gtl_quest_irv_n17"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 42,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B5243C159E2EDD1",
+      "title": "虚数基准谐振器",
+      "subtitle": "把观测基准和工作锚场分开",
+      "description": [
+        "将前级主材与独立基准组件装成谐振器，用于比较观测与锚场的漂移。观测阵列与锚定设施随后使用完整谐振器。"
+      ],
+      "dependencies": [
+        "4B5FF4F0C65CED8B",
+        "4B5D193DE5C2E2BD",
+        "4B5F472E0F24ECF5"
+      ],
+      "tasks": [
+        {
+          "id": "4B58A74CBCE61C12",
+          "type": "custom",
+          "title": "实际完成虚数基准谐振器",
+          "tags": [
+            "hk3gtl_quest_irv_f01"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imaginary_reference_resonator",
+      "x": 0,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B54FCE963897479",
+      "title": "虚数之树观测阵列",
+      "subtitle": "给首次虚数观测保留校准基准",
+      "description": [
+        "将观测和独立校准组件装成阵列控制器。完成后进行首次虚数联系观测，取得后续研究所工程所需的记录。"
+      ],
+      "dependencies": [
+        "4B5DECCFE43C883B",
+        "4B5FF4F0C65CED8B",
+        "4B5D193DE5C2E2BD",
+        "4B53BF5C8FB823E3",
+        "4B5F472E0F24ECF5",
+        "4B56262CD0FE0662"
+      ],
+      "tasks": [
+        {
+          "id": "4B514F579FE4A825",
+          "type": "custom",
+          "title": "实际完成虚数之树观测阵列",
+          "tags": [
+            "hk3gtl_quest_irv_k34"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:i34_imaginary_tree_observation_array",
+      "x": 4,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B5C8D8E0D9C8913",
+      "title": "虚数空间锚定阵列",
+      "subtitle": "把定位、耦合和过载隔离接齐",
+      "description": [
+        "装配虚数空间锚定阵列控制器，接入独立基准和锚场接口。完成结构后，再按已解锁的锚定工况开展连接作业。"
+      ],
+      "dependencies": [
+        "4B5A07D34090C572"
+      ],
+      "tasks": [
+        {
+          "id": "4B50C78D2F8D9230",
+          "type": "custom",
+          "title": "实际完成虚数空间锚定阵列",
+          "tags": [
+            "hk3gtl_quest_irv_k35"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:i35_imaginary_space_anchoring_array",
+      "x": 8,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B593B79B2C2A8E1",
+      "title": "世界维系研究所",
+      "subtitle": "完成前阶研究后升级研究所",
+      "description": [
+        "在前一阶研究所完成虚数研究所工程，再制造世界维系研究所控制器。首建使用已有材料与观测记录。"
+      ],
+      "dependencies": [
+        "4B5C5F6C9A6EBA8C"
+      ],
+      "tasks": [
+        {
+          "id": "4B529B37E7573336",
+          "type": "custom",
+          "title": "实际完成世界维系研究所",
+          "tags": [
+            "hk3gtl_quest_irv_s04"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:s04_world_maintenance_institute",
+      "x": 12,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B5FE4E54508ABEF",
+      "title": "仿制约束核心",
+      "subtitle": "RN-BCA · 实验与正式研究",
+      "description": [
+        "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。真实测量同一输入下能流传递与抑制效果，完整记录消耗与残余输出；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择580研究积分或HDV电路 × 4、钨钢板 × 56支付基准费用；另需7,200 tick与515,396,075,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制约束核心与受控能流隔离。"
+      ],
+      "dependencies": [
+        "4B5B96C20B5486BC"
+      ],
+      "tasks": [
+        {
+          "id": "4B592C34BDB52288",
+          "type": "custom",
+          "title": "完成仿制约束核心",
+          "tags": [
+            "hk3gtl_quest_rn_bca"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_binding_core",
+      "x": 30,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B53AFBD8F5499DB",
+      "title": "世界泡约束容器",
+      "subtitle": "RN-BCC · 实验与正式研究",
+      "description": [
+        "受检物：不合格收容壳体×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。空载试壳完成密封和场稳定检验；仅形成检测记录，不生成封存世界泡；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2160研究积分或QAV电路 × 6、硅岩合金板 × 88支付基准费用；另需18,000 tick与131,941,395,333,120 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁魂钢精密加工中心空壳与接口制造、仿制神之键装配中心装配密封与场校准工况，产出正式空世界泡收容容器；不要求先捕获世界泡。"
+      ],
+      "dependencies": [
+        "4B5A928D87B43C2A",
+        "4B54804DF6CCFEB5"
+      ],
+      "tasks": [
+        {
+          "id": "4B5661ABCCE3B38A",
+          "type": "custom",
+          "title": "完成世界泡约束容器",
+          "tags": [
+            "hk3gtl_quest_rn_bcc"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:empty_bubble_containment_vessel",
+      "x": 34,
+      "y": 30,
+      "optional": false
     },
     {
       "id": "4B5A07D34090C572",
       "title": "虚数空间锚定",
-      "icon": "hk3gtl:soulium_anchor_component",
-      "x": 6.0,
-      "y": 0.0,
+      "subtitle": "RN-IAA · 实验与正式研究",
       "description": [
-        "在虚数初观的基础上，加入魂钢件、空间组件和稳定介质，研究空间锚定。先把锚定做可靠，后面才谈能量态采集。",
-        "",
-        "解锁虚数空间锚定阵列锚定组件和连接试验。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "虚数之树观测阵列真实虚数初观资料、魂钢精密加工魂钢加工件、仿制空核心空间组件及普通稳定介质。",
-        "",
-        "按JEI查找对应工艺，在仿制神之键装配中心完成对应实验后，到S04或更高等级研究所选择“虚数空间锚定”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：虚数研究所工程、仿制空核心。",
-        "基础研究费用：4040点；8 × ICV级电路；104 × 中子素板。",
-        "基础工期：24分钟；研究用电：2,111,062,325,329,920 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。试件在已有空间工装中完成连接稳定性测试，关联虚数之树观测阵列观测和制样批次；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择4040研究积分或ICV电路 × 8、中子素板 × 104支付基准费用；另需28,800 tick与2,111,062,325,329,920 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁虚数空间锚定阵列锚定组件和连接试验。"
+      ],
+      "dependencies": [
+        "4B593B79B2C2A8E1"
       ],
       "tasks": [
         {
           "id": "4B5AFF1C41B5C06E",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成虚数空间锚定",
           "tags": [
             "hk3gtl_quest_rn_iaa"
           ]
         }
       ],
-      "dependencies": [
-        "4B5C5F6C9A6EBA8C",
-        "4B5FE5619D5A09F9"
+      "icon": "hk3gtl:soulium_anchor_component",
+      "x": 34,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5C5F6C9A6EBA8C",
+      "title": "虚数研究所工程",
+      "subtitle": "RN-ILE · 实验与正式研究",
+      "description": [
+        "虚数之树观测阵列首次成功虚数观测的原始设备、工况与观测记录",
+        "在虚数之树观测阵列完成本队实验。实际观测完成后提交证据，不另加重复观察或要求提前造世界维系研究所",
+        "实验完成后，选择3030研究积分或ICV电路 × 6、硅岩合金板 × 104支付基准费用；另需21,600 tick与2,111,062,325,329,920 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁第四阶研究所，不要求先完成世界维系工程。"
       ],
-      "subtitle": "S04 · RN-IAA",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B504EC9DEE9DADC",
-      "linked_quest": "4B59EB10C899A33B",
-      "x": 0.0,
-      "y": -8.0
+      "dependencies": [
+        "4B54FCE963897479"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B766B6EBD6E9C",
+          "type": "custom",
+          "title": "完成虚数研究所工程",
+          "tags": [
+            "hk3gtl_quest_rn_ile"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:spatial_calibration_module",
+      "x": 38,
+      "y": 26,
+      "optional": false
     },
     {
-      "id": "4B544D6501CA5274",
-      "linked_quest": "4B5FE5619D5A09F9",
-      "x": 3.0,
-      "y": -8.0
+      "id": "4B5DECCFE43C883B",
+      "title": "虚数联系初观",
+      "subtitle": "RN-IOP · 实验与正式研究",
+      "description": [
+        "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。实际分析已有工况及终止日志，确认同批状态变化与跨目标差异，输出初观前研究记录；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择3030研究积分或ICV电路 × 6、硅岩合金板 × 104支付基准费用；另需21,600 tick与2,111,062,325,329,920 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁虚数之树观测阵列首次虚数观测，作为研究所升级证据来源。"
+      ],
+      "dependencies": [
+        "4B5AC8840C9BC9EB",
+        "4B5BD7EC611C294E"
+      ],
+      "tasks": [
+        {
+          "id": "4B5374973DA0E79F",
+          "type": "custom",
+          "title": "完成虚数联系初观",
+          "tags": [
+            "hk3gtl_quest_rn_iop"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:spatial_calibration_module",
+      "x": 30,
+      "y": 30,
+      "optional": false
     },
     {
-      "id": "4B5AC55AE5F5B8F4",
-      "linked_quest": "4B5AC8840C9BC9EB",
-      "x": 6.0,
-      "y": -8.0
+      "id": "4B5A928D87B43C2A",
+      "title": "仿制的犹大的誓约",
+      "subtitle": "RN-JOK · 实验与正式研究",
+      "description": [
+        "受检物：仿制约束之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。固定输入下完成约束开启/解除的回路检测，结算实际能耗；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁第十一神之键约束工艺，不凭抑制能量产生免费电力。"
+      ],
+      "dependencies": [
+        "4B5FE4E54508ABEF",
+        "4B5128436BF42BF8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5254FFD16D98DD",
+          "type": "custom",
+          "title": "完成仿制的犹大的誓约",
+          "tags": [
+            "hk3gtl_quest_rn_jok"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_oath_of_judah",
+      "x": 46,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B5CDBDB34190D72",
+      "title": "异界资料交叉解析",
+      "subtitle": "RN-LTB · 实验与正式研究",
+      "description": [
+        "受检物：真实采掘遗留资料×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。实际完成不同来源的资料与工艺证据对照；合作路线验证资料授权，独立路线无需合作授权，两者不必同时满足；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2160研究积分或QAV电路 × 6、硅岩合金板 × 88支付基准费用；另需18,000 tick与131,941,395,333,120 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁档案解析改良；独立/合作是同一知识的替代来源，不强制双选。"
+      ],
+      "dependencies": [
+        "4B526B218167CA96",
+        "4B5CA50A7DDB3C98"
+      ],
+      "tasks": [
+        {
+          "id": "4B58ED9722B733A5",
+          "type": "custom",
+          "title": "完成异界资料交叉解析",
+          "tags": [
+            "hk3gtl_quest_rn_ltb"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:reverse_engineering_specimen",
+      "x": 30,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B5DA6E64F338B10",
+      "title": "仿制理核心",
+      "subtitle": "RN-RCA · 实验与正式研究",
+      "description": [
+        "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。真实完成已知构件结构对照；不在试验中复制新物品或授予未掌握电路；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择580研究积分或HDV电路 × 4、钨钢板 × 56支付基准费用；另需7,200 tick与515,396,075,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制理核心；仅可构造已解锁制造清单内的低阶产物。"
+      ],
+      "dependencies": [
+        "4B5F2FBB98E65C9E",
+        "4B5407261AA82797"
+      ],
+      "tasks": [
+        {
+          "id": "4B5601807F5A49AC",
+          "type": "custom",
+          "title": "完成仿制理核心",
+          "tags": [
+            "hk3gtl_quest_rn_rca"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_reason_core",
+      "x": 42,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5C62FF4A7DBDB8",
+      "title": "模拟世界泡构筑",
+      "subtitle": "RN-SWC · 实验与正式研究",
+      "description": [
+        "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。真实制样和模型验证成功，试验本身不创建可取资世界泡；关联真实终止记录而非只完成WTR研究；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2580研究积分或IMV电路 × 6、硅岩合金板 × 96支付基准费用；另需19,800 tick与527,765,581,332,480 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁模拟世界泡构筑机首个模拟世界泡；不依赖终焉之律者·终序·世界泡轮回引擎奇观产物。"
+      ],
+      "dependencies": [
+        "4B533F2846778D65",
+        "4B53196505DB3E55",
+        "4B5CA50A7DDB3C98"
+      ],
+      "tasks": [
+        {
+          "id": "4B57FCAA2626D158",
+          "type": "custom",
+          "title": "完成模拟世界泡构筑",
+          "tags": [
+            "hk3gtl_quest_rn_swc"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:unstable_simulated_world_bubble",
+      "x": 46,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B59EB10C899A33B",
+      "title": "模拟世界泡终止回收",
+      "subtitle": "RN-SWR · 实验与正式研究",
+      "description": [
+        "受检物：世界泡终止组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。真实耗材耗电执行终止控制验证，原批次保持稳定，不提前生成资源或标为已终止；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2580研究积分或IMV电路 × 6、硅岩合金板 × 96支付基准费用；另需19,800 tick与527,765,581,332,480 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁模拟世界泡终止回收机，与真实世界泡回收计数分开。"
+      ],
+      "dependencies": [
+        "4B54B882F404DD20"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EF97ABA517A6D",
+          "type": "custom",
+          "title": "完成模拟世界泡终止回收",
+          "tags": [
+            "hk3gtl_quest_rn_swr"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:world_model_carrier",
+      "x": 50,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5E2A17490F6E44",
+      "title": "模拟世界泡稳定",
+      "subtitle": "RN-SWS · 实验与正式研究",
+      "description": [
+        "模拟世界泡构筑机实际构筑的初始模拟批次与模型误差/能流记录",
+        "在遗留技术逆向实验室完成本队实验。构筑真实完成且独立批次已保存，初始状态记录完整；无需先由模拟世界泡稳定控制器稳定",
+        "实验完成后，选择2580研究积分或IMV电路 × 6、硅岩合金板 × 96支付基准费用；另需19,800 tick与527,765,581,332,480 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁模拟世界泡稳定控制器的稳定运行工况，可采集资源与真实世界泡相同。"
+      ],
+      "dependencies": [
+        "4B5ADBB041563AE4"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BCC6CDC2F6696",
+          "type": "custom",
+          "title": "完成模拟世界泡稳定",
+          "tags": [
+            "hk3gtl_quest_rn_sws"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:stable_simulated_world_bubble",
+      "x": 54,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5FCE050AB21FEF",
+      "title": "无人装置返修",
+      "subtitle": "RN-UPR · 实验与正式研究",
+      "description": [
+        "受检物：磨损的作业无人机×1；纸张2用于检测记录，基准样本循环使用",
+        "在纳米机器人装配阵列完成本队实验。实际执行故障定位与维修可行性检测，返回同一件待修装置；检测不提前恢复耐久或重复输出旧件；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2160研究积分或QAV电路 × 6、硅岩合金板 × 88支付基准费用；另需18,000 tick与131,941,395,333,120 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁纳米机器人装配阵列无人装置返修工况；同一装置不能同时返还新件与旧件。"
+      ],
+      "dependencies": [
+        "4B5CB334EBC7110A"
+      ],
+      "tasks": [
+        {
+          "id": "4B51E5BB2F4FE219",
+          "type": "custom",
+          "title": "完成无人装置返修",
+          "tags": [
+            "hk3gtl_quest_rn_upr"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:industrial_work_drone",
+      "x": 54,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B526B218167CA96",
+      "title": "仿制的虚空万藏",
+      "subtitle": "RN-VAK · 实验与正式研究",
+      "description": [
+        "受检物：仿制理之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。验证既有制造清单结构及控制回路，输出测试记录；不产出制造清单外成品；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁第一神之键与前文明档案研究许可；许可不直接完成其他研究。"
+      ],
+      "dependencies": [
+        "4B5DA6E64F338B10",
+        "4B5128436BF42BF8"
+      ],
+      "tasks": [
+        {
+          "id": "4B581EB4A5CE26BC",
+          "type": "custom",
+          "title": "完成仿制的虚空万藏",
+          "tags": [
+            "hk3gtl_quest_rn_vak"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_void_archives",
+      "x": 42,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B5AC8840C9BC9EB",
+      "title": "无人跨界航路中继",
+      "subtitle": "RN-VRC · 实验与正式研究",
+      "description": [
+        "受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。核验多个不同目标的独立成功任务和路由对照；同坐标多次或复制报告不能冒充多个目标；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2580研究积分或IMV电路 × 6、硅岩合金板 × 96支付基准费用；另需19,800 tick与527,765,581,332,480 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁无人跨界航路中继站多目标组织能力，不替代世界泡无人采掘调度台单任务起步。"
+      ],
+      "dependencies": [
+        "4B5E2A17490F6E44"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C7A15BC4B034F",
+          "type": "custom",
+          "title": "完成无人跨界航路中继",
+          "tags": [
+            "hk3gtl_quest_rn_vrc"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:spatial_probe",
+      "x": 38,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B5BC0B208AF6B1C",
+      "title": "真实世界泡整体捕获",
+      "subtitle": "RN-WBC · 实验与正式研究",
+      "description": [
+        "受检物：空世界泡收容容器×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。真实耗电耗材完成容器容量、边界和锁定数据的校验；验证不改变真实目标状态、不占采掘次数；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2160研究积分或QAV电路 × 6、硅岩合金板 × 88支付基准费用；另需18,000 tick与131,941,395,333,120 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁世界泡整体捕获阵列受控捕获；空容器与封存世界泡身份分开记录。"
+      ],
+      "dependencies": [
+        "4B53AFBD8F5499DB",
+        "4B59A732020238B2"
+      ],
+      "tasks": [
+        {
+          "id": "4B5093BC8C71942A",
+          "type": "custom",
+          "title": "完成真实世界泡整体捕获",
+          "tags": [
+            "hk3gtl_quest_rn_wbc"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:sealed_real_world_bubble",
+      "x": 34,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B5278C607A98950",
+      "title": "真实世界泡终止回收",
+      "subtitle": "RN-WTR · 实验与正式研究",
+      "description": [
+        "受检物：空间校准模块×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。真实执行控制试验并核对合法捕获回执；只演算安全边界，原目标保持封存，不产生终止资源；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2160研究积分或QAV电路 × 6、硅岩合金板 × 88支付基准费用；另需18,000 tick与131,941,395,333,120 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁真实世界泡终止回收机终止取资与残件处理，不恢复被终止的同一世界泡。"
+      ],
+      "dependencies": [
+        "4B5E2B16BECEA3F2"
+      ],
+      "tasks": [
+        {
+          "id": "4B55923277BE872A",
+          "type": "custom",
+          "title": "完成真实世界泡终止回收",
+          "tags": [
+            "hk3gtl_quest_rn_wtr"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:world_matter_seed",
+      "x": 50,
+      "y": 30,
+      "optional": false
     }
   ]
 }

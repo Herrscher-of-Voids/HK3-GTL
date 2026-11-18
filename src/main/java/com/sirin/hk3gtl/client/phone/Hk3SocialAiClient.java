@@ -12,14 +12,14 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.Flow;
 
-/** 【变更记录 #1】2026-09-30 19:56:03（修订116）：删除无；新增客户端自费兼容API请求、HTTPS校验、响应上限和取消；修改无；用途：密钥仅存本次连接内存，不记录日志、不重试、不发送到游戏服务器。 */
-/** 【变更记录 #2】2026-09-30 20:41:09（修订118）：删除仅姓名/一句语气的短提示；新增固定角色档案与明显出戏检查；修改历史过滤及响应接收；用途：每次请求绑定当前联系人的独立身份，不保存出戏回复、不自动重试或读取真实Key。 */
-/**
- * 【变更记录 #3】2026-10-01 22:09:06（第3次备注 · 内测5修订154）
- * 删除：跨接口自动复用Key的行为。新增：配置边界核验或对应提示/回归。
- * 修改：留空Key只能保留同一规范化完整接口凭据；更换地址先拒绝，原配置不部分改写。
- * 用途：收尾微讯息通信生命周期，不涉及结构、贴图与任务。
- */
+ 
+ 
+ 
+
+
+
+
+
 public final class Hk3SocialAiClient {
     public record Message(String role,String text){}
     public record Result(String text,String error){public boolean ok(){return error.isEmpty();}}
@@ -82,6 +82,7 @@ public final class Hk3SocialAiClient {
         HttpRequest req=HttpRequest.newBuilder(uri).timeout(Duration.ofSeconds(45)).header("Content-Type","application/json")
             .header("Authorization","Bearer "+secret).POST(HttpRequest.BodyPublishers.ofString(json,StandardCharsets.UTF_8)).build();
         var transport=HTTP.sendAsync(req,info->new LimitedBody());
+        // 响应头返回后仍限制整个响应期限，并取消尚未结束的正文传输。
         var result=transport.thenApply(response->{
             if(response.statusCode()!=200)return new Result("","服务返回 HTTP "+response.statusCode()+"；未自动重试。请核对地址、模型、余额与服务权限。");
             try{
@@ -90,7 +91,9 @@ public final class Hk3SocialAiClient {
                 String text=content.getAsString().replaceAll("[\\p{Cc}&&[^\\n\\t]]","").replace("§","");
                 return new Result(text.substring(0,Math.min(1800,text.length())),"");
             }catch(RuntimeException ex){return new Result("","返回内容不是兼容的文本回复；未自动重试。");}
-        }).exceptionally(ex->new Result("","连接失败、超时或响应超过128KB；未自动重试。"));
+        }).orTimeout(45,TimeUnit.SECONDS).exceptionally(ex->{
+            transport.cancel(true);return new Result("","连接失败、超时或响应超过128KB；未自动重试。");
+        });
         result.whenComplete((value,error)->{if(result.isCancelled())transport.cancel(true);});return result;
     }
     private static final class LimitedBody implements HttpResponse.BodySubscriber<String>{

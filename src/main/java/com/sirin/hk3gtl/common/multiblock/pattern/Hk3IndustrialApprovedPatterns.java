@@ -16,12 +16,12 @@ import java.util.Set;
 
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
-/**
- * 【变更记录 #1】2026-10-15 01:12:48（内测5修订156）：正式接入批准的 I01 四阶 V8、I02–I08 V7 和 I09–I13 V6。
- * 删除：本轮工业入口对旧几何及任意能力通用槽的依赖；旧资源读取框架继续复用。
- * 新增：精确状态、实际主控和按工艺方向分组的六接口；必要能力共享全局最低数量。
- * 用途：壳体只封闭空余接口，不能冒充工作仓；玩家电网供能继续无需普通 GT 能源仓。
- */
+ 
+
+
+
+
+
 public final class Hk3IndustrialApprovedPatterns {
     private static final Set<String> INDUSTRIAL_IDS = Set.of("i01", "i01_2", "i01_3", "i01_4",
             "i02", "i03", "i04", "i05", "i06", "i07", "i08", "i09", "i10", "i11", "i12", "i13");
@@ -43,16 +43,7 @@ public final class Hk3IndustrialApprovedPatterns {
             int[] pos = cell.pos();
             cells[pos[2]][pos[1]][pos[0]] = symbol;
         }
-        if (controllers != 1 || data.ports().size() != 6)
-            throw new IllegalStateException("批准主控或六接口异常：" + id);
-        Map<String, Character> groups = new LinkedHashMap<>();
-        for (var port : data.ports()) {
-            if (Arrays.equals(port.pos(), controller) || !"north".equals(port.face()))
-                throw new IllegalStateException("批准接口方向或位置异常：" + id + "/" + port.id());
-            char symbol = groups.computeIfAbsent(port.group(), ignored -> (char) ('a' + groups.size()));
-            int[] pos = port.pos();
-            cells[pos[2]][pos[1]][pos[0]] = symbol;
-        }
+        if (controllers != 1) throw new IllegalStateException("批准主控数量异常：" + id);
         var builder = FactoryBlockPattern.start(RIGHT, UP, BACK);
         for (var slice : cells) {
             String[] rows = new String[size[1]];
@@ -61,20 +52,14 @@ public final class Hk3IndustrialApprovedPatterns {
         }
         builder.where('S', Predicates.controller(Predicates.blocks(definition.getBlock())))
                 .where('#', Hk3InterfacePredicates.clearance());
-        for (var entry : palette.entrySet()) builder.where(entry.getValue(), Predicates.states(state(entry.getKey())));
-
-        // 修订214：所有接口共享四种仓能力，位置不再限定方向；整机最低能力计数保持。
         boolean first = id.equals("i01"), dry = id.equals("i02") || id.equals("i07");
         var itemIn = ability(PartAbility.IMPORT_ITEMS, true);
         var itemOut = ability(PartAbility.EXPORT_ITEMS, !first);
         var fluidIn = ability(PartAbility.IMPORT_FLUIDS, !first && !dry);
         var fluidOut = ability(PartAbility.EXPORT_FLUIDS, !dry && !id.equals("i11"));
-        var filler = Predicates.blocks(Hk3StructureBlocks.require("hk3gtl:industrial_port_casing"));
-        var parallel = Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1).setPreviewCount(0);
-        var universal = itemIn.or(itemOut).or(fluidIn).or(fluidOut).or(parallel).or(filler);
-        for (var group : groups.entrySet()) {
-            builder.where(group.getValue(), universal);
-        }
+        var universal = Hk3InterfacePredicates.interfaces(itemIn.or(itemOut).or(fluidIn).or(fluidOut));
+        for (var entry : palette.entrySet())
+            builder.where(entry.getValue(), Predicates.states(state(entry.getKey())).or(universal));
         return builder.build();
     }
 

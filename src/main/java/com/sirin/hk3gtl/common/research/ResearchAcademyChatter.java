@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.research;
 
-
-/**
- * 【文件职责】
- * - 维护 ResearchAcademyChatter 研究流程与状态。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -96,24 +77,14 @@ public final class ResearchAcademyChatter {
             "§8[内部] §7霜兰：恭喜大人，下一步继续吧。"
     );
 
-    /** 随机选一个研究员名牌。 */
     public static String randomResearcher() {
         return pick(RESEARCHERS);
     }
 
-    /**
-     * 随机选一句进展台词，把研究名替入 {@code %s}。
-     * 若台词意外缺 {@code %s}，直接在末尾附加 "研究名" 作为容错。
-     */
     public static String randomProgressLine(String researchDisplay) {
-        String tmpl = pick(PROGRESS_LINES);
-        if (tmpl.contains("%s")) {
-            return String.format(tmpl, researchDisplay);
-        }
-        return tmpl + " " + researchDisplay;
+        return String.format(pick(PROGRESS_LINES), researchDisplay);
     }
 
-    /** 随机选一句彩蛋台词。 */
     public static String randomFlavorLine() {
         return pick(FLAVOR_LINES);
     }

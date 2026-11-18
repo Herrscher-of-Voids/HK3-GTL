@@ -10,13 +10,13 @@ import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
 import java.lang.reflect.Method;
 import java.util.*;
-/**
- * 【变更记录 #1】2026-09-30 19:17:36（内测5修订115）
- * 删除：无；新增：背包实体终端选择与AE2WTLib可选原生接口适配。
- * 修改：不用普通终端菜单代替万能终端；用途：保留实际物品的合成/编码页、量子连接和原生权限。
- * 边界：反射只调用已核对的固定公开接口，依赖缺失时不加载；适配失败不降级开错误菜单。
- */
-/** 【变更记录 #2】2026-10-01 04:43:52（修订128）：删除：旧固定上限或被替代的分支；新增/修改：原生无线终端返回打开成功后检测真实物品及合成菜单类型，不用普通终端替代；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+
+
+
+
+
+ 
 public final class Hk3PhoneAeLink {
     private Hk3PhoneAeLink(){}
     private static final org.slf4j.Logger LOG=com.mojang.logging.LogUtils.getLogger();

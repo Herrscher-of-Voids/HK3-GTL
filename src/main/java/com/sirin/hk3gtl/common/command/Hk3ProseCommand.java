@@ -11,11 +11,11 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/**
- * 管理员在游戏内校对全部已审核正文；没有解锁、贸易交付或审查结算副作用。
- * 【变更记录 #1】2026-09-29 17:51:46（内测5修订93）
- * 删除：无。新增：分页全文与两场会面预览命令。修改：无。用途：验证实际字体及分支。
- */
+ 
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl",bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3ProseCommand {
     private Hk3ProseCommand() {}

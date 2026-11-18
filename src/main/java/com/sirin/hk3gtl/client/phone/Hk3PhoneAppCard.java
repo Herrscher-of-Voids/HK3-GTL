@@ -3,10 +3,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
-/**
- * 【变更记录 #1】2026-09-30 19:03:21（内测5修订114）
- * 删除：无；新增：讯息/笔记分层卡片按钮；修改：无；用途：完整命中区域和键盘焦点，不复制参考图私人内容。
- */
+ 
+
+
+
 final class Hk3PhoneAppCard extends Button {
     private final String subtitle,badge;private final int accent;
     Hk3PhoneAppCard(String title,String subtitle,String badge,int x,int y,int w,int h,int accent,Runnable action){

@@ -5,10 +5,10 @@ import net.minecraft.server.level.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.item.ItemStack;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 06:15:25（修订128）：删除无；新增本人安装无线覆盖板与真实插入/填充结果旁注；修改无；用途：归属按面持久化，旧未归属覆盖板不猜作者，模拟不记录。 */
-/** 【变更记录 #2】2026-10-01 06:17:41（修订128）：删除：无；新增/修改：按当前GTCEu公开字段读取覆盖板面与承载方，修复不存在getter导致的编译失败；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 12:33:29（修订128）：删除：无；新增/修改：普通无线流体覆盖板记录接收端确实满容量导致的零传输，恢复实际传输后授278，重装清除旧暂停证据；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #4】2026-10-01 13:24:37（修订128）：删除：无；新增/修改：本人在同一面重绑不同目标后只在真实物品接收成功时授279；未改目标或无接收不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
+ 
+ 
 public final class Hk3EggCovers {
     private Hk3EggCovers(){}
     private static String key(CoverBehavior c){return "hk3_egg_cover_"+c.attachedSide.getName();}
@@ -24,6 +24,12 @@ public final class Hk3EggCovers {
     public static void delivered(CoverBehavior c,int id){
         var be=holder(c);if(be==null||!(be.getLevel() instanceof ServerLevel level)||!be.getPersistentData().hasUUID(key(c)))return;
         Hk3EggProductionData.get(level.getServer()).produced(be.getPersistentData().getUUID(key(c)),"receipt:"+id,1);
+    }
+    public static void whitelistRejected(CoverBehavior cover){
+        var block=holder(cover);
+        if(block==null||!(block.getLevel() instanceof ServerLevel level)||!block.getPersistentData().hasUUID(key(cover)))return;
+        var owner=block.getPersistentData().getUUID(key(cover));var data=Hk3EggProductionData.get(level.getServer());
+        if(data.count(owner,"receipt:277")==0)data.produced(owner,"receipt:277",1);
     }
     public static void fluidResult(CoverBehavior c,long actual,boolean full){
         var be=holder(c);if(be==null)return;String field=key(c)+"_full";

@@ -1,7 +1,7 @@
 package com.sirin.hk3gtl.common.event;
 import java.time.*;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 01:54:14（修订127）：删除无；新增可验证的时间彩蛋规则；修改无；用途：现实节日按服务器时钟，存档日按世界时间，凌晨及连续在线不被注视度冒充。 */
+ 
 public final class Hk3EasterEggClock {
     private Hk3EasterEggClock(){}
     public static List<Integer> events(LocalDateTime real,long worldTime){

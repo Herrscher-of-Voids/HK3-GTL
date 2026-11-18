@@ -33,6 +33,7 @@ public final class Hk3W03FxRenderer {
     private static long epoch,frames,started;
     private static double fixedTime=-1;
     private static boolean failed;
+    private static boolean worldPrepared;
     private static volatile boolean prepared;
     private Hk3W03FxRenderer() {}
 
@@ -43,11 +44,27 @@ public final class Hk3W03FxRenderer {
     }
     public static void hide(){anchor=null;level=null;if(Hk3W03FieldScenes.scenes().isEmpty())clearGeometry();}
     public static boolean ready(){return prepared;}
+    public static boolean preparePreview(){
+        if(shader==null||failed)return false;
+        if(prepared)return true;
+        if(model==null){
+            if(loading==null)loading=CompletableFuture.supplyAsync(Hk3W03FxModel::load);
+            if(!loading.isDone())return false;model=loading.join();loading=null;
+        }
+        long until=System.nanoTime()+2_000_000;
+        do{if(uploadGroup>=model.groups().length)break;upload();}while(System.nanoTime()<until);
+        prepared=uploadGroup==model.groups().length;
+        return prepared;
+    }
+    /** 预览时钟由调用者持有，不改世界场、锚点或机器工况。 */
+    public static void drawPreview(double seconds){
+        draw(new Matrix4f(RenderSystem.getModelViewMatrix()),new Matrix4f(RenderSystem.getProjectionMatrix()),seconds);
+    }
     public static void seek(double seconds){fixedTime=seconds;}
     public static void play(){if(Minecraft.getInstance().level!=null){epoch=Minecraft.getInstance().level.getGameTime()-(long)(Math.max(0,fixedTime)*20);fixedTime=-1;}}
     public static String status(){return "W03 C9 · "+uploaded+"/517262面 · "+BUFFERS.size()+"批 · GPU "+(uploaded*96L/1048576)+"MiB · "
             +(fixedTime<0?"播放中":fixedTime+"秒定格")+" · 平均 "+(frames==0?0:Math.round(frames*1e9/(System.nanoTime()-started)))+"帧 · 服务器成型场 "+Hk3W03FieldScenes.scenes().size()+"座 · 调试命令不授予成型";}
-    private static void clearGeometry(){prepared=false;BUFFERS.forEach(b->b.buffer.close());BUFFERS.clear();model=null;loading=null;uploadGroup=uploadFace=uploaded=0;}
+    private static void clearGeometry(){prepared=false;worldPrepared=false;BUFFERS.forEach(b->b.buffer.close());BUFFERS.clear();model=null;loading=null;uploadGroup=uploadFace=uploaded=0;}
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3W03FieldScenes.clear();hide();}
     @SubscribeEvent public static void render(RenderLevelStageEvent event) {
         if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS||shader==null||failed)return;
@@ -56,13 +73,8 @@ public final class Hk3W03FxRenderer {
         if(anchor!=null&&mc.level!=level)hide();
         if(anchor==null&&Hk3W03FieldScenes.scenes().isEmpty())return;
         try {
-            if(model==null) {
-                if(loading==null)loading=CompletableFuture.supplyAsync(Hk3W03FxModel::load);
-                if(!loading.isDone())return;model=loading.join();loading=null;
-            }
-            long until=System.nanoTime()+2_000_000;
-            do {if(uploadGroup>=model.groups().length)break;upload();}while(System.nanoTime()<until);
-            if(!prepared&&uploadGroup==model.groups().length){prepared=true;mc.levelRenderer.allChanged();if(started==0)started=System.nanoTime();}
+            if(!preparePreview())return;
+            if(!worldPrepared){worldPrepared=true;mc.levelRenderer.allChanged();if(started==0)started=System.nanoTime();}
             if(anchor!=null){double seconds=fixedTime>=0?fixedTime:((mc.level.getGameTime()-epoch)%7200+event.getPartialTick())/20.;draw(event,anchor,0,seconds);}
             if(prepared&&Hk3W03FieldScenes.maskReady())for(var scene:Hk3W03FieldScenes.scenes()){
                 var state=scene.state();double ticks=state.elapsed()+(state.running()?mc.level.getGameTime()-state.epoch()+event.getPartialTick():0);
@@ -82,6 +94,9 @@ public final class Hk3W03FxRenderer {
             var origin=new Matrix4f(event.getPoseStack().last().pose()).translate((float)(anchor.x-camera.x),(float)(anchor.y-camera.y),(float)(anchor.z-camera.z));
             origin.translate(.5f,0,.5f).rotateY((float)Math.toRadians(angle)).translate(-.5f,0,-.5f);
             var control=model.metadata().controller();origin.translate(-control[0],-control[1],-control[2]);
+            draw(origin,projection,seconds);
+    }
+    private static void draw(Matrix4f origin,Matrix4f projection,double seconds){
             var matrices=new Matrix4f[33];
             for(int i=0;i<matrices.length;i++) {
                 matrices[i]=Hk3W03FxMotion.matrix(model.metadata().components()[i],seconds,origin);

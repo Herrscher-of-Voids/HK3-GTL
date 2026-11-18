@@ -6,7 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 18:42:57（修订140）：删除无；新增一审召入前返程账本；修改先留原位置再传送、成功返回才删除；用途：断线、重启、死亡或传送失败不丢返程位置，损坏记录拒绝空建覆盖。 */
+ 
 public final class Hk3ReviewReturnData extends SavedData {
     public record ReturnPoint(UUID meeting,String dimension,double x,double y,double z,float yaw,float pitch){}
     private final Map<UUID,ReturnPoint> points=new LinkedHashMap<>();

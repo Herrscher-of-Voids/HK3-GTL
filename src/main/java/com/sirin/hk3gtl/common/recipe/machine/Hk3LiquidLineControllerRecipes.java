@@ -10,26 +10,25 @@ import com.sirin.hk3gtl.common.machine.Hk3MachinesImpl;
 import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/**
- * 【变更记录 #1】2026-09-24 16:38:00（内测5修订66）
- * 删除：只有三台控制器、没有研究顺序的旧清单。新增：七台正式控制器的多部件装配。
- * 修改：材料全部来自MAX前置，不要求本机独占产物；用途：保证首台设备与首轮实验可达。
- */
-/**
- * 【变更记录 #2】2026-09-27 03:06:43（第 2 次备注 · 内测5修订88）
- * 删除：无，保留历史说明和原有结构几何。
- * 新增：负责人确认的GT MAX机械方块一对一改装配方：组装机、电路1、100 tick、30 EU/t，无额外材料。
- * 修改：接入工业接口机械方块；保留必要能力的全局数量约束。
- * 用途：让多余接口可以封闭，不用填充方块冒充真实仓室能力。
- */
-/**
- * 【变更记录 #3】2026-10-15 01:15:46（第3次备注 · 内测5修订156）
- * 删除：I09–I12制造入口误用RN-CCE的门槛，避免前驱产线反被后续结晶研究锁住。
- * 新增：I13既有工业装配模板，以及S02–S05消耗上一阶控制器的研究所升级装配。
- * 修改：工业门槛与执行契约的SSP/NBS/NRA/NSP/HRC一致；研究所复用S01现成材料、1200tick和MAX耗电。
- * 用途：批准建筑在生存中具有获取入口；升级沿用ALE/QLE/ILE/CLE权限，不引入新材料或研究费用。
- */
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 public final class Hk3LiquidLineControllerRecipes {
     private Hk3LiquidLineControllerRecipes() {}
     public static void register(Consumer<FinishedRecipe> provider) {
@@ -95,4 +94,4 @@ public final class Hk3LiquidLineControllerRecipes {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

@@ -17,24 +17,23 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 /** 包含指令、活塞等实际方块写入；任一舰体变更立即撤销分批检查证据。 */
 @Mixin(Level.class)
 public abstract class Hk3HyperionHullChangeMixin {
+    @Inject(method="setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z",at=@At("HEAD"),cancellable=true)
+    private void hk3gtl$jumpWrite(BlockPos pos,BlockState state,int flags,int recursion,CallbackInfoReturnable<Boolean> cir) {
+        if((Object)this instanceof ServerLevel level&&com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionJumpData.blocksWrite(level,pos))cir.setReturnValue(false);
+    }
     @WrapOperation(method="setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z",
             at=@At(value="INVOKE",target="Lnet/minecraft/world/level/chunk/LevelChunk;setBlockState(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)Lnet/minecraft/world/level/block/state/BlockState;"))
     private BlockState hk3gtl$hullChange(LevelChunk chunk,BlockPos pos,BlockState state,boolean moving,Operation<BlockState> original) {
         BlockState old=original.call(chunk,pos,state,moving);
         if(old!=null && (Object)this instanceof ServerLevel level && !Hk3BuildState.matches(chunk.getBlockState(pos),old)){
             Hk3HyperionMachine.blockChanged(level,pos);
-            if(!(com.sirin.hk3gtl.common.multiblock.pattern.Hk3InterfacePredicates.isClearance(old)
-                    &&com.sirin.hk3gtl.common.multiblock.pattern.Hk3InterfacePredicates.isClearance(chunk.getBlockState(pos)))) {
-                com.sirin.hk3gtl.common.machine.Hk3CommissionMachine.blockChanged(level,pos);
-                com.sirin.hk3gtl.common.machine.w03.Hk3W03Machine.blockChanged(level,pos);
-            }
         }
         return old;
     }
     @Inject(method="setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z",at=@At("RETURN"))
     private void hk3gtl$changed(BlockPos pos,BlockState state,int flags,int recursion,CallbackInfoReturnable<Boolean> cir) {
         if(cir.getReturnValueZ()&&(Object)this instanceof ServerLevel level){
-            com.sirin.hk3gtl.common.farview.Hk3FarViewData.changed(level,pos,level.getBlockState(pos));
+            com.sirin.hk3gtl.common.farview.Hk3FarViewData.changed(level,pos);
         }
     }
 }

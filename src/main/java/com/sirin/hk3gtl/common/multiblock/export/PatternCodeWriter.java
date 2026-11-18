@@ -1,31 +1,12 @@
 package com.sirin.hk3gtl.common.multiblock.export;
 
+ 
 
-/**
- * 【文件职责】
- * - 维护 PatternCodeWriter 的核心功能实现。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
-/**
- * 【变更记录 #1】2026-10-31 17:42:29（第 1 次备注 · 内测5修订189）
- * - 删除：依赖服务器默认区域设置的大小写转换。
- * - 新增：Locale.ROOT固定大小写规则。
- * - 修改：所有生成标识符均使用固定区域设置，避免土耳其语环境产生非法注册字段。
- * - 用途：保持不同服务器生成的Java草稿一致；未确定的工艺仍保留原有人工确认占位。
- */
+
+
+
+
+
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import java.util.Locale;
 import net.minecraft.resources.ResourceLocation;
@@ -34,7 +15,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class PatternCodeWriter {
 
     public static final String PATTERN_PACKAGE = "com.sirin.hk3gtl.common.multiblock.pattern";
@@ -83,6 +63,7 @@ public final class PatternCodeWriter {
 
         sb.append("public class ").append(implName).append(" {\n\n");
         sb.append("    public static BlockPattern createPattern(MultiblockMachineDefinition definition) {\n");
+        appendAutoAbilities(sb, ctx.abilitySummary);
         sb.append("        return FactoryBlockPattern.start()\n");
 
         for (int z = 0; z < ctx.depth; z++) {
@@ -100,7 +81,7 @@ public final class PatternCodeWriter {
                 .append("', Predicates.controller(Predicates.blocks(definition.getBlock())))\n");
         sb.append(where);
         sb.append("                .where('").append(SymbolAllocator.AIR_SYMBOL)
-                .append("', Predicates.air())\n");
+                .append("', Hk3InterfacePredicates.clearance())\n");
         sb.append("                .build();\n");
         sb.append("    }\n");
         sb.append("}\n");
@@ -128,59 +109,30 @@ public final class PatternCodeWriter {
             HatchAbilityMap.Ability ab = ctx.abilityBySymbol.get(symbol);
 
             if (symbol == SymbolAllocator.HATCH_SYMBOL) {
-                // H 符号：所有 GT 原生舱口的聚合，用 autoAbilities 覆盖
-                appendAutoAbilities(sb, ctx.abilitySummary);
+                sb.append("                .where('").append(symbol).append("', interfaces)\n");
                 continue;
             }
 
             if (ab != null) {
-                // 非 H 分配，但是识别到能力 → 用 abilities 抽象
                 sb.append("                .where('").append(symbol)
-                        .append("', Predicates.abilities(PartAbility.")
-                        .append(ab.partAbility()).append("))\n");
+                        .append("', interfaces)\n");
                 continue;
             }
 
             sb.append("                .where('").append(symbol)
                     .append("', Predicates.blocks(")
                     .append(formatBlockRef(id, extraImports))
-                    .append("))\n");
+                    .append(").or(interfaces))\n");
         }
     }
 
-    /**
-     * 根据舱口汇总情况追加 H 的 where 条款：
-     * <ul>
-     *   <li>存在 物品/流体仓 → autoAbilities(definition.getRecipeTypes())</li>
-     *   <li>存在 能源仓 → .or(autoAbilities(true, false, false))</li>
-     *   <li>其他显式能力 → .or(abilities(PartAbility.X))</li>
-     * </ul>
-     */
     private static void appendAutoAbilities(StringBuilder sb, HatchAbilityMap.Summary s) {
-        sb.append("                .where('").append(SymbolAllocator.HATCH_SYMBOL).append("', ");
-        boolean first = true;
-        if (s.hasItemOrFluidHatch()) {
-            sb.append("Predicates.autoAbilities(definition.getRecipeTypes())");
-            first = false;
-        }
-        if (s.hasEnergyHatch()) {
-            if (first) sb.append("Predicates.autoAbilities(true, false, false)");
-            else sb.append("\n                        .or(Predicates.autoAbilities(true, false, false))");
-            first = false;
-        }
+        sb.append("        var interfaces = Hk3InterfacePredicates.interfaces()");
         for (String ability : s.explicitAbilities().keySet()) {
-            if (first) {
-                sb.append("Predicates.abilities(PartAbility.").append(ability).append(")");
-                first = false;
-            } else {
-                sb.append("\n                        .or(Predicates.abilities(PartAbility.").append(ability).append("))");
-            }
+            if (ability.equals("PARALLEL_HATCH") || ability.equals("MAINTENANCE")) continue;
+            sb.append("\n                .or(Predicates.abilities(PartAbility.").append(ability).append("))");
         }
-        if (first) {
-            // 理论不会触发：H 存在说明至少有一个 ability
-            sb.append("Predicates.any()");
-        }
-        sb.append(")\n");
+        sb.append(";\n");
     }
 
     /** 把方块注册名转为 Java 代码片段，必要时补充 import */

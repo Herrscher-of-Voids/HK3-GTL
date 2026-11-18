@@ -11,8 +11,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/** 【变更记录 #1】2026-09-30 23:43:42（修订120）：删除无；新增/修改：读取已完成RN、真实工况与团队审查记录，每五秒按在线队伍更新，新增只读查询；C6/C7工程验收仍待真实提供者；用途：按真实团队事实展示文明进度，不给机器/配方增加等级锁。 */
-/** 【变更记录 #2】2026-11-04（修订197）：删除查询推进历史等级；新增回信授权核验、当前缺项目标及工程来源待接入说明；修改仅周期核验提升本队历史；用途：历史称号不代替当前资格，未接工程不冒充完成。 */
+ 
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3CivilizationService {
     public record Status(UUID team,int highest,int currentlyVerified,Set<String> facts){
@@ -45,7 +45,16 @@ public final class Hk3CivilizationService {
         var team=Hk3ResearchTeams.scope(player.server,player.getUUID());return status(player.server,team);
     }
     public static Status status(MinecraftServer server,UUID team){
-        return status(Hk3ResearchData.get(server),Hk3ReviewData.get(server),Hk3CivilizationData.get(server),team);
+        var facts=facts(server,Hk3ResearchData.get(server),Hk3ReviewData.get(server),team);
+        return new Status(team,Hk3CivilizationData.get(server).highest(team),Hk3CivilizationRules.achieved(facts::contains),facts);
+    }
+    public static Set<String> facts(MinecraftServer server,Hk3ResearchData research,Hk3ReviewData review,UUID team){
+        var result=new HashSet<>(facts(research,review,team));int wonders=0;
+        for(int i=1;i<=15;i++)if(!Hk3EngineeringFacts.receipt(server,research,team,String.format(Locale.ROOT,"W%02d",i)).isEmpty())wonders++;
+        if(wonders>0)result.add("engineering:any_wonder");
+        if(wonders==15)result.add("engineering:15_wonders");
+        if(!Hk3EngineeringFacts.receipt(server,research,team,"H01").isEmpty())result.add("engineering:hyperion");
+        return Set.copyOf(result);
     }
     public static Status status(Hk3ResearchData research,Hk3ReviewData review,Hk3CivilizationData history,UUID team){
         var facts=facts(research,review,team);
@@ -54,9 +63,9 @@ public final class Hk3CivilizationService {
     }
     /** 只报告缺少实际提供者，不能据结构成型、耗电或研究推断工程验收。 */
     public static String pendingSource(String key){return switch(key){
-        case "engineering:any_wonder" -> "W01功能运行验收来源未接入";
-        case "engineering:15_wonders" -> "W02–W15结构与运行参数待批准";
-        case "engineering:hyperion" -> "H01结构与运行参数待批准";
+        case "engineering:any_wonder" -> "至少一座奇观实际完成生产，且原机当前加载并完整成型";
+        case "engineering:15_wonders" -> "十五座奇观均完成生产并保持原机完整";
+        case "engineering:hyperion" -> "休伯利安实际完成舰载工程，且原舰当前完整成型";
         default -> "";
     };}
     /** 每五秒按在线队伍去重，只读内存账本，不扫描方块、不加载区块。 */
@@ -74,11 +83,11 @@ public final class Hk3CivilizationService {
             p.sendSystemMessage(Component.literal("当前核验目标："+Hk3CivilizationRules.title(status.nextTarget())));
             for(var r:status.missing()){
                 String pending=pendingSource(r.key());
-                p.sendSystemMessage(Component.literal("未满足："+r.label()+(pending.isEmpty()?"":"；待接入："+pending)));
+                p.sendSystemMessage(Component.literal("未满足："+r.label()+(pending.isEmpty()?"":"；完成条件："+pending)));
             }
             p.sendSystemMessage(Component.literal("等级不锁机器/配方；终审当前工程资格与个人经历另查。"));return 1;
         }));
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

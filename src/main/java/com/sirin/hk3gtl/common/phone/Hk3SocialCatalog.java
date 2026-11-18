@@ -5,13 +5,13 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/** 【变更记录 #1】2026-09-30 19:56:03（修订116）：删除无；新增角色正文目录、话题选择与阶段判定；修改家园语境为远程通信；用途：离线对话与AI示例共用，不产生游戏事实。 */
+ 
 public final class Hk3SocialCatalog {
     public record Line(String source,String topic,String text){}
     public record Contact(String id,String name,String voice,String suffix,int minimum,int maximum,List<Line> lines,List<String> moments){
         public boolean available(int stage){return stage>=minimum&&stage<maximum;}
         public String finish(String text){
-            text=text.replace("§","").strip();
+            text=text.replace("§","").replace("凌虚晴","■■■").replace("凌虛晴","■■■").strip();
             if(suffix.equals("☆"))text=text.replace("。☆","☆").replace("。","☆");
             if(text.length()>1800)text=text.substring(0,1800);
             return suffix.isEmpty()||text.endsWith(suffix)?text:text+suffix;

@@ -4,9 +4,9 @@ import com.sirin.hk3gtl.common.easter.Hk3EggRuntime;
 import net.minecraft.nbt.*;
 import net.minecraft.server.level.ServerPlayer;
 
-/** 【变更记录 #1】2026-11-05（修订205）：新增本人待办页和版本化勾选；只观察成功事务，不以正文符号、删除或客户端计数发奖。 */
+ 
 public final class Hk3PhoneTodoService {
-    /** 【变更记录 #2】2026-11-05（修订206）：真实待办页与成功勾选通知服务器日历会话；旧版本、重复勾选及取消勾选不提供完成事实。 */
+     
     private Hk3PhoneTodoService(){}
     private static boolean allowed(ServerPlayer p){return Hk3PhoneData.get(p).installed(p.getUUID())&&Hk3PhoneRuntime.requirePower(p);}
     static void saved(ServerPlayer p,Hk3PhoneNotes.Note note){

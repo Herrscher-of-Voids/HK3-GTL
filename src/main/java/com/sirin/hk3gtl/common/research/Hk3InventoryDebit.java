@@ -3,7 +3,6 @@ package com.sirin.hk3gtl.common.research;
 import java.util.List;
 import java.util.function.*;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class Hk3InventoryDebit<T> {
     private final List<T> before, after;
     private final IntFunction<T> read;
@@ -13,7 +12,6 @@ public final class Hk3InventoryDebit<T> {
     private final Runnable changed;
     private boolean attempted;
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public Hk3InventoryDebit(List<T> before,List<T> after,IntFunction<T> read,BiConsumer<Integer,T> write,
                             BiPredicate<T,T> equal,UnaryOperator<T> copy,Runnable changed) {
         if (before.size()!=after.size()) throw new IllegalArgumentException("Snapshot length mismatch");
@@ -21,7 +19,6 @@ public final class Hk3InventoryDebit<T> {
         this.read=read; this.write=write; this.equal=equal; this.copy=copy; this.changed=changed;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean commit() {
         if (attempted) return false;
         attempted=true;

@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import net.minecraft.core.*;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:53:29（修订128）：删除无；新增单双箱原生Container解析及告示牌核验；修改无；用途：只认当前菜单真实容器对象，不按玩家视线猜箱子，不强载邻区块。 */
+ 
 public final class Hk3EggChests {
     public static final String SIGN_AUTHOR="hk3gtl_egg_sign_author",ROTTEN_AUTHOR="hk3gtl_egg_rotten_author";
     private Hk3EggChests(){}

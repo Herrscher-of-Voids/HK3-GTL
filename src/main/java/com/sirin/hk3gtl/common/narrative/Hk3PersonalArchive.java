@@ -6,18 +6,18 @@ import com.sirin.hk3gtl.common.review.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 
-/**
- * 【变更记录 #1】2026-10-01 00:41:04（修订123）
- * 删除：无；新增：手机与卷轴共用的服务端本人经历投影。
- * 修改：研究读本队完成账本；交流读本人回执；审查读本人会面结算；旧节点仅作为收藏。
- * 用途：展示真实进度与缺项，不提供虚假的满级/终审许可，也不消费卷轴或生成他人经历。
- */
-/** 【变更记录 #2】2026-10-01 00:59:10（修订124）：删除无；新增/修改：六组正式通信目录统一核验，包含教学附件，不把通信完成等同终审资格；用途：按五方交流系统整链收口，真实权限和本人经历不混用。 */
-/** 【变更记录 #3】2026-10-01 01:54:14（修订127）：删除：被替代的旧分支；新增/修改：显示可选收藏数量并明确剧情档案回看不代替正式会面回执；用途：个人收藏与正式资格分离，保留历史记录。 */
-/** 【变更记录 #4】2026-10-01 01:59:30（修订127）：删除：被替代的旧分支；新增/修改：每次打开卷轴附带本人已解锁节点快照，避免客户端缓存不同步；用途：个人收藏与正式资格分离，保留历史记录。 */
-/** 【变更记录 #5】2026-10-01 16:49:18（修订135）：删除笼统终审未接说明；新增统一终审逐项查询；修改手机和卷轴共用已完成/未完成/等待接入三态；用途：工程来源未接不能显示成玩家未做，也不假装满级档案。 */
-/** 【变更记录 #6】2026-10-01 20:33:47（修订148）：删除固定目录等待文案；新增/修改：手机与卷轴显示研究逐题和去重后的旧正式剧情缺项；用途：逐项核验本人经历，保留真实未接来源，不授予虚假资格。 */
-/** 【变更记录 #7】2026-10-01 22:50:14（第7次备注 · 内测5修订155）：删除玩家展示中的旧电压及开发说明；新增现行正文投影或对应回归；修改仅限呈现与检索，不改变进度、回执、触发条件或权限；用途：统一发布版玩家文案，历史备注保留。 */
+ 
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
 public final class Hk3PersonalArchive {
     private Hk3PersonalArchive() {}
     public static String summary(ServerPlayer player) {
@@ -70,8 +70,9 @@ public final class Hk3PersonalArchive {
         for(var node:Hk3CollectionRecords.unlocked(player.getPersistentData(),"all"))unlocked.add(net.minecraft.nbt.StringTag.valueOf(node.id()));
         view.put("Unlocked",unlocked);
         com.sirin.hk3gtl.common.network.Hk3Network.CHANNEL.send(net.minecraftforge.network.PacketDistributor.PLAYER.with(()->player),new com.sirin.hk3gtl.common.phone.Hk3PhonePacket(view));
+        com.sirin.hk3gtl.common.easter.Hk3EggPhone.finaleInspection(player);
         return 1;
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

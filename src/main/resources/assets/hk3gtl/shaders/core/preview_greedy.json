@@ -1,0 +1,20 @@
+{
+  "vertex": "hk3gtl:preview_greedy",
+  "fragment": "hk3gtl:preview_greedy",
+  "samplers": [{"name": "Sampler0"}],
+  "attributes": ["Position", "Color", "UV0"],
+  "uniforms": [
+    {"name": "ModelViewMat", "type": "matrix4x4", "count": 16, "values": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name": "SpriteBounds", "type": "float", "count": 4, "values": [0,0,1,1]},
+    {"name": "Connected", "type": "int", "count": 1, "values": [0]},
+    {"name": "CtmU0", "type": "float", "count": 3, "values": [0,1,0]},
+    {"name": "CtmU1", "type": "float", "count": 3, "values": [0,1,0]},
+    {"name": "CtmU2", "type": "float", "count": 3, "values": [0,1,0]},
+    {"name": "CtmU3", "type": "float", "count": 3, "values": [0,1,0]},
+    {"name": "CtmV0", "type": "float", "count": 3, "values": [0,0,1]},
+    {"name": "CtmV1", "type": "float", "count": 3, "values": [0,0,1]},
+    {"name": "CtmV2", "type": "float", "count": 3, "values": [0,0,1]},
+    {"name": "CtmV3", "type": "float", "count": 3, "values": [0,0,1]}
+  ]
+}

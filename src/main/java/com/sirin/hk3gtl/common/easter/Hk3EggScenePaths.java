@@ -13,8 +13,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 06:39:10（修订128）：删除无；新增普通建筑与出行旁注；修改无；用途：只检测现有世界，本人归属/连续动作/加载边界均核验，不生成结构。 */
-/** 【变更记录 #2】2026-10-01 06:45:17（修订128）：删除：无；新增/修改：踩桥授予前重新核验整条20格桥及其下岩浆，拆桥或卸载不沿用成桥时旧证据；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggScenePaths {
     private Hk3EggScenePaths(){}
     private static boolean lamp(ServerPlayer p,BlockPos pos){if(!p.level().hasChunkAt(pos)||!Hk3EggBuildMemory.get(p.serverLevel()).owns(p,pos))return false;return p.level().getBlockState(pos).getLightEmission(p.level(),pos)>0;}
@@ -30,6 +30,7 @@ public final class Hk3EggScenePaths {
         }
     }
     public static void placed(ServerPlayer p,BlockPos pos,net.minecraft.world.level.block.state.BlockState state){
+        Hk3EggFacilityScenes.placed(p,pos,state);
         if(!Hk3EggBuildings.ordinary(p,pos,state)||com.sirin.hk3gtl.common.narrative.Hk3NarrativeLog.isUnlocked(p,"E-EG-435"))return;
         boolean aboveLava=false;for(int y=1;y<=8;y++)if(p.level().getFluidState(pos.below(y)).is(FluidTags.LAVA)){aboveLava=true;break;}if(!aboveLava)return;
         var memory=Hk3EggBuildMemory.get(p.serverLevel());

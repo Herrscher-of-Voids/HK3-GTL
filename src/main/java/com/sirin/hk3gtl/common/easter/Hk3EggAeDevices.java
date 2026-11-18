@@ -6,8 +6,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import appeng.menu.AEBaseMenu;
 import appeng.blockentity.storage.DriveBlockEntity;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 06:03:54（修订128）：删除无；新增ME驱动器真实单元装入、容量卡扩槽、记忆卡保存恢复的配置摘要；修改无；用途：服务器本人有效菜单与成功通知，只读单元识别，不以持有替代安装。 */
-/** 【变更记录 #2】2026-10-01 06:31:11（修订128）：删除：无；新增/修改：本人升级卡装入前后数量建立归属；1M流体单元安装身份随实体单元保存，持有不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggAeDevices {
     public record View(List<ItemStack> cells,int slots,List<Integer> cards){}
     private Hk3EggAeDevices(){}

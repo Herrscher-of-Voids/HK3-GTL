@@ -8,13 +8,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/**
- * 【文件职责】增强版IV多任务执行器的工业降效，只拦截扣电与工时推进前的advance。
- * 【变更记录 #1】2026-11-04 21:03:18（第1次备注 · 内测5修订200）
- * 删除：无。新增：独立IV执行器调用共用工业守卫，异常暂停当前推进。
- * 修改：不取消serverTick，不动队列维护、已完成产物交付、取消退款、能源分配和并行参数。
- * 用途：IV不经过基类工作或tick方法也受既有分段约束；同刻判定纯读，不累积减益、不预扣能源。
- */
+ 
+
+
+
+
+
+
 @Pseudo
 @Mixin(targets = "com.gtl.enhancedcore.common.recipe.iv.IvRecipeLogic", remap = false)
 public abstract class EnhancedIndustrialGazeMixin {

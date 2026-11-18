@@ -1,0 +1,6 @@
+{
+  "parent": "hk3gtl:item/depleted_honkai_fuel_rod",
+  "textures": {
+    "layer0": "hk3gtl:item/fuel_bundles/depleted_honkai_fuel_rod_16x"
+  }
+}

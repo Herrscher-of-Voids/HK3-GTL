@@ -16,14 +16,14 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.function.Consumer;
 
-/**
- * 【文件职责】统一注册十六阶主材料实物工序、专属成板和有损回收，不新增机器或方块。
- * 【变更记录 #1】2026-10-17 16:26:09（第1次备注 · 修订165）
- * - 删除：无；旧魂钢L3与L1生产线不在此改写。
- * - 新增：整族注册入口、注册表严格解析和长整数电压元数据。
- * - 修改：生产、形态、回收拆分；HBV首制用MAX、量产用HBV，后阶首制使用前阶电压避免自锁。
- * - 用途：由配方总入口调用；未知原料拒绝注册，代码链不代表高阶硬件已能供电。
- */
+ 
+
+
+
+
+
+
+
 public final class Hk3MainMaterialRecipes {
     private Hk3MainMaterialRecipes() {}
 

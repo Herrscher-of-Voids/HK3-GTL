@@ -7,7 +7,7 @@ import net.minecraft.world.InteractionResult;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-/** 【变更记录 #1】2026-10-01 04:51:18（修订128）：删除无；新增原生展示框成功装入回调；用途：空框变实物且实际交互成功才计，旋转旧物、失败交互不计。 */
+ 
 @Mixin(ItemFrame.class)
 public abstract class Hk3EggFrameMixin {
     @Unique private boolean hk3gtl$empty;

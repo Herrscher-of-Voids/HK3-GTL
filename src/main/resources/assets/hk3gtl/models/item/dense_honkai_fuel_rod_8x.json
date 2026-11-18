@@ -1,0 +1,6 @@
+{
+  "parent": "hk3gtl:item/dense_honkai_fuel_rod",
+  "textures": {
+    "layer0": "hk3gtl:item/fuel_bundles/dense_honkai_fuel_rod_8x"
+  }
+}

@@ -40,19 +40,19 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * 【文件职责】为逐格建造提供可回退的物品与AE材料预留，所有操作限服务器线程。
- * 【变更记录 #1】2026-10-30 01:31:17（第1次备注 · 内测5修订184）
- * - 新增：生存材料预扣、提交与取消返还；AE提取失败不丢失已扣物品。
- * - 用途：让建造器在放置前确认材料，放置成功后提交，失败则回滚材料。
- * 【变更记录 #2】2026-10-30 01:36:10（第2次备注 · 内测5修订184）
- * - 新增：向统一入口暴露当前AutoBuildSetting兼容性。
- * - 用途：不支持的替换、翻转、重复层及拆除选项在开工前明确拒绝。
- * 【变更记录 #3】2026-10-30 02:11:18（第3次备注 · 内测5修订184）
- * - 修复：AE来源认证、精确扣料、部分退款及异常后盲目补发；双层台阶支持跨槽扣料。
- * - 新增：GT空机器默认NBT比对；禁止载入蓝图库存、能量、流体或其他非默认数据。
- * 【变更记录 #4】2026-10-30（修订184）：LightBlock的level是亮度，保留精确物品扣料且每格扣一块，不按储存资源拒绝。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3BuildMaterials {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Set<String> POSITION_ONLY_TAGS = Set.of("id", "x", "y", "z");
@@ -63,11 +63,12 @@ public final class Hk3BuildMaterials {
     private final ServerLevel level;
     private final AutoBuildSetting setting;
     private final Map<BlockState, CompoundTag> defaultTags = new IdentityHashMap<>();
+    private final Map<BlockState, Material> materialTypes = new IdentityHashMap<>();
 
     public Hk3BuildMaterials(ServerPlayer player, AutoBuildSetting setting) {
-        this.player = Objects.requireNonNull(player);
+        this.player = player;
         this.level = player.serverLevel();
-        this.setting = Objects.requireNonNull(setting);
+        this.setting = setting;
     }
 
     public boolean isSupported() {
@@ -78,26 +79,34 @@ public final class Hk3BuildMaterials {
     /** 预扣一个目标方块的物品；不支持或材料不足时返回null，来源异常则中止任务。 */
     public Reservation reserve(BlockState expected, CompoundTag templateTag) {
         requireServerThread(player);
-        if (!isSupported() || expected == null || expected.isAir() || !supportedState(expected)
-                || !supportedTag(expected, templateTag)) return null;
-
-        BlockInfo info = new BlockInfo(expected);
-        ItemStack wanted = info.getItemStackForm();
-        // 两个相同候选用于显式识别终端的隐含电压替换，不能把替代材料扣成正式蓝图。
-        List<ItemStack> candidates = setting.apply(new BlockInfo[]{info, info});
-        if (wanted.isEmpty() || !(wanted.getItem() instanceof BlockItem) || candidates.size() != 2
-                || candidates.stream().anyMatch(candidate -> !ItemStack.isSameItemSameTags(wanted, candidate))) return null;
+        if (!isSupported() || !supportedTag(expected, templateTag)) return null;
+        Material material = materialTypes.computeIfAbsent(expected, this::resolveMaterial);
+        if (material.stack.isEmpty()) return null;
         if (player.isCreative()) return new Reservation(player);
 
-        int count = materialCount(expected);
+        int count = material.count;
         if (count < 1) return null;
-        wanted.setCount(1);
+        ItemStack wanted = material.stack.copy();
         if (setting.isAeMode()) {
             Reservation reservation = reserveFromAe(wanted, count);
             if (reservation != null) return reservation;
         }
         return reserveFromInventory(wanted, count);
     }
+
+    private Material resolveMaterial(BlockState state) {
+        if (state.isAir() || !supportedState(state)) return new Material(ItemStack.EMPTY, 0);
+        BlockInfo info = new BlockInfo(state);
+        ItemStack wanted = info.getItemStackForm();
+        // 同一状态只解析一次；两个候选仍验证终端没有隐含电压替换。
+        List<ItemStack> candidates = setting.apply(new BlockInfo[]{info, info});
+        if (wanted.isEmpty() || !(wanted.getItem() instanceof BlockItem) || candidates.size() != 2
+                || candidates.stream().anyMatch(candidate -> !ItemStack.isSameItemSameTags(wanted, candidate)))
+            return new Material(ItemStack.EMPTY, 0);
+        return new Material(wanted.copyWithCount(1), materialCount(state));
+    }
+
+    private record Material(ItemStack stack, int count) {}
 
     /** 创造原稿测试允许活塞头、双格门及历史实体数据，不改变生存材料策略。 */
     Reservation reserveCreativeBlueprint() {

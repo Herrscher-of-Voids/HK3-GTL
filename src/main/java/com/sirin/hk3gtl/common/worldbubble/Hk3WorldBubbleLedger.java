@@ -12,32 +12,32 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * 【文件职责】真实目标与模拟批次的公共状态账本，供服务端机器后续接入；不发放物品。
- * 【变更记录 #1】2026-09-27 04:16:00（第 1 次备注 · 内测5修订90）
- * 删除：无。新增：稳定目标身份、十次采掘、捕获/终止约束、独立模拟批次及持久事务收据。
- * 修改：无旧存档迁移，无旧配方停用；仅新增可复用底层。状态由已确认事务重放恢复。
- * 用途：同一事务重试不能计次或结算两遍，失败预留可取消但保留编号，目标有待办时禁止冲突操作。
- * 边界：调用方必须在服务器线程校验权限、实际工序与费用；actor仅记操作归属，不定义团队产权。
- * 收据是待交付事实；交付方必须按事务ID幂等接收后确认，不宣称跨存档物品交付具有崩溃原子性。
- */
-/**
- * 【变更记录 #2】2026-09-27 04:24:00（第 2 次备注 · 内测5修订90）
- * 删除：每次预留全表扫描。新增：领域与目标组成的待办索引。
- * 修改：预留写入索引，结算/取消释放；载入时随事务重建，不保存冗余字段。
- * 用途：防冲突查询保持常数时间，避免大量模拟批次造成载入平方级扫描。
- */
-/**
- * 【变更记录 #3】2026-09-29 23:37:35（内测5修订101）
- * 删除：本轮被替代的单前置或旧提示分支；其余历史保留。
- * 新增／修改：模拟创建保留服务端来源回执，跨重启保留同批次身份。
- * 用途：补足研究接线并如实保留未接物理执行器及结构审批边界。
- * 追溯：logs/research-mainline-r101；R101_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
 public final class Hk3WorldBubbleLedger {
     public static final int MAX_MINING = 10;
     public enum Domain { REAL, SIMULATED }
-    public enum Action { MINE, CAPTURE, TERMINATE_REAL, STABILIZE_SIMULATION, TERMINATE_SIMULATION }
+    public enum Action { MINE, CAPTURE, TERMINATE_REAL, STABILIZE_SIMULATION, TERMINATE_SIMULATION, DISCARD_SIMULATION }
     public enum Phase { RESERVED, SETTLED, CANCELLED }
     public enum RealState { AVAILABLE, CAPTURED, TERMINATED }
     public enum SimulationState { CREATED, STABLE, TERMINATED }
@@ -175,6 +175,7 @@ public final class Hk3WorldBubbleLedger {
         return target == null ? null : new SimulationSnapshot(id, target.creator, target.origin, target.state,target.creationReceipt);
     }
     public java.util.List<SimulationSnapshot> simulations(){return simulated.keySet().stream().map(this::simulation).toList();}
+    public boolean reserved(Domain domain, UUID target) { return pending.containsKey(new TargetKey(domain, target)); }
     public java.util.List<Transaction> settledTransactions(){return transactions.values().stream().filter(t->t.phase()==Phase.SETTLED).toList();}
     public Transaction transaction(UUID id) { return transactions.get(id); }
     public java.util.List<Transaction> pendingDeliveries(UUID actor) {
@@ -202,7 +203,8 @@ public final class Hk3WorldBubbleLedger {
             Simulation target = simulated.get(id);
             if (target == null) throw invalid("Unknown simulation");
             boolean valid = action == Action.STABILIZE_SIMULATION && target.state == SimulationState.CREATED
-                    || action == Action.TERMINATE_SIMULATION && target.state == SimulationState.STABLE;
+                    || action == Action.TERMINATE_SIMULATION && target.state == SimulationState.STABLE
+                    || action == Action.DISCARD_SIMULATION && target.state == SimulationState.CREATED;
             if (!valid) throw invalid("Illegal simulation transition");
         }
     }

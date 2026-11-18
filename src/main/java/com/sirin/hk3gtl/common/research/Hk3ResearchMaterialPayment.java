@@ -1,14 +1,14 @@
 package com.sirin.hk3gtl.common.research;
 
-/**
- * 【文件职责／本轮边界】独立实验统一分配实际物品与NBT，将耗材及工装区分存入支付快照。
- * 【变更记录 #1】2026-09-29 21:06:40（第 1 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：独立实验统一分配实际物品与NBT，将耗材及工装区分存入支付快照。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
 
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
@@ -19,7 +19,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import java.util.List;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class Hk3ResearchMaterialPayment {
     private Hk3ResearchMaterialPayment() {}
     /** 修订100：工装与耗材一次托管；成功只退工装，取消全部原样退回。 */
@@ -40,7 +39,6 @@ public final class Hk3ResearchMaterialPayment {
         return result;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Prepared prepare(Container inventory, int slots, List<Hk3ResearchPlans.Material> costs) {
         if (slots < 0 || slots > inventory.getContainerSize()) throw new IllegalArgumentException("Invalid slot range");
         ItemStack[] before = new ItemStack[slots]; long[] stock = new long[slots], demands = new long[costs.size()];
@@ -54,7 +52,6 @@ public final class Hk3ResearchMaterialPayment {
         return used == null ? null : new Prepared(inventory, before, used);
     }
 
-    /** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
     public static final class Prepared {
         private final ItemStack[] before;
         private final long[] used;
@@ -68,14 +65,12 @@ public final class Hk3ResearchMaterialPayment {
                     ItemStack::matches,ItemStack::copy,inventory::setChanged);
         }
 
-        /** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
         public CompoundTag receipt() {
             CompoundTag result = new CompoundTag(); ListTag items = new ListTag();
             for (int i=0;i<used.length;i++) if (used[i]>0) items.add(before[i].copyWithCount(Math.toIntExact(used[i])).save(new CompoundTag()));
             result.put("Items", items); result.put("Tools",tools.copy()); return result;
         }
 
-        /** 中文说明：该处说明已按当前代码行为整理。*/
         public boolean commit() {
             return debit.commit();
         }

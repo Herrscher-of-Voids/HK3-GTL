@@ -18,16 +18,16 @@ import net.minecraft.world.item.Items;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 【变更记录 #1】2026-10-01 19:03:37（修订141）
- * - 删除：无；新增：从同源几何资源烘焙双翼、枪、剑，按材质分组绘制。
- * - 修改：配件绑身体与左右手臂，翼根缓慢摆动；星点和核心局部自亮。
- * - 用途：参照用户选择的方块造型；仅重载时解析模型，不在逐帧期间构建方块或读取磁盘。
- */
-/** 【变更记录 #2】2026-10-01 19:10:52（修订142）：删除：二审武器展示；新增：无；修改：配件资源仅保留双翼，撤下武器手臂绑定分支，二审双手保持空手；用途：遵循负责人只保留琪亚娜和翅膀的最新决定。 */
-/** 【变更记录 #3】2026-10-01 19:18:39（修订143）：删除：逐像素方块配件烘焙路径；新增：两侧各三层像素BakedModel缓存；修改：外框、星海、星点独立挤出，动态图集控制错峰闪烁；用途：保留二审翼形，减少零散方块并使紫色内翼呈现星海。 */
-/** 【变更记录 #4】2026-10-01 19:30:16（修订144）：删除：三层同心嵌套；新增：五层独立Z位置及间距；修改：外框1、星海1、星点、星海2、外框2，星海采用半透图集材质；用途：消除体积穿插及共面竞争，让中央星点从两面可见。 */
-/** 【变更记录 #5】2026-10-01 19:47:01（修订145）：删除：过大翼瓣展开比例；新增：参考轮廓对应尺度；修改：宽中翼与短下翼收拢、五层总厚度收至0.66模型像素；用途：符合用户新参考中的紧凑翼形，不改变二审业务。 */
+ 
+
+
+
+
+
+ 
+ 
+ 
+ 
 public final class Hk3KianaEquipmentLayer extends RenderLayer<Hk3KianaReviewEntity, PlayerModel<Hk3KianaReviewEntity>> {
     public static final List<ResourceLocation> WING_MODELS = List.of(
             model("left_frame1"), model("left_galaxy1"), model("left_stars"), model("left_galaxy2"), model("left_frame2"),

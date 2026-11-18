@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.easter;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:44:13（修订128）：删除无；新增固定33格邻域的四向门三维范围检查；修改无；用途：验证存在同一16格跨度内四种方向，避免以最后一扇门为中心误缩到半径8。 */
+ 
 public final class Hk3EggDoorPattern {
     public record Door(int x,int y,int z,int direction){}
     private static final int N=34;

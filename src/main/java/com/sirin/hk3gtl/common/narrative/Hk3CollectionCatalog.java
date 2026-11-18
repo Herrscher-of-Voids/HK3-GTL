@@ -2,8 +2,8 @@ package com.sirin.hk3gtl.common.narrative;
 
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 01:54:14（修订127）：删除无；新增逐项核对的收藏分类目录；修改无；用途：旧角色评论、特殊数字和工业纪念属于可选收藏，正式交流单独保留；未知条目不自动豁免。 */
-/** 【变更记录 #2】2026-10-01 03:50:42（修订128）：删除：旧固定上限或被替代的分支；新增/修改：新增目录逐项显式分类，未知ID仍不属于可选条目；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3CollectionCatalog {
     public enum Kind {
         OPTIONAL("optional"), FORMAL("formal"), MILESTONE("milestone"), UNCLASSIFIED("unclassified");

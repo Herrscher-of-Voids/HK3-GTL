@@ -4,7 +4,7 @@ import java.util.UUID;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/** 【变更记录 #1】2026-11-05（修订209）：只保存本人相册短期会话；服务端单调时钟计时，失去连续可见回执即作废。 */
+ 
 public final class Hk3PhoneGallerySessions {
     public static final long READ_MS=30_000, GAP_MS=5_000;
     private final Map<UUID,Session> sessions=new ConcurrentHashMap<>();

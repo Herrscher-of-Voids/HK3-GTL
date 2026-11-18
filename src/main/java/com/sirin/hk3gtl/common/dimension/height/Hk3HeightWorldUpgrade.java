@@ -13,13 +13,13 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * 【文件职责】旧档按文件夹精确选择；创建Level前先校验元数据备份，不修改区块或原始存档。
- * 【变更记录 #1】2026-10-29 23:06:53（第1次备注 · 本轮高度与预览修复）
- * - 删除：无；新增：精确选择、路径拒绝及原level.dat/level.dat_old的SHA256备份校验。
- * - 修改：无原存档内容写入；备份失败抛错，Service不得继续应用新边界。
- * - 用途：为已明确选择的旧档提供重开升级保护；这些元数据备份不能用于高处建成后的缩高回滚。
- */
+ 
+
+
+
+
+
+
 public final class Hk3HeightWorldUpgrade {
     private Hk3HeightWorldUpgrade() {}
 

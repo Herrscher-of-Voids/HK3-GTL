@@ -11,13 +11,30 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 05:28:18（修订128）：删除无；新增修复工具经验回执、设置床重生点、实际挡箭离战及原版箱子开启顺序；修改无；用途：只读真实事件，保留取消结果，不授正式资格。 */
-/** 【变更记录 #2】2026-10-01 05:59:33（修订128）：删除：无；新增/修改：扩展剪刀等工具实际修复；命名工具真实铁砧修复后在成品保存身份与次数；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 06:25:16（修订128）：删除：无；新增/修改：雪地自然战利品首次展开后必须成功打开对应单双箱菜单，未打开不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
+ 
 public final class Hk3EggLifeEvents {
     private static final Map<UUID,PlayerSetSpawnEvent> SPAWN=new java.util.concurrent.ConcurrentHashMap<>();
     private static final Map<UUID,ShieldBlockEvent> SHIELD=new java.util.concurrent.ConcurrentHashMap<>();
+    private static final List<net.minecraftforge.event.entity.EntityJoinLevelEvent> FIREWORKS=new ArrayList<>();
     private Hk3EggLifeEvents(){}
+    @SubscribeEvent(priority=net.minecraftforge.eventbus.api.EventPriority.LOWEST)
+    public static void firework(net.minecraftforge.event.entity.EntityJoinLevelEvent e){
+        if(!e.isCanceled()&&e.getEntity() instanceof net.minecraft.world.entity.projectile.FireworkRocketEntity rocket
+                &&rocket.getOwner() instanceof ServerPlayer)FIREWORKS.add(e);
+    }
+    @SubscribeEvent public static void fireworks(TickEvent.ServerTickEvent e){
+        if(e.phase!=TickEvent.Phase.END)return;
+        var it=FIREWORKS.iterator();
+        while(it.hasNext()){
+            var joined=it.next();if(joined.getLevel().getServer()!=e.getServer())continue;it.remove();
+            var rocket=(net.minecraft.world.entity.projectile.FireworkRocketEntity)joined.getEntity();
+            if(!joined.isCanceled()&&rocket.isAlive()&&rocket.getOwner() instanceof ServerPlayer p
+                    &&p.level()==joined.getLevel()&&p.serverLevel().getEntity(rocket.getUUID())==rocket)
+                Hk3EggFacilityScenes.firework(p,rocket.blockPosition());
+        }
+    }
     @SubscribeEvent public static void spawn(PlayerSetSpawnEvent e){if(e.getEntity() instanceof ServerPlayer&&!e.isForced()&&e.getNewSpawn()!=null)SPAWN.put(e.getEntity().getUUID(),e);}
     @SubscribeEvent public static void shield(ShieldBlockEvent e){if(e.getEntity() instanceof ServerPlayer)SHIELD.put(e.getEntity().getUUID(),e);}
     @SubscribeEvent public static void repair(AnvilRepairEvent e){
@@ -78,5 +95,5 @@ public final class Hk3EggLifeEvents {
     }
     @SubscribeEvent public static void respawn(PlayerEvent.PlayerRespawnEvent e){if(e.getEntity() instanceof ServerPlayer p)Hk3EggRuntime.state(p).remove("blockedSkeleton");}
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){SPAWN.remove(e.getEntity().getUUID());SHIELD.remove(e.getEntity().getUUID());}
-    @SubscribeEvent public static void stop(net.minecraftforge.event.server.ServerStoppedEvent e){SPAWN.clear();SHIELD.clear();}
+    @SubscribeEvent public static void stop(net.minecraftforge.event.server.ServerStoppedEvent e){SPAWN.clear();SHIELD.clear();FIREWORKS.removeIf(v->v.getLevel().getServer()==e.getServer());}
 }

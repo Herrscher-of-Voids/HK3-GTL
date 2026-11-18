@@ -2,6 +2,23 @@
   "schema": 1,
   "rules": [
     {
+      "id": "E-EG-008",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "receipt:8"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1"
+        }
+      ],
+      "approvedCondition": "无线崩坏能网络首次成功向另一端交付能量。"
+    },
+    {
       "id": "E-EG-001",
       "event": "vanilla_case",
       "checks": [
@@ -11,7 +28,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "首次成功打开内测五I01崩坏能采集设备的已批准GUI；旧吸收塔不替代"
+      "approvedCondition": "首次打开崩坏能采集塔的控制菜单。"
     },
     {
       "id": "E-EG-002",
@@ -120,7 +137,7 @@
           "value": "50"
         }
       ],
-      "approvedCondition": "正式配方实际产出魂钢框架累计50个；若新版无该产物则休眠"
+      "approvedCondition": "通过配方累计产出50个魂钢框架。"
     },
     {
       "id": "E-EG-020",
@@ -132,7 +149,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "本人正式终审通过回执生成时；旁注在主线演出后投递"
+      "approvedCondition": "通过终审后，在主线演出结束时收到这条收藏。"
     },
     {
       "id": "E-EG-021",
@@ -156,7 +173,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "服务器确认玩家攻击正式空之律者实体；保持既定坏结局流程"
+      "approvedCondition": "攻击空之律者。"
     },
     {
       "id": "E-EG-023",
@@ -192,7 +209,7 @@
           "value": "50"
         }
       ],
-      "approvedCondition": "所在团队完成至少50项内测五正式课题；本人在线收到统计快照"
+      "approvedCondition": "所在团队完成50项研究，在线时收到进度记录。"
     },
     {
       "id": "E-EG-027",
@@ -204,7 +221,7 @@
           "value": "90"
         }
       ],
-      "approvedCondition": "所在团队完成至少90项内测五正式课题；不授个人亲历"
+      "approvedCondition": "所在团队完成90项研究；个人经历仍由本人取得。"
     },
     {
       "id": "E-EG-030",
@@ -216,7 +233,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "本人终审收束节点结束后投递；不改变标题返回流程"
+      "approvedCondition": "读完终审结束时的最后一段对话。"
     },
     {
       "id": "E-EG-031",
@@ -264,7 +281,7 @@
           "value": "34"
         }
       ],
-      "approvedCondition": "有效EU发电设备最近20tick平均真实产出达到QCV档VA_LONG阈值；防重复计网络搬运"
+      "approvedCondition": "具有使用权限的EU发电设备，最近1秒平均发电功率达到QCV档。"
     },
     {
       "id": "E-EG-036",
@@ -322,7 +339,7 @@
           "value": "47"
         }
       ],
-      "approvedCondition": "本人正在执行的研究实际应用最低速度因子并成功推进至少1tick"
+      "approvedCondition": "正在进行的研究以最低速度继续推进至少1游戏刻。"
     },
     {
       "id": "E-EG-050",
@@ -404,7 +421,7 @@
           "value": "0"
         }
       ],
-      "approvedCondition": "世界dayTime位于第0天时首次加入；错过不补成就"
+      "approvedCondition": "在世界第0天首次加入。"
     },
     {
       "id": "E-EG-056",
@@ -416,7 +433,7 @@
           "value": "100"
         }
       ],
-      "approvedCondition": "世界日历达到100天后本人首次在线收到该快照"
+      "approvedCondition": "世界达到100天后首次上线。"
     },
     {
       "id": "E-EG-057",
@@ -428,7 +445,7 @@
           "value": "365"
         }
       ],
-      "approvedCondition": "世界日历达到365天后首次在线收到快照"
+      "approvedCondition": "世界达到365天后首次上线。"
     },
     {
       "id": "E-EG-058",
@@ -575,7 +592,7 @@
           "value": "68"
         }
       ],
-      "approvedCondition": "有权限EU发电账本累计真实发电量首次跨过1234567890EU；改为累计而非瞬时精确值"
+      "approvedCondition": "具有使用权限的EU发电设备累计发电量达到1,234,567,890 EU。"
     },
     {
       "id": "E-EG-069",
@@ -614,7 +631,7 @@
           "value": "6019"
         }
       ],
-      "approvedCondition": "主世界dayTime进入6000至6019tick且玩家在线；每日只首次符合计候选发现"
+      "approvedCondition": "在主世界正午开始的1秒内在线，每日首次符合时记录。"
     },
     {
       "id": "E-EG-071",
@@ -626,7 +643,7 @@
           "value": "71"
         }
       ],
-      "approvedCondition": "脚下方块属于已批准I01结构最高可站立层；位于实际包围盒内"
+      "approvedCondition": "站在崩坏能采集塔最高的可站立层，位置处于塔体范围内。"
     },
     {
       "id": "E-EG-074",
@@ -638,7 +655,43 @@
           "value": "74"
         }
       ],
-      "approvedCondition": "终审当前可操作页2秒内收到8次重复输入；限频且不替玩家选项"
+      "approvedCondition": "在终审对话可操作时，2秒内连续输入8次。"
+    },
+    {
+      "id": "E-EG-078",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "78"
+        }
+      ],
+      "approvedCondition": "在有效魂钢生产设备边界外4格内放置工作台"
+    },
+    {
+      "id": "E-EG-079",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "79"
+        }
+      ],
+      "approvedCondition": "手持虚空万藏，成功右键使用一次。"
+    },
+    {
+      "id": "E-EG-080",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "80"
+        }
+      ],
+      "approvedCondition": "成功在有效反应设备边界外4格内放置TNT但尚未点燃；不引爆不奖励"
     },
     {
       "id": "E-EG-084",
@@ -722,7 +775,7 @@
           "value": "101"
         }
       ],
-      "approvedCondition": "V01联系人已开放；雨天结束后向芽衣发送内置话题“吃过饭了吗”并读完回复"
+      "approvedCondition": "雷之律者·芽衣联系人已开放；雨天结束后向芽衣发送内置话题“吃过饭了吗”并读完回复"
     },
     {
       "id": "E-EG-103",
@@ -734,7 +787,7 @@
           "value": "103"
         }
       ],
-      "approvedCondition": "V02已按二审阶段开放；首次读完其欢迎消息"
+      "approvedCondition": "始源之律者·芽衣已按二审阶段开放；首次读完其欢迎消息"
     },
     {
       "id": "E-EG-104",
@@ -746,7 +799,7 @@
           "value": "104"
         }
       ],
-      "approvedCondition": "V02已开放；首次向其发送内置话题“明天的计划”"
+      "approvedCondition": "始源之律者·芽衣已开放；首次向其发送内置话题“明天的计划”"
     },
     {
       "id": "E-EG-105",
@@ -758,7 +811,7 @@
           "value": "105"
         }
       ],
-      "approvedCondition": "V03已开放；首次向空之律者发送“看看我的工厂”内置话题"
+      "approvedCondition": "空之律者·琪亚娜已开放；首次向空之律者发送“看看我的工厂”内置话题"
     },
     {
       "id": "E-EG-106",
@@ -770,7 +823,7 @@
           "value": "106"
         }
       ],
-      "approvedCondition": "V03已开放；首次选择“今天想歇一会儿”话题"
+      "approvedCondition": "空之律者·琪亚娜已开放；首次选择“今天想歇一会儿”话题"
     },
     {
       "id": "E-EG-107",
@@ -782,7 +835,7 @@
           "value": "107"
         }
       ],
-      "approvedCondition": "V04已开放；吃完一份熟食后首次选择“刚刚吃饱了”话题"
+      "approvedCondition": "薪炎之律者·琪亚娜已开放；吃完一份熟食后首次选择“刚刚吃饱了”话题"
     },
     {
       "id": "E-EG-109",
@@ -794,7 +847,7 @@
           "value": "109"
         }
       ],
-      "approvedCondition": "V05已按二审阶段开放；首次读完欢迎消息"
+      "approvedCondition": "终焉之律者·琪亚娜已按二审阶段开放；首次读完欢迎消息"
     },
     {
       "id": "E-EG-110",
@@ -806,7 +859,7 @@
           "value": "110"
         }
       ],
-      "approvedCondition": "V05已开放；本人二审通过后选择“下一步呢”话题"
+      "approvedCondition": "终焉之律者·琪亚娜已开放；本人二审通过后选择“下一步呢”话题"
     },
     {
       "id": "E-EG-111",
@@ -818,7 +871,7 @@
           "value": "111"
         }
       ],
-      "approvedCondition": "V06已开放；首次选择“仓库又满了”话题"
+      "approvedCondition": "理之律者·布洛妮娅已开放；首次选择“仓库又满了”话题"
     },
     {
       "id": "E-EG-112",
@@ -835,7 +888,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "V06已开放；首次保存一篇含至少20字的本地笔记后与其通信"
+      "approvedCondition": "理之律者·布洛妮娅已开放；首次保存一篇含至少20字的本地笔记后与其通信"
     },
     {
       "id": "E-EG-113",
@@ -847,7 +900,7 @@
           "value": "113"
         }
       ],
-      "approvedCondition": "V07已按二审阶段开放；首次选择“我拿到了材料，研究算完成吗”话题"
+      "approvedCondition": "真理之律者·布洛妮娅已按二审阶段开放；首次选择“我拿到了材料，研究算完成吗”话题"
     },
     {
       "id": "E-EG-114",
@@ -859,7 +912,7 @@
           "value": "114"
         }
       ],
-      "approvedCondition": "V07已开放；首次选择“数据和预期不一样”话题"
+      "approvedCondition": "真理之律者·布洛妮娅已开放；首次选择“数据和预期不一样”话题"
     },
     {
       "id": "E-EG-115",
@@ -871,7 +924,7 @@
           "value": "115"
         }
       ],
-      "approvedCondition": "V08已开放；首次选择“休息时做什么”话题"
+      "approvedCondition": "理之律者·瓦尔特·杨已开放；首次选择“休息时做什么”话题"
     },
     {
       "id": "E-EG-116",
@@ -883,7 +936,7 @@
           "value": "116"
         }
       ],
-      "approvedCondition": "V08已开放；首次选择“新发现”话题"
+      "approvedCondition": "理之律者·瓦尔特·杨已开放；首次选择“新发现”话题"
     },
     {
       "id": "E-EG-117",
@@ -900,7 +953,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "V09已开放；在主世界高于当地海平面64格处与温蒂通信"
+      "approvedCondition": "风之律者·温蒂已开放；在主世界高于当地海平面64格处与温蒂通信"
     },
     {
       "id": "E-EG-118",
@@ -912,7 +965,7 @@
           "value": "118"
         }
       ],
-      "approvedCondition": "V09已开放；首次选择“今天没什么进展”话题"
+      "approvedCondition": "风之律者·温蒂已开放；首次选择“今天没什么进展”话题"
     },
     {
       "id": "E-EG-119",
@@ -924,7 +977,7 @@
           "value": "119"
         }
       ],
-      "approvedCondition": "V10已按二审阶段开放；首次读完欢迎消息"
+      "approvedCondition": "生死之律者·希儿已按二审阶段开放；首次读完欢迎消息"
     },
     {
       "id": "E-EG-120",
@@ -936,7 +989,7 @@
           "value": "120"
         }
       ],
-      "approvedCondition": "V10已开放；本人死亡后恢复存档角色的首次通信"
+      "approvedCondition": "生死之律者·希儿已开放；本人死亡后恢复存档角色的首次通信"
     },
     {
       "id": "E-EG-121",
@@ -948,7 +1001,7 @@
           "value": "121"
         }
       ],
-      "approvedCondition": "V11在既定阶段已开放；首次读完匿名欢迎消息"
+      "approvedCondition": "？？？在既定阶段已开放；首次读完匿名欢迎消息"
     },
     {
       "id": "E-EG-122",
@@ -960,7 +1013,7 @@
           "value": "122"
         }
       ],
-      "approvedCondition": "V11已开放；首次选择“你是谁”固定匿名话题"
+      "approvedCondition": "？？？已开放；首次选择“你是谁”固定匿名话题"
     },
     {
       "id": "E-EG-123",
@@ -972,7 +1025,7 @@
           "value": "123"
         }
       ],
-      "approvedCondition": "V12在既定阶段已开放；首次读完匿名欢迎消息"
+      "approvedCondition": "？？？在既定阶段已开放；首次读完匿名欢迎消息"
     },
     {
       "id": "E-EG-124",
@@ -984,7 +1037,7 @@
           "value": "124"
         }
       ],
-      "approvedCondition": "V12已开放；首次选择“你在看着我吗”固定匿名话题"
+      "approvedCondition": "？？？已开放；首次选择“你在看着我吗”固定匿名话题"
     },
     {
       "id": "E-EG-125",
@@ -996,7 +1049,7 @@
           "value": "125"
         }
       ],
-      "approvedCondition": "V13仍处于允许通信阶段；首次选择“工程很难”话题"
+      "approvedCondition": "凯文·卡斯兰娜仍处于允许通信阶段；首次选择“工程很难”话题"
     },
     {
       "id": "E-EG-126",
@@ -1008,7 +1061,7 @@
           "value": "126"
         }
       ],
-      "approvedCondition": "V13阶段可见；首次选择“还要继续吗”话题"
+      "approvedCondition": "凯文·卡斯兰娜阶段可见；首次选择“还要继续吗”话题"
     },
     {
       "id": "E-EG-127",
@@ -1020,7 +1073,7 @@
           "value": "127"
         }
       ],
-      "approvedCondition": "V14阶段可见；首次给普通爱莉希雅发送内置问候"
+      "approvedCondition": "爱莉希雅阶段可见；首次给普通爱莉希雅发送内置问候"
     },
     {
       "id": "E-EG-128",
@@ -1032,7 +1085,7 @@
           "value": "128"
         }
       ],
-      "approvedCondition": "V14阶段可见；首次回看其已读欢迎信末页"
+      "approvedCondition": "爱莉希雅阶段可见；首次回看其已读欢迎信末页"
     },
     {
       "id": "E-EG-129",
@@ -1044,7 +1097,7 @@
           "value": "129"
         }
       ],
-      "approvedCondition": "V15阶段可见；首次选择“按钮太多了”话题"
+      "approvedCondition": "维尔薇阶段可见；首次选择“按钮太多了”话题"
     },
     {
       "id": "E-EG-130",
@@ -1056,7 +1109,7 @@
           "value": "130"
         }
       ],
-      "approvedCondition": "V15阶段可见；首次完成手机应用拖动并向其选择“桌面整理好了”话题"
+      "approvedCondition": "维尔薇阶段可见；首次完成手机应用拖动并向其选择“桌面整理好了”话题"
     },
     {
       "id": "E-EG-131",
@@ -1068,7 +1121,7 @@
           "value": "131"
         }
       ],
-      "approvedCondition": "V16阶段可见；持有世界泡样本时首次选择“样本有什么用”话题"
+      "approvedCondition": "梅比乌斯阶段可见；持有世界泡样本时首次选择“样本有什么用”话题"
     },
     {
       "id": "E-EG-133",
@@ -1080,7 +1133,7 @@
           "value": "133"
         }
       ],
-      "approvedCondition": "V17二审后可见；首次读完欢迎消息"
+      "approvedCondition": "人之律者·爱莉希雅二审后可见；首次读完欢迎消息"
     },
     {
       "id": "E-EG-134",
@@ -1092,7 +1145,7 @@
           "value": "134"
         }
       ],
-      "approvedCondition": "V17已开放；首次选择“故事会结束吗”话题"
+      "approvedCondition": "人之律者·爱莉希雅已开放；首次选择“故事会结束吗”话题"
     },
     {
       "id": "E-EG-135",
@@ -1104,7 +1157,7 @@
           "value": "135"
         }
       ],
-      "approvedCondition": "V18二审后可见；首次选择“我卡住了”话题"
+      "approvedCondition": "薇塔二审后可见；首次选择“我卡住了”话题"
     },
     {
       "id": "E-EG-136",
@@ -1116,7 +1169,7 @@
           "value": "136"
         }
       ],
-      "approvedCondition": "V18已开放；首次选择“替我选吧”话题"
+      "approvedCondition": "薇塔已开放；首次选择“替我选吧”话题"
     },
     {
       "id": "E-EG-137",
@@ -1128,7 +1181,7 @@
           "value": "137"
         }
       ],
-      "approvedCondition": "V19处于一审后至二审前；首次读完欢迎消息"
+      "approvedCondition": "伪神奥托·阿波卡利斯处于一审后至二审前；首次读完欢迎消息"
     },
     {
       "id": "E-EG-138",
@@ -1140,7 +1193,7 @@
           "value": "138"
         }
       ],
-      "approvedCondition": "V19阶段可见；首次选择“你能保证结果吗”话题"
+      "approvedCondition": "伪神奥托·阿波卡利斯阶段可见；首次选择“你能保证结果吗”话题"
     },
     {
       "id": "E-EG-139",
@@ -1152,7 +1205,7 @@
           "value": "139"
         }
       ],
-      "approvedCondition": "V20处于获准通信阶段；首次读完欢迎消息"
+      "approvedCondition": "侵蚀之律者处于获准通信阶段；首次读完欢迎消息"
     },
     {
       "id": "E-EG-140",
@@ -1164,7 +1217,7 @@
           "value": "140"
         }
       ],
-      "approvedCondition": "V20已开放；首次选择“你不明白也没关系”话题"
+      "approvedCondition": "侵蚀之律者已开放；首次选择“你不明白也没关系”话题"
     },
     {
       "id": "E-EG-157",
@@ -1260,7 +1313,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "本人首次按正式研究结算成功支付资源且事务提交"
+      "approvedCondition": "首次成功支付研究费用。"
     },
     {
       "id": "E-EG-165",
@@ -1272,7 +1325,7 @@
           "value": "165"
         }
       ],
-      "approvedCondition": "本人第一次由研究完成回调开放新对象"
+      "approvedCondition": "首次通过完成研究开放新内容。"
     },
     {
       "id": "E-EG-169",
@@ -1448,7 +1501,7 @@
           "value": "181"
         }
       ],
-      "approvedCondition": "本人从ae2:charger取出本次充电完成的ae2:charged_certus_quartz_crystal"
+      "approvedCondition": "本人从充能器取出本次充电完成的充能赛特斯石英水晶"
     },
     {
       "id": "E-EG-182",
@@ -1460,7 +1513,7 @@
           "value": "182"
         }
       ],
-      "approvedCondition": "本人参与的有效转化首次生成ae2:fluix_crystal"
+      "approvedCondition": "本人参与的有效转化首次生成福鲁伊克斯水晶"
     },
     {
       "id": "E-EG-183",
@@ -1477,7 +1530,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次完成ae2:logic_processor的真实制作"
+      "approvedCondition": "本人首次完成逻辑处理器的真实制作"
     },
     {
       "id": "E-EG-184",
@@ -1494,7 +1547,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次完成ae2:calculation_processor的真实制作"
+      "approvedCondition": "本人首次完成运算处理器的真实制作"
     },
     {
       "id": "E-EG-185",
@@ -1511,7 +1564,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次完成ae2:engineering_processor的真实制作"
+      "approvedCondition": "本人首次完成工程处理器的真实制作"
     },
     {
       "id": "E-EG-186",
@@ -1523,7 +1576,7 @@
           "value": "186"
         }
       ],
-      "approvedCondition": "同时持有ae2:logic_processor_press、ae2:calculation_processor_press、ae2:engineering_processor_press并打开压印机"
+      "approvedCondition": "同时持有逻辑压印模板、运算压印模板、工程压印模板并打开压印机"
     },
     {
       "id": "E-EG-187",
@@ -1535,7 +1588,7 @@
           "value": "187"
         }
       ],
-      "approvedCondition": "本人首次在压印过程完成ae2:printed_silicon"
+      "approvedCondition": "本人首次在压印过程完成硅板"
     },
     {
       "id": "E-EG-188",
@@ -1547,7 +1600,7 @@
           "value": "188"
         }
       ],
-      "approvedCondition": "在同一制作流程见证ae2:printed_logic_processor转为ae2:logic_processor"
+      "approvedCondition": "在同一制作流程见证逻辑电路板转为逻辑处理器"
     },
     {
       "id": "E-EG-189",
@@ -1559,7 +1612,7 @@
           "value": "189"
         }
       ],
-      "approvedCondition": "同一制作流程见证ae2:printed_calculation_processor转为ae2:calculation_processor"
+      "approvedCondition": "同一制作流程见证运算电路板转为运算处理器"
     },
     {
       "id": "E-EG-190",
@@ -1571,7 +1624,7 @@
           "value": "190"
         }
       ],
-      "approvedCondition": "同一制作流程见证ae2:printed_engineering_processor转为ae2:engineering_processor"
+      "approvedCondition": "同一制作流程见证工程电路板转为工程处理器"
     },
     {
       "id": "E-EG-191",
@@ -1583,7 +1636,7 @@
           "value": "191"
         }
       ],
-      "approvedCondition": "把ae2:blank_pattern成功放入有权限的样板编码界面"
+      "approvedCondition": "把空白样板成功放入有权限的样板编码界面"
     },
     {
       "id": "E-EG-192",
@@ -1595,7 +1648,7 @@
           "value": "192"
         }
       ],
-      "approvedCondition": "本人首次成功编码ae2:crafting_pattern"
+      "approvedCondition": "本人首次成功编码合成样板"
     },
     {
       "id": "E-EG-193",
@@ -1607,7 +1660,7 @@
           "value": "193"
         }
       ],
-      "approvedCondition": "本人首次成功编码ae2:processing_pattern且包含非空输入输出"
+      "approvedCondition": "本人首次成功编码处理样板且包含非空输入输出"
     },
     {
       "id": "E-EG-194",
@@ -1619,7 +1672,7 @@
           "value": "194"
         }
       ],
-      "approvedCondition": "成功修改一张已有ae2:processing_pattern的输出数量并保存"
+      "approvedCondition": "成功修改一张已有处理样板的输出数量并保存"
     },
     {
       "id": "E-EG-195",
@@ -1631,7 +1684,7 @@
           "value": "195"
         }
       ],
-      "approvedCondition": "本人放置的ae2:controller首次进入有效在线网络状态"
+      "approvedCondition": "本人放置的ME控制器首次进入有效在线网络状态"
     },
     {
       "id": "E-EG-196",
@@ -1643,7 +1696,7 @@
           "value": "196"
         }
       ],
-      "approvedCondition": "首次在本人有权限的ae2:drive装入有效存储单元并识别成功"
+      "approvedCondition": "首次在本人有权限的ME驱动器装入有效存储单元并识别成功"
     },
     {
       "id": "E-EG-197",
@@ -1655,7 +1708,7 @@
           "value": "197"
         }
       ],
-      "approvedCondition": "首次在ae2:crafting_terminal完成一次真实合成"
+      "approvedCondition": "首次在ME合成终端完成一次真实合成"
     },
     {
       "id": "E-EG-198",
@@ -1667,7 +1720,7 @@
           "value": "198"
         }
       ],
-      "approvedCondition": "本人使用已绑定ae2:wireless_terminal在有效范围内成功访问网络"
+      "approvedCondition": "本人使用已绑定无线终端在有效范围内成功访问网络"
     },
     {
       "id": "E-EG-199",
@@ -1679,7 +1732,7 @@
           "value": "199"
         }
       ],
-      "approvedCondition": "从手机入口成功打开背包内ae2:wireless_crafting_terminal的原生合成菜单"
+      "approvedCondition": "从手机入口成功打开背包内无线合成终端的合成菜单"
     },
     {
       "id": "E-EG-200",
@@ -1691,7 +1744,7 @@
           "value": "200"
         }
       ],
-      "approvedCondition": "在ae2:pattern_access_terminal定位并取回本人有权限的一张样板"
+      "approvedCondition": "在ME样板管理终端定位并取回本人有权限的一张样板"
     },
     {
       "id": "E-EG-201",
@@ -1703,7 +1756,7 @@
           "value": "201"
         }
       ],
-      "approvedCondition": "在ae2:pattern_encoding_terminal检查预览后取消一次编码"
+      "approvedCondition": "在ME样板编码终端检查预览后取消一次编码"
     },
     {
       "id": "E-EG-202",
@@ -1715,7 +1768,7 @@
           "value": "202"
         }
       ],
-      "approvedCondition": "使用ae2:memory_card成功复制并恢复一组兼容设备设置"
+      "approvedCondition": "使用内存卡成功复制并恢复一组兼容设备设置"
     },
     {
       "id": "E-EG-203",
@@ -1727,7 +1780,7 @@
           "value": "203"
         }
       ],
-      "approvedCondition": "首次将ae2:capacity_card有效安装到支持设备并扩展配置槽"
+      "approvedCondition": "首次将容量卡有效安装到支持设备并扩展配置槽"
     },
     {
       "id": "E-EG-204",
@@ -1739,7 +1792,7 @@
           "value": "204"
         }
       ],
-      "approvedCondition": "首次把ae2:speed_card装入支持设备并见证一次实际传输"
+      "approvedCondition": "首次把加速卡装入支持设备并见证一次实际传输"
     },
     {
       "id": "E-EG-205",
@@ -1751,7 +1804,7 @@
           "value": "205"
         }
       ],
-      "approvedCondition": "装有ae2:redstone_card的设备因一次真实红石变化切换工作状态"
+      "approvedCondition": "装有红石卡的设备因一次真实红石变化切换工作状态"
     },
     {
       "id": "E-EG-206",
@@ -1763,7 +1816,7 @@
           "value": "206"
         }
       ],
-      "approvedCondition": "支持设备装入ae2:inverter_card后实际按反选规则成功过滤物品"
+      "approvedCondition": "支持设备装入反相卡后实际按反选规则成功过滤物品"
     },
     {
       "id": "E-EG-207",
@@ -1775,7 +1828,7 @@
           "value": "207"
         }
       ],
-      "approvedCondition": "装有ae2:fuzzy_card的支持设备成功匹配一个非完全相同但符合规则的目标"
+      "approvedCondition": "装有模糊卡的支持设备成功匹配一个非完全相同但符合规则的目标"
     },
     {
       "id": "E-EG-208",
@@ -1787,7 +1840,7 @@
           "value": "208"
         }
       ],
-      "approvedCondition": "打开ae2:cell_workbench并查看已有内容单元，随后不改动退出"
+      "approvedCondition": "打开元件工作台并查看已有内容单元，随后不改动退出"
     },
     {
       "id": "E-EG-209",
@@ -1799,7 +1852,7 @@
           "value": "209"
         }
       ],
-      "approvedCondition": "本人向AE提交的有效自动合成任务完成，使用ae2:1k_crafting_storage所在CPU"
+      "approvedCondition": "本人向AE提交的有效自动合成任务完成，使用1k合成存储器所在CPU"
     },
     {
       "id": "E-EG-210",
@@ -1811,7 +1864,7 @@
           "value": "210"
         }
       ],
-      "approvedCondition": "本人在含ae2:crafting_accelerator的CPU上完成可并行的自动合成任务"
+      "approvedCondition": "本人在含并行处理单元的CPU上完成可并行的自动合成任务"
     },
     {
       "id": "E-EG-211",
@@ -1828,7 +1881,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtceu:vacuum_tube"
+      "approvedCondition": "本人首次真实制作真空管"
     },
     {
       "id": "E-EG-212",
@@ -1840,7 +1893,7 @@
           "value": "212"
         }
       ],
-      "approvedCondition": "同一工作台会话实际制作gtceu:resistor和gtceu:capacitor各1个"
+      "approvedCondition": "同一工作台会话实际制作电阻和电容各1个"
     },
     {
       "id": "E-EG-213",
@@ -1857,7 +1910,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtceu:transistor"
+      "approvedCondition": "本人首次真实制作晶体管"
     },
     {
       "id": "E-EG-214",
@@ -1869,7 +1922,7 @@
           "value": "214"
         }
       ],
-      "approvedCondition": "本人将gtceu:tantalum_capacitor放进此前专放电容的有权限容器"
+      "approvedCondition": "本人将钽电容放进此前专放电容的有权限容器"
     },
     {
       "id": "E-EG-215",
@@ -1881,7 +1934,7 @@
           "value": "215"
         }
       ],
-      "approvedCondition": "本人一次成功合成批次后同时持有gtceu:smd_resistor、gtceu:smd_capacitor、gtceu:smd_transistor"
+      "approvedCondition": "本人一次成功合成批次后同时持有贴片电阻、贴片电容、贴片晶体管"
     },
     {
       "id": "E-EG-216",
@@ -1893,7 +1946,7 @@
           "value": "216"
         }
       ],
-      "approvedCondition": "本人真实制作gtceu:advanced_smd_resistor并已制作普通贴片电阻"
+      "approvedCondition": "本人真实制作高级贴片电阻并已制作普通贴片电阻"
     },
     {
       "id": "E-EG-217",
@@ -1905,7 +1958,7 @@
           "value": "217"
         }
       ],
-      "approvedCondition": "本人真实制作gtceu:advanced_smd_capacitor并放入有权限的分类仓"
+      "approvedCondition": "本人真实制作高级贴片电容并放入有权限的分类仓"
     },
     {
       "id": "E-EG-218",
@@ -1917,7 +1970,7 @@
           "value": "218"
         }
       ],
-      "approvedCondition": "本人真实制作gtceu:advanced_smd_transistor并阅读对应配方页"
+      "approvedCondition": "本人真实制作高级贴片晶体管并阅读对应配方页"
     },
     {
       "id": "E-EG-219",
@@ -1934,7 +1987,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人真实制作gtceu:resin_circuit_board"
+      "approvedCondition": "本人真实制作覆膜电路基板"
     },
     {
       "id": "E-EG-220",
@@ -1946,7 +1999,7 @@
           "value": "220"
         }
       ],
-      "approvedCondition": "实际工艺消耗gtceu:resin_circuit_board产出gtceu:resin_printed_circuit_board"
+      "approvedCondition": "实际工艺消耗覆膜电路基板产出覆膜印刷电路基板"
     },
     {
       "id": "E-EG-221",
@@ -1963,7 +2016,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtceu:phenolic_circuit_board"
+      "approvedCondition": "本人首次真实制作酚醛树脂电路基板"
     },
     {
       "id": "E-EG-222",
@@ -1980,7 +2033,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人完成gtceu:phenolic_printed_circuit_board真实配方"
+      "approvedCondition": "本人完成酚醛树脂印刷电路基板真实配方"
     },
     {
       "id": "E-EG-223",
@@ -1997,7 +2050,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次制作gtceu:plastic_circuit_board"
+      "approvedCondition": "本人首次制作塑料电路基板"
     },
     {
       "id": "E-EG-224",
@@ -2014,7 +2067,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "实际工艺产出gtceu:plastic_printed_circuit_board并送入合法输出端"
+      "approvedCondition": "实际工艺产出塑料印刷电路基板并送入合法输出端"
     },
     {
       "id": "E-EG-225",
@@ -2031,7 +2084,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次完成gtceu:epoxy_circuit_board实际配方"
+      "approvedCondition": "本人首次完成环氧树脂基板实际配方"
     },
     {
       "id": "E-EG-226",
@@ -2048,7 +2101,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次完成gtceu:epoxy_printed_circuit_board实际配方"
+      "approvedCondition": "本人首次完成环氧树脂印刷电路基板实际配方"
     },
     {
       "id": "E-EG-227",
@@ -2065,7 +2118,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次制作gtceu:fiber_reinforced_circuit_board"
+      "approvedCondition": "本人首次制作纤维强化电路基板"
     },
     {
       "id": "E-EG-228",
@@ -2082,7 +2135,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次制作gtceu:fiber_reinforced_printed_circuit_board"
+      "approvedCondition": "本人首次制作纤维强化印刷电路基板"
     },
     {
       "id": "E-EG-229",
@@ -2099,7 +2152,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次制作gtceu:multilayer_fiber_reinforced_circuit_board"
+      "approvedCondition": "本人首次制作多层纤维强化电路基板"
     },
     {
       "id": "E-EG-230",
@@ -2116,7 +2169,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次制作gtceu:multilayer_fiber_reinforced_printed_circuit_board"
+      "approvedCondition": "本人首次制作多层纤维强化印刷电路基板"
     },
     {
       "id": "E-EG-231",
@@ -2133,7 +2186,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次制作gtceu:wetware_circuit_board"
+      "approvedCondition": "本人首次制作湿件电路基板"
     },
     {
       "id": "E-EG-232",
@@ -2150,7 +2203,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次制作gtceu:wetware_printed_circuit_board"
+      "approvedCondition": "本人首次制作湿件印刷电路基板"
     },
     {
       "id": "E-EG-233",
@@ -2162,7 +2215,7 @@
           "value": "233"
         }
       ],
-      "approvedCondition": "制作更高阶段电路后再次真实制作gtceu:basic_electronic_circuit"
+      "approvedCondition": "制作更高阶段电路后再次真实制作基础电子电路"
     },
     {
       "id": "E-EG-234",
@@ -2179,7 +2232,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次制作gtceu:good_electronic_circuit"
+      "approvedCondition": "本人首次制作优质电子电路"
     },
     {
       "id": "E-EG-235",
@@ -2191,7 +2244,7 @@
           "value": "235"
         }
       ],
-      "approvedCondition": "本人修改gtceu:programmed_circuit配置并用该配置成功完成一条配方"
+      "approvedCondition": "本人修改编程电路配置并用该配置成功完成一条配方"
     },
     {
       "id": "E-EG-236",
@@ -2203,7 +2256,7 @@
           "value": "236"
         }
       ],
-      "approvedCondition": "本人首次装备gtceu:rubber_gloves后交互工作设备"
+      "approvedCondition": "本人首次装备橡胶手套后交互工作设备"
     },
     {
       "id": "E-EG-237",
@@ -2215,7 +2268,7 @@
           "value": "237"
         }
       ],
-      "approvedCondition": "本人首次持有gtceu:copper_credit并打开存储容器"
+      "approvedCondition": "本人首次持有铜币并打开存储容器"
     },
     {
       "id": "E-EG-238",
@@ -2227,7 +2280,7 @@
           "value": "238"
         }
       ],
-      "approvedCondition": "同一容器中由本人实际存入gtceu:silver_credit和gtceu:copper_credit"
+      "approvedCondition": "同一容器中由本人实际存入银币和铜币"
     },
     {
       "id": "E-EG-240",
@@ -2239,7 +2292,7 @@
           "value": "240"
         }
       ],
-      "approvedCondition": "本人从仓库取出gtceu:resin_printed_circuit_board并真实用于新配方"
+      "approvedCondition": "本人从仓库取出覆膜印刷电路基板并真实用于新配方"
     },
     {
       "id": "E-EG-241",
@@ -2376,7 +2429,7 @@
           "value": "251"
         }
       ],
-      "approvedCondition": "本人首次取得gtladditions:barnarda_data并查看其物品说明"
+      "approvedCondition": "本人首次取得巴纳德C数据并查看其物品说明"
     },
     {
       "id": "E-EG-252",
@@ -2393,7 +2446,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtladditions:bioware_echo_shard_wafer"
+      "approvedCondition": "本人首次真实制作生物回响晶圆"
     },
     {
       "id": "E-EG-253",
@@ -2410,7 +2463,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtladditions:chaos_soc"
+      "approvedCondition": "本人首次真实制作混沌soc芯片"
     },
     {
       "id": "E-EG-254",
@@ -2422,7 +2475,7 @@
           "value": "254"
         }
       ],
-      "approvedCondition": "本人在生存合法取得gtladditions:create_data并查看说明；创造栏拿取不计"
+      "approvedCondition": "本人在生存合法取得创造维度数据并查看说明；创造栏拿取不计"
     },
     {
       "id": "E-EG-255",
@@ -2439,7 +2492,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtladditions:echo_shard_boule"
+      "approvedCondition": "本人首次真实制作Echo Shard掺杂的单晶硅"
     },
     {
       "id": "E-EG-256",
@@ -2456,7 +2509,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtladditions:extraordinary_soc"
+      "approvedCondition": "本人首次真实制作超凡soc芯片"
     },
     {
       "id": "E-EG-257",
@@ -2468,7 +2521,7 @@
           "value": "257"
         }
       ],
-      "approvedCondition": "本人首次打开gtladditions:guide的有效阅读界面"
+      "approvedCondition": "本人首次打开GTLAdditions 指南的有效阅读界面"
     },
     {
       "id": "E-EG-258",
@@ -2480,7 +2533,7 @@
           "value": "258"
         }
       ],
-      "approvedCondition": "本人真实制作gtladditions:harmonizing_core并用于一次配方"
+      "approvedCondition": "本人真实制作调和核心并用于一次配方"
     },
     {
       "id": "E-EG-259",
@@ -2497,7 +2550,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtladditions:spacetime_lens"
+      "approvedCondition": "本人首次真实制作时空织构透镜"
     },
     {
       "id": "E-EG-260",
@@ -2514,7 +2567,7 @@
           "value": "1"
         }
       ],
-      "approvedCondition": "本人首次真实制作gtladditions:primary_soc"
+      "approvedCondition": "本人首次真实制作原初soc芯片"
     },
     {
       "id": "E-EG-261",
@@ -2526,7 +2579,7 @@
           "value": "261"
         }
       ],
-      "approvedCondition": "使用gtlsupb:pattern_modifier成功修改一张样板并保存"
+      "approvedCondition": "使用样板修改器成功修改一张样板并保存"
     },
     {
       "id": "E-EG-262",
@@ -2538,7 +2591,7 @@
           "value": "262"
         }
       ],
-      "approvedCondition": "首次使用gtlsupb:super_terminal成功打开本人有权限的原生菜单"
+      "approvedCondition": "首次使用超级终端成功打开本人有权限的菜单"
     },
     {
       "id": "E-EG-263",
@@ -2550,7 +2603,7 @@
           "value": "263"
         }
       ],
-      "approvedCondition": "本人通过gtlsupb:dimensional_teleporter成功传送后查看坐标"
+      "approvedCondition": "本人通过维度传送器成功传送后查看坐标"
     },
     {
       "id": "E-EG-264",
@@ -2562,7 +2615,7 @@
           "value": "264"
         }
       ],
-      "approvedCondition": "使用gtlsupb:ae_wireless_filter_tool成功配置兼容目标"
+      "approvedCondition": "使用AE无线过滤工具成功配置兼容目标"
     },
     {
       "id": "E-EG-265",
@@ -2574,7 +2627,7 @@
           "value": "265"
         }
       ],
-      "approvedCondition": "本人使用gtlsupb:primitive_stone_furnace完成一次真实配方"
+      "approvedCondition": "本人使用原始石炉完成一次真实配方"
     },
     {
       "id": "E-EG-266",
@@ -2586,7 +2639,7 @@
           "value": "266"
         }
       ],
-      "approvedCondition": "本人操作gtlsupb:quantum_weaver完成一次真实配方"
+      "approvedCondition": "本人操作量子织机完成一次真实配方"
     },
     {
       "id": "E-EG-267",
@@ -2598,7 +2651,7 @@
           "value": "267"
         }
       ],
-      "approvedCondition": "本人操作gtlsupb:electric_assembly_line完成首次有效配方"
+      "approvedCondition": "本人操作电力装配线完成首次有效配方"
     },
     {
       "id": "E-EG-268",
@@ -2610,7 +2663,7 @@
           "value": "268"
         }
       ],
-      "approvedCondition": "本人在gtlsupb:universal_factory上连续完成两种不同有效配方"
+      "approvedCondition": "本人在通用工厂上连续完成两种不同有效配方"
     },
     {
       "id": "E-EG-270",
@@ -2622,7 +2675,7 @@
           "value": "270"
         }
       ],
-      "approvedCondition": "本人通过gtlsupb:fragment_world_collector首次获得真实结算产物"
+      "approvedCondition": "本人通过碎片世界收集器首次获得真实结算产物"
     },
     {
       "id": "E-EG-271",
@@ -2898,7 +2951,7 @@
           "value": "295"
         }
       ],
-      "approvedCondition": "本人向同一容器存入15本书；只看存入完成事件"
+      "approvedCondition": "向同一容器存入15本书。"
     },
     {
       "id": "E-EG-296",
@@ -3047,7 +3100,7 @@
           "value": "308"
         }
       ],
-      "approvedCondition": "本人在雪地留下连续步行28格记录；不要求真实脚印贴图"
+      "approvedCondition": "在雪地连续步行28格。"
     },
     {
       "id": "E-EG-309",
@@ -3203,7 +3256,7 @@
           "value": "101"
         }
       ],
-      "approvedCondition": "本人累计读完101条不同已收到的通知；不生成凑数通知"
+      "approvedCondition": "累计读完101条不同的已收到通知。"
     },
     {
       "id": "E-EG-322",
@@ -3244,7 +3297,7 @@
           "value": "0"
         }
       ],
-      "approvedCondition": "在手机搜索已拥有收藏时输入404且结果为空；只记录搜索不模拟故障"
+      "approvedCondition": "在手机收藏搜索中输入404，搜索结果为空。"
     },
     {
       "id": "E-EG-325",
@@ -3677,7 +3730,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "服务器日历5月第二个星期日游戏内种花；按公历算法确定"
+      "approvedCondition": "在服务器日历5月的第二个星期日种花。"
     },
     {
       "id": "E-EG-354",
@@ -3791,7 +3844,7 @@
           "value": "360"
         }
       ],
-      "approvedCondition": "服务器日历8月19日查看游戏内地图；不读系统相册"
+      "approvedCondition": "在服务器日历8月19日查看游戏内地图。"
     },
     {
       "id": "E-EG-361",
@@ -3986,7 +4039,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "配置日历库确认农历正月初一时放置灯笼；未配置有效农历表则休眠"
+      "approvedCondition": "在服务器日历农历正月初一放置灯笼。"
     },
     {
       "id": "E-EG-371",
@@ -3998,12 +4051,12 @@
           "value": "lantern_festival"
         }
       ],
-      "approvedCondition": "配置日历库确认农历正月十五，游戏夜晚查看天空"
+      "approvedCondition": "在服务器日历农历正月十五的夜晚查看天空。"
     },
     {
       "id": "E-EG-372",
       "event": "block_placed",
-      "approvedCondition": "配置日历库给出当年清明日期时在普通地面种花；不得硬编码固定月日",
+      "approvedCondition": "在服务器日历清明当天，在普通地面种花。",
       "checks": [
         {
           "field": "qingming",
@@ -4032,7 +4085,7 @@
           "value": "dragon_boat"
         }
       ],
-      "approvedCondition": "配置日历库确认农历五月初五，成功划船移动20格"
+      "approvedCondition": "在服务器日历农历五月初五，成功划船移动20格。"
     },
     {
       "id": "E-EG-374",
@@ -4044,7 +4097,7 @@
           "value": "qixi"
         }
       ],
-      "approvedCondition": "配置日历库确认农历七月初七，放下两盏相邻灯笼"
+      "approvedCondition": "在服务器日历农历七月初七，放下两盏相邻灯笼。"
     },
     {
       "id": "E-EG-375",
@@ -4056,7 +4109,7 @@
           "value": "mid_autumn"
         }
       ],
-      "approvedCondition": "配置日历库确认农历八月十五，吃完一份任意食物"
+      "approvedCondition": "在服务器日历农历八月十五，吃完一份食物。"
     },
     {
       "id": "E-EG-376",
@@ -4068,12 +4121,12 @@
           "value": "double_ninth"
         }
       ],
-      "approvedCondition": "配置日历库确认农历九月初九，安全步行抵达高于海平面64格位置"
+      "approvedCondition": "在服务器日历农历九月初九，抵达高于海平面64格的位置。"
     },
     {
       "id": "E-EG-377",
       "event": "slept",
-      "approvedCondition": "配置日历库给出当年冬至日期时成功入睡；未配置则休眠",
+      "approvedCondition": "在服务器日历冬至当天入睡。",
       "checks": [
         {
           "field": "winter_solstice",
@@ -4128,7 +4181,7 @@
           "value": "381"
         }
       ],
-      "approvedCondition": "本人在自建普通门廊两侧各放置一盏灯，再手持铁剑面向门廊停留5秒；仅检测已加载普通装饰，不生成守门人实体"
+      "approvedCondition": "在自建普通门廊两侧各放置一盏灯，手持铁剑面向门廊停留5秒。"
     },
     {
       "id": "E-EG-382",
@@ -4164,7 +4217,7 @@
           "value": "384"
         }
       ],
-      "approvedCondition": "本人在手机笔记创建标题3125、正文包含自拟五项清单的记录，退出再重开；仅读取本次笔记，不读取系统剪贴板或其他文件"
+      "approvedCondition": "在手机笔记中创建标题为3125、正文包含自拟五项清单的记录，退出后重新打开。"
     },
     {
       "id": "E-EG-385",
@@ -4239,7 +4292,7 @@
           "value": "389"
         }
       ],
-      "approvedCondition": "本人在普通黑色石材墙前放置红色旗帜，并在相邻告示牌写下深红之王；不采用仪式、献祭或实体伤害条件"
+      "approvedCondition": "在普通黑色石材墙前放置红色旗帜，并在相邻告示牌写下深红之王。"
     },
     {
       "id": "E-EG-390",
@@ -4311,7 +4364,7 @@
           "value": "395"
         }
       ],
-      "approvedCondition": "本人放置一幅画后立刻转身并步行离开8格；不检测真实图片内容"
+      "approvedCondition": "放置一幅画后立刻转身，步行离开8格。"
     },
     {
       "id": "E-EG-396",
@@ -4347,7 +4400,7 @@
           "value": "398"
         }
       ],
-      "approvedCondition": "本人面对自建石制盔甲架展示位连续5秒后走开；不使用原作品雕像图像"
+      "approvedCondition": "面对自建的石制盔甲架展示位停留5秒后走开。"
     },
     {
       "id": "E-EG-399",
@@ -4359,7 +4412,7 @@
           "value": "399"
         }
       ],
-      "approvedCondition": "本人在笔记创建标题机械降神并记录至少3项文明备份检查项，再打开文明总览；只是阅读彩蛋，不执行重置或人物复制"
+      "approvedCondition": "创建标题为机械降神的笔记，记录至少3项文明备份检查内容，再打开文明总览。"
     },
     {
       "id": "E-EG-400",
@@ -4383,7 +4436,7 @@
           "value": "401"
         }
       ],
-      "approvedCondition": "本人在主世界日出时段dayTime 23000至23999，隔着橙色玻璃看向天空5秒；不改变日光伤害、实体或天气"
+      "approvedCondition": "在主世界日出时段，隔着橙色玻璃看向天空5秒。"
     },
     {
       "id": "E-EG-402",
@@ -4395,7 +4448,7 @@
           "value": "402"
         }
       ],
-      "approvedCondition": "本人在山地群系使用望远镜观察远方后，保存一篇标题3819的风景笔记；不生成灾难或修改任何居民"
+      "approvedCondition": "在山地群系使用望远镜观察远方后，保存一篇标题为3819的风景笔记。"
     },
     {
       "id": "E-EG-403",
@@ -4503,7 +4556,7 @@
           "value": "411"
         }
       ],
-      "approvedCondition": "本人在盔甲架上放置一套普通盔甲，并保存标题为什么？、正文含5000的笔记；不发起敌对阵营或伤害事件"
+      "approvedCondition": "在盔甲架上放置一套普通盔甲，保存标题为为什么？、正文含5000的笔记。"
     },
     {
       "id": "E-EG-412",
@@ -4575,7 +4628,7 @@
           "value": "417"
         }
       ],
-      "approvedCondition": "本人在笔记保存标题即死年且正文含至少3项自拟应急准备，再打开手机日期页；只读当前存档时间，不修改时间、不触发死亡"
+      "approvedCondition": "保存标题为即死年、正文包含至少3项自拟应急准备的笔记，再打开手机日期页。"
     },
     {
       "id": "E-EG-418",
@@ -4755,7 +4808,7 @@
           "value": "432"
         }
       ],
-      "approvedCondition": "本人在普通地牢附近放置火把后停在门口；不召唤额外Boss"
+      "approvedCondition": "在普通地牢附近放置火把后停在门口。"
     },
     {
       "id": "E-EG-433",
@@ -4815,7 +4868,7 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "本人用笔记保存“如果重力倒过来”并画出文字方案；不修改重力"
+      "approvedCondition": "用笔记保存“如果重力倒过来”，并写出方案。"
     },
     {
       "id": "E-EG-438",
@@ -5108,7 +5161,7 @@
           "value": "463"
         }
       ],
-      "approvedCondition": "同次登录先打开有权限AE终端，再打开机器GUI，随后再次打开AE终端"
+      "approvedCondition": "同一次登录中，先打开具有访问权限的AE终端，再打开机器菜单，随后再次打开AE终端。"
     },
     {
       "id": "E-EG-464",
@@ -5161,7 +5214,7 @@
           "value": "468"
         }
       ],
-      "approvedCondition": "同一命名工具累计真实修复3次，保留其持久身份标识"
+      "approvedCondition": "将同一件命名工具修复3次。"
     },
     {
       "id": "E-EG-469",
@@ -5563,258 +5616,1000 @@
           "value": "true"
         }
       ],
-      "approvedCondition": "本人发现至少1条本批彩蛋后在收藏目录阅读本条说明并主动收藏；不要求收齐499条"
+      "approvedCondition": "发现至少1条彩蛋后，在收藏目录读完本条说明并主动收藏。"
+    },
+    {
+      "id": "E-EG-091",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "91"
+        }
+      ],
+      "approvedCondition": "在量子观测设备外8格内的水面上成功放下一艘船。"
+    },
+    {
+      "id": "E-EG-095",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "95"
+        }
+      ],
+      "approvedCondition": "在聚变设备边界外4格内成功放置冰。"
+    },
+    {
+      "id": "E-EG-096",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "96"
+        }
+      ],
+      "approvedCondition": "手持魂钢锭与旗舰控制器交互，不消耗魂钢锭。"
+    },
+    {
+      "id": "E-EG-010",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "context:reactor_fuel_consumed"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "100"
+        }
+      ],
+      "approvedCondition": "实际反应配方累计消耗100根有效崩坏能燃料棒"
+    },
+    {
+      "id": "E-EG-012",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "12"
+        }
+      ],
+      "approvedCondition": "同一台锚定设备累计工作1小时；停机与区块卸载期间不计时。"
+    },
+    {
+      "id": "E-EG-046",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "context:reactor_fuel_consumed"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "1000"
+        }
+      ],
+      "approvedCondition": "真实反应过程累计消耗1000根燃料棒"
+    },
+    {
+      "id": "E-EG-168",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "168"
+        }
+      ],
+      "approvedCondition": "世界泡任务首次成功结算资源到合法输出容器"
+    },
+    {
+      "id": "E-EG-099",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "99"
+        }
+      ],
+      "approvedCondition": "手持钻石交互终审资格检查界面；仅提示不消耗、不绕资格"
+    },
+    {
+      "id": "E-EG-275",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "275"
+        }
+      ],
+      "approvedCondition": "本人用gtmthings:advanced_terminal成功显示有效机器预览"
+    },
+    {
+      "id": "E-EG-466",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "466"
+        }
+      ],
+      "approvedCondition": "本人查看机器投影后打开正式结构检查，结果仍缺材料"
+    },
+    {
+      "id": "E-EG-239",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "239"
+        }
+      ],
+      "approvedCondition": "本人持有金币时打开研究费用说明页"
+    },
+    {
+      "id": "E-EG-457",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "457"
+        }
+      ],
+      "approvedCondition": "本人首次打开已有游戏难度说明页并退出；不修改世界模式"
+    },
+    {
+      "id": "E-EG-461",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "461"
+        }
+      ],
+      "approvedCondition": "本人首次打开有效反应设备安全说明页并读至末页；不要求爆炸"
+    },
+    {
+      "id": "E-EG-092",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "92"
+        }
+      ],
+      "approvedCondition": "在虚数观测结构外侧可种植的泥土上种下一棵树苗。"
+    },
+    {
+      "id": "E-EG-304",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "304"
+        }
+      ],
+      "approvedCondition": "个人手机首次查看跨过完整24游戏小时的同一任务日志"
+    },
+    {
+      "id": "E-EG-011",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "11"
+        }
+      ],
+      "approvedCondition": "取得QSV叠态压工业解锁记录。"
+    },
+    {
+      "id": "E-EG-028",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "28"
+        }
+      ],
+      "approvedCondition": "本人16档HBV至CEV电压均有正式工业解锁回执"
+    },
+    {
+      "id": "E-EG-141",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "141"
+        }
+      ],
+      "approvedCondition": "首次在手机电压图鉴阅读已真实解锁的HBV崩能压页末"
+    },
+    {
+      "id": "E-EG-142",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "142"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的HCV约束压图鉴页末"
+    },
+    {
+      "id": "E-EG-143",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "143"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的HRV谐振压图鉴页末"
+    },
+    {
+      "id": "E-EG-144",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "144"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的HDV致密压图鉴页末"
+    },
+    {
+      "id": "E-EG-145",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "145"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的QSV叠态压图鉴页末"
+    },
+    {
+      "id": "E-EG-146",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "146"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的QCV相干压图鉴页末"
+    },
+    {
+      "id": "E-EG-147",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "147"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的QEV纠缠压图鉴页末"
+    },
+    {
+      "id": "E-EG-148",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "148"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的QAV锚定压图鉴页末"
+    },
+    {
+      "id": "E-EG-149",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "149"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的IMV虚数压图鉴页末"
+    },
+    {
+      "id": "E-EG-150",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "150"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的ICV耦合压图鉴页末"
+    },
+    {
+      "id": "E-EG-151",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "151"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的IRV重构压图鉴页末"
+    },
+    {
+      "id": "E-EG-152",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "152"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的IWV织界压图鉴页末"
+    },
+    {
+      "id": "E-EG-153",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "153"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的WFV构界压图鉴页末"
+    },
+    {
+      "id": "E-EG-154",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "154"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的WSV稳界压图鉴页末"
+    },
+    {
+      "id": "E-EG-155",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "155"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的CIV统合压图鉴页末"
+    },
+    {
+      "id": "E-EG-156",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "156"
+        }
+      ],
+      "approvedCondition": "首次阅读已真实解锁的CEV恒续压图鉴页末"
+    },
+    {
+      "id": "E-EG-166",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "166"
+        }
+      ],
+      "approvedCondition": "一项世界泡任务耗能暂停后恢复且进度保存成功"
+    },
+    {
+      "id": "E-EG-072",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "72"
+        }
+      ],
+      "approvedCondition": "在旗舰内部起跳100次。"
+    },
+    {
+      "id": "E-EG-108",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "108"
+        }
+      ],
+      "approvedCondition": "薪炎之律者·琪亚娜已开放；一次设备故障解除后选择“修好了”话题"
+    },
+    {
+      "id": "E-EG-019",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "19"
+        }
+      ],
+      "approvedCondition": "首次成功提交工程核验申请。"
+    },
+    {
+      "id": "E-EG-167",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "167"
+        }
+      ],
+      "approvedCondition": "首次成功向世界泡任务托管投入资源。"
+    },
+    {
+      "id": "E-EG-081",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "81"
+        }
+      ],
+      "approvedCondition": "在核验设备前8格内停留60秒，位置变化小于1格。"
+    },
+    {
+      "id": "E-EG-013",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "context:world_mining_deliveries"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "10"
+        }
+      ],
+      "approvedCondition": "本人完成的世界泡采掘任务累计10批真实资源全部交付成功。"
+    },
+    {
+      "id": "E-EG-014",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "14"
+        }
+      ],
+      "approvedCondition": "本人负责的量子异常观测阵列首次在真实工艺推进中成功扣付EU或HW。"
+    },
+    {
+      "id": "E-EG-015",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "15"
+        }
+      ],
+      "approvedCondition": "本人完成的世界泡采掘任务首次有真实资源全部交付成功。"
+    },
+    {
+      "id": "E-EG-017",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "17"
+        }
+      ],
+      "approvedCondition": "本人负责的休伯利安号首次通过完整舰体验证并真实成型。"
+    },
+    {
+      "id": "E-EG-018",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "18"
+        }
+      ],
+      "approvedCondition": "本人负责且已完成整舰验收的休伯利安号首次成功完成正式舰载工程工艺。"
+    },
+    {
+      "id": "E-EG-024",
+      "event": "produced",
+      "checks": [
+        {
+          "field": "item",
+          "op": "EQ",
+          "value": "hk3gtl:honkai_suppressant"
+        },
+        {
+          "field": "count",
+          "op": "AT_LEAST",
+          "value": "50"
+        }
+      ],
+      "approvedCondition": "本人负责的正式工艺累计产出至少50份崩坏抑制剂。"
+    },
+    {
+      "id": "E-EG-035",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "35"
+        }
+      ],
+      "approvedCondition": "本人周围64格内已加载、有效且非创造能源机器的去重GT电力容器实际储能合计达到1,000,000 EU。"
+    },
+    {
+      "id": "E-EG-039",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "39"
+        }
+      ],
+      "approvedCondition": "同一玩家HW账户下至少5个不同维度坐标的授权机器节点，在真实工艺推进后成功扣用HW。"
+    },
+    {
+      "id": "E-EG-040",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "40"
+        }
+      ],
+      "approvedCondition": "本人在HBV、HCV、HRV、HDV四档均完成当前主材生产所需研究，并通过正式主材配方实际产出对应档位的坯料。"
+    },
+    {
+      "id": "E-EG-041",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "41"
+        }
+      ],
+      "approvedCondition": "本人在QSV、QCV、QEV、QAV四档均完成当前主材生产所需研究，并通过正式主材配方实际产出对应档位的坯料。"
+    },
+    {
+      "id": "E-EG-042",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "42"
+        }
+      ],
+      "approvedCondition": "本人在IMV、ICV、IRV、IWV四档均完成当前主材生产所需研究，并通过正式主材配方实际产出对应档位的坯料。"
+    },
+    {
+      "id": "E-EG-043",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "43"
+        }
+      ],
+      "approvedCondition": "本人在WFV、WSV、CIV、CEV四档均完成当前主材生产所需研究，并通过正式主材配方实际产出对应档位的坯料。"
+    },
+    {
+      "id": "E-EG-044",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "44"
+        }
+      ],
+      "approvedCondition": "本队W01至W15十五座奇观均留下有效正式工程验收凭据，W15读取wonder_application验收。"
+    },
+    {
+      "id": "E-EG-045",
+      "event": "vanilla_case",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "45"
+        }
+      ],
+      "approvedCondition": "本人已使当前园区正式可建目录中的每一种多方块控制器真实成型，按机器ID去重。"
+    },
+    {
+      "id": "E-EG-048",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "48"
+        }
+      ],
+      "approvedCondition": "本人安装归属的有效GT多方块接口累计完成物品配方输入、物品配方输出、流体配方输入、流体配方输出与EU网络实际接收五类工况；模拟及已回滚工作刻不计。"
+    },
+    {
+      "id": "E-EG-049",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "49"
+        }
+      ],
+      "approvedCondition": "本人负责的休伯利安号首次完成整舰跃迁搬移，原舰清理与乘员抵达流程已执行。"
+    },
+    {
+      "id": "E-EG-269",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "269"
+        }
+      ],
+      "approvedCondition": "本人通过有效菜单调整通用调压器电路，使本人账户有效解锁档位改变后，同账户设备在真实工艺推进中成功耗用EU。"
+    },
+    {
+      "id": "E-EG-277",
+      "event": "industrial_receipt",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "277"
+        }
+      ],
+      "approvedCondition": "本人安装的高级无线物品传输覆盖板装有白名单过滤器，并在真实传输扫描中拒绝至少一个白名单外的非空物品候选；容量不足与模拟插入失败不计。"
+    },
+    {
+      "id": "E-EG-016",
+      "event": "divine_key_displayed",
+      "checks": [
+        {
+          "field": "display",
+          "op": "EQ",
+          "value": "item_frame"
+        },
+        {
+          "field": "inserted",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人将一件可展示的神之键成功放入空物品展示框。"
+    },
+    {
+      "id": "E-EG-029",
+      "event": "consensus_accepted",
+      "checks": [
+        {
+          "field": "valid_receipt",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本队 W09 文明共识矩阵首次取得有效工程验收回执。"
+    },
+    {
+      "id": "E-EG-073",
+      "event": "seed_sea_block_mined",
+      "checks": [
+        {
+          "field": "allowed",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "ordinary_block",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "changed",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人已取得籽海准入，在 melon_reality 生存采掘成功破坏1个普通方块；受保护方块不计。"
+    },
+    {
+      "id": "E-EG-075",
+      "event": "accepted_wonder_dismantled",
+      "checks": [
+        {
+          "field": "member_removed",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "invalidated",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人拆除已验收奇观的结构成员且导致该结构有效性失效"
+    },
+    {
+      "id": "E-EG-076",
+      "event": "consensus_torch_placed",
+      "checks": [
+        {
+          "field": "placed",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "outside",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "在有效 W09 文明共识矩阵边界外3格以内成功放置一支火把。"
+    },
+    {
+      "id": "E-EG-077",
+      "event": "audience_walked",
+      "checks": [
+        {
+          "field": "distance",
+          "op": "EQ",
+          "value": "16"
+        }
+      ],
+      "approvedCondition": "在有效 W15 树海朝觐圣座内部累计步行16格。"
+    },
+    {
+      "id": "E-EG-082",
+      "event": "open_gate_hesitation",
+      "checks": [
+        {
+          "field": "round_trips",
+          "op": "EQ",
+          "value": "3"
+        },
+        {
+          "field": "teleported",
+          "op": "EQ",
+          "value": "false"
+        }
+      ],
+      "approvedCondition": "在已实际开放的原生星门正面，连续3次往返跨过门外同一2格区间，全程步行且未传送。"
+    },
+    {
+      "id": "E-EG-083",
+      "event": "flagship_bed_entered",
+      "checks": [
+        {
+          "field": "sleeping",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "verified_interior",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "在已验证 H01 休伯利安舰体内部的实际可睡床上成功入睡。"
+    },
+    {
+      "id": "E-EG-085",
+      "event": "divine_key_firework_launched",
+      "checks": [
+        {
+          "field": "spawned",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "inside",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "在有效 I33 仿制神之键装配中心范围内成功燃放本人发射的烟花。"
+    },
+    {
+      "id": "E-EG-093",
+      "event": "consensus_book_placed",
+      "checks": [
+        {
+          "field": "written_book",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "outside",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "在有效 W09 文明共识矩阵边界外4格以内的空讲台实际放入成书。"
+    },
+    {
+      "id": "E-EG-094",
+      "event": "command_note_played",
+      "checks": [
+        {
+          "field": "placed_by_player",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "played",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "在有效 W11 分布式工业统御阵边界外4格以内，成功奏响本人放置的音符盒一次。"
+    },
+    {
+      "id": "E-EG-097",
+      "event": "audience_torch_placed",
+      "checks": [
+        {
+          "field": "placed",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "outside",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "在有效 W15 树海朝觐圣座边界外3格以内成功放置一支红石火把。"
+    },
+    {
+      "id": "E-EG-098",
+      "event": "termination_flower_planted",
+      "checks": [
+        {
+          "field": "placed",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "outside",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "在有效 I28 真实世界泡终止回收机边界外4格以内的可生存位置成功种下一朵小花。"
+    },
+    {
+      "id": "E-EG-100",
+      "event": "graduated_consensus_return",
+      "checks": [
+        {
+          "field": "new_login",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "stay_ticks",
+          "op": "EQ",
+          "value": "100"
+        }
+      ],
+      "approvedCondition": "本人毕业后重新成功登录，并在同一座有效 W09 文明共识矩阵边界外4格以内连续停留100 tick（5秒）。"
+    },
+    {
+      "id": "E-EG-102",
+      "event": "experiment_pause_discussed",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "102"
+        },
+        {
+          "field": "own_pause",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "雷之律者·芽衣已开放；本人付款且已推进的真实实验因供能不足暂停后，首次选择“今天不太顺利”离线话题。"
+    },
+    {
+      "id": "E-EG-132",
+      "event": "experiment_pause_discussed",
+      "checks": [
+        {
+          "field": "case",
+          "op": "EQ",
+          "value": "132"
+        },
+        {
+          "field": "own_pause",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "梅比乌斯阶段可见；本人付款且已推进的真实实验因供能不足暂停后，首次选择“实验出了意外”离线话题。"
+    },
+    {
+      "id": "E-EG-498",
+      "event": "experiment_reopened_after_login",
+      "checks": [
+        {
+          "field": "same_research",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "new_login",
+          "op": "EQ",
+          "value": "true"
+        },
+        {
+          "field": "own_pause",
+          "op": "EQ",
+          "value": "true"
+        }
+      ],
+      "approvedCondition": "本人付款且已推进的真实实验因供能不足暂停后，重新成功登录，并重新打开该实验对应的同一课题说明。"
     }
-  ],
-  "_comment_r128_exact": "【变更记录 #2】2026-10-01 04:09:54：保持审核触发条件；独立事实检测，关闭旧近似入口。",
-  "history": [
-    {
-      "time": "2026-10-01 04:41:04",
-      "revision": 128,
-      "change": "撤销283正文关键词捷径；等待真正三色笔记标签界面，不改审核条件。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 04:43:52",
-      "change": "增加既有制作、关闭容器、跨维度、手机日历和原生AE终端成功回执；不改原条件。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 04:45:29",
-      "change": "AE2编码和压印真实结果入口；原生制作之外的AE工艺仍需独立核验。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 04:47:12",
-      "change": "逐条纠正388/406/437/467/485/495/499旧题材错配；417未有日期页保持等待，不用文明总览替代。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 04:48:51",
-      "change": "小游戏彩蛋通过操作重放验证；无客户端分数授予入口。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 04:51:18",
-      "change": "装饰场景基于实际本人动作；不生成SCP或Terraria实体。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 04:53:17",
-      "change": "连续观察按真实tick和视线，回血按原版饥饿系统回调核验。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 04:55:02",
-      "change": "手动音符实际奏响与充能石英真实转化后取出，不用模拟或持有替代。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 04:58:34",
-      "change": "真实工业输入输出关联及离线研究完成回执；保留未审批结构约束，不解锁正式资格。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:02:11",
-      "change": "钓鱼成功按所有真实钓获回执统计，连续步行排除瞬移与飞行，保留原条件。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:04:18",
-      "change": "现有背包地图页面和加载范围内真实工作机器，仅观察可选收藏。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:09:29",
-      "change": "所有绑定规则携带完整已审条件，加载时与正式目录逐字校对；非执行路径验证，不夸大覆盖。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:11:58",
-      "change": "现有I01正式GUI、AE机器菜单顺序及合法通信接线；无需新结构。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:20:36",
-      "change": "联动工具真实提交接线；保留原条件。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:24:14",
-      "change": "AE菜单实际存入、合成、取回及只读退出；补齐无线终端直接打开。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:28:18",
-      "change": "生活动作实际回执，修复及挡箭事件不以右键代替成功。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:33:27",
-      "change": "正式终审同节点待选计时与重复输入旁注，不改变对话控制。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:36:00",
-      "change": "分类仓存取与真实制造记录组合，自有旧箱不伪造历史时间。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:41:36",
-      "change": "实际放置归属与连续几何布局；维护有界历史，旧建筑不猜归属。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:47:22",
-      "change": "正式研究最低速度扣电推进、高阶后基础电路制造、超级终端原生菜单。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:56:06",
-      "change": "真实天气和叶片遮挡下手机开关序列。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 05:59:33",
-      "change": "本人真实装饰存放、修复与虚数静立；完整保留审核条件。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:01:37",
-      "change": "切石原料/成品配对与本人背包无损整理。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:04:42",
-      "change": "AE控制器、驱动器、容量卡、记忆卡的实际结果。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:05:54",
-      "change": "连续实际步行、探洞归来与梯子往返。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:09:22",
-      "change": "蜂蜜后返回安全屋及本人蘑菇房屋；修正高台放箱自锁。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:11:31",
-      "change": "同机器同tick双能源实际成功扣款与连续工作旁注。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:15:25",
-      "change": "普通与高级无线覆盖板成功交付实际回执。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:19:47",
-      "change": "补充无线能源真实接收、实际笔记场景与传送步行；耕作只接回调，未齐前不注册规则。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:23:20",
-      "change": "补齐结构、虚空销毁与已存在装饰耕作流程；未变审批条件。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:25:16",
-      "change": "补齐讲台节日完整阅读、雪地自然箱子、原版蜂巢安全采蜜。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:27:59",
-      "change": "AE真实转化、CPU交付及任务间阅读现有来信；适配范围仍须记录。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:31:11",
-      "change": "AE总线升级卡与驱动器流体单元实际路径；其他支持设备覆盖另列。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:39:10",
-      "change": "普通门廊、桌椅蛋糕、石制展示位、20格岩浆桥及出门采集返回的真实场景。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 06:45:52",
-      "change": "真实发电窗口与累计账本、跨23点主动关闭阅读；授桥前复查全部几何。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 12:13:33",
-      "change": "现有JEI配方/标签及真实工具提示和指南页面观察；不读创造持有作生产。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 12:16:23",
-      "change": "护具、复制配置、电池实际充电三类工具旁注。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 12:18:50",
-      "change": "月亮实际方向与遮挡、矿道、神庙、准备、下界门往返及地图探索回执。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 12:32:24",
-      "change": "本人挖脚下后无伤落入自放源水的实际过程检测。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 12:33:29",
-      "change": "普通无线流体覆盖板接收端真实满载暂停后实际恢复交付。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 13:24:37",
-      "change": "本人电路配置后成功配方、高级无线覆盖板目标变更后实际交付。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 13:26:03",
-      "change": "AE实际预览后主动取消、维度传送器成功传送后实际查看F3坐标。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 13:27:41",
-      "change": "独立信号三灯、命名僵尸受伤后本人隔离、自然地牢照明及停门口。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 13:29:18",
-      "change": "本人放水真实生成源熔岩黑曜石后实际开采；普通放置不替代生成。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 13:31:18",
-      "change": "模拟卡实际转换、碎界采集器成功产物、本人丛林树苗真实成长。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 13:33:12",
-      "change": "高级终端本人有效操作后存入权限收纳容器。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 13:34:51",
-      "change": "本人装水瓶并实际按钮发射的三步事务回执。"
-    },
-    {
-      "revision": 128,
-      "time": "2026-10-01 13:36:23",
-      "change": "已有GT物品线新增分支实际交付后在目标机消耗并产出。"
-    }
-  ],
-  "_comment_r134": "【变更记录 #1】2026-10-01 16:30:04（修订134）：新增417真实日期页规则，删除无；保持500原条件，不替换其他等待依赖条目。",
-  "_comment_r204": "【变更记录 #3】2026-11-05 01:51:41（内测5修订204）：删除无；新增324本人空搜索、385七段保存版本手动翻页完整阅读、500发现后阅读说明并主动收藏的三条规则；修改无审核正文与条件；用途：仅接收服务端成功事务，不授研究或阶段。",
-  "_comment_r210": "【变更记录 #4】2026-11-05 19:08:32（修订210）：新增372/377可靠年度节气事实及380新世界创建时间周年；原374条、500正文及审核条件不变。",
-  "_history_r211": {
-    "time": "2026-11-05 22:19:02",
-    "reason": "N14集中实现",
-    "changes": "新增45条真实入口规则，原377条与500条审核条件保留。未接通来源不加规则。"
-  }
+  ]
 }

@@ -1,8 +1,8 @@
 package com.sirin.hk3gtl.common.phone;
-/**
- * 【变更记录 #1】2026-09-30 19:18:43（修订115）
- * 删除：无；新增：注视HUD尺寸、缩放与位置纯计算；修改：无；用途：实际HUD和拖动预览共用边界，默认避开顶部帧率区。
- */
+ 
+
+
+
 public final class Hk3GazeHudLayout {
     private Hk3GazeHudLayout(){}
     public record Box(int x,int y,int width,int height,double scale){}

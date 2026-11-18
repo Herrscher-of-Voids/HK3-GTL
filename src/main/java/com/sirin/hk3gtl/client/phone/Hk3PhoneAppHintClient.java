@@ -6,7 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import java.util.UUID;
 
-/** 【变更记录 #1】2026-11-05（修订208）：实际渲染App说明后回报持续悬停，移开与拖动中断计时；不上传完成数或奖励ID。 */
+ 
 final class Hk3PhoneAppHintClient {
     private UUID token;
     private String hover="";

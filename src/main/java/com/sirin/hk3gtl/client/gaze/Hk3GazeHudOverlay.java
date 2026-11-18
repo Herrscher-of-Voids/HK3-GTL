@@ -19,14 +19,14 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
  *
  * <p>纯读取 {@link Hk3ClientGazeState} 客户端缓存，不做任何计算，渲染线程安全。</p>
  */
-/**
- * 【变更记录 #1】2026-09-30 15:49:23（第1次编号备注 · 内测5修订109）
- * 删除：过期的计算或无运行依据的分支；保留历史备注。
- * 新增／修改：HUD同时显示个人有效值与在线团队最高值；队友有压力而自己为零时也显示。
- * 用途：统一注视与研究联动，服务端判定；不新增结构或贴图。
- */
+ 
+
+
+
+
+
 @OnlyIn(Dist.CLIENT)
-/** 【变更记录 #2】2026-09-30 19:20:11（内测5修订115）：删除固定左上角8/8布局；新增背景面板和共用拖动布局；修改默认避让顶部，任何GUI打开时隐藏HUD；用途：避免帧率与手机/背包界面重叠。 */
+ 
 public final class Hk3GazeHudOverlay implements IGuiOverlay {
 
     public static final Hk3GazeHudOverlay INSTANCE = new Hk3GazeHudOverlay();

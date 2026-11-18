@@ -1,18 +1,18 @@
 package com.sirin.hk3gtl.common.dialogue.definition;
 
-/** 【变更记录 #2】2026-09-29 19:50:20（内测5修订99）：删除：只读全文目录的贸易分类；新增：无；修改：按负责人决定撤下五方贸易；用途：保留其他系统独立运行。 */
+ 
 import com.sirin.hk3gtl.common.dialogue.*;
 import com.sirin.hk3gtl.common.narrative.Hk3ApprovedProse;
 import java.util.*;
 
-/**
- * 从审核原文生成逐句对白、二审分支与分系统校对目录；校对入口没有结算处理器。
- * 【变更记录 #1】2026-09-29 17:51:46（内测5修订93）
- * 删除：无。新增：全正文阅读入口和正式终审图。修改：不再混用旧版本对白。
- * 用途：原文、人物及分支共用一套定义；校对不授予研究、外交或工程资格。
- */
-/** 【变更记录 #3】2026-10-01 18:42:57（修订140）：删除无；新增正式审查图注册；修改批准正文注册后初始化一二审显示；用途：客户端服务端共用图，校对仍无结算。 */
-/** 【变更记录 #4】2026-10-01 19:03:37（修订141）：删除：无；新增／修改：终审正文、选项、IF共用一个名字键，一审与二审主题保持各自角色；用途：琪亚娜二审形象和终审统一称谓，保留其他会话行为。 */
+ 
+
+
+
+
+
+ 
+ 
 public final class Hk3ApprovedDialogues {
     public static final String LIBRARY = "hk3_approved_library";
     public static final String REVIEW_PREVIEW = "hk3_second_review_preview";

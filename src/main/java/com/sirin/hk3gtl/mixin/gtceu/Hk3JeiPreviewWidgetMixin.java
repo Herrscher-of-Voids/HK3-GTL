@@ -4,7 +4,9 @@ import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.integration.jei.multipage.MultiblockInfoWrapper;
 import com.lowdragmc.lowdraglib.gui.widget.Widget;
 import com.lowdragmc.lowdraglib.jei.ModularWrapper;
+import com.sirin.hk3gtl.client.compat.Hk3PreviewJeiPlugin;
 import com.sirin.hk3gtl.client.preview.Hk3SparsePreviewWidget;
+import net.minecraft.client.gui.GuiGraphics;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,5 +25,10 @@ public abstract class Hk3JeiPreviewWidgetMixin extends ModularWrapper<Widget> {
         modularUI.mainGroup.setSize(preview.getSize());
         modularUI.widget(preview);
         this.widget=preview;
+    }
+
+    @Override public void draw(GuiGraphics graphics,int mouseX,int mouseY,float partialTicks) {
+        super.draw(graphics,mouseX,mouseY,partialTicks);
+        if(widget instanceof Hk3SparsePreviewWidget preview) Hk3PreviewJeiPlugin.present(preview,graphics);
     }
 }

@@ -7,12 +7,12 @@ import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 import java.util.function.IntPredicate;
 
-/**
- * 【变更记录 #1】2026-10-01 01:36:39（修订126）
- * 删除：无；新增：Herrscher_Void三件首次入世礼物及UUID逐件发放账本。
- * 修改：独立于旧xiguamao彩蛋；只在确认物品已插入后记录，不把缺模组/背包满算已领取。
- * 用途：世界级SavedData避免死亡重生丢失标记；逐件恢复、不自动安装手机、不写研究或终局资格。
- */
+ 
+
+
+
+
+
 public final class Hk3VoidGiftData extends SavedData {
     public static final String TARGET="Herrscher_Void";
     public record Gift(String item,long charge) {

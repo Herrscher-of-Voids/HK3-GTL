@@ -4,12 +4,12 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 
-/**
- * 【文件职责】保存个人注视来源、去重键和历史峰值；仅由服务端业务调用，随玩家数据存盘与重生复制。
- * 【变更记录 #1】2026-09-30 15:50:54（内测5修订109）
- * 删除：无。新增：永久里程碑去重与最近64条变更记录。
- * 修改：来源日志与去重集合分离，裁剪日志不会允许重复增长；用途：提供可查询的注视来源与迁移基线。
- */
+ 
+
+
+
+
+
 public final class Hk3GazeJournal {
     public static final String KEY = "hk3gtl_gaze_journal";
     private Hk3GazeJournal() {}

@@ -23,20 +23,20 @@ import net.minecraftforge.fml.common.Mod;
 import com.mojang.logging.LogUtils;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-09-24 16:58:00（内测5修订66）
- * 删除：不以“没有生产配方”推断本模组物品可免费获得。
- * 新增：读取实际加载配方、标签、研究门槛及控制器的只读可达性检查。
- * 修改：同时推进生产与实验研究，回收路径必须有起步种子；不改存档或授予研究。
- * 用途：检查玩家已有MAX加工能力条件下的液态链；不替代机器真实扣料与成型验收。
- */
-/**
- * 【变更记录 #2】2026-10-17 13:57:36（第2次备注 · 内测5修订160）
- * 删除：仅首个研究前置、仅旧实验字段和九台硬编码设备的闭包判定。
- * 新增：统一工业依赖图、逐项HTML报告、管理员只读重导出命令和格式错误收集。
- * 修改：启动核验导出全系统阻断；旧液态验收入口只要求自身子集，不因无关待建设备被锁。
- * 用途：区分注册、拓扑、外部事件凭据和实机验收；不改玩家材料、研究或存档。
- */
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl",bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3LiquidLineAudit {
     private Hk3LiquidLineAudit() {}
@@ -106,6 +106,6 @@ public final class Hk3LiquidLineAudit {
     private static void require(boolean valid,String message) { if(!valid)throw new IllegalStateException(message); }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 
 
-// 【变更记录 · 修订161】2026-10-17 14:20:59：移除建图后重复格式校验，直接导出适配器排除非法配方后的统一快照；只读导出与液态核验入口共用同一生产者边界。
+ 

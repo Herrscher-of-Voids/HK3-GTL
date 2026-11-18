@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 13:29:18（修订128）：删除：无；新增/修改：观察源熔岩实际变黑曜石，tick末确认邻接本人放水来源后记录，混合归属不猜，未加载不扫描；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public final class Hk3EggObsidian {
     private record Candidate(ServerLevel level,BlockPos pos){}
     private static final Map<net.minecraft.server.MinecraftServer,ArrayDeque<Candidate>> PENDING=new java.util.concurrent.ConcurrentHashMap<>();

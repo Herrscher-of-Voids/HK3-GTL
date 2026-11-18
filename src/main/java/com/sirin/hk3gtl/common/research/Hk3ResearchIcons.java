@@ -11,12 +11,12 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * 【变更记录 #1】2026-09-26 21:56:00（第 1 次备注 · 内测5修订75）
- * 删除：无。新增：100课题到研究成果物品的只读目录。
- * 修改：研究所从此目录读取图标，不再从费用列表推断课题成果。
- * 用途：物品在注册完成后解析；缺失图标回退知识书，目录缺失或重复立即报错。
- */
+ 
+
+
+
+
+
 public final class Hk3ResearchIcons {
     private Hk3ResearchIcons() {}
     private static final class Holder { private static final Map<String,String> ICONS=load(); }
@@ -39,4 +39,4 @@ public final class Hk3ResearchIcons {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

@@ -5,13 +5,13 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-11-04 06:08:00（第1次备注 · 内测5修订196）
- * 删除：无；新增：研究型正式档案的本人新版全文完成回执与严格存取校验。
- * 修改：无；用途：按世界保存本人历史，绑定事件、课题、原团队、会话及正文规则指纹，旧展示与部分阅读不升级资格。
- */
-/** 【变更记录 #2】2026-11-04 06:08:10（第2次备注 · 内测5修订196）：删除仅凭正片数接受长度缺失回执的旧校验；新增全文规范化长度与已读长度一致性检查；修改历史指纹仍保留而不授当前资格；用途：损坏或旧格式回执失败关闭，不将残缺阅读提升为完成。 */
-/** 【变更记录 #3】2026-11-04 06:09:22（第3次备注 · 内测5修订196）：删除仅有研究名称的来源接受路径；新增原队准确课题及全部祖先完成快照校验；修改旧指纹历史独立保留且不授当前规则资格；用途：加载损坏或跨队来源失败关闭，保留其他原始记录。 */
+ 
+
+
+
+
+ 
+ 
 public final class Hk3LegacyArchiveData extends SavedData {
     private CompoundTag players=new CompoundTag();
     public static Hk3LegacyArchiveData get(MinecraftServer server) {

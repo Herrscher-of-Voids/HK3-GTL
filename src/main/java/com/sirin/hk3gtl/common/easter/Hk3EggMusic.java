@@ -11,9 +11,9 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 04:55:02（修订128）：删除无；新增手动音符请求与实际奏响结果配对；用途：取消声音、红石自动演奏、不足间隔不算本人手动20次，临时队列有界清理。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 05:59:33（修订128）：删除：无；新增/修改：现有成功交互串联本人装饰、存取与自然场景检测；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public final class Hk3EggMusic {
     private record Key(Level level,BlockPos pos){}
     private record Pending(UUID player,long tick,int note){}
@@ -34,6 +34,7 @@ public final class Hk3EggMusic {
         if(!success||pending==null||level.getGameTime()-pending.tick<0||level.getGameTime()-pending.tick>2||pending.note!=state.getValue(NoteBlock.NOTE))return;
         var p=server.getServer().getPlayerList().getPlayer(pending.player);if(p==null||p.level()!=level)return;
         Hk3EggExtraScenes.played(p,pos);
+        Hk3EggFacilityScenes.played(p,pos);
         var n=counter(p,pos);if(n.getInt("tunes")>=8)Hk3EggVanilla.caseEvent(p,288);
         long now=level.getGameTime();if(!n.contains("lastPlayed")||now-n.getLong("lastPlayed")>=10){int count=Math.min(20,n.getInt("plays")+1);n.putInt("plays",count);n.putLong("lastPlayed",now);if(count>=20)Hk3EggVanilla.caseEvent(p,300);}
         if(pos.getY()<level.getSeaLevel()&&!level.canSeeSky(pos.above())){

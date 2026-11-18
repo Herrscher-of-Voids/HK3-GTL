@@ -15,15 +15,15 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-10-01 16:49:18（修订135）
- * 删除：无；新增：终审查询、主动申请、同次恢复和游戏账本适配。
- * 修改：准入只读权威记录；未接入的完整卷轴、W01至W15、舰船及W15申请生产者明确等待。
- * 用途：在不提前启用新结构的前提下关闭持物绕行；普通指令不能授予工程、研究或毕业。
- */
+ 
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 20:33:47（修订148）：删除固定目录等待文案；新增/修改：终审档案事实读取共用目录的完成、未完成、等待接入结果；用途：逐项核验本人经历，保留真实未接来源，不授予虚假资格。 */
-/** 【变更记录 #3】2026-10-01 22:50:14（第3次备注 · 内测5修订155）：删除玩家展示中的旧电压及开发说明；新增现行正文投影或对应回归；修改仅限呈现与检索，不改变进度、回执、触发条件或权限；用途：统一发布版玩家文案，历史备注保留。 */
+ 
+ 
 public final class Hk3FinaleAdmission {
     private Hk3FinaleAdmission(){}
     private static Hk3FinaleRequirements.Fact recorded(boolean ready,String source,String detail){
@@ -43,14 +43,21 @@ public final class Hk3FinaleAdmission {
         facts.put("second_team",recorded(permit!=null,"reviews:settlement:"+permit,"当前团队尚无二审许可"));
         var communication=Hk3CommunicationCompletion.status(Hk3TeamContactData.get(p.server),Hk3PersonalCommunicationData.get(p.server),actor);
         facts.put("communication",recorded(communication.complete(),"personal_communication:six_groups","尚缺："+String.join("、",communication.missing())));
-        var civilizationFacts=com.sirin.hk3gtl.common.civ.Hk3CivilizationService.facts(research,reviews,team);
+        var civilizationFacts=com.sirin.hk3gtl.common.civ.Hk3CivilizationService.facts(p.server,research,reviews,team);
         int currentLevel=com.sirin.hk3gtl.common.civ.Hk3CivilizationRules.achieved(civilizationFacts::contains);
         facts.put("c7",recorded(currentLevel==7,"civilization:current_c7","当前核验 C"+currentLevel+"；目标 C7"));
         facts.put("archive",com.sirin.hk3gtl.common.narrative.Hk3FormalArchive.evaluate(p).fact());
-        for(int i=1;i<=15;i++)facts.put(String.format(Locale.ROOT,"W%02d",i),Hk3FinaleRequirements.Fact.waiting("该工程尚未开放"));
-        facts.put("hyperion",Hk3FinaleRequirements.Fact.waiting("休伯利安工程尚未开放"));
-        facts.put("application",Hk3FinaleRequirements.Fact.waiting("申请设施尚未开放"));
+        for(int i=1;i<=15;i++){
+            String role=String.format(Locale.ROOT,"W%02d",i);facts.put(role,engineering(p,research,team,role));
+        }
+        facts.put("hyperion",engineering(p,research,team,"H01"));
+        facts.put("application",engineering(p,research,team,"application"));
         return Hk3FinaleRequirements.evaluate(actor,team,p.server.overworld().getGameTime(),facts);
+    }
+    private static Hk3FinaleRequirements.Fact engineering(ServerPlayer player,Hk3ResearchData research,UUID team,String role){
+        var receipt=com.sirin.hk3gtl.common.civ.Hk3EngineeringFacts.receipt(player.server,research,team,role);
+        return receipt.isEmpty()?Hk3FinaleRequirements.Fact.missing("尚无实际生产回执，或原机当前未加载/未成型")
+                :Hk3FinaleRequirements.Fact.complete(receipt);
     }
     public static String summary(ServerPlayer p){
         var text=new StringBuilder("终审准备\n");
@@ -80,7 +87,8 @@ public final class Hk3FinaleAdmission {
     public static boolean canSettle(ServerPlayer p){return hasSession(p)&&"FU01".equals(checkpoint(p));}
     public static void finish(ServerPlayer p,boolean good){
         var meeting=Hk3BadEndingData.get(p.serverLevel()).meeting(p.getUUID());
-        Hk3FinaleData.get(p.server).change(l->l.finish(p.getUUID(),meeting,good?Hk3FinaleLedger.State.PASSED:Hk3FinaleLedger.State.BAD));
+        boolean settled=Hk3FinaleData.get(p.server).change(l->l.finish(p.getUUID(),meeting,good?Hk3FinaleLedger.State.PASSED:Hk3FinaleLedger.State.BAD));
+        if(settled)com.sirin.hk3gtl.common.narrative.story.Hk3StoryService.fact(p,good?"finale_passed":"finale_bad");
     }
     /** 查询无副作用；正式申请在入场前重新采集，当前未接入提供者会拒绝，不生成占位快照。 */
     public static int apply(ServerPlayer p){
@@ -96,6 +104,7 @@ public final class Hk3FinaleAdmission {
         if(meeting==null)return message(p,"当前会面状态不允许新申请。",0);
         boolean begun=Hk3FinaleData.get(p.server).change(l->l.begin(p.getUUID(),meeting,result,"F01"));
         if(!begun)return message(p,"终审会面记录不一致，未传送；请保留存档供检查。",0);
+        com.sirin.hk3gtl.common.narrative.story.Hk3StoryService.fact(p,"finale_admitted");
         // 传送意外失败仍保留本人快照，恢复命令可重试同次入场，不重新占用名额。
         return enter(p);
     }
@@ -127,4 +136,4 @@ public final class Hk3FinaleAdmission {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

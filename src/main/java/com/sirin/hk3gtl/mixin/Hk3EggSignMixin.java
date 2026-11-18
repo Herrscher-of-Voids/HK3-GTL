@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
-/** 【变更记录 #1】2026-10-01 04:51:18（修订128）：删除无；新增有编辑权限的告示牌真实保存观察；用途：拒绝蜡封与他人编辑包，读取保存后的过滤文本，不旁路原校验。 */
+ 
 @Mixin(SignBlockEntity.class)
 public abstract class Hk3EggSignMixin {
     @Unique private boolean hk3gtl$authorized;

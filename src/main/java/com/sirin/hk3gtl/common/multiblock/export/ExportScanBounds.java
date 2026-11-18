@@ -1,13 +1,13 @@
 package com.sirin.hk3gtl.common.multiblock.export;
 
-/**
- * 【文件职责】提供不依赖游戏运行时的导出预算、坐标与区块边界校验，由 StructureScanner 调用。
- * 【变更记录 #1】2026-10-31 17:44:08（第 1 次备注 · 修订 189）
- * - 删除：无。
- * - 新增：全选区 262144 格、单轴 256 格预算，合法高度、世界水平边界和控制器包含校验。
- * - 修改：坐标差先转 long，校验后才分配字符矩阵；局部坐标仅包含控制器平面及背后。
- * - 用途：同步导出前拒绝超预算或非法选区，避免溢出、负索引与逐格中间对象堆积。
- */
+ 
+
+
+
+
+
+
+
 final class ExportScanBounds {
     static final int MAX_BLOCKS = 262_144;
     static final int MAX_AXIS = 256;

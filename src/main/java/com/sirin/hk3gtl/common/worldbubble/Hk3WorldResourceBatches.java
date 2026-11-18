@@ -5,18 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.*;
 
-/**
- * 【文件职责】按真实目标/模拟批次及包序号冻结资源结果；任务UUID不参与随机源。
- * 【变更记录 #1】2026-09-29 23:51:00（内测5修订102）
- * 删除：无。新增：4物品/2流体无放回抽样、1—64件/1—16桶、十包剩余额度及重启回执。
- * 修改：取消、换设备/事务和目录更新仍复用已分配结果；用途：不会用重抽刷收益或靠终止增出第11包。
- * 边界：只产生待交付收据；不创建物品、不推进机器、不跳过研究和实际工序。
- */
-/**
- * 【变更记录 #2】2026-09-30 00:04:43（内测5修订102）
- * 删除：冻结表与已结算收据不一致仍可加载的路径。新增：来源、重复包及逐包一致性检查。
- * 修改：旧无资源收据保留兼容；用途：损坏数据明确拒绝加载，不能静默重抽或改发资源。
- */
+/** 按目标与包序号冻结资源及计量规则，目录变更保留已分配结果。 */
 public final class Hk3WorldResourceBatches {
     private record Key(Hk3WorldBubbleLedger.Domain domain,UUID target,int ordinal) {}
     private final Map<Key,CompoundTag> allocated=new LinkedHashMap<>();
@@ -69,16 +58,23 @@ public final class Hk3WorldResourceBatches {
         var rng=new SplittableRandom(seed);var out=new CompoundTag();
         out.putString("Domain",key.domain().name());out.putUUID("Target",key.target());out.putInt("Ordinal",key.ordinal());
         out.putString("Profile",catalog.profile());out.putString("CatalogVersion",catalog.version());out.putString("CatalogHash",catalog.hash());
-        out.put("Items",draw(catalog.items(),4,false,rng));out.put("Fluids",draw(catalog.fluids(),2,true,rng));return out;
+        var sampling=catalog.sampling();
+        var policy=new CompoundTag();
+        policy.putInt("ItemKinds",sampling.itemKinds());policy.putInt("ItemMaximum",sampling.itemMax());
+        policy.putInt("FluidKinds",sampling.fluidKinds());policy.putInt("FluidMaximum",sampling.fluidMaxBuckets()*1000);
+        out.put("Sampling",policy);
+        out.put("Items",draw(catalog.items(),sampling.itemKinds(),sampling.itemMax(),false,rng));
+        out.put("Fluids",draw(catalog.fluids(),sampling.fluidKinds(),sampling.fluidMaxBuckets(),true,rng));return out;
     }
     /** 稀疏Fisher-Yates：大目录不在每次抽样时复制整份列表，各资源等概率、无放回。 */
-    private static ListTag draw(List<Hk3WorldResourceCatalog.Entry> entries,int count,boolean fluid,SplittableRandom rng){
+    private static ListTag draw(List<Hk3WorldResourceCatalog.Entry> entries,int count,int maximum,boolean fluid,SplittableRandom rng){
         Map<Integer,Integer> swaps=new HashMap<>();var out=new ListTag();
         for(int i=0;i<Math.min(count,entries.size());i++){
             int j=i+rng.nextInt(entries.size()-i);int selected=swaps.getOrDefault(j,j);
             swaps.put(j,swaps.getOrDefault(i,i));
-            var value=new CompoundTag();value.putString("id",entries.get(selected).id());
-            value.putInt(fluid?"Amount":"Count",fluid?(1+rng.nextInt(16))*1000:1+rng.nextInt(64));out.add(value);
+            var entry=entries.get(selected);var value=new CompoundTag();value.putString("id",entry.id());
+            var stackData=entry.stackData();if(!stackData.isEmpty())value.put("StackData",stackData);
+            value.putInt(fluid?"Amount":"Count",entry.amount()>0?entry.amount():(1+rng.nextInt(maximum))*(fluid?1000:1));out.add(value);
         }return out;
     }
     public CompoundTag save(){
@@ -99,10 +95,15 @@ public final class Hk3WorldResourceBatches {
                 throw new IllegalArgumentException("Invalid resource target or ordinal");
             if(!tag.getString("CatalogHash").matches("[0-9a-f]{64}")||tag.getString("CatalogVersion").isBlank()||tag.getString("Profile").isBlank())
                 throw new IllegalArgumentException("Missing catalog provenance");
-            validateDraw(tag,"Items","Count",4,1,64,1);validateDraw(tag,"Fluids","Amount",2,1000,16000,1000);
+            if(tag.contains("Sampling",Tag.TAG_COMPOUND)){
+                var policy=tag.getCompound("Sampling");
+                validateDraw(tag,"Items","Count",policy.getInt("ItemKinds"),1,policy.getInt("ItemMaximum"),1);
+                validateDraw(tag,"Fluids","Amount",policy.getInt("FluidKinds"),1,policy.getInt("FluidMaximum"),1);
+            }else{
+                validateDraw(tag,"Items","Count",4,1,64,1);validateDraw(tag,"Fluids","Amount",2,1000,16000,1000);
+            }
             if(result.allocated.putIfAbsent(new Key(domain,target,n),tag.copy())!=null)throw new IllegalArgumentException("Duplicate resource package");
         }
-        // 已结算包与冻结表必须同源，缺失/改写时拒绝载入，不静默重新生成。
         for(var tx:ledger.settledTransactions()){
             var outputs=tx.receipt().getCompound("Outputs");
             if(!outputs.contains("ResourcePackages"))continue;
@@ -125,7 +126,9 @@ public final class Hk3WorldResourceBatches {
         var list=root.getList(key,Tag.TAG_COMPOUND);Set<String> ids=new HashSet<>();
         if(list.isEmpty()||list.size()>max||list.size()!=((ListTag)root.get(key)).size())throw new IllegalArgumentException("Invalid draw size");
         for(var raw:list){var value=(CompoundTag)raw;int n=value.getInt(amount);
-            if(!Hk3WorldResourceCatalog.validId(value.getString("id"))||!ids.add(value.getString("id"))
+            if(!Hk3WorldResourceCatalog.validId(value.getString("id"))
+                    ||value.contains("StackData")&&!value.contains("StackData",Tag.TAG_COMPOUND)
+                    ||!ids.add(Hk3WorldResourceCatalog.identity(value.getString("id"),value.getCompound("StackData")))
                     ||!value.contains(amount,Tag.TAG_INT)||n<minValue||n>maxValue||n%step!=0)
                 throw new IllegalArgumentException("Invalid resource draw");}
     }

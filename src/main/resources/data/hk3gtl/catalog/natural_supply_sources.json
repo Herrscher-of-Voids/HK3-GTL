@@ -1,0 +1,2098 @@
+{
+  "schema": 1,
+  "profile": "industrial-survival",
+  "version": "5-formal-resource-packages-20261113",
+  "sampling": {
+    "itemKinds": 4,
+    "itemMax": 64,
+    "fluidKinds": 2,
+    "fluidMaxBuckets": 16
+  },
+  "roots": [
+    {
+      "id": "minecraft:coal",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/coal_ore；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/coal_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/coal_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_coal.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:raw_iron",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/iron_ore；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/iron_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/iron_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_iron.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:raw_copper",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/copper_ore；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/copper_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/copper_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_copper_small.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:raw_gold",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/gold_ore；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/gold_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/gold_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_gold.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:redstone",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/redstone_ore；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/redstone_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/redstone_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_redstone.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:lapis_lazuli",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/lapis_ore；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/lapis_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/lapis_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_lapis.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:diamond",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/diamond_ore；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/diamond_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/diamond_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_diamond_small.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:emerald",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/emerald_ore；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/emerald_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/emerald_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_emerald.json",
+        "data/minecraft/worldgen/biome/windswept_hills.json"
+      ]
+    },
+    {
+      "id": "minecraft:quartz",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/nether_quartz_ore；正常挖掘并取得方块掉落；minecraft:the_nether",
+      "producer_id": "minecraft:blocks/nether_quartz_ore",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/nether_quartz_ore.json",
+        "data/minecraft/worldgen/configured_feature/ore_quartz.json",
+        "data/minecraft/worldgen/biome/nether_wastes.json"
+      ]
+    },
+    {
+      "id": "minecraft:clay_ball",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/clay；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/clay",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/clay.json",
+        "data/minecraft/worldgen/configured_feature/ore_clay.json",
+        "data/minecraft/worldgen/biome/lush_caves.json"
+      ]
+    },
+    {
+      "id": "minecraft:flint",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/gravel；挖掘沙砾取得燧石；保持原版概率掉落条件；minecraft:overworld",
+      "producer_id": "minecraft:blocks/gravel",
+      "process": "挖掘沙砾取得燧石；保持原版概率掉落条件",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/gravel.json",
+        "data/minecraft/worldgen/configured_feature/ore_gravel.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:cobblestone",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/stone；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/stone",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/stone.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:sand",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/sand；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/sand",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/sand.json",
+        "data/minecraft/worldgen/biome/desert.json"
+      ]
+    },
+    {
+      "id": "minecraft:gravel",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/gravel；正常挖掘并取得方块掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/gravel",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/gravel.json",
+        "data/minecraft/worldgen/configured_feature/ore_gravel.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:netherrack",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/netherrack；正常挖掘并取得方块掉落；minecraft:the_nether",
+      "producer_id": "minecraft:blocks/netherrack",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/netherrack.json",
+        "data/minecraft/worldgen/biome/nether_wastes.json"
+      ]
+    },
+    {
+      "id": "minecraft:soul_sand",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/soul_sand；正常挖掘并取得方块掉落；minecraft:the_nether",
+      "producer_id": "minecraft:blocks/soul_sand",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/soul_sand.json",
+        "data/minecraft/worldgen/configured_feature/ore_soul_sand.json",
+        "data/minecraft/worldgen/biome/soul_sand_valley.json"
+      ]
+    },
+    {
+      "id": "minecraft:glowstone_dust",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/glowstone；正常挖掘并取得方块掉落；minecraft:the_nether",
+      "producer_id": "minecraft:blocks/glowstone",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/glowstone.json",
+        "data/minecraft/worldgen/configured_feature/glowstone_extra.json",
+        "data/minecraft/worldgen/biome/nether_wastes.json"
+      ]
+    },
+    {
+      "id": "minecraft:end_stone",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/end_stone；正常挖掘并取得方块掉落；minecraft:the_end",
+      "producer_id": "minecraft:blocks/end_stone",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:the_end"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/end_stone.json",
+        "data/minecraft/worldgen/biome/end_highlands.json"
+      ]
+    },
+    {
+      "id": "minecraft:ancient_debris",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "mining_drop",
+      "source": "minecraft:blocks/ancient_debris；正常挖掘并取得方块掉落；minecraft:the_nether",
+      "producer_id": "minecraft:blocks/ancient_debris",
+      "process": "正常挖掘并取得方块掉落",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/ancient_debris.json",
+        "data/minecraft/worldgen/configured_feature/ore_ancient_debris_small.json",
+        "data/minecraft/worldgen/biome/nether_wastes.json"
+      ]
+    },
+    {
+      "id": "minecraft:string",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/spider；击杀spider并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/spider",
+      "process": "击杀spider并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/spider.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:bone",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/skeleton；击杀skeleton并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/skeleton",
+      "process": "击杀skeleton并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/skeleton.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:gunpowder",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/creeper；击杀creeper并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/creeper",
+      "process": "击杀creeper并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/creeper.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:spider_eye",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/spider；击杀spider并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/spider",
+      "process": "击杀spider并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/spider.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:rotten_flesh",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/zombie；击杀zombie并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/zombie",
+      "process": "击杀zombie并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/zombie.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:ender_pearl",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/enderman；击杀enderman并取得原版掉落，保持掉落表条件与概率；minecraft:the_nether",
+      "producer_id": "minecraft:entities/enderman",
+      "process": "击杀enderman并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/enderman.json",
+        "data/minecraft/worldgen/biome/warped_forest.json"
+      ]
+    },
+    {
+      "id": "minecraft:magma_cream",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/magma_cube；击杀magma_cube并取得原版掉落，保持掉落表条件与概率；minecraft:the_nether",
+      "producer_id": "minecraft:entities/magma_cube",
+      "process": "击杀magma_cube并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/magma_cube.json",
+        "data/minecraft/worldgen/biome/basalt_deltas.json"
+      ]
+    },
+    {
+      "id": "minecraft:ghast_tear",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/ghast；击杀ghast并取得原版掉落，保持掉落表条件与概率；minecraft:the_nether",
+      "producer_id": "minecraft:entities/ghast",
+      "process": "击杀ghast并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/ghast.json",
+        "data/minecraft/worldgen/biome/soul_sand_valley.json"
+      ]
+    },
+    {
+      "id": "minecraft:slime_ball",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/slime；击杀slime并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/slime",
+      "process": "击杀slime并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/slime.json",
+        "data/minecraft/worldgen/biome/swamp.json"
+      ]
+    },
+    {
+      "id": "minecraft:leather",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/cow；击杀cow并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/cow",
+      "process": "击杀cow并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/cow.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:feather",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/chicken；击杀chicken并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/chicken",
+      "process": "击杀chicken并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/chicken.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:ink_sac",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/squid；击杀squid并取得原版掉落，保持掉落表条件与概率；minecraft:overworld",
+      "producer_id": "minecraft:entities/squid",
+      "process": "击杀squid并取得原版掉落，保持掉落表条件与概率",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/squid.json",
+        "data/minecraft/worldgen/biome/river.json"
+      ]
+    },
+    {
+      "id": "minecraft:blaze_rod",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "entity_drop",
+      "source": "minecraft:entities/blaze；下界要塞刷怪笼/自然烈焰人由玩家击杀后取得掉落；minecraft:the_nether",
+      "producer_id": "minecraft:entities/blaze",
+      "process": "下界要塞刷怪笼/自然烈焰人由玩家击杀后取得掉落",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/entities/blaze.json",
+        "data/minecraft/worldgen/structure/fortress.json"
+      ]
+    },
+    {
+      "id": "minecraft:oak_log",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "natural_harvest",
+      "source": "minecraft:blocks/oak_log；采收自然生成植株并取得原版掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/oak_log",
+      "process": "采收自然生成植株并取得原版掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/oak_log.json",
+        "data/minecraft/worldgen/configured_feature/oak.json",
+        "data/minecraft/worldgen/biome/plains.json"
+      ]
+    },
+    {
+      "id": "minecraft:sugar_cane",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "natural_harvest",
+      "source": "minecraft:blocks/sugar_cane；采收自然生成植株并取得原版掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/sugar_cane",
+      "process": "采收自然生成植株并取得原版掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/sugar_cane.json",
+        "data/minecraft/worldgen/configured_feature/patch_sugar_cane.json",
+        "data/minecraft/worldgen/biome/river.json"
+      ]
+    },
+    {
+      "id": "minecraft:cactus",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "natural_harvest",
+      "source": "minecraft:blocks/cactus；采收自然生成植株并取得原版掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/cactus",
+      "process": "采收自然生成植株并取得原版掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/cactus.json",
+        "data/minecraft/worldgen/configured_feature/patch_cactus.json",
+        "data/minecraft/worldgen/biome/desert.json"
+      ]
+    },
+    {
+      "id": "minecraft:bamboo",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "natural_harvest",
+      "source": "minecraft:blocks/bamboo；采收自然生成植株并取得原版掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/bamboo",
+      "process": "采收自然生成植株并取得原版掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/bamboo.json",
+        "data/minecraft/worldgen/configured_feature/bamboo_some_podzol.json",
+        "data/minecraft/worldgen/biome/bamboo_jungle.json"
+      ]
+    },
+    {
+      "id": "minecraft:kelp",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "natural_harvest",
+      "source": "minecraft:blocks/kelp；采收自然生成植株并取得原版掉落；minecraft:overworld",
+      "producer_id": "minecraft:blocks/kelp",
+      "process": "采收自然生成植株并取得原版掉落",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/kelp.json",
+        "data/minecraft/worldgen/configured_feature/kelp.json",
+        "data/minecraft/worldgen/biome/ocean.json"
+      ]
+    },
+    {
+      "id": "minecraft:chorus_fruit",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "natural_harvest",
+      "source": "minecraft:blocks/chorus_plant；采收自然生成植株并取得原版掉落；minecraft:the_end",
+      "producer_id": "minecraft:blocks/chorus_plant",
+      "process": "采收自然生成植株并取得原版掉落",
+      "dimensions": [
+        "minecraft:the_end"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/chorus_plant.json",
+        "data/minecraft/worldgen/configured_feature/chorus_plant.json",
+        "data/minecraft/worldgen/biome/end_highlands.json"
+      ]
+    },
+    {
+      "id": "minecraft:nether_wart",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "structure_harvest",
+      "source": "minecraft:blocks/nether_wart；采收下界要塞天然灵魂沙农圃中的下界疣；minecraft:the_nether",
+      "producer_id": "minecraft:blocks/nether_wart",
+      "process": "采收下界要塞天然灵魂沙农圃中的下界疣",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/loot_tables/blocks/nether_wart.json",
+        "data/minecraft/worldgen/structure/fortress.json"
+      ]
+    },
+    {
+      "id": "minecraft:water",
+      "kind": "fluid",
+      "tier": 0,
+      "source_type": "natural_fluid",
+      "source": "minecraft:spring_water；抽取自然水源；minecraft:overworld",
+      "producer_id": "minecraft:spring_water",
+      "process": "抽取自然水源",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": [
+        "data/minecraft/worldgen/configured_feature/spring_water.json",
+        "data/minecraft/worldgen/biome/river.json"
+      ]
+    },
+    {
+      "id": "minecraft:lava",
+      "kind": "fluid",
+      "tier": 0,
+      "source_type": "natural_fluid",
+      "source": "minecraft:spring_lava_nether；抽取下界熔岩源或主世界熔岩湖；minecraft:overworld,minecraft:the_nether",
+      "producer_id": "minecraft:spring_lava_nether",
+      "process": "抽取下界熔岩源或主世界熔岩湖",
+      "dimensions": [
+        "minecraft:overworld",
+        "minecraft:the_nether"
+      ],
+      "definitions": [
+        "data/minecraft/worldgen/configured_feature/lake_lava.json",
+        "data/minecraft/worldgen/configured_feature/spring_lava_nether.json",
+        "data/minecraft/worldgen/noise_settings/nether.json"
+      ]
+    },
+    {
+      "id": "gtceu:air",
+      "kind": "fluid",
+      "tier": 1,
+      "source_type": "atmospheric_collection",
+      "source": "gtceu:gas_collector/air；气体收集器在配方指定维度采集大气；编程电路为非消耗工具；minecraft:overworld",
+      "producer_id": "gtceu:gas_collector/air",
+      "process": "气体收集器在配方指定维度采集大气；编程电路为非消耗工具",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "definitions": []
+    },
+    {
+      "id": "gtceu:nether_air",
+      "kind": "fluid",
+      "tier": 2,
+      "source_type": "atmospheric_collection",
+      "source": "gtceu:gas_collector/nether_air；气体收集器在配方指定维度采集大气；编程电路为非消耗工具；minecraft:the_nether",
+      "producer_id": "gtceu:gas_collector/nether_air",
+      "process": "气体收集器在配方指定维度采集大气；编程电路为非消耗工具",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "definitions": []
+    },
+    {
+      "id": "gtceu:ender_air",
+      "kind": "fluid",
+      "tier": 3,
+      "source_type": "atmospheric_collection",
+      "source": "gtceu:gas_collector/ender_air；气体收集器在配方指定维度采集大气；编程电路为非消耗工具；minecraft:the_end",
+      "producer_id": "gtceu:gas_collector/ender_air",
+      "process": "气体收集器在配方指定维度采集大气；编程电路为非消耗工具",
+      "dimensions": [
+        "minecraft:the_end"
+      ],
+      "definitions": []
+    },
+    {
+      "id": "gtceu:raw_ilmenite",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "ore_vein_mining_drop",
+      "source": "gtceu:bauxite_vein_end；末地钛铁矿正常挖掘掉落粗矿",
+      "producer_id": "gtceu:bauxite_vein_end",
+      "process": "使用合适镐挖掘矿脉；GT非精准采集掉落使用TagPrefix.rawOre",
+      "dimensions": [
+        "minecraft:the_end"
+      ],
+      "block_id": "gtceu:endstone_ilmenite_ore",
+      "height_range": [
+        10,
+        80
+      ],
+      "definitions": [
+        "com/gregtechceu/gtceu/common/data/GTOres.java",
+        "com/gregtechceu/gtceu/core/MixinHelpers.java"
+      ]
+    },
+    {
+      "id": "gtceu:raw_naquadah",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "ore_vein_mining_drop",
+      "source": "gtceu:naquadah_vein；末地硅岩矿正常挖掘掉落粗矿",
+      "producer_id": "gtceu:naquadah_vein",
+      "process": "使用合适镐挖掘矿脉；GT非精准采集掉落使用TagPrefix.rawOre",
+      "dimensions": [
+        "minecraft:the_end"
+      ],
+      "block_id": "gtceu:endstone_naquadah_ore",
+      "height_range": [
+        10,
+        90
+      ],
+      "definitions": [
+        "com/gregtechceu/gtceu/common/data/GTOres.java",
+        "com/gregtechceu/gtceu/core/MixinHelpers.java"
+      ]
+    },
+    {
+      "id": "gtceu:raw_monazite",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "ore_vein_mining_drop",
+      "source": "gtceu:monazite_vein；下界独居石矿正常挖掘掉落粗矿",
+      "producer_id": "gtceu:monazite_vein",
+      "process": "GT MixinHelpers.generateGTDynamicLoot prefers registered rawOre, then gem, then dust; netherrack ore multiplier 2. raw_monazite is registered in R274.",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "block_id": "gtceu:netherrack_monazite_ore",
+      "height_range": [
+        20,
+        40
+      ],
+      "definitions": [
+        "com/gregtechceu/gtceu/common/data/GTOres.java",
+        "com/gregtechceu/gtceu/core/MixinHelpers.java"
+      ]
+    },
+    {
+      "id": "gtceu:raw_ruby",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "ore_vein_mining_drop",
+      "source": "gtceu:redstone_vein；下界红宝石矿正常挖掘掉落粗矿",
+      "producer_id": "gtceu:redstone_vein",
+      "process": "GT MixinHelpers.generateGTDynamicLoot prefers registered rawOre, then gem, then dust; netherrack ore multiplier 2. raw_ruby is registered in R274.",
+      "dimensions": [
+        "minecraft:the_nether"
+      ],
+      "block_id": "gtceu:netherrack_ruby_ore",
+      "height_range": [
+        5,
+        40
+      ],
+      "definitions": [
+        "com/gregtechceu/gtceu/common/data/GTOres.java",
+        "com/gregtechceu/gtceu/core/MixinHelpers.java"
+      ]
+    }
+  ],
+  "processed": [
+    {
+      "id": "minecraft:iron_ingot",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "industrial_processing",
+      "source": "fastsmelting:minecraft/iron_ingot_from_smelting_raw_iron；粗矿在熔炉冶炼；燃料可用天然煤",
+      "producer_id": "fastsmelting:minecraft/iron_ingot_from_smelting_raw_iron",
+      "process": "粗矿在熔炉冶炼；燃料可用天然煤",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:raw_iron",
+        "minecraft:coal"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": [
+        {
+          "definition": {
+            "item": "minecraft:raw_iron"
+          },
+          "alternatives": [
+            {
+              "id": "minecraft:raw_iron",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:copper_ingot",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "industrial_processing",
+      "source": "fastsmelting:minecraft/copper_ingot_from_smelting_raw_copper；粗矿在熔炉冶炼；燃料可用天然煤",
+      "producer_id": "fastsmelting:minecraft/copper_ingot_from_smelting_raw_copper",
+      "process": "粗矿在熔炉冶炼；燃料可用天然煤",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:raw_copper",
+        "minecraft:coal"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": [
+        {
+          "definition": {
+            "item": "minecraft:raw_copper"
+          },
+          "alternatives": [
+            {
+              "id": "minecraft:raw_copper",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:gold_ingot",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "industrial_processing",
+      "source": "fastsmelting:minecraft/gold_ingot_from_smelting_raw_gold；粗矿在熔炉冶炼；燃料可用天然煤",
+      "producer_id": "fastsmelting:minecraft/gold_ingot_from_smelting_raw_gold",
+      "process": "粗矿在熔炉冶炼；燃料可用天然煤",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:raw_gold",
+        "minecraft:coal"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": [
+        {
+          "definition": {
+            "item": "minecraft:raw_gold"
+          },
+          "alternatives": [
+            {
+              "id": "minecraft:raw_gold",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gtceu:steel_ingot",
+      "kind": "item",
+      "tier": 1,
+      "source_type": "industrial_processing",
+      "source": "gtceu:primitive_blast_furnace/steel_from_coal_gem；铁锭与煤在土高炉冶炼成钢",
+      "producer_id": "gtceu:primitive_blast_furnace/steel_from_coal_gem",
+      "process": "铁锭与煤在土高炉冶炼成钢",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:raw_iron",
+        "minecraft:coal"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [
+          {
+            "alternatives": [
+              {
+                "id": "minecraft:iron_ingot",
+                "count": 1
+              }
+            ],
+            "chance": 10000,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          },
+          {
+            "alternatives": [
+              {
+                "id": "minecraft:coal",
+                "count": 2
+              }
+            ],
+            "chance": 10000,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        ],
+        "fluids": []
+      }
+    },
+    {
+      "id": "gtceu:aluminium_ingot",
+      "kind": "item",
+      "tier": 2,
+      "source_type": "industrial_processing",
+      "source": "gtceu:electric_blast_furnace/blast_aluminium；黏土电解得铝粉，1700 K高炉冶炼",
+      "producer_id": "gtceu:electric_blast_furnace/blast_aluminium",
+      "process": "黏土电解得铝粉，1700 K高炉冶炼",
+      "dimensions": [
+        "minecraft:overworld"
+      ],
+      "natural_roots": [
+        "minecraft:clay_ball"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [
+          {
+            "alternatives": [
+              {
+                "id": "gtceu:aluminium_dust",
+                "count": 1
+              }
+            ],
+            "chance": 10000,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          },
+          {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        ],
+        "fluids": []
+      },
+      "production_chain": [
+        "gtceu:macerator/macerate_clay_ball",
+        "gtceu:electrolyzer/decomposition_electrolyzing_clay",
+        "gtceu:electric_blast_furnace/blast_aluminium"
+      ],
+      "trace_scope": "consumed_recipe_materials; machine construction, energy and research progression are separate",
+      "recipe_required_max_eu_tier": 2,
+      "machine_types": [
+        "gtceu:electric_blast_furnace",
+        "gtceu:electrolyzer",
+        "gtceu:macerator"
+      ],
+      "non_consumed_requirements": [
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_aluminium",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        }
+      ],
+      "process_conditions": [
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_aluminium",
+          "data": {
+            "ebf_temp": 1700,
+            "euTier": 2
+          },
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "id": "gtceu:titanium_ingot",
+      "kind": "item",
+      "tier": 4,
+      "source_type": "industrial_processing",
+      "source": "gtceu:vacuum_freezer/cool_hot_titanium_ingot；末地钛铁矿制金红石；原木碳和水制氯生产四氯化钛；熔岩制镁还原后真空冷却",
+      "producer_id": "gtceu:vacuum_freezer/cool_hot_titanium_ingot",
+      "process": "末地钛铁矿制金红石；原木碳和水制氯生产四氯化钛；熔岩制镁还原后真空冷却",
+      "dimensions": [
+        "minecraft:overworld",
+        "minecraft:the_end",
+        "minecraft:the_nether"
+      ],
+      "natural_roots": [
+        "gtceu:raw_ilmenite",
+        "minecraft:oak_log",
+        "minecraft:water",
+        "minecraft:lava"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [
+          {
+            "alternatives": [
+              {
+                "id": "gtceu:hot_titanium_ingot",
+                "count": 1
+              }
+            ],
+            "chance": 10000,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        ],
+        "fluids": []
+      },
+      "production_chain": [
+        "fastsmelting:minecraft/charcoal",
+        "gtceu:macerator/macerate_charcoal",
+        "gtceu:electrolyzer/decomposition_electrolyzing_charcoal",
+        "gtceu:evaporation/salt_water",
+        "gtceu:electrolyzer/salt_water_electrolysis",
+        "gtceu:fluid_solidifier/obsidian",
+        "gtceu:macerator/obsidian_dust",
+        "gtceu:electrolyzer/decomposition_electrolyzing_obsidian",
+        "gtceu:macerator/macerate_raw_ilmenite_ore_to_crushed_ore",
+        "gtceu:macerator/macerate_ilmenite_crushed_ore_to_impure_dust",
+        "gtceu:centrifuge/centrifuge_ilmenite_dirty_dust_to_dust",
+        "gtceu:electric_blast_furnace/rutile_from_ilmenite",
+        "gtceu:chemical_reactor/titanium_tetrachloride",
+        "gtceu:electric_blast_furnace/titanium_from_tetrachloride",
+        "gtceu:vacuum_freezer/cool_hot_titanium_ingot"
+      ],
+      "trace_scope": "consumed_recipe_materials; machine construction, energy and research progression are separate",
+      "recipe_required_max_eu_tier": 3,
+      "machine_types": [
+        "gtceu:centrifuge",
+        "gtceu:chemical_reactor",
+        "gtceu:electric_blast_furnace",
+        "gtceu:electrolyzer",
+        "gtceu:evaporation",
+        "gtceu:fluid_solidifier",
+        "gtceu:macerator",
+        "gtceu:vacuum_freezer",
+        "minecraft:smelting"
+      ],
+      "non_consumed_requirements": [
+        {
+          "recipe_id": "gtceu:fluid_solidifier/obsidian",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:10}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        }
+      ],
+      "process_conditions": [
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/rutile_from_ilmenite",
+          "data": {
+            "ebf_temp": 1700,
+            "euTier": 3
+          },
+          "conditions": []
+        },
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/titanium_from_tetrachloride",
+          "data": {
+            "ebf_temp": 2141,
+            "euTier": 3
+          },
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "id": "gtceu:tungsten_steel_ingot",
+      "kind": "item",
+      "tier": 5,
+      "source_type": "industrial_processing",
+      "source": "gtceu:vacuum_freezer/cool_hot_tungsten_steel_ingot；末地石粉碎概率副产钨酸锂；水制盐酸和氢还原钨，与铁煤炼钢混合后高炉冶炼及真空冷却",
+      "producer_id": "gtceu:vacuum_freezer/cool_hot_tungsten_steel_ingot",
+      "process": "末地石粉碎概率副产钨酸锂；水制盐酸和氢还原钨，与铁煤炼钢混合后高炉冶炼及真空冷却",
+      "dimensions": [
+        "minecraft:overworld",
+        "minecraft:the_end"
+      ],
+      "natural_roots": [
+        "minecraft:end_stone",
+        "minecraft:water",
+        "minecraft:raw_iron",
+        "minecraft:coal"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [
+          {
+            "alternatives": [
+              {
+                "id": "gtceu:hot_tungsten_steel_ingot",
+                "count": 1
+              }
+            ],
+            "chance": 10000,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        ],
+        "fluids": []
+      },
+      "production_chain": [
+        "gtceu:evaporation/salt_water",
+        "gtceu:electrolyzer/salt_water_electrolysis",
+        "gtceu:chemical_reactor/hydrochloric_acid",
+        "gtceu:macerator/macerate_end_stone",
+        "gtceu:chemical_bath/tungstic_acid_from_tungstate",
+        "gtceu:dehydrator/tungsten_trioxide_dust",
+        "gtceu:chemical_reactor/tungsten_dust",
+        "fastsmelting:minecraft/iron_ingot_from_smelting_raw_iron",
+        "gtceu:primitive_blast_furnace/steel_from_coal_gem",
+        "gtceu:macerator/macerate_steel_ingot",
+        "gtceu:mixer/tungstensteel",
+        "gtceu:electric_blast_furnace/blast_tungsten_steel",
+        "gtceu:vacuum_freezer/cool_hot_tungsten_steel_ingot"
+      ],
+      "trace_scope": "consumed_recipe_materials; machine construction, energy and research progression are separate",
+      "recipe_required_max_eu_tier": 4,
+      "machine_types": [
+        "gtceu:chemical_bath",
+        "gtceu:chemical_reactor",
+        "gtceu:dehydrator",
+        "gtceu:electric_blast_furnace",
+        "gtceu:electrolyzer",
+        "gtceu:evaporation",
+        "gtceu:macerator",
+        "gtceu:mixer",
+        "gtceu:primitive_blast_furnace",
+        "gtceu:vacuum_freezer",
+        "minecraft:smelting"
+      ],
+      "non_consumed_requirements": [
+        {
+          "recipe_id": "gtceu:mixer/tungstensteel",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        },
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_tungsten_steel",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        }
+      ],
+      "process_conditions": [
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_tungsten_steel",
+          "data": {
+            "ebf_temp": 3000,
+            "euTier": 4
+          },
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "id": "gtceu:naquadah_ingot",
+      "kind": "item",
+      "tier": 5,
+      "source_type": "industrial_processing",
+      "source": "gtceu:vacuum_freezer/cool_hot_naquadah_ingot；末地硅岩粗矿制粉，经5000 K高炉冶炼；末地石离心得氦并液化，冷却热锭",
+      "producer_id": "gtceu:vacuum_freezer/cool_hot_naquadah_ingot",
+      "process": "末地硅岩粗矿制粉，经5000 K高炉冶炼；末地石离心得氦并液化，冷却热锭",
+      "dimensions": [
+        "minecraft:the_end"
+      ],
+      "natural_roots": [
+        "gtceu:raw_naquadah",
+        "minecraft:end_stone"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [
+          {
+            "alternatives": [
+              {
+                "id": "gtceu:hot_naquadah_ingot",
+                "count": 1
+              }
+            ],
+            "chance": 10000,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        ],
+        "fluids": [
+          {
+            "alternatives": [
+              "gtceu:liquid_helium"
+            ],
+            "amount": 500,
+            "chance": 10000,
+            "max_chance": 10000
+          }
+        ]
+      },
+      "production_chain": [
+        "gtceu:macerator/macerate_raw_naquadah_ore_to_crushed_ore",
+        "gtceu:macerator/macerate_naquadah_crushed_ore_to_impure_dust",
+        "gtceu:centrifuge/centrifuge_naquadah_dirty_dust_to_dust",
+        "gtceu:electric_blast_furnace/blast_naquadah",
+        "gtceu:macerator/macerate_end_stone",
+        "gtceu:centrifuge/endstone_separation",
+        "gtceu:vacuum_freezer/liquid_helium",
+        "gtceu:vacuum_freezer/cool_hot_naquadah_ingot"
+      ],
+      "trace_scope": "consumed_recipe_materials; machine construction, energy and research progression are separate",
+      "recipe_required_max_eu_tier": 5,
+      "machine_types": [
+        "gtceu:centrifuge",
+        "gtceu:electric_blast_furnace",
+        "gtceu:macerator",
+        "gtceu:vacuum_freezer"
+      ],
+      "non_consumed_requirements": [
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_naquadah",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        }
+      ],
+      "process_conditions": [
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_naquadah",
+          "data": {
+            "ebf_temp": 5000,
+            "euTier": 5
+          },
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "id": "gtceu:neutronium_ingot",
+      "kind": "item",
+      "tier": 9,
+      "source_type": "industrial_processing",
+      "source": "gtceu:fluid_solidifier/solidify_neutronium_to_ingot；天然独居石、红宝石、硅岩及采集气体经镅和超能硅岩融合，最后凝固为中子素锭",
+      "producer_id": "gtceu:fluid_solidifier/solidify_neutronium_to_ingot",
+      "process": "天然独居石、红宝石、硅岩及采集气体经镅和超能硅岩融合，最后凝固为中子素锭",
+      "dimensions": [
+        "minecraft:overworld",
+        "minecraft:the_end",
+        "minecraft:the_nether"
+      ],
+      "natural_roots": [
+        "gtceu:raw_monazite",
+        "gtceu:raw_ruby",
+        "gtceu:raw_naquadah",
+        "minecraft:oak_log",
+        "minecraft:water",
+        "gtceu:air",
+        "gtceu:nether_air",
+        "gtceu:ender_air"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [
+          {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        ],
+        "fluids": [
+          {
+            "alternatives": [
+              "gtceu:neutronium"
+            ],
+            "amount": 144,
+            "chance": 10000,
+            "max_chance": 10000
+          }
+        ]
+      },
+      "production_chain": [
+        "fastsmelting:minecraft/charcoal",
+        "gtceu:macerator/macerate_charcoal",
+        "gtceu:electrolyzer/decomposition_electrolyzing_charcoal",
+        "gtceu:gas_collector/air",
+        "gtceu:centrifuge/air_separation",
+        "gtceu:gas_collector/nether_air",
+        "gtceu:centrifuge/nether_air_separation",
+        "gtceu:chemical_reactor/sulfur_trioxide",
+        "gtceu:chemical_reactor/sulfuric_acid_from_trioxide",
+        "gtceu:macerator/macerate_raw_monazite_ore_to_crushed_ore",
+        "gtceu:macerator/macerate_monazite_crushed_ore_to_impure_dust",
+        "gtceu:centrifuge/centrifuge_monazite_dirty_dust_to_dust",
+        "gtl_enhancedcore:lanthanide_refining/monazite",
+        "gtceu:extractor/extract_lutetium_dust",
+        "gtceu:macerator/macerate_raw_ruby_ore_to_crushed_ore",
+        "gtceu:macerator/macerate_ruby_crushed_ore_to_impure_dust",
+        "gtceu:centrifuge/centrifuge_ruby_dirty_dust_to_dust",
+        "gtceu:electrolyzer/decomposition_electrolyzing_ruby",
+        "gtceu:electric_blast_furnace/blast_chromium",
+        "gtceu:extractor/extract_chromium_ingot",
+        "gtceu:fusion_reactor/lutenium_and_chromium_to_americium_plasma",
+        "gtceu:gas_collector/ender_air",
+        "gtceu:vacuum_freezer/liquid_ender_air",
+        "gtceu:distillation_tower/distill_liquid_ender_air",
+        "gtceu:vacuum_freezer/liquid_helium",
+        "gtceu:macerator/macerate_raw_naquadah_ore_to_crushed_ore",
+        "gtceu:thermal_centrifuge/centrifuge_naquadah_crushed_ore_to_refined_ore",
+        "gtceu:macerator/macerate_naquadah_refined_ore_to_dust",
+        "gtceu:electric_blast_furnace/blast_enriched_naquadah",
+        "gtceu:vacuum_freezer/cool_hot_enriched_naquadah_ingot",
+        "gtceu:extractor/extract_enriched_naquadah_ingot",
+        "gtceu:fusion_reactor/enriched_naquadah_and_radon_to_naquadria_plasma",
+        "gtceu:fusion_reactor/americium_and_naquadria_to_neutronium_plasma",
+        "gtceu:fluid_solidifier/solidify_neutronium_to_ingot"
+      ],
+      "trace_scope": "Consumed materials close to natural roots through registered R274 payloads. Machine/controller crafting, research gates, final enhanced3.5 world generation and survival operation are separate and not passed by this trace.",
+      "recipe_required_max_eu_tier": 7,
+      "machine_requirements": {
+        "fusion_eu_to_start": 600000000,
+        "fusion_controller": "gtceu:uv_fusion_reactor",
+        "fusion_controller_tier": 8,
+        "fusion_controller_mk": 3,
+        "fusion_energy_inputs": 16,
+        "fusion_energy_capacity": 640000000,
+        "fusion_capacity_formula": "energyInputAmount * 2^(tier - LuV) * 10000000",
+        "fusion_capacity_source": "GTCEu 1.4.4 FusionReactorMachine.java calculateEnergyStorageFactor; GTMachines.java FUSION_REACTOR pattern; GTL FusionReactorMachineMixin retains the capacity condition.",
+        "ebf_temperature_max": 7000,
+        "lanthanide_refining_recipe_type": "gtl_enhancedcore:lanthanide_refining",
+        "non_consumed_programmed_circuits": [
+          1,
+          2,
+          3
+        ]
+      },
+      "chance_outputs": {
+        "gtceu:enriched_naquadah_dust": {
+          "recipe": "gtceu:macerator/macerate_naquadah_refined_ore_to_dust",
+          "chance": 1400,
+          "max_chance": 10000,
+          "tier_chance_boost": 850,
+          "basis": "Repeatable natural ore processing; chance output is retained, never represented as guaranteed."
+        }
+      },
+      "machine_types": [
+        "gtceu:centrifuge",
+        "gtceu:chemical_reactor",
+        "gtceu:distillation_tower",
+        "gtceu:electric_blast_furnace",
+        "gtceu:electrolyzer",
+        "gtceu:extractor",
+        "gtceu:fluid_solidifier",
+        "gtceu:fusion_reactor",
+        "gtceu:gas_collector",
+        "gtceu:macerator",
+        "gtceu:thermal_centrifuge",
+        "gtceu:vacuum_freezer",
+        "gtl_enhancedcore:lanthanide_refining",
+        "minecraft:smelting"
+      ],
+      "non_consumed_requirements": [
+        {
+          "recipe_id": "gtceu:gas_collector/air",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        },
+        {
+          "recipe_id": "gtceu:gas_collector/nether_air",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:2}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        },
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_chromium",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        },
+        {
+          "recipe_id": "gtceu:gas_collector/ender_air",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:3}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        },
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_enriched_naquadah",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        },
+        {
+          "recipe_id": "gtceu:fluid_solidifier/solidify_neutronium_to_ingot",
+          "items": {
+            "alternatives": [
+              {
+                "id": "gtceu:programmed_circuit",
+                "count": 1,
+                "nbt": "{Configuration:1}"
+              }
+            ],
+            "chance": 0,
+            "max_chance": 10000,
+            "tier_chance_boost": 0
+          }
+        }
+      ],
+      "process_conditions": [
+        {
+          "recipe_id": "gtceu:gas_collector/air",
+          "data": {
+            "euTier": 1
+          },
+          "conditions": [
+            {
+              "dimension": "minecraft:overworld",
+              "type": "dimension"
+            }
+          ]
+        },
+        {
+          "recipe_id": "gtceu:gas_collector/nether_air",
+          "data": {
+            "euTier": 2
+          },
+          "conditions": [
+            {
+              "dimension": "minecraft:the_nether",
+              "type": "dimension"
+            }
+          ]
+        },
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_chromium",
+          "data": {
+            "ebf_temp": 1700,
+            "euTier": 2
+          },
+          "conditions": []
+        },
+        {
+          "recipe_id": "gtceu:fusion_reactor/lutenium_and_chromium_to_americium_plasma",
+          "data": {
+            "eu_to_start": 200000000,
+            "euTier": 7
+          },
+          "conditions": []
+        },
+        {
+          "recipe_id": "gtceu:gas_collector/ender_air",
+          "data": {
+            "euTier": 3
+          },
+          "conditions": [
+            {
+              "dimension": "minecraft:the_end",
+              "type": "dimension"
+            }
+          ]
+        },
+        {
+          "recipe_id": "gtceu:distillation_tower/distill_liquid_ender_air",
+          "data": {
+            "disable_distillery": 1,
+            "euTier": 5
+          },
+          "conditions": []
+        },
+        {
+          "recipe_id": "gtceu:electric_blast_furnace/blast_enriched_naquadah",
+          "data": {
+            "ebf_temp": 7000,
+            "euTier": 5
+          },
+          "conditions": []
+        },
+        {
+          "recipe_id": "gtceu:fusion_reactor/enriched_naquadah_and_radon_to_naquadria_plasma",
+          "data": {
+            "eu_to_start": 400000000,
+            "euTier": 7
+          },
+          "conditions": []
+        },
+        {
+          "recipe_id": "gtceu:fusion_reactor/americium_and_naquadria_to_neutronium_plasma",
+          "data": {
+            "eu_to_start": 600000000,
+            "euTier": 7
+          },
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "id": "minecraft:glass",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "industrial_processing",
+      "source": "fastsmelting:minecraft/glass；沙子经熔炉冶炼成玻璃",
+      "producer_id": "fastsmelting:minecraft/glass",
+      "process": "沙子经熔炉冶炼成玻璃",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:sand",
+        "minecraft:coal"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": [
+        {
+          "definition": {
+            "tag": "minecraft:smelts_to_glass"
+          },
+          "alternatives": [
+            {
+              "id": "ad_astra:mars_sand",
+              "count": 1
+            },
+            {
+              "id": "ad_astra:moon_sand",
+              "count": 1
+            },
+            {
+              "id": "ad_astra:venus_sand",
+              "count": 1
+            },
+            {
+              "id": "minecraft:red_sand",
+              "count": 1
+            },
+            {
+              "id": "minecraft:sand",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:charcoal",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "industrial_processing",
+      "source": "fastsmelting:minecraft/charcoal；原木经熔炉烧制成木炭；可由原木制木板作为燃料",
+      "producer_id": "fastsmelting:minecraft/charcoal",
+      "process": "原木经熔炉烧制成木炭；可由原木制木板作为燃料",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:oak_log"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": [
+        {
+          "definition": {
+            "tag": "minecraft:logs_that_burn"
+          },
+          "alternatives": [
+            {
+              "id": "ad_astra:glacian_log",
+              "count": 1
+            },
+            {
+              "id": "gtceu:rubber_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:acacia_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:acacia_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:birch_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:birch_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:cherry_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:cherry_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:dark_oak_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:dark_oak_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:jungle_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:jungle_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:mangrove_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:mangrove_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:oak_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:oak_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:spruce_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:spruce_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_acacia_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_acacia_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_birch_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_birch_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_cherry_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_cherry_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_dark_oak_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_dark_oak_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_jungle_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_jungle_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_mangrove_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_mangrove_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_oak_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_oak_wood",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_spruce_log",
+              "count": 1
+            },
+            {
+              "id": "minecraft:stripped_spruce_wood",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:stone",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "industrial_processing",
+      "source": "fastsmelting:minecraft/stone；圆石经熔炉烧制成石头",
+      "producer_id": "fastsmelting:minecraft/stone",
+      "process": "圆石经熔炉烧制成石头",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:cobblestone",
+        "minecraft:coal"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": [
+        {
+          "definition": {
+            "item": "minecraft:cobblestone"
+          },
+          "alternatives": [
+            {
+              "id": "minecraft:cobblestone",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:nether_brick",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "industrial_processing",
+      "source": "fastsmelting:minecraft/nether_brick；地狱岩经熔炉烧制成地狱砖",
+      "producer_id": "fastsmelting:minecraft/nether_brick",
+      "process": "地狱岩经熔炉烧制成地狱砖",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:netherrack",
+        "minecraft:coal"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": [
+        {
+          "definition": {
+            "item": "minecraft:netherrack"
+          },
+          "alternatives": [
+            {
+              "id": "minecraft:netherrack",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:paper",
+      "kind": "item",
+      "tier": 0,
+      "source_type": "industrial_processing",
+      "source": "minecraft:paper；甘蔗工作台造纸",
+      "producer_id": "minecraft:paper",
+      "process": "甘蔗工作台造纸",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:sugar_cane"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": [
+        {
+          "definition": {
+            "item": "minecraft:sugar_cane"
+          },
+          "alternatives": [
+            {
+              "id": "minecraft:sugar_cane",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "definition": {
+            "item": "minecraft:sugar_cane"
+          },
+          "alternatives": [
+            {
+              "id": "minecraft:sugar_cane",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "definition": {
+            "item": "minecraft:sugar_cane"
+          },
+          "alternatives": [
+            {
+              "id": "minecraft:sugar_cane",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gtceu:hydrogen",
+      "kind": "fluid",
+      "tier": 1,
+      "source_type": "industrial_processing",
+      "source": "gtceu:electrolyzer/water_electrolysis；自然水源经电解得到氢",
+      "producer_id": "gtceu:electrolyzer/water_electrolysis",
+      "process": "自然水源经电解得到氢",
+      "dimensions": [],
+      "natural_roots": [
+        "minecraft:water"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [],
+        "fluids": [
+          {
+            "alternatives": [
+              "minecraft:water"
+            ],
+            "amount": 1000,
+            "chance": 10000,
+            "max_chance": 10000
+          }
+        ]
+      }
+    },
+    {
+      "id": "gtceu:oxygen",
+      "kind": "fluid",
+      "tier": 1,
+      "source_type": "industrial_processing",
+      "source": "gtceu:centrifuge/air_separation；主世界收集大气经离心分离得到oxygen",
+      "producer_id": "gtceu:centrifuge/air_separation",
+      "process": "主世界收集大气经离心分离得到oxygen",
+      "dimensions": [],
+      "natural_roots": [
+        "gtceu:air"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [],
+        "fluids": [
+          {
+            "alternatives": [
+              "gtceu:air"
+            ],
+            "amount": 10000,
+            "chance": 10000,
+            "max_chance": 10000
+          }
+        ]
+      }
+    },
+    {
+      "id": "gtceu:nitrogen",
+      "kind": "fluid",
+      "tier": 1,
+      "source_type": "industrial_processing",
+      "source": "gtceu:centrifuge/air_separation；主世界收集大气经离心分离得到nitrogen",
+      "producer_id": "gtceu:centrifuge/air_separation",
+      "process": "主世界收集大气经离心分离得到nitrogen",
+      "dimensions": [],
+      "natural_roots": [
+        "gtceu:air"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [],
+        "fluids": [
+          {
+            "alternatives": [
+              "gtceu:air"
+            ],
+            "amount": 10000,
+            "chance": 10000,
+            "max_chance": 10000
+          }
+        ]
+      }
+    },
+    {
+      "id": "gtceu:liquid_air",
+      "kind": "fluid",
+      "tier": 3,
+      "source_type": "industrial_processing",
+      "source": "gtceu:vacuum_freezer/liquid_air；主世界大气经真空冷冻得到液态空气",
+      "producer_id": "gtceu:vacuum_freezer/liquid_air",
+      "process": "主世界大气经真空冷冻得到液态空气",
+      "dimensions": [],
+      "natural_roots": [
+        "gtceu:air"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [],
+        "fluids": [
+          {
+            "alternatives": [
+              "gtceu:air"
+            ],
+            "amount": 4000,
+            "chance": 10000,
+            "max_chance": 10000
+          }
+        ]
+      }
+    },
+    {
+      "id": "gtceu:argon",
+      "kind": "fluid",
+      "tier": 3,
+      "source_type": "industrial_processing",
+      "source": "gtceu:distillation_tower/distill_liquid_air；主世界大气先真空冷冻为液态空气，再蒸馏取得氩",
+      "producer_id": "gtceu:distillation_tower/distill_liquid_air",
+      "process": "主世界大气先真空冷冻为液态空气，再蒸馏取得氩",
+      "dimensions": [],
+      "natural_roots": [
+        "gtceu:air"
+      ],
+      "natural_trace_complete": true,
+      "remaining": [],
+      "inputs": {
+        "items": [],
+        "fluids": [
+          {
+            "alternatives": [
+              "gtceu:liquid_air"
+            ],
+            "amount": 50000,
+            "chance": 10000,
+            "max_chance": 10000
+          }
+        ]
+      }
+    }
+  ],
+  "remaining": [
+    "原版来源按1.20.1内置掉落、生成和维度定义取证；增强版3.5最终世界生成、游戏采集和完整生存首建由负责人后续验证。",
+    "I37批准蓝图与world_maintenance执行闸未改变，RN-WMS及WFV以后完整自然进度未因此通过。"
+  ]
+}

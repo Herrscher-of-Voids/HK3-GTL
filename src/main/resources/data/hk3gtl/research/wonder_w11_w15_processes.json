@@ -1,0 +1,3846 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w11_swarm_integrated_programming",
+      "role": "W11",
+      "zh_name": "纳米群装配与调度合编",
+      "purpose": "把装配与程序灌装合为一批，保留真实基元、基板、焊料和规则载体投入，降低规则载体用量。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 64
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 20
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 12
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 1152
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I13",
+        "W02"
+      ]
+    },
+    {
+      "id": "wonder_w11_resource_probe_overhaul",
+      "role": "W11",
+      "zh_name": "资源探测器换装",
+      "purpose": "回收既有磨损探测器并更换传感和校准部件，不复制可出勤设备。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worn_resource_probe",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:unmanned_resource_probe",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I26"
+      ]
+    },
+    {
+      "id": "wonder_w11_work_drone_overhaul",
+      "role": "W11",
+      "zh_name": "作业无人机执行机构大修",
+      "purpose": "拆换磨损无人机的电机及机械臂，保留旧机作为物质来源。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worn_work_drone",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:robot_arm_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:industrial_work_drone",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "无人设备工艺"
+      ]
+    },
+    {
+      "id": "wonder_w11_survey_probe_integration",
+      "role": "W11",
+      "zh_name": "多传感空间探针集成",
+      "purpose": "把发射、传感与锚定结构组装成可消耗的实体探针。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:spatial_probe",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I24",
+        "I26"
+      ]
+    },
+    {
+      "id": "wonder_w11_navigation_coassembly",
+      "role": "W11",
+      "zh_name": "舰载导航并行装配",
+      "purpose": "用实际运算、存储和空间模块共装导航组件，合并跨机焊接工步。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:hyperion_navigation_module",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stable_transport_medium",
+          "amount": 500
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 576
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "H01"
+      ]
+    },
+    {
+      "id": "wonder_w11_bridge_command_integration",
+      "role": "W11",
+      "zh_name": "舰桥指挥模块联编",
+      "purpose": "将导航、CPU和档案写入真实舰桥模块，不授予舰船运行回执。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:hyperion_navigation_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_cooperation_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:hyperion_bridge_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 576
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "H01"
+      ]
+    },
+    {
+      "id": "wonder_w11_thruster_bus_integration",
+      "role": "W11",
+      "zh_name": "推进器供能总线集成",
+      "purpose": "在同一批次连接承力框架、导能材料与发射控制部件。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:field_generator_civ",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:hyperion_thruster_assembly",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 1152
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "H01"
+      ]
+    },
+    {
+      "id": "wonder_w11_distributed_interconnect_weaving",
+      "role": "W11",
+      "zh_name": "分布式总线织连",
+      "purpose": "以高阶细线和介电膜直接织连，不依赖完整CPU反向复制导体。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "文明恒续电子平台"
+      ]
+    },
+    {
+      "id": "wonder_w11_rule_carrier_compilation",
+      "role": "W11",
+      "zh_name": "群体重构规则载体编译",
+      "purpose": "消耗认知材料、数据基板与实体纳米群，生产后续编程可消耗的载体。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I12",
+        "W11"
+      ]
+    },
+    {
+      "id": "wonder_w11_microstructure_template_replication",
+      "role": "W11",
+      "zh_name": "微结构模板精密复现",
+      "purpose": "以已有校准模块作可复用尺寸基准，把实体板材加工为纳米制造模板。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:abyss_impregnated_soulium_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_microstructure_template",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I10"
+      ]
+    },
+    {
+      "id": "wonder_w11_four_system_prefabrication",
+      "role": "W11",
+      "zh_name": "四系模块联合预制",
+      "purpose": "以四条已独立制造的功能模块直接预制结构件，省去复合材中转。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_4",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:voltage_machine_casing_irv",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "W01–W15"
+      ]
+    },
+    {
+      "id": "wonder_w11_keel_modular_assembly",
+      "role": "W11",
+      "zh_name": "龙骨模组协同装配",
+      "purpose": "将棒材、框架、隔离层和陶瓷一次装成舰体龙骨段。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:hyperion_keel_segment",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 1152
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "H01"
+      ]
+    },
+    {
+      "id": "wonder_w11_substrate_inline_lamination",
+      "role": "W11",
+      "zh_name": "适配基板在线压合",
+      "purpose": "使用真实数据基材、导体与铂箔，合并布线和封隔工序。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 4
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "电子上游",
+        "I11"
+      ]
+    },
+    {
+      "id": "wonder_w11_drone_component_salvage",
+      "role": "W11",
+      "zh_name": "无人设备分组拆解",
+      "purpose": "只从报废设备料中拆出有损材料，不输出完整无人机或未知矿物。",
+      "requirements": [
+        "RN-DIO"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:drone_disassembly_scrap",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_swarf",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I05",
+        "回收工艺"
+      ]
+    },
+    {
+      "id": "wonder_w12_containment_fuel_casing",
+      "role": "W12",
+      "zh_name": "约束层燃料棒壳成形",
+      "purpose": "用真实壳材、陶瓷和约束层制造棒壳，不输出已装燃料。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_fuel_rod_casing",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I18"
+      ]
+    },
+    {
+      "id": "wonder_w12_fuel_end_seal_integration",
+      "role": "W12",
+      "zh_name": "燃料端封与密封环总成",
+      "purpose": "以棒壳、密封环和介电膜制成封装组件，保留金属与隔离层投入。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_fuel_rod_casing",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_encapsulation_part",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 1152
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I18"
+      ]
+    },
+    {
+      "id": "wonder_w12_circuit_constraint_package",
+      "role": "W12",
+      "zh_name": "电路约束封装壳",
+      "purpose": "制备中子素与聚合物复合封装，约束复合材料取代额外厚金属屏蔽。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_plate",
+          "count": 8
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "四电子平台"
+      ]
+    },
+    {
+      "id": "wonder_w12_containment_vessel_direct_build",
+      "role": "W12",
+      "zh_name": "收容容器直接装配",
+      "purpose": "直接投入框架、板材、锚点与仿制核心，首制不依赖废容器。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I27"
+      ]
+    },
+    {
+      "id": "wonder_w12_containment_vessel_relining",
+      "role": "W12",
+      "zh_name": "容器残件补衬",
+      "purpose": "保留残件主体并补加新板材和隔离层，成本低于从框架首制。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I27"
+      ]
+    },
+    {
+      "id": "wonder_w12_barrier_coating_fresh",
+      "role": "W12",
+      "zh_name": "约束增强涂层新制",
+      "purpose": "用聚合物、碳与实体约束填料配制新液，水源固定为16级净化水。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:polytetrafluoroethylene_dust",
+          "count": 64
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:grade_16_purified_water",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I13",
+        "屏蔽覆膜"
+      ]
+    },
+    {
+      "id": "wonder_w12_barrier_plate_lamination",
+      "role": "W12",
+      "zh_name": "稳界壳材封隔成板",
+      "purpose": "从本级标准坯铺入梯度纤维箔和陶瓷层，显式保留成板损失。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_unrecoverable_tailings",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "WSV机壳",
+        "W12"
+      ]
+    },
+    {
+      "id": "wonder_w12_bubble_medium_fresh",
+      "role": "W12",
+      "zh_name": "世界泡约束介质新制",
+      "purpose": "以结晶、约束填料和稳定能量液形成新介质，不要求回收旧液。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:grade_16_purified_water",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I29",
+        "W14"
+      ]
+    },
+    {
+      "id": "wonder_w12_world_medium_crosslinked",
+      "role": "W12",
+      "zh_name": "稳界介质交联调理",
+      "purpose": "使用三种真实已有新液及约束填料组成工作介质，不凭废液造新液。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "stable_transport_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I30",
+        "W03",
+        "W14"
+      ]
+    },
+    {
+      "id": "wonder_w12_world_medium_selective_recovery",
+      "role": "W12",
+      "zh_name": "稳界介质选择性净化",
+      "purpose": "消耗新稳定介质与滤芯，保留500mB浓排；回收路线更省新液但不无损闭环。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 4000
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "稳界介质循环"
+      ]
+    },
+    {
+      "id": "wonder_w12_dielectric_barrier_film",
+      "role": "W12",
+      "zh_name": "晶格介电屏障膜覆合",
+      "purpose": "在板载聚合物膜上完成屏障覆层，以新液换取同批次处理。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:abyss_impregnated_soulium_plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_dielectric_film",
+          "count": 32
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "崩坏晶格电子平台"
+      ]
+    },
+    {
+      "id": "wonder_w12_functional_constraint_composite",
+      "role": "W12",
+      "zh_name": "约束模块界面复合",
+      "purpose": "把独立约束系模块与稳界壳板融合，产出有实际消费者的约束复合材。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I40下游",
+        "W12"
+      ]
+    },
+    {
+      "id": "wonder_w12_shielded_field_generator",
+      "role": "W12",
+      "zh_name": "场发生器屏障共装",
+      "purpose": "保留前级发生器、电路及本级形材，以约束层共装缩短后期装配工时。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CIV设备与W11"
+      ]
+    },
+    {
+      "id": "wonder_w12_maintenance_load_specimen",
+      "role": "W12",
+      "zh_name": "稳界隔离负载样件",
+      "purpose": "消耗实体壳材和发生器制成工程样件；模型只作工装，不记录世界操作事实。",
+      "requirements": [
+        "RN-ECB"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:field_generator_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 2000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I40",
+        "W14"
+      ]
+    },
+    {
+      "id": "wonder_w13_reference_grating_metrology",
+      "role": "W13",
+      "zh_name": "光学参考光栅首制",
+      "purpose": "从刚性中子素板、玻璃和标尺导体制作尺寸基准，不把光刻掩膜冒充测量光栅。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:glass_plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 4
+        },
+        {
+          "id": "minecraft:amethyst_shard",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "光学工艺反馈模块"
+      ]
+    },
+    {
+      "id": "wonder_w13_closed_loop_optical_head",
+      "role": "W13",
+      "zh_name": "闭环光学反馈头集成",
+      "purpose": "把光栅、空间校准、极化材料和读出存储集成；保留可复用测量工装身份。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:polarized_electromagnetic_material",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "精密制造",
+        "芯粒封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_quantum_coherence_logic_chiplet",
+      "role": "W13",
+      "zh_name": "量子相干逻辑芯粒界面加工",
+      "purpose": "精密分割并封隔裸片可用逻辑区，1枚裸片产2枚小芯粒；共封装每颗CPU需2枚，将逻辑裸片耗量由2枚降为1枚，另付接口与中介层成本。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_chiplet",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 125
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 125
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 900,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "quantum_coherence芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_quantum_coherence_io_chiplet",
+      "role": "W13",
+      "zh_name": "量子相干接口芯粒组装",
+      "purpose": "从本平台读出存储、贴片阵列和互连组装接口功能芯粒，不冒称额外逻辑裸片。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_array",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_io_chiplet",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 144
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "quantum_coherence芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_quantum_coherence_interposer",
+      "role": "W13",
+      "zh_name": "量子相干中介层压合",
+      "purpose": "同平台基板、介电膜、互连与真实铜箔压合成4份小型多芯粒中介层；按4个CPU摊销基板与工序。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_circuit_substrate",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "gtceu:copper_foil",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_interposer",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        }
+      ],
+      "ticks": 1200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "quantum_coherence芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_quantum_coherence_chiplet_cpu",
+      "role": "W13",
+      "zh_name": "量子相干芯粒CPU共封装",
+      "purpose": "每CPU用2逻辑芯粒、1接口芯粒、1中介层、2存储芯片和1前平台CPU；接口内另含2存储，总量仍4。用更多封装工艺换取逻辑裸片减半，不替代首制主线。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_chiplet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_io_chiplet",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interposer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_cpu",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_cpu",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "quantum_coherence电路与高阶制造"
+      ]
+    },
+    {
+      "id": "wonder_w13_imaginary_topology_logic_chiplet",
+      "role": "W13",
+      "zh_name": "虚数拓扑逻辑芯粒界面加工",
+      "purpose": "精密分割并封隔裸片可用逻辑区，1枚裸片产2枚小芯粒；共封装每颗CPU需2枚，将逻辑裸片耗量由2枚降为1枚，另付接口与中介层成本。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_chiplet",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 125
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 125
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 900,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "imaginary_topology芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_imaginary_topology_io_chiplet",
+      "role": "W13",
+      "zh_name": "虚数拓扑接口芯粒组装",
+      "purpose": "从本平台读出存储、贴片阵列和互连组装接口功能芯粒，不冒称额外逻辑裸片。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_array",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_io_chiplet",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 144
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "imaginary_topology芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_imaginary_topology_interposer",
+      "role": "W13",
+      "zh_name": "虚数拓扑中介层压合",
+      "purpose": "同平台基板、介电膜、互连与真实铜箔压合成4份小型多芯粒中介层；按4个CPU摊销基板与工序。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_circuit_substrate",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "gtceu:copper_foil",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_interposer",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        }
+      ],
+      "ticks": 1200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "imaginary_topology芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_imaginary_topology_chiplet_cpu",
+      "role": "W13",
+      "zh_name": "虚数拓扑芯粒CPU共封装",
+      "purpose": "每CPU用2逻辑芯粒、1接口芯粒、1中介层、2存储芯片和1前平台CPU；接口内另含2存储，总量仍4。用更多封装工艺换取逻辑裸片减半，不替代首制主线。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_chiplet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_io_chiplet",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interposer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_cpu",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "imaginary_topology电路与高阶制造"
+      ]
+    },
+    {
+      "id": "wonder_w13_civilization_endurance_logic_chiplet",
+      "role": "W13",
+      "zh_name": "文明恒续逻辑芯粒界面加工",
+      "purpose": "精密分割并封隔裸片可用逻辑区，1枚裸片产2枚小芯粒；共封装每颗CPU需2枚，将逻辑裸片耗量由2枚降为1枚，另付接口与中介层成本。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_chiplet",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 125
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 125
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 900,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "civilization_endurance芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_civilization_endurance_io_chiplet",
+      "role": "W13",
+      "zh_name": "文明恒续接口芯粒组装",
+      "purpose": "从本平台读出存储、贴片阵列和互连组装接口功能芯粒，不冒称额外逻辑裸片。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_io_chiplet",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 144
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "civilization_endurance芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_civilization_endurance_interposer",
+      "role": "W13",
+      "zh_name": "文明恒续中介层压合",
+      "purpose": "同平台基板、介电膜、互连与真实铜箔压合成4份小型多芯粒中介层；按4个CPU摊销基板与工序。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_circuit_substrate",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "gtceu:copper_foil",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_interposer",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        }
+      ],
+      "ticks": 1200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "civilization_endurance芯粒CPU封装"
+      ]
+    },
+    {
+      "id": "wonder_w13_civilization_endurance_chiplet_cpu",
+      "role": "W13",
+      "zh_name": "文明恒续芯粒CPU共封装",
+      "purpose": "每CPU用2逻辑芯粒、1接口芯粒、1中介层、2存储芯片和1前平台CPU；接口内另含2存储，总量仍4。用更多封装工艺换取逻辑裸片减半，不替代首制主线。",
+      "requirements": [
+        "RN-ASR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_chiplet",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_io_chiplet",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interposer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "civilization_endurance电路与高阶制造"
+      ]
+    },
+    {
+      "id": "wonder_w14_model_guided_world_construction",
+      "role": "W14",
+      "zh_name": "模型引导的模拟世界泡联建",
+      "purpose": "只制造模拟世界泡物品，合并原构造和稳定工步；不捕获真实维度、不生成真实世界操作回执。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 4000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 6000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 4800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "模拟世界泡工艺"
+      ]
+    },
+    {
+      "id": "wonder_w14_simulated_world_model_recovery",
+      "role": "W14",
+      "zh_name": "模拟世界泡拆解与模型回收",
+      "purpose": "消耗已稳定模拟体及终止组件，回收容器、种子和实体模型；不处理真实世界泡。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I29",
+        "W12",
+        "世界模型"
+      ]
+    },
+    {
+      "id": "wonder_w14_remnant_shell_reconstitution",
+      "role": "W14",
+      "zh_name": "容器残件骨架重构",
+      "purpose": "以新料补足废容器骨架损耗，输出待校准壳而非完整高价值世界泡。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:failed_containment_shell",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I33"
+      ]
+    },
+    {
+      "id": "wonder_w14_unstable_world_disassembly",
+      "role": "W14",
+      "zh_name": "失稳模拟体定向拆解",
+      "purpose": "不强行稳定不合格模拟体，将其拆回模型载体和待校准壳并消耗新核心。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:unstable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:failed_containment_shell",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "phase_modulation_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_phase_modulation_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "模型与容器回收"
+      ]
+    },
+    {
+      "id": "wonder_w14_multicycle_maintenance_specimens",
+      "role": "W14",
+      "zh_name": "多周期稳界工程样件",
+      "purpose": "将一个实体模型载体、壳材和调制介质制成一组耗用工程样件，不授予发现或研究。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "phase_modulation_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "spent_phase_modulation_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I40",
+        "W15"
+      ]
+    },
+    {
+      "id": "wonder_w14_anchor_geometry_reuse",
+      "role": "W14",
+      "zh_name": "废容器锚定几何再利用",
+      "purpose": "废容器只贡献几何残件，实际承力质量由新重构板材和梯度箔补足。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "phase_modulation_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_phase_modulation_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I30",
+        "W03"
+      ]
+    },
+    {
+      "id": "wonder_w14_phase_medium_fresh",
+      "role": "W14",
+      "zh_name": "场相调制介质独立新制",
+      "purpose": "从现有三种新介质配制相调制工作液，首次配制不需要任何失活调制液。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:phase_transfer_mirror",
+          "count": 1
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "stable_transport_medium",
+          "amount": 1000
+        },
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "phase_modulation_medium",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "相调制工艺"
+      ]
+    },
+    {
+      "id": "wonder_w14_phase_medium_reconditioning",
+      "role": "W14",
+      "zh_name": "失活场相介质补损再生",
+      "purpose": "4000mB失活液加1000mB新液，产4000mB工作液并排1000mB浓排。含新液预制的同档能耗为900+450=1350 tick等值，低于4000mB新制1800 tick；另耗滤芯，不无损闭环。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "spent_phase_modulation_medium",
+          "amount": 4000
+        },
+        {
+          "id": "phase_modulation_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "phase_modulation_medium",
+          "amount": 4000
+        },
+        {
+          "id": "spent_phase_modulation_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 900,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "相调制工艺"
+      ]
+    },
+    {
+      "id": "wonder_w14_world_model_rule_extraction",
+      "role": "W14",
+      "zh_name": "模型重构规则实体编译",
+      "purpose": "消耗一个模型载体和真实存储、认知材料，制备纳米编程规则载体。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I12",
+        "W11"
+      ]
+    },
+    {
+      "id": "wonder_w14_physical_world_model_carrier",
+      "role": "W14",
+      "zh_name": "实体世界模型载体首制",
+      "purpose": "使用基板、认知材料、重构箔和空间模块制造模型载体，不凭纸张取得世界实体。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I29",
+        "W14"
+      ]
+    },
+    {
+      "id": "wonder_w14_model_guided_reconstruction_module",
+      "role": "W14",
+      "zh_name": "模型导向重构系模块",
+      "purpose": "以可复用模型定位界面，用真实稳界坯、重构坯和空间流体形成重构系模块。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CIV四系共固化",
+        "W11"
+      ]
+    },
+    {
+      "id": "wonder_w14_correlated_service_ageing",
+      "role": "W14",
+      "zh_name": "关联热谱定向服役老化",
+      "purpose": "消耗工程样件及相调制介质进行定向老化，减少冷却液用量；保留服役态不可逆次序。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_2",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_3",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "phase_modulation_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_phase_modulation_medium",
+          "amount": 1000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CEV服役拆解"
+      ]
+    },
+    {
+      "id": "wonder_w14_predicted_service_repair",
+      "role": "W14",
+      "zh_name": "模型预测的补料修复",
+      "purpose": "仍消耗真实CIV新坯与重构填料，修复态只向终检前进，不返回可循环服役态。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_4",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 32000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CEV主材终检"
+      ]
+    },
+    {
+      "id": "wonder_w14_synthetic_matter_seed",
+      "role": "W14",
+      "zh_name": "人工物质种子实体组构",
+      "purpose": "消耗失效工程样件、新金属及空间流体制成工艺种子，不创造真实自然世界或采掘回执。",
+      "requirements": [
+        "RN-WCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_unrecoverable_tailings",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I29"
+      ]
+    },
+    {
+      "id": "wonder_w15_perennial_closed_line",
+      "role": "W15",
+      "zh_name": "恒续主材全流程联制",
+      "purpose": "毕业凭证只作工装；保留功能层、老化、拆解和新料修复的全部质量投入，压缩工序搬运。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 24
+        },
+        {
+          "id": "gtceu:shirabon_ingot",
+          "count": 64
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 32000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 64000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 32000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "ticks": 6400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CEV机壳、形材与电路"
+      ]
+    },
+    {
+      "id": "wonder_w15_civilization_quadrisystem_cofabrication",
+      "role": "W15",
+      "zh_name": "文明四系统联合共固化",
+      "purpose": "四条独立功能系仍分别耗用真实输入，在圣座中一次共固化及终检。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        },
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 16000
+        },
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "ticks": 6000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CIV部件与CEV主材"
+      ]
+    },
+    {
+      "id": "wonder_w15_worldshell_continuous_barrier",
+      "role": "W15",
+      "zh_name": "稳界壳材连续封隔线",
+      "purpose": "把三段壳材工艺与终检联制，保留陶瓷、纤维箔、聚合物和热端排液。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "ticks": 5600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "WSV壳材与CIV主材"
+      ]
+    },
+    {
+      "id": "wonder_w15_worldforming_gradient_cure",
+      "role": "W15",
+      "zh_name": "构界梯度纤维连续定形",
+      "purpose": "从独立增强纤维原料完成梯度处理、铺设与终检，不跳过真实增强料。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_billet",
+          "count": 16
+        },
+        {
+          "id": "gtceu:carbon_fiber_mesh",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:phase_transfer_mirror",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "ticks": 5200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "构界主材"
+      ]
+    },
+    {
+      "id": "wonder_w15_civilization_board_inline_etching",
+      "role": "W15",
+      "zh_name": "文明恒续基板在线蚀刻",
+      "purpose": "将同平台基板的蚀刻连续化，凭毕业后精密工装减少蚀刻液用量，保留废液。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_circuit_substrate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 16000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "文明恒续电路"
+      ]
+    },
+    {
+      "id": "wonder_w15_civilization_memory_wafer_cofabrication",
+      "role": "W15",
+      "zh_name": "文明恒续存储晶圆联制切片",
+      "purpose": "实体外延晶圆与前平台存储晶圆经过压合和切片一次交付64枚存储芯片。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_wafer",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "ticks": 2200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "文明恒续CPU与电路"
+      ]
+    },
+    {
+      "id": "wonder_w15_civilization_cpu_line",
+      "role": "W15",
+      "zh_name": "文明恒续CPU整线共封装",
+      "purpose": "集成裸片、贴片阵列、存储、互连与封装；保留前平台CPU，不提供无前驱升级。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "文明恒续处理器"
+      ]
+    },
+    {
+      "id": "wonder_w15_cev_mainframe_feedback_assembly",
+      "role": "W15",
+      "zh_name": "恒续主机反馈共装",
+      "purpose": "仅供毕业后优化；保留两台CIV计算机、本级板材和电子投入，以闭环工装降低生长液消耗。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_plate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CEV后续扩建"
+      ]
+    },
+    {
+      "id": "wonder_w15_hyperion_navigation_convergence",
+      "role": "W15",
+      "zh_name": "舰载导航冗余融合",
+      "purpose": "以多CPU、存储和校准模块构成两套有实体物料的导航组件。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:hyperion_navigation_module",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stable_transport_medium",
+          "amount": 1000
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 576
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "ticks": 2000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "H01"
+      ]
+    },
+    {
+      "id": "wonder_w15_coupled_world_maintenance_specimens",
+      "role": "W15",
+      "zh_name": "四域耦合工程样件联制",
+      "purpose": "将框架、壳板、约束料与两种工艺介质制成实体样件；不替代世界维系操作或研究。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "phase_modulation_medium",
+          "amount": 2000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_phase_modulation_medium",
+          "amount": 2000
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "I40",
+        "工业样件"
+      ]
+    },
+    {
+      "id": "wonder_w15_coordinated_transport_medium",
+      "role": "W15",
+      "zh_name": "跨域输运介质调谐",
+      "purpose": "以两种有独立新制来源的介质及实际约束填料制备输运液，不免费再生能量。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 500
+        },
+        {
+          "id": "phase_modulation_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "stable_transport_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "舰载导航与输运工艺"
+      ]
+    },
+    {
+      "id": "wonder_w15_four_system_engineering_singularity",
+      "role": "W15",
+      "zh_name": "四系实体工程奇点集成",
+      "purpose": "真实消耗四类复合材、极限铸材、凝态材料和框架，产出工程部件而非免费能源。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:emitter_cev",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_singularity",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "ticks": 4000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "文明工程与世界泡工艺"
+      ]
+    },
+    {
+      "id": "wonder_w15_terminal_prefabrication",
+      "role": "W15",
+      "zh_name": "终端多系统预制",
+      "purpose": "以四种独立功能模块、CEV框架和铸材集成建筑组件，材料及冷却均有实际成本。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_3",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_4",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:extreme_casting_material",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "毕业后奇观扩建"
+      ]
+    },
+    {
+      "id": "wonder_w15_perennial_rejected_batch_remanufacture",
+      "role": "W15",
+      "zh_name": "恒续拒收批分类再制造",
+      "purpose": "消耗拒收批、回收组分及CIV新坯回到功能层前体，明确排出不可回收尾料。",
+      "requirements": [
+        "RN-TAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_recovered_fraction",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_1",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "phase_modulation_medium",
+          "amount": 1000
+        },
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 2304
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_phase_modulation_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:tree_sea_audience_credential",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CEV重新制备"
+      ]
+    }
+  ]
+}

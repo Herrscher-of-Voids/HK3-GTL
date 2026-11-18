@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
 @Mixin(value=CraftingCpuLogic.class,remap=false)
-/** 【变更记录 #1】2026-10-01 06:27:59（修订128）：删除无；新增AE实际提交、完成与转化回执；修改无；用途：失败、取消、模拟及创造拿取不当生产，归属写入CPU存档。 */
+ 
 public abstract class Hk3EggCraftingCpuMixin {
     @Shadow @Final CraftingCPUCluster cluster;
     @Shadow @Final private int[] usedOps;

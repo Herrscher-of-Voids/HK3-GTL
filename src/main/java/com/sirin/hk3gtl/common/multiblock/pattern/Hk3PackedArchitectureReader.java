@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-09-27 23:52:00（内测5修订91）
- * 删除：无。新增：逐项解析建筑JSON，用长整数坐标及调色板保存非空气方块。
- * 修改：避免常驻逐格对象、三元数组和重复状态文本；遍历时才生成兼容视图。
- * 用途：降低大型建筑加载与缓存占用，保持原顺序、全部状态、主控和端口；非法资源拒绝加载。
- */
+ 
+
+
+
+
+
 public final class Hk3PackedArchitectureReader {
     private static final int BITS = 21, MASK = (1 << BITS) - 1;
     private static final Gson GSON = new Gson();

@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.gui;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public record Hk3GuiFit(double scale, double left, double top) {
     /** 参数及返回值均使用GUI像素，不是帧缓冲像素。 / All dimensions and offsets use GUI pixels, not framebuffer pixels. */
     public static Hk3GuiFit centered(int screenWidth, int screenHeight, int width, int height, int margin) {
@@ -16,7 +15,6 @@ public record Hk3GuiFit(double scale, double left, double top) {
     /** 设计→屏幕坐标，供渲染裁剪边界使用。 / Design to screen coordinates for rendering and clipping. */
     public double screenX(double x) { return left + x * scale; }
     public double screenY(double y) { return top + y * scale; }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean contains(double x, double y, int width, int height) {
         return x(x) >= 0 && y(y) >= 0 && x(x) < width && y(y) < height;
     }

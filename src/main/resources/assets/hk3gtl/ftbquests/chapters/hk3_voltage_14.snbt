@@ -1,404 +1,1897 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_14",
-  "id": "4B5F9006632E5C3D",
-  "title": "HK3GTL · WSV · 稳界压",
+  "id": "4B5F2B889F6CCDEA",
+  "title": "稳界压 WSV",
   "subtitle": [
-    "Tier28 · 先学会验收"
+    "Tier28-WSV"
   ],
-  "group": "",
-  "order_index": 28,
-  "icon": "hk3gtl:electric_motor_wsv",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 29,
+  "icon": "hk3gtl:voltage_machine_casing_wsv",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B5BDE0BA9709898",
-      "title": "先学会验收",
+      "id": "4B591448503FE870",
+      "title": "有限步数结果验算",
+      "subtitle": "独立核对计算结果与停止状态",
+      "description": [
+        "在工程测试设备中读取上一道计算回执，以独立公式核对步数、停止状态和总量。保存通过验算的计算记录，供后续工程研究读取。"
+      ],
+      "dependencies": [
+        "4B52E449306ED7FC",
+        "4B5137DC6ACD7AAC"
+      ],
+      "tasks": [
+        {
+          "id": "4B596BDD2C7F5AC9",
+          "type": "custom",
+          "title": "实际完成有限步数结果验算",
+          "tags": [
+            "hk3gtl_quest_existing_bounded_result_verification"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:honkai_reference_sample",
+      "x": 30,
+      "y": 42,
+      "optional": true
+    },
+    {
+      "id": "4B5132710E761772",
+      "title": "矛盾来源采样",
+      "subtitle": "让两种位宽读取同一个有限样本",
+      "description": [
+        "从已有三领域来源取得同一组输入，分别使用32位和64位通道累加。保留两份原始报告及相同样本定义，接着执行独立复验。"
+      ],
+      "dependencies": [
+        "4B55EF1E9B3DACDA",
+        "4B5802E842FF9314"
+      ],
+      "tasks": [
+        {
+          "id": "4B521F4F7FD7240B",
+          "type": "custom",
+          "title": "实际完成矛盾来源采样",
+          "tags": [
+            "hk3gtl_quest_existing_contradictory_source_sampling"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:analyzed_honkai_sample",
+      "x": 34,
+      "y": 42,
+      "optional": true
+    },
+    {
+      "id": "4B5446D7FAF60899",
+      "title": "矛盾样本独立复验",
+      "subtitle": "用任意精度整数倒序重算",
+      "description": [
+        "在逆向实验室读取上一道工况保留的同一样本，以任意精度整数倒序累加。保存完整结果和两份原始报告，再交给工程设备复核。"
+      ],
+      "dependencies": [
+        "4B5132710E761772"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C8F0E53DD06F0",
+          "type": "custom",
+          "title": "实际完成矛盾样本独立复验",
+          "tags": [
+            "hk3gtl_quest_existing_contradiction_sample_retest"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:honkai_reference_sample",
+      "x": 46,
+      "y": 42,
+      "optional": true
+    },
+    {
+      "id": "4B5FED87D8CDDF57",
+      "title": "跨机调度顺序验证",
+      "subtitle": "核对两台已授权机器的实际物料交接",
+      "description": [
+        "先由本人明确建立工单，让两台已授权机器按先后顺序实际生产并交接物料，再在工程测试设备中验证交接与手动调度回执。保存完整跨机工单记录。"
+      ],
+      "dependencies": [
+        "4B5D9AB5C693811A",
+        "4B55EF1E9B3DACDA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AE31A870EB127",
+          "type": "custom",
+          "title": "实际完成跨机调度顺序验证",
+          "tags": [
+            "hk3gtl_quest_existing_cross_machine_order_verification"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:honkai_reference_sample",
+      "x": 38,
+      "y": 42,
+      "optional": true
+    },
+    {
+      "id": "4B5E768E561F880E",
+      "title": "从WFV车间继续",
+      "subtitle": "WFV → WSV",
+      "description": [
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批WSV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
+      ],
+      "dependencies": [
+        "4B580FDD510DA71E"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CA503172B9F16",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_wfv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_wfv",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B58558AF88A1976",
+      "title": "约束边界总线",
+      "subtitle": "把独立约束域接到同一总线",
+      "description": [
+        "在构界拓扑路由片的接口上接出独立约束边界，制成约束边界总线。新的印刷板、膜和主材已装入组件，后续按总线成品投入。"
+      ],
+      "dependencies": [
+        "4B531BD31DF7D0DE",
+        "4B50212A69B5E25E",
+        "4B588F9018481E6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B597EA185E474B5",
+          "type": "item",
+          "item": "hk3gtl:confinement_boundary_bus",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:confinement_boundary_bus",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5DA9F231445ED9",
+      "title": "故障隔离表决器",
+      "subtitle": "核对故障状态与切换结果",
+      "description": [
+        "将局部CPU、RAM和时钟封装为故障隔离表决器，用于约束域的状态核对、隔离与切换确认。"
+      ],
+      "dependencies": [
+        "4B51716ACB713DCE",
+        "4B58558AF88A1976",
+        "4B56216F4E2D7726"
+      ],
+      "tasks": [
+        {
+          "id": "4B57CDAA5746F100",
+          "type": "item",
+          "item": "hk3gtl:fault_containment_voter",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:fault_containment_voter",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B525BAF22D76495",
+      "title": "冗余边界伺服组",
+      "subtitle": "为边界作业增加冗余支承",
+      "description": [
+        "在前级执行组件上增加边界伺服机构。它负责本阶的边界作业与失配停止，前级支承随成品一起保留。"
+      ],
+      "dependencies": [
+        "4B556E81648CE5E5",
+        "4B5DA9F231445ED9",
+        "4B508B22870E1F24"
+      ],
+      "tasks": [
+        {
+          "id": "4B51003511F2C08E",
+          "type": "item",
+          "item": "hk3gtl:redundant_boundary_servo",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:redundant_boundary_servo",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5EAB5D0766FEF5",
+      "title": "独立服役回路块",
+      "subtitle": "分别接出供回路与旁通",
+      "description": [
+        "把前级通道保留下来，再组装独立供回路和分域旁通。完成气密工序后，将排热液送回冷却液处理线。"
+      ],
+      "dependencies": [
+        "4B5E6B8B68D9B5DA",
+        "4B56216F4E2D7726",
+        "4B50212A69B5E25E"
+      ],
+      "tasks": [
+        {
+          "id": "4B53E11FD76BB7B6",
+          "type": "item",
+          "item": "hk3gtl:isolated_service_loop_block",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:isolated_service_loop_block",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5D8D141FECC519",
+      "title": "世界织构处理器主机",
+      "subtitle": "把织构计算接入约束边界",
+      "description": [
+        "用两件世界织构超级计算机作计算主体，接入约束边界总线、故障隔离表决器和独立服役回路块，完成主机装配。"
+      ],
+      "dependencies": [
+        "4B56F3B0A5BF4A8C",
+        "4B5DA9F231445ED9",
+        "4B5EAB5D0766FEF5",
+        "4B508B22870E1F24"
+      ],
+      "tasks": [
+        {
+          "id": "4B586F32D26AAA16",
+          "type": "item",
+          "item": "hk3gtl:world_weaving_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:world_weaving_processor_mainframe",
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5F2E4515DC981D",
+      "title": "终序演算超级计算机",
+      "subtitle": "将演算组件装入隔离结构",
+      "description": [
+        "以两件终序演算处理器组装件为主体，加入稳界约束壳材框架、共享RAM和独立回路，组装终序演算超级计算机。"
+      ],
+      "dependencies": [
+        "4B59DB139B2F5210",
+        "4B5DA9F231445ED9",
+        "4B5EAB5D0766FEF5",
+        "4B508B22870E1F24"
+      ],
+      "tasks": [
+        {
+          "id": "4B58F9F51177D765",
+          "type": "item",
+          "item": "hk3gtl:terminal_computation_computer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:terminal_computation_computer",
+      "x": 50,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5949A42E56A093",
+      "title": "文明恒续处理器组装件",
+      "subtitle": "让状态记录与边界切换协同工作",
+      "description": [
+        "将两件文明恒续处理器接入本级约束总线，补上故障隔离表决器、共享RAM和承力结构，完成处理器组装件。"
+      ],
+      "dependencies": [
+        "4B5DA9F231445ED9",
+        "4B5EAB5D0766FEF5",
+        "4B508B22870E1F24"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D2EE0F667B4DB",
+          "type": "item",
+          "item": "hk3gtl:wsv_assembly",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
       "icon": "hk3gtl:wsv_assembly",
-      "x": 0.0,
-      "y": -4.0,
+      "x": 54,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B55C1E63A21B3A4",
+      "title": "WSV 电动马达",
+      "subtitle": "将旧驱动与本阶执行组件合装",
       "description": [
-        "奇观不是摆出外形就算完成。先掌握工程验收方法，再展开不同方向的建设研究。",
-        "",
-        "本页开始能源与工业方向的奇观课题。研究提供知识，实际工程还需要各自的运行与验收。",
-        "{@pagebreak}",
-        "本页是WSV · 稳界压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "以两件WFV电动马达为基础，加入冗余边界伺服组、故障隔离表决器和独立服役回路块，再接入本级处理电路，制成WSV电动马达。"
+      ],
+      "dependencies": [
+        "4B588D52C7941E89",
+        "4B525BAF22D76495",
+        "4B5949A42E56A093"
       ],
       "tasks": [
         {
-          "id": "4B545F48BFFF6887",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_intro_14"
-          ]
+          "id": "4B57636843D21FDF",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_wsv",
+          "count": 1,
+          "consume_items": false
         }
       ],
-      "size": 2.0,
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B52E12C204E6CD0",
-      "title": "电路与八大件",
       "icon": "hk3gtl:electric_motor_wsv",
-      "x": -4.0,
-      "y": -4.0,
-      "description": [
-        "进入WSV · 稳界压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5FA9F276561038",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_14"
-          ]
-        }
-      ]
+      "x": 0,
+      "y": 18,
+      "optional": false
     },
     {
-      "id": "4B5D42853DBE1968",
-      "title": "文明工程验收方法",
-      "icon": "hk3gtl:world_maintenance_specimen",
-      "x": 0.0,
-      "y": 0.0,
+      "id": "4B55FCCCC9EE2F63",
+      "title": "WSV 电动活塞",
+      "subtitle": "先有本级马达，再组装直线执行机构",
       "description": [
-        "在真正开展奇观工程以前，先学会怎样验收它。后续各座奇观需要各自证明能够工作，研究完成不会代替工程验收。",
-        "",
-        "解锁文明工程验收中心；验收方法研究不等于取得每座奇观的实际运行证明。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "奇观构件预制工厂实际预制样件、世界维系试验平台维系记录及前级测量工装。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S04或更高等级研究所选择“文明工程验收方法”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：奇观构件预制。",
-        "基础研究费用：6120点；8 × WFV级电路；128 × 中子素板。",
-        "基础工期：30分钟；研究用电：135,107,988,821,114,880 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "将本级马达与两件WFV电动活塞合装，接入冗余边界伺服组和独立服役回路块，完成本级活塞。"
+      ],
+      "dependencies": [
+        "4B5A4E71F28E7D7B",
+        "4B55C1E63A21B3A4"
       ],
       "tasks": [
         {
-          "id": "4B5244CE407F4FC8",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_cee"
-          ]
+          "id": "4B58F3E6EFE27EE3",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_wsv",
+          "count": 1,
+          "consume_items": false
         }
       ],
-      "dependencies": [
-        "4B5418002D905162"
-      ],
-      "subtitle": "S04 · RN-CEE",
-      "shape": "rsquare"
+      "icon": "hk3gtl:electric_piston_wsv",
+      "x": 12,
+      "y": 18,
+      "optional": false
     },
     {
-      "id": "4B5C00437CD0C5D8",
-      "title": "究极反应堆工程",
-      "icon": "hk3gtl:ultimate_honkai_reactor_vessel",
-      "x": 0.0,
-      "y": 3.0,
+      "id": "4B5A9C26C12082CA",
+      "title": "WSV 电动泵",
+      "subtitle": "把驱动、介质回路与状态组件装到一起",
       "description": [
-        "结合大型反应堆经验、能源调度与奇观材料，研究究极反应堆工程。配套供能与负载资料仍然要准备完整。",
-        "",
-        "解锁独立控制器究极崩坏能反应堆。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "大型崩坏能反应堆真实大型供能回执、文明奇观材料合成中心起步材料与已有热管理成果。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S04或更高等级研究所选择“究极反应堆工程”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：大型反应堆工程、文明能源调度、文明奇观材料。",
-        "基础研究费用：6120点；8 × WFV级电路；128 × 中子素板。",
-        "基础工期：30分钟；研究用电：135,107,988,821,114,880 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "以两件WFV电动泵为基础，装入本级马达、独立服役回路块、冗余边界伺服组与故障隔离表决器，完成本级泵。"
+      ],
+      "dependencies": [
+        "4B549F522A6157BB",
+        "4B55C1E63A21B3A4"
       ],
       "tasks": [
         {
-          "id": "4B5B32F126E3F952",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_ure"
-          ]
+          "id": "4B5A3B11FF4D7900",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_wsv",
+          "count": 1,
+          "consume_items": false
         }
       ],
+      "icon": "hk3gtl:electric_pump_wsv",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5564A4DB90FCDB",
+      "title": "WSV 传送带模块",
+      "subtitle": "把输送驱动接入本阶调度接口",
+      "description": [
+        "将两件WFV传送带模块与两件本级马达合装，连接约束边界总线、故障隔离表决器和执行组件，制成新输送模块。"
+      ],
       "dependencies": [
-        "4B52FD45022F2AFE",
-        "4B5E3DA7F13B68CF",
+        "4B5E9F7D1509AD77",
+        "4B55C1E63A21B3A4"
+      ],
+      "tasks": [
+        {
+          "id": "4B530120BCACB776",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_wsv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_wsv",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5FC954E717BFB4",
+      "title": "WSV 机械臂",
+      "subtitle": "把旋转驱动与直线执行装在同一框架",
+      "description": [
+        "备齐两件本级马达和一件本级活塞，与两件WFV机械臂一起装配，再连接约束边界总线和故障隔离表决器。"
+      ],
+      "dependencies": [
+        "4B5E853D08F25D97",
+        "4B55FCCCC9EE2F63"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A1703F087B431",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_wsv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_wsv",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B59AE764DF3481F",
+      "title": "WSV 传感器",
+      "subtitle": "通过本阶接口接出状态读数",
+      "description": [
+        "将两件WFV传感器与约束边界总线、故障隔离表决器和独立服役回路块合装，接好本级电路与结构件，制成新传感器。"
+      ],
+      "dependencies": [
+        "4B56743739F941C6",
+        "4B5949A42E56A093"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F2538F1464153",
+          "type": "item",
+          "item": "hk3gtl:sensor_wsv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_wsv",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B558B1BB8FB35FA",
+      "title": "WSV 发射器",
+      "subtitle": "把发射组件接入本阶控制与回路",
+      "description": [
+        "在两件WFV发射器的基础上，加入约束边界总线、故障隔离表决器、独立服役回路块和超短脉冲激光器，完成新发射器。"
+      ],
+      "dependencies": [
+        "4B5C9068264A5507",
+        "4B5949A42E56A093"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FE7064D5FDCAD",
+          "type": "item",
+          "item": "hk3gtl:emitter_wsv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_wsv",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5DD049049F9406",
+      "title": "WSV 力场发生器",
+      "subtitle": "把发射与测量组件汇入场控制",
+      "description": [
+        "先备齐四件本级发射器和两件本级传感器，再与两件WFV力场发生器、本级电路及接口组件一起总装。"
+      ],
+      "dependencies": [
+        "4B5189A9A37FFDAE",
+        "4B59AE764DF3481F",
+        "4B558B1BB8FB35FA"
+      ],
+      "tasks": [
+        {
+          "id": "4B55B2F3C5ACF903",
+          "type": "item",
+          "item": "hk3gtl:field_generator_wsv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_wsv",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B52AF5EC4088E88",
+      "title": "裂纹止扩隔离夹层",
+      "subtitle": "把裂纹限制在局部层间",
+      "description": [
+        "用构界梯度纤维材和柔性隔离材料制成夹层，为后面的封隔、错缝压合与疲劳处理准备连接层。"
+      ],
+      "dependencies": [
+        "4B52DF9964ED8F7C"
+      ],
+      "tasks": [
+        {
+          "id": "4B57589EECF24D33",
+          "type": "item",
+          "item": "hk3gtl:crack_arrest_isolation_interleaf",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:crack_arrest_isolation_interleaf",
+      "x": 30,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B543CAC364A7E4B",
+      "title": "疲劳隔离封装液",
+      "subtitle": "给首批封隔材料准备新液",
+      "description": [
+        "用新鲜载液与固体辅料配制疲劳隔离封装液，供给前体铺覆、错缝压合和端面补封工序。"
+      ],
+      "dependencies": [
         "4B5793B57FF95411"
       ],
-      "subtitle": "S04 · RN-URE",
-      "shape": "rsquare"
+      "tasks": [
+        {
+          "id": "4B57708D4B975FCB",
+          "type": "custom",
+          "title": "实际完成疲劳隔离封装液",
+          "tags": [
+            "hk3gtl_quest_wsv_n02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 34,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B527F8490E54262",
+      "title": "约束封隔前体",
+      "subtitle": "先做分段封隔与止扩界面",
+      "description": [
+        "在构界梯度纤维材上铺覆隔离夹层，形成分段封隔前体。收集本步排出的废界面载液。"
+      ],
+      "dependencies": [
+        "4B52AF5EC4088E88",
+        "4B543CAC364A7E4B"
+      ],
+      "tasks": [
+        {
+          "id": "4B51618F357940FD",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_stage_1",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_stage_1",
+      "x": 38,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5A907B4ED6B2ED",
+      "title": "纤维封隔多层坯",
+      "subtitle": "让硬片错缝，柔性层连接各层",
+      "description": [
+        "将封隔前体与前级箔材错缝压合，用柔性层和Z向束连接各层，制成多层封隔坯。"
+      ],
+      "dependencies": [
+        "4B5E50CE2001967B",
+        "4B527F8490E54262"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CA71A4BE3910A",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_stage_2",
+      "x": 42,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5AE55938FFA23C",
+      "title": "多层壳材疲劳预处理",
+      "subtitle": "在封端前完成热循环调理",
+      "description": [
+        "对多层坯进行热循环预处理，释放界面应力。分别收集热冷却液和废应力调理液，再把疲劳老化复核坯送去补封。"
+      ],
+      "dependencies": [
+        "4B5A907B4ED6B2ED"
+      ],
+      "tasks": [
+        {
+          "id": "4B528208CCB5DD8C",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_stage_3",
+      "x": 46,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5A94746622AD6F",
+      "title": "稳界约束壳材标准坯",
+      "subtitle": "热循环以后再补封端面",
+      "description": [
+        "在疲劳处理后的端面加入隔离夹层和封边材料，封住层间边界，得到稳界约束壳材标准坯。"
+      ],
+      "dependencies": [
+        "4B5AE55938FFA23C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C1532EB15E458",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_billet",
+      "x": 50,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5BBBF746435F75",
+      "title": "错缝止裂约束板",
+      "subtitle": "让裂纹经过每层时改变路径",
+      "description": [
+        "将隔离夹层错缝铺入板材，保留前级承力背衬，制成稳界约束壳材板。"
+      ],
+      "dependencies": [
+        "4B5A94746622AD6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B5701950BBD8F55",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_plate",
+      "x": 54,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B57C2F795B813DC",
+      "title": "分段止裂约束棒",
+      "subtitle": "保留连续棒芯，分段铺设夹层",
+      "description": [
+        "在连续棒芯外铺设分段隔离夹层，再完成封装，制成止裂约束棒。"
+      ],
+      "dependencies": [
+        "4B5AF78C0F07FAC8",
+        "4B5A94746622AD6F"
+      ],
+      "tasks": [
+        {
+          "id": "4B54060BC085C314",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_rod",
+      "x": 54,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B508B22870E1F24",
+      "title": "柔性节点约束框架",
+      "subtitle": "在节点间加入柔性缓冲层",
+      "description": [
+        "将柔性夹层加入框架节点，为各段梁体之间保留缓冲界面，制成约束框架。"
+      ],
+      "dependencies": [
+        "4B558B4335018F20",
+        "4B57C2F795B813DC"
+      ],
+      "tasks": [
+        {
+          "id": "4B58E2650A7A3478",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_frame",
+      "x": 50,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B56216F4E2D7726",
+      "title": "分瓣止裂隔离环",
+      "subtitle": "让分瓣隔层错缝围合",
+      "description": [
+        "错缝围合各片隔离层，同时保留连续外环承受周向载荷，制成止裂隔离环。"
+      ],
+      "dependencies": [
+        "4B58EE50644340CB",
+        "4B57C2F795B813DC"
+      ],
+      "tasks": [
+        {
+          "id": "4B59062DCDF8BCA8",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_ring",
+      "x": 46,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B50212A69B5E25E",
+      "title": "柔性隔层止裂箔",
+      "subtitle": "在薄箔内保留韧性夹层",
+      "description": [
+        "将薄夹层与韧性基箔复合，完成封边，制成用于层间隔离的止裂箔。"
+      ],
+      "dependencies": [
+        "4B5BBBF746435F75"
+      ],
+      "tasks": [
+        {
+          "id": "4B5183850909EFCE",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_foil",
+      "x": 42,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B588F9018481E6F",
+      "title": "隔离薄层约束细线",
+      "subtitle": "在连续线芯外铺设柔性隔层",
+      "description": [
+        "保留连续线芯，在外侧制备柔性隔离薄层并封装，制成约束细线。"
+      ],
+      "dependencies": [
+        "4B583DDDF7D38C97",
+        "4B57C2F795B813DC"
+      ],
+      "tasks": [
+        {
+          "id": "4B50C7E0F38AA0D8",
+          "type": "item",
+          "item": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+      "x": 38,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B586D17875499F0",
+      "title": "WSV机械方块",
+      "subtitle": "把止裂封隔结构装进新壳体",
+      "description": [
+        "以WFV机械方块为核心，加入稳界约束壳材板、框架和连接环，再完成端口与封装，制成第一批WSV机械方块。首制工况为WFV。"
+      ],
+      "dependencies": [
+        "4B580FDD510DA71E",
+        "4B5BBBF746435F75",
+        "4B508B22870E1F24",
+        "4B56216F4E2D7726"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E52897D4179DA",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_wsv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_wsv",
+      "x": 34,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B542CCF25B0473F",
+      "title": "拆解WSV机械方块",
+      "subtitle": "留下可复用壳体与完整结构件",
+      "description": [
+        "分层拆开WSV机械方块，取回WFV核心壳体和一半完整的板、框架、环。其余主体分成分类废料，专用功能件和封装材料随拆解消耗。"
+      ],
+      "dependencies": [
+        "4B586D17875499F0"
+      ],
+      "tasks": [
+        {
+          "id": "4B523BD2B5A96942",
+          "type": "custom",
+          "title": "实际完成拆解WSV机械方块",
+          "tags": [
+            "hk3gtl_quest_wsv_n14"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_wfv",
+      "x": 30,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B527B071B7AF4C7",
+      "title": "稳界约束壳材废料分离",
+      "subtitle": "把可重建组分与尾料分别收集",
+      "description": [
+        "用魂钢工艺溶剂洗脱分类废料的附着物，再进行离心分离。主体按75%回收组分、25%不可回收尾料分开，废溶剂单独接走。"
+      ],
+      "dependencies": [
+        "4B5793B57FF95411"
+      ],
+      "tasks": [
+        {
+          "id": "4B5812F34C1855F1",
+          "type": "custom",
+          "title": "实际完成稳界约束壳材废料分离",
+          "tags": [
+            "hk3gtl_quest_wsv_n15"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_recovered_fraction",
+      "x": 34,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B5855ED5B444920",
+      "title": "重建约束封隔前体",
+      "subtitle": "补新主体并重新投入功能辅料",
+      "description": [
+        "将回收组分与新鲜主体按配方配合，重新投入全部功能辅料，制成约束封隔前体。随后从原来的中间工序继续制造。"
+      ],
+      "dependencies": [
+        "4B52AF5EC4088E88",
+        "4B543CAC364A7E4B"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F52EB1B749E55",
+          "type": "custom",
+          "title": "实际完成重建约束封隔前体",
+          "tags": [
+            "hk3gtl_quest_wsv_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:worldstabilizing_confinement_shell_stage_1",
+      "x": 38,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B576A45F4448EA3",
+      "title": "稳界约束壳材尾料封存",
+      "subtitle": "将损坏材料固化为惰性残渣",
+      "description": [
+        "把不可回收尾料固化为灰烬，送往一般灰尘用途。可重建组分从另一出口送回补料工序。"
+      ],
+      "dependencies": [
+        "4B5793B57FF95411"
+      ],
+      "tasks": [
+        {
+          "id": "4B52ECE391E99CB5",
+          "type": "custom",
+          "title": "实际完成稳界约束壳材尾料封存",
+          "tags": [
+            "hk3gtl_quest_wsv_n17"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 42,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B53CEEEDE2C55DA",
+      "title": "分区热应力隔离总成",
+      "subtitle": "分别传递热膨胀、压差与电隔离载荷",
+      "description": [
+        "将热膨胀、压差和电隔离接口装成分区总成，供后面的反应堆与工程设施主控使用。"
+      ],
+      "dependencies": [
+        "4B59E2A5B60BA9E8",
+        "4B549F522A6157BB",
+        "4B5189A9A37FFDAE"
+      ],
+      "tasks": [
+        {
+          "id": "4B540C14923DF310",
+          "type": "item",
+          "item": "hk3gtl:segmented_thermal_barrier",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:segmented_thermal_barrier",
+      "x": 0,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B55100945DBD11C",
+      "title": "究极崩坏能反应堆控制器",
+      "subtitle": "接好多区热负载与紧急隔离接口",
+      "description": [
+        "完成RN-URE研究，使用事先制好的隔离总成和部件装配反应堆控制器。后续发电运行按反应堆的实际燃料与运行工艺进行。"
+      ],
+      "dependencies": [
+        "4B5C00437CD0C5D8",
+        "4B5E853D08F25D97",
+        "4B580FDD510DA71E",
+        "4B53CEEEDE2C55DA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F5EDF0DCF35B5",
+          "type": "item",
+          "item": "hk3gtl:i22_ultimate_honkai_reactor",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i22_ultimate_honkai_reactor",
+      "x": 4,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5137DC6ACD7AAC",
+      "title": "文明工程验收中心控制器",
+      "subtitle": "分别采样材料、能流与工程记录",
+      "description": [
+        "完成RN-CEE研究后，组装文明工程验收中心控制器，将材料、能流和记录采样接到各自的接口。"
+      ],
+      "dependencies": [
+        "4B5D42853DBE1968",
+        "4B5E853D08F25D97",
+        "4B580FDD510DA71E",
+        "4B53CEEEDE2C55DA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EF7CD78B52502",
+          "type": "item",
+          "item": "hk3gtl:i43_civilization_engineering_acceptance_center",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i43_civilization_engineering_acceptance_center",
+      "x": 8,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5F14AA951C38A6",
+      "title": "始源·群星协奏庭主控",
+      "subtitle": "在预制工厂制造首座奇观主控",
+      "description": [
+        "完成RN-HCCO研究，在奇观构件预制工厂制造始源·群星协奏庭主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B543D9716760D00"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BCBBC99F57F2A",
+          "type": "item",
+          "item": "hk3gtl:w01_origin_stellar_concert_court",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:w01_origin_stellar_concert_court",
+      "x": 30,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B54661355BC87B1",
+      "title": "理之律者·万象·自律工业矩阵主控",
+      "subtitle": "在群星协奏庭接续奇观制造链",
+      "description": [
+        "完成RN-HCCO、RN-AIM研究，在始源·群星协奏庭制造理之律者·万象·自律工业矩阵主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B5D9AB5C693811A",
+        "4B5F14AA951C38A6"
+      ],
+      "tasks": [
+        {
+          "id": "4B5206F02623D861",
+          "type": "custom",
+          "title": "实际完成理之律者·万象·自律工业矩阵主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:omnia_autonomous_industrial_matrix",
+      "x": 0,
+      "y": 56,
+      "optional": true
+    },
+    {
+      "id": "4B5ACDE76D49906A",
+      "title": "空之律者·穹界·虚数锚定环主控",
+      "subtitle": "从自律工业矩阵接出虚数锚定工程",
+      "description": [
+        "完成RN-AIM、RN-IAR研究，在理之律者·万象·自律工业矩阵制造空之律者·穹界·虚数锚定环主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B5802E842FF9314",
+        "4B59DD5C06C14D59",
+        "4B54661355BC87B1",
+        "4B5FC954E717BFB4",
+        "4B586D17875499F0"
+      ],
+      "tasks": [
+        {
+          "id": "4B570D64AB9F178B",
+          "type": "custom",
+          "title": "实际完成空之律者·穹界·虚数锚定环主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k03"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:void_anchor_ring",
+      "x": 4,
+      "y": 56,
+      "optional": true
+    },
+    {
+      "id": "4B5CAF3D1BC26045",
+      "title": "雷之律者·鸣霆·超导电磁天枢主控",
+      "subtitle": "在虚数锚定环制造电磁天枢主控",
+      "description": [
+        "完成RN-IAR、RN-SEM研究，在空之律者·穹界·虚数锚定环制造雷之律者·鸣霆·超导电磁天枢主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B58AF9401EC1386",
+        "4B5ACDE76D49906A"
+      ],
+      "tasks": [
+        {
+          "id": "4B598979266BAAEB",
+          "type": "custom",
+          "title": "实际完成雷之律者·鸣霆·超导电磁天枢主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k04"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:w04_thunder_superconducting_axis",
+      "x": 8,
+      "y": 56,
+      "optional": true
+    },
+    {
+      "id": "4B5FCAEF25658770",
+      "title": "风之律者·长风·理想流体环流阵主控",
+      "subtitle": "从电磁工程接续流体环流工程",
+      "description": [
+        "完成RN-SEM、RN-IFF研究，在雷之律者·鸣霆·超导电磁天枢制造风之律者·长风·理想流体环流阵主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B513376AFB211D3",
+        "4B5CAF3D1BC26045"
+      ],
+      "tasks": [
+        {
+          "id": "4B51A996064A48A1",
+          "type": "custom",
+          "title": "实际完成风之律者·长风·理想流体环流阵主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k05"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:w05_ideal_fluid_circulation_array",
+      "x": 12,
+      "y": 56,
+      "optional": true
+    },
+    {
+      "id": "4B594D940B461D0C",
+      "title": "冰之律者·永霜·极低温凝态工厂主控",
+      "subtitle": "在环流阵制造极低温工厂主控",
+      "description": [
+        "完成RN-IFF、RN-CCF研究，在风之律者·长风·理想流体环流阵制造冰之律者·永霜·极低温凝态工厂主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B5BCAEEE0929B4A",
+        "4B5FCAEF25658770"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E1EFB87AAB664",
+          "type": "custom",
+          "title": "实际完成冰之律者·永霜·极低温凝态工厂主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k06"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:w06_cryogenic_condensed_factory",
+      "x": 16,
+      "y": 56,
+      "optional": true
+    },
+    {
+      "id": "4B5F2667B34BBF42",
+      "title": "恒续燃料约束工装总装",
+      "subtitle": "活化工装 · WFV工况",
+      "description": [
+        "制造配制含能燃料使用的耐用工装，装入对应设备后继续保留。"
+      ],
+      "dependencies": [
+        "4B5C00437CD0C5D8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5997D4FE889CDB",
+          "type": "custom",
+          "title": "实际完成恒续燃料约束工装总装",
+          "tags": [
+            "hk3gtl_quest_energy_t04"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:continuity_fuel_confinement_fixture",
+      "x": 30,
+      "y": 62,
+      "optional": true
+    },
+    {
+      "id": "4B5780CFA496A087",
+      "title": "恒续约束崩坏燃料新鲜制备",
+      "subtitle": "含能燃料 · WFV工况",
+      "description": [
+        "给对应反应堆配制新鲜含能燃料。按实际物理棒数持续消耗，先把储罐与补液接好。"
+      ],
+      "dependencies": [
+        "4B5F2667B34BBF42"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D3BE6D9A38606",
+          "type": "custom",
+          "title": "实际完成恒续约束崩坏燃料新鲜制备",
+          "tags": [
+            "hk3gtl_quest_energy_f04"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:fuel_matrix",
+      "x": 34,
+      "y": 62,
+      "optional": true
+    },
+    {
+      "id": "4B5674771C836BBE",
+      "title": "究极崩坏能反应堆 · 崩坏燃料棒",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入崩坏燃料棒，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。普通首制，低成本启动。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5130479FCA8A9B",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 崩坏燃料棒",
+          "tags": [
+            "hk3gtl_quest_energy_i22_01"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_fuel_rod",
+      "x": 0,
+      "y": 66,
+      "optional": true
+    },
+    {
+      "id": "4B5EF80CFD842FDA",
+      "title": "究极崩坏能反应堆 · 浓缩崩坏燃料棒",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入浓缩崩坏燃料棒，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。浓缩长周期燃料，热负荷最高。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B570B4DA96B0129",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 浓缩崩坏燃料棒",
+          "tags": [
+            "hk3gtl_quest_energy_i22_02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_dense_honkai_fuel_rod",
+      "x": 4,
+      "y": 66,
+      "optional": true
+    },
+    {
+      "id": "4B54A1AF2237F26E",
+      "title": "究极崩坏能反应堆 · 吸附碳芯崩坏燃料匣",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入吸附碳芯崩坏燃料匣，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。多孔碳载体，较低热负荷。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E41DBC95F1390",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 吸附碳芯崩坏燃料匣",
+          "tags": [
+            "hk3gtl_quest_energy_i22_03"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_carbon_fuel",
+      "x": 8,
+      "y": 66,
+      "optional": true
+    },
+    {
+      "id": "4B53417463EEAAA2",
+      "title": "究极崩坏能反应堆 · 分子筛定向载能棒",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入分子筛定向载能棒，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。吸附载体，牺牲功率换稳定释能。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B566DD8A610BD20",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 分子筛定向载能棒",
+          "tags": [
+            "hk3gtl_quest_energy_i22_04"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_zeolite_fuel",
+      "x": 12,
+      "y": 66,
+      "optional": true
+    },
+    {
+      "id": "4B50F49CE18E4E19",
+      "title": "究极崩坏能反应堆 · 硅胶凝固崩坏燃料颗粒",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入硅胶凝固崩坏燃料颗粒，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。凝胶均匀分散，长周期运行。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F11B41ECF0D4C",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 硅胶凝固崩坏燃料颗粒",
+          "tags": [
+            "hk3gtl_quest_energy_i22_05"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_silica_gel_fuel",
+      "x": 16,
+      "y": 66,
+      "optional": true
+    },
+    {
+      "id": "4B5B39F50C5753C1",
+      "title": "究极崩坏能反应堆 · 碳化硅多孔陶瓷燃料棒",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入碳化硅多孔陶瓷燃料棒，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。耐热陶瓷，功率与散热均衡。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B54EFFD2D0A64DF",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 碳化硅多孔陶瓷燃料棒",
+          "tags": [
+            "hk3gtl_quest_energy_i22_06"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_silicon_carbide_fuel",
+      "x": 20,
+      "y": 66,
+      "optional": true
+    },
+    {
+      "id": "4B54BA4BFE6514E8",
+      "title": "究极崩坏能反应堆 · 碳化硼梯度颗粒燃料匣",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入碳化硼梯度颗粒燃料匣，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。吸收与局部约束，较高HW。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F1B37DFBEF750",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 碳化硼梯度颗粒燃料匣",
+          "tags": [
+            "hk3gtl_quest_energy_i22_07"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_boron_carbide_fuel",
+      "x": 24,
+      "y": 66,
+      "optional": true
+    },
+    {
+      "id": "4B5DCED2196296A4",
+      "title": "究极崩坏能反应堆 · 氧化锆梯度陶瓷燃料珠",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入氧化锆梯度陶瓷燃料珠，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。高温稳定载体，需改善冷却。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AF3F2A0AA1BFD",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 氧化锆梯度陶瓷燃料珠",
+          "tags": [
+            "hk3gtl_quest_energy_i22_08"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_zirconia_fuel",
+      "x": 24,
+      "y": 70,
+      "optional": true
+    },
+    {
+      "id": "4B5951675108E6DE",
+      "title": "究极崩坏能反应堆 · 金刚石铜骨架崩坏燃料芯",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入金刚石铜骨架崩坏燃料芯，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。高导热载体，降低冷却消耗。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5678ABDF658DDA",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 金刚石铜骨架崩坏燃料芯",
+          "tags": [
+            "hk3gtl_quest_energy_i22_09"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_diamond_copper_fuel",
+      "x": 20,
+      "y": 70,
+      "optional": true
+    },
+    {
+      "id": "4B51503E4708C13C",
+      "title": "究极崩坏能反应堆 · 石墨烯层间崩坏燃料片",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入石墨烯层间崩坏燃料片，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。导热微网，兼顾发电与HW。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B54195957B0B700",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 石墨烯层间崩坏燃料片",
+          "tags": [
+            "hk3gtl_quest_energy_i22_10"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_graphene_fuel",
+      "x": 16,
+      "y": 70,
+      "optional": true
+    },
+    {
+      "id": "4B532DEE8B706E28",
+      "title": "究极崩坏能反应堆 · 碳化钛金属陶瓷燃料块",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入碳化钛金属陶瓷燃料块，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。短周期最大发电，燃料与冷却吞吐最高。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B99353913CDC0",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 碳化钛金属陶瓷燃料块",
+          "tags": [
+            "hk3gtl_quest_energy_i22_11"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_titanium_carbide_fuel",
+      "x": 12,
+      "y": 70,
+      "optional": true
+    },
+    {
+      "id": "4B5DFD1BB3C8DBFE",
+      "title": "究极崩坏能反应堆 · 氧化铝绝缘微珠燃料床",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入氧化铝绝缘微珠燃料床，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。高输出陶瓷，较长运行周期。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5285D7225D1295",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 氧化铝绝缘微珠燃料床",
+          "tags": [
+            "hk3gtl_quest_energy_i22_12"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_alumina_fuel",
+      "x": 8,
+      "y": 70,
+      "optional": true
+    },
+    {
+      "id": "4B57F8D4FBEA7A34",
+      "title": "究极崩坏能反应堆 · 钨微通道崩坏燃料匣",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入钨微通道崩坏燃料匣，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。高功率金属骨架，增加HW供给。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A4FD0C05BAB72",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · 钨微通道崩坏燃料匣",
+          "tags": [
+            "hk3gtl_quest_energy_i22_13"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_tungsten_fuel",
+      "x": 4,
+      "y": 70,
+      "optional": true
+    },
+    {
+      "id": "4B5BA96687894518",
+      "title": "究极崩坏能反应堆 · PTFE冷端膜式燃料匣",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入PTFE冷端膜式燃料匣，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。低热膜载体，偏向HW与少冷却耗材。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D639B9F612D15",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · PTFE冷端膜式燃料匣",
+          "tags": [
+            "hk3gtl_quest_energy_i22_14"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_ptfe_membrane_fuel",
+      "x": 0,
+      "y": 70,
+      "optional": true
+    },
+    {
+      "id": "4B5D282233023236",
+      "title": "究极崩坏能反应堆 · PBI冷端微胶囊燃料颗粒",
+      "subtitle": "高能释能 · 四种棒组规格任选一条",
+      "description": [
+        "给究极崩坏能反应堆装入PBI冷端微胶囊燃料颗粒，并按装料量补充恒续约束崩坏燃料。四种棒组规格各有完整运行记录，任选一种完成一批。",
+        "固定装料8组，规格1连，共8根物理棒；消耗64mB恒续约束崩坏燃料。高HW微囊载体，最长运行周期。冷却由独立回路按热存量执行。单并行、无普通超频。 工业冷却与乏棒处理继续使用独立通道。"
+      ],
+      "dependencies": [
+        "4B5780CFA496A087",
+        "4B55100945DBD11C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5333F57C10CC22",
+          "type": "custom",
+          "title": "实际完成究极崩坏能反应堆 · PBI冷端微胶囊燃料颗粒",
+          "tags": [
+            "hk3gtl_quest_energy_i22_15"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_honkai_pbi_microcapsule_fuel",
+      "x": 0,
+      "y": 74,
+      "optional": true
+    },
+    {
+      "id": "4B5511DDFAFAE31B",
+      "title": "四阶研究所接口联调",
+      "subtitle": "把研究运行与三领域资料一起核对",
+      "description": [
+        "先取得四阶研究所实际完成课题的记录，再在工程测试设备中联调接口与三领域资料。处理标准样本、基板与纸张，形成真实接口联调回执，接续文明认知穹顶研究。"
+      ],
+      "dependencies": [
+        "4B543D9716760D00",
+        "4B5BBAC5EA88F163"
+      ],
+      "tasks": [
+        {
+          "id": "4B59BCB21665FF23",
+          "type": "custom",
+          "title": "实际完成四阶研究所接口联调",
+          "tags": [
+            "hk3gtl_quest_existing_lab_four_interface_analysis"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:analyzed_honkai_sample",
+      "x": 42,
+      "y": 42,
+      "optional": true
     },
     {
       "id": "4B5D9AB5C693811A",
       "title": "万象自律工业矩阵",
-      "icon": "hk3gtl:wonder_reason_core_mount",
-      "x": 3.0,
-      "y": 0.0,
+      "subtitle": "RN-AIM · 实验与正式研究",
       "description": [
-        "把仿制理核心相关成果用于自律工业矩阵研究。先弄清系统如何协作，再考虑扩大工业规模。",
-        "",
-        "解锁理之律者 · 万象·自律工业矩阵建造，运行后提供工业扩产成果。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "魂钢前驱体配制釜–魂钢精密加工中心魂钢连续生产、电路封装与工况测试等已开放电路路线的真实批次与仿制理核心解析资料。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“万象自律工业矩阵”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、仿制理核心。",
-        "基础研究费用：6120点；8 × WFV级电路；128 × 中子素板。",
-        "基础工期：30分钟；研究用电：135,107,988,821,114,880 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：已蚀刻电路层×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。核验实际投入产出、批次来源与连续工况，排除复制报告和未掌握电路；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6120研究积分或WFV电路 × 8、中子素板 × 128支付基准费用；另需36,000 tick与135,107,988,821,114,880 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁理之律者·万象·自律工业矩阵建造，运行后提供工业扩产成果。"
+      ],
+      "dependencies": [
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B5912A409DAA962",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成万象自律工业矩阵",
           "tags": [
             "hk3gtl_quest_rn_aim"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B5DA6E64F338B10"
-      ],
-      "subtitle": "S04 · RN-AIM",
-      "shape": "rsquare"
+      "icon": "hk3gtl:imitation_reason_core",
+      "x": 0,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B5BCAEEE0929B4A",
       "title": "永霜极低温凝态",
-      "icon": "hk3gtl:cryogenic_condensed_material",
-      "x": 3.0,
-      "y": 3.0,
+      "subtitle": "RN-CCF · 实验与正式研究",
       "description": [
-        "冰核心路线走到这里，开始面向极低温凝态工程。先准备对应工况，不要把完成材料研究等同于已经建成冷却系统。",
-        "",
-        "解锁冰之律者 · 永霜·极低温凝态工厂建造与低温工况验收。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制冰核心冰核心冷却工艺实际记录、前级材料与制冷介质。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“永霜极低温凝态”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、仿制冰核心。",
-        "基础研究费用：6120点；8 × WFV级电路；128 × 中子素板。",
-        "基础工期：30分钟；研究用电：135,107,988,821,114,880 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：深冷凝聚材料×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。真实完成低温处理并核对介质和能源消耗，样品来源与温控记录对应；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6120研究积分或WFV电路 × 8、中子素板 × 128支付基准费用；另需36,000 tick与135,107,988,821,114,880 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁冰之律者·永霜·极低温凝态工厂建造与低温工况验收。"
+      ],
+      "dependencies": [
+        "4B538067A289069C",
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B5D644A8260EACD",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成永霜极低温凝态",
           "tags": [
             "hk3gtl_quest_rn_ccf"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B54533414333ADC"
+      "icon": "hk3gtl:cryogenic_condensed_material",
+      "x": 4,
+      "y": 42,
+      "optional": false
+    },
+    {
+      "id": "4B55EF1E9B3DACDA",
+      "title": "文明认知穹顶工程",
+      "subtitle": "RN-CLE · 实验与正式研究",
+      "description": [
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。以现有世界维系研究所可提供的接口试件和真实资料完成联调，仅输出工程证据，随后在世界维系研究所正常支付并研究；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6920研究积分或WSV电路 × 8、中子素板 × 136支付基准费用；另需38,400 tick与540,431,955,284,459,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁第五阶研究所，提供16个并行课题槽位。"
       ],
-      "subtitle": "S04 · RN-CCF",
-      "shape": "rsquare"
+      "dependencies": [
+        "4B5511DDFAFAE31B"
+      ],
+      "tasks": [
+        {
+          "id": "4B55FDA8E3D65727",
+          "type": "custom",
+          "title": "完成文明认知穹顶工程",
+          "tags": [
+            "hk3gtl_quest_rn_cle"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:civilization_singularity",
+      "x": 8,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B543D9716760D00",
       "title": "始源群星协奏工程",
-      "icon": "hk3gtl:wonder_origin_core_mount",
-      "x": 3.0,
-      "y": 6.0,
+      "subtitle": "RN-HCCO · 实验与正式研究",
       "description": [
-        "始源群星协奏是文明工程的一条研究方向。先掌握验收方法，再按实验备料准备；取得知识以后，仍要完成对应的实际工程。",
-        "",
-        "解锁人之律者 · 始源·群星协奏庭建造与协作档案验收方法。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "前序研究档案、已真实完成的交流事件记录与文明工程资料。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“始源群星协奏工程”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法。",
-        "基础研究费用：6120点；8 × WFV级电路；128 × 中子素板。",
-        "基础工期：30分钟；研究用电：135,107,988,821,114,880 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。核验研究和交流事件确已发生，关联资料来源并完成工程校核；独立或拒绝合作路线均可提供符合既定条件的交流记录；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6120研究积分或WFV电路 × 8、中子素板 × 128支付基准费用；另需36,000 tick与135,107,988,821,114,880 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁始源·群星协奏庭建造与协作档案验收方法。"
+      ],
+      "dependencies": [
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B5C798B2F1237AE",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成始源群星协奏工程",
           "tags": [
             "hk3gtl_quest_rn_hcco"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968"
+      "icon": "hk3gtl:civilization_singularity",
+      "x": 12,
+      "y": 42,
+      "optional": false
+    },
+    {
+      "id": "4B5802E842FF9314",
+      "title": "穹界虚数锚定环",
+      "subtitle": "RN-IAR · 实验与正式研究",
+      "description": [
+        "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。核验既有锚定设备的真实工况与局部扰动响应，不提前运行文明级锚定环；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6920研究积分或WSV电路 × 8、中子素板 × 136支付基准费用；另需38,400 tick与540,431,955,284,459,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁空之律者·穹界·虚数锚定环建造与大范围锚定验收。"
       ],
-      "subtitle": "S04 · RN-HCCO",
-      "shape": "rsquare"
+      "dependencies": [
+        "4B5137DC6ACD7AAC"
+      ],
+      "tasks": [
+        {
+          "id": "4B539F1B1D234240",
+          "type": "custom",
+          "title": "完成穹界虚数锚定环",
+          "tags": [
+            "hk3gtl_quest_rn_iar"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_void_core",
+      "x": 16,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B513376AFB211D3",
       "title": "长风理想流体环流",
-      "icon": "hk3gtl:conducting_composite",
-      "x": 3.0,
-      "y": 9.0,
+      "subtitle": "RN-IFF · 实验与正式研究",
       "description": [
-        "把风核心与工艺气体净化路线接到环流工程中。流体从哪里来、流向哪里、怎样保持工况，都需要在实验里说明白。",
-        "",
-        "解锁风之律者 · 长风·理想流体环流阵流体输运与换热验收。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制风核心已开放流动工艺、异质工艺气体净化气体净化、冷却剂换热回流换热的真实记录。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“长风理想流体环流”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、仿制风核心、异质工艺气体净化。",
-        "基础研究费用：6120点；8 × WFV级电路；128 × 中子素板。",
-        "基础工期：30分钟；研究用电：135,107,988,821,114,880 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：工艺气体滤芯×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。真实输入输出、循环补液和热交换结果可追溯，明确损耗，不靠库存差额推断来源；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6120研究积分或WFV电路 × 8、中子素板 × 128支付基准费用；另需36,000 tick与135,107,988,821,114,880 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁风之律者·长风·理想流体环流阵流体输运与换热验收。"
+      ],
+      "dependencies": [
+        "4B528AA97B0DF3A7",
+        "4B582C794236C289",
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B5F18497B68FDA6",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成长风理想流体环流",
           "tags": [
             "hk3gtl_quest_rn_iff"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B55C2FACF1A9B92",
-        "4B528AA97B0DF3A7"
-      ],
-      "subtitle": "S04 · RN-IFF",
-      "shape": "rsquare"
+      "icon": "hk3gtl:conducting_composite",
+      "x": 20,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B58AF9401EC1386",
       "title": "鸣霆超导电磁天枢",
-      "icon": "hk3gtl:polarized_electromagnetic_material",
-      "x": 3.0,
-      "y": 12.0,
+      "subtitle": "RN-SEM · 实验与正式研究",
       "description": [
-        "仿制雷核心的电磁经验会用于鸣霆天枢。按工程验收方法准备实验，把电磁工况与能源条件一起考虑。",
-        "",
-        "解锁雷之律者 · 鸣霆·超导电磁天枢及其电磁工况验收。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制雷核心已解锁雷核心电磁模块、前级极化试件和供电/冷却记录。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S04或更高等级研究所选择“鸣霆超导电磁天枢”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明工程验收方法、仿制雷核心。",
-        "基础研究费用：6120点；8 × WFV级电路；128 × 中子素板。",
-        "基础工期：30分钟；研究用电：135,107,988,821,114,880 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：极化电磁材料×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。实际电磁响应及供能/冷却回执通过检测，试件不充当雷之律者·鸣霆·超导电磁天枢量产材料；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6120研究积分或WFV电路 × 8、中子素板 × 128支付基准费用；另需36,000 tick与135,107,988,821,114,880 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁雷之律者·鸣霆·超导电磁天枢及其电磁工况验收。"
+      ],
+      "dependencies": [
+        "4B5137DC6ACD7AAC"
       ],
       "tasks": [
         {
           "id": "4B57AC70B0CD314F",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成鸣霆超导电磁天枢",
           "tags": [
             "hk3gtl_quest_rn_sem"
           ]
         }
       ],
-      "dependencies": [
-        "4B5D42853DBE1968",
-        "4B524978C39A250C"
+      "icon": "hk3gtl:polarized_electromagnetic_material",
+      "x": 24,
+      "y": 42,
+      "optional": false
+    },
+    {
+      "id": "4B5C00437CD0C5D8",
+      "title": "究极反应堆工程",
+      "subtitle": "RN-URE · 实验与正式研究",
+      "description": [
+        "极限铸造材料×1；纸×2；工装不消耗。",
+        "在遗留技术逆向实验室完成本队实验。真实高负载批次和材料安全检验关联，实际耗材耗电；不依赖待开放究极崩坏能反应堆；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择6120研究积分或WFV电路 × 8、中子素板 × 128支付基准费用；另需36,000 tick与135,107,988,821,114,880 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁究极崩坏能反应堆的建造与供能工况。"
       ],
-      "subtitle": "S04 · RN-SEM",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B5B172BE6CAF64F",
-      "linked_quest": "4B5E3DA7F13B68CF",
-      "x": 0.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5DC08033777A88",
-      "linked_quest": "4B528AA97B0DF3A7",
-      "x": 3.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5D0B0C7B38C07A",
-      "linked_quest": "4B54533414333ADC",
-      "x": 6.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5B870A738C807D",
-      "linked_quest": "4B52FD45022F2AFE",
-      "x": 9.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B567AF0CBE07116",
-      "linked_quest": "4B5DA6E64F338B10",
-      "x": 12.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5372F23276FA5B",
-      "linked_quest": "4B524978C39A250C",
-      "x": 15.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5CDEB679A54649",
-      "linked_quest": "4B55C2FACF1A9B92",
-      "x": 0.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B524EE445BD87D7",
-      "linked_quest": "4B5793B57FF95411",
-      "x": 3.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B5E6A0177D9095C",
-      "linked_quest": "4B5418002D905162",
-      "x": 6.0,
-      "y": -11.0
+      "dependencies": [
+        "4B5D8B4510122249",
+        "4B5C61FAC45F68A8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B32F126E3F952",
+          "type": "custom",
+          "title": "完成究极反应堆工程",
+          "tags": [
+            "hk3gtl_quest_rn_ure"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:reactor_stabilizer",
+      "x": 24,
+      "y": 46,
+      "optional": false
     }
   ]
 }

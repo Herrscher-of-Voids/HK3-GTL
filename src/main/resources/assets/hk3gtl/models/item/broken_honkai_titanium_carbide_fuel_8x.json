@@ -1,0 +1,6 @@
+{
+  "parent": "hk3gtl:item/broken_honkai_titanium_carbide_fuel",
+  "textures": {
+    "layer0": "hk3gtl:item/fuel_bundles/broken_honkai_titanium_carbide_fuel_8x"
+  }
+}

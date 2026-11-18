@@ -8,11 +8,32 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 06:25:16（修订128）：删除无；新增真实阅读与操作记录；修改无；用途：服务器核对原始条件，失败或模拟不授予。 */
+ 
 public final class Hk3EggLectern {
     private static final class View {LecternMenu menu;String book;BitSet read=new BitSet();int page=-1,ticks;long last;}
     private static final Map<UUID,View> VIEWS=new java.util.concurrent.ConcurrentHashMap<>();
+    private record Placement(net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock event,
+                             ServerPlayer player,net.minecraft.core.BlockPos pos,net.minecraft.world.item.ItemStack book){}
+    private static final List<Placement> PLACEMENTS=new ArrayList<>();
     private Hk3EggLectern(){}
+    @SubscribeEvent(priority=net.minecraftforge.eventbus.api.EventPriority.LOWEST)
+    public static void placed(net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock e){
+        if(e.isCanceled()||!(e.getEntity() instanceof ServerPlayer p)||!e.getItemStack().is(Items.WRITTEN_BOOK))return;
+        var state=p.level().getBlockState(e.getPos());
+        if(state.is(net.minecraft.world.level.block.Blocks.LECTERN)&&!state.getValue(net.minecraft.world.level.block.LecternBlock.HAS_BOOK))
+            PLACEMENTS.add(new Placement(e,p,e.getPos().immutable(),e.getItemStack().copy()));
+    }
+    @SubscribeEvent public static void placements(TickEvent.ServerTickEvent e){
+        if(e.phase!=TickEvent.Phase.END)return;
+        var it=PLACEMENTS.iterator();
+        while(it.hasNext()){
+            var placed=it.next();var p=placed.player();if(p.server!=e.getServer())continue;it.remove();
+            if(!placed.event().isCanceled()&&p.level()==placed.event().getLevel()&&p.level().hasChunkAt(placed.pos())
+                    &&p.level().getBlockEntity(placed.pos()) instanceof net.minecraft.world.level.block.entity.LecternBlockEntity lectern
+                    &&net.minecraft.world.item.ItemStack.isSameItemSameTags(lectern.getBook(),placed.book()))
+                Hk3EggFacilityScenes.book(p,placed.pos());
+        }
+    }
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent e){
         if(e.phase!=TickEvent.Phase.END||!(e.player instanceof ServerPlayer p))return;
         if(!(p.containerMenu instanceof LecternMenu menu)||!menu.stillValid(p)||!menu.getBook().is(Items.WRITTEN_BOOK)){VIEWS.remove(p.getUUID());return;}
@@ -24,5 +45,5 @@ public final class Hk3EggLectern {
         if(view.read.cardinality()==pages){var date=Hk3EggCalendar.now();if(date.getMonthValue()==4&&date.getDayOfMonth()==23)Hk3EggVanilla.caseEvent(p,350);}
     }
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){VIEWS.remove(e.getEntity().getUUID());}
-    @SubscribeEvent public static void stop(net.minecraftforge.event.server.ServerStoppedEvent e){VIEWS.clear();}
+    @SubscribeEvent public static void stop(net.minecraftforge.event.server.ServerStoppedEvent e){VIEWS.clear();PLACEMENTS.removeIf(v->v.player().server==e.getServer());}
 }

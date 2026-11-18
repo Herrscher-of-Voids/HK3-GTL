@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "hk3gtl:block/ae_nexus_controller_r13/front",
+    "south": "hk3gtl:block/casings/industrial_controller_shell",
+    "east": "hk3gtl:block/casings/industrial_controller_shell",
+    "west": "hk3gtl:block/casings/industrial_controller_shell",
+    "up": "hk3gtl:block/casings/industrial_controller_shell",
+    "down": "hk3gtl:block/casings/industrial_controller_shell",
+    "particle": "hk3gtl:block/casings/industrial_controller_shell"
+  }
+}

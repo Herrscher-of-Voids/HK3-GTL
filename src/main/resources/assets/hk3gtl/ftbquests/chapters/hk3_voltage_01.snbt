@@ -1,286 +1,1086 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_01",
   "id": "4B512CCEA32E6B1B",
-  "title": "HK3GTL · HBV · 崩能压",
+  "title": "崩能压 HBV",
   "subtitle": [
-    "Tier15 · 先让它稳定地发电"
+    "Tier15-HBV"
   ],
-  "group": "",
-  "order_index": 15,
-  "icon": "hk3gtl:electric_motor_hbv",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 16,
+  "icon": "hk3gtl:voltage_machine_casing_hbv",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B5CE0C6C0C8D233",
-      "title": "先让它稳定地发电",
-      "icon": "hk3gtl:hbv_processor",
-      "x": 0.0,
-      "y": -4.0,
+      "id": "4B5599133D72B718",
+      "title": "MAX之后",
+      "subtitle": "先把那道异常找出来",
       "description": [
-        "你已经能处理崩坏能了，接下来要让它成为工厂可以使用的燃料。",
-        "",
-        "校准探测器，并行准备介质再生与燃料调配。燃料棒封装通过后，再研究小型反应堆；不要把冷却和回收全留到最后。",
-        "{@pagebreak}",
-        "本页是HBV · 崩能压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "MAX的工厂还在运转，奥托寄来的空气观测资料里，却多了一道解释不了的读数。",
+        "先把采样和测量设备做好。拿到真实样本后，再用实验和研究一步步弄清楚它。"
       ],
       "tasks": [
         {
-          "id": "4B5698972312C6BD",
+          "id": "4B53D67DB22F6091",
           "type": "checkmark",
-          "title": "读完这一页",
+          "title": "阅读起步资料",
           "tags": [
-            "hk3gtl_quest_voltage_intro_01"
+            "hk3gtl_quest_guide_start"
           ]
         }
       ],
-      "size": 2.0,
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B5629222B0E71B1",
-      "title": "电路与八大件",
-      "icon": "hk3gtl:electric_motor_hbv",
-      "x": -4.0,
-      "y": -4.0,
-      "description": [
-        "进入HBV · 崩能压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
-      ],
-      "tasks": [
+      "dependencies": [],
+      "icon": "minecraft:book",
+      "x": 0,
+      "y": 4,
+      "rewards": [
         {
-          "id": "4B5A7E3423BBECC9",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_01"
-          ]
+          "id": "4B50496FDF16F000",
+          "type": "item",
+          "item": "hk3gtl:ae_nexus",
+          "count": 1
+        },
+        {
+          "id": "4B54FE1B9448E888",
+          "type": "item",
+          "item": "ae2:sky_stone_block",
+          "count": 2428
+        },
+        {
+          "id": "4B5F9E1F34E52511",
+          "type": "item",
+          "item": "minecraft:smooth_quartz",
+          "count": 1265
+        },
+        {
+          "id": "4B5C9D66055CC10B",
+          "type": "item",
+          "item": "ae2:fluix_block",
+          "count": 1214
+        },
+        {
+          "id": "4B5E34A856422894",
+          "type": "item",
+          "item": "gtceu:computer_casing",
+          "count": 606
+        },
+        {
+          "id": "4B5E12733C1450CA",
+          "type": "item",
+          "item": "gtceu:computer_heat_vent",
+          "count": 117
+        },
+        {
+          "id": "4B5DD4E0B34FEF34",
+          "type": "item",
+          "item": "hk3gtl:casing_colored_purple",
+          "count": 463
+        },
+        {
+          "id": "4B5093F5F9F7B95E",
+          "type": "item",
+          "item": "hk3gtl:casing_colored_cyan",
+          "count": 509
+        },
+        {
+          "id": "4B5C912B26BBD263",
+          "type": "item",
+          "item": "hk3gtl:glass_honkai_stabilized",
+          "count": 125
+        },
+        {
+          "id": "4B5A9D1B820B13DB",
+          "type": "item",
+          "item": "minecraft:sea_lantern",
+          "count": 5
         }
       ]
     },
     {
-      "id": "4B5AFD2871AE846D",
-      "title": "探测器校准",
-      "icon": "hk3gtl:liquid_honkai_detector",
-      "x": 0.0,
-      "y": 0.0,
+      "id": "4B51A5DD7757E7FA",
+      "title": "采样与测量组件",
+      "subtitle": "先把仪器做出来",
       "description": [
-        "探测器也需要一个可信的参照。把参考样本、分析样本和零阶探测器送去校准，纸与铂箔别漏带。",
-        "",
-        "开放一阶液态探测器制造与校准；正式制造消耗校准报告，塔内采集不消耗探测器。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "零阶探测器、参考样本、分析样本、纸与铂箔。",
-        "",
-        "按JEI查找对应工艺，在探测器精密校准台完成对应实验后，到S01或更高等级研究所选择“探测器校准”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：样本光谱解析、起步电路适配。",
-        "基础研究费用：50点；2 × MAX级电路；24 × 钢板。",
-        "基础工期：1分钟；研究用电：2,013,265,920 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "先做低温采样腔和差分测量组件。采样腔负责留下样本，差分测量组件负责比较读数，探测器和前几座设施都要用到它们。"
       ],
       "tasks": [
         {
-          "id": "4B55C052C4234D90",
+          "id": "4B5C8A6C4E508531",
+          "type": "item",
+          "item": "hk3gtl:cryogenic_sampling_chamber",
+          "count": 1,
+          "consume_items": false
+        },
+        {
+          "id": "4B5092B0FBB50B21",
+          "type": "item",
+          "item": "hk3gtl:differential_measurement_component",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5599133D72B718"
+      ],
+      "icon": "hk3gtl:cryogenic_sampling_chamber",
+      "x": 4,
+      "y": 0
+    },
+    {
+      "id": "4B5146F8FCC2CB66",
+      "title": "试作型崩坏能探测器",
+      "subtitle": "从那道异常读数开始",
+      "description": [
+        "把采样腔和差分测量组件装进探测器。奥托寄来的观测资料给了我们一个方向，接下来要靠自己的仪器去找。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DA6B439B42E27",
+          "type": "item",
+          "item": "hk3gtl:prototype_honkai_detector",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51A5DD7757E7FA"
+      ],
+      "icon": "hk3gtl:prototype_honkai_detector",
+      "x": 8,
+      "y": 0
+    },
+    {
+      "id": "4B5D3AE78A2F4B44",
+      "title": "崩坏能采集塔控制器",
+      "subtitle": "让液态空气经过这里",
+      "description": [
+        "先造出采集塔控制器，再把结构、流体接口和MAX供电接好。试作型探测器要留在塔里，采样时会继续用到它。"
+      ],
+      "tasks": [
+        {
+          "id": "4B527F35045CA57E",
+          "type": "item",
+          "item": "hk3gtl:i01_honkai_collection_tower",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51A5DD7757E7FA"
+      ],
+      "icon": "hk3gtl:i01_honkai_collection_tower",
+      "x": 8,
+      "y": 4
+    },
+    {
+      "id": "4B52B08CFC461F2C",
+      "title": "崩坏能识别",
+      "subtitle": "一百万毫桶里留下的一点",
+      "description": [
+        "采集塔每批消耗1,000,000 mB液态空气，提取100 mB液态崩坏能。读过奥托的观测资料就能开始，是否接受合作由你决定。",
+        "第一批真实样本出来后，去研究所完成崩坏能识别。探测器在这道工艺中保留。"
+      ],
+      "tasks": [
+        {
+          "id": "4B546F275EF1842E",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成崩坏能识别",
           "tags": [
-            "hk3gtl_quest_rn_dmt"
+            "hk3gtl_quest_rn_hed"
           ]
         }
       ],
       "dependencies": [
-        "4B5CF2EB987405D1",
-        "4B5042942BCE6960"
+        "4B5D3AE78A2F4B44",
+        "4B5146F8FCC2CB66",
+        "4B54B1712D2ED530"
       ],
-      "subtitle": "S01 · RN-DMT",
-      "shape": "rsquare"
+      "icon": "hk3gtl:honkai_analysis_sample",
+      "x": 12,
+      "y": 4
     },
     {
-      "id": "4B5DDDF726D08AE2",
-      "title": "崩坏燃料调配",
-      "icon": "hk3gtl:honkai_fuel_rod",
-      "x": 0.0,
-      "y": 3.0,
+      "id": "4B5225A9FF2B7BE2",
+      "title": "可复用光谱安瓿",
+      "subtitle": "给样本留一个干净的容器",
       "description": [
-        "稳定液有了，接下来要把它调配成合用的燃料。提前备好燃料基质、稳定介质与结晶，先完成一批调配再继续做燃料棒。",
-        "",
-        "开放液态燃料浓缩与网络注入；燃料棒及反应堆属于后续独立工艺。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "液态崩坏能稳定塔稳定液、稳定介质、燃料基质、结晶与样本。",
-        "",
-        "按JEI查找对应工艺，在崩坏能燃料调配厂完成对应实验后，到S01或更高等级研究所选择“崩坏燃料调配”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：液态崩坏能稳定化、起步电路适配。",
-        "基础研究费用：50点；2 × MAX级电路；24 × 钢板。",
-        "基础工期：1分钟；研究用电：2,013,265,920 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "先备好安瓿。封样时它装着液态崩坏能，光谱实验结束后会原样返还，下一批还能继续用。"
       ],
       "tasks": [
         {
-          "id": "4B58F21B0A280468",
+          "id": "4B5C868A741A6871",
+          "type": "item",
+          "item": "hk3gtl:reusable_honkai_optical_ampoule",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [],
+      "icon": "hk3gtl:reusable_honkai_optical_ampoule",
+      "x": 12,
+      "y": 0
+    },
+    {
+      "id": "4B5427A9682A52A5",
+      "title": "崩坏能光谱校准膜",
+      "subtitle": "分析前先校准",
+      "description": [
+        "做出一批光谱校准膜。一次初始光谱实验消耗四张，先给分析阵列留好。"
+      ],
+      "tasks": [
+        {
+          "id": "4B577098367A7BC7",
+          "type": "item",
+          "item": "hk3gtl:honkai_spectral_calibration_film",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [],
+      "icon": "hk3gtl:honkai_spectral_calibration_film",
+      "x": 20,
+      "y": 0
+    },
+    {
+      "id": "4B5972DD84BD42B0",
+      "title": "样本光谱阵列控制器",
+      "subtitle": "看看样本里到底有什么",
+      "description": [
+        "用差分测量组件造出光谱阵列控制器。搭好阵列后，把样本和校准膜分别接到输入端。"
+      ],
+      "tasks": [
+        {
+          "id": "4B542370B6ACA72F",
+          "type": "item",
+          "item": "hk3gtl:i02_spectrum_analysis_array",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51A5DD7757E7FA"
+      ],
+      "icon": "hk3gtl:i02_spectrum_analysis_array",
+      "x": 8,
+      "y": 8
+    },
+    {
+      "id": "4B538C8A0EA657E0",
+      "title": "封存光谱样本",
+      "subtitle": "把第一份样本装好",
+      "description": [
+        "用装罐机把液态崩坏能装进可复用安瓿。封好的样本接着送往光谱阵列。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E002492E3F2F3",
+          "type": "item",
+          "item": "hk3gtl:honkai_analysis_sample",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B52B08CFC461F2C",
+        "4B5225A9FF2B7BE2"
+      ],
+      "icon": "hk3gtl:honkai_analysis_sample",
+      "x": 16,
+      "y": 4
+    },
+    {
+      "id": "4B5CF2EB987405D1",
+      "title": "样本光谱解析",
+      "subtitle": "先把这次测量做完",
+      "description": [
+        "在光谱阵列完成初始实验，取得分析样本。MAX传感器作为工装保留，安瓿会随产物返还。",
+        "带着本队的真实实验记录，到研究所完成样本光谱解析。接下来就可以建分离中心了。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5169BE3F15D266",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成样本光谱解析",
           "tags": [
-            "hk3gtl_quest_rn_hfb"
+            "hk3gtl_quest_rn_hsa"
           ]
         }
       ],
       "dependencies": [
-        "4B5BE03D48DB244E",
-        "4B5042942BCE6960"
+        "4B5427A9682A52A5",
+        "4B538C8A0EA657E0",
+        "4B5972DD84BD42B0"
       ],
-      "subtitle": "S01 · RN-HFB",
-      "shape": "rsquare"
+      "icon": "hk3gtl:analyzed_honkai_sample",
+      "x": 20,
+      "y": 4
     },
     {
-      "id": "4B5A130DF185C499",
-      "title": "稳定介质再生",
+      "id": "4B5C2AB0B83916A9",
+      "title": "崩坏能分离中心控制器",
+      "subtitle": "给粗液、母液和尾料各留一个出口",
+      "description": [
+        "光谱研究完成后，制造分离中心控制器。它负责初级分馏、母液净化和几条回收工艺，流体与固体出口都要提前安排。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BD17C909DBA36",
+          "type": "item",
+          "item": "hk3gtl:liquid_honkai_fractionation_center",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5CF2EB987405D1"
+      ],
+      "icon": "hk3gtl:liquid_honkai_fractionation_center",
+      "x": 24,
+      "y": 4
+    },
+    {
+      "id": "4B5A8BA1982E056E",
+      "title": "分离滤芯与结晶基质",
+      "subtitle": "先备新鲜耗材",
+      "description": [
+        "滤芯和定向结晶基质都可以从MAX材料起步。分离和稳定化会持续消耗它们，先给两边分别留量。"
+      ],
+      "tasks": [
+        {
+          "id": "4B51C11D7EE37538",
+          "type": "item",
+          "item": "hk3gtl:separation_filter",
+          "count": 4,
+          "consume_items": false
+        },
+        {
+          "id": "4B50A86307A08F61",
+          "type": "item",
+          "item": "hk3gtl:directional_crystallization_matrix",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [],
       "icon": "hk3gtl:separation_filter",
-      "x": 0.0,
-      "y": 6.0,
+      "x": 28,
+      "y": 0
+    },
+    {
+      "id": "4B5EFBBF652DADD7",
+      "title": "新鲜选择性萃取液",
+      "subtitle": "第一批不用等回收线",
       "description": [
-        "稳定塔用过的介质先别急着丢。把它送进再生流程，看看能回收多少，同时给残渣安排输出；回收是节省消耗，不是起步时必须先有的条件。",
-        "",
-        "确认稳定介质损耗回收工艺；新鲜介质仍可独立制造，起步回收实验不要求本课题完成。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "液态崩坏能稳定塔用后稳定介质、已有试剂和残渣。",
-        "",
-        "按JEI查找对应工艺，在稳定介质再生塔完成对应实验后，到S01或更高等级研究所选择“稳定介质再生”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：液态崩坏能稳定化、起步电路适配。",
-        "基础研究费用：50点；2 × MAX级电路；24 × 钢板。",
-        "基础工期：1分钟；研究用电：2,013,265,920 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "在分离中心制造新鲜萃取液。把它送往初级分馏，伴随产生的工艺废液另行收集。"
       ],
       "tasks": [
         {
-          "id": "4B529FC372589B36",
+          "id": "4B5CA2E4D4CBB2DD",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成一次新鲜选择性萃取液",
           "tags": [
-            "hk3gtl_quest_rn_smr"
+            "hk3gtl_quest_hbv_extractant"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5C2AB0B83916A9"
+      ],
+      "icon": "hk3gtl:honkai_selective_extractant_bucket",
+      "x": 24,
+      "y": 8
+    },
+    {
+      "id": "4B5932E463E1338F",
+      "title": "液态分离工艺",
+      "subtitle": "把每个出口都接上",
+      "description": [
+        "让初采液、萃取液和耗材完成一次初级分馏。粗液、母液、分析试剂和固体杂质都有后续用途，废萃取液也先存好。",
+        "本队完整收到这批产物后，再到研究所完成液态分离工艺。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FF1B1CEED8B2B",
+          "type": "custom",
+          "title": "完成液态分离工艺",
+          "tags": [
+            "hk3gtl_quest_rn_lse"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5EFBBF652DADD7",
+        "4B5A8BA1982E056E"
+      ],
+      "icon": "hk3gtl:separation_filter",
+      "x": 28,
+      "y": 4
+    },
+    {
+      "id": "4B5613CC20ED2AED",
+      "title": "母液净化与粒子分离",
+      "subtitle": "下一步的介质，从母液里来",
+      "description": [
+        "继续处理母液、分析试剂与固体杂质，分出崩坏能分离介质和原始粒子。废试剂、澄清母液和工艺废液分别留好出口。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AC2EE0A4C0444",
+          "type": "item",
+          "item": "hk3gtl:raw_honkai_particle",
+          "count": 320,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5932E463E1338F"
+      ],
+      "icon": "hk3gtl:raw_honkai_particle",
+      "x": 28,
+      "y": 8
+    },
+    {
+      "id": "4B5333987B6B5A43",
+      "title": "崩坏晶种",
+      "subtitle": "先给结晶一个起点",
+      "description": [
+        "用原始粒子和分离介质制造晶种。稳定塔要消耗晶种，先把这条供给接起来。"
+      ],
+      "tasks": [
+        {
+          "id": "4B53A338E00C194F",
+          "type": "item",
+          "item": "hk3gtl:honkai_crystal_seed",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5613CC20ED2AED"
+      ],
+      "icon": "hk3gtl:honkai_crystal_seed",
+      "x": 32,
+      "y": 8
+    },
+    {
+      "id": "4B50E15FA6696E03",
+      "title": "新鲜稳定介质",
+      "subtitle": "这一桶先从新料调配",
+      "description": [
+        "把分离介质与配方中的新料混合，得到稳定介质。废介质回收可以随后再做，首批稳定化已有独立的新鲜供给。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FF7EDB65419F2",
+          "type": "custom",
+          "title": "实际完成一次新鲜稳定介质",
+          "tags": [
+            "hk3gtl_quest_hbv_stabilization_medium"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5613CC20ED2AED"
+      ],
+      "icon": "hk3gtl:honkai_stabilization_medium_bucket",
+      "x": 32,
+      "y": 12
+    },
+    {
+      "id": "4B55EB47DE47E9B6",
+      "title": "崩坏工业冷却液",
+      "subtitle": "热量也需要一条去路",
+      "description": [
+        "用混合机调配新鲜工业冷却液，先给稳定塔供货。使用后的热冷却液单独回收或暂存。"
+      ],
+      "tasks": [
+        {
+          "id": "4B544F79877EE0D7",
+          "type": "custom",
+          "title": "实际完成一次崩坏工业冷却液",
+          "tags": [
+            "hk3gtl_quest_hbv_coolant"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "icon": "hk3gtl:honkai_coolant_bucket",
+      "x": 32,
+      "y": 20
+    },
+    {
+      "id": "4B54265A0F8156B7",
+      "title": "液态崩坏能稳定塔控制器",
+      "subtitle": "粗液准备进入下一道工序",
+      "description": [
+        "液态分离研究完成后，制造稳定塔控制器。接好粗液、稳定介质与冷却液，再备好晶种和结晶基质。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C34EEF1D35D26",
+          "type": "item",
+          "item": "hk3gtl:liquid_honkai_stabilization_tower",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5932E463E1338F"
+      ],
+      "icon": "hk3gtl:liquid_honkai_stabilization_tower",
+      "x": 24,
+      "y": 12
+    },
+    {
+      "id": "4B5BE03D48DB244E",
+      "title": "液态崩坏能稳定化",
+      "subtitle": "让这批样本进入材料车间",
+      "description": [
+        "在稳定塔完成首批稳定化，留下稳定液和结晶。用后介质、结晶残液、热冷却液和残渣也都要接走。",
+        "到研究所完成稳定化课题，接着把稳定液用进魂钢浸渍。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5158267B22C05A",
+          "type": "custom",
+          "title": "完成液态崩坏能稳定化",
+          "tags": [
+            "hk3gtl_quest_rn_les"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B55EB47DE47E9B6",
+        "4B5333987B6B5A43",
+        "4B54265A0F8156B7",
+        "4B50E15FA6696E03"
+      ],
+      "icon": "hk3gtl:honkai_energy_crystal",
+      "x": 28,
+      "y": 16
+    },
+    {
+      "id": "4B517CFE24713919",
+      "title": "魂钢基体与界面箔包",
+      "subtitle": "承力骨架和界面材料分别准备",
+      "description": [
+        "先用MAX材料压出承力基体预制件和梯度界面箔包。它们会一起进入SPS，作为第一批魂钢的实体骨架。"
+      ],
+      "tasks": [
+        {
+          "id": "4B56C03C1B7C31C0",
+          "type": "item",
+          "item": "hk3gtl:soulium_structural_preform",
+          "count": 32,
+          "consume_items": false
+        },
+        {
+          "id": "4B5F34B2F63E60F7",
+          "type": "item",
+          "item": "hk3gtl:soulium_gradient_foil_pack",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [],
+      "icon": "hk3gtl:soulium_structural_preform",
+      "x": 16,
+      "y": 28
+    },
+    {
+      "id": "4B58076AAAF76C4C",
+      "title": "海渊浸渍魂钢·初混坯",
+      "subtitle": "先把基体做好",
+      "description": [
+        "把预制件、箔包和其余材料送进SPS，先制成初混坯。稳定液的生产可以同时推进，浸渍工序随后就会用到它。"
+      ],
+      "tasks": [
+        {
+          "id": "4B50C64BC1D04FC3",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_stage_1",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B517CFE24713919"
+      ],
+      "icon": "hk3gtl:abyss_impregnated_soulium_stage_1",
+      "x": 20,
+      "y": 24
+    },
+    {
+      "id": "4B515A66100DA19B",
+      "title": "海渊浸渍魂钢·浸渍坯",
+      "subtitle": "把稳定液和空间介质用进材料里",
+      "description": [
+        "初混坯与稳定液在这里汇合。继续完成SPS浸渍，把空间介质纳入这批材料。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D1B668871D773",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5BE03D48DB244E",
+        "4B58076AAAF76C4C"
+      ],
+      "icon": "hk3gtl:abyss_impregnated_soulium_stage_2",
+      "x": 20,
+      "y": 16
+    },
+    {
+      "id": "4B5445E64EC79ED6",
+      "title": "海渊浸渍魂钢标准坯",
+      "subtitle": "保护气氛下，再做一次热处理",
+      "description": [
+        "给浸渍坯完成热稳定处理，取得第一批标准坯。后面的板、棒和框架从这里分流。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A083186C5464F",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B515A66100DA19B"
+      ],
+      "icon": "hk3gtl:abyss_impregnated_soulium_billet",
+      "x": 16,
+      "y": 16
+    },
+    {
+      "id": "4B5F92439E437695",
+      "title": "海渊浸渍魂钢板",
+      "subtitle": "先给机壳留一份",
+      "description": [
+        "用MAX首制工艺把标准坯压成板。HBV机械方块需要十六块，别在其他装配里全用完了。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E51C2EBFCA87B",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_plate",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5445E64EC79ED6"
+      ],
+      "icon": "hk3gtl:abyss_impregnated_soulium_plate",
+      "x": 12,
+      "y": 12
+    },
+    {
+      "id": "4B5FF5437A48B597",
+      "title": "海渊浸渍魂钢棒",
+      "subtitle": "另一批标准坯做承力棒",
+      "description": [
+        "从标准坯加工出复合承力棒。它们会进入框架组件，与板材一起组成新机壳。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EAB6B9FD2105F",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_rod",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5445E64EC79ED6"
+      ],
+      "icon": "hk3gtl:abyss_impregnated_soulium_rod",
+      "x": 12,
+      "y": 20
+    },
+    {
+      "id": "4B5F1B1509FB936A",
+      "title": "魂钢框架组件",
+      "subtitle": "把承力结构接起来",
+      "description": [
+        "用魂钢棒组装框架组件。每个HBV机械方块要用两个框架，按机壳产量安排这条装配线。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CAF21C3F6F136",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5FF5437A48B597"
+      ],
+      "icon": "hk3gtl:abyss_impregnated_soulium_frame",
+      "x": 8,
+      "y": 20
+    },
+    {
+      "id": "4B5CE12B258170FA",
+      "title": "HBV崩能压机械方块",
+      "subtitle": "第一批崩能压机壳",
+      "description": [
+        "魂钢板与框架已经到齐。连同混沌板、旧工业材料和聚酰亚胺，装出第一块HBV机械方块。",
+        "这条首制工艺仍用MAX电力。后续设备和HBV供电，继续按各自的真实条件准备。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C4562571D7B19",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5F1B1509FB936A",
+        "4B5F92439E437695"
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_hbv",
+      "x": 4,
+      "y": 16
+    },
+    {
+      "id": "4B55BDE780E69245",
+      "title": "手机的三套组件",
+      "subtitle": "显示、通信与隔离供电",
+      "description": [
+        "把触控光学面板、双工通信互连模组和低压隔离供电模组分别做好。三套组件都用原包MAX及以前的材料制造。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B2E71FF105FEE",
+          "type": "item",
+          "item": "hk3gtl:phone_optical_touch_panel",
+          "count": 1,
+          "consume_items": false
+        },
+        {
+          "id": "4B5380A55BB50CFE",
+          "type": "item",
+          "item": "hk3gtl:phone_duplex_interconnect_module",
+          "count": 1,
+          "consume_items": false
+        },
+        {
+          "id": "4B52362CECE0FCA6",
+          "type": "item",
+          "item": "hk3gtl:phone_isolated_lv_power_module",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [],
+      "icon": "hk3gtl:phone_optical_touch_panel",
+      "x": 0,
+      "y": 28
+    },
+    {
+      "id": "4B513DF0FBF2683B",
+      "title": "HK3GTL手机",
+      "subtitle": "把三个模组装成一部终端",
+      "description": [
+        "完成手机总装。无线终端与MAX器件仍按完整配方投入，组件里的器件也各自保留用途。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DF92470253E7E",
+          "type": "item",
+          "item": "hk3gtl:personal_phone",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B55BDE780E69245"
+      ],
+      "icon": "hk3gtl:personal_phone",
+      "x": 4,
+      "y": 28
+    },
+    {
+      "id": "4B54B1712D2ED530",
+      "title": "研究所与工业机壳",
+      "subtitle": "先给实验和研究找个地方",
+      "description": [
+        "制造崩坏现象研究所控制器，再用MAX机械方块改装工业机壳。控制器和机壳备齐后，按真实结构搭建设施。",
+        "四项起步课题都在研究所完成，真实实验、研究材料、积分与电力分别按课题要求结算。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A0B2E755FA7F7",
+          "type": "item",
+          "item": "hk3gtl:abyss_research_analysis_matrix",
+          "count": 1,
+          "consume_items": false
+        },
+        {
+          "id": "4B5D31020029F580",
+          "type": "item",
+          "item": "hk3gtl:industrial_port_casing",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5599133D72B718"
+      ],
+      "icon": "hk3gtl:abyss_research_analysis_matrix",
+      "x": 4,
+      "y": 8
+    },
+    {
+      "id": "4B5D6484B5CE7D14",
+      "title": "澄清母液回流",
+      "subtitle": "母液先留一罐",
+      "description": [
+        "把净化后的澄清母液送回分离工序，再取得一批粗液和副产物。这条回流线接在首批分离之后。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5780F09B8ACEDC",
+          "type": "custom",
+          "title": "实际完成一次澄清母液回流",
+          "tags": [
+            "hk3gtl_quest_hbv_mother_reflux"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5613CC20ED2AED"
+      ],
+      "icon": "hk3gtl:crude_honkai_energy_bucket",
+      "x": 32,
+      "y": 4
+    },
+    {
+      "id": "4B55059A70EA0AD8",
+      "title": "废稳定介质再生",
+      "subtitle": "能回收的组分再用一次",
+      "description": [
+        "处理稳定化留下的废介质，回收其中一部分稳定介质。剩下的工艺废液继续单独收集。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B2D5373A5D7D6",
+          "type": "custom",
+          "title": "实际完成一次废稳定介质再生",
+          "tags": [
+            "hk3gtl_quest_hbv_medium_recycle"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5BE03D48DB244E"
+      ],
+      "icon": "hk3gtl:honkai_stabilization_medium_bucket",
+      "x": 36,
+      "y": 12
+    },
+    {
+      "id": "4B50B00190928E93",
+      "title": "热冷却液再调理",
+      "subtitle": "把热管也接回来",
+      "description": [
+        "处理热工业冷却液，回收一部分可继续使用的冷却液。回收损耗由新鲜供给补上。"
+      ],
+      "tasks": [
+        {
+          "id": "4B59932140F0060F",
+          "type": "custom",
+          "title": "实际完成一次热冷却液再调理",
+          "tags": [
+            "hk3gtl_quest_hbv_coolant_recycle"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5BE03D48DB244E"
+      ],
+      "icon": "hk3gtl:honkai_coolant_bucket",
+      "x": 36,
+      "y": 20
+    },
+    {
+      "id": "4B59A15358465868",
+      "title": "结晶残液回收",
+      "subtitle": "从残液里再分一点介质",
+      "description": [
+        "把结晶残液送回分离中心，回收分离介质。工艺废液仍有自己的出口。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5777C8779B0729",
+          "type": "custom",
+          "title": "实际完成一次结晶残液回收",
+          "tags": [
+            "hk3gtl_quest_hbv_residual_recycle"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5BE03D48DB244E"
+      ],
+      "icon": "hk3gtl:honkai_separation_medium_bucket",
+      "x": 36,
+      "y": 16
+    },
+    {
+      "id": "4B5335F3E77C71D6",
+      "title": "选择性萃取液再生",
+      "subtitle": "给用后的萃取液一条回路",
+      "description": [
+        "再生废萃取液，把可用部分送回初级分馏。新鲜萃取液继续补足损耗。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5845310EDA8506",
+          "type": "custom",
+          "title": "实际完成一次选择性萃取液再生",
+          "tags": [
+            "hk3gtl_quest_hbv_extractant_recycle"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5932E463E1338F"
+      ],
+      "icon": "hk3gtl:honkai_selective_extractant_bucket",
+      "x": 36,
+      "y": 8
+    },
+    {
+      "id": "4B50BBFB748CDEBA",
+      "title": "工艺废液固化",
+      "subtitle": "先把这一罐处理掉",
+      "description": [
+        "把工艺废液按配方固化成惰性残渣，给储罐腾出空间。接下来的分离还有另一份尾料要处理。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E2EBAD60BFF93",
+          "type": "custom",
+          "title": "实际完成一次工艺废液固化",
+          "tags": [
+            "hk3gtl_quest_hbv_effluent_solidification"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5932E463E1338F"
+      ],
+      "icon": "hk3gtl:inactive_fuel_residue",
+      "x": 32,
+      "y": 0
+    },
+    {
+      "id": "4B523278A94C800E",
+      "title": "惰性残渣分离",
+      "subtitle": "灰、水和剩余废液分别接走",
+      "description": [
+        "继续分离惰性残渣，留下灰和水，把剩余工艺废液另行处理。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E74B07F696579",
+          "type": "custom",
+          "title": "实际完成一次惰性残渣分离",
+          "tags": [
+            "hk3gtl_quest_hbv_residue_separation"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B50BBFB748CDEBA"
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 36,
+      "y": 0
+    },
+    {
+      "id": "4B51A65E81ECCCC7",
+      "title": "HBV连续浸渍与热稳定",
+      "subtitle": "供电升级后，再合并这两道工序",
+      "description": [
+        "具备HBV供电后，可以把初混坯直接处理成标准坯。它使用稳定液与空间介质，省去单独转运浸渍坯的步骤。",
+        "这是后续提速路线，第一块HBV机壳仍可由MAX首制路线完成。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5539C80950DB3D",
+          "type": "custom",
+          "title": "实际完成一次HBV连续浸渍与热稳定",
+          "tags": [
+            "hk3gtl_quest_hbv_continuous_soulium"
           ]
         }
       ],
       "dependencies": [
         "4B5BE03D48DB244E",
-        "4B5042942BCE6960"
+        "4B58076AAAF76C4C"
       ],
-      "subtitle": "S01 · RN-SMR",
-      "shape": "rsquare"
+      "icon": "hk3gtl:abyss_impregnated_soulium_billet",
+      "x": 24,
+      "y": 24
     },
     {
-      "id": "4B527E9BB472CF89",
-      "title": "普通燃料棒封装",
-      "icon": "hk3gtl:honkai_fuel_rod",
-      "x": 3.0,
-      "y": 0.0,
+      "id": "4B54AC90FFB725D4",
+      "title": "HBV复合构件连续成型",
+      "subtitle": "让板材线跟上新电力",
       "description": [
-        "先把棒壳与密封件做好，再灌入100mB液态燃料制成试验件。封装实验关心的是燃料能否安全留在该留的地方。",
-        "",
-        "确认普通燃料棒封装工艺；首次样件不要求魂钢。崩坏能燃料棒封装阵列正式封装阵列与生产配方仍待结构审批及后续实现，本实验不产出可发电燃料棒。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "崩坏燃料调配后GT制造棒壳与密封件；100mB液态燃料灌成试验件。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“普通燃料棒封装”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：崩坏燃料调配。",
-        "基础研究费用：50点；2 × MAX级电路；24 × 钢板。",
-        "基础工期：1分钟；研究用电：2,013,265,920 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "具备HBV供电后，改用连续成型工艺加工魂钢板。把它接在标准坯供给后，原有MAX首制路线也继续保留。"
       ],
       "tasks": [
         {
-          "id": "4B50C0EBF2AFD393",
+          "id": "4B564986C2441E61",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成一次HBV复合构件连续成型",
           "tags": [
-            "hk3gtl_quest_rn_frp"
+            "hk3gtl_quest_hbv_continuous_plate"
           ]
         }
       ],
       "dependencies": [
-        "4B5DDDF726D08AE2"
+        "4B5445E64EC79ED6"
       ],
-      "subtitle": "S01 · RN-FRP",
-      "shape": "rsquare"
+      "icon": "hk3gtl:abyss_impregnated_soulium_plate",
+      "x": 12,
+      "y": 24
     },
     {
-      "id": "4B50645A14FB0B24",
-      "title": "小型反应堆工程",
-      "icon": "hk3gtl:small_honkai_reactor_vessel",
-      "x": 6.0,
-      "y": 0.0,
+      "id": "4B5FB7AE702E80CA",
+      "title": "第一批崩能压机壳",
+      "subtitle": "MAX车间交出的新材料",
       "description": [
-        "燃料棒封装通过以后，就可以准备小型反应堆的工程实验了。先检查壳体、密封、绝缘与冷却，不要等点火以后才想起这些配套。",
-        "",
-        "解锁小型崩坏能反应堆建造和首轮发电；运行记录用于后续热工研究。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "普通燃料棒封装后可得壳体、密封件、冷却剂与前级绝缘工装。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“小型反应堆工程”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：普通燃料棒封装。",
-        "基础研究费用：50点；2 × MAX级电路；24 × 钢板。",
-        "基础工期：1分钟；研究用电：2,013,265,920 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "从空气里那道微弱的异常，到能装进结构里的魂钢机壳，这条路线已经有了第一批实物。",
+        "把现有供给接稳，给后面的电路和设备留好空间。"
       ],
       "tasks": [
         {
-          "id": "4B560ECC7D8DB607",
-          "type": "custom",
-          "title": "完成这项研究",
+          "id": "4B5B440858270FF7",
+          "type": "checkmark",
+          "title": "阅读本段结语",
           "tags": [
-            "hk3gtl_quest_rn_sre"
+            "hk3gtl_quest_hbv_foundation"
           ]
         }
       ],
       "dependencies": [
-        "4B527E9BB472CF89"
+        "4B5CE12B258170FA"
       ],
-      "subtitle": "S01 · RN-SRE",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B55044D8D164F09",
-      "linked_quest": "4B5042942BCE6960",
-      "x": 0.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5367F90CB82EB4",
-      "linked_quest": "4B5CF2EB987405D1",
-      "x": 3.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5E45D9A53205EA",
-      "linked_quest": "4B5BE03D48DB244E",
-      "x": 6.0,
-      "y": -8.0
+      "icon": "hk3gtl:voltage_machine_casing_hbv",
+      "x": 0,
+      "y": 16
     }
   ]
 }

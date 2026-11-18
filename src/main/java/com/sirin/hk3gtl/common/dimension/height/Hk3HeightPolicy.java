@@ -1,13 +1,13 @@
 package com.sirin.hk3gtl.common.dimension.height;
 
-/**
- * 【文件职责】以纯函数计算建筑高度扩展，保留维度原始最低高度与逻辑高度，不改生成器。
- * 【变更记录 #1】2026-10-17 21:24:01（修订166）
- * - 删除：无。
- * - 新增：528至2032、16格对齐的目标上界和原版12位Y编码边界校验。
- * - 修改：扩展结果使用较大的原上界与目标上界；拒绝缩界、溢出和非法逻辑高度。
- * - 用途：供世界合同与运行时注册表应用复用；不访问配置、磁盘、静态世界状态或第三方类。
- */
+ 
+
+
+
+
+
+
+
 public final class Hk3HeightPolicy {
     public static final int MIN_TOP_EXCLUSIVE = 528;
     public static final int MAX_TOP_EXCLUSIVE = 2032;

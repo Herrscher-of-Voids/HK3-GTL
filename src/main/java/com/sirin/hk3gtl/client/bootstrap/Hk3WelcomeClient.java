@@ -10,17 +10,17 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 
-/**
- * 欢迎包只登记待显示内容，由客户端主线程在可阅读时打开。
- * 【变更记录 #1】2026-10-01 16:11:00（修订133）
- * 删除：无；新增：登录延迟展示、手动重读返回原界面、断线清理。
- * 修改：替代包到达时直接抢屏；用途：等待加载完成并保留正在进行的阅读。
- * 【变更记录 #2】2026-10-31 15:36:22（第2次备注 · 修订188）
- * - 删除：无。
- * - 新增：欢迎包携带网络连接身份进入客户端队列，客户端 tick 使用当前连接身份取出。
- * - 修改：旧连接的延迟包不再被新服务器会话接收；连续手动重读保留原返回屏幕。
- * - 用途：隔离断线竞态，避免旧服说明在新服登录后抢屏或污染已读确认。
- */
+ 
+
+
+
+
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3WelcomeClient {
     private static final Hk3WelcomePending<Notice> PENDING = new Hk3WelcomePending<>();

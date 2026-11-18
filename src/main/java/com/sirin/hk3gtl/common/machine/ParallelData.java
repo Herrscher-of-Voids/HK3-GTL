@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
 public class ParallelData {
     private final List<GTRecipe> originRecipeList;
     private final long[] parallels;

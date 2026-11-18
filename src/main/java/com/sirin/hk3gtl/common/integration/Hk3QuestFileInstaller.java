@@ -1,7 +1,5 @@
 package com.sirin.hk3gtl.common.integration;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -22,13 +20,11 @@ public final class Hk3QuestFileInstaller {
 
     private Hk3QuestFileInstaller() {}
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @FunctionalInterface
     public interface Resources {
         InputStream open(String relativePath) throws IOException;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Path install(Path questDir, String marker, String version,
                                List<String> chapters, List<String> legacy,
                                Resources resources) throws IOException {
@@ -57,7 +53,6 @@ public final class Hk3QuestFileInstaller {
         if (complete) return null;
 
         // 缺资源必须在任何活动文件写入前失败；不留下虚假的成功版本。
-        // 中文备注：该处说明已按当前代码行为整理。
         Map<String, byte[]> payload = new LinkedHashMap<>();
         for (String path : chapters) {
             try (InputStream in = resources.open(path)) {
@@ -88,7 +83,6 @@ public final class Hk3QuestFileInstaller {
                 atomicWrite(checked(root, entry.getKey()), entry.getValue());
             }
             // 旧章节移出FTB读取目录，实际内容已经归档；不用删除旧文本。
-            // 中文备注：该处说明已按当前代码行为整理。
             for (String path : legacy) {
                 Path current = checked(root, path);
                 if (Files.exists(current)) {
@@ -110,7 +104,6 @@ public final class Hk3QuestFileInstaller {
         }
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static void recover(Path root, Path backups) throws IOException {
         Path journal = checked(backups, PENDING);
         if (!Files.exists(journal)) return;
@@ -121,7 +114,6 @@ public final class Hk3QuestFileInstaller {
         Properties manifest = readProperties(checked(snapshot, MANIFEST));
         if (manifest.isEmpty()) throw new IOException("Empty quest recovery manifest");
         // 两遍处理避免恢复了一半才发现另一份备份丢失；所有键均作路径校验。
-        // 中文备注：该处说明已按当前代码行为整理。
         for (String path : manifest.stringPropertyNames()) {
             checked(root, path);
             String existed = manifest.getProperty(path);
@@ -144,7 +136,6 @@ public final class Hk3QuestFileInstaller {
         Files.delete(journal);
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static Path checked(Path root, String relative) throws IOException {
         Path base = root.toAbsolutePath().normalize();
         Path result = base.resolve(relative).normalize();
@@ -158,7 +149,6 @@ public final class Hk3QuestFileInstaller {
         return result;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static void atomicWrite(Path target, byte[] bytes) throws IOException {
         Files.createDirectories(target.getParent());
         Path temp = Files.createTempFile(target.getParent(), ".hk3gtl-", ".tmp");
@@ -181,7 +171,6 @@ public final class Hk3QuestFileInstaller {
         atomicWrite(path, bytes.toByteArray());
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     private static Properties readProperties(Path path) throws IOException {
         Properties properties = new Properties();
         try (InputStream in = Files.newInputStream(path)) {

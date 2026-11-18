@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "CCC",
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "hk3gtl:compressed_cobblestone_14"
+    }
+  },
+  "result": {
+    "item": "hk3gtl:compressed_cobblestone_15",
+    "count": 1
+  }
+}

@@ -7,9 +7,9 @@ import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 12:16:23（修订128）：删除：无；新增/修改：已有护具工作设备交互、本人电池实际充电、复制工具成功复制再粘贴回执；失败消息不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #2】2026-10-01 13:24:37（修订128）：删除：无；新增/修改：只在本人有效电路GUI成功改配置后记录参数，配方生成和后台设置不算玩家修改；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 13:33:12（修订128）：删除：无；新增/修改：高级终端本人有效GUI真实更改设置后标记该物品，随后存入有权限的现有收纳容器才授280，关闭不改值不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
+ 
 public final class Hk3EggTools {
     private record Terminal(net.minecraft.world.inventory.AbstractContainerMenu menu,ItemStack stack,net.minecraft.nbt.CompoundTag before){}
     private static final java.util.Map<java.util.UUID,Terminal> TERMINALS=new java.util.concurrent.ConcurrentHashMap<>();

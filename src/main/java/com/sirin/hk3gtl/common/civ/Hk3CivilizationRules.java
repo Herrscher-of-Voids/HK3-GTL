@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.civ;
 import java.util.*;
 import java.util.function.Predicate;
 
-/** 【变更记录 #1】2026-09-30 23:43:42（修订120）：删除无；新增/修改：C0—C7八级固定名称、逐级累计真实成果条件与缺项查询；用途：按真实团队事实展示文明进度，不给机器/配方增加等级锁。 */
+ 
 public final class Hk3CivilizationRules {
     public record Requirement(String key,String label){}
     public record Level(int index,String name,List<Requirement> requirements){public Level{requirements=List.copyOf(requirements);}}

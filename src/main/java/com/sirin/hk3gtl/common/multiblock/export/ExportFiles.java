@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * 【文件职责】集中约束结构导出的文件名、固定目录与四份产物写入；由导出命令调用。
- * 【变更记录 #1】2026-10-31 17:42:29（第 1 次备注 · 内测5修订189）
- * - 删除：无；不再允许命令逐份覆盖既有产物。
- * - 新增：跨平台安全名称、目录边界、独占新建与失败清理；清理失败保留为原异常的抑制异常。
- * - 修改：四份文本先在命令内生成，再在固定目录创建；同名文件与符号链接一律拒绝覆盖。
- * - 用途：阻止服务器导出误覆盖与半套新文件；进程中断可能留下未完成的新文件，重试需另取名称。
- */
+ 
+
+
+
+
+
+
+
 public final class ExportFiles {
     public static final String DIRECTORY = "hk3gtl_exports";
     private static final List<String> SUFFIXES = List.of(".txt", "_pattern_impl.txt", "_pattern_facade.txt", "_machine.txt");

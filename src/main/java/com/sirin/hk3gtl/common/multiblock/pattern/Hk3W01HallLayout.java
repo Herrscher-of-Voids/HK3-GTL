@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.GZIPInputStream;
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 
 /** W01全实体紧凑布局；保持Azu原坐标和全部状态，不展开约两亿空气格。2026-10-29。 */
 public record Hk3W01HallLayout(int width, int height, int depth, int controllerX, int controllerY,
@@ -20,7 +20,7 @@ public record Hk3W01HallLayout(int width, int height, int depth, int controllerX
     }
 
     public static Hk3W01HallLayout read(InputStream compressed) throws IOException {
-        try (var input = new DataInputStream(new GZIPInputStream(compressed))) {
+        try (var input = new DataInputStream(Hk3PackedResources.open(compressed))) {
             if (input.readInt() != 0x57303141 || input.readInt() != 1) throw new IOException("W01资源格式错误");
             int w = input.readInt(), h = input.readInt(), d = input.readInt();
             int cx = input.readInt(), cy = input.readInt(), cz = input.readInt(), count = input.readInt();

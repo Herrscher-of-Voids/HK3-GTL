@@ -11,17 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * 【文件职责】文明总览内的团队机器目录与只读详情；仅显示服务端授权投影，不操作世界或机器。
- * 【变更记录 #1】2026-10-19 02:05:08（第1次备注 · 修订171）
- * - 删除：无。
- * - 新增：每页4台目录、来源/状态筛选、现场登记目录入口、原筛选返回、状态配色、完整详情分页与权限失效后的清空页面。
- * - 修改：复用手机既有缩放与按钮，不创建桌面图标；未加载状态明确保留最后可信存档刻。
- * - 用途：由Hk3PhoneExtraApps接入服务端机器索引，未知状态不冒充停机，不展示个人数据或写入控制。
- * 【变更记录 #2】2026-10-19 02:17:49（第2次备注 · 修订171）
- * - 删除：固定来源名单对筛选的限制；新增：服务端当前团队来源列表的动态循环。
- * - 修改：未知附属命名空间保留原名与返回路径；用途：既存附属均可按真实登记来源筛选，不猜测模组清单。
- */
+ 
+
+
+
+
+
+
+
+
+
+
 final class Hk3MachineOverviewPane {
     private static final String[] SOURCES={"all","hk3gtl","gtceu","gtlcore","gtladditions","gtlsupb"};
     private static final String[] SOURCE_LABELS={"全部","HK3GTL","GTCEu","GTL Core","GTL附属","GTL SupB"};
@@ -114,7 +114,7 @@ final class Hk3MachineOverviewPane {
     }
 
     static void directory(int page,String filter){Hk3PhoneScreen.command("hk3phone apps machines "+Math.max(0,page)+" "+filter(filter));}
-    static String filter(String raw){return raw!=null&&raw.matches("[a-z0-9_.-]{1,64}")?raw:"all";}
+    static String filter(String raw){return raw.matches("[a-z0-9_.-]{1,64}")?raw:"all";}
     private static String validId(String raw){try{return UUID.fromString(raw).toString();}catch(IllegalArgumentException ignored){return "";}}
     private static int indexOf(String[] values,String value){for(int i=0;i<values.length;i++)if(values[i].equals(value))return i;return -1;}
     private static String stateLabel(String key){int index=indexOf(STATES,key);return index>0?STATE_LABELS[index]:"未知";}

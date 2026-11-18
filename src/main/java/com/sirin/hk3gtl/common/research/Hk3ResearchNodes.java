@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.research;
 
-
-/**
- * 【文件职责】
- * - 维护 Hk3ResearchNodes 研究流程与状态。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
@@ -62,13 +43,13 @@ import java.util.stream.Collectors;
  *
  * 依赖图参见设计文档：06_科技树与研究系统/研究节点依赖图与卡关检查表.md
  */
-/**
- * 【变更记录 #1】2026-09-30 02:17:47（第1次备注 · 内测5修订107）
- * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
- * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
- * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
- * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
- */
+ 
+
+
+
+
+
+
 public class Hk3ResearchNodes {
 
     /** 按注册顺序存储所有节点，用 LinkedHashMap 保证遍历顺序 */
@@ -816,10 +797,8 @@ public class Hk3ResearchNodes {
 
     /**
      * 把"R-AB-001 海渊I电压理论"剥成"海渊I电压理论"，供任何"对玩家显示研究名"的位置统一调用。
-     * 输入为 null / 空字符串时原样返回。
      */
     public static String stripIdPrefix(String displayName) {
-        if (displayName == null || displayName.isEmpty()) return displayName;
         return RESEARCH_ID_PREFIX.matcher(displayName).replaceFirst("");
     }
 }

@@ -12,7 +12,6 @@ import com.lowdragmc.lowdraglib.utils.BlockInfo;
 import com.sirin.hk3gtl.mixin.gtceu.Hk3MultiblockStateAccess;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -21,24 +20,24 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import java.util.*;
 
-/**
- * 【文件职责】I19–I28按批准全体素判定，保留严格空气、状态、朝向、真实仓及部件共享约束。
- * 【变更记录 #1】2026-10-26 19:36:08（第1次备注 · 内测5修订177）
- * - 删除：新巨构对完整三维谓词数组及逐空气格IO映射的需求；旧机Pattern不变。
- * - 新增：排序紧凑坐标、端口优先检查、四向状态旋转及区块边界通知。
- * - 修改：普通建材直接比较精确状态，只有控制器/真实接口进入GT谓词与IO上下文。
- * - 用途：千万体积结构仍验证全部空气，内存随实体数量增长；未加载区块拒绝成型。
- * 【变更记录 #2】2026-10-26 21:01:40（第2次备注 · 内测5修订177）
- * - 删除：将GT活动机壳的正常active切换误判为破坏的比较；新增：双活动状态预计算。
- * - 修改：只有ActiveBlock的活动位可变化，材料及其他属性仍逐格严格匹配。
- * - 用途：机器开始运行后重检不会因正常灯效解体，与原GT状态谓词语义一致。
- * 【变更记录 #3】2026-10-26 22:36:20（修订179）
- * - 删除：继承单主控占位Pattern的预览回退；新增：完整批准模板的getPreview入口。
- * - 修改：预览与显式形状共用无损流式烘焙；用途：任何GT回退路径都保留完整建筑。
- * 【变更记录 #4】2026-10-30 01:36:10（修订184）
- * - 删除：只提示拒绝的巨构自动搭建入口；新增：转入统一分批建造器。
- * - 用途：使用批准实体模板放置，最终仍由本Pattern检查完整空气、材料及接口。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3LargeStructurePattern extends BlockPattern {
     public static final String BOUNDS_KEY = "hk3gtlLargeBounds";
     private final MultiblockMachineDefinition definition;
@@ -46,10 +45,8 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
     private final int[] size, controller;
     private final long[] cells;
     private final BlockState[][] states, activeStates;
-    private final Int2ObjectOpenHashMap<PortCheck> ports;
-    private final TraceabilityPredicate control;
+    private final TraceabilityPredicate control, universal;
     private final Set<SimplePredicate> limits = Collections.newSetFromMap(new IdentityHashMap<>());
-    private record PortCheck(int[] pos, Direction face, TraceabilityPredicate predicate) {}
 
     public record Bounds(BlockPos min, BlockPos max) {
         public boolean contains(BlockPos pos) {
@@ -67,11 +64,12 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
     }
 
     public Hk3LargeStructurePattern(MultiblockMachineDefinition definition, Hk3ApprovedArchitecture.Layout data,
-                                   Map<String, TraceabilityPredicate> portPredicates) {
+                                   TraceabilityPredicate universal) {
         super(new TraceabilityPredicate[][][]{{{Predicates.controller(Predicates.blocks(definition.getBlock()))}}},
                 new RelativeDirection[]{RelativeDirection.RIGHT, RelativeDirection.UP, RelativeDirection.BACK},
                 new int[][]{{1, 1}}, new int[]{0, 0, 0, 0, 0});
         this.definition = definition;
+        this.universal = universal;
         architectureId = data.key();
         size = data.size(); controller = data.controller();
         Math.multiplyExact(Math.multiplyExact(size[0], size[1]), size[2]);
@@ -96,16 +94,7 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
                         ? active.changeActive(rotated, !active.isActive(rotated)) : rotated;
             }
         }
-        ports = new Int2ObjectOpenHashMap<>();
-        for (var port : data.ports()) {
-            var predicate = Objects.requireNonNull(portPredicates.get(port.id()), "巨构端口缺少能力：" + port.id());
-            var direction = Objects.requireNonNull(Direction.byName(port.face()), "巨构端口方向错误");
-            if (direction.getAxis().isVertical()) throw new IllegalStateException("巨构端口方向必须水平");
-            int at = linear(port.pos());
-            if (at == linear(controller) || ports.put(at, new PortCheck(port.pos(), direction, predicate)) != null)
-                throw new IllegalStateException("巨构端口与主控重叠");
-            limits.addAll(predicate.limited);
-        }
+        limits.addAll(universal.limited);
     }
 
     @Override public BlockInfo[][][] getPreview(int[] repetitions) {
@@ -122,18 +111,11 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
         Bounds bounds = bounds(center, turn);
         if (world.world.isOutsideBuildHeight(bounds.min()) || world.world.isOutsideBuildHeight(bounds.max()))
             return fail(world, "批准巨构超出当前世界高度");
-        for (var chunk : bounds.chunkRepresentatives())
-            if (!world.world.isLoaded(chunk)) { world.setError(MultiblockState.UNLOAD_ERROR); return false; }
+        if (com.sirin.hk3gtl.common.multiblock.loading.Hk3PatternLoading.current(world.world) == null)
+            for (var chunk : bounds.chunkRepresentatives())
+                if (!world.world.isLoaded(chunk)) { world.setError(MultiblockState.UNLOAD_ERROR); return false; }
         for (var limit : limits) world.getGlobalCount().put(limit, 0);
-        if (!matchPart(world, access, center, control, front, savePredicate)) return false;
-        for (var port : ports.values()) {
-            BlockPos pos = worldPosition(center, port.pos(), turn);
-            if (!matchPart(world, access, pos, port.predicate(), rotation(turn).rotate(port.face()), savePredicate))
-                return false;
-        }
-        for (var limit : limits)
-            if (world.getGlobalCount().getOrDefault(limit, 0) < limit.minCount)
-                return fail(world, "缺少批准接口所需的真实工作仓");
+        if (!matchPart(world, access, center, control, savePredicate)) return false;
 
         // 按线性坐标合并稀疏实体和空气，不为每个空气格分配谓词、坐标或IO记录。
         int cursor = 0, controlAt = linear(controller), linear = 0;
@@ -141,9 +123,13 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
         for (int z = 0; z < size[2]; z++) for (int y = 0; y < size[1]; y++) for (int x = 0; x < size[0]; x++, linear++) {
             boolean occupied = cursor < cells.length && (cells[cursor] >>> 16) == linear;
             int state = occupied ? (int) (cells[cursor++] & 65535) : -1;
-            if (linear == controlAt || ports.containsKey(linear)) continue;
+            if (linear == controlAt) continue;
             setPosition(pos, center, x - controller[0], y - controller[1], z - controller[2], turn);
             BlockState actual = world.world.getBlockState(pos);
+            if (occupied && Hk3InterfacePredicates.isInterface(actual)) {
+                if (!matchPart(world, access, pos.immutable(), universal, savePredicate)) return false;
+                continue;
+            }
             if (occupied ? actual != states[turn][state] && actual != activeStates[turn][state] : !Hk3InterfacePredicates.isClearance(actual)) {
                 access.hk3gtl$update(pos.immutable(), occupied ? Predicates.states(states[turn][state]) : Hk3InterfacePredicates.clearance());
                 return fail(world, occupied ? "批准巨构建材或状态不符" : "批准巨构空气区被占用");
@@ -151,7 +137,15 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
             if (actual.getBlock() instanceof ActiveBlock)
                 world.getMatchContext().getOrCreate("vaBlocks", LongOpenHashSet::new).add(pos.asLong());
         }
+        for (var limit : limits) {
+            int count = world.getGlobalCount().getOrDefault(limit, 0);
+            if (count < limit.minCount)
+                return fail(world, "缺少整机所需的真实工作仓");
+            if (limit.maxCount >= 0 && count > limit.maxCount)
+                return fail(world, "接口仓数量超过整机上限");
+        }
         world.getMatchContext().set(BOUNDS_KEY, bounds);
+        for (var chunk : bounds.chunkRepresentatives()) world.addPosCache(chunk);
         world.setError(null); world.setNeededFlip(false);
         return true;
     }
@@ -159,29 +153,43 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
     /** 除雪只枚举批准实体的暴露顶面，不扫描整个空气包围盒。 */
     public int snowSurfaceCandidates() { return cells.length; }
 
+    /** 远景只借用常驻实体坐标，状态必须在服务器已加载区块中重新实读。 */
+    public int farViewCellCount() { return cells.length; }
+
+    public void farViewCellPosition(int index, BlockPos center, Direction front, BlockPos.MutableBlockPos out) {
+        Objects.checkIndex(index, cells.length);
+        int at = (int) (cells[index] >>> 16);
+        int turn = switch (front) { case NORTH -> 0; case EAST -> 1; case SOUTH -> 2; case WEST -> 3;
+            default -> throw new IllegalArgumentException("巨构远景只支持水平控制器"); };
+        setPosition(out, center, at % size[0] - controller[0], at / size[0] % size[1] - controller[1],
+                at / size[0] / size[1] - controller[2], turn);
+    }
+
     public record SnowSurface(BlockPos support, BlockState expected, BlockState active) {}
 
     public SnowSurface snowSurface(int index, BlockPos center, Direction front) {
         if (!Hk3SnowSurfaceIndex.exposed(cells, index, size[0], size[1])) return null;
         int at = (int) (cells[index] >>> 16), state = (int) (cells[index] & 65535);
-        if (at == linear(controller) || ports.containsKey(at)) return null;
+        if (at == linear(controller)) return null;
         int turn = switch (front) { case NORTH -> 0; case EAST -> 1; case SOUTH -> 2; case WEST -> 3;
             default -> throw new IllegalArgumentException("除雪只支持水平控制器"); };
         int x = at % size[0], y = at / size[0] % size[1], z = at / size[0] / size[1];
         return new SnowSurface(worldPosition(center, new int[]{x, y, z}, turn), states[turn][state], activeStates[turn][state]);
     }
 
-    /** 只返回正式实体接口的原谓词，不把巨构空气包围盒当作拆除范围。 */
+    /** 任意实体位置可容纳接口，主控与空气不进入拆除接口范围。 */
     public TraceabilityPredicate dismantlePort(int x, int y, int z) {
-        var port = ports.get(((z + controller[2]) * size[1] + y + controller[1]) * size[0] + x + controller[0]);
-        return port == null ? null : port.predicate();
+        int at = ((z + controller[2]) * size[1] + y + controller[1]) * size[0] + x + controller[0];
+        if (at == linear(controller)) return null;
+        int index = Arrays.binarySearch(cells, (long) at << 16);
+        if (index < 0) index = -index - 1;
+        return index < cells.length && cells[index] >>> 16 == at ? universal : null;
     }
 
     private static boolean matchPart(MultiblockState world, Hk3MultiblockStateAccess access, BlockPos pos,
-                                     TraceabilityPredicate predicate, Direction face, boolean savePredicate) {
+                                     TraceabilityPredicate predicate, boolean savePredicate) {
         if (!access.hk3gtl$update(pos, predicate) || !predicate.test(world)) return false;
         if (world.getTileEntity() instanceof IMachineBlockEntity entity && entity.getMetaMachine() instanceof IMultiPart part) {
-            if (part.self().getFrontFacing() != face) return fail(world, "接口仓朝向与批准外立面不符");
             if (part.isFormed() && !part.canShared() && !part.hasController(world.controllerPos))
                 return fail(world, "接口仓已被其他控制器占用");
             world.getMatchContext().getOrCreate("parts", HashSet::new).add(part);

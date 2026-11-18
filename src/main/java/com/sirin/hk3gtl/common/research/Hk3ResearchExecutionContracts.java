@@ -7,23 +7,23 @@ import java.nio.charset.StandardCharsets;
 import java.io.InputStreamReader;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-09-29 · 修订101。
- * 删除：无。新增：100课题执行来源、全部前置、真实工况及解锁对象。
- * 修改：实验与研究权限分离；用途：启动即拒绝漏题、自锁和重复机型授权。
- * 本表与物理机器注册独立；定义工艺不等于批准结构或通过游戏验收。
- */
-/**
- * 【变更记录 #2】2026-09-29 23:37:35（内测5修订101）
- * 删除：本轮被替代的单前置或旧提示分支；其余历史保留。
- * 新增／修改：载入100题批准来源、真实工况、前置及解锁对象，拒绝漏题与目录内自锁。
- * 用途：补足研究接线并如实保留未接物理执行器及结构审批边界。
- * 追溯：logs/research-mainline-r101；R101_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
 public final class Hk3ResearchExecutionContracts {
     public record Contract(String id, String executor, String recipe, boolean existing,
             List<String> prerequisites, List<String> facts, List<String> unlocks,
-            String specimen, String precursor, int ticks, int energyTier, String source, String success) {
+            String precursor, int ticks, int energyTier, String source, String success) {
         public Contract {
             prerequisites=List.copyOf(prerequisites);facts=List.copyOf(facts);unlocks=List.copyOf(unlocks);
         }
@@ -34,7 +34,14 @@ public final class Hk3ResearchExecutionContracts {
     public static Map<String,Contract> all() { return ALL; }
     public static Contract get(String id) { return ALL.get(id); }
     private static Set<String> collectFacts() {
-        Set<String> names=new HashSet<>();ALL.values().forEach(c -> names.addAll(c.facts()));return Set.copyOf(names);
+        Set<String> names=new HashSet<>();ALL.values().forEach(c -> names.addAll(c.facts()));
+        for(int i=1;i<=15;i++)names.add(String.format(Locale.ROOT,"wonder_W%02d",i));
+        names.add("wonder_application");names.add("hyperion_engineering");
+        names.add("bounded_computation_result");names.add("lab_four_operation");
+        names.add("contradictory_source_reports");names.add("contradiction_sample_retest");
+        names.add("cross_machine_handoff");
+        names.add("nano_coating");
+        return Set.copyOf(names);
     }
     public static Set<String> factNames() { return FACTS; }
     public static boolean ready(Hk3ResearchData data, UUID scope, Contract c) {
@@ -42,7 +49,7 @@ public final class Hk3ResearchExecutionContracts {
                 && c.facts().stream().allMatch(id -> data.hasProcessFact(scope,id));
     }
     public static boolean permitsMachine(Hk3ResearchData data,UUID scope,String role,boolean secondReview) {
-        if (role.equals("I01-1") || role.equals("I02") || role.equals("S01")) return true;
+        if (role.equals("I01-1") || role.equals("I02") || role.equals("S01") || role.equals("NETWORK_INJECTION")) return true;
         if (role.startsWith("W") && !secondReview) return false;
         for (var c:ALL.values()) if(c.unlocks().contains(role))return data.completed(scope,c.id());
         return false;
@@ -61,7 +68,7 @@ public final class Hk3ResearchExecutionContracts {
             for(var raw:root.getAsJsonArray("topics")) {
                 var o=raw.getAsJsonObject();var c=new Contract(o.get("id").getAsString(),o.get("executor").getAsString(),
                         o.get("recipe").getAsString(),o.get("existing").getAsBoolean(),strings(o,"prerequisites"),strings(o,"facts"),
-                        strings(o,"unlocks"),o.get("specimen").getAsString(),o.get("precursor").getAsString(),
+                        strings(o,"unlocks"),o.get("precursor").getAsString(),
                         o.get("ticks").getAsInt(),o.get("energy_tier").getAsInt(),o.get("source").getAsString(),o.get("success").getAsString());
                 if(Hk3ResearchCatalog.bundled().get(c.id())==null || result.putIfAbsent(c.id(),c)!=null
                         || c.ticks()<=0 || c.energyTier()<14 || c.energyTier()>30)throw new IllegalArgumentException("Invalid contract "+c.id());
@@ -79,4 +86,4 @@ public final class Hk3ResearchExecutionContracts {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

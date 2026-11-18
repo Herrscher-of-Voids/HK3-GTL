@@ -1,10 +1,10 @@
 package com.sirin.hk3gtl.common.communication;
 
-/** 【变更记录 #5】2026-10-31 02:01:05（第5次备注 · 修订187）：删除无；新增可核验的个人补谈原文组装入口；修改复用已批准资源正文；用途：与团队预览使用相同中文原文，不依赖专服语言表。 */
+ 
 
-/** 【变更记录 #4】2026-10-31 01:06:22（第4次备注 · 修订187）：删除失效预览无反馈分支；新增无；修改消费失败返回联络首页；用途：避免个人补谈旧页停留。 */
+ 
 
-/** 【变更记录 #3】2026-10-31 00:46:39（第3次备注 · 修订187）：删除仅持预览令牌即可推进的路径；新增全读校验；修改未读时保留待处理页；用途：补谈不能跳读或重复结算。 */
+ 
 
 import com.sirin.hk3gtl.common.phone.*;
 import com.sirin.hk3gtl.common.research.*;
@@ -17,13 +17,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-10-01 00:41:04（修订123）
- * 删除：无；新增：五方补谈逐篇预览、本人确认与断线恢复。
- * 修改：仅复用已有已发生分支正文，普通读信不产生个人完成回执。
- * 用途：每人一个临时令牌，服务端复核队伍、主题版本及检查点；不调用团队结算和奖励接口。
- */
-/** 【变更记录 #2】2026-10-01 00:59:10（修订124）：删除无；新增/修改：补谈展示当时已提交的固定脱敏摘要；离队及时清令牌并拒绝时钟回退；用途：按五方交流系统整链收口，真实权限和本人经历不混用。 */
+ 
+
+
+
+
+
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3PersonalCommunicationService {
     private record Preview(UUID token, UUID team, String topic, UUID attempt, int version, int step, long expires) {}
@@ -91,4 +91,4 @@ public final class Hk3PersonalCommunicationService {
     @SubscribeEvent public static void stop(ServerStoppedEvent event) { PREVIEWS.clear(); }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

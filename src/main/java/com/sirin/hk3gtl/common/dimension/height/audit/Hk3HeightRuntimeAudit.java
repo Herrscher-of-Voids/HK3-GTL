@@ -37,20 +37,20 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-/**
- * 【文件职责】导出当前服务器实际高度；隔离测试档可选探针验证高区段与方块实体的保存。
- * 【变更记录 #1】2026-10-17 21:11:26（第1次备注 · 修订166）
- * 删除：无。新增：自动只读导出、管理员导出和受限的新档放置/持久化核验命令。
- * 修改：无既有世界高度或玩家内容修改；探针只准在已启用合同的指定新创造作弊档执行。
- * 用途：验证实际Level、区段、坐标与保存内容，不把类型JSON或单次放置成功当作重启通过。
- * 【变更记录 #2】2026-10-17 21:48:34（第2次备注 · 修订166）
- * 删除：高度图字段将最高方块误称首个可用空位的名称。
- * 新增：世界合同身份、逐类型原始与扩展边界、探针高度图精确比对。
- * 修改：导出同时保留冻结来源与当前结果；用途：证明原下界和逻辑高度不变，并发现保存后高度图漂移。
- * 【变更记录 #3】2026-10-29 23:13:43（第3次备注 · 修订182）
- * 删除：回执固定修订166的身份；新增：无；修改：回执修订为182。
- * 用途：为本轮精确名单旧档扩高保存独立真实运行证据；探针写入仍受原隔离档限制。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid = "hk3gtl")
 public final class Hk3HeightRuntimeAudit {
     private static final Gson JSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();

@@ -3,12 +3,12 @@ package com.sirin.hk3gtl.common.finale;
 import net.minecraft.nbt.*;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-10-01 16:49:18（修订135）
- * 删除：无；新增：按玩家保存会面UUID、完整资格快照和已确认段落，终止结果幂等。
- * 修改：暂停不清资格，入场后换队或工程变化不改本次快照，坏结局新申请必须重新评估。
- * 用途：服务端单线程个人终审账本；返回防御性副本，损坏存盘不能当新档解锁。
- */
+ 
+
+
+
+
+
 public final class Hk3FinaleLedger {
     public enum State { OPEN, PASSED, BAD }
     private record Entry(UUID meeting,State state,String checkpoint,CompoundTag sources){}

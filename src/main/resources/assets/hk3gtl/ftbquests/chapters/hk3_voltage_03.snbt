@@ -1,285 +1,1604 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_03",
-  "id": "4B51A53E3147C0C3",
-  "title": "HK3GTL · HRV · 谐振压",
+  "id": "4B5ACE4E99B04D5C",
+  "title": "谐振压 HRV",
   "subtitle": [
-    "Tier17 · 从纳米开始"
+    "Tier17-HRV"
   ],
-  "group": "",
-  "order_index": 17,
-  "icon": "hk3gtl:electric_motor_hrv",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 18,
+  "icon": "hk3gtl:voltage_machine_casing_hrv",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B525B993C288F21",
-      "title": "从纳米开始",
-      "icon": "hk3gtl:hrv_computer",
-      "x": 0.0,
-      "y": -4.0,
+      "id": "4B51EEA9FC0829EF",
+      "title": "从约束压车间继续",
+      "subtitle": "包覆、聚合、退火，再到谐振晶格",
       "description": [
-        "更高的电压需要新的材料基础。魂钢的工艺从前驱体开始，中间还隔着纳米基元、装配和编程。",
-        "",
-        "先按顺序把受控纳米群做出来，再用它生长适配基板。这条线会同时影响后面的魂钢加工与电路制造。",
-        "{@pagebreak}",
-        "本页是HRV · 谐振压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "HCV机壳与前段纳米工艺已经就绪。这一段先把魂钢的聚合、退火和精密加工接齐，再制造谐振晶格与第一批HRV机壳。",
+        "已有注入器继续供给HW。包覆群一批192,000 HW，粗坯聚合与退火各460,800 HW；开机前，给同一控制器绑定者备好账户余额。"
       ],
       "tasks": [
         {
-          "id": "4B555456812307D9",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_intro_03"
-          ]
-        }
-      ],
-      "size": 2.0,
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B536C82EDD6A7CD",
-      "title": "电路与八大件",
-      "icon": "hk3gtl:electric_motor_hrv",
-      "x": -4.0,
-      "y": -4.0,
-      "description": [
-        "进入HRV · 谐振压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
-      ],
-      "tasks": [
+          "id": "4B54BBF74370B91C",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_hcv",
+          "count": 1,
+          "consume_items": false
+        },
         {
-          "id": "4B5B0F98DB432FAB",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_03"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4B508E8A7D8E0D07",
-      "title": "魂钢前驱体",
-      "icon": "hk3gtl:soulium_microstructure_template",
-      "x": 0.0,
-      "y": 0.0,
-      "description": [
-        "魂钢线从前驱体开始。准备稳定介质、金属基材与化工试剂，先完成基础实验，再往纳米合成方向推进。",
-        "",
-        "解锁魂钢前驱体配制釜魂钢前驱液路线。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "稳定介质、前级可得金属基材与化工试剂。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“魂钢前驱体”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：液态崩坏能稳定化、稳定介质再生。",
-        "基础研究费用：150点；2 × MAX级电路；40 × 钢板。",
-        "基础工期：2分钟；研究用电：32,212,254,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B564D8531EC52D1",
+          "id": "4B553E01794C87A6",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成崩坏抗性包覆研究",
           "tags": [
-            "hk3gtl_quest_rn_ssp"
+            "hk3gtl_quest_hrv_start"
           ]
+        }
+      ],
+      "dependencies": [],
+      "icon": "hk3gtl:voltage_machine_casing_hcv",
+      "x": 0,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5638D73E5A1265",
+      "title": "陶瓷贯穿孔片",
+      "subtitle": "先开通孔，导电层随后再做",
+      "description": [
+        "给已有的HCV陶瓷复合板加工通孔。把孔片送去金属化，贯穿导体从下一道工序接上。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5961F6D5E2C36A",
+          "type": "item",
+          "item": "hk3gtl:ceramic_drilled_interposer",
+          "count": 4,
+          "consume_items": false
         }
       ],
       "dependencies": [
-        "4B5BE03D48DB244E",
-        "4B5A130DF185C499"
+        "4B51EEA9FC0829EF"
       ],
-      "subtitle": "S01 · RN-SSP",
-      "shape": "rsquare"
+      "icon": "hk3gtl:ceramic_drilled_interposer",
+      "x": 4,
+      "y": 0,
+      "optional": false
     },
     {
-      "id": "4B5236D09B7CBB39",
-      "title": "纳米基元合成",
-      "icon": "hk3gtl:nano_building_unit",
-      "x": 3.0,
-      "y": 0.0,
+      "id": "4B5DA21B24CF30E1",
+      "title": "陶瓷贯穿互连阵列",
+      "subtitle": "让线路穿过隔离层",
       "description": [
-        "拿到正式前驱液后，配合精细金属与分离介质开展纳米基元实验。先保证这一层材料稳定，后面的装配才有可靠的输入。",
-        "",
-        "解锁纳米基元合成器纳米基元生产。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "魂钢前驱体配制釜正式前驱液、前级精细金属与已有分离介质。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“纳米基元合成”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：魂钢前驱体。",
-        "基础研究费用：150点；2 × MAX级电路；40 × 钢板。",
-        "基础工期：2分钟；研究用电：32,212,254,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "活化孔壁，沉积导电层，再接好芯线与表面互连。新电路、探测器和HRV机壳都要从这里取料。"
       ],
       "tasks": [
         {
-          "id": "4B595E38111D2063",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_nbs"
-          ]
+          "id": "4B5176191F95E7A9",
+          "type": "item",
+          "item": "hk3gtl:ceramic_feedthrough_array",
+          "count": 4,
+          "consume_items": false
         }
       ],
       "dependencies": [
-        "4B508E8A7D8E0D07"
+        "4B5638D73E5A1265"
       ],
-      "subtitle": "S01 · RN-NBS",
-      "shape": "rsquare"
+      "icon": "hk3gtl:ceramic_feedthrough_array",
+      "x": 8,
+      "y": 0,
+      "optional": false
     },
     {
-      "id": "4B51F36779451456",
-      "title": "纳米机器人装配",
-      "icon": "hk3gtl:unprogrammed_nanobot",
-      "x": 6.0,
-      "y": 0.0,
+      "id": "4B5E6A657C280B07",
+      "title": "微通道电路冷板",
+      "subtitle": "给高能电路接好冷却",
       "description": [
-        "纳米基元还不是能够工作的单元。给它配上控制电路和驱动材料，完成装配实验，再进入编程环节。",
-        "",
-        "解锁纳米机器人装配阵列装配未编程纳米单元。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "纳米基元合成器纳米基元、前级电路与驱动材料。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“纳米机器人装配”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：纳米基元合成。",
-        "基础研究费用：150点；2 × MAX级电路；40 × 钢板。",
-        "基础工期：2分钟；研究用电：32,212,254,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "把微通道歧管、复合板与小管装成冷板。处理器和场控器件需要的散热部件，由这条线持续供应。"
       ],
       "tasks": [
         {
-          "id": "4B5DF414ECA936B1",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_nra"
-          ]
+          "id": "4B536E106493761C",
+          "type": "item",
+          "item": "hk3gtl:microchannel_circuit_cold_plate",
+          "count": 4,
+          "consume_items": false
         }
       ],
       "dependencies": [
-        "4B5236D09B7CBB39"
+        "4B5DA21B24CF30E1"
       ],
-      "subtitle": "S01 · RN-NRA",
-      "shape": "rsquare"
+      "icon": "hk3gtl:microchannel_circuit_cold_plate",
+      "x": 8,
+      "y": 8,
+      "optional": false
     },
     {
-      "id": "4B5DE0289470D651",
-      "title": "纳米自组织编程",
-      "icon": "hk3gtl:controlled_nano_swarm",
-      "x": 9.0,
-      "y": 0.0,
+      "id": "4B5ECB02D25F251F",
+      "title": "约束补偿时钟模组",
+      "subtitle": "把各工作域的节拍对齐",
       "description": [
-        "未编程的纳米单元需要明确的控制。准备控制电路与隔离载体，把它们变成可以按要求工作的受控纳米群。",
-        "",
-        "解锁纳米自组织编程舱受控纳米群与程序样本。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "纳米机器人装配阵列未编程纳米单元、前级控制电路和隔离载体。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“纳米自组织编程”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：纳米机器人装配。",
-        "基础研究费用：150点；2 × MAX级电路；40 × 钢板。",
-        "基础工期：2分钟；研究用电：32,212,254,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "核时钟给出基准，CPU读取反馈与补偿表，同步节点协调各执行域。装成模组后，继续供应处理器与测控部件。"
       ],
       "tasks": [
         {
-          "id": "4B5303F2405038C3",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_nsp"
-          ]
+          "id": "4B506E2896E47D3E",
+          "type": "item",
+          "item": "hk3gtl:constraint_compensated_clock_module",
+          "count": 2,
+          "consume_items": false
         }
       ],
       "dependencies": [
-        "4B51F36779451456"
+        "4B5DA21B24CF30E1"
       ],
-      "subtitle": "S01 · RN-NSP",
-      "shape": "rsquare"
+      "icon": "hk3gtl:constraint_compensated_clock_module",
+      "x": 12,
+      "y": 2,
+      "optional": false
+    },
+    {
+      "id": "4B52CFD71DFDD8B7",
+      "title": "陶瓷隔离磁轴承",
+      "subtitle": "给运动部件留好支撑",
+      "description": [
+        "用磁路与线圈支撑轴系，再把高电位工作区隔开。马达、传送带和机械臂都会消耗这种轴承。"
+      ],
+      "tasks": [
+        {
+          "id": "4B56AF3A63A6F874",
+          "type": "item",
+          "item": "hk3gtl:ceramic_magnetic_bearing",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51EEA9FC0829EF"
+      ],
+      "icon": "hk3gtl:ceramic_magnetic_bearing",
+      "x": 12,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B598D3600DC6623",
+      "title": "陶瓷复合波纹密封件",
+      "subtitle": "让液路和运动边界一同密封",
+      "description": [
+        "用金属承力环和聚合物夹层承担位移，复合护层负责绝缘与耐磨。活塞与泵从这里取得密封件。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5704290F9D88F1",
+          "type": "item",
+          "item": "hk3gtl:ceramic_bellows_seal",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51EEA9FC0829EF"
+      ],
+      "icon": "hk3gtl:ceramic_bellows_seal",
+      "x": 16,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B56FA52585A498B",
+      "title": "HCV魂钢晶格处理器组装件",
+      "subtitle": "把四个HBV处理器装成子模块",
+      "description": [
+        "保留四个完整HBV处理器，再加载板、缓存、互连、冷板与补偿时钟。整件电路仍可用HBV电力首制。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5022BF903893CC",
+          "type": "item",
+          "item": "hk3gtl:hcv_assembly",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5ECB02D25F251F",
+        "4B5E6A657C280B07"
+      ],
+      "icon": "hk3gtl:hcv_assembly",
+      "x": 16,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B59FADA795D826B",
+      "title": "HCV律动耦合处理器",
+      "subtitle": "把激励、测量与计算接在一起",
+      "description": [
+        "让场源、发射器与传感器进入反馈回路，再接到四个完整HBV处理器。它与处理器组装件分别制造，具体设备按配方取用。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C6EA681D62F5A",
+          "type": "item",
+          "item": "hk3gtl:rhythmic_coupling_processor",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5ECB02D25F251F",
+        "4B5E6A657C280B07"
+      ],
+      "icon": "hk3gtl:rhythmic_coupling_processor",
+      "x": 16,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5A7F42C3464580",
+      "title": "HCV电动马达",
+      "subtitle": "先备好本级旋转驱动",
+      "description": [
+        "将两件完整HBV马达与本级电路、磁轴承装配。后面的活塞、传送带与机械臂继续从这里取料。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E29CF7AD53EE1",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B56FA52585A498B",
+        "4B52CFD71DFDD8B7"
+      ],
+      "icon": "hk3gtl:electric_motor_hcv",
+      "x": 20,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5455B5587935BF",
+      "title": "HCV电动活塞",
+      "subtitle": "接上直线驱动与运动密封",
+      "description": [
+        "用本级马达驱动伸缩机构，波纹密封件与磁轴承分别承担密封和导向。两件HBV活塞完整进入装配。"
+      ],
+      "tasks": [
+        {
+          "id": "4B573DCB436B6A60",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5A7F42C3464580",
+        "4B598D3600DC6623"
+      ],
+      "icon": "hk3gtl:electric_piston_hcv",
+      "x": 24,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5B91EB2C5FA7BE",
+      "title": "HCV电动泵",
+      "subtitle": "把分配、温控与泵体装好",
+      "description": [
+        "在两件完整HBV泵的基础上，加入歧管、冷板和波纹密封件。按设备实际用量安排后续泵件生产。"
+      ],
+      "tasks": [
+        {
+          "id": "4B53B7AE64005EBB",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5A7F42C3464580",
+        "4B598D3600DC6623"
+      ],
+      "icon": "hk3gtl:electric_pump_hcv",
+      "x": 24,
+      "y": 4,
+      "optional": false
+    },
+    {
+      "id": "4B5E62915BAC761F",
+      "title": "HCV传送带",
+      "subtitle": "滚筒支撑和分区驱动一起补齐",
+      "description": [
+        "完整继承前级带体，再装上本级马达、磁轴承与密封。各段输送机构可以分别备货。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C12EFE98B707D",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5A7F42C3464580",
+        "4B598D3600DC6623"
+      ],
+      "icon": "hk3gtl:conveyor_module_hcv",
+      "x": 24,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B57DD0F01E336D7",
+      "title": "HCV机械臂",
+      "subtitle": "让关节按同一节拍工作",
+      "description": [
+        "把本级马达、活塞、轴承和补偿时钟装进机械臂，前级两套臂体与关节完整保留。"
+      ],
+      "tasks": [
+        {
+          "id": "4B52D1E5F9CA1460",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5455B5587935BF"
+      ],
+      "icon": "hk3gtl:robot_arm_hcv",
+      "x": 28,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B561776CF8C5AAC",
+      "title": "HCV传感器",
+      "subtitle": "给采样工作域做好隔离与温控",
+      "description": [
+        "在完整HBV传感器上增加贯穿互连、冷板和时钟模组，完成同步读出部件的装配。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5152F0AD3EEEAE",
+          "type": "item",
+          "item": "hk3gtl:sensor_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B56FA52585A498B"
+      ],
+      "icon": "hk3gtl:sensor_hcv",
+      "x": 24,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5B4A431672AFA6",
+      "title": "HCV发射器",
+      "subtitle": "把高能信号引出来",
+      "description": [
+        "保留前级激励源与调制部件，再加本级隔离、冷却和同步模组。场发生器还要继续消耗这种发射器。"
+      ],
+      "tasks": [
+        {
+          "id": "4B558E94C872503D",
+          "type": "item",
+          "item": "hk3gtl:emitter_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B56FA52585A498B"
+      ],
+      "icon": "hk3gtl:emitter_hcv",
+      "x": 28,
+      "y": 10,
+      "optional": false
+    },
+    {
+      "id": "4B523DAF3EE00C05",
+      "title": "HCV力场发生器",
+      "subtitle": "激励与反馈在这里汇合",
+      "description": [
+        "将本级发射器、传感器与补偿时钟接入场控制。八种部件按各自用途生产，整套电子工艺仍以HBV电力首制。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E05080AD54A36",
+          "type": "item",
+          "item": "hk3gtl:field_generator_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5B4A431672AFA6",
+        "4B561776CF8C5AAC"
+      ],
+      "icon": "hk3gtl:field_generator_hcv",
+      "x": 32,
+      "y": 12,
+      "optional": false
     },
     {
       "id": "4B52023452A874DC",
-      "title": "适配基板生长",
-      "icon": "hk3gtl:honkai_adapted_circuit_substrate",
-      "x": 12.0,
-      "y": 0.0,
+      "title": "适配基板纳米生长研究",
+      "subtitle": "先表征已有的受控纳米群",
       "description": [
-        "受控纳米群可以用于生长适配基板。用MAX阶段可得的载体和稳定介质做实验，为后面的多层电路留出材料基础。",
-        "",
-        "解锁I48，不要求下一阶段才产出的魂钢载体。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "纳米自组织编程舱受控纳米群、稳定介质、MAX可得载体。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“适配基板生长”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：纳米自组织编程、起步电路适配。",
-        "基础研究费用：150点；2 × MAX级电路；40 × 钢板。",
-        "基础工期：2分钟；研究用电：32,212,254,720 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "拿已有受控群到光谱阵列检测，样品原量返还，再到研究所完成课题。原有适配基板路线继续供应第一批基板。"
       ],
       "tasks": [
         {
           "id": "4B521DE153D126EE",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成适配基板纳米生长研究",
           "tags": [
             "hk3gtl_quest_rn_cbs"
           ]
         }
       ],
       "dependencies": [
-        "4B5DE0289470D651",
-        "4B5042942BCE6960"
+        "4B51EEA9FC0829EF"
       ],
-      "subtitle": "S01 · RN-CBS",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B513BA51624BDC7",
-      "linked_quest": "4B5042942BCE6960",
-      "x": 0.0,
-      "y": -8.0
+      "icon": "hk3gtl:honkai_adapted_circuit_substrate",
+      "x": 0,
+      "y": -8,
+      "optional": true
     },
     {
-      "id": "4B52D8CD026053CC",
-      "linked_quest": "4B5BE03D48DB244E",
-      "x": 3.0,
-      "y": -8.0
+      "id": "4B5DFFE8E43A3568",
+      "title": "纳米模板定向生长基板",
+      "subtitle": "一批需38,400 HW",
+      "description": [
+        "让受控群和HBV处理器作为可复用工具参与生长。结构与功能原料照常投入，设备以32 HW/t运行1,200 tick。"
+      ],
+      "tasks": [
+        {
+          "id": "4B58FD1FA7AC60B8",
+          "type": "custom",
+          "title": "实际完成受控纳米模板定向生长适配基板",
+          "tags": [
+            "hk3gtl_quest_hrv_substrate_growth"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B52023452A874DC"
+      ],
+      "icon": "hk3gtl:honkai_adapted_circuit_substrate",
+      "x": 4,
+      "y": -8,
+      "optional": true
     },
     {
-      "id": "4B53BDE2B67E70DB",
-      "linked_quest": "4B5A130DF185C499",
-      "x": 6.0,
-      "y": -8.0
+      "id": "4B57DC4F6BB9CE55",
+      "title": "一阶液态崩坏能探测器",
+      "subtitle": "用新互连升级旧仪器",
+      "description": [
+        "保留旧探测器的实体前驱，装入贯穿互连与差分测量部件。先完成已有的RN-DMT研究，再做这次升级。"
+      ],
+      "tasks": [
+        {
+          "id": "4B58CED555EA9F9A",
+          "type": "item",
+          "item": "hk3gtl:liquid_honkai_detector",
+          "count": 1,
+          "consume_items": false
+        },
+        {
+          "id": "4B5B7C947B5E5CF8",
+          "type": "custom",
+          "title": "完成探测器校准研究",
+          "tags": [
+            "hk3gtl_quest_hrv_detector"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5DA21B24CF30E1"
+      ],
+      "icon": "hk3gtl:liquid_honkai_detector",
+      "x": 8,
+      "y": -8,
+      "optional": true
+    },
+    {
+      "id": "4B5F6190B5873F19",
+      "title": "崩坏抗性包覆阵列",
+      "subtitle": "先把崩坏抗性包覆阵列建起来",
+      "description": [
+        "用现成HCV机壳与前段部件制造包覆阵列控制器。装置就绪后，再给受控纳米群施加涂层。"
+      ],
+      "tasks": [
+        {
+          "id": "4B51D586FE4D80F4",
+          "type": "item",
+          "item": "hk3gtl:i13_honkai_resistant_coating_array",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51EEA9FC0829EF"
+      ],
+      "icon": "hk3gtl:i13_honkai_resistant_coating_array",
+      "x": 4,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B5DCCEEED3B64AC",
+      "title": "纳米阻隔陶瓷分散液",
+      "subtitle": "先接好新鲜分散液",
+      "description": [
+        "在前驱体配制釜里制备分散液，供抗性涂料和后面的谐振前体使用。第一批直接从新料起步。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57415AF5D1FC85",
+          "type": "custom",
+          "title": "实际完成纳米阻隔陶瓷分散液",
+          "tags": [
+            "hk3gtl_quest_hrv_dispersion"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B51EEA9FC0829EF"
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 4,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B5E921AB4D9FB4C",
+      "title": "新鲜崩坏抗性涂料",
+      "subtitle": "包覆线的独立供给",
+      "description": [
+        "将陶瓷分散液与其余成膜材料混合成涂料。用后的涂料单独收集，后面再接再生。"
+      ],
+      "tasks": [
+        {
+          "id": "4B53C191EA06BF30",
+          "type": "custom",
+          "title": "实际完成新鲜崩坏抗性涂料",
+          "tags": [
+            "hk3gtl_quest_hrv_coating"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5DCCEEED3B64AC"
+      ],
+      "icon": "hk3gtl:coated_nano_swarm",
+      "x": 8,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B5BD8E2DAD676FC",
+      "title": "抗侵蚀涂层纳米群",
+      "subtitle": "一批需192,000 HW",
+      "description": [
+        "把八份受控群送入包覆阵列，完成八份包覆群。设备以64 HW/t运行3,000 tick，随后取一份去检测聚合适用性。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E9B5E3CAB2D65",
+          "type": "item",
+          "item": "hk3gtl:coated_nano_swarm",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5F6190B5873F19",
+        "4B5E921AB4D9FB4C"
+      ],
+      "icon": "hk3gtl:coated_nano_swarm",
+      "x": 8,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B5D35B3254D971A",
+      "title": "魂钢聚合压铸研究",
+      "subtitle": "先检测真实包覆群",
+      "description": [
+        "在光谱阵列完成聚合适用性检测，再到研究所完成课题。同一份包覆群会返还，后续聚合按配方另备实际用量。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5889300E76E375",
+          "type": "custom",
+          "title": "完成魂钢聚合压铸研究",
+          "tags": [
+            "hk3gtl_quest_rn_spc"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5BD8E2DAD676FC"
+      ],
+      "icon": "hk3gtl:soulium_proto_mass",
+      "x": 12,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B50B01F95E6AD33",
+      "title": "魂钢聚合压铸机",
+      "subtitle": "为第一批粗坯建设魂钢聚合压铸机",
+      "description": [
+        "用前段已经取得的HCV机壳与部件装出控制器。机器、模具和晶界颗粒可以分别准备，齐备后开第一批聚合。"
+      ],
+      "tasks": [
+        {
+          "id": "4B589C3C51E0D973",
+          "type": "item",
+          "item": "hk3gtl:soulium_polymerization_die_caster",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5D35B3254D971A"
+      ],
+      "icon": "hk3gtl:soulium_polymerization_die_caster",
+      "x": 16,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B56BB6F4C8B7001",
+      "title": "魂钢晶界调制颗粒",
+      "subtitle": "从新鲜原料制备晶界组分",
+      "description": [
+        "在配制釜里制造晶界颗粒，供魂钢聚合与谐振生长使用。残渣中的颗粒可以随后回收。"
+      ],
+      "tasks": [
+        {
+          "id": "4B56C42F51D02883",
+          "type": "item",
+          "item": "hk3gtl:soulium_grain_boundary_inoculant",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5D35B3254D971A"
+      ],
+      "icon": "hk3gtl:soulium_grain_boundary_inoculant",
+      "x": 16,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B5D6CA32492934D",
+      "title": "魂钢聚合模具",
+      "subtitle": "第一次压铸前先备好工装",
+      "description": [
+        "用现成HCV与MAX材料制造模具。压铸完成后模具保留，下一批继续使用。"
+      ],
+      "tasks": [
+        {
+          "id": "4B58118EA3C4DAFA",
+          "type": "item",
+          "item": "hk3gtl:soulium_casting_mold",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5D35B3254D971A"
+      ],
+      "icon": "hk3gtl:soulium_casting_mold",
+      "x": 16,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B514F6965902A9B",
+      "title": "受控魂钢聚合压铸",
+      "subtitle": "一批需460,800 HW",
+      "description": [
+        "把包覆群、晶界颗粒与其余基体原料送入压铸机，模具作为工具保留。96 HW/t运行4,800 tick后，取得第一批粗魂钢坯。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DC8770536C79A",
+          "type": "item",
+          "item": "hk3gtl:soulium_proto_mass",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B50B01F95E6AD33",
+        "4B56BB6F4C8B7001",
+        "4B5D6CA32492934D"
+      ],
+      "icon": "hk3gtl:soulium_proto_mass",
+      "x": 20,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B5BC58B8D006F63",
+      "title": "魂钢重构退火研究",
+      "subtitle": "先测粗坯的退火窗口",
+      "description": [
+        "取一份粗魂钢坯做无损检测，再完成研究。粗坯原量返还，退火炉随后开放。"
+      ],
+      "tasks": [
+        {
+          "id": "4B541C230419FAD8",
+          "type": "custom",
+          "title": "完成魂钢重构退火研究",
+          "tags": [
+            "hk3gtl_quest_rn_sra"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B514F6965902A9B"
+      ],
+      "icon": "hk3gtl:stabilized_soulium_proto_mass",
+      "x": 24,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B5D30E1AA5674F6",
+      "title": "魂钢重构退火炉",
+      "subtitle": "把魂钢重构退火炉接到粗坯出口",
+      "description": [
+        "用已有材料制造退火炉控制器，接好稳定介质、冷却液与气体。先完成这段热处理，再研究加工公差。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B285FD26E52EA",
+          "type": "item",
+          "item": "hk3gtl:soulium_reconstruction_annealing_furnace",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5BC58B8D006F63"
+      ],
+      "icon": "hk3gtl:soulium_reconstruction_annealing_furnace",
+      "x": 28,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B54CA117091E5C1",
+      "title": "魂钢重构与应力退火",
+      "subtitle": "一批需460,800 HW",
+      "description": [
+        "将三十二份粗坯退火为同量稳定坯。设备以96 HW/t运行4,800 tick，废介质和热冷却液分别排出。"
+      ],
+      "tasks": [
+        {
+          "id": "4B55402732E49C27",
+          "type": "item",
+          "item": "hk3gtl:stabilized_soulium_proto_mass",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5D30E1AA5674F6"
+      ],
+      "icon": "hk3gtl:stabilized_soulium_proto_mass",
+      "x": 32,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B560A45C8B1AB68",
+      "title": "魂钢精密加工研究",
+      "subtitle": "先确认稳定坯的加工公差",
+      "description": [
+        "把稳定坯送去光谱阵列检测，再完成精密加工研究。样品返还后，继续准备加工中心。"
+      ],
+      "tasks": [
+        {
+          "id": "4B58E80CB999F893",
+          "type": "custom",
+          "title": "完成魂钢精密加工研究",
+          "tags": [
+            "hk3gtl_quest_rn_spm"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B54CA117091E5C1"
+      ],
+      "icon": "hk3gtl:soulium_data_substrate",
+      "x": 36,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B500587A0E150CD",
+      "title": "魂钢精密加工中心",
+      "subtitle": "魂钢精密加工中心从已有材料建起",
+      "description": [
+        "制造加工中心控制器，接好前段供料。第一座加工中心用已有HCV与MAX材料制造。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B4F75A20CA6A8",
+          "type": "item",
+          "item": "hk3gtl:soulium_precision_processing_center",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B560A45C8B1AB68"
+      ],
+      "icon": "hk3gtl:soulium_precision_processing_center",
+      "x": 40,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B5748036139BD2F",
+      "title": "魂钢精密定尺锭",
+      "subtitle": "第一批正式魂钢锭",
+      "description": [
+        "给稳定坯完成定尺与外覆修边，取得三十二份魂钢锭。少量加工屑另存，板材与细线从正式锭继续加工。"
+      ],
+      "tasks": [
+        {
+          "id": "4B51733C6F3A9981",
+          "type": "item",
+          "item": "hk3gtl:soulium_ingot",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B500587A0E150CD"
+      ],
+      "icon": "hk3gtl:soulium_ingot",
+      "x": 44,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B51CE2915C66F8C",
+      "title": "魂钢承压功能板",
+      "subtitle": "基体、面层与预浸片一同加工",
+      "description": [
+        "将魂钢锭与面层、增强片复合成板。后面的阻尼薄层、晶种工装和数据基板都要从这里取料。"
+      ],
+      "tasks": [
+        {
+          "id": "4B51A8DB0E8F76DD",
+          "type": "item",
+          "item": "hk3gtl:soulium_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5748036139BD2F"
+      ],
+      "icon": "hk3gtl:soulium_plate",
+      "x": 44,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5A3460FEB6E1C7",
+      "title": "魂钢绝缘复合细线",
+      "subtitle": "导电芯和绝缘层同时备齐",
+      "description": [
+        "把魂钢锭加工为细线，并补齐导电与绝缘层。数据基板和后续装配继续使用成品线材。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E84778EAF981A",
+          "type": "item",
+          "item": "hk3gtl:fine_soulium_wire",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5748036139BD2F"
+      ],
+      "icon": "hk3gtl:fine_soulium_wire",
+      "x": 48,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5CBD6067065B87",
+      "title": "魂钢数据基板",
+      "subtitle": "一批需102,400 HW",
+      "description": [
+        "把正式魂钢板、细线和HCV电路装成数据基板。设备以32 HW/t运行3,200 tick，先核对同一绑定者的HW余额。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5642713A6CBDE3",
+          "type": "item",
+          "item": "hk3gtl:soulium_data_substrate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B56FA52585A498B",
+        "4B51CE2915C66F8C",
+        "4B5A3460FEB6E1C7"
+      ],
+      "icon": "hk3gtl:soulium_data_substrate",
+      "x": 48,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B5C3F0875E3F9DA",
+      "title": "新鲜谐振晶格生长液",
+      "subtitle": "晶格生长从新料起步",
+      "description": [
+        "在配制釜中调好生长液，给定向生长留稳定供给。用后的生长液集中收集，再生随后接入。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CD7570C3C6756",
+          "type": "custom",
+          "title": "实际完成新鲜谐振晶格生长液",
+          "tags": [
+            "hk3gtl_quest_hrv_growth_liquid"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B560A45C8B1AB68"
+      ],
+      "icon": "hk3gtl:soulium_grain_boundary_inoculant",
+      "x": 48,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5F5CD57F09E906",
+      "title": "晶界谐振阻尼薄层",
+      "subtitle": "给生长分区与结构件备层间材料",
+      "description": [
+        "将正式魂钢板与前段增强片、预浸片和锚固网加工成阻尼薄层。整形、工程形态与机壳装配都会用到。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BC1685B79D946",
+          "type": "item",
+          "item": "hk3gtl:resonance_damping_interlayer",
+          "count": 64,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51CE2915C66F8C"
+      ],
+      "icon": "hk3gtl:resonance_damping_interlayer",
+      "x": 40,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B5C4F3D0D0BBA6B",
+      "title": "谐振取向晶种芯",
+      "subtitle": "定向生长的可复用工装",
+      "description": [
+        "先用现有魂钢与HCV、MAX材料制造晶种芯。定向生长读取晶种，完整结算后继续保留。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57BB11EAD7A1C0",
+          "type": "item",
+          "item": "hk3gtl:resonance_texture_seed",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B56FA52585A498B",
+        "4B51CE2915C66F8C"
+      ],
+      "icon": "hk3gtl:resonance_texture_seed",
+      "x": 40,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B59CB1801437563",
+      "title": "谐振晶格纳米分散前体",
+      "subtitle": "一批需422,400 HW",
+      "description": [
+        "在包覆阵列中完成纳米分散，让三十二份HCV主体进入同量前体。设备以96 HW/t运行4,400 tick。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BFFC2B32747AA",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_stage_1",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B560A45C8B1AB68"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_stage_1",
+      "x": 36,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B53A71BFCA14E34",
+      "title": "晶种诱导定向生长",
+      "subtitle": "一批需665,600 HW",
+      "description": [
+        "将前体送入退火炉，以晶种芯限定生长方向。128 HW/t运行5,200 tick，得到定向生长坯，废生长液另接出口。"
+      ],
+      "tasks": [
+        {
+          "id": "4B547DABCBFAE621",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5F5CD57F09E906",
+        "4B5C3F0875E3F9DA",
+        "4B59CB1801437563",
+        "4B5C4F3D0D0BBA6B"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_stage_2",
+      "x": 32,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B524E28126D3E07",
+      "title": "谐振取向与精密整形",
+      "subtitle": "一批需665,600 HW",
+      "description": [
+        "在加工中心控制取向和晶界应力，把生长坯加工成整形晶格坯。设备以128 HW/t运行5,200 tick。"
+      ],
+      "tasks": [
+        {
+          "id": "4B565053C51CD1D9",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B53A71BFCA14E34"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_stage_3",
+      "x": 28,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B556A1CCAFC2BA0",
+      "title": "取向晶格表层定形",
+      "subtitle": "一批需230,400 HW",
+      "description": [
+        "把整形坯送回包覆阵列完成表层定形，得到三十二份合格标准坯。64 HW/t运行3,600 tick后，板、棒等形态从这里分流。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F7A3323B7FD4D",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B524E28126D3E07"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_billet",
+      "x": 24,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B55EC67D39B287C",
+      "title": "取向晶格承压板",
+      "subtitle": "机壳需要十六块",
+      "description": [
+        "把标准坯与HCV背衬加工成承压板，给机壳和功能箔分别留出产量。"
+      ],
+      "tasks": [
+        {
+          "id": "4B542E31462B5C69",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B556A1CCAFC2BA0"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_plate",
+      "x": 20,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5BD74AFAB9A072",
+      "title": "取向晶格承力棒",
+      "subtitle": "框架与密封环继续从这里分流",
+      "description": [
+        "给晶格基体装入承力内芯和绝缘层，制成棒材。框架、环与复合细线继续使用它。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CB3AB43B74A9C",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B556A1CCAFC2BA0"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_rod",
+      "x": 20,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B51CBC2FE337110",
+      "title": "谐振隔振框架组件",
+      "subtitle": "机壳需要两件",
+      "description": [
+        "将八根棒与完整HCV框架、无尽框架装配，取得一件隔振框架。连接件与阻尼层按配方另行投入。"
+      ],
+      "tasks": [
+        {
+          "id": "4B503F02CBA4973F",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5BD74AFAB9A072"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_frame",
+      "x": 16,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B5C0DA6D127F76C",
+      "title": "谐振隔离密封环",
+      "subtitle": "机壳需要十六件",
+      "description": [
+        "把棒材加工为密封环，并补上密封面层。准备齐机壳需要的板、框架和环后，就可以总装。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5076867BAA270B",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5BD74AFAB9A072"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_ring",
+      "x": 16,
+      "y": 44,
+      "optional": false
+    },
+    {
+      "id": "4B5AA557CF2AB776",
+      "title": "取向功能复合箔",
+      "subtitle": "板材继续展薄",
+      "description": [
+        "将承压板展薄，再复合功能面层。它与细线继续供应后续电子和设备制造。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5894410743D750",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B55EC67D39B287C"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_foil",
+      "x": 16,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B549F63C308765B",
+      "title": "谐振复合细线",
+      "subtitle": "给后续工作域留线材",
+      "description": [
+        "从棒材加工出复合细线，同时完整投入前级HCV线材。成品按后续设备需求安排库存。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B56CDF63F8C28",
+          "type": "item",
+          "item": "hk3gtl:resonance_oriented_lattice_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5BD74AFAB9A072"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_fine_wire",
+      "x": 20,
+      "y": 48,
+      "optional": false
+    },
+    {
+      "id": "4B537C1393006CC9",
+      "title": "HRV谐振压机械方块",
+      "subtitle": "在HCV电力下完成第一块",
+      "description": [
+        "把十六块板、两件框架与十六件密封环装到HCV机壳上，再补齐屏蔽、互连、紧固和灌封材料。第一块谐振压机械方块在这里完成。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C1EDE568BCDDD",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_hrv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51CBC2FE337110",
+        "4B55EC67D39B287C",
+        "4B5C0DA6D127F76C"
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_hrv",
+      "x": 12,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B56D20ECA8DE73E",
+      "title": "魂钢加工屑补料再聚合",
+      "subtitle": "加工屑回来后再开这条线",
+      "description": [
+        "用真实加工屑补入包覆群、前驱液和其他必要组分，回收成粗魂钢坯。回收坯随后继续退火与定尺。"
+      ],
+      "tasks": [
+        {
+          "id": "4B53CB9128DC48BF",
+          "type": "custom",
+          "title": "实际完成魂钢加工屑补料再聚合",
+          "tags": [
+            "hk3gtl_quest_hrv_swarf_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5748036139BD2F"
+      ],
+      "icon": "hk3gtl:soulium_proto_mass",
+      "x": 52,
+      "y": 54,
+      "optional": true
+    },
+    {
+      "id": "4B56B1DB58EA5FDA",
+      "title": "崩坏抗性涂料有损再生",
+      "subtitle": "8,000 mB废涂料返4,000 mB成品",
+      "description": [
+        "将用后涂料交给再生塔，补上滤芯、溶剂与成膜材料。再生使用HBV电力，新鲜涂料继续补足消耗。"
+      ],
+      "tasks": [
+        {
+          "id": "4B563AC44674A6D6",
+          "type": "custom",
+          "title": "实际完成崩坏抗性涂料有损再生",
+          "tags": [
+            "hk3gtl_quest_hrv_coating_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5BD8E2DAD676FC"
+      ],
+      "icon": "hk3gtl:coated_nano_swarm",
+      "x": 4,
+      "y": 54,
+      "optional": true
+    },
+    {
+      "id": "4B57D28E5420D095",
+      "title": "聚合残渣晶核分选",
+      "subtitle": "从真实聚合残渣回收颗粒",
+      "description": [
+        "用配制釜浸洗聚合残渣，补入钛与调律源金，分出可用晶界颗粒。失活纳米组分与废液另行排出。"
+      ],
+      "tasks": [
+        {
+          "id": "4B52B1499313CDC0",
+          "type": "custom",
+          "title": "实际完成魂钢聚合残渣晶核分选",
+          "tags": [
+            "hk3gtl_quest_hrv_inoculant_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B514F6965902A9B"
+      ],
+      "icon": "hk3gtl:soulium_grain_boundary_inoculant",
+      "x": 40,
+      "y": 54,
+      "optional": true
+    },
+    {
+      "id": "4B5D7551240A5C4F",
+      "title": "HRV魂钢退火定尺一体化",
+      "subtitle": "四百二十秒缩为一百二十秒",
+      "description": [
+        "取得HRV机壳并接好HRV电力后，可在加工中心合并退火与定尺。原两道工序的实体与流体投入保留，本批另需230,400 HW。"
+      ],
+      "tasks": [
+        {
+          "id": "4B52C4BF4995E953",
+          "type": "custom",
+          "title": "实际完成HRV魂钢退火定尺一体化",
+          "tags": [
+            "hk3gtl_quest_hrv_anneal_continuous"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B537C1393006CC9"
+      ],
+      "icon": "hk3gtl:soulium_ingot",
+      "x": 4,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B56E0A8546920BC",
+      "title": "HRV壳体检修拆解",
+      "subtitle": "收回前级机壳与部分构件",
+      "description": [
+        "拆解一件HRV机壳，退回HCV机壳、部分晶格构件与分类废料。屏蔽、紧固、绝缘和灌封材料随检修消耗。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D4EEF0A4AD291",
+          "type": "custom",
+          "title": "实际完成HRV壳体检修拆解",
+          "tags": [
+            "hk3gtl_quest_hrv_casing_service"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B537C1393006CC9"
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_hcv",
+      "x": 8,
+      "y": 48,
+      "optional": true
+    },
+    {
+      "id": "4B56811CD786020F",
+      "title": "HRV分类废料有损分离",
+      "subtitle": "可回收相与最终尾料分开",
+      "description": [
+        "把分类废料送入离心分离中心，取得回收组分与最终尾料。回收组分用于复配前体，尾料单独惰化。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C902644A7FD17",
+          "type": "custom",
+          "title": "实际完成HRV分类废料有损分离",
+          "tags": [
+            "hk3gtl_quest_hrv_scrap_separation"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B556A1CCAFC2BA0"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_recovered_fraction",
+      "x": 28,
+      "y": 54,
+      "optional": true
+    },
+    {
+      "id": "4B583698911880B5",
+      "title": "HRV回收组分复配前体",
+      "subtitle": "补齐分散功能后回到生长工序",
+      "description": [
+        "把回收组分与新鲜HCV基体、控制群及必要界面材料复配成前体。成品继续经过定向生长、整形和表层定形。"
+      ],
+      "tasks": [
+        {
+          "id": "4B56B78A1062E670",
+          "type": "custom",
+          "title": "实际完成HRV回收组分复配前体",
+          "tags": [
+            "hk3gtl_quest_hrv_precursor_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B56811CD786020F"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_stage_1",
+      "x": 32,
+      "y": 58,
+      "optional": true
+    },
+    {
+      "id": "4B5B7C1BB8921667",
+      "title": "谐振生长液分馏再生",
+      "subtitle": "32,000 mB废液返24,000 mB生长液",
+      "description": [
+        "在离心分离中心处理用后生长液，再补上晶界颗粒、溶剂与净化耗材，返回部分有效生长液。"
+      ],
+      "tasks": [
+        {
+          "id": "4B537C13A7B9A85C",
+          "type": "custom",
+          "title": "实际完成谐振生长液分馏再生",
+          "tags": [
+            "hk3gtl_quest_hrv_growth_liquid_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B53A71BFCA14E34"
+      ],
+      "icon": "hk3gtl:soulium_grain_boundary_inoculant",
+      "x": 40,
+      "y": 58,
+      "optional": true
+    },
+    {
+      "id": "4B5F63D8A588FAD1",
+      "title": "HRV历史拒收料解体",
+      "subtitle": "给旧库存留出的处理路线",
+      "description": [
+        "库存里的拒收批可以拆成分类废料与尾料。首批合格标准坯沿前面的分步工序生产。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CB83B314795D0",
+          "type": "custom",
+          "title": "实际完成HRV存量拒收料解体",
+          "tags": [
+            "hk3gtl_quest_hrv_legacy_reject"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B560A45C8B1AB68"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_classified_scrap",
+      "x": 24,
+      "y": 58,
+      "optional": true
+    },
+    {
+      "id": "4B521EF6780A5406",
+      "title": "HRV晶格生长整形一体化",
+      "subtitle": "七百秒缩为一百八十秒",
+      "description": [
+        "取得HRV机壳和HRV电力后，在加工中心合并生长、整形与表层定形。全部实体与流体投入保留，192 HW/t运行3,600 tick，共691,200 HW。"
+      ],
+      "tasks": [
+        {
+          "id": "4B533DAEC482E681",
+          "type": "custom",
+          "title": "实际完成HRV晶格生长整形一体化",
+          "tags": [
+            "hk3gtl_quest_hrv_growth_continuous"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B537C1393006CC9"
+      ],
+      "icon": "hk3gtl:resonance_oriented_lattice_billet",
+      "x": 4,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B5AF7E3350B9CCD",
+      "title": "HRV最终尾料惰化",
+      "subtitle": "把最后一份尾料处理完",
+      "description": [
+        "将不可回收尾料交给离心分离中心惰化，排出灰烬和对应废物。厂房里也给这条最终出口留好位置。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B586091281923",
+          "type": "custom",
+          "title": "实际完成HRV不可回收尾料惰化",
+          "tags": [
+            "hk3gtl_quest_hrv_tail"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B56811CD786020F"
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 24,
+      "y": 54,
+      "optional": true
+    },
+    {
+      "id": "4B51372F71E2A4E1",
+      "title": "第一批谐振压机壳",
+      "subtitle": "接着安排下一间车间",
+      "description": [
+        "第一块谐振压机壳已经装好。魂钢和谐振晶格的分步生产也都能继续供应材料。",
+        "接好各类废液与尾料出口，给库存留够位置。新机壳先收好，后面的设备还要用它。"
+      ],
+      "tasks": [
+        {
+          "id": "4B538A2E499D9EA7",
+          "type": "checkmark",
+          "title": "阅读本段结语",
+          "tags": [
+            "hk3gtl_quest_hrv_foundation"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B537C1393006CC9"
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_hrv",
+      "x": 8,
+      "y": 36,
+      "optional": false
     }
   ]
 }

@@ -17,13 +17,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-/**
- * 【变更记录 #1】2026-10-17 13:55:26（内测5修订160）
- * 删除：无。新增：工业依赖快照的中文HTML只读导出，生产配方、设备桥接和未知视图分别计数。
- * 修改：统一五类表格与原子覆盖；用途：展示逐项阻断，不授予物品、研究或事实，不冒充游戏现场验收。
- * 【变更记录 #2】2026-10-17 14:15:38（第2次备注 · 修订161）
- * 删除：过期160展示号。新增：当前构建追溯号；修改：报告头同步161；用途：避免命名迁移后沿用旧报告身份。
- */
+ 
+
+
+
+
+
+
 public final class Hk3IndustrialAuditReport {
     private static final String FILE_NAME = "工业依赖核验_最新.html";
     private Hk3IndustrialAuditReport() {}
@@ -309,5 +309,5 @@ public final class Hk3IndustrialAuditReport {
             """;
 }
 
-// 【变更记录 · 修订162】2026-10-17 14:43:20：报告标识更新至旧配方清理版本；统计仍来自最终运行时快照，历史报告不回写。
-// 【变更记录 · 修订163】2026-10-17 15:10:00：报告标识同步研究权限接线；统计规则不变，以实际最终门槛重新建图。
+ 
+ 

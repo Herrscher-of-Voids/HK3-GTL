@@ -1,12 +1,11 @@
 {
   "schema": 1,
-  "_comment": "Change #1 2026-09-22 15:50:00 batch6. Initial authorized balance, pending unified game acceptance. / 首轮授权平衡数据，实验前置不可被支付替代。",
   "topics": [
     {
       "id": "RN-HED",
       "title": "崩坏能识别",
       "english": "Honkai Energy Detection",
-      "evidence": "奥托随信资料＋零阶探测器首次液态采样；无需同意合作。",
+      "evidence": "奥托随信资料＋零阶探测器引导采集塔消耗1,000,000mB液态空气，实际提取100mB液态崩坏能；无需同意合作。",
       "result": "建立崩坏能的可重复识别方法，开放正式分析课题。",
       "points": 20,
       "ticks": 600,
@@ -19,10 +18,10 @@
         {
           "tag": "forge:plates/steel",
           "count": 16,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-HSA",
@@ -41,10 +40,10 @@
         {
           "tag": "forge:plates/steel",
           "count": 16,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-LSE",
@@ -63,10 +62,10 @@
         {
           "tag": "forge:plates/steel",
           "count": 16,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-LES",
@@ -85,10 +84,10 @@
         {
           "tag": "forge:plates/steel",
           "count": 16,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-BCE",
@@ -107,17 +106,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 16,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-DMT",
       "title": "探测器校准",
       "english": "Detector Metrology",
       "evidence": "校准设备实际完成零阶探测器对照试验并产出校准报告；返回所用探测器。",
-      "result": "开放一阶液态探测器制造与校准；正式制造消耗校准报告，塔内采集不消耗探测器。",
+      "result": "开放一阶液态探测器制造及HBV高效采集；塔内集成液化与提取，1,000,000mB普通空气可得2400mB液态崩坏能，探测器、4份参考样本与4号编程电路均不消耗。正式制造探测器消耗校准报告。",
       "points": 50,
       "ticks": 1200,
       "materials": [
@@ -129,10 +128,10 @@
         {
           "tag": "forge:plates/steel",
           "count": 24,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-SMR",
@@ -151,10 +150,10 @@
         {
           "tag": "forge:plates/steel",
           "count": 24,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-HFB",
@@ -173,17 +172,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 24,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-FRP",
-      "title": "普通燃料棒封装",
-      "english": "Fuel Rod Packaging",
-      "evidence": "完成RN-HFB后，用前级GT设备制造钨钢棒壳与耐化学密封组件，灌装100mB普通液态燃料制成检测专用样件；I02光谱阵列完成破坏性隔离检测并输出不合格棒后记录实验证据。",
-      "result": "确认普通燃料棒封装工艺；首次样件不要求魂钢。I18正式封装阵列与生产配方仍待结构审批及后续实现，本实验不产出可发电燃料棒。",
+      "title": "低阶燃料棒封装",
+      "english": "Low-Grade Fuel Rod Packaging",
+      "evidence": "RN-HFB后用GT组装与灌装设备制造普通燃料棒，崩坏能样本光谱分析阵列按HDV:P04无损抽检并原量返还受检棒；完成真实实验后推进正式研究。",
+      "result": "开放崩坏能燃料棒封装阵列高吞吐封装与六种低阶材料燃料路线；首批合格普通棒保留并可用于后续发电。",
       "points": 50,
       "ticks": 1200,
       "materials": [
@@ -195,17 +194,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 24,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-SRE",
       "title": "小型反应堆工程",
       "english": "Small Reactor Engineering",
       "evidence": "封装燃料与冷却介质的安全试验资料。",
-      "result": "解锁I19建造和首轮发电；运行记录用于后续热工研究。",
+      "result": "解锁小型崩坏能反应堆建造和首轮发电；运行记录用于后续热工研究。",
       "points": 50,
       "ticks": 1200,
       "materials": [
@@ -217,17 +216,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 24,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2013265920
+      "eut": "2013265920"
     },
     {
       "id": "RN-HLC",
       "title": "冷却剂换热回流",
       "english": "Heat Loop Circulation",
-      "evidence": "I19用后热冷却剂；首机允许新鲜冷却剂与独立废物流出口。",
-      "result": "解锁I46与循环降温路线。",
+      "evidence": "小型崩坏能反应堆用后热冷却剂；首机允许新鲜冷却剂与独立废物流出口。",
+      "result": "解锁稳定介质再生塔反应堆热循环与换热工况；原介质再生路线保留。",
       "points": 90,
       "ticks": 1800,
       "materials": [
@@ -239,17 +238,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 32,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8053063680
+      "eut": "8053063680"
     },
     {
       "id": "RN-SFR",
       "title": "失活燃料后处理",
       "english": "Spent Fuel Recovery",
       "evidence": "首次发电后的失活燃料棒。",
-      "result": "解锁I47，回收棒壳材料并处理残渣，不恢复原燃料全部能量。",
+      "result": "解锁稳定介质再生塔屏蔽拆解、有限材料回收与残渣处置工况；不恢复原燃料全部能量。",
       "points": 90,
       "ticks": 1800,
       "materials": [
@@ -261,17 +260,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 32,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8053063680
+      "eut": "8053063680"
     },
     {
       "id": "RN-RAT",
       "title": "现实稳定锚原理",
       "english": "Reality Anchor Theory",
       "evidence": "液态崩坏能与MAX场控制元件的干扰抑制试验。",
-      "result": "S01可完成稳定锚理论；建议开放不依赖仿制核心的基础锚配方，以便建S02前可布置。实际I36提前为本轮衔接提案。",
+      "result": "解锁崩坏能现实稳定锚的基础制造与使用。",
       "points": 90,
       "ticks": 1800,
       "materials": [
@@ -283,17 +282,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 32,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8053063680
+      "eut": "8053063680"
     },
     {
       "id": "RN-SSP",
       "title": "魂钢前驱体",
       "english": "Soulsteel Precursor",
       "evidence": "稳定介质与前序可得基材的反应记录。",
-      "result": "解锁I09魂钢前驱液路线。",
+      "result": "解锁魂钢前驱体配制釜魂钢前驱液路线。",
       "points": 150,
       "ticks": 2400,
       "materials": [
@@ -305,17 +304,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 40,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32212254720
+      "eut": "32212254720"
     },
     {
       "id": "RN-NBS",
       "title": "纳米基元合成",
       "english": "Nano Base Synthesis",
       "evidence": "前驱液样本和可得精细金属基元。",
-      "result": "解锁I10纳米基元生产。",
+      "result": "解锁纳米基元合成器纳米基元生产。",
       "points": 150,
       "ticks": 2400,
       "materials": [
@@ -327,17 +326,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 40,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32212254720
+      "eut": "32212254720"
     },
     {
       "id": "RN-NRA",
       "title": "纳米机器人装配",
       "english": "Nanorobot Assembly",
       "evidence": "纳米基元与前序电路控制信号测试。",
-      "result": "解锁I11装配未编程纳米单元。",
+      "result": "解锁纳米机器人装配阵列装配未编程纳米单元。",
       "points": 150,
       "ticks": 2400,
       "materials": [
@@ -349,17 +348,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 40,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32212254720
+      "eut": "32212254720"
     },
     {
       "id": "RN-NSP",
       "title": "纳米自组织编程",
       "english": "Nano Selforganization Programming",
       "evidence": "未编程单元的受限自组织记录。",
-      "result": "解锁I12受控纳米群与程序样本。",
+      "result": "解锁纳米自组织编程舱受控纳米群与程序样本。",
       "points": 150,
       "ticks": 2400,
       "materials": [
@@ -371,17 +370,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 40,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32212254720
+      "eut": "32212254720"
     },
     {
       "id": "RN-CBS",
       "title": "适配基板生长",
       "english": "Circuit Board Substrate",
       "evidence": "纳米群、稳定介质与MAX可得基板载体。",
-      "result": "解锁I48，不要求下一阶段才产出的魂钢载体。",
+      "result": "解锁纳米自组织编程舱基础基板生长与沉积工况；不要求下一阶段才产出的魂钢载体。",
       "points": 150,
       "ticks": 2400,
       "materials": [
@@ -393,17 +392,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 40,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32212254720
+      "eut": "32212254720"
     },
     {
       "id": "RN-HRC",
       "title": "崩坏抗性包覆",
       "english": "Honkai Resistance Coating",
       "evidence": "受控纳米群的抗性试验。",
-      "result": "解锁I13包覆工艺。",
+      "result": "解锁崩坏抗性包覆阵列包覆工艺。",
       "points": 210,
       "ticks": 3000,
       "materials": [
@@ -415,17 +414,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 48,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 128849018880
+      "eut": "128849018880"
     },
     {
       "id": "RN-SPC",
       "title": "魂钢聚合压铸",
       "english": "Soulsteel Polymer Casting",
       "evidence": "包覆群与前阶可得模具材料。",
-      "result": "解锁I14制造粗魂钢。",
+      "result": "解锁魂钢聚合压铸机制造粗魂钢。",
       "points": 210,
       "ticks": 3000,
       "materials": [
@@ -437,17 +436,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 48,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 128849018880
+      "eut": "128849018880"
     },
     {
       "id": "RN-SRA",
       "title": "魂钢重构退火",
       "english": "Soulsteel Reconstruction Annealing",
       "evidence": "粗魂钢的结构缺陷记录。",
-      "result": "解锁I15制造稳定魂钢。",
+      "result": "解锁魂钢重构退火炉制造稳定魂钢。",
       "points": 210,
       "ticks": 3000,
       "materials": [
@@ -459,17 +458,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 48,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 128849018880
+      "eut": "128849018880"
     },
     {
       "id": "RN-SPM",
       "title": "魂钢精密加工",
       "english": "Soulsteel Precision Machining",
       "evidence": "稳定魂钢与前阶加工刀具/工装资料。",
-      "result": "解锁I16部件加工与初始舰体件制造基础。",
+      "result": "解锁魂钢精密加工中心部件加工与初始舰体件制造基础。",
       "points": 210,
       "ticks": 3000,
       "materials": [
@@ -481,17 +480,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 48,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 128849018880
+      "eut": "128849018880"
     },
     {
       "id": "RN-MCE",
       "title": "多层电路蚀刻",
       "english": "Multilayer Circuit Etching",
       "evidence": "适配基板和已能加工的导体/掩模。",
-      "result": "解锁I49；首次封装先用已可达GTL工艺，不能等I50才产第一枚所需电路。",
+      "result": "解锁魂钢精密加工中心的多层电路蚀刻工况；首次封装可使用前级GTL工艺，无需先完成电路封装与工况测试研究。",
       "points": 210,
       "ticks": 3000,
       "materials": [
@@ -503,17 +502,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 48,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 128849018880
+      "eut": "128849018880"
     },
     {
       "id": "RN-ALE",
       "title": "高级材料研究所工程",
       "english": "Advanced Laboratory Engineering",
       "evidence": "首批魂钢和蚀刻电路层的合格样件。",
-      "result": "解锁第二阶研究所；不要求S02先研究自己的建造材料。",
+      "result": "解锁第二阶研究所；不要求物质重构研究所先研究自己的建造材料。",
       "points": 210,
       "ticks": 3000,
       "materials": [
@@ -525,17 +524,17 @@
         {
           "tag": "forge:plates/steel",
           "count": 48,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 128849018880
+      "eut": "128849018880"
     },
     {
       "id": "RN-OPR",
       "title": "介质损耗优化",
       "english": "Operating Process Recovery",
       "evidence": "一次可核对的介质与棒壳材料收支。",
-      "result": "解锁可验证的节料回收改良配方，具体收益后定。",
+      "result": "解锁稳定介质再生塔的节料回收、换热与失活燃料棒后处理改良工况。",
       "points": 90,
       "ticks": 1800,
       "materials": [
@@ -547,10 +546,10 @@
         {
           "tag": "forge:plates/steel",
           "count": 32,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8053063680
+      "eut": "8053063680"
     },
     {
       "id": "RN-SSC",
@@ -569,17 +568,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-CCE",
       "title": "仿制核心结晶",
       "english": "Core Crystal Engineering",
       "evidence": "二阶塔获得的固态样本。",
-      "result": "解锁I08基础结晶，再由各类核心课题定义不同功能。",
+      "result": "解锁仿制核心结晶反应室基础结晶，再由各类核心课题定义不同功能。",
       "points": 580,
       "ticks": 7200,
       "materials": [
@@ -591,17 +590,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-CFR",
-      "title": "浓缩崩坏燃料精制",
-      "english": "Concentrated Fuel Refining",
-      "evidence": "浓缩厂实际完成液态燃料浓缩；正式研究仍需固态采集等目录前置。",
-      "result": "液态起步浓缩在燃料调配研究后可运行；本课题保留后续固态与浓缩燃料棒路线，不提前免除前置。",
+      "title": "高阶燃料棒与浓缩燃料精制",
+      "english": "High-Grade Fuel Rod and Concentrated Fuel Refining",
+      "evidence": "浓缩厂实际完成液态燃料浓缩；正式研究仍需固态采集、燃料调配及低阶燃料棒研究等目录前置。",
+      "result": "液态起步浓缩在燃料调配研究后可运行；完成本课题后开放浓缩燃料棒及七种高阶材料燃料芯路线。",
       "points": 580,
       "ticks": 7200,
       "materials": [
@@ -613,17 +612,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-MRE",
       "title": "中型反应堆工程",
       "english": "Medium Reactor Engineering",
       "evidence": "浓缩燃料、前阶换热及废棒处理成果。",
-      "result": "解锁独立控制器I20和对应燃料工况。",
+      "result": "解锁中型崩坏能反应堆的建造与供能工况。",
       "points": 580,
       "ticks": 7200,
       "materials": [
@@ -635,17 +634,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-CPT",
       "title": "电路封装与工况测试",
       "english": "Circuit Packaging Testing",
       "evidence": "前序电路层、魂钢载体与隔离介质。",
-      "result": "解锁I50；首台使用前级电路，后续配方生产更高等级电路。",
+      "result": "解锁魂钢精密加工中心精密封装与电气终检工况，各步分别配方；首套工况使用前级电路。",
       "points": 580,
       "ticks": 7200,
       "materials": [
@@ -657,17 +656,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-ERA",
       "title": "强化现实稳定",
       "english": "Enhanced Reality Anchoring",
       "evidence": "基础稳定理论与固态约束样件。",
-      "result": "扩展既有I36的高级介质/核心配方，不新增第二座稳定锚机器。",
+      "result": "解锁崩坏能现实稳定锚的高级稳定介质与核心制造工艺。",
       "points": 580,
       "ticks": 7200,
       "materials": [
@@ -679,10 +678,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-GSC",
@@ -701,17 +700,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-PCE",
       "title": "相变释能工程",
       "english": "Phase Conversion Engineering",
       "evidence": "首次气态采集样本及前阶热管理记录。",
-      "result": "解锁I23气固转换及损耗计量。",
+      "result": "解锁崩坏能相变释能机气固转换及损耗计量。",
       "points": 760,
       "ticks": 8400,
       "materials": [
@@ -723,17 +722,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-GPR",
       "title": "异质工艺气体净化",
       "english": "Gas Purification Recovery",
       "evidence": "已有工艺排气与过滤介质；早期工艺可用新鲜气体启动。",
-      "result": "解锁I52分气种净化与耗材回用。",
+      "result": "解锁稳定介质再生塔分气种净化与过滤介质回用工况；与液态介质再生分别配方。",
       "points": 760,
       "ticks": 8400,
       "materials": [
@@ -745,10 +744,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-FCA",
@@ -767,10 +766,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-ICA",
@@ -789,17 +788,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-RCA",
       "title": "仿制理核心",
       "english": "Reason Core Application",
       "evidence": "结晶样件与已解锁低阶构件的结构对照。",
-      "result": "解锁仿制理核心；仅可构造已解锁白名单内的低阶产物。",
+      "result": "解锁仿制理核心；仅可构造已解锁制造清单内的低阶产物。",
       "points": 580,
       "ticks": 7200,
       "materials": [
@@ -811,10 +810,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-VCA",
@@ -833,17 +832,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-ECA",
       "title": "仿制侵蚀核心",
       "english": "Erosion Core Application",
       "evidence": "隔离结晶样件的受控运算记录。",
-      "result": "解锁仿制侵蚀核心，研究与机器加速采用明示效果，不作用于真实文件。",
+      "result": "解锁仿制侵蚀核心，研究与机器加速效果见对应设备说明。",
       "points": 580,
       "ticks": 7200,
       "materials": [
@@ -855,10 +854,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-GCA",
@@ -877,10 +876,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-BCA",
@@ -899,10 +898,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-TCA",
@@ -921,10 +920,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-WCA",
@@ -943,17 +942,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-DKE",
       "title": "神之键部件装配",
       "english": "Divine Key Engineering",
       "evidence": "魂钢精密件、核心样件与隔离封装记录。",
-      "result": "解锁I33；具体神之键仍需对应专项课题。",
+      "result": "解锁仿制神之键装配中心；具体神之键仍需对应专项课题。",
       "points": 760,
       "ticks": 8400,
       "materials": [
@@ -965,10 +964,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-VAK",
@@ -987,17 +986,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-CJK",
       "title": "仿制的千界一乘",
-      "english": "Cosmic Juggernaut Key",
+      "english": "Cosmic Juggernaut Engineering",
       "evidence": "空核心与前序空间测量工装的校准记录；不要求先建千界一乘本体。",
-      "result": "解锁信标与静止列车两座结构；终审维度排除，神之键在配方中不消耗。",
+      "result": "解锁信标与静止列车两座结构；终审维度排除，使用工况由成型多方块执行。",
       "points": 760,
       "ticks": 8400,
       "materials": [
@@ -1009,10 +1008,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-SEK",
@@ -1031,10 +1030,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-JOK",
@@ -1053,17 +1052,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-QOM",
       "title": "量子异常初观",
       "english": "Quantum Observation Method",
       "evidence": "千界一乘坐标校准中的异常信号；不要求先有量子所。",
-      "result": "解锁I24首次观测方法，以可复现的异常实验发现量子之海。",
+      "result": "解锁量子异常观测阵列首次观测方法，以可复现的异常实验发现量子之海。",
       "points": 960,
       "ticks": 9600,
       "materials": [
@@ -1075,16 +1074,16 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 72,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8246337208320
+      "eut": "8246337208320"
     },
     {
       "id": "RN-QLE",
       "title": "量子研究所工程",
       "english": "Quantum Laboratory Engineering",
-      "evidence": "I24首次量子观测记录。",
+      "evidence": "量子异常观测阵列首次量子观测记录。",
       "result": "解锁第三阶研究所；完整世界泡解析在新所内展开。",
       "points": 960,
       "ticks": 9600,
@@ -1097,10 +1096,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 72,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8246337208320
+      "eut": "8246337208320"
     },
     {
       "id": "RN-SSQ",
@@ -1119,17 +1118,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 56,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 515396075520
+      "eut": "515396075520"
     },
     {
       "id": "RN-CQS",
       "title": "电路工况扩展",
       "english": "Circuit Qualification Scaling",
       "evidence": "封装与相态隔离的压力测试记录。",
-      "result": "解锁电路高阶工况路线；逐级种子配方仍必须在前一电压可制造。",
+      "result": "解锁纳米自组织编程舱基板及魂钢精密加工中心蚀刻、封装的高阶工况；逐级种子配方仍必须在前一电压可制造。",
       "points": 760,
       "ticks": 8400,
       "materials": [
@@ -1141,10 +1140,10 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-ERM",
@@ -1163,17 +1162,17 @@
         {
           "tag": "forge:plates/tungsten_steel",
           "count": 64,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2061584302080
+      "eut": "2061584302080"
     },
     {
       "id": "RN-WCP",
       "title": "世界泡坐标解析",
       "english": "World Coordinate Parsing",
-      "evidence": "I24观测到的目标信号与坐标误差。",
-      "result": "解锁I25和可供无人任务使用的世界泡坐标。",
+      "evidence": "量子异常观测阵列观测到的目标信号与坐标误差。",
+      "result": "解锁世界泡坐标解析中心和可供无人任务使用的世界泡坐标。",
       "points": 1440,
       "ticks": 14400,
       "materials": [
@@ -1185,17 +1184,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 72,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8246337208320
+      "eut": "8246337208320"
     },
     {
       "id": "RN-UAA",
       "title": "无人作业装置装配",
       "english": "Unmanned Apparatus Assembly",
       "evidence": "已可得魂钢件、电路与驱动测试；不要求采掘后的残片。",
-      "result": "解锁I51探针、作业装置及返修工艺。",
+      "result": "解锁纳米机器人装配阵列探针与无人作业装置装配工况，魂钢精密加工中心供应精密件；返修由UPR单独开放，任务执行仍归世界泡无人采掘调度台。",
       "points": 1790,
       "ticks": 16200,
       "materials": [
@@ -1207,17 +1206,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 80,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32985348833280
+      "eut": "32985348833280"
     },
     {
       "id": "RN-UED",
       "title": "无人世界泡采掘",
       "english": "Unmanned Expedition Dispatch",
       "evidence": "可用坐标与前项已造出的无人装置。",
-      "result": "解锁I26任务；同一真实世界泡最多10次采掘，资源含流体。",
+      "result": "解锁世界泡无人采掘调度台任务；同一真实世界泡最多10次采掘，资源含流体。",
       "points": 1790,
       "ticks": 16200,
       "materials": [
@@ -1229,17 +1228,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 80,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32985348833280
+      "eut": "32985348833280"
     },
     {
       "id": "RN-LTA",
       "title": "遗留技术解析",
       "english": "Legacy Technology Analysis",
       "evidence": "首次无人任务带回的遗留资料。",
-      "result": "解锁I32实物逆向与技术记录验证。",
+      "result": "解锁遗留技术逆向实验室实物逆向与技术记录验证。",
       "points": 1790,
       "ticks": 16200,
       "materials": [
@@ -1251,17 +1250,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 80,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32985348833280
+      "eut": "32985348833280"
     },
     {
       "id": "RN-HBD",
       "title": "仿制休伯利安图纸解读",
       "english": "Hyperion Blueprint Decoding",
       "evidence": "跨维探索中发现的仿制舰图纸。",
-      "result": "解锁仿制舰工程资料，不宣称摧毁了真舰或在官方世界获得唯一原件。",
+      "result": "解锁仿制舰的工程资料。",
       "points": 1790,
       "ticks": 16200,
       "materials": [
@@ -1273,17 +1272,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 80,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 32985348833280
+      "eut": "32985348833280"
     },
     {
       "id": "RN-HCC",
       "title": "仿制舰体构件",
       "english": "Hyperion Construction Components",
       "evidence": "图纸部件要求与已可达魂钢加工工况。",
-      "result": "解锁舰体件及施工装置配方；不要求后续虚数材料。",
+      "result": "解锁魂钢精密加工中心舰体件与纳米机器人装配阵列施工装置配方；不要求后续虚数材料。",
       "points": 2160,
       "ticks": 18000,
       "materials": [
@@ -1295,10 +1294,10 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 88,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 131941395333120
+      "eut": "131941395333120"
     },
     {
       "id": "RN-HVI",
@@ -1317,17 +1316,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 88,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 131941395333120
+      "eut": "131941395333120"
     },
     {
       "id": "RN-BCC",
       "title": "世界泡约束容器",
       "english": "Bubble Constraint Container",
       "evidence": "已能制造的空间/约束组件与魂钢壳体。",
-      "result": "解锁I53空容器；不要求先捕获世界泡。",
+      "result": "解锁魂钢精密加工中心空壳与接口制造、仿制神之键装配中心装配密封与场校准工况，产出正式空世界泡收容容器；不要求先捕获世界泡。",
       "points": 2160,
       "ticks": 18000,
       "materials": [
@@ -1339,17 +1338,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 88,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 131941395333120
+      "eut": "131941395333120"
     },
     {
       "id": "RN-WBC",
       "title": "真实世界泡整体捕获",
       "english": "World Bubble Capture",
       "evidence": "空容器、可用坐标与前序观测记录。",
-      "result": "解锁I27受控捕获；空容器与封存世界泡身份分开记录。",
+      "result": "解锁世界泡整体捕获阵列受控捕获；空容器与封存世界泡身份分开记录。",
       "points": 2160,
       "ticks": 18000,
       "materials": [
@@ -1361,17 +1360,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 88,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 131941395333120
+      "eut": "131941395333120"
     },
     {
       "id": "RN-WTR",
       "title": "真实世界泡终止回收",
       "english": "World Termination Recovery",
       "evidence": "已经合法封存的真实世界泡及终止模拟分析。",
-      "result": "解锁I28终止取资与残件处理，不恢复被终止的同一世界泡。",
+      "result": "解锁真实世界泡终止回收机终止取资与残件处理，不恢复被终止的同一世界泡。",
       "points": 2160,
       "ticks": 18000,
       "materials": [
@@ -1383,17 +1382,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 88,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 131941395333120
+      "eut": "131941395333120"
     },
     {
       "id": "RN-LRE",
       "title": "大型反应堆工程",
       "english": "Large Reactor Engineering",
       "evidence": "中型反应堆和相变回路的高负载记录。",
-      "result": "解锁独立控制器I21与大型供能工况。",
+      "result": "解锁大型崩坏能反应堆的建造与供能工况。",
       "points": 2160,
       "ticks": 18000,
       "materials": [
@@ -1405,17 +1404,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 88,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 131941395333120
+      "eut": "131941395333120"
     },
     {
       "id": "RN-SWC",
       "title": "模拟世界泡构筑",
       "english": "Simulated World Construction",
       "evidence": "真实世界泡观测/回收记录与前序可得模拟种子材料。",
-      "result": "解锁I29首个模拟世界泡；不依赖W14奇观产物。",
+      "result": "解锁模拟世界泡构筑机首个模拟世界泡；不依赖终焉之律者·终序·世界泡轮回引擎奇观产物。",
       "points": 2580,
       "ticks": 19800,
       "materials": [
@@ -1427,17 +1426,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 96,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 527765581332480
+      "eut": "527765581332480"
     },
     {
       "id": "RN-SWS",
       "title": "模拟世界泡稳定",
       "english": "Simulated World Stabilization",
-      "evidence": "I29构筑的初始模拟状态及能流记录。",
-      "result": "解锁I30稳定运行；资源目录沿用真实世界泡已定范围。",
+      "evidence": "模拟世界泡构筑机构筑的初始模拟状态及能流记录。",
+      "result": "解锁模拟世界泡稳定控制器的稳定运行工况，可采集资源与真实世界泡相同。",
       "points": 2580,
       "ticks": 19800,
       "materials": [
@@ -1449,17 +1448,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 96,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 527765581332480
+      "eut": "527765581332480"
     },
     {
       "id": "RN-SWR",
       "title": "模拟世界泡终止回收",
       "english": "Simulated World Recovery",
       "evidence": "本地稳定模拟状态与终止试验记录。",
-      "result": "解锁I31，与真实世界泡回收计数分开。",
+      "result": "解锁模拟世界泡终止回收机，与真实世界泡回收计数分开。",
       "points": 2580,
       "ticks": 19800,
       "materials": [
@@ -1471,17 +1470,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 96,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 527765581332480
+      "eut": "527765581332480"
     },
     {
       "id": "RN-VRC",
       "title": "无人跨界航路中继",
       "english": "Void Route Coordination",
       "evidence": "多目标坐标与前序独立任务记录。",
-      "result": "解锁I39多目标组织能力，不替代I26单任务起步。",
+      "result": "解锁无人跨界航路中继站多目标组织能力，不替代世界泡无人采掘调度台单任务起步。",
       "points": 2580,
       "ticks": 19800,
       "materials": [
@@ -1493,17 +1492,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 96,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 527765581332480
+      "eut": "527765581332480"
     },
     {
       "id": "RN-IOP",
       "title": "虚数联系初观",
       "english": "Imaginary Observation Protocol",
       "evidence": "稳定与衰变世界泡的联系差异。",
-      "result": "解锁I34首次虚数观测，作为研究所升级证据来源。",
+      "result": "解锁虚数之树观测阵列首次虚数观测，作为研究所升级证据来源。",
       "points": 3030,
       "ticks": 21600,
       "materials": [
@@ -1515,16 +1514,16 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 104,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2111062325329920
+      "eut": "2111062325329920"
     },
     {
       "id": "RN-ILE",
       "title": "虚数研究所工程",
       "english": "Imaginary Laboratory Engineering",
-      "evidence": "I34的初次虚数观测记录。",
+      "evidence": "虚数之树观测阵列的初次虚数观测记录。",
       "result": "解锁第四阶研究所，不要求先完成世界维系工程。",
       "points": 3030,
       "ticks": 21600,
@@ -1537,17 +1536,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 104,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2111062325329920
+      "eut": "2111062325329920"
     },
     {
       "id": "RN-UPR",
       "title": "无人装置返修",
       "english": "Unmanned Probe Repair",
       "evidence": "已返回的磨损探针或作业装置。",
-      "result": "解锁返修配方；同一装置不能同时返还新件与旧件。",
+      "result": "解锁纳米机器人装配阵列无人装置返修工况；同一装置不能同时返还新件与旧件。",
       "points": 2160,
       "ticks": 18000,
       "materials": [
@@ -1559,10 +1558,10 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 88,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 131941395333120
+      "eut": "131941395333120"
     },
     {
       "id": "RN-LTB",
@@ -1581,17 +1580,17 @@
         {
           "tag": "forge:plates/naquadah_alloy",
           "count": 88,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 131941395333120
+      "eut": "131941395333120"
     },
     {
       "id": "RN-IAA",
       "title": "虚数空间锚定",
       "english": "Imaginary Anchor Application",
       "evidence": "已取得的虚数初观记录与魂钢空间组件。",
-      "result": "解锁I35锚定组件和连接试验。",
+      "result": "解锁虚数空间锚定阵列锚定组件和连接试验。",
       "points": 4040,
       "ticks": 28800,
       "materials": [
@@ -1603,10 +1602,10 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 104,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2111062325329920
+      "eut": "2111062325329920"
     },
     {
       "id": "RN-ESC",
@@ -1625,17 +1624,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 112,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8444249301319680
+      "eut": "8444249301319680"
     },
     {
       "id": "RN-HER",
       "title": "虚数能量整流",
       "english": "Honkai Energy Rectification",
       "evidence": "能量态采集的能流记录。",
-      "result": "解锁I38整流与合法HKE产出，不授予免费余额。",
+      "result": "解锁虚数能量整流中枢整流与合法HKE产出，不授予免费余额。",
       "points": 4680,
       "ticks": 31200,
       "materials": [
@@ -1647,17 +1646,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 112,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8444249301319680
+      "eut": "8444249301319680"
     },
     {
       "id": "RN-CED",
       "title": "文明能源调度",
       "english": "Civilization Energy Dispatch",
       "evidence": "已生产HKE与授权负载试验。",
-      "result": "解锁I41负载管理；账户仍按个人UUID，无人工距离/容量/吞吐上限。",
+      "result": "解锁文明能源调度中枢负载管理；按个人账户结算，无人工距离/容量/吞吐上限。",
       "points": 4680,
       "ticks": 31200,
       "materials": [
@@ -1669,17 +1668,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 112,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 8444249301319680
+      "eut": "8444249301319680"
     },
     {
       "id": "RN-WME",
       "title": "世界维系试验",
       "english": "World Maintenance Experiment",
       "evidence": "锚定、能流和世界泡稳定性的对照资料。",
-      "result": "解锁I37维系原型与可检验记录。",
+      "result": "解锁世界维系试验平台维系原型与可检验记录。",
       "points": 5380,
       "ticks": 33600,
       "materials": [
@@ -1691,17 +1690,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 120,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 33776997205278720
+      "eut": "33776997205278720"
     },
     {
       "id": "RN-WMS",
       "title": "文明奇观材料",
       "english": "Wonder Material Synthesis",
       "evidence": "维系原型的材料工况要求与现有魂钢成果。",
-      "result": "解锁I40起步巨构材料，避免用目标奇观自产材料造首座奇观。",
+      "result": "解锁文明奇观材料合成中心起步巨构材料，避免用目标奇观自产材料造首座奇观。",
       "points": 5380,
       "ticks": 33600,
       "materials": [
@@ -1713,17 +1712,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 120,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 33776997205278720
+      "eut": "33776997205278720"
     },
     {
       "id": "RN-WPF",
       "title": "奇观构件预制",
       "english": "Wonder Prefab Fabrication",
       "evidence": "已可取得的奇观材料和前序加工记录。",
-      "result": "解锁I42各系列预制构件。",
+      "result": "解锁奇观构件预制工厂各系列预制构件。",
       "points": 5380,
       "ticks": 33600,
       "materials": [
@@ -1735,17 +1734,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 120,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 33776997205278720
+      "eut": "33776997205278720"
     },
     {
       "id": "RN-CEE",
       "title": "文明工程验收方法",
       "english": "Civilization Engineering Evaluation",
       "evidence": "预制构件和世界维系试验记录。",
-      "result": "解锁I43；验收方法研究不等于取得每座奇观的实际运行证明。",
+      "result": "解锁文明工程验收中心；验收方法研究不等于取得每座奇观的实际运行证明。",
       "points": 6120,
       "ticks": 36000,
       "materials": [
@@ -1757,17 +1756,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 128,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 135107988821114880
+      "eut": "135107988821114880"
     },
     {
       "id": "RN-URE",
       "title": "究极反应堆工程",
       "english": "Ultimate Reactor Engineering",
       "evidence": "大型供能记录与巨构材料工况。",
-      "result": "解锁独立控制器I22。",
+      "result": "解锁究极崩坏能反应堆的建造与供能工况。",
       "points": 6120,
       "ticks": 36000,
       "materials": [
@@ -1779,17 +1778,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 128,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 135107988821114880
+      "eut": "135107988821114880"
     },
     {
       "id": "RN-HCCO",
       "title": "始源群星协奏工程",
       "english": "Human Civilization Cooperation",
       "evidence": "前序研究档案与已有交流事件事实；不限定选择某一阵营。",
-      "result": "解锁W01建造与协作档案验收方法。",
+      "result": "解锁始源·群星协奏庭建造与协作档案验收方法。",
       "points": 6120,
       "ticks": 36000,
       "materials": [
@@ -1801,17 +1800,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 128,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 135107988821114880
+      "eut": "135107988821114880"
     },
     {
       "id": "RN-AIM",
       "title": "万象自律工业矩阵",
       "english": "Autonomous Industrial Matrix",
       "evidence": "魂钢与电路连续生产记录。",
-      "result": "解锁W02建造，运行后提供工业扩产成果。",
+      "result": "解锁理之律者·万象·自律工业矩阵建造，运行后提供工业扩产成果。",
       "points": 6120,
       "ticks": 36000,
       "materials": [
@@ -1823,17 +1822,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 128,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 135107988821114880
+      "eut": "135107988821114880"
     },
     {
       "id": "RN-SEM",
       "title": "鸣霆超导电磁天枢",
       "english": "Superconducting Electromagnetic Matrix",
       "evidence": "已有电磁场组件和供能实验。",
-      "result": "解锁W04及其电磁工况验收。",
+      "result": "解锁雷之律者·鸣霆·超导电磁天枢及其电磁工况验收。",
       "points": 6120,
       "ticks": 36000,
       "materials": [
@@ -1845,17 +1844,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 128,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 135107988821114880
+      "eut": "135107988821114880"
     },
     {
       "id": "RN-IFF",
       "title": "长风理想流体环流",
       "english": "Ideal Fluid Flow",
       "evidence": "既有换热和气体净化回路记录。",
-      "result": "解锁W05流体输运与换热验收。",
+      "result": "解锁风之律者·长风·理想流体环流阵流体输运与换热验收。",
       "points": 6120,
       "ticks": 36000,
       "materials": [
@@ -1867,17 +1866,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 128,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 135107988821114880
+      "eut": "135107988821114880"
     },
     {
       "id": "RN-CCF",
       "title": "永霜极低温凝态",
       "english": "Cryogenic Condensation Factory",
       "evidence": "已有冰核心冷却工艺记录。",
-      "result": "解锁W06建造与低温工况验收。",
+      "result": "解锁冰之律者·永霜·极低温凝态工厂建造与低温工况验收。",
       "points": 6120,
       "ticks": 36000,
       "materials": [
@@ -1889,17 +1888,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 128,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 135107988821114880
+      "eut": "135107988821114880"
     },
     {
       "id": "RN-IAR",
       "title": "穹界虚数锚定环",
       "english": "Imaginary Anchor Ring",
-      "evidence": "I35锚定与I37维系试验记录。",
-      "result": "解锁W03建造与大范围锚定验收。",
+      "evidence": "虚数空间锚定阵列锚定与世界维系试验平台维系试验记录。",
+      "result": "解锁空之律者·穹界·虚数锚定环建造与大范围锚定验收。",
       "points": 6920,
       "ticks": 38400,
       "materials": [
@@ -1911,17 +1910,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 136,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 540431955284459520
+      "eut": "540431955284459520"
     },
     {
       "id": "RN-MRA",
       "title": "生息物质再生方舟",
       "english": "Material Regeneration Ark",
       "evidence": "已有固体、液体与气体回收成果。",
-      "result": "解锁W07材料再生工程，回收不制造净免费能量。",
+      "result": "解锁死之律者·生息·物质再生方舟材料再生工程，回收不制造净免费能量。",
       "points": 6920,
       "ticks": 38400,
       "materials": [
@@ -1933,17 +1932,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 136,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 540431955284459520
+      "eut": "540431955284459520"
     },
     {
       "id": "RN-SFF",
       "title": "劫焰恒星熔铸",
       "english": "Stellar Forging Furnace",
       "evidence": "前序高温材料工艺与究极供能记录。",
-      "result": "解锁W08建造与极热工况验收。",
+      "result": "解锁炎之律者·劫焰·恒星熔铸炉建造与极热工况验收。",
       "points": 6920,
       "ticks": 38400,
       "materials": [
@@ -1955,17 +1954,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 136,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 540431955284459520
+      "eut": "540431955284459520"
     },
     {
       "id": "RN-GSF",
       "title": "坠星引力奇点铸造",
       "english": "Gravity Singularity Forging",
       "evidence": "已有引力压缩和模拟工艺记录。",
-      "result": "解锁W10建造与奇点制备验收。",
+      "result": "解锁岩之律者·坠星·引力奇点铸造井建造与奇点制备验收。",
       "points": 6920,
       "ticks": 38400,
       "materials": [
@@ -1977,17 +1976,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 136,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 540431955284459520
+      "eut": "540431955284459520"
     },
     {
       "id": "RN-ECB",
       "title": "戒律能量约束壁",
       "english": "Energy Constraint Barrier",
       "evidence": "已有约束与能流隔离试验记录。",
-      "result": "解锁W12建造与受控能量屏障验收。",
+      "result": "解锁约束之律者·戒律·全域能量约束壁建造与受控能量屏障验收。",
       "points": 6920,
       "ticks": 38400,
       "materials": [
@@ -1999,16 +1998,16 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 136,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 540431955284459520
+      "eut": "540431955284459520"
     },
     {
       "id": "RN-CLE",
       "title": "文明认知穹顶工程",
       "english": "Cognition Laboratory Engineering",
-      "evidence": "三领域研究和前序维系记录；不要求W09奇观已完成。",
+      "evidence": "三领域研究和前序维系记录；不要求识之律者·万象·文明共识矩阵奇观已完成。",
       "result": "解锁第五阶研究所，提供16个并行课题槽位。",
       "points": 6920,
       "ticks": 38400,
@@ -2021,10 +2020,10 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 136,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 540431955284459520
+      "eut": "540431955284459520"
     },
     {
       "id": "RN-ELC",
@@ -2043,17 +2042,17 @@
         {
           "tag": "forge:plates/neutronium",
           "count": 120,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 33776997205278720
+      "eut": "33776997205278720"
     },
     {
       "id": "RN-CKV",
       "title": "万象文明共识矩阵",
       "english": "Civilization Knowledge Verification",
       "evidence": "三领域实验和相互矛盾情报的可追溯来源。",
-      "result": "解锁独立W09及其知识验证工艺，不与S05合并。",
+      "result": "解锁识之律者·万象·文明共识矩阵及其知识验证工艺。",
       "points": 9690,
       "ticks": 51000,
       "materials": [
@@ -2065,17 +2064,17 @@
         {
           "tag": "forge:plates/tritanium",
           "count": 144,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2161727821137838080
+      "eut": "2161727821137838080"
     },
     {
       "id": "RN-DIO",
       "title": "千律分布式工业统御",
       "english": "Distributed Industrial Orchestration",
       "evidence": "已运行工业网络和权限边界记录。",
-      "result": "解锁W11协调工艺，运行后再取得统御证明。",
+      "result": "解锁支配之律者·千律·分布式工业统御阵协调工艺，运行后再取得统御证明。",
       "points": 9690,
       "ticks": 51000,
       "materials": [
@@ -2087,17 +2086,17 @@
         {
           "tag": "forge:plates/tritanium",
           "count": 144,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2161727821137838080
+      "eut": "2161727821137838080"
     },
     {
       "id": "RN-ASR",
       "title": "蚀界自演算研究母机",
       "english": "Adaptive Selfcomputing Research",
       "evidence": "受控侵蚀核心与前序课题运行记录。",
-      "result": "解锁W13；不能用W13加速作为研究出W13本身的前置。",
+      "result": "解锁侵蚀之律者·蚀界·自演算研究母机；不能用侵蚀之律者·蚀界·自演算研究母机加速作为研究出侵蚀之律者·蚀界·自演算研究母机本身的前置。",
       "points": 9690,
       "ticks": 51000,
       "materials": [
@@ -2109,17 +2108,17 @@
         {
           "tag": "forge:plates/tritanium",
           "count": 144,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2161727821137838080
+      "eut": "2161727821137838080"
     },
     {
       "id": "RN-WCE",
       "title": "终序世界泡轮回引擎",
       "english": "World Cycle Engine",
       "evidence": "已经可运行的模拟构筑、稳定、终止回收记录。",
-      "result": "解锁W14高级模拟工程，不取代前期模拟设备。",
+      "result": "解锁终焉之律者·终序·世界泡轮回引擎高级模拟工程，不取代前期模拟设备。",
       "points": 9690,
       "ticks": 51000,
       "materials": [
@@ -2131,16 +2130,16 @@
         {
           "tag": "forge:plates/tritanium",
           "count": 144,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2161727821137838080
+      "eut": "2161727821137838080"
     },
     {
       "id": "RN-CAV",
       "title": "文明成果交叉验证",
       "english": "Civilization Achievement Verification",
-      "evidence": "已完成W09/W11/W13/W14的实际运行证明与三领域档案。",
+      "evidence": "已完成识之律者·万象·文明共识矩阵/支配之律者·千律·分布式工业统御阵/侵蚀之律者·蚀界·自演算研究母机/终焉之律者·终序·世界泡轮回引擎的实际运行证明与三领域档案。",
       "result": "形成后续总资格汇总可读取的验证报告；不自动提高到终审通过。",
       "points": 9690,
       "ticks": 51000,
@@ -2153,17 +2152,17 @@
         {
           "tag": "forge:plates/tritanium",
           "count": 144,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2161727821137838080
+      "eut": "2161727821137838080"
     },
     {
       "id": "RN-TAA",
       "title": "凌霄树海朝觐圣座",
       "english": "Tree Audience Architecture",
-      "evidence": "前14座奇观工程证明与仿制休伯利安运行记录；W15自己的证明不在前置中。",
-      "result": "解锁W15建造和资格汇总；满卷轴、二审等终审条件按各自系统判定。",
+      "evidence": "前14座奇观工程证明与仿制休伯利安运行记录；■■■·凌霄·树海朝觐圣座自己的证明不在前置中。",
+      "result": "解锁■■■·凌霄·树海朝觐圣座建造和资格汇总；满卷轴、二审等终审条件按各自系统判定。",
       "points": 9690,
       "ticks": 51000,
       "materials": [
@@ -2175,10 +2174,10 @@
         {
           "tag": "forge:plates/tritanium",
           "count": 144,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2161727821137838080
+      "eut": "2161727821137838080"
     },
     {
       "id": "RN-DVC",
@@ -2197,21 +2196,10 @@
         {
           "tag": "forge:plates/tritanium",
           "count": 144,
-          "sensitivity": 1.0
+          "sensitivity": 1
         }
       ],
-      "eut": 2161727821137838080
-    }
-  ],
-  "_comment_revision66": "变更记录 #2 2026-09-24 17:21:40（内测5修订66）：保留目录前置及支付成本，删除液态线旧的未核验来源和自锁解锁说明，按真实实验、控制器及配方门槛同步描述。",
-  "_comment_revision86": "变更记录 #1 2026-09-27 01:54:24（内测5修订86）：删除无；更新RN-FRP实验来源与未实现边界；研究前置、支付、等级和时间均保持不变。",
-  "_comment_revision100": "2026-09-29：按2026-09-28 22:23:43批准快照落地；开题锁定实付，存量任务不重算。",
-  "_comment_r155": "变更记录 #155 2026-10-01 22:50:14：删除旧电压及玩家开发说明；新增正式名称和玩家措辞；只调整文案，ID、数值与事件条件不改。逐项差异见logs/text-r155/resource-diff.json。",
-  "_changes": [
-    {
-      "revision": 161,
-      "time": "2026-10-17 14:12:15",
-      "reason": "删除活动标识的版本前缀，使用长期业务名称；物料数量、研究门槛和配方参数保持；魂钢链沿用修订160修复。"
+      "eut": "2161727821137838080"
     }
   ]
 }

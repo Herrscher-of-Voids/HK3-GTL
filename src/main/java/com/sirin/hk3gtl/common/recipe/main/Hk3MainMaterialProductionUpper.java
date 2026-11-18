@@ -10,19 +10,19 @@ import java.util.function.Consumer;
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialProductionLower.quality;
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialRecipes.*;
 
-/**
- * 【文件职责】IMV至CEV实体主材链，覆盖陶瓷、导带、重构、多轴纤维、四系统合与单向服役复核。
- * 【变更记录 #1】2026-10-17 16:27:11（第1次备注 · 修订165）
- * - 删除：无；不把废料当作重构材料首通唯一来源。
- * - 新增：先阶主材、独立功能层、四实体汇流以及不可返老化入口的修复工序。
- * - 修改：有限服役以一次老化—拆解—补料—成板的有向图表示；不伪造逐件寿命或真实裂纹测量。
- * - 用途：提供工艺实体和消费路径；高阶能源、实际机器权限和游戏测试仍需独立验证。
- * 【变更记录 #2】2026-10-17 17:03:09（第2次备注 · 修订165）
- * - 删除：CIV认知支线对尚无现役I40承载的cognitive_composite的必需输入。
- * - 新增：已接通IMV电子平台CPU作为认知模块的实物计算核心。
- * - 修改：保留WSV坯、稳定崩坏能、四路独立汇流和RN-IAA权限，不改I40规划。
- * - 用途：避免把仅已注册但无法加工的旧复合材当成已闭合上游，不新增物品或机器。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 final class Hk3MainMaterialProductionUpper {
     private Hk3MainMaterialProductionUpper() {}
 

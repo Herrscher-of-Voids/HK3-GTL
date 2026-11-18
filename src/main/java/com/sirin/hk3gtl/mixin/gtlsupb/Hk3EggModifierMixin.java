@@ -16,8 +16,8 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.*;
 @Mixin(value=PatternModifier.class,remap=false)
-/** 【变更记录 #1】2026-10-01 05:20:36（修订128）：删除无；新增联动工具事务后置核验；修改无；用途：只观察真实提交，不修改联动结果，不授正式资格。 */
-/** 【变更记录 #2】2026-10-01 05:21:03（修订128）：删除：旧固定上限或被替代的分支；新增/修改：使用当前GTLCore提供的样板总线类型，修正编译期包名；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public abstract class Hk3EggModifierMixin {
     @Unique private final ThreadLocal<List<ItemStack>> hk3gtl$before=new ThreadLocal<>();
     @Unique private final ThreadLocal<InternalInventory> hk3gtl$inventory=new ThreadLocal<>();

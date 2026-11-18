@@ -6,11 +6,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * 【变更记录 #1】2026-10-31 02:01:05（第1次备注 · 修订187）
- * 删除：无；新增：已批准中文资源的只读解析器；修改：无。
- * 用途：专服全文回执使用精确原文，不依赖客户端语言表；资源或键缺失直接拒绝，不把裸键当正文。
- */
+ 
+
+
+
+
 public final class Hk3ApprovedText {
     private static final Map<String, String> TEXT = load();
     private Hk3ApprovedText() {}

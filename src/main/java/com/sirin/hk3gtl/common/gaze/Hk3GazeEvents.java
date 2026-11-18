@@ -9,13 +9,13 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/**
- * 【文件职责】注视状态每秒刷新及本人只读诊断入口。
- * 【变更记录 #1】2026-09-30 15:50:54（内测5修订109）
- * 删除：无。新增：服务端周期同步、/hk3gaze status与sources，不授予修改权限。
- * 修改：缓冲到期、队员离线和换队后最多一秒刷新HUD；用途：核验个人压力与研究团队口径。
- * 边界：只展示个人最近64条来源；状态不代表任何特定研究所的稳定锚覆盖。
- */
+ 
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3GazeEvents {
     private Hk3GazeEvents() {}

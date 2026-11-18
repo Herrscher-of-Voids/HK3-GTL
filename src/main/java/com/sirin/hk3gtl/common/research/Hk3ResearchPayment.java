@@ -16,21 +16,21 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.BooleanSupplier;
 
-/**
- * 【文件职责】将研究开题、实验托管与退款领取的真实内存变更提交为可重放的跨文件事务。
- * 【变更记录 #1】2026-11-04 01:23:43（第1次备注 · 内测5修订194）
- * - 删除：无。
- * - 新增：服务端主线程、全局重入守卫、提交前回滚和启动前恢复；持久日志失败时阻断并停止服务器。
- * - 修改：付款与退款入口在成功后立即持久化；恢复同时更新既有账本对象和在线玩家库存，防旧缓存覆盖。
- * - 用途：服务入口→本事务→Hk3ResearchPaymentJournal；不更改研究费用、证据或完成条件。
- */
+ 
+
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid = "hk3gtl")
-/**
- * 【变更记录 #2】2026-11-04 02:53:59（第2次备注 · 内测5修订194）
- * - 删除：全JVM共享布尔守卫和内存恢复前删除日志的顺序；新增：按服务器线程隔离的事务守卫及完成点。
- * - 修改：文件、同对象账本及玩家缓存均恢复后才移除日志，异常停服仍保留决定；finally移除线程状态。
- * - 用途：避免多服务器互相跳过恢复及同步异常后的旧缓存覆写；不改变费用和扣料规则。
- */
+ 
+
+
+
+
+
 public final class Hk3ResearchPayment {
     private Hk3ResearchPayment() {}
     private static final ThreadLocal<Boolean> ACTIVE = ThreadLocal.withInitial(() -> false);

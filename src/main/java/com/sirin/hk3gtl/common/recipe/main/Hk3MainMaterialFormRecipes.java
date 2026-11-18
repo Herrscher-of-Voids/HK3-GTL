@@ -11,14 +11,14 @@ import java.util.function.Consumer;
 
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialRecipes.*;
 
-/**
- * 【文件职责】分别以金属压延、陶瓷保护气烧结、复合层压成板；加工同级棒、环、细线、箔、框架。
- * 【变更记录 #1】2026-10-17 16:28:36（第1次备注 · 修订165）
- * - 删除：无；不为新主材附加GT自动熔炼或可逆工作台压缩。
- * - 新增：HBV全部六种功能形态的MAX低效启动入口、本级专属成板及守恒派生形态。
- * - 修改：绝缘/陶瓷材的细线另消耗既有Shirabon细导体；薄层为复合薄层，不声称陶瓷能像金属冷轧。
- * - 用途：为八板机壳和同级消费者供料；所有输入/输出数量按主材相含量验算。
- */
+ 
+
+
+
+
+
+
+
 final class Hk3MainMaterialFormRecipes {
     private static final Set<Integer> METALLIC = Set.of(Hk3Tiers.HBV, Hk3Tiers.HRV, Hk3Tiers.HDV, Hk3Tiers.IRV);
     private static final Set<Integer> CERAMIC = Set.of(Hk3Tiers.HCV, Hk3Tiers.IMV);

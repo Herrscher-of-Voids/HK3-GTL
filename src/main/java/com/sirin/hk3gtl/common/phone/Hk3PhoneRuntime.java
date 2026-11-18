@@ -10,14 +10,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.network.PacketDistributor;
 
-/**
- * 【变更记录 #1】2026-09-30 18:44:46（内测5修订113）
- * 删除：无；新增：实体电量、旧安装补发、环境状态与AE原终端适配。
- * 修改：数据由服务器核实，每秒最多一次状态采样；用途：真实电量和信号而非装饰图标。
- * 边界：不扫描无关AE网络、不读写库存、不替代AE自身距离/耗电/菜单检查。
- */
-/** 【变更记录 #2】2026-09-30 19:20:11（内测5修订115）：删除旧AeLink普通宿主检测；新增实际终端选择路由；修改状态使用真实终端宿主与原生接口；用途：保留合成/万能终端功能。 */
-/** 【变更记录 #3】2026-10-01 16:30:04（修订134）：删除无；新增SaveDayTime主世界存档时间快照；修改无；用途：日期页跨维度显示同一存档日历，不读取本机时钟，不设置游戏时间。 */
+ 
+
+
+
+
+
+ 
+ 
 public final class Hk3PhoneRuntime {
     private Hk3PhoneRuntime(){}
     public static void prefer(ServerPlayer p,ItemStack stack){

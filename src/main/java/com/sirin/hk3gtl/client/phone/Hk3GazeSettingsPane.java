@@ -5,10 +5,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.network.chat.Component;
-/**
- * 【变更记录 #1】2026-09-30 19:18:43（修订115）
- * 删除：无；新增：注视HUD拖动预览与缩放滑条；修改：无；用途：用户可避开其他模组HUD，位置随客户端保存。
- */
+ 
+
+
+
 final class Hk3GazeSettingsPane {
     private int x,y,w,h,sw,sh;private double ratio,grabX,grabY;private boolean dragging;
     void layout(int left,int top,int available){

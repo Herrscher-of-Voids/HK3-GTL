@@ -38,7 +38,7 @@ side = "BOTH"
 [[dependencies."hk3gtl"]]
 modId = "gtlcore"
 mandatory = true
-versionRange = "[1.2.0,)"
+versionRange = "[1.2.3.3-fix4,)"
 ordering = "AFTER"
 side = "BOTH"
 

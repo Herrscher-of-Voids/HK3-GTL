@@ -12,12 +12,12 @@ import java.io.*;
 import java.time.*;
 import java.util.*;
 
-/**
- * 【文件职责】读取有来源的逐年农历节日公历日期；只提供日期事实，不模拟农历或授予进度。
- * 【变更记录 #1】2026-11-05 21:56:28（修订211）
- * 删除：无。新增：六节日年度库、不可变快照及数据包重载；修改：无。
- * 用途：370/371/373至376沿用服务器时区；缺年、缺库、损坏或民用日区间不同则休眠，拒绝旧缓存。
- */
+ 
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3LunarCalendar {
     private static final ResourceLocation RESOURCE = new ResourceLocation("hk3gtl", "calendar/lunar_festivals.json");

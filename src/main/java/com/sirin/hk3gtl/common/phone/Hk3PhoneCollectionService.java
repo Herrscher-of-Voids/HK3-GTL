@@ -8,9 +8,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import java.util.*;
 
-/** 【变更记录 #1】2026-11-05 01:59:54（第1次备注 · 内测5修订204）：删除无；新增本人收藏搜索、保存版本的分段只读笔记及第五百页说明的主动收藏；修改通过既有手机与连续阅读回执提交324、385、500事实；用途：本人供电、原文、版本、动作令牌共同核验，不授研究或阶段。 */
-/** 【变更记录 #2】2026-11-05 02:06:11（第2次备注 · 内测5修订204）：删除动作拒绝后保留无效会话的路径；新增翻段和收藏入口在供电、资格或版本失效时立即清除阅读与个人上下文；修改不再依赖下一游戏刻清理；用途：同刻恢复电量不能复用失效前的完整阅读动作。 */
-/** 【变更记录 #3】2026-11-05 22:19:02（修订211）：删除无；新增自写冒险计划末段完整阅读的本人回执；修改不影响2747或收藏动作；用途：接通418前置并保留逐段、版本和供电校验。 */
+ 
+ 
+ 
 public final class Hk3PhoneCollectionService {
     private record Open(String id,String action,Hk3PhoneNotes.Note note,int page) {}
     private static final Map<UUID,Open> OPEN=new java.util.concurrent.ConcurrentHashMap<>();

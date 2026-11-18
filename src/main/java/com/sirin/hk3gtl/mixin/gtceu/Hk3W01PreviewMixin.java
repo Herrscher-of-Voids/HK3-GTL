@@ -20,13 +20,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.HashSet;
 import java.util.List;
 
-/**
- * 【文件职责】在GT原生分类内接入本模组自家完整预览，按需解码稀疏实体，不接管其他模组。
- * 【变更记录 #1】2026-10-29 23:12:35（第1次备注 · 本轮高度与预览修复）
- * 删除：无；新增：W01专用场景分支；修改：跳过基类单控制器形状，改为真实完整布局。
- * 用途：其他多方块维持原GT预览，W01不展开约两亿空气格、不隐藏原生预览入口。
- */
-/** 【变更记录 #2】2026-10-29 23:18:13（第2次备注 · 本轮高度与预览修复）：删除无；新增原组件VBO释放的渲染线程守卫；修改私有身份函数标记Unique；用途为离屏注册时在原排队申请后释放被替换场景，不遗留GPU缓存。 */
+ 
+
+
+
+
+
+ 
 @Mixin(value = PatternPreviewWidget.class, remap = false)
 public abstract class Hk3W01PreviewMixin {
     @Shadow @Final public MultiblockMachineDefinition controllerDefinition;

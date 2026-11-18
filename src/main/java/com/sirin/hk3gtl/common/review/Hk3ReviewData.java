@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.review;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
-/** 【变更记录 #1】2026-09-30 20:31:18（修订117）：删除无；新增审查账本持久化壳；修改无；用途：损坏数据拒绝当空存档，读写副本且重启会面暂停，真实资格验证器接入前不会产生许可。 */
+ 
 public final class Hk3ReviewData extends SavedData {
     private Hk3ReviewLedger ledger=new Hk3ReviewLedger();
     private boolean changing;

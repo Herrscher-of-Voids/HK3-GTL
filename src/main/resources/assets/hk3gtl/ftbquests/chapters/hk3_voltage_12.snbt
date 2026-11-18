@@ -1,200 +1,1263 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_12",
-  "id": "4B523C96518FCCFF",
-  "title": "HK3GTL · IWV · 织界压",
+  "id": "4B543F89AF0A5106",
+  "title": "织界压 IWV",
   "subtitle": [
-    "Tier26 · 给能量安排负载"
+    "Tier26-IWV"
   ],
-  "group": "",
-  "order_index": 26,
-  "icon": "hk3gtl:electric_motor_iwv",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 27,
+  "icon": "hk3gtl:voltage_machine_casing_iwv",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B5620A5E6A78131",
-      "title": "给能量安排负载",
+      "id": "4B550793D401AB93",
+      "title": "从IRV车间继续",
+      "subtitle": "IRV → IWV",
+      "description": [
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批IWV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
+      ],
+      "dependencies": [
+        "4B5047CFCF54095D"
+      ],
+      "tasks": [
+        {
+          "id": "4B512C34237CF11D",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_irv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_irv",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B554BB5535995AC",
+      "title": "多轴织界背板",
+      "subtitle": "把多轴互连接到同一背板上",
+      "description": [
+        "将重构映射芯片与织界板、箔、线装成背板。各执行域从背板独立引出，信号之间保留隔离。"
+      ],
+      "dependencies": [
+        "4B5A107779BBFE70",
+        "4B5D72A8038355BA",
+        "4B583341EE7E3E10"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FE8336857F40E",
+          "type": "item",
+          "item": "hk3gtl:multiaxial_worldweave_backplane",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:multiaxial_worldweave_backplane",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5AA85D77721DC8",
+      "title": "四域共识监测核心",
+      "subtitle": "让四个执行域共同确认状态",
+      "description": [
+        "在拓扑调度器上增加多轴背板及局部计算存储，封装四域监测核心。各域状态与差异记录由这枚核心集中核对。"
+      ],
+      "dependencies": [
+        "4B5D33359A605FEA",
+        "4B554BB5535995AC",
+        "4B58EE1A2B76080E"
+      ],
+      "tasks": [
+        {
+          "id": "4B51E80F49B00BE6",
+          "type": "item",
+          "item": "hk3gtl:four_domain_consensus_core",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:four_domain_consensus_core",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B56CBBB9B1BB35A",
+      "title": "纤束张力均衡执行器",
+      "subtitle": "给纤束张力设置独立执行件",
+      "description": [
+        "沿用再制造关节的定位结构，加装织界棒环与四域监测。执行器供本级驱动和织物设备调整纤束张力。"
+      ],
+      "dependencies": [
+        "4B51D732F51F5539",
+        "4B5AA85D77721DC8",
+        "4B51F1C40ADC27D6"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E1B8BCC3C8B31",
+          "type": "item",
+          "item": "hk3gtl:tendon_balance_actuator",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:tendon_balance_actuator",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5093F6E877F42E",
+      "title": "分段维修冷却夹套",
+      "subtitle": "把维修隔离做到冷却段里",
+      "description": [
+        "在分质换热块上扩展分段流路和隔离接头，装成冷却夹套。各段分别供回流，供织界设备安排分段维护。"
+      ],
+      "dependencies": [
+        "4B5ACE2380A763DC",
+        "4B58EE1A2B76080E",
+        "4B5D72A8038355BA"
+      ],
+      "tasks": [
+        {
+          "id": "4B52359BF7319629",
+          "type": "item",
+          "item": "hk3gtl:segmented_repair_coolant_jacket",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:segmented_repair_coolant_jacket",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5BFA5F02EE43B5",
+      "title": "虚数重构处理器主机",
+      "subtitle": "让重构主机接入四域状态",
+      "description": [
+        "把两件前级超级计算机接到多轴背板和四域监测核心，增设分段冷却。主机继续承担计算，各执行域分别反馈状态。"
+      ],
+      "dependencies": [
+        "4B5AA85D77721DC8",
+        "4B5093F6E877F42E",
+        "4B51F1C40ADC27D6"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D275B89773F18",
+          "type": "item",
+          "item": "hk3gtl:iwv_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
       "icon": "hk3gtl:iwv_processor_mainframe",
-      "x": 0.0,
-      "y": -4.0,
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B54209CEAB87ACB",
+      "title": "因果重构超级计算机",
+      "subtitle": "将因果重构计算扩成共享系统",
       "description": [
-        "空间锚定之后，能量态采集才有了实验基础。采集、整流和调度要逐步接通。",
-        "",
-        "这一页的重点不是把读数抬高，而是让能量进入正确的账户，并交给实际运行的负载使用。",
-        "{@pagebreak}",
-        "本页是IWV · 织界压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "以两件前级组装件为计算单元，接好本级共享存储、四域监测和冷却。各域之间通过多轴背板交换状态。"
+      ],
+      "dependencies": [
+        "4B585ADA0A40EFE7",
+        "4B5AA85D77721DC8",
+        "4B5093F6E877F42E",
+        "4B51F1C40ADC27D6"
       ],
       "tasks": [
         {
-          "id": "4B59CB732ECAB700",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_intro_12"
-          ]
+          "id": "4B5108D0D486299E",
+          "type": "item",
+          "item": "hk3gtl:causal_reconstruction_computer",
+          "count": 1,
+          "consume_items": false
         }
       ],
-      "size": 2.0,
-      "shape": "rsquare"
+      "icon": "hk3gtl:causal_reconstruction_computer",
+      "x": 50,
+      "y": 8,
+      "optional": false
     },
     {
-      "id": "4B5C35D85014DC14",
-      "title": "电路与八大件",
+      "id": "4B589A4490F6D4F2",
+      "title": "世界织构处理器组装件",
+      "subtitle": "把世界织构计算装成完整组件",
+      "description": [
+        "组合前级处理器、本级多轴互连与分段冷却，完成处理器组装件。织界执行部件从这里取得控制电路。"
+      ],
+      "dependencies": [
+        "4B5D9240452A2528",
+        "4B5AA85D77721DC8",
+        "4B5093F6E877F42E",
+        "4B51F1C40ADC27D6"
+      ],
+      "tasks": [
+        {
+          "id": "4B5053ABB2260F09",
+          "type": "item",
+          "item": "hk3gtl:world_weaving_assembly",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:world_weaving_assembly",
+      "x": 54,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B57E56EA35B69F4",
+      "title": "终序演算处理器",
+      "subtitle": "汇合四个执行域的计算状态",
+      "description": [
+        "将完整前级计算单元与本级CPU、共享RAM和四域监测连接。终序演算处理器供后续构界设备使用。"
+      ],
+      "dependencies": [
+        "4B5AA85D77721DC8",
+        "4B5093F6E877F42E",
+        "4B51F1C40ADC27D6"
+      ],
+      "tasks": [
+        {
+          "id": "4B594D78255F52AA",
+          "type": "item",
+          "item": "hk3gtl:terminal_computation_processor",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:terminal_computation_processor",
+      "x": 54,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B55F78A22E09C20",
+      "title": "IWV 电动马达",
+      "subtitle": "让驱动同步考虑纤束张力",
+      "description": [
+        "把前级马达接入张力均衡执行器和四域监测，再装好分段冷却。IWV马达由独立驱动单元共同工作。"
+      ],
+      "dependencies": [
+        "4B56F24FD29A2397",
+        "4B56CBBB9B1BB35A",
+        "4B5BFA5F02EE43B5"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F1B8CDC2BC233",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
       "icon": "hk3gtl:electric_motor_iwv",
-      "x": -4.0,
-      "y": -4.0,
+      "x": 50,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5FC703B88F932F",
+      "title": "IWV 电动活塞",
+      "subtitle": "把伸缩动作接入张力调节",
       "description": [
-        "进入IWV · 织界压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
+        "组合前级活塞、IWV马达与张力执行器，固定新的织界支承结构。动作状态送回四域监测核心确认。"
+      ],
+      "dependencies": [
+        "4B561F9B4DFFF5FE",
+        "4B55F78A22E09C20"
       ],
       "tasks": [
         {
-          "id": "4B5DE5459E7962D3",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_12"
-          ]
+          "id": "4B5070234B9DD2DE",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_iwv",
+          "count": 1,
+          "consume_items": false
         }
-      ]
+      ],
+      "icon": "hk3gtl:electric_piston_iwv",
+      "x": 38,
+      "y": 12,
+      "optional": false
     },
     {
-      "id": "4B57F2B27363DE28",
-      "title": "能量态崩坏能采集",
+      "id": "4B53368AA813BE19",
+      "title": "IWV 电动泵",
+      "subtitle": "为分段冷却安排独立输送",
+      "description": [
+        "在完整前级泵上接入IWV马达与维修冷却夹套。各段流路保留独立接口，供织界设施分段输送介质。"
+      ],
+      "dependencies": [
+        "4B5C0479AE802EA5",
+        "4B55F78A22E09C20"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A3D9AC4ED9545",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_pump_iwv",
+      "x": 34,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B585480E9BCC91D",
+      "title": "IWV 传送带模块",
+      "subtitle": "让多段输送保持纤束受力一致",
+      "description": [
+        "用前级传送模块、IWV马达与张力均衡执行器完成总装。四域监测核对各段状态后协调输送。"
+      ],
+      "dependencies": [
+        "4B562188ED56D095",
+        "4B55F78A22E09C20"
+      ],
+      "tasks": [
+        {
+          "id": "4B560604A0FA4A39",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_iwv",
+      "x": 30,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5944B034A510E0",
+      "title": "IWV 机械臂",
+      "subtitle": "组合定位、伸缩和张力执行",
+      "description": [
+        "将IWV马达、活塞与前级机械臂连接，装入张力执行器及多轴读出。新的织界框架承担跨关节连接。"
+      ],
+      "dependencies": [
+        "4B5EEF4595E0877B",
+        "4B5FC703B88F932F"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CF6C0ACEE9C37",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_iwv",
+      "x": 34,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B51FCD36701F330",
+      "title": "IWV 传感器",
+      "subtitle": "给四域监测提供独立采样",
+      "description": [
+        "将前级传感器接到多轴背板和四域监测核心，补齐本级封装与温控。成品供IWV场控和执行系统读取状态。"
+      ],
+      "dependencies": [
+        "4B5B4ED784F8069B",
+        "4B5BFA5F02EE43B5"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BEEC97ECA2455",
+          "type": "item",
+          "item": "hk3gtl:sensor_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_iwv",
+      "x": 46,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5147A08FF8EE4D",
+      "title": "IWV 发射器",
+      "subtitle": "让发射支路参与四域确认",
+      "description": [
+        "在前级发射器外安装多轴接口、四域监测与分段冷却。发射状态接入本级执行域的同步记录。"
+      ],
+      "dependencies": [
+        "4B5F8F94848446F8",
+        "4B5BFA5F02EE43B5"
+      ],
+      "tasks": [
+        {
+          "id": "4B59BA7F63B3A85F",
+          "type": "item",
+          "item": "hk3gtl:emitter_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_iwv",
+      "x": 42,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B58094B09D418D5",
+      "title": "IWV 力场发生器",
+      "subtitle": "把四域监测接到场控装置上",
+      "description": [
+        "组合IWV发射器、传感器与完整前级力场发生器。织界支承和分段冷却完成后，各场控支路分别反馈状态。"
+      ],
+      "dependencies": [
+        "4B536F4EABD4A6C1",
+        "4B51FCD36701F330",
+        "4B5147A08FF8EE4D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5389A00F94294E",
+          "type": "item",
+          "item": "hk3gtl:field_generator_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_iwv",
+      "x": 30,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B57CCE972637222",
+      "title": "多轴缝合Z向束",
+      "subtitle": "先织出厚度方向的连接束",
+      "description": [
+        "由前级材料制造Z向缝合束，供四类功能层合并时连接厚度方向。缝合束随共固化工序实际消耗。"
+      ],
+      "dependencies": [
+        "4B5C62FF4A7DBDB8",
+        "4B5C28B4D0219CF4"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C54BD3666C44F",
+          "type": "item",
+          "item": "hk3gtl:stitched_multiaxial_z_binder",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:stitched_multiaxial_z_binder",
+      "x": 0,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B512AFF5875857B",
+      "title": "多轴共固化浸注树脂",
+      "subtitle": "给多轴铺层配好新树脂",
+      "description": [
+        "用新鲜载液和分散组分配制共固化浸注树脂。首批织界材料从这里取得浸注料，再分别准备四类增强层。"
+      ],
+      "dependencies": [
+        "4B5C62FF4A7DBDB8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5325F19E5677D8",
+          "type": "custom",
+          "title": "实际完成多轴共固化浸注树脂",
+          "tags": [
+            "hk3gtl_quest_iwv_n02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5BFCA81D26404E",
+      "title": "陶瓷增强层",
+      "subtitle": "单独制造陶瓷增强层",
+      "description": [
+        "用一份IRV主体承载陶瓷层，完成绝缘与耐蚀表面。制成后保留为独立层，与导体、承力和修复层在共固化时汇合。"
+      ],
+      "dependencies": [
+        "4B57CCE972637222",
+        "4B512AFF5875857B"
+      ],
+      "tasks": [
+        {
+          "id": "4B569B1240FC24BC",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_stage_1",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_stage_1",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B540CA081FC544D",
+      "title": "导体增强层",
+      "subtitle": "先把连续导体排布成层",
+      "description": [
+        "在另一份独立主体上排列导体，接合点之间保留绝缘。导体层负责连续电连接，随后与另外三层合并。"
+      ],
+      "dependencies": [
+        "4B5E95308F894527",
+        "4B57CCE972637222",
+        "4B512AFF5875857B"
+      ],
+      "tasks": [
+        {
+          "id": "4B56BD71C915656C",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_stage_2",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_stage_2",
+      "x": 12,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B567BDAB7A4B467",
+      "title": "承力增强层",
+      "subtitle": "把面内纱与Z向束共同编排",
+      "description": [
+        "使用独立主体制备承力层，让面内纱和缝合束共同承载。既有锚定杆保留跨节点的连续支承。"
+      ],
+      "dependencies": [
+        "4B57CCE972637222",
+        "4B512AFF5875857B"
+      ],
+      "tasks": [
+        {
+          "id": "4B5437354AFEF847",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_stage_3",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_stage_3",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B511F679FAD37B4",
+      "title": "修复增强层",
+      "subtitle": "为后续补料留下通道",
+      "description": [
+        "用第四份主体、受控纳米群和结合薄层制备修复层。层内预留补料通道，后续修复仍需投入实际材料。"
+      ],
+      "dependencies": [
+        "4B57CCE972637222",
+        "4B512AFF5875857B"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AE8FA9B665C85",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_stage_4",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_stage_4",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5E808E92ED10E1",
+      "title": "四层多轴共固化坯",
+      "subtitle": "四条功能层在这里合并",
+      "description": [
+        "将独立陶瓷、导体、承力和修复层一起铺设，用Z向束贯穿厚度方向后浸注共固化。四条支线共同组成完整织界主体。"
+      ],
+      "dependencies": [
+        "4B5BFCA81D26404E",
+        "4B540CA081FC544D",
+        "4B567BDAB7A4B467",
+        "4B511F679FAD37B4"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F7AF16C8BDE5C",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_stage_5",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_stage_5",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5E237BE9D5295C",
+      "title": "织界多轴复合材标准坯",
+      "subtitle": "切边后封住纤束端头",
+      "description": [
+        "将共固化坯定尺，再保护端面和外露Z向束。标准坯保留四类功能层，供后续六种形态加工。"
+      ],
+      "dependencies": [
+        "4B5E808E92ED10E1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FB6C6BD9E2DAD",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_billet",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5E9D884F080FAF",
+      "title": "织界多轴复合材板",
+      "subtitle": "把厚度方向的缝合保留在板内",
+      "description": [
+        "将织界坯与前级板材结合，补上多轴连接层。平面铺层和Z向束共同固定各层，成品供IWV机壳与背板使用。"
+      ],
+      "dependencies": [
+        "4B5E237BE9D5295C"
+      ],
+      "tasks": [
+        {
+          "id": "4B585E6AD0F6975B",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_plate",
+      "x": 20,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5DA11954D384B6",
+      "title": "织界多轴复合材棒",
+      "subtitle": "围绕连续棒芯多向编织",
+      "description": [
+        "沿前级棒芯交织承力束和导体束，在交叉处加入隔离。复合棒供本级框架、环和细线继续加工。"
+      ],
+      "dependencies": [
+        "4B5C227BCE87D1A0",
+        "4B5E237BE9D5295C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DA34B10A35BE5",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_rod",
+      "x": 16,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B51F1C40ADC27D6",
+      "title": "织界多轴复合材框架组件",
+      "subtitle": "用Z向束连接框架节点",
+      "description": [
+        "将多轴梁接到前级框架，在节点处缝合四类功能结构。完整框架供机壳、电路和场控装置承力。"
+      ],
+      "dependencies": [
+        "4B53A74264E8AA6F",
+        "4B5DA11954D384B6"
+      ],
+      "tasks": [
+        {
+          "id": "4B527B0F70FCEF66",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_frame",
+      "x": 12,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B58EE1A2B76080E",
+      "title": "织界多轴复合材环",
+      "subtitle": "让周向与斜向纱束交叉围合",
+      "description": [
+        "把织界棒与前级环组合，隔开交叉导体并缝合环道。成品环为机壳和执行接口提供连续连接。"
+      ],
+      "dependencies": [
+        "4B5C12D4075281D2",
+        "4B5DA11954D384B6"
+      ],
+      "tasks": [
+        {
+          "id": "4B5350D48852D728",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_ring",
+      "x": 8,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5D72A8038355BA",
+      "title": "织界多轴复合材箔",
+      "subtitle": "把缝合连接细化到薄箔",
+      "description": [
+        "用微细Z向束连接薄层，同时保留前级箔的柔顺性。织界箔继续供应电子封装与多轴背板。"
+      ],
+      "dependencies": [
+        "4B51AB271C65658D",
+        "4B5E9D884F080FAF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FAE9BE50B8BB0",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_foil",
+      "x": 4,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B583341EE7E3E10",
+      "title": "织界多轴复合材复合细线",
+      "subtitle": "在线芯外包覆多轴微束",
+      "description": [
+        "保留连续线芯，外覆导体与承力微束，在交叉接点作局部绝缘。细线供IWV电子和执行部件接线。"
+      ],
+      "dependencies": [
+        "4B5858E0D29AF645",
+        "4B5DA11954D384B6"
+      ],
+      "tasks": [
+        {
+          "id": "4B5300E5071CE5AC",
+          "type": "item",
+          "item": "hk3gtl:worldweave_multiaxial_composite_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_fine_wire",
+      "x": 0,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B50F2B1C6384AFB",
+      "title": "IWV机械方块",
+      "subtitle": "把四层织界材料装成机壳",
+      "description": [
+        "在完整IRV机械方块上安装织界板、框、环和专用接口。前级设备分别制得四类增强层后，即可完成首批IWV机壳。"
+      ],
+      "dependencies": [
+        "4B5047CFCF54095D",
+        "4B5E9D884F080FAF",
+        "4B51F1C40ADC27D6",
+        "4B58EE1A2B76080E"
+      ],
+      "tasks": [
+        {
+          "id": "4B594CD6B6688030",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_iwv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_iwv",
+      "x": 0,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5F389F4A583D51",
+      "title": "IWV机壳分层拆解",
+      "subtitle": "分层拆回完整机壳部件",
+      "description": [
+        "从退役IWV机壳取回IRV核心和部分完整织界形态。其余主体成为分类料，已损坏的端口、薄层和密封随拆解消耗。"
+      ],
+      "dependencies": [
+        "4B50F2B1C6384AFB"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EEEF734399F60",
+          "type": "custom",
+          "title": "实际完成IWV机壳分层拆解",
+          "tags": [
+            "hk3gtl_quest_iwv_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_irv",
+      "x": 0,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B599A9B720C1F77",
+      "title": "织界多轴复合材回收组分",
+      "subtitle": "把织界废料按可重建部分分离",
+      "description": [
+        "用溶剂洗脱附着物，再离心取得回收主体和不可恢复尾料。回收主体占四分之三，进入四层重建工序。"
+      ],
+      "dependencies": [
+        "4B5C62FF4A7DBDB8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C3F1FDFA52A63",
+          "type": "custom",
+          "title": "实际完成织界多轴复合材回收组分",
+          "tags": [
+            "hk3gtl_quest_iwv_n17"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_recovered_fraction",
+      "x": 4,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5E289AA63CCF1B",
+      "title": "IWV回收料重制",
+      "subtitle": "四类功能层分别重新补料",
+      "description": [
+        "将回收主体平均分入陶瓷、导体、承力与修复四条支线，各支补入同量新主体和完整辅料。独立层重建后，再回到原共固化工序汇合。"
+      ],
+      "dependencies": [
+        "4B5E95308F894527",
+        "4B57CCE972637222",
+        "4B512AFF5875857B"
+      ],
+      "tasks": [
+        {
+          "id": "4B51613E0AAA7AE8",
+          "type": "custom",
+          "title": "实际完成IWV回收料重制",
+          "tags": [
+            "hk3gtl_quest_iwv_n18"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:worldweave_multiaxial_composite_stage_1",
+      "x": 8,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5D344F2EE1A485",
+      "title": "IWV尾料固化",
+      "subtitle": "封存已经失效的织界尾料",
+      "description": [
+        "把无法重建的织界组分与混凝土固化，制成惰性残渣。这部分主体结束在本级及后续主材中的回收。"
+      ],
+      "dependencies": [
+        "4B5C62FF4A7DBDB8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5559A7EF8CE1F4",
+          "type": "custom",
+          "title": "实际完成IWV尾料固化",
+          "tags": [
+            "hk3gtl_quest_iwv_n19"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 12,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B56FADB5DACAA9F",
+      "title": "分段整流开关堆",
+      "subtitle": "给反向能流留下独立关断通道",
+      "description": [
+        "装配分段整流开关堆，使各段具有单独的整流和关断连接。完整开关堆随后进入能量整流与调度设施。"
+      ],
+      "dependencies": [
+        "4B5ED1C5745F2E12",
+        "4B5C0479AE802EA5",
+        "4B536F4EABD4A6C1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CB4DE99C27086",
+          "type": "custom",
+          "title": "实际完成分段整流开关堆",
+          "tags": [
+            "hk3gtl_quest_iwv_f01"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:rectifier_switching_stack",
+      "x": 30,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5E623A97B45459",
+      "title": "虚数能量整流中枢",
+      "subtitle": "连接整流、反向阻断与废热排口",
+      "description": [
+        "把分段整流组件装入虚数能量整流中枢控制器。完成后接通相应能流与废热通道，再运行已解锁的整流工况。"
+      ],
+      "dependencies": [
+        "4B57F2B27363DE28",
+        "4B5ED1C5745F2E12",
+        "4B5C0479AE802EA5",
+        "4B5EEF4595E0877B",
+        "4B536F4EABD4A6C1",
+        "4B5047CFCF54095D"
+      ],
+      "tasks": [
+        {
+          "id": "4B56F32BDD7728AC",
+          "type": "custom",
+          "title": "实际完成虚数能量整流中枢",
+          "tags": [
+            "hk3gtl_quest_iwv_k38"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:i38_imaginary_energy_rectification_hub",
+      "x": 34,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5CDCC7C5310141",
+      "title": "文明能源调度中枢",
+      "subtitle": "为多负载分别设置开关与计量",
+      "description": [
+        "总装文明能源调度中枢控制器，接入独立负载开关和能流计量组件。设施按已授权的个人账户组织供能。"
+      ],
+      "dependencies": [
+        "4B5E3DA7F13B68CF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D7A68C08A5FA0",
+          "type": "custom",
+          "title": "实际完成文明能源调度中枢",
+          "tags": [
+            "hk3gtl_quest_iwv_k41"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:i41_civilization_energy_dispatch_hub",
+      "x": 38,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B537F2A387BAC7A",
+      "title": "四阶能量态崩坏能探测器",
+      "subtitle": "保留前三阶的采样与差分部件",
+      "description": [
+        "升级完整前级探测器，加入能量态测量所需的隔离、采样和差分组件。探测器制成后，再制造对应的第四阶采集塔。"
+      ],
+      "dependencies": [
+        "4B57F2B27363DE28",
+        "4B5ED1C5745F2E12",
+        "4B5C0479AE802EA5",
+        "4B536F4EABD4A6C1",
+        "4B5814457AA6BFBC"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E4E5DC2F61A97",
+          "type": "custom",
+          "title": "实际完成四阶能量态崩坏能探测器",
+          "tags": [
+            "hk3gtl_quest_iwv_d01"
+          ]
+        }
+      ],
       "icon": "hk3gtl:energy_honkai_detector",
-      "x": 0.0,
-      "y": 0.0,
-      "description": [
-        "前三态采集经验、虚数联系资料和实际锚定检测都准备好了，就可以开展能量态采集实验。前面的采集路线在这里汇合。",
-        "",
-        "解锁第四阶采集塔和对应能量态探测器。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "前三态采集运行回执、虚数之树观测阵列联系资料、虚数空间锚定阵列实际锚定检测记录及前级探测工装。",
-        "",
-        "按JEI查找对应工艺，在仿制神之键装配中心完成对应实验后，到S04或更高等级研究所选择“能量态崩坏能采集”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：虚数空间锚定、气态崩坏能采集。",
-        "基础研究费用：4680点；8 × IRV级电路；112 × 中子素板。",
-        "基础工期：26分钟；研究用电：8,444,249,301,319,680 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5E715948D9EC09",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_esc"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B5A07D34090C572",
-        "4B5D74C9ED85BF0E"
-      ],
-      "subtitle": "S04 · RN-ESC",
-      "shape": "rsquare"
+      "x": 42,
+      "y": 36,
+      "optional": true
     },
     {
-      "id": "4B56104221CAD9C4",
-      "title": "虚数能量整流",
-      "icon": "hk3gtl:conducting_composite",
-      "x": 3.0,
-      "y": 0.0,
+      "id": "4B53803FCB6ED34E",
+      "title": "四阶崩坏能采集塔",
+      "subtitle": "为能量态采集单独建塔",
       "description": [
-        "使用能量态采集的实际运行资料，准备整流工装与隔离负载。获得能量以后，还要把它变成可以安全使用的输出。",
-        "",
-        "解锁虚数能量整流中枢整流与合法HKE产出，不授予免费余额。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "4阶崩坏能采集塔 · 能量态实际能量态采集记录、前级整流工装和隔离负载。",
-        "",
-        "按JEI查找对应工艺，在仿制神之键装配中心完成对应实验后，到S04或更高等级研究所选择“虚数能量整流”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：能量态崩坏能采集。",
-        "基础研究费用：4680点；8 × IRV级电路；112 × 中子素板。",
-        "基础工期：26分钟；研究用电：8,444,249,301,319,680 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "将第四阶探测器与塔控组件装成新控制器。既有采集塔继续保留，各相态分别安排采集与输出线路。"
+      ],
+      "dependencies": [
+        "4B57F2B27363DE28",
+        "4B5ED1C5745F2E12",
+        "4B5C0479AE802EA5",
+        "4B536F4EABD4A6C1",
+        "4B5047CFCF54095D"
       ],
       "tasks": [
         {
-          "id": "4B58EFE839586552",
+          "id": "4B5CD248A39066AA",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成四阶崩坏能采集塔",
           "tags": [
-            "hk3gtl_quest_rn_her"
+            "hk3gtl_quest_iwv_d02"
           ]
         }
       ],
-      "dependencies": [
-        "4B57F2B27363DE28"
+      "icon": "hk3gtl:i01_4_honkai_collection_tower",
+      "x": 46,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B59E838F2B595FA",
+      "title": "气态崩坏能整流",
+      "subtitle": "给气态介质安排滤芯与冷却出口",
+      "description": [
+        "在整流设备中处理气态崩坏能，保留整流开关堆工装。分别收集失效滤芯、魂钢热尾气与热冷却液，保存实际能流工况。"
       ],
-      "subtitle": "S04 · RN-HER",
-      "shape": "rsquare"
+      "dependencies": [
+        "4B56104221CAD9C4",
+        "4B5E623A97B45459"
+      ],
+      "tasks": [
+        {
+          "id": "4B5178F9EDE2DCB7",
+          "type": "custom",
+          "title": "实际完成气态崩坏能整流",
+          "tags": [
+            "hk3gtl_quest_existing_energy_rectification_gas"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:depleted_gas_filter",
+      "x": 0,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B555AA9979ADAFC",
+      "title": "压缩核心整流",
+      "subtitle": "处理固态核心并分开残渣",
+      "description": [
+        "将压缩崩坏核心与分离滤芯投入整流工况，供给工业冷却液。分别收集失活燃料残渣、分离残渣和热冷却液，保留实际运行记录。"
+      ],
+      "dependencies": [
+        "4B56104221CAD9C4",
+        "4B5E623A97B45459"
+      ],
+      "tasks": [
+        {
+          "id": "4B59E3456F20CC7B",
+          "type": "custom",
+          "title": "实际完成压缩核心整流",
+          "tags": [
+            "hk3gtl_quest_existing_energy_rectification_core"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:inactive_fuel_residue",
+      "x": 4,
+      "y": 46,
+      "optional": true
     },
     {
       "id": "4B5E3DA7F13B68CF",
       "title": "文明能源调度",
-      "icon": "hk3gtl:high_dimensional_energy_conduit",
-      "x": 6.0,
-      "y": 0.0,
+      "subtitle": "RN-CED · 实验与正式研究",
       "description": [
-        "检查整流后的HW是否真正入账，并准备可用负载和绑定人授权。调度关心的是能量交给谁、用在什么地方。",
-        "",
-        "解锁文明能源调度中枢负载管理；账户仍按个人UUID，无人工距离/容量/吞吐上限。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "虚数能量整流中枢成功整流及实际HW入账记录、已有可用HW负载和绑定人授权。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S04或更高等级研究所选择“文明能源调度”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：虚数能量整流。",
-        "基础研究费用：4680点；8 × IRV级电路；112 × 中子素板。",
-        "基础工期：26分钟；研究用电：8,444,249,301,319,680 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。实际负载扣费与产能回执对应，核验付款账户、有效运行量和拒绝无授权操作；余额截图不算证据；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择4680研究积分或IRV电路 × 8、中子素板 × 112支付基准费用；另需31,200 tick与8,444,249,301,319,680 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁文明能源调度中枢负载管理；按个人账户结算，无人工距离/容量/吞吐上限。"
+      ],
+      "dependencies": [
+        "4B555AA9979ADAFC"
       ],
       "tasks": [
         {
           "id": "4B5D02BE6DEF6E9C",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成文明能源调度",
           "tags": [
             "hk3gtl_quest_rn_ced"
           ]
         }
       ],
-      "dependencies": [
-        "4B56104221CAD9C4"
-      ],
-      "subtitle": "S04 · RN-CED",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B597E01616A741B",
-      "linked_quest": "4B5D74C9ED85BF0E",
-      "x": 0.0,
-      "y": -8.0
+      "icon": "hk3gtl:conducting_composite",
+      "x": 30,
+      "y": 26,
+      "optional": false
     },
     {
-      "id": "4B5594522DDBBB97",
-      "linked_quest": "4B5A07D34090C572",
-      "x": 3.0,
-      "y": -8.0
+      "id": "4B5A778130252AF5",
+      "title": "能源负载协调",
+      "subtitle": "RN-ELC · 实验与正式研究",
+      "description": [
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。实际运行与手动开停产生可核对的多设备时间线，验证未授权/余额不足时不继续推进；不先启用待解锁自动优先级；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择5380研究积分或IWV电路 × 8、中子素板 × 120支付基准费用；另需33,600 tick与33,776,997,205,278,720 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁负载排序与告警策略，不增加HKE人工容量或距离上限。"
+      ],
+      "dependencies": [
+        "4B5B07B90B75E8EC"
+      ],
+      "tasks": [
+        {
+          "id": "4B5544C1C8919E9B",
+          "type": "custom",
+          "title": "完成能源负载协调",
+          "tags": [
+            "hk3gtl_quest_rn_elc"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:conducting_composite",
+      "x": 46,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B57F2B27363DE28",
+      "title": "能量态崩坏能采集",
+      "subtitle": "RN-ESC · 实验与正式研究",
+      "description": [
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。完成前三态与虚数联系的实际对照，记录场响应；试验不产可用能量态或免费HW；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择4680研究积分或IRV电路 × 8、中子素板 × 112支付基准费用；另需31,200 tick与8,444,249,301,319,680 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁第四阶采集塔和对应能量态探测器。"
+      ],
+      "dependencies": [
+        "4B5F5CC41DB9BC86"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E715948D9EC09",
+          "type": "custom",
+          "title": "完成能量态崩坏能采集",
+          "tags": [
+            "hk3gtl_quest_rn_esc"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:energy_honkai_detector",
+      "x": 34,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B56104221CAD9C4",
+      "title": "虚数能量整流",
+      "subtitle": "RN-HER · 实验与正式研究",
+      "description": [
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。真实消耗测试输入并测量能流/损耗，完成安全隔离；测试不向个人账户任意充值；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择4680研究积分或IRV电路 × 8、中子素板 × 112支付基准费用；另需31,200 tick与8,444,249,301,319,680 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁虚数能量整流中枢整流与合法HKE产出，不授予免费余额。"
+      ],
+      "dependencies": [
+        "4B57F2B27363DE28"
+      ],
+      "tasks": [
+        {
+          "id": "4B58EFE839586552",
+          "type": "custom",
+          "title": "完成虚数能量整流",
+          "tags": [
+            "hk3gtl_quest_rn_her"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:conducting_composite",
+      "x": 38,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5B07B90B75E8EC",
+      "title": "世界维系试验",
+      "subtitle": "RN-WME · 实验与正式研究",
+      "description": [
+        "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。真实完成局部扰动响应、停止与恢复验证并关联输入/能流记录；测试局限于装置和样件；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择5380研究积分或IWV电路 × 8、中子素板 × 120支付基准费用；另需33,600 tick与33,776,997,205,278,720 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁世界维系试验平台维系原型与可检验记录。"
+      ],
+      "dependencies": [
+        "4B5E3DA7F13B68CF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C445C5C1DA4CB",
+          "type": "custom",
+          "title": "完成世界维系试验",
+          "tags": [
+            "hk3gtl_quest_rn_wme"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:world_maintenance_specimen",
+      "x": 42,
+      "y": 26,
+      "optional": false
     }
   ]
 }

@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value=ItemNetHandler.class,remap=false)
-/** 【变更记录 #1】2026-10-01 13:36:23（修订128）：删除：无；新增/修改：GT物品网具体路线真实插入前后差额旁注，模拟传输不建立新分支凭据；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public abstract class Hk3EggItemBranchMixin {
     @Shadow private ItemPipeNet net;
     @Shadow private ItemPipeBlockEntity pipe;

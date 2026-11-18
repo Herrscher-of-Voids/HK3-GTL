@@ -2,13 +2,15 @@ package com.sirin.hk3gtl.common.multiblock.build;
 
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart;
-import com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionMachine;
+import com.sirin.hk3gtl.common.multiblock.pattern.Hk3InterfacePredicates;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Rotation;
+import java.util.HashSet;
+import java.util.Set;
 
 /** 在服务器主线程分批实读完整稀疏舰体；从不把建造完成计数当作成型证明。 */
 public final class Hk3HyperionIntegrityTask implements AutoCloseable {
@@ -20,17 +22,21 @@ public final class Hk3HyperionIntegrityTask implements AutoCloseable {
     private final Direction facing;
     private final Rotation rotation;
     private final Hk3BuildChunkWindow chunks;
+    private final Hk3InterfaceChunks interfaceChunks;
     private final BlockPos.MutableBlockPos pos=new BlockPos.MutableBlockPos();
     private final BlockPos.MutableBlockPos ahead=new BlockPos.MutableBlockPos();
+    private final Set<BlockPos> interfaces=new HashSet<>();
     private Hk3BuildOrder order;
     private int cursor;
     private boolean prepared;
     private boolean controlTicket;
+    private boolean transferredInterfaces;
     public Hk3HyperionIntegrityTask(Hk3IntegrityHost host) {
         this.host=host;this.machine=host.integrityController();level=(ServerLevel)machine.getLevel();
         plan=Hk3BuildPlans.create(machine);facing=machine.getFrontFacing();
         rotation=Hk3UniversalTerminalBuilder.rotation(plan.sourceFacing(),facing);
         chunks=new Hk3BuildChunkWindow(level,machine.getPos().asLong());
+        interfaceChunks=new Hk3InterfaceChunks(level,machine.getPos());
         level.getChunkSource().addRegionTicket(CONTROL_TICKET,new ChunkPos(machine.getPos()),1,machine.getPos().asLong());
         controlTicket=true;
     }
@@ -58,14 +64,24 @@ public final class Hk3HyperionIntegrityTask implements AutoCloseable {
                 order=new Hk3BuildOrder(plan,count,i->{position(i,ahead);return ((ahead.getZ()>>4)-minZ)*width+(ahead.getX()>>4)-minX;});
             }
             if(!order.step())continue;
-            if(cursor==plan.size()) {host.acceptVerifiedPlan(plan);host.integrityPassed(facing);return;}
+            if(cursor==plan.size()) {
+                host.acceptVerifiedPlan(plan);host.acceptVerifiedInterfaces(Set.copyOf(interfaces));
+                host.acceptInterfaceChunks(interfaceChunks);transferredInterfaces=true;
+                host.integrityPassed(facing);return;
+            }
             int i=order.index(cursor);position(i,pos);
             if(!chunks.ready(cursor,plan.size(),at->{position(order.index(at),ahead);return ChunkPos.asLong(ahead.getX()>>4,ahead.getZ()>>4);},order::nextChunkIndex))return;
-            if(!pos.equals(machine.getPos()) && !Hk3BuildState.matches(level.getBlockState(pos),plan.state(i).rotate(rotation))
-                    && !(plan.isMachinePartSlot(plan.x(i),plan.y(i),plan.z(i)) && MetaMachine.getMachine(level,pos) instanceof IMultiPart)) {
-                host.integrityFailed("结构不符："+pos.toShortString());return;
+            var actual=level.getBlockState(pos);
+            if(!pos.equals(machine.getPos())) {
+                if(Hk3InterfacePredicates.isInterface(actual)) {
+                    if(MetaMachine.getMachine(level,pos) instanceof IMultiPart) {
+                        interfaces.add(pos.immutable());interfaceChunks.retain(pos);
+                    }
+                } else if(!Hk3BuildState.matches(actual,plan.state(i).rotate(rotation))) {
+                    host.integrityFailed("结构不符："+pos.toShortString());return;
+                }
             }
-            if(host.captureFarView())com.sirin.hk3gtl.common.farview.Hk3FarViewData.observe(level,pos,level.getBlockState(pos));
+            if(host.captureFarView())com.sirin.hk3gtl.common.farview.Hk3FarViewData.observe(level,pos,actual);
             cursor++;
         }
     }
@@ -76,7 +92,7 @@ public final class Hk3HyperionIntegrityTask implements AutoCloseable {
         return out.set(machine.getPos().getX()+rx,machine.getPos().getY()+y,machine.getPos().getZ()+rz);
     }
     @Override public void close() {
-        try {chunks.close();plan.close();}
+        try {chunks.close();if(!transferredInterfaces)interfaceChunks.close();plan.close();}
         finally {if(controlTicket){controlTicket=false;level.getChunkSource().removeRegionTicket(CONTROL_TICKET,new ChunkPos(machine.getPos()),1,machine.getPos().asLong());}}
     }
 }

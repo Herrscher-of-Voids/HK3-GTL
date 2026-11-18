@@ -8,11 +8,11 @@ import java.text.Normalizer;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * 三条SCP场景的可测试边界；只判断服务端已经获得的事实。
- * 【变更记录 #1】2026-10-01 16:30:04（修订134）：删除无；新增日出区间、连续观察、穿玻璃几何、本人完整盔甲和已保存笔记判断。
- * 修改：无；用途：移除审核条件没有的抬头30度和笔记顺序限制，不改正文、不授主线资格。
- */
+ 
+
+
+
+
 public final class Hk3EggScpFacts {
     public static final List<String> ARMOR_SLOTS = List.of("head", "chest", "legs", "feet");
     private Hk3EggScpFacts() {}

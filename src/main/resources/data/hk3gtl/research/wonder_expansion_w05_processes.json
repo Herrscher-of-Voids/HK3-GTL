@@ -1,0 +1,1626 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w05_x46_fresh_coolant_dispersion",
+      "role": "W05",
+      "zh_name": "十六级水银碳分散冷却液",
+      "purpose": "保持十六级纯化水前置；流场分散减少银与碳的团聚损失，首轮不依赖热液。",
+      "process_family": "新鲜介质首制",
+      "requirements": [
+        "RN-IFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:silver_dust",
+          "count": 12
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 24
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:grade_16_purified_water",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 8000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_fresh_honkai_coolant",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_analysis_reagent",
+      "role": "W05",
+      "zh_name": "醇水分析试剂在线配碱",
+      "purpose": "以外部醇、水、碱独立制造分析试剂，保持无废料启动路线。",
+      "process_family": "新鲜介质首制",
+      "requirements": [
+        "RN-IFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:sodium_hydroxide_dust",
+          "count": 12
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 6000
+        },
+        {
+          "id": "gtceu:ethanol",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 8000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_fresh_analysis_reagent",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_soulium_solvent",
+      "role": "W05",
+      "zh_name": "魂钢溶剂吸附混配",
+      "purpose": "吸附与混配合并；仍消耗新试剂，排出的液体不可再生。",
+      "process_family": "新鲜介质首制",
+      "requirements": [
+        "RN-IFF",
+        "RN-LES"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 12
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 200
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 4000
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 200
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_process_solvent",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_stabilization_medium",
+      "role": "W05",
+      "zh_name": "稳定介质分散配盐",
+      "purpose": "分离介质、蒸馏水、钠与铂均由外部投入，减少配盐过量而非复制稳定液。",
+      "process_family": "新鲜介质首制",
+      "requirements": [
+        "RN-IFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:sodium_dust",
+          "count": 48
+        },
+        {
+          "id": "gtceu:platinum_dust",
+          "count": 6
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_separation_medium",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 6000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_fresh_stabilization_medium",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_growth_medium",
+      "role": "W05",
+      "zh_name": "硅磷电路生长液均化",
+      "purpose": "保留硅磷营养来源和新试剂，减少均化损耗；不能用废生长液单独开线。",
+      "process_family": "新鲜介质首制",
+      "requirements": [
+        "RN-IFF",
+        "RN-CBS"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:silicon_dust",
+          "count": 24
+        },
+        {
+          "id": "gtceu:phosphorus_dust",
+          "count": 6
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 750
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 750
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_growth_medium",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_etchant",
+      "role": "W05",
+      "zh_name": "蚀刻液浓度梯度配制",
+      "purpose": "在线混合降低分析试剂消耗，碳与新鲜水仍是独立消耗。",
+      "process_family": "新鲜介质首制",
+      "requirements": [
+        "RN-IFF",
+        "RN-CBS"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 6
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1800
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2200
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_etchant",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_resistant_coating",
+      "role": "W05",
+      "zh_name": "抗侵蚀聚合分散液",
+      "purpose": "以聚四氟乙烯、碳和新溶剂首制涂层；分散效率替代额外聚合物。",
+      "process_family": "新鲜介质首制",
+      "requirements": [
+        "RN-IFF",
+        "RN-NSP"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:polytetrafluoroethylene_dust",
+          "count": 12
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 6
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_resistant_coating",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_protective_gas",
+      "role": "W05",
+      "zh_name": "崩坏工艺气旋流净化",
+      "purpose": "直接消耗含能气体，滤芯明确失效；废气不能按此首制路线回生能量。",
+      "process_family": "气体供应",
+      "requirements": [
+        "RN-IFF",
+        "RN-GSC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:process_gas_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:depleted_gas_filter",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gaseous_honkai_energy",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "soulium_protective_gas",
+          "amount": 3600
+        },
+        {
+          "id": "spent_soulium_process_gas",
+          "amount": 400
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_fresh_protective_gas",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_liquid_fractionation",
+      "role": "W05",
+      "zh_name": "液态崩坏能连续分馏",
+      "purpose": "保留新采液、晶矩和吸附耗材，按原比例输出含能各馏分及固体；不以废液替代全部采集。",
+      "process_family": "主液前处理",
+      "requirements": [
+        "RN-IFF",
+        "RN-LSE"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:directional_crystallization_matrix",
+          "count": 3
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:concentrated_honkai_impurity",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "hk3gtl:liquid_honkai_energy",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "crude_honkai_energy",
+          "amount": 5000
+        },
+        {
+          "id": "honkai_mother_liquor",
+          "amount": 1500
+        },
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_liquid_fractionation",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_mother_liquor_clarification",
+      "role": "W05",
+      "zh_name": "含能母液膜洗净化",
+      "purpose": "维持原有粒子产量与母液回流比例，只减少滤芯消耗；粒子分五堆各64件输出。",
+      "process_family": "主液前处理",
+      "requirements": [
+        "RN-IFF",
+        "RN-LSE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:concentrated_honkai_impurity",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 3
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:raw_honkai_particle",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:raw_honkai_particle",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:raw_honkai_particle",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:raw_honkai_particle",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:raw_honkai_particle",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_mother_liquor",
+          "amount": 1500
+        },
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_separation_medium",
+          "amount": 1200
+        },
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 250
+        },
+        {
+          "id": "clarified_honkai_mother_liquor",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_liquid_purification",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_liquid_stabilization",
+      "role": "W05",
+      "zh_name": "粗制液连续稳态结晶",
+      "purpose": "维持晶种、粗制液与稳定介质主投入，减少晶矩与铂箔消耗；热液及残液全部排出。",
+      "process_family": "主液前处理",
+      "requirements": [
+        "RN-IFF",
+        "RN-LSE"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:directional_crystallization_matrix",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:concentrated_honkai_impurity",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_energy_crystal",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "crude_honkai_energy",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 800
+        },
+        {
+          "id": "spent_honkai_stabilization_medium",
+          "amount": 800
+        },
+        {
+          "id": "crystallization_residual_liquid",
+          "amount": 200
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_liquid_stabilization",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_sealed_coolant_exchange",
+      "role": "W05",
+      "zh_name": "闭式冷却液银补偿换热",
+      "purpose": "新十六级水作为冷侧耗材、银补偿分散层；8000热液回收7960，40仍退出回路。",
+      "process_family": "冷却与热量",
+      "requirements": [
+        "RN-IFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:silver_dust",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:grade_16_purified_water",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 7960
+        },
+        {
+          "id": "lost_coolant_residue",
+          "amount": 40
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_coolant_reconditioning",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_degraded_coolant_reconditioning",
+      "role": "W05",
+      "zh_name": "劣化冷却液载液重配",
+      "purpose": "只取回劣化液中的部分载液；仍补十六级水、银与碳，不将污染物变成能量。",
+      "process_family": "冷却与热量",
+      "requirements": [
+        "RN-IFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        },
+        {
+          "id": "gtceu:silver_dust",
+          "count": 4
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "lost_coolant_residue",
+          "amount": 1000
+        },
+        {
+          "id": "gtceu:grade_16_purified_water",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 3200
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 800
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_fresh_honkai_coolant",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_crystallization_residual_polishing",
+      "role": "W05",
+      "zh_name": "结晶残液分离介质膜回收",
+      "purpose": "沿用既有分离介质回收产物，少用滤芯与碳换取15%回收率，其余定量排污。",
+      "process_family": "分质残液回收",
+      "requirements": [
+        "RN-IFF",
+        "RN-SMR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 12
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "crystallization_residual_liquid",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_separation_medium",
+          "amount": 600
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 3400
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_recover_crystallization_residual_liquid",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fuel_residual_polishing",
+      "role": "W05",
+      "zh_name": "精炼残液吸附脱毒",
+      "purpose": "少用滤芯与碳，仅回收10%分离介质，不回收燃料、结晶或HW。",
+      "process_family": "分质残液回收",
+      "requirements": [
+        "RN-IFF",
+        "RN-SMR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 16
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "fuel_refining_residual",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_separation_medium",
+          "amount": 400
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 3600
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_recover_fuel_refining_residual",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_nano_tail_membrane_fractionation",
+      "role": "W05",
+      "zh_name": "纳米尾液膜分级",
+      "purpose": "提高尾液中分离介质的固定回收比例至20%，保留80%不可逆排污。",
+      "process_family": "分质残液回收",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "nano_reaction_tail_liquid",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "honkai_separation_medium",
+          "amount": 800
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 3200
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_treat_nano_reaction_tail_liquid",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_exhaust_heat_quench",
+      "role": "W05",
+      "zh_name": "魂钢热尾气水侧余热利用",
+      "purpose": "利用已有热尾气使水侧汽化；气侧全部变为污染废液，不重新产出保护气或HW。",
+      "process_family": "冷却与热量",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "hot_soulium_exhaust",
+          "amount": 4000
+        },
+        {
+          "id": "minecraft:water",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "gtceu:steam",
+          "amount": 320000
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_treat_hot_soulium_exhaust",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_steam_condensate_polishing",
+      "role": "W05",
+      "zh_name": "回热蒸汽冷凝抛光",
+      "purpose": "按160份蒸汽折1份水冷凝，去除1%污染；冷却液只升温，不在此恢复。",
+      "process_family": "冷却与热量",
+      "requirements": [
+        "RN-IFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:steam",
+          "amount": 640000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 3960
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 40
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "wonder_w05_coolant_heat_recovery",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_membrane_filters",
+      "role": "W05",
+      "zh_name": "分离滤芯原料层压联制",
+      "purpose": "保留金属骨架、玻璃、铂网、聚合膜与MAX电路；合并组装减少边料，不复用废滤芯。",
+      "process_family": "流体工装",
+      "requirements": [
+        "RN-IFF"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:stainless_steel_plate",
+          "count": 6
+        },
+        {
+          "id": "minecraft:glass_pane",
+          "count": 6
+        },
+        {
+          "id": "gtceu:fine_platinum_wire",
+          "count": 8
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 12
+        },
+        {
+          "id": "kubejs:supracausal_mainframe",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_separation_filter",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_fresh_gas_filters",
+      "role": "W05",
+      "zh_name": "气体滤芯吸附层在线装填",
+      "purpose": "以全新膜滤芯作骨架，补碳与铂箔制气体滤芯；没有废料依赖。",
+      "process_family": "流体工装",
+      "requirements": [
+        "RN-IFF",
+        "RN-GSC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 4
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 6
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 3
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:process_gas_filter",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_process_gas_filter",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_bubble_medium_flow_mixing",
+      "role": "W05",
+      "zh_name": "世界泡约束液剪切混合",
+      "purpose": "保持新鲜稳定液态崩坏能与稳定介质投入，减少晶种而保留末影物质支线。",
+      "process_family": "高阶介质供应",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 3
+        },
+        {
+          "id": "minecraft:ender_pearl",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 500
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_bubble_confinement_medium",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_world_medium_reactive_mixing",
+      "role": "W05",
+      "zh_name": "世界稳定液反应混配",
+      "purpose": "新稳定液与溶剂首制世界介质；晶种仍消耗，溶剂等量失活。",
+      "process_family": "高阶介质供应",
+      "requirements": [
+        "RN-IFF",
+        "RN-SWS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 6
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 3000
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 3000
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_world_medium",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_bubble_transport_direct_mixing",
+      "role": "W05",
+      "zh_name": "约束到输运介质连续调制",
+      "purpose": "将约束液首制与输运调制合并；新鲜含能液和末影物质保留，冷却流体完整转热。",
+      "process_family": "高阶介质供应",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCC",
+        "RN-CJK"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 6
+        },
+        {
+          "id": "minecraft:ender_pearl",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 500
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "stable_transport_medium",
+          "amount": 1000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_bubble_confinement_medium + industrial_stable_transport_medium",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_etchant_neutralization",
+      "role": "W05",
+      "zh_name": "废蚀刻液碱化终止",
+      "purpose": "不要回收蚀刻剂时，以碱快速终止其活性；全部退出活性介质循环。",
+      "process_family": "终端排污选择",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:sodium_hydroxide_dust",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 900,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_treat_spent_honkai_etchant",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_coating_adsorption_disposal",
+      "role": "W05",
+      "zh_name": "废涂层吸附固化",
+      "purpose": "无需新溶剂即可终端处置余量；涂层与吸附碳固定为惰性残渣，不能回生聚合物。",
+      "process_family": "终端排污选择",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1100,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_treat_spent_resistant_coating",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_final_effluent_drying",
+      "role": "W05",
+      "zh_name": "不可再生废液蒸干固化",
+      "purpose": "为所有再生回路提供真正终端出口；液体不返回水、试剂、燃料或HW。",
+      "process_family": "终端排污选择",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_effluent_solidification",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_gas_impurity_immobilization",
+      "role": "W05",
+      "zh_name": "气体杂质玻璃固封",
+      "purpose": "用玻璃包埋滤芯捕获的杂质；惰性输出只作最终处置，不恢复保护气。",
+      "process_family": "终端排污选择",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:process_gas_impurity",
+          "count": 16
+        },
+        {
+          "id": "minecraft:glass",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 1000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_gas_purification",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_concentrated_impurity_purge",
+      "role": "W05",
+      "zh_name": "浓缩杂质吸附清仓",
+      "purpose": "对过剩浓缩杂质独立排污，避免必须等待另一种固体凑齐；不返回含能粒子。",
+      "process_family": "终端排污选择",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:concentrated_honkai_impurity",
+          "count": 32
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 6
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "minecraft:water",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_impurity_purge",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_separation_residue_purge",
+      "role": "W05",
+      "zh_name": "分离残渣连续脱水",
+      "purpose": "对过剩分离渣单独处置，按固定比例输出惰性残渣；与浓缩杂质清仓并行。",
+      "process_family": "终端排污选择",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 32
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "minecraft:water",
+          "amount": 1500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 1500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_separation_residue_purge",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_membrane_filter_retirement",
+      "role": "W05",
+      "zh_name": "膜滤芯定量退役",
+      "purpose": "四滤芯只取回两板、两细线与四膜片，均低于新制投入；玻璃、电路和余料退出。",
+      "process_family": "流体工装",
+      "requirements": [
+        "RN-IFF",
+        "RN-BCE"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:stainless_steel_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:fine_platinum_wire",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:inactive_fuel_residue",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 1600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "industrial_separation_filter",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    },
+    {
+      "id": "wonder_w05_x46_gas_filter_solvent_replate",
+      "role": "W05",
+      "zh_name": "失效气滤芯溶洗重镀",
+      "purpose": "用新膜、铂箔和乙醇替代涂层修补，八个失效滤芯仅返六个，余量固化排污。",
+      "process_family": "流体工装",
+      "requirements": [
+        "RN-IFF",
+        "RN-GSC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:depleted_gas_filter",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:process_gas_filter",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:process_gas_impurity",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:ethanol",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 250
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "baseline_recipe": "wonder_w05_gas_filter_regeneration",
+      "output_consumers": [
+        "现有材料、流体消费工艺"
+      ]
+    }
+  ]
+}

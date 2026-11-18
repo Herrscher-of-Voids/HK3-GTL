@@ -1,247 +1,1757 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_08",
-  "id": "4B593C18F3859631",
-  "title": "HK3GTL · QAV · 锚定压",
+  "id": "4B54B990B6155A8C",
+  "title": "锚定压 QAV",
   "subtitle": [
-    "Tier22 · 让无人装置先去"
+    "Tier22-QAV"
   ],
-  "group": "",
-  "order_index": 22,
-  "icon": "hk3gtl:electric_motor_qav",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 23,
+  "icon": "hk3gtl:voltage_machine_casing_qav",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B515A4E8B84CCDD",
-      "title": "让无人装置先去",
-      "icon": "hk3gtl:qav_processor_mainframe",
-      "x": 0.0,
-      "y": -4.0,
+      "id": "4B50E097E4620CD6",
+      "title": "空间校准模块制造",
+      "subtitle": "用仿制空核心校准空间接口",
       "description": [
-        "有了坐标，也要有能够抵达并返回的装置。先解决装配，再安排一次真实的采掘任务。",
-        "",
-        "返回的遗留资料需要解析，舰船工程档案还要另外解读。你的第一艘仿制休伯利安，就从这些资料开始。",
-        "{@pagebreak}",
-        "本页是QAV · 锚定压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "在仿制神之键装配中心加工魂钢数据基板与仿制空核心，制成空间校准模块。保留低温压差隔离总管工装，模块继续用于观测、信标与后续空间工程。"
+      ],
+      "dependencies": [
+        "4B5B36362C6BF5DA"
       ],
       "tasks": [
         {
-          "id": "4B5153DEA3774B0A",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_intro_08"
-          ]
-        }
-      ],
-      "size": 2.0,
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B56305E0E92DE80",
-      "title": "电路与八大件",
-      "icon": "hk3gtl:electric_motor_qav",
-      "x": -4.0,
-      "y": -4.0,
-      "description": [
-        "进入QAV · 锚定压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5C2B4B0658336E",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_08"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4B500BE5B02F854A",
-      "title": "无人作业装置装配",
-      "icon": "hk3gtl:industrial_work_drone",
-      "x": 0.0,
-      "y": 0.0,
-      "description": [
-        "把魂钢件、电路、驱动件和定位资料备齐，开展无人作业装置装配实验。抵达目标和完成作业，需要这些部件一起工作。",
-        "",
-        "解锁I51探针、作业装置及返修工艺。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "魂钢精密加工已可得魂钢件、电路封装与工况测试电路及前级驱动件、合法观测/定位资料。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S03或更高等级研究所选择“无人作业装置装配”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：世界泡坐标解析、魂钢精密加工、电路封装与工况测试。",
-        "基础研究费用：1790点；6 × QEV级电路；80 × 硅岩合金板。",
-        "基础工期：13.5分钟；研究用电：32,985,348,833,280 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B560E7AFD01E071",
+          "id": "4B5B03A6D23C5531",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成空间校准模块制造",
           "tags": [
-            "hk3gtl_quest_rn_uaa"
+            "hk3gtl_quest_existing_spatial_module"
           ]
         }
+      ],
+      "icon": "hk3gtl:spatial_calibration_module",
+      "x": 30,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5128436BF42BF8",
+      "title": "神之键封装框架",
+      "subtitle": "先完成一件真实神之键部件装配",
+      "description": [
+        "将魂钢数据基板与封装组件装成神之键框架。实际完成的装配记录供后续神之键研究与一审核对，框架继续用于仿制成品。"
+      ],
+      "dependencies": [
+        "4B5B36362C6BF5DA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5896E90C4A08F8",
+          "type": "custom",
+          "title": "实际完成神之键封装框架",
+          "tags": [
+            "hk3gtl_quest_existing_key_housing"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:divine_key_housing",
+      "x": 34,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5E53F8300CA9AF",
+      "title": "仿制的伊甸之星",
+      "subtitle": "给仿制岩核心完成成品封装",
+      "description": [
+        "将神之键框架与仿制岩核心装成仿制的伊甸之星，为后续相关工程准备成品。"
+      ],
+      "dependencies": [
+        "4B533F2846778D65"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FD1840FDFBA4F",
+          "type": "custom",
+          "title": "实际完成仿制的伊甸之星",
+          "tags": [
+            "hk3gtl_quest_existing_imitation_star_of_eden"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_star_of_eden",
+      "x": 38,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5BF1D51D97F209",
+      "title": "复制仿制休伯利安蓝图",
+      "subtitle": "已有原图之后制作副本",
+      "description": [
+        "将已取得的仿制休伯利安蓝图作为原图，投入基板、纸张与分析试剂复制副本。原图和载荷舱保留，废试剂单独收集。"
+      ],
+      "dependencies": [
+        "4B5E49064FACFD59"
+      ],
+      "tasks": [
+        {
+          "id": "4B57A94BBCE313AD",
+          "type": "custom",
+          "title": "实际完成复制仿制休伯利安蓝图",
+          "tags": [
+            "hk3gtl_quest_existing_ship_blueprint_copy"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_hyperion_blueprint",
+      "x": 42,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5427832AA9F882",
+      "title": "加强信标观测",
+      "subtitle": "一审授权后，记录真实加强信号",
+      "description": [
+        "取得一审会面授予的茧技术授权后，在千界一乘信标完成加强观测。三类受检实物原量返还，真实加强信号记录交给世界泡坐标研究核对。"
+      ],
+      "dependencies": [
+        "4B5488E425C5FF10",
+        "4B50E097E4620CD6"
+      ],
+      "tasks": [
+        {
+          "id": "4B57D3862CE029D5",
+          "type": "custom",
+          "title": "实际完成加强信标观测",
+          "tags": [
+            "hk3gtl_quest_existing_enhanced_beacon_signal"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:spatial_calibration_module",
+      "x": 30,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B5BD6FAD33255FB",
+      "title": "电磁响应工况",
+      "subtitle": "从仿制雷核心取得极化材料",
+      "description": [
+        "在装配中心以仿制雷核心处理魂钢数据基板，制出极化电磁材料。收集热冷却液，并保留这次电磁响应记录，供鸣霆专项研究使用。"
+      ],
+      "dependencies": [
+        "4B524978C39A250C",
+        "4B5B36362C6BF5DA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5827533612C0C8",
+          "type": "custom",
+          "title": "实际完成电磁响应工况",
+          "tags": [
+            "hk3gtl_quest_existing_electromagnetic_worktest"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:polarized_electromagnetic_material",
+      "x": 46,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B538067A289069C",
+      "title": "深冷凝聚工况",
+      "subtitle": "制备深冷样品与温控记录",
+      "description": [
+        "用仿制冰核心处理魂钢数据基板，取得深冷凝聚材料。同步保存真实低温工况与冷却回执，继续交给永霜专项研究核对。"
+      ],
+      "dependencies": [
+        "4B54533414333ADC",
+        "4B5B36362C6BF5DA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D41D5CE9B9482",
+          "type": "custom",
+          "title": "实际完成深冷凝聚工况",
+          "tags": [
+            "hk3gtl_quest_existing_cryogenic_worktest"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:cryogenic_condensed_material",
+      "x": 50,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B537DFEF740AACB",
+      "title": "极限铸造工况",
+      "subtitle": "制备极热加工需要的前级材料",
+      "description": [
+        "用仿制炎核心处理魂钢数据基板，取得极限铸造材料。收集热冷却液与高温工况记录，接续反应堆及劫焰相关研究。"
+      ],
+      "dependencies": [
+        "4B59EE579EB6CE9A",
+        "4B5B36362C6BF5DA"
+      ],
+      "tasks": [
+        {
+          "id": "4B543E8C83FD9E54",
+          "type": "custom",
+          "title": "实际完成极限铸造工况",
+          "tags": [
+            "hk3gtl_quest_existing_flame_worktest"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:extreme_casting_material",
+      "x": 54,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B574F1B6BD2B7AE",
+      "title": "引力压缩工况",
+      "subtitle": "保留压缩与释放的实际记录",
+      "description": [
+        "以仿制岩核心作为工装，在装配中心完成压缩工况。魂钢数据基板原量返还，实际压缩记录供后续坠星专项研究核对。"
+      ],
+      "dependencies": [
+        "4B533F2846778D65"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B8A1181104688",
+          "type": "custom",
+          "title": "实际完成引力压缩工况",
+          "tags": [
+            "hk3gtl_quest_existing_compression_worktest"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:soulium_data_substrate",
+      "x": 54,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B582C794236C289",
+      "title": "流体输运工况",
+      "subtitle": "记录输运与换热的实际收支",
+      "description": [
+        "以仿制风核心作为工装运行流动工况，收集热冷却液。基板原量返还，流动回执继续供长风专项研究核对。"
+      ],
+      "dependencies": [
+        "4B55C2FACF1A9B92",
+        "4B5B36362C6BF5DA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EF3912EC2F10A",
+          "type": "custom",
+          "title": "实际完成流体输运工况",
+          "tags": [
+            "hk3gtl_quest_existing_flow_worktest"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:soulium_data_substrate",
+      "x": 50,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B5A997BBB8B2A33",
+      "title": "列车导航模块工况",
+      "subtitle": "在静止列车中制造休伯利安导航模块",
+      "description": [
+        "将空间校准模块、数据基板和封装件送入千界一乘列车，接入稳定运输介质。保留低温压差隔离总管工装，制成仿制休伯利安导航模块。"
       ],
       "dependencies": [
         "4B54804DF6CCFEB5",
-        "4B560A45C8B1AB68",
-        "4B5407261AA82797"
-      ],
-      "subtitle": "S03 · RN-UAA",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B59A732020238B2",
-      "title": "无人世界泡采掘",
-      "icon": "hk3gtl:unmanned_resource_probe",
-      "x": 3.0,
-      "y": 0.0,
-      "description": [
-        "准备正式坐标、有效锁定和无人装置，再安排一次真实采掘。先让任务完成并返回，后面的遗留资料解析才有输入。",
-        "",
-        "解锁世界泡无人采掘调度台任务；同一真实世界泡最多10次采掘，资源含流体。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "世界泡坐标解析中心正式坐标、仿制的千界一乘·信标有效锁定记录、无人作业装置装配制造的无人装置与测试耗材。",
-        "",
-        "按JEI查找对应工艺，在纳米机器人装配阵列完成对应实验后，到S03或更高等级研究所选择“无人世界泡采掘”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：无人作业装置装配、世界泡坐标解析。",
-        "基础研究费用：1790点；6 × QEV级电路；80 × 硅岩合金板。",
-        "基础工期：13.5分钟；研究用电：32,985,348,833,280 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "4B5A3E4A2B3E1509"
       ],
       "tasks": [
         {
-          "id": "4B5C2015930B181B",
+          "id": "4B5A324A4A928572",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成列车导航模块工况",
           "tags": [
-            "hk3gtl_quest_rn_ued"
+            "hk3gtl_quest_existing_train_navigation_module"
           ]
         }
+      ],
+      "icon": "hk3gtl:hyperion_navigation_module",
+      "x": 46,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B5B4A3512E04E63",
+      "title": "正式世界泡坐标解算",
+      "subtitle": "把探针观测接到可用目标坐标",
+      "description": [
+        "在坐标解析中心处理空间探针与数据基板，保存正式解算回执。世界模型载体和正交相位接收组件保留为工装，所得记录继续用于无人采掘研究。"
+      ],
+      "dependencies": [
+        "4B58834EE21DFE00",
+        "4B58488BA5061858"
+      ],
+      "tasks": [
+        {
+          "id": "4B51E5C75C89902C",
+          "type": "custom",
+          "title": "实际完成正式世界泡坐标解算",
+          "tags": [
+            "hk3gtl_quest_existing_coordinate_solution"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:spatial_calibration_module",
+      "x": 42,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B5062E5553D873F",
+      "title": "从QEV车间继续",
+      "subtitle": "QEV → QAV",
+      "description": [
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批QAV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
+      ],
+      "dependencies": [
+        "4B575076D5F34203"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AE2157B821EDE",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qev",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B51516BB43A2C92",
+      "title": "三轴锚定中介层",
+      "subtitle": "把双输入域接入三轴参考",
+      "description": [
+        "在前级接口上组合三轴参考与工作域隔离层，接好本级印刷板、时钟和引出结构。"
+      ],
+      "dependencies": [
+        "4B5B35081715CDC4",
+        "4B5DE9FBF4314D00",
+        "4B579EB8767AA2A4"
+      ],
+      "tasks": [
+        {
+          "id": "4B59BFBEF1588A80",
+          "type": "item",
+          "item": "hk3gtl:triaxial_anchor_interposer",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:triaxial_anchor_interposer",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5324A618054C1B",
+      "title": "参考系锚定解码器",
+      "subtitle": "读取参考系变化与锚点漂移",
+      "description": [
+        "将前级解码模块接到三轴中介层，封装局部计算、存储和时序。为后续部件提供参考系变换与漂移读数。"
+      ],
+      "dependencies": [
+        "4B51516BB43A2C92",
+        "4B5D238ED26E8E21",
+        "4B592BB2320D03D1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A34289BF60F4A",
+          "type": "item",
+          "item": "hk3gtl:reference_frame_anchor_decoder",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:reference_frame_anchor_decoder",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B50D905A2FCF195",
+      "title": "锚间隙定位执行器",
+      "subtitle": "在已有支承上主动定位锚间隙",
+      "description": [
+        "保留前级双通道支承，加入本级承力结构与解码控制。制成可装入QAV执行件的定位执行器。"
+      ],
+      "dependencies": [
+        "4B5324A618054C1B",
+        "4B5CE948D6826C57",
+        "4B59CDF9DC283EED"
+      ],
+      "tasks": [
+        {
+          "id": "4B53ACACDCC89F13",
+          "type": "item",
+          "item": "hk3gtl:anchor_gap_positioner",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchor_gap_positioner",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5CD42AFC17A634",
+      "title": "锚场气密引出组件",
+      "subtitle": "让锚场接口与供回路分别引出",
+      "description": [
+        "扩展前级热平衡结构，加入独立管段与隔壁。封好锚场引出接口，保留相应的气密与回路隔离。"
+      ],
+      "dependencies": [
+        "4B5D238ED26E8E21",
+        "4B5B35081715CDC4",
+        "4B509AAFC7A4F423"
+      ],
+      "tasks": [
+        {
+          "id": "4B5184B5CA348C3C",
+          "type": "item",
+          "item": "hk3gtl:anchored_hermetic_feedthrough",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_hermetic_feedthrough",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5E9201BCC7CA0F",
+      "title": "QAV 量子相干处理器主机",
+      "subtitle": "三轴参考、漂移解码与锚场引出",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成量子相干处理器主机。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B5324A618054C1B",
+        "4B5CD42AFC17A634",
+        "4B5CE948D6826C57"
+      ],
+      "tasks": [
+        {
+          "id": "4B577660E366234F",
+          "type": "item",
+          "item": "hk3gtl:qav_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:qav_processor_mainframe",
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B55250A84B8285D",
+      "title": "QAV 量子干涉超级计算机",
+      "subtitle": "三轴参考、漂移解码与锚场引出",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成量子干涉超级计算机。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B5324A618054C1B",
+        "4B5CD42AFC17A634",
+        "4B5CE948D6826C57",
+        "4B5359A2298535A1"
+      ],
+      "tasks": [
+        {
+          "id": "4B50C86974F9FAB6",
+          "type": "item",
+          "item": "hk3gtl:quantum_interference_computer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:quantum_interference_computer",
+      "x": 50,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B529EB0B03153EF",
+      "title": "QAV 纠缠锚定处理器组装件",
+      "subtitle": "三轴参考、漂移解码与锚场引出",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成纠缠锚定处理器组装件。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B5324A618054C1B",
+        "4B5CD42AFC17A634",
+        "4B5CE948D6826C57",
+        "4B56A3DE443E58AA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DDEBCC9CA5B8B",
+          "type": "item",
+          "item": "hk3gtl:entanglement_anchor_assembly",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:entanglement_anchor_assembly",
+      "x": 54,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5B6BFD76C82E31",
+      "title": "QAV 虚数锚定处理器",
+      "subtitle": "三轴参考、漂移解码与锚场引出",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成虚数锚定处理器。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B5324A618054C1B",
+        "4B5CD42AFC17A634",
+        "4B5CE948D6826C57"
+      ],
+      "tasks": [
+        {
+          "id": "4B566E99F43FA103",
+          "type": "item",
+          "item": "hk3gtl:imaginary_anchoring_processor",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:imaginary_anchoring_processor",
+      "x": 54,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5240DAAA1DA7E0",
+      "title": "QAV 电动马达",
+      "subtitle": "提供独立的旋转驱动",
+      "description": [
+        "将前级马达与本段承力、反馈部件总装，为后续设备备好旋转驱动。"
+      ],
+      "dependencies": [
+        "4B50D905A2FCF195",
+        "4B5E9201BCC7CA0F",
+        "4B58815DF49B28EF"
+      ],
+      "tasks": [
+        {
+          "id": "4B548ED6F37B46D1",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_motor_qav",
+      "x": 50,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5A5529AE68733C",
+      "title": "QAV 电动活塞",
+      "subtitle": "把驱动转换成受控直线运动",
+      "description": [
+        "将前级活塞与本段定位、反馈部件总装，用于后续设备的受控推拉。"
+      ],
+      "dependencies": [
+        "4B5240DAAA1DA7E0",
+        "4B5B68E1E179BBC1"
+      ],
+      "tasks": [
+        {
+          "id": "4B50D68A7741F404",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_piston_qav",
+      "x": 38,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5BC3E4DF1E7FF5",
+      "title": "QAV 电动泵",
+      "subtitle": "为独立流路提供输送动力",
+      "description": [
+        "将前级泵与本段流路、反馈部件总装，接续后续设备的流体输送。"
+      ],
+      "dependencies": [
+        "4B5240DAAA1DA7E0",
+        "4B5C9BB775F30E7B"
+      ],
+      "tasks": [
+        {
+          "id": "4B50E64A0F68598B",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_pump_qav",
+      "x": 34,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B51ECAED0BBA537",
+      "title": "QAV 传送带模块",
+      "subtitle": "连续移送已有产线中的物料",
+      "description": [
+        "将前级传送部件与本段驱动、读出结构总装，为后续设备备好连续移载组件。"
+      ],
+      "dependencies": [
+        "4B5240DAAA1DA7E0",
+        "4B5EAC0CC749BDEF"
+      ],
+      "tasks": [
+        {
+          "id": "4B57635B600737C5",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_qav",
+      "x": 30,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B563E5F7F702155",
+      "title": "QAV 机械臂",
+      "subtitle": "把定位和执行接到同一部件",
+      "description": [
+        "将前级机械臂与本段承力、定位和反馈结构总装，供后续装配与移载设备使用。"
+      ],
+      "dependencies": [
+        "4B5A5529AE68733C",
+        "4B5953B3CED349F0"
+      ],
+      "tasks": [
+        {
+          "id": "4B5660402E12DB5B",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_qav",
+      "x": 34,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5B1A1507CBB1F7",
+      "title": "QAV 传感器",
+      "subtitle": "把测量结果送入本级控制",
+      "description": [
+        "将前级传感器与本段接口、读出结构总装，保留独立的采样与反馈部件。"
+      ],
+      "dependencies": [
+        "4B5E9201BCC7CA0F",
+        "4B5528655154A3ED"
+      ],
+      "tasks": [
+        {
+          "id": "4B5609D485AB466C",
+          "type": "item",
+          "item": "hk3gtl:sensor_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_qav",
+      "x": 46,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B57663E413585E3",
+      "title": "QAV 发射器",
+      "subtitle": "为本级设备准备发射部件",
+      "description": [
+        "将前级发射器与本段接口、承力和控制结构总装，供后续设备装配。"
+      ],
+      "dependencies": [
+        "4B5E9201BCC7CA0F",
+        "4B5983D18028736A"
+      ],
+      "tasks": [
+        {
+          "id": "4B56B0C321FC2618",
+          "type": "item",
+          "item": "hk3gtl:emitter_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_qav",
+      "x": 42,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B524A0412C3A425",
+      "title": "QAV 力场发生器",
+      "subtitle": "为本级设备准备力场部件",
+      "description": [
+        "将前级力场发生器与本段控制、支承结构总装，接续后续设备的力场部件需求。"
+      ],
+      "dependencies": [
+        "4B5B1A1507CBB1F7",
+        "4B57663E413585E3",
+        "4B5B09F891F81B91"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B4943DFDE0FFB",
+          "type": "item",
+          "item": "hk3gtl:field_generator_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_qav",
+      "x": 30,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5BA4B1A961AD76",
+      "title": "三轴预张紧锚索",
+      "subtitle": "先制出实际承力的锚索",
+      "description": [
+        "由前级配对晶格与承力部件制成锚索。后续三方向张紧、界面涂覆和形态加工都要消耗这批结构件。"
+      ],
+      "dependencies": [
+        "4B54F7A441537AA1"
+      ],
+      "tasks": [
+        {
+          "id": "4B56DA1A67C5544E",
+          "type": "item",
+          "item": "hk3gtl:triaxial_anchor_tendon",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:triaxial_anchor_tendon",
+      "x": 0,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5113D26D467BBB",
+      "title": "锚索应力传递灌浆",
+      "subtitle": "把锚索载荷传入材料主体",
+      "description": [
+        "用新料配制灌浆，准备好界面浸润与受力传递介质。供给涂覆、张紧装配及后续工程形态。"
+      ],
+      "dependencies": [
+        "4B5B96C20B5486BC",
+        "4B5DA9B39AA3192A"
+      ],
+      "tasks": [
+        {
+          "id": "4B54AA41B4E909BD",
+          "type": "custom",
+          "title": "实际完成锚索应力传递灌浆",
+          "tags": [
+            "hk3gtl_quest_qav_n02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B54CF65DDCCCD2A",
+      "title": "定向约束涂层坯",
+      "subtitle": "在配对基体中预埋锚索端",
+      "description": [
+        "给完整前级基体涂覆定向界面，预埋锚索端并灌浆。让锚索受力时能通过界面把载荷传入主体。"
+      ],
+      "dependencies": [
+        "4B5BA4B1A961AD76",
+        "4B5113D26D467BBB"
+      ],
+      "tasks": [
+        {
+          "id": "4B59EDA760F3F9FB",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_stage_1",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_stage_1",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5AC2693129E448",
+      "title": "三轴锚定承力坯",
+      "subtitle": "三个方向分别张紧，再锁紧",
+      "description": [
+        "把锚索沿三方向布置，分别预张紧后锁定。配合承力棒、止推与轴承部件，将载荷传到涂层基体。"
+      ],
+      "dependencies": [
+        "4B54CF65DDCCCD2A"
+      ],
+      "tasks": [
+        {
+          "id": "4B59C066A2270512",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_stage_2",
+      "x": 12,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5D68226259FC65",
+      "title": "锚场固化坯",
+      "subtitle": "实体张紧完成后，再固化界面",
+      "description": [
+        "对已张紧的承力坯固化响应界面，均化接触处载荷。保留三轴传力结构，接着加工端面。"
+      ],
+      "dependencies": [
+        "4B5AC2693129E448"
+      ],
+      "tasks": [
+        {
+          "id": "4B572FC46BC594E2",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_stage_3",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B55F2097B59F62F",
+      "title": "锚定超晶格承力材标准坯",
+      "subtitle": "定尺后封好暴露的锚索端",
+      "description": [
+        "加工端面并封住露出的锚索，保持三方向载荷传递。标准坯从这里进入六种工程形态。"
+      ],
+      "dependencies": [
+        "4B5D68226259FC65"
+      ],
+      "tasks": [
+        {
+          "id": "4B518F9D350AD360",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_billet",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5FE62607DF1612",
+      "title": "锚定超晶格承力材板",
+      "subtitle": "平面铺层与厚度方向一起承载",
+      "description": [
+        "将标准坯与前级板材复合，布置平面铺层和厚度方向连接。灌浆结合后，制成承力板。"
+      ],
+      "dependencies": [
+        "4B55F2097B59F62F"
+      ],
+      "tasks": [
+        {
+          "id": "4B59460D13A3AD8F",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_plate",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5B0D8BECDD8667",
+      "title": "锚定超晶格承力材棒",
+      "subtitle": "沿棒芯张紧，端面灌浆传力",
+      "description": [
+        "把细分锚索沿轴向预张紧，以端面灌浆把载荷传给棒体。棒材继续供框架、环和细线加工。"
+      ],
+      "dependencies": [
+        "4B55F2097B59F62F",
+        "4B5385AC86625747"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CED751D0DB2E2",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_rod",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5CE948D6826C57",
+      "title": "锚定超晶格承力材框架",
+      "subtitle": "让梁角锚索传递弯矩",
+      "description": [
+        "将棒材与前级框架结合，在梁角布置锚索和传力界面。完整框架共同承担连接处载荷。"
+      ],
+      "dependencies": [
+        "4B5B0D8BECDD8667",
+        "4B5802FBE1CFDB67"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D07C270975AF9",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_frame",
+      "x": 20,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5D238ED26E8E21",
+      "title": "锚定超晶格承力材环",
+      "subtitle": "周向纤维与止推面共同受力",
+      "description": [
+        "加工承力环，布置周向增强与止推结构。灌浆固定接口后，接续机壳总装。"
+      ],
+      "dependencies": [
+        "4B5B0D8BECDD8667",
+        "4B50B7179E3F37D8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EB5C508606A86",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_ring",
+      "x": 16,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5B35081715CDC4",
+      "title": "锚定超晶格承力材箔",
+      "subtitle": "用可铺展微索增强薄层",
+      "description": [
+        "把板材与前级薄箔复合，铺入碳纳米管微索层。展薄后保留可供封装的承力结构。"
+      ],
+      "dependencies": [
+        "4B5FE62607DF1612",
+        "4B5B808A4014F1E3"
+      ],
+      "tasks": [
+        {
+          "id": "4B54BA20B3C28518",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_foil",
+      "x": 12,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5DE9FBF4314D00",
+      "title": "锚定超晶格承力材复合细线",
+      "subtitle": "连续微束承拉，端部锚定固持",
+      "description": [
+        "将连续微束、金属导体和薄绝缘层组合，利用锚索固持端部，制成复合细线。"
+      ],
+      "dependencies": [
+        "4B5B0D8BECDD8667",
+        "4B5B5E09A6EE0493"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E9981E66405A8",
+          "type": "item",
+          "item": "hk3gtl:anchored_superlattice_structure_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_fine_wire",
+      "x": 8,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5792CC8C53B87D",
+      "title": "第一批QAV机械方块",
+      "subtitle": "把三轴承力结构装进完整QEV机壳",
+      "description": [
+        "汇集本级板、框和环，接到完整QEV机械方块上。完成锚索张紧、灌浆传力与接口封装，取得首批QAV机壳。"
+      ],
+      "dependencies": [
+        "4B5FE62607DF1612",
+        "4B5CE948D6826C57",
+        "4B5D238ED26E8E21",
+        "4B575076D5F34203"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E90920AEE95EA",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_qav",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qav",
+      "x": 4,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B519447EE37117D",
+      "title": "QAV机壳分层拆解",
+      "subtitle": "保留前级核心，外层分类回收",
+      "description": [
+        "拆出完整QEV核心，回收部分承力板、框与环。其余主体转为分类废料，继续分离处理。"
+      ],
+      "dependencies": [
+        "4B5792CC8C53B87D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E8631A9990096",
+          "type": "custom",
+          "title": "实际完成QAV机壳分层拆解",
+          "tags": [
+            "hk3gtl_quest_qav_n14"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qev",
+      "x": 0,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B57FEAD1D60670D",
+      "title": "QAV分类废料分离",
+      "subtitle": "分出可重新补料的主体组分",
+      "description": [
+        "洗脱废料表面的附着物，再离心分出回收主体和不可回收尾料。分别交给重建与固化工序。"
+      ],
+      "dependencies": [
+        "4B5B96C20B5486BC",
+        "4B5DA9B39AA3192A"
+      ],
+      "tasks": [
+        {
+          "id": "4B581EFCA220D924",
+          "type": "custom",
+          "title": "实际完成QAV分类废料分离",
+          "tags": [
+            "hk3gtl_quest_qav_n15"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_recovered_fraction",
+      "x": 4,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B563815A9812551",
+      "title": "QAV回收组分补料重建",
+      "subtitle": "重新建立涂层与锚索界面",
+      "description": [
+        "将回收主体与新鲜前级基体混合，重新投入锚索、纤维与灌浆。产物回到定向约束涂层坯，再完成三轴张紧、固化和定尺。"
+      ],
+      "dependencies": [
+        "4B5BA4B1A961AD76",
+        "4B5113D26D467BBB"
+      ],
+      "tasks": [
+        {
+          "id": "4B55956EECFE6857",
+          "type": "custom",
+          "title": "实际完成QAV回收组分补料重建",
+          "tags": [
+            "hk3gtl_quest_qav_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:anchored_superlattice_structure_stage_1",
+      "x": 8,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B577B0E20011BC1",
+      "title": "QAV尾料固化",
+      "subtitle": "为不可恢复的承力材料封存收尾",
+      "description": [
+        "将不可回收尾料封入惰性残渣，取得灰烬，完成这部分锚定材料的回收处理。"
+      ],
+      "dependencies": [
+        "4B5B96C20B5486BC",
+        "4B5DA9B39AA3192A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E0F91A7E8FA94",
+          "type": "custom",
+          "title": "实际完成QAV尾料固化",
+          "tags": [
+            "hk3gtl_quest_qav_n17"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 12,
+      "y": 46,
+      "optional": true
+    },
+    {
+      "id": "4B520DD98472FB32",
+      "title": "无人采掘载荷舱",
+      "subtitle": "把采样、作业与回程存储装在一起",
+      "description": [
+        "集成采样容器、切削载荷与回程存储部件。调度设备、资源探测器和工业无人机都要先取得载荷舱。"
       ],
       "dependencies": [
         "4B500BE5B02F854A",
-        "4B54804DF6CCFEB5"
-      ],
-      "subtitle": "S03 · RN-UED",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B56C2D92B2592ED",
-      "title": "遗留技术解析",
-      "icon": "hk3gtl:reverse_engineering_specimen",
-      "x": 6.0,
-      "y": 0.0,
-      "description": [
-        "第一次成功采掘带回的起步遗留资料，值得仔细看看。让资料对应回原来的目标和任务，再送去解析。",
-        "",
-        "解锁遗留技术逆向实验室实物逆向与技术记录验证。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "首次成功世界泡无人采掘调度台真实采掘保证带回的起步遗留资料，关联目标与任务结算回执。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S03或更高等级研究所选择“遗留技术解析”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：无人世界泡采掘。",
-        "基础研究费用：1790点；6 × QEV级电路；80 × 硅岩合金板。",
-        "基础工期：13.5分钟；研究用电：32,985,348,833,280 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "4B54D2F9D45C6F00",
+        "4B5C9BB775F30E7B",
+        "4B5B09F891F81B91"
       ],
       "tasks": [
         {
-          "id": "4B503D52DC07630C",
+          "id": "4B549D2518BDAACB",
+          "type": "item",
+          "item": "hk3gtl:prospecting_payload_cartridge",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:prospecting_payload_cartridge",
+      "x": 30,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B50A56F1F891F7F",
+      "title": "世界泡无人采掘调度台",
+      "subtitle": "管理无人任务的出入与载荷",
+      "description": [
+        "完成无人采掘研究后，制造调度台控制器。接好无人装置出入与载荷接口，继续准备采掘任务。"
+      ],
+      "dependencies": [
+        "4B59A732020238B2",
+        "4B575076D5F34203"
+      ],
+      "tasks": [
+        {
+          "id": "4B515E981393FBA2",
+          "type": "item",
+          "item": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i26_world_bubble_unmanned_mining_dispatch",
+      "x": 34,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5CA50A7DDB3C98",
+      "title": "遗留技术逆向实验室",
+      "subtitle": "为带回的遗留部件准备拆检设备",
+      "description": [
+        "完成遗留技术研究后，制造逆向实验室控制器。把采样载荷与前级工程部件接好，承接后续拆检和复现。"
+      ],
+      "dependencies": [
+        "4B56C2D92B2592ED"
+      ],
+      "tasks": [
+        {
+          "id": "4B56A45B166597CD",
+          "type": "item",
+          "item": "hk3gtl:i32_relic_technology_reverse_laboratory",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i32_relic_technology_reverse_laboratory",
+      "x": 38,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5DF7A3DE7C0765",
+      "title": "无人资源探测器",
+      "subtitle": "在空间探针上增加采样与回程存储",
+      "description": [
+        "升级空间观测探针，加入载荷舱和采样隔离结构。完成制造时形成真实无人装配记录，供后续研究核对。"
+      ],
+      "dependencies": [
+        "4B520DD98472FB32",
+        "4B5953B3CED349F0",
+        "4B58834EE21DFE00"
+      ],
+      "tasks": [
+        {
+          "id": "4B585900D48A925A",
+          "type": "item",
+          "item": "hk3gtl:unmanned_resource_probe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:unmanned_resource_probe",
+      "x": 42,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B583CD45E971C47",
+      "title": "工业作业无人机",
+      "subtitle": "在探测平台上加装实际执行机构",
+      "description": [
+        "以无人资源探测器为基础，加入作业载荷与执行部件。让无人平台从采样扩展到工业作业，并保留对应制造记录。"
+      ],
+      "dependencies": [
+        "4B5DF7A3DE7C0765"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F60206F090C85",
+          "type": "item",
+          "item": "hk3gtl:industrial_work_drone",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:industrial_work_drone",
+      "x": 46,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B587E7100C837E4",
+      "title": "逆向工程复现样本",
+      "subtitle": "把真实采掘遗留资料制成研究样本",
+      "description": [
+        "将真实采掘带回的遗留资料、基板与标准样本送入逆向实验室，制成复现样本。收集用后的分析试剂，保留这批资料的来源。"
+      ],
+      "dependencies": [
+        "4B5CA50A7DDB3C98"
+      ],
+      "tasks": [
+        {
+          "id": "4B5269111434FFF2",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成逆向工程复现样本",
           "tags": [
-            "hk3gtl_quest_rn_lta"
+            "hk3gtl_quest_existing_reverse_engineering_specimen"
           ]
         }
       ],
-      "dependencies": [
-        "4B59A732020238B2"
+      "icon": "hk3gtl:reverse_engineering_specimen",
+      "x": 38,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B5CB334EBC7110A",
+      "title": "真实世界泡无人采掘",
+      "subtitle": "向有效目标派出装置并结算返航",
+      "description": [
+        "在调度台选择可达目标，投入资源探测器与空间探针，完成一次无人采掘。探针返航后，查看采掘记录与收获，回收磨损探测器和拆解废料。"
       ],
-      "subtitle": "S03 · RN-LTA",
-      "shape": "rsquare"
+      "dependencies": [
+        "4B50A56F1F891F7F"
+      ],
+      "tasks": [
+        {
+          "id": "4B594FB4E932FD43",
+          "type": "custom",
+          "title": "实际完成真实世界泡无人采掘",
+          "tags": [
+            "hk3gtl_quest_existing_unmanned_mining_dispatch"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:worn_resource_probe",
+      "x": 34,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B535AC10CB8CB3B",
+      "title": "仿制的千界一乘",
+      "subtitle": "RN-CJK · 实验与正式研究",
+      "description": [
+        "受检物：仿制空之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。完成同一已知基准坐标的稳定校准与回执提交，试件不能代替完整信标或列车结构；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁信标与静止列车两座结构；终审维度排除，使用工况由成型多方块执行。"
+      ],
+      "dependencies": [
+        "4B5128436BF42BF8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E3A961B2A4F29",
+          "type": "custom",
+          "title": "完成仿制的千界一乘",
+          "tags": [
+            "hk3gtl_quest_rn_cjk"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:i45_imitation_thousand_realms_train",
+      "x": 0,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5F116FA97D7110",
+      "title": "神之键部件装配",
+      "subtitle": "RN-DKE · 实验与正式研究",
+      "description": [
+        "受检物：电路封装组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。真实完成核心封装、接口与安全停止检测；试验装配体不能当作成品神之键；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制神之键装配中心；具体神之键仍需对应专项课题。"
+      ],
+      "dependencies": [
+        "4B5407261AA82797",
+        "4B5FE5619D5A09F9"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E1D8FEFFC3D25",
+          "type": "custom",
+          "title": "完成神之键部件装配",
+          "tags": [
+            "hk3gtl_quest_rn_dke"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:divine_key_housing",
+      "x": 4,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B5B96C20B5486BC",
+      "title": "强化现实稳定",
+      "subtitle": "RN-ERA · 实验与正式研究",
+      "description": [
+        "受检物：魂钢锚定组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。对同一基准记录强化前后的稳定偏差，真实耗材耗电运行，未启用待解锁强化模式；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择580研究积分或HDV电路 × 4、钨钢板 × 56支付基准费用；另需7,200 tick与515,396,075,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁崩坏能现实稳定锚的高级稳定介质与核心制造工艺。"
+      ],
+      "dependencies": [
+        "4B5F2FBB98E65C9E",
+        "4B5E4351A34E6E51"
+      ],
+      "tasks": [
+        {
+          "id": "4B585D43462CF5DB",
+          "type": "custom",
+          "title": "完成强化现实稳定",
+          "tags": [
+            "hk3gtl_quest_rn_era"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:soulium_anchor_component",
+      "x": 4,
+      "y": 32,
+      "optional": false
     },
     {
       "id": "4B5E49064FACFD59",
       "title": "仿制休伯利安图纸解读",
-      "icon": "hk3gtl:imitation_hyperion_blueprint",
-      "x": 9.0,
-      "y": 0.0,
+      "subtitle": "RN-HBD · 实验与正式研究",
       "description": [
-        "普通遗留资料解析完成后，还需要在合格任务中找到舰船工程档案。把这份档案交给图纸解读流程，而不是直接开始拼舰体。",
-        "",
-        "解锁仿制舰工程资料，不宣称摧毁了真舰或在官方世界获得唯一原件。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "遗留技术解析完成后世界泡无人采掘调度台合格真实任务发现的舰船工程档案。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S03或更高等级研究所选择“仿制休伯利安图纸解读”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：遗留技术解析。",
-        "基础研究费用：1790点；6 × QEV级电路；80 × 硅岩合金板。",
-        "基础工期：13.5分钟；研究用电：32,985,348,833,280 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "遗留技术逆向方法研究完成后世界泡无人采掘调度台合格真实任务发现的舰船工程档案",
+        "在遗留技术逆向实验室完成本队实验。遗留技术逆向实验室实际解析有来源的档案，产出仿制休伯利安蓝图并取得舰船蓝图研究记录；本次解析只记录一次发现并发放一次物品",
+        "实验完成后，选择1790研究积分或QEV电路 × 6、硅岩合金板 × 80支付基准费用；另需16,200 tick与32,985,348,833,280 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制舰的工程资料。"
+      ],
+      "dependencies": [
+        "4B5CA50A7DDB3C98"
       ],
       "tasks": [
         {
           "id": "4B5E990386559768",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成仿制休伯利安图纸解读",
           "tags": [
             "hk3gtl_quest_rn_hbd"
           ]
         }
       ],
-      "dependencies": [
-        "4B56C2D92B2592ED"
+      "icon": "hk3gtl:imitation_hyperion_blueprint",
+      "x": 8,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B581DA378E5DC04",
+      "title": "仿制舰体构件",
+      "subtitle": "RN-HCC · 实验与正式研究",
+      "description": [
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。实际加工并检测龙骨连接、推进接口等试件；测试件不冒充正式舰体组件；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2160研究积分或QAV电路 × 6、硅岩合金板 × 88支付基准费用；另需18,000 tick与131,941,395,333,120 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁魂钢精密加工中心舰体件与纳米机器人装配阵列施工装置配方；不要求后续虚数材料。"
       ],
-      "subtitle": "S03 · RN-HBD",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B52A99B11A616C9",
-      "linked_quest": "4B5407261AA82797",
-      "x": 0.0,
-      "y": -8.0
+      "dependencies": [
+        "4B5E49064FACFD59"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E9260570B61F6",
+          "type": "custom",
+          "title": "完成仿制舰体构件",
+          "tags": [
+            "hk3gtl_quest_rn_hcc"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:hyperion_keel_segment",
+      "x": 16,
+      "y": 36,
+      "optional": false
     },
     {
-      "id": "4B55596DB0A220B0",
-      "linked_quest": "4B560A45C8B1AB68",
-      "x": 3.0,
-      "y": -8.0
+      "id": "4B50C826B7C24906",
+      "title": "仿制舰系统整合",
+      "subtitle": "RN-HVI · 实验与正式研究",
+      "description": [
+        "受检物：仿制休伯利安导航模块×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。供电、控制、导航接口在真实试验回路完成联调并安全停止；不要求整舰先成型；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择2160研究积分或QAV电路 × 6、硅岩合金板 × 88支付基准费用；另需18,000 tick与131,941,395,333,120 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，开放仿制休伯利安组装和运行验收方法；毕业仍需真正建设。"
+      ],
+      "dependencies": [
+        "4B581DA378E5DC04"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A8CF9B4FC6FD6",
+          "type": "custom",
+          "title": "完成仿制舰系统整合",
+          "tags": [
+            "hk3gtl_quest_rn_hvi"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:hyperion_navigation_module",
+      "x": 0,
+      "y": 36,
+      "optional": false
     },
     {
-      "id": "4B578A4CD73B3E2E",
-      "linked_quest": "4B54804DF6CCFEB5",
-      "x": 6.0,
-      "y": -8.0
+      "id": "4B56C2D92B2592ED",
+      "title": "遗留技术解析",
+      "subtitle": "RN-LTA · 实验与正式研究",
+      "description": [
+        "受检物：真实采掘遗留资料×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。实际消耗检测耗材并检验任务返回资料，核验原成功任务；不能只持有古代遗产物品授予；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择1790研究积分或QEV电路 × 6、硅岩合金板 × 80支付基准费用；另需16,200 tick与32,985,348,833,280 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁遗留技术逆向实验室实物逆向与技术记录验证。"
+      ],
+      "dependencies": [
+        "4B5CB334EBC7110A"
+      ],
+      "tasks": [
+        {
+          "id": "4B503D52DC07630C",
+          "type": "custom",
+          "title": "完成遗留技术解析",
+          "tags": [
+            "hk3gtl_quest_rn_lta"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:reverse_engineering_specimen",
+      "x": 12,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5488E425C5FF10",
+      "title": "量子研究所工程",
+      "subtitle": "RN-QLE · 实验与正式研究",
+      "description": [
+        "量子异常观测阵列首次成功量子观测的原始记录与设备来源",
+        "在量子异常观测阵列完成本队实验。观测实际完成并保存回执即满足该项实验来源；不另加重复观测或二次交样",
+        "实验完成后，选择960研究积分或QCV电路 × 4、钨钢板 × 72支付基准费用；另需9,600 tick与8,246,337,208,320 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁第三阶研究所；完整世界泡解析在新所内展开。"
+      ],
+      "dependencies": [
+        "4B5DF7A7F7C2A319"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F15D0D5E9EDB9",
+          "type": "custom",
+          "title": "完成量子研究所工程",
+          "tags": [
+            "hk3gtl_quest_rn_qle"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:spatial_probe",
+      "x": 16,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5CD71B4E04B8A3",
+      "title": "量子异常初观",
+      "subtitle": "RN-QOM · 实验与正式研究",
+      "description": [
+        "空间校准模块1；崩坏能基准样本循环使用",
+        "在仿制的千界一乘·信标完成本队实验。校准模块完成观测后原量返还；输出结算后登记异常观测实验，不能仅持有模块或打开界面授予",
+        "实验完成后，选择960研究积分或QCV电路 × 4、钨钢板 × 72支付基准费用；另需9,600 tick与8,246,337,208,320 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁量子异常观测阵列首次观测方法，以可复现的异常实验发现量子之海。"
+      ],
+      "dependencies": [
+        "4B57D65F2C2B4B06"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E70C662FA8E9A",
+          "type": "custom",
+          "title": "完成量子异常初观",
+          "tags": [
+            "hk3gtl_quest_rn_qom"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:spatial_probe",
+      "x": 20,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B533F2846778D65",
+      "title": "仿制的伊甸之星",
+      "subtitle": "RN-SEK · 实验与正式研究",
+      "description": [
+        "受检物：仿制岩之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+        "在仿制神之键装配中心完成本队实验。在安全范围实际完成压缩与释放对照；试验输出仅为检测件；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁第九神之键，支持奇点和模拟世界泡；无时间加速能力。"
+      ],
+      "dependencies": [
+        "4B54FB191FF02254",
+        "4B5128436BF42BF8"
+      ],
+      "tasks": [
+        {
+          "id": "4B57FE9050FFF2DE",
+          "type": "custom",
+          "title": "完成仿制的伊甸之星",
+          "tags": [
+            "hk3gtl_quest_rn_sek"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_star_of_eden",
+      "x": 24,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B500BE5B02F854A",
+      "title": "无人作业装置装配",
+      "subtitle": "RN-UAA · 实验与正式研究",
+      "description": [
+        "受检物：未编程纳米机器人×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。试件实际完成执行器驱动、指令响应和停止检测；不发射任务、不取世界泡资源；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择1790研究积分或QEV电路 × 6、硅岩合金板 × 80支付基准费用；另需16,200 tick与32,985,348,833,280 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁纳米机器人装配阵列探针与无人作业装置装配工况，魂钢精密加工中心供应精密件；返修由UPR单独开放，任务执行仍归世界泡无人采掘调度台。"
+      ],
+      "dependencies": [
+        "4B54804DF6CCFEB5"
+      ],
+      "tasks": [
+        {
+          "id": "4B560E7AFD01E071",
+          "type": "custom",
+          "title": "完成无人作业装置装配",
+          "tags": [
+            "hk3gtl_quest_rn_uaa"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:industrial_work_drone",
+      "x": 12,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B59A732020238B2",
+      "title": "无人世界泡采掘",
+      "subtitle": "RN-UED · 实验与正式研究",
+      "description": [
+        "受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用",
+        "在纳米机器人装配阵列完成本队实验。真实完成导航、载荷、通信及返回协议台架检查；核对目标身份与有效状态，不进行采掘结算；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择1790研究积分或QEV电路 × 6、硅岩合金板 × 80支付基准费用；另需16,200 tick与32,985,348,833,280 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁世界泡无人采掘调度台任务；同一真实世界泡最多10次采掘，资源含流体。"
+      ],
+      "dependencies": [
+        "4B5B4A3512E04E63",
+        "4B5DF7A3DE7C0765"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C2015930B181B",
+          "type": "custom",
+          "title": "完成无人世界泡采掘",
+          "tags": [
+            "hk3gtl_quest_rn_ued"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:unmanned_resource_probe",
+      "x": 24,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B5FE5619D5A09F9",
+      "title": "仿制空核心",
+      "subtitle": "RN-VCA · 实验与正式研究",
+      "description": [
+        "受检物：崩坏结晶晶种×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。同一基准下完成空间定位偏差测量，记录工装、场与试晶来源；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择580研究积分或HDV电路 × 4、钨钢板 × 56支付基准费用；另需7,200 tick与515,396,075,520 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁仿制空核心与空间组件理论。"
+      ],
+      "dependencies": [
+        "4B5B96C20B5486BC"
+      ],
+      "tasks": [
+        {
+          "id": "4B545B1407712981",
+          "type": "custom",
+          "title": "完成仿制空核心",
+          "tags": [
+            "hk3gtl_quest_rn_vca"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:imitation_void_core",
+      "x": 8,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B54804DF6CCFEB5",
+      "title": "世界泡坐标解析",
+      "subtitle": "RN-WCP · 实验与正式研究",
+      "description": [
+        "受检物：空间观测探针×1；纸张2用于检测记录，基准样本循环使用",
+        "在量子异常观测阵列完成本队实验。原始目标观测与误差拟合真实完成；输出研究用记录，不提前生成供世界泡无人采掘调度台使用的正式坐标；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择1440研究积分或QCV电路 × 6、硅岩合金板 × 72支付基准费用；另需14,400 tick与8,246,337,208,320 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁世界泡坐标解析中心和可供无人任务使用的世界泡坐标。"
+      ],
+      "dependencies": [
+        "4B5427832AA9F882",
+        "4B5DAE3681232992"
+      ],
+      "tasks": [
+        {
+          "id": "4B5072E26AD74851",
+          "type": "custom",
+          "title": "完成世界泡坐标解析",
+          "tags": [
+            "hk3gtl_quest_rn_wcp"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:spatial_calibration_module",
+      "x": 20,
+      "y": 36,
+      "optional": false
     }
   ]
 }

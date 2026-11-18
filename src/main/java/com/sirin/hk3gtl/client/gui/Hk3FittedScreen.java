@@ -4,7 +4,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public abstract class Hk3FittedScreen extends Screen {
     private final int minimumWidth, minimumHeight;
     private double scale = 1;
@@ -15,18 +14,19 @@ public abstract class Hk3FittedScreen extends Screen {
         this.minimumHeight = minimumHeight;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Override protected final void init() {
         int realWidth = Math.max(1, minecraft.getWindow().getGuiScaledWidth());
         int realHeight = Math.max(1, minecraft.getWindow().getGuiScaledHeight());
-        scale = Math.min(1, Math.min((double) realWidth / minimumWidth, (double) realHeight / minimumHeight));
+        scale = fittedScale(realWidth, realHeight);
         width = (int) Math.floor(realWidth / scale);
         height = (int) Math.floor(realHeight / scale);
         initFitted();
     }
     protected void initFitted() { super.init(); }
+    protected double fittedScale(int realWidth, int realHeight) {
+        return Math.min(1, Math.min((double) realWidth / minimumWidth, (double) realHeight / minimumHeight));
+    }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Override public final void render(GuiGraphics graphics, int x, int y, float partial) {
         graphics.pose().pushPose();
         try {
@@ -36,14 +36,12 @@ public abstract class Hk3FittedScreen extends Screen {
     }
     protected void renderFitted(GuiGraphics graphics, int x, int y, float partial) { super.render(graphics, x, y, partial); }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     protected final void fittedScissor(GuiGraphics graphics, int left, int top, int right, int bottom) {
         graphics.enableScissor((int) Math.floor(left * scale), (int) Math.floor(top * scale),
                 (int) Math.ceil(right * scale), (int) Math.ceil(bottom * scale));
     }
 
     // 所有鼠标坐标及拖动距离只转换一次；滚轮步数和键盘输入不缩放。
-    // 中文备注：该处说明已按当前代码行为整理。
     @Override public final boolean mouseClicked(double x, double y, int button) { return clickFitted(x / scale, y / scale, button); }
     protected boolean clickFitted(double x, double y, int button) { return super.mouseClicked(x, y, button); }
     @Override public final boolean mouseReleased(double x, double y, int button) { return releaseFitted(x / scale, y / scale, button); }

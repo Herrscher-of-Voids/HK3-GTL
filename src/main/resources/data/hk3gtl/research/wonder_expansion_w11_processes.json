@@ -1,0 +1,1769 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w11_x46_wsv_electric_motor_billet_line",
+      "role": "W11",
+      "zh_name": "WSV 电动马达坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动马达装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wfv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 9
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 8
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_motor"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_motor; main_material/worldstabilizing_confinement_shell/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_electric_piston_billet_line",
+      "role": "W11",
+      "zh_name": "WSV 电动活塞坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动活塞装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_piston_wfv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 13
+        },
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_piston_wsv",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_piston"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_piston; main_material/worldstabilizing_confinement_shell/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_electric_pump_billet_line",
+      "role": "W11",
+      "zh_name": "WSV 电动泵坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动泵装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_pump_wfv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_pump_wsv",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_pump"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_pump; main_material/worldstabilizing_confinement_shell/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_conveyor_module_billet_line",
+      "role": "W11",
+      "zh_name": "WSV 传送带模块坯料直装",
+      "purpose": "在同一工序完成主材成形与两件传送带模块装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:conveyor_module_wfv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:conveyor_module_wsv",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_conveyor_module"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_wsv_conveyor_module; main_material/worldstabilizing_confinement_shell/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_robot_arm_billet_line",
+      "role": "W11",
+      "zh_name": "WSV 机械臂坯料直装",
+      "purpose": "在同一工序完成主材成形与两件机械臂装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:robot_arm_wfv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_piston_wsv",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:robot_arm_wsv",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_robot_arm"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_wsv_robot_arm; main_material/worldstabilizing_confinement_shell/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_field_generator_billet_line",
+      "role": "W11",
+      "zh_name": "WSV 力场发生器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件力场发生器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_wfv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 4
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_field_generator"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_wsv_field_generator; main_material/worldstabilizing_confinement_shell/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_emitter_billet_line",
+      "role": "W11",
+      "zh_name": "WSV 发射器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件发射器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:emitter_wfv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_wsv",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_emitter"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_wsv_emitter; main_material/worldstabilizing_confinement_shell/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_sensor_billet_line",
+      "role": "W11",
+      "zh_name": "WSV 传感器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件传感器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_wfv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 5
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_sensor"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_wsv_sensor; main_material/worldstabilizing_confinement_shell/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_civ_electric_motor_billet_line",
+      "role": "W11",
+      "zh_name": "CIV 电动马达坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动马达装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 9
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 8
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_motor"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_motor; main_material/civilization_quadrisystem_matrix/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_civ_electric_piston_billet_line",
+      "role": "W11",
+      "zh_name": "CIV 电动活塞坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动活塞装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_piston_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 13
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_piston_civ",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_piston"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_piston; main_material/civilization_quadrisystem_matrix/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_civ_electric_pump_billet_line",
+      "role": "W11",
+      "zh_name": "CIV 电动泵坯料直装",
+      "purpose": "在同一工序完成主材成形与两件电动泵装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_pump_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_pump_civ",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_pump"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_pump; main_material/civilization_quadrisystem_matrix/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_civ_conveyor_module_billet_line",
+      "role": "W11",
+      "zh_name": "CIV 传送带模块坯料直装",
+      "purpose": "在同一工序完成主材成形与两件传送带模块装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:conveyor_module_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:conveyor_module_civ",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_conveyor_module"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_civ_conveyor_module; main_material/civilization_quadrisystem_matrix/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_civ_robot_arm_billet_line",
+      "role": "W11",
+      "zh_name": "CIV 机械臂坯料直装",
+      "purpose": "在同一工序完成主材成形与两件机械臂装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:robot_arm_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_piston_civ",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:robot_arm_civ",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_robot_arm"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_civ_robot_arm; main_material/civilization_quadrisystem_matrix/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_civ_field_generator_billet_line",
+      "role": "W11",
+      "zh_name": "CIV 力场发生器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件力场发生器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 4
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_civ",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_field_generator"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_civ_field_generator; main_material/civilization_quadrisystem_matrix/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_civ_emitter_billet_line",
+      "role": "W11",
+      "zh_name": "CIV 发射器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件发射器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:emitter_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_emitter"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_civ_emitter; main_material/civilization_quadrisystem_matrix/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_civ_sensor_billet_line",
+      "role": "W11",
+      "zh_name": "CIV 传感器坯料直装",
+      "purpose": "在同一工序完成主材成形与两件传感器装配；完整消耗四件前阶同类组件、四件本阶电路及原电子部件，复合细线仍补入独立导体。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 5
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_sensor"
+      ],
+      "process_family": "八大件坯料直装",
+      "baseline_recipe": "hk3gtl_main_component_civ_sensor; main_material/civilization_quadrisystem_matrix/functional_fine_wire"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_motor_forming_set",
+      "role": "W11",
+      "zh_name": "WSV 驱动绕组与轴系联产",
+      "purpose": "按两台驱动绕组与轴系所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 9
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_motor"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_loadbearing_rods; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers; main_material/worldstabilizing_confinement_shell/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_piston_forming_set",
+      "role": "W11",
+      "zh_name": "WSV 承压活塞与密封联产",
+      "purpose": "按两台承压活塞与密封所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 13
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_piston"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_loadbearing_rods; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers; main_material/worldstabilizing_confinement_shell/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_pump_forming_set",
+      "role": "W11",
+      "zh_name": "WSV 泵体与封口薄层联产",
+      "purpose": "按两台泵体与封口薄层所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 10
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_pump"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_loadbearing_rods; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers; main_material/worldstabilizing_confinement_shell/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_conveyor_forming_set",
+      "role": "W11",
+      "zh_name": "WSV 输送承力与柔性薄层联产",
+      "purpose": "按两台输送承力与柔性薄层所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 12
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_conveyor_module"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_loadbearing_rods; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers; main_material/worldstabilizing_confinement_shell/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_field_forming_set",
+      "role": "W11",
+      "zh_name": "WSV 场线圈与承力框架联产",
+      "purpose": "按两台场线圈与承力框架所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_loadbearing_rods; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers; main_material/worldstabilizing_confinement_shell/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_wsv_emitter_forming_set",
+      "role": "W11",
+      "zh_name": "WSV 发射轴与功能薄层联产",
+      "purpose": "按两台发射轴与功能薄层所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 6
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_emitter"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_loadbearing_rods; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers; main_material/worldstabilizing_confinement_shell/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_civ_motor_forming_set",
+      "role": "W11",
+      "zh_name": "CIV 驱动绕组与轴系联产",
+      "purpose": "按两台驱动绕组与轴系所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 9
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_motor"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/formed_loadbearing_rods; main_material/civilization_quadrisystem_matrix/formed_interface_rings; main_material/civilization_quadrisystem_matrix/functional_thin_layers; main_material/civilization_quadrisystem_matrix/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_civ_piston_forming_set",
+      "role": "W11",
+      "zh_name": "CIV 承压活塞与密封联产",
+      "purpose": "按两台承压活塞与密封所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 13
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_piston"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/formed_loadbearing_rods; main_material/civilization_quadrisystem_matrix/formed_interface_rings; main_material/civilization_quadrisystem_matrix/functional_thin_layers; main_material/civilization_quadrisystem_matrix/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_civ_pump_forming_set",
+      "role": "W11",
+      "zh_name": "CIV 泵体与封口薄层联产",
+      "purpose": "按两台泵体与封口薄层所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 10
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_pump"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/formed_loadbearing_rods; main_material/civilization_quadrisystem_matrix/formed_interface_rings; main_material/civilization_quadrisystem_matrix/functional_thin_layers; main_material/civilization_quadrisystem_matrix/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_civ_conveyor_forming_set",
+      "role": "W11",
+      "zh_name": "CIV 输送承力与柔性薄层联产",
+      "purpose": "按两台输送承力与柔性薄层所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 12
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_conveyor_module"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/formed_loadbearing_rods; main_material/civilization_quadrisystem_matrix/formed_interface_rings; main_material/civilization_quadrisystem_matrix/functional_thin_layers; main_material/civilization_quadrisystem_matrix/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_civ_field_forming_set",
+      "role": "W11",
+      "zh_name": "CIV 场线圈与承力框架联产",
+      "purpose": "按两台场线圈与承力框架所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_field_generator"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/formed_loadbearing_rods; main_material/civilization_quadrisystem_matrix/formed_interface_rings; main_material/civilization_quadrisystem_matrix/functional_thin_layers; main_material/civilization_quadrisystem_matrix/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_civ_emitter_forming_set",
+      "role": "W11",
+      "zh_name": "CIV 发射轴与功能薄层联产",
+      "purpose": "按两台发射轴与功能薄层所需形态共同排料；坯料相含量守恒，省去各形态分别调机，产物直接供给既有组件装配。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 6
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "ticks": 1600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_emitter"
+      ],
+      "process_family": "专用形态联产",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/formed_loadbearing_rods; main_material/civilization_quadrisystem_matrix/formed_interface_rings; main_material/civilization_quadrisystem_matrix/functional_thin_layers; main_material/civilization_quadrisystem_matrix/loadbearing_frame_assembly"
+    },
+    {
+      "id": "wonder_w11_x46_unmanned_survey_probe_line",
+      "role": "W11",
+      "zh_name": "无人资源探测器端到端装联",
+      "purpose": "把空间探头总成与无人探测器总装接成一线，保留两级封装、锚件、数据载体和纳米群投入；新制来源不依赖磨损件。",
+      "requirements": [
+        "RN-DIO",
+        "RN-UAA",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:unmanned_resource_probe",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 864
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_unmanned_mining_dispatch"
+      ],
+      "process_family": "无人装备装联",
+      "baseline_recipe": "wonder_w11_survey_probe_integration; industrial_unmanned_resource_probe"
+    },
+    {
+      "id": "wonder_w11_x46_paired_drone_overhaul",
+      "role": "W11",
+      "zh_name": "探测器与作业机协同翻修",
+      "purpose": "同时处理两类实际磨损机，分别补入纳米单元与封装；保留两份拆解废料，不能从维修回收完整新机的全部材料。",
+      "requirements": [
+        "RN-DIO",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worn_resource_probe",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worn_work_drone",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:unmanned_resource_probe",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:industrial_work_drone",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:drone_disassembly_scrap",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 576
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_unmanned_mining_dispatch",
+        "industrial_drone_endurance_trial"
+      ],
+      "process_family": "无人装备装联",
+      "baseline_recipe": "industrial_resource_probe_repair; industrial_drone_repair"
+    },
+    {
+      "id": "wonder_w11_x46_quadrisystem_prefabrication_line",
+      "role": "W11",
+      "zh_name": "四系统新料预制直联",
+      "purpose": "四路模块均从各自原始投入制造后共同预制；四个支线成本、IRV机壳及全部工艺液保留，不借预制产物跳过文明统合研究。",
+      "requirements": [
+        "RN-DIO",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WPF",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imaginary_coupled_energy_band_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:voltage_machine_casing_irv",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wonder_prefabricated_component",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        },
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 16000
+        },
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 16000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 5600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_civilization_cooperation_archive",
+        "wonder_imaginary_anchor_matrix",
+        "wonder_global_energy_constraint_matrix"
+      ],
+      "process_family": "四路实体预制",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/independent_energy_module; main_material/civilization_quadrisystem_matrix/independent_constraint_module; main_material/civilization_quadrisystem_matrix/independent_reconstruction_module; main_material/civilization_quadrisystem_matrix/independent_cognitive_module; wonder_w11_four_system_prefabrication"
+    }
+  ]
+}

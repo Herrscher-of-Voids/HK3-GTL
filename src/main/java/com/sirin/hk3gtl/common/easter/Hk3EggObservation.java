@@ -10,10 +10,10 @@ import net.minecraft.world.phys.*;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-/** 【变更记录 #1】2026-10-01 04:53:17（修订128）：删除无；新增服务器视线与连续观察tick；用途：仅已加载区块、本人视向及真实使用望远镜，离开条件即时重置，不用物品持有冒充观察。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 12:18:50（修订128）：删除：无；新增/修改：按原版天空旋转推导月亮方向并逐段遮挡检查；红玻璃月视与月升连续十秒回屋，不用抬头冒充月视；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 16:30:04（修订134）：删除破晓之时额外的30度限制与首块玻璃顶部见天判据；新增逐层穿玻璃后实际天空检查；修改保留主世界23000至23999及100连续刻；用途：修复正常日出视向与高窗漏触发，不改变其他彩蛋。 */
+ 
+ 
 public final class Hk3EggObservation {
     private Hk3EggObservation(){}
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent e){

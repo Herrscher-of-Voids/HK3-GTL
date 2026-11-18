@@ -6,9 +6,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-/** 【变更记录 #1】2026-10-01 04:15:05（修订128）：删除无；新增成功采掘结果观察；修改无；用途：保护插件拒绝、权限不足和预测破坏不产生记录。 */
+ 
 @Mixin(ServerPlayerGameMode.class)
-/** 【变更记录 #2】2026-10-01 13:29:18（修订128）：删除：无；新增/修改：采掘开始读取本人生成黑曜石凭据，实际成功破坏后授予，取消或重放普通黑曜石不算；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public abstract class Hk3EggMiningMixin {
     @Shadow @Final protected ServerPlayer player;
     @Unique private BlockState hk3gtl$old;

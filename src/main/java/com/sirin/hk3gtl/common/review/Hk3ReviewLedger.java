@@ -3,12 +3,12 @@ package com.sirin.hk3gtl.common.review;
 import java.util.*;
 import net.minecraft.nbt.*;
 
-/**
- * 【变更记录 #1】2026-09-30 20:31:18（修订117）
- * 删除：无；新增：一审代表/三问/重播/替补、二审检查点、个人补行与团队一次性许可账本。
- * 修改：资格、会面与结算分开；用途：服务端主线程状态机。此类不推断机器资格、不传送、不生成实体、不接受客户端资格字段。
- */
-/** 【变更记录 #2】2026-10-01 01:30:10（修订125）：删除换队后旧二审永久占用个人会面的路径；新增中止历史阶段及换队处理；修改忙碌、重启和新会面检查统一忽略中止历史；用途：个人已完成经历保留，未完成会面不携带旧队资格或自动结算。 */
+ 
+
+
+
+
+ 
 public final class Hk3ReviewLedger {
     public enum Kind { FIRST, SECOND }
     public enum Phase { OPENING, MENU, ANSWER, CLOSING, PAUSED, COMPLETE, ABANDONED }
@@ -133,8 +133,15 @@ public final class Hk3ReviewLedger {
         var sources=root.getCompound("Sources");for(String key:sources.getAllKeys())data.qualificationSources.put(key,sources.getCompound(key).copy());
         var receipts=root.getCompound("Settlements");for(String key:receipts.getAllKeys())data.settlementMeetings.put(key,receipts.getUUID(key));
         for(Tag raw:root.getList("Meetings",Tag.TAG_COMPOUND)){
-            var n=(CompoundTag)raw;var m=new Meeting();m.id=n.getUUID("Id");m.scope=n.getUUID("Scope");m.representative=n.getUUID("Representative");m.kind=Kind.valueOf(n.getString("Kind"));m.phase=Phase.valueOf(n.getString("Phase"));
-            for(Tag person:n.getList("Participants",Tag.TAG_STRING))m.participants.add(UUID.fromString(person.getAsString()));
+            var n=(CompoundTag)raw;
+            // 必填进度字段不能借NBT默认值变成空问题或零进度，损坏时保留原账本并拒读。
+            if(!n.contains("Participants",Tag.TAG_LIST)||!n.contains("Questions",Tag.TAG_INT_ARRAY)||!n.contains("Replay",Tag.TAG_INT)
+                    ||!n.contains("Checkpoint",Tag.TAG_STRING)||!n.contains("Supplement",Tag.TAG_BYTE)||n.getByte("Supplement")<0||n.getByte("Supplement")>1)
+                throw new IllegalArgumentException("审查会面进度字段损坏");
+            var participants=n.getList("Participants",Tag.TAG_STRING);
+            if(participants.size()!=((ListTag)n.get("Participants")).size())throw new IllegalArgumentException("审查参与者类型错误");
+            var m=new Meeting();m.id=n.getUUID("Id");m.scope=n.getUUID("Scope");m.representative=n.getUUID("Representative");m.kind=Kind.valueOf(n.getString("Kind"));m.phase=Phase.valueOf(n.getString("Phase"));
+            for(Tag person:participants)m.participants.add(UUID.fromString(person.getAsString()));
             for(int q:n.getIntArray("Questions")){if(q<1||q>8||m.questions.contains(q))throw new IllegalArgumentException("无效三问记录");m.questions.add(q);}
             m.replayIndex=n.getInt("Replay");m.checkpoint=n.getString("Checkpoint");m.supplement=n.getBoolean("Supplement");
             if(m.questions.size()>3||m.replayIndex<0||m.replayIndex>m.questions.size()||!data.qualified(m.scope,m.kind)||data.sources(m.scope,m.kind).isEmpty()||data.meetings.putIfAbsent(m.id,m)!=null)throw new IllegalArgumentException("无效审查会面");

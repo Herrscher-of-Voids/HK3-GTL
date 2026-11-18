@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Animal.class)
-/** 【变更记录 #1】2026-10-01 06:23:20（修订128）：删除无；新增服务端真实事件旁注；修改无；用途：原条件、原世界结果不变，只授个人可选收藏。 */
+ 
 public abstract class Hk3EggAnimalMealMixin {
     @Unique private int hk3gtl$age,hk3gtl$love;
     @Inject(method="mobInteract",at=@At("HEAD"))private void hk3gtl$before(Player p,InteractionHand hand,CallbackInfoReturnable<InteractionResult> ci){var a=(Animal)(Object)this;hk3gtl$age=a.getAge();hk3gtl$love=a.getInLoveTime();}

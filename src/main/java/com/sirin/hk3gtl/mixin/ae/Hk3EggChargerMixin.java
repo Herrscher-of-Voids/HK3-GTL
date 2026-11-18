@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-/** 【变更记录 #1】2026-10-01 04:55:02（修订128）：删除无；新增充能石英实际转化与本人取出配对；用途：外部改写槽位使旧凭据失效，模拟充电不计，回执存于该充能器。 */
+ 
 @Mixin(value=ChargerBlockEntity.class,remap=false)
 public abstract class Hk3EggChargerMixin {
     @Unique private ItemStack hk3gtl$input=ItemStack.EMPTY;

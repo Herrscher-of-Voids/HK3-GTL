@@ -9,10 +9,60 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 06:23:20（修订128）：删除无；新增服务端真实事件旁注；修改无；用途：原条件、原世界结果不变，只授个人可选收藏。 */
-/** 【变更记录 #2】2026-10-01 06:35:47（修订128）：删除：无；新增/修改：已取得I01顶层收藏即停止结构缓存扫描；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggStructureScenes {
+    private record Dismantled(ServerPlayer player,ServerLevel level,net.minecraftforge.event.level.BlockEvent.BreakEvent event,
+                              MultiblockControllerMachine machine,net.minecraft.world.level.block.state.BlockState before,long tick) {}
+    private static final java.util.Map<net.minecraft.server.MinecraftServer,java.util.List<Dismantled>> DISMANTLED=new java.util.concurrent.ConcurrentHashMap<>();
+    private record Mined(ServerPlayer player,ServerLevel level,net.minecraftforge.event.level.BlockEvent.BreakEvent event){}
+    private static final java.util.List<Mined> MINED=new java.util.ArrayList<>();
     private Hk3EggStructureScenes(){}
+    @SubscribeEvent(priority=net.minecraftforge.eventbus.api.EventPriority.LOWEST)
+    public static void breaking(net.minecraftforge.event.level.BlockEvent.BreakEvent e){
+        if(e.isCanceled()||!(e.getPlayer() instanceof ServerPlayer p))return;
+        var level=p.serverLevel();
+        if(level.dimension().equals(com.sirin.hk3gtl.common.dimension.melon.Hk3MelonWorld.KEY)
+                &&com.sirin.hk3gtl.common.dimension.melon.Hk3MelonAdventure.unlocked(p)
+                &&!p.isCreative()&&!p.isSpectator()&&!e.getState().isAir()&&!e.getState().hasBlockEntity()
+                &&e.getState().getDestroySpeed(level,e.getPos())>=0)
+            MINED.add(new Mined(p,level,e));
+        for(var state:MultiblockWorldSavedData.getOrCreate(level).getControllerInChunk(new net.minecraft.world.level.ChunkPos(e.getPos()))){
+            if(state.hasError()||!state.isPosInCache(e.getPos())||!level.hasChunkAt(state.controllerPos))continue;
+            var machine=MetaMachine.getMachine(level,state.controllerPos);
+            if(!(machine instanceof com.sirin.hk3gtl.common.machine.wonder.Hk3WonderProductionMachine wonder)
+                    ||!wonder.researchRole().startsWith("W")||!wonder.isFormed()||!wonder.verified())continue;
+            var receipt=com.sirin.hk3gtl.common.civ.Hk3EngineeringFacts.receipt(p.server,
+                    com.sirin.hk3gtl.common.research.Hk3ResearchData.get(p),wonder.getResearchTeamUUID(),wonder.researchRole());
+            if(!receipt.getString("Facility").equals(level.dimension().location()+"@"+wonder.getPos()))continue;
+            DISMANTLED.computeIfAbsent(p.server,key->new java.util.ArrayList<>()).add(new Dismantled(p,level,e,wonder,e.getState(),p.server.overworld().getGameTime()));
+        }
+    }
+    @SubscribeEvent public static void dismantled(TickEvent.ServerTickEvent e){
+        if(e.phase!=TickEvent.Phase.END)return;
+        var mined=MINED.iterator();
+        while(mined.hasNext()){
+            var broken=mined.next();if(broken.player().server!=e.getServer())continue;mined.remove();
+            var event=broken.event();var p=broken.player();var level=broken.level();
+            if(!event.isCanceled()&&level.hasChunkAt(event.getPos())&&!level.getBlockState(event.getPos()).equals(event.getState()))
+                Hk3EggRuntime.observe(p,"seed_sea_block_mined",java.util.Map.of("allowed","true","ordinary_block","true","changed","true"));
+        }
+        var pending=DISMANTLED.get(e.getServer());if(pending==null)return;
+        var iterator=pending.iterator();long now=e.getServer().overworld().getGameTime();
+        while(iterator.hasNext()){
+            var broken=iterator.next();
+            var event=broken.event();var machine=broken.machine();var level=broken.level();
+            if(event.isCanceled()||!level.hasChunkAt(event.getPos())||level.getBlockState(event.getPos()).equals(broken.before())){
+                iterator.remove();continue;
+            }
+            if(machine.isInValid()||!machine.isFormed()||machine.getMultiblockState().hasError()){
+                Hk3EggRuntime.observe(broken.player(),"accepted_wonder_dismantled",java.util.Map.of("member_removed","true","invalidated","true"));
+                iterator.remove();
+            }else if(now-broken.tick()>=40)iterator.remove();
+        }
+        if(pending.isEmpty())DISMANTLED.remove(e.getServer());
+    }
+    @SubscribeEvent public static void stopped(net.minecraftforge.event.server.ServerStoppedEvent e){DISMANTLED.remove(e.getServer());MINED.removeIf(v->v.player().server==e.getServer());}
     public static void formed(MultiblockControllerMachine m){
         if(!(m.getLevel() instanceof ServerLevel level)||!m.isFormed()||m.getMultiblockState().hasError()||!(m.getHolder() instanceof BlockEntity be))return;
         var owner=m instanceof com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine h?h.getOwnerUUID():be.getPersistentData().hasUUID(Hk3EggProduction.OWNER)?be.getPersistentData().getUUID(Hk3EggProduction.OWNER):null;
@@ -36,4 +86,4 @@ public final class Hk3EggStructureScenes {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

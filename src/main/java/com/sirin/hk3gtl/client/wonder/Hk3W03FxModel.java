@@ -36,21 +36,20 @@ public record Hk3W03FxModel(Metadata metadata,byte[][] groups) {
                 total+=count;
             }
             if(total!=meta.quads||input.read()!=-1)throw new IOException("C9网格数量或尾随数据错误");
-            groups[0]=withoutPorts(groups[0]);
+            groups[0]=withoutController(groups[0]);
             return new Hk3W03FxModel(meta,groups);
-        }catch(IOException|RuntimeException failure){throw new IllegalStateException("C9原生特效资源加载失败",failure);}
+        }catch(IOException failure){throw new IllegalStateException("C9原生特效资源加载失败",failure);}
     }
-    /** 主控和舱位由真实GT模型显示；合并面遇到这些格时切开，避免覆盖GUI入口。 */
-    private static byte[] withoutPorts(byte[] source)throws IOException{
+    /** 主控由真实GT模型显示，合并面在主控格切开。 */
+    private static byte[] withoutController(byte[] source)throws IOException{
         var bytes=new ByteArrayOutputStream();var out=new DataOutputStream(bytes);
         var input=new DataInputStream(new ByteArrayInputStream(source));
-        int[] holes={398,402,406,410,416,422,426,430,434};
         while(input.available()>0){
             int x=input.readUnsignedShort(),y=input.readUnsignedShort(),z=input.readUnsignedShort(),n=input.readUnsignedShort(),slot=input.readUnsignedByte(),face=input.readUnsignedByte();
             int start=face<2?z:x,end=start+n,segment=start;
             for(int at=start;at<end;at++){
                 int px=face<2?x:at,pz=face<2?at:z;
-                boolean hole=y==27&&pz==187&&java.util.Arrays.binarySearch(holes,px)>=0;
+                boolean hole=y==27&&pz==187&&px==416;
                 if(hole){if(at>segment)face(out,face<2?x:segment,y,face<2?segment:z,at-segment,slot,face);segment=at+1;}
             }
             if(segment<end)face(out,face<2?x:segment,y,face<2?segment:z,end-segment,slot,face);

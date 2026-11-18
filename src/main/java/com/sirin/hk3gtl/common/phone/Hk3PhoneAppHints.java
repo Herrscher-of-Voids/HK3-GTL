@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/** 【变更记录 #1】2026-11-05（修订208）：手机说明回执仅使用本人带电桌面的短期令牌；实际入口成功后才观察490，不授研究或工业资格。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3PhoneAppHints {
     private static final Hk3PhoneAppHintSessions SESSIONS=new Hk3PhoneAppHintSessions();
@@ -40,7 +40,7 @@ public final class Hk3PhoneAppHints {
         if(mode.equals("home"))return;
         String app=switch(mode){
             case "notifications"->"inbox";case "diplomacy"->"letters";case "ae_terminals","ae"->"ae";
-            case "social"->"social";case "notes","civilization","settings","trade","tiles2048","snake","updates"->mode;
+            case "social"->"social";case "notes","civilization","settings","trade","tiles2048","snake","updates","cipher"->mode;
             default->"";
         };
         if(available(p)&&SESSIONS.opened(p.getUUID(),app,now(p)))Hk3EggRuntime.observe(p,"phone_app_hints_open",Map.of("three_read","true"));

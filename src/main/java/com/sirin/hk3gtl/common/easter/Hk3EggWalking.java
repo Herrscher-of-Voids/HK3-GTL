@@ -7,7 +7,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-/** 【变更记录 #1】2026-10-01 05:02:11（修订128）：删除无；新增雪地步行、雨中树叶遮蔽及沙漠穿行状态；用途：服务端逐tick位移，换维度/断线/飞行/乘骑不计，不累计瞬移距离。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggWalking {
     private Hk3EggWalking(){}

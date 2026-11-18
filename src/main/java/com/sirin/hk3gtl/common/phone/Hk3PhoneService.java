@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.common.phone;
 
-/** 【变更记录 #10】2026-10-01 00:14:30（修订122）：删除无；新增/修改：收件箱按原团队和正文ID打开五方历史，不发任何合作奖励；用途：真实成果、团队授权与个人阅读分离，不开放贸易或免费完成研究。 */
+ 
 
-/** 【变更记录 #9】2026-10-01 00:00:53（修订121）：删除无；新增/修改：跨队通知保留原队历史，禁止已收旧信打开新队同编号业务；用途：个人与团队记录隔离，保留历史与权限。 */
+ 
 
-/** 【变更记录 #1】2026-09-29 18:57:18（内测5修订95）：快捷键同源命令、私人通知分页与已读校验；不接受客户端正文。 */
-/** 【变更记录 #2】2026-09-29 19:19:27（内测5修订96）：删除免费打开入口；全部命令分支按服务器安装记录校验，通知入账仍可在安装前发生。 */
+ 
+ 
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -24,36 +24,37 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import java.util.UUID;
 
-/**
- * 【变更记录 #3】2026-09-30 16:17:42（内测5修订110）
- * 删除：被新版通知读取流程替代的旧分支，历史备注保留。
- * 新增／修改：增加八条过滤分页、本人正文读取与客户端打开确认；离线研究成果逐人入账，重连只汇总未读；手机安装资格保持。
- * 用途：通知与业务结果分离，服务端授权和个人持久化；不改结构、贴图和贸易。
- */
-/**
- * 【变更记录 #4】2026-09-30 18:18:05（内测5修订112）
- * 删除：无；新增：权限2的纯消息验收命令与三条内置function入口。
- * 修改：测试不再修改真实研究/剧情；用途：免手动安装测试数据包，保留安装门槛。
- */
-/**
- * 【变更记录 #5】2026-09-30 18:44:46（内测5修订113）
- * 删除：无；新增：手机状态同步和AE终端入口。
- * 修改：信箱读取需实体电量，首页可显示缺电引导；用途：右键/快捷键同源且保留已安装资格。
- */
-/** 【变更记录 #11】2026-10-01 00:59:10（修订124）：删除无；新增/修改：共用通信投递完成后只发送在线提示，不重复入箱；用途：按五方交流系统整链收口，真实权限和本人经历不混用。 */
+ 
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/**
- * 【变更记录 #6】2026-09-30 19:08:08（内测5修订114）
- * 删除：无；新增应用命令和本人信箱搜索；修改分页附带短摘要，共用带电量的响应发送。
- * 用途：手机应用集成，保留既有电量和阅读权限；交易只展示不结算。
- */
-/** 【变更记录 #7】2026-09-30 19:20:11（内测5修订115）：删除无；新增服务器校验的背包终端槽位命令；修改AE入口支持选择；用途：打开玩家持有的实体终端。 */
-/** 【变更记录 #8】2026-09-30 19:49:34（修订116）：删除无；新增微讯息接入；修改：注册社交与管理员只读预览命令；用途：保留原手机布局与权限，AI不进入服务器业务。 */
-/** 【变更记录 #12】2026-10-01 01:57:59（修订127）：删除：被替代的旧分支；新增/修改：收件箱旧消息回看也使用同源分类与完整条件，不覆盖原投递快照或阅读状态；用途：个人收藏与正式资格分离，保留历史记录。 */
-/** 【变更记录 #13】2026-10-01 04:19:02（修订128）：删除：旧固定上限或被替代的分支；新增/修改：向真实阅读正文附加独立会话，已读状态不再当成彩蛋全文读完；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #14】2026-10-01 04:27:55（修订128）：删除：旧固定上限或被替代的分支；新增/修改：已授权首页与通知视图记录实际打开状态，节日使用服务器时区；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #15】2026-10-01 22:50:14（第15次备注 · 内测5修订155）：删除玩家展示中的旧电压及开发说明；新增现行正文投影或对应回归；修改仅限呈现与检索，不改变进度、回执、触发条件或权限；用途：统一发布版玩家文案，历史备注保留。 */
-/** 【变更记录 #16】2026-11-04 06:12:15（第16次备注 · 内测5修订196）：删除无；新增新版正式档案通知路由；修改仅正式独立消息进入准确来源/本人全文服务；用途：保留历史收件箱与手机供电，旧已读不授正式经历。 */
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 public final class Hk3PhoneService {
     private Hk3PhoneService(){}
     @SubscribeEvent public static void commands(RegisterCommandsEvent e){
@@ -98,7 +99,7 @@ public final class Hk3PhoneService {
         if(Hk3PhoneData.get(player).installed(player.getUUID()))return true;
         player.sendSystemMessage(Component.literal("需要先制作并安装 HK3GTL 通讯终端。"));return false;
     }
-    static void send(ServerPlayer player,CompoundTag view){
+    public static void send(ServerPlayer player,CompoundTag view){
         Hk3PhoneAppHints.view(player,view);
         com.sirin.hk3gtl.common.easter.Hk3EggReading.attach(player,view);
         if(!view.getString("Mode").equals("toast"))view.put("Runtime",Hk3PhoneRuntime.status(player));
@@ -129,7 +130,15 @@ public final class Hk3PhoneService {
     private static int detail(ServerPlayer player,String id){
         if(!installed(player)||!Hk3PhoneRuntime.requirePower(player))return 0;
         var entry=Hk3PhonePresentation.current(Hk3PhoneData.get(player).entry(player.getUUID(),id),k->Component.translatable(k).getString());if(entry==null)return 0;
+        if(entry.kind().equals("story")){
+            String[] target=entry.target().split("/",2);
+            return com.sirin.hk3gtl.common.narrative.story.Hk3StoryService.open(player,UUID.fromString(target[0]),target[1]);
+        }
         if(entry.kind().equals("formal_archive"))return com.sirin.hk3gtl.common.narrative.Hk3LegacyArchiveService.open(player,entry.target());
+        if(entry.kind().equals("progress_letter")){
+            String[] target=entry.target().split("/",2);UUID origin=UUID.fromString(target[0]);
+            return entry.id().startsWith("progress_reply_")?com.sirin.hk3gtl.common.communication.Hk3ProgressCorrespondence.feedback(player,origin,target[1]):com.sirin.hk3gtl.common.communication.Hk3ProgressCorrespondence.read(player,origin,target[1]);
+        }
         if(entry.kind().equals("diplomacy")){
             String[] target=entry.target().split("/",2);if(target.length!=2)return 0;
             try{return com.sirin.hk3gtl.common.communication.Hk3DiplomacyService.read(player,UUID.fromString(target[0]),target[1]);}catch(IllegalArgumentException bad){return 0;}
@@ -192,4 +201,4 @@ public final class Hk3PhoneService {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

@@ -1,0 +1,2012 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w02_x46_honkai_lattice_wafer_cpu",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-BCE"
+      ],
+      "zh_name": "崩坏晶格晶圆直达CPU封装",
+      "purpose": "一片逻辑晶圆切出八颗裸片，恰好制成四颗CPU；四份前代处理器、贴片阵列和全部存储互连件完整消耗。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "kubejs:supracausal_mainframe",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_cpu",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 4200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "切割与裸片封装",
+      "baseline_recipe": "hk3gtl_electronic_honkai_lattice_cpu",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator",
+        "正式电路系列处理器装配"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_quantum_coherence_wafer_cpu",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-MCE"
+      ],
+      "zh_name": "量子相干晶圆直达CPU封装",
+      "purpose": "一片逻辑晶圆切出八颗裸片，恰好制成四颗CPU；四份前代处理器、贴片阵列和全部存储互连件完整消耗。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_cpu",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_cpu",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 4700,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "切割与裸片封装",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_cpu",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator",
+        "正式电路系列处理器装配"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_imaginary_topology_wafer_cpu",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数拓扑晶圆直达CPU封装",
+      "purpose": "一片逻辑晶圆切出八颗裸片，恰好制成四颗CPU；四份前代处理器、贴片阵列和全部存储互连件完整消耗。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_cpu",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 5200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "切割与裸片封装",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_cpu",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator",
+        "正式电路系列处理器装配"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_civilization_endurance_wafer_cpu",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续晶圆直达CPU封装",
+      "purpose": "一片逻辑晶圆切出八颗裸片，恰好制成四颗CPU；四份前代处理器、贴片阵列和全部存储互连件完整消耗。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 5700,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "切割与裸片封装",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_cpu",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator",
+        "正式电路系列处理器装配"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_honkai_lattice_smd_array_integration",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-BCE"
+      ],
+      "zh_name": "崩坏晶格五类贴片与阵列联制",
+      "purpose": "五类前代贴片各八枚分别功能化，再按每类四枚组装四个阵列；专用电学材料、两块印刷板与五路贴片介质均保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_dielectric_film",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_interconnect_mesh",
+          "count": 10
+        },
+        {
+          "id": "kubejs:smd_capacitor_supracausal",
+          "count": 8
+        },
+        {
+          "id": "kubejs:smd_diode_supracausal",
+          "count": 8
+        },
+        {
+          "id": "kubejs:smd_resistor_supracausal",
+          "count": 8
+        },
+        {
+          "id": "kubejs:smd_transistor_supracausal",
+          "count": 8
+        },
+        {
+          "id": "kubejs:smd_inductor_supracausal",
+          "count": 8
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 4
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_smd_array",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1125
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "五类贴片功能化与阵列",
+      "baseline_recipe": "hk3gtl_electronic_honkai_lattice_smd_array",
+      "output_consumers": [
+        "hk3gtl_electronic_honkai_lattice_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_quantum_coherence_smd_array_integration",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-MCE"
+      ],
+      "zh_name": "量子相干五类贴片与阵列联制",
+      "purpose": "五类前代贴片各八枚分别功能化，再按每类四枚组装四个阵列；专用电学材料、两块印刷板与五路贴片介质均保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_dielectric_film",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_capacitor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_diode",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_resistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_transistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_smd_inductor",
+          "count": 8
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 4
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_smd_array",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1750
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4500,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "五类贴片功能化与阵列",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_smd_array",
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_imaginary_topology_smd_array_integration",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数拓扑五类贴片与阵列联制",
+      "purpose": "五类前代贴片各八枚分别功能化，再按每类四枚组装四个阵列；专用电学材料、两块印刷板与五路贴片介质均保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_dielectric_film",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_capacitor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_diode",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_resistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_transistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_smd_inductor",
+          "count": 8
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 4
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_array",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2375
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 5000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "五类贴片功能化与阵列",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_smd_array",
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_civilization_endurance_smd_array_integration",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续五类贴片与阵列联制",
+      "purpose": "五类前代贴片各八枚分别功能化，再按每类四枚组装四个阵列；专用电学材料、两块印刷板与五路贴片介质均保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_capacitor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_diode",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_resistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_transistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_inductor",
+          "count": 8
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 4
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 5500,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "五类贴片功能化与阵列",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_array",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_building_to_unprogrammed",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-NBS",
+        "RN-NRA"
+      ],
+      "zh_name": "纳米构筑与机器人联装",
+      "purpose": "一批构筑单元原位分入两批机器人装配，保留硅、前驱液、模板、金箔、基板和焊料；失活单元及装配废料分别排出。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_microstructure_template",
+          "count": 2
+        },
+        {
+          "id": "gtceu:silicon_dust",
+          "count": 4
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:unprogrammed_nanobot",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_precursor_fluid",
+          "amount": 400
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "nano_reaction_tail_liquid",
+          "amount": 300
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "构筑与装配",
+      "baseline_recipe": "industrial_nano_building",
+      "output_consumers": [
+        "industrial_nano_control"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_assembly_to_controlled",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-NRA",
+        "RN-NSP"
+      ],
+      "zh_name": "机器人装配编程联线",
+      "purpose": "八个构筑单元先装成四个机器人，再消耗规则载体编程为三个受控群；保留装配废料和失活分流。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 8
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 3
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 144
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 250
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "装配与编程",
+      "baseline_recipe": "industrial_nano_control",
+      "output_consumers": [
+        "industrial_nano_coating",
+        "industrial_substrate_growth"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_programming_to_coated",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-NSP",
+        "RN-HRC"
+      ],
+      "zh_name": "纳米编程抗蚀联制",
+      "purpose": "四个未编程机器人先编程，再将三个受控群涂覆为两个抗侵蚀群；两段共排两份失活单元，不隐藏涂覆损失。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:unprogrammed_nanobot",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:coated_nano_swarm",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 250
+        },
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 250
+        },
+        {
+          "id": "spent_resistant_coating",
+          "amount": 200
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "编程与涂覆",
+      "baseline_recipe": "industrial_nano_coating",
+      "output_consumers": [
+        "industrial_soulium_polymerization"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_programming_to_activated_matrix",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-NSP"
+      ],
+      "zh_name": "纳米编程与活化矩阵联制",
+      "purpose": "两轮编程得到六份受控群，取四份与新构筑单元活化矩阵，余下两份受控群实体输出。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:unprogrammed_nanobot",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:activated_nano_matrix",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "编程与矩阵活化",
+      "baseline_recipe": "hk3gtl_functional_activated_nano_matrix",
+      "output_consumers": [
+        "魂钢纳米矩阵消费者",
+        "industrial_nano_coating"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_polymerization_reconstruction",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-SPC",
+        "RN-SRA"
+      ],
+      "zh_name": "魂钢聚合与原质重构联制",
+      "purpose": "两份涂层群、钨钢粉和前驱液先形成八份原质，再以规则载体和稳定液制成四份稳定原质，切屑和尾液保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:coated_nano_swarm",
+          "count": 2
+        },
+        {
+          "id": "gtceu:tungsten_steel_dust",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:stabilized_soulium_proto_mass",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_swarf",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_precursor_fluid",
+          "amount": 500
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 200
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "nano_reaction_tail_liquid",
+          "amount": 400
+        },
+        {
+          "id": "spent_honkai_stabilization_medium",
+          "amount": 200
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "聚合与重构",
+      "baseline_recipe": "industrial_soulium_reconstruction",
+      "output_consumers": [
+        "industrial_soulium_processing",
+        "industrial_soulium_ingot"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_growth_etching",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CBS",
+        "RN-MCE"
+      ],
+      "zh_name": "适配基板生长蚀刻联制",
+      "purpose": "受控群在四片硅板上生长四块适配基板，随后用消耗式掩膜与魂钢细线蚀刻；不合格基板和电路层均独立输出。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 1
+        },
+        {
+          "id": "gtceu:silicon_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "material:soulium/fine_wire",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:defective_circuit_substrate",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:failed_circuit_layer",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        },
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 500
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "生长与蚀刻",
+      "baseline_recipe": "industrial_circuit_etching",
+      "output_consumers": [
+        "industrial_circuit_packaging"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_etching_packaging",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-MCE",
+        "RN-CPT"
+      ],
+      "zh_name": "电路层蚀刻封装联制",
+      "purpose": "四块适配板完整蚀刻并封装；掩膜、魂钢导线、聚四氟乙烯、金箔与焊料均按普通两工序投入。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "material:soulium/fine_wire",
+          "count": 8
+        },
+        {
+          "id": "gtceu:polytetrafluoroethylene_plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:failed_circuit_layer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:rejected_circuit_package",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 500
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 500
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "蚀刻与封装",
+      "baseline_recipe": "industrial_circuit_packaging",
+      "output_consumers": [
+        "industrial_unmanned_resource_probe",
+        "hk3gtl_electronic_civilization_endurance_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_lamination_drone_assembly",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-SPM",
+        "RN-UAA"
+      ],
+      "zh_name": "魂钢布线与作业无人机联装",
+      "purpose": "十六块魂钢板和三十二根细线按普通基板配比制八块基板，随即装配无人机；总焊料含基板与无人机两个工序。",
+      "item_inputs": [
+        {
+          "id": "material:soulium/plate",
+          "count": 16
+        },
+        {
+          "id": "material:soulium/fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:industrial_work_drone",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 1728
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "布线与终端装配",
+      "baseline_recipe": "industrial_soulium_data_substrate",
+      "output_consumers": [
+        "industrial_drone_endurance_trial",
+        "工业作业无人机调度"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_work_drone_precursor_repair",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-NBS",
+        "RN-UPR"
+      ],
+      "zh_name": "新鲜纳米料作业无人机维修",
+      "purpose": "以半批构筑工艺现场制造八份维修单元，再补新封装修复磨损无人机；模板被消耗，失活单元、尾液和拆解料均保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worn_work_drone",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_microstructure_template",
+          "count": 1
+        },
+        {
+          "id": "gtceu:silicon_dust",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:industrial_work_drone",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:drone_disassembly_scrap",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_precursor_fluid",
+          "amount": 200
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "nano_reaction_tail_liquid",
+          "amount": 150
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "维修补料集成",
+      "baseline_recipe": "industrial_drone_repair",
+      "output_consumers": [
+        "industrial_drone_endurance_trial"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_resource_probe_scrap_repair",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-OPR",
+        "RN-UPR"
+      ],
+      "zh_name": "纳米废料回收探针维修",
+      "purpose": "三十二份装配废料分选得八份维修单元，耗四个滤芯和分析试剂后修复磨损资源探针；残渣不回生。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worn_resource_probe",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:unmanned_resource_probe",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:drone_disassembly_scrap",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 2000
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "回收料维修",
+      "baseline_recipe": "industrial_resource_probe_repair",
+      "output_consumers": [
+        "industrial_unmanned_mining_dispatch"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_worn_work_drone_salvage",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-UPR",
+        "RN-OPR"
+      ],
+      "zh_name": "磨损作业无人机部件拆解",
+      "purpose": "一台磨损无人机只取回一个封装件和两份拆解废料；不返回纳米群、完整基板或无人机。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worn_work_drone",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:drone_disassembly_scrap",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "终端有损拆解",
+      "baseline_recipe": "industrial_drone_repair",
+      "output_consumers": [
+        "industrial_recovery_drone_scrap",
+        "industrial_drone_assembly"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_worn_resource_probe_salvage",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-UAA",
+        "RN-WCP"
+      ],
+      "zh_name": "资源探针负载分离",
+      "purpose": "保留磨损资源探针内的一支原始空间探针；外部负载只降为两份拆解料，不产出第二支核心探针。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worn_resource_probe",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:spatial_probe",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:drone_disassembly_scrap",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "终端模块回收",
+      "baseline_recipe": "industrial_unmanned_resource_probe",
+      "output_consumers": [
+        "industrial_unmanned_resource_probe",
+        "industrial_recovery_drone_scrap"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_civ_piston_integrated",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "CIV电机活塞联装",
+      "purpose": "将本阶电机装配并入活塞装配，保留两个前级电机、两个前级活塞及两道工序共四枚CIV电路。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_piston_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_piston_civ",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机械复合装配",
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_piston",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_robot_arm",
+        "hk3gtl_main_component_cev_electric_piston"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_civ_pump_integrated",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "CIV电机泵体联装",
+      "purpose": "现场电机与密封泵体共装；前级泵、电机、CIV电路和本阶导体、壳体、密封环分别保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:electric_pump_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_pump_civ",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机械复合装配",
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_pump",
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_pump"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_civ_conveyor_integrated",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "CIV双驱传送机构联装",
+      "purpose": "两台电机与传送机构三工序联制；四台前级电机、两套前级传送机构和六枚CIV电路完整投入。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:conveyor_module_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:conveyor_module_civ",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 3600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机械复合装配",
+      "baseline_recipe": "hk3gtl_main_component_civ_conveyor_module",
+      "output_consumers": [
+        "hk3gtl_main_component_cev_conveyor_module"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_civ_robot_arm_integrated",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "CIV机械臂五工序联制",
+      "purpose": "三台本阶电机、一套本阶活塞与机械臂五工序联制，展开为六台前级电机、两个前级活塞、两条前级机械臂及十枚CIV电路。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:electric_piston_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:robot_arm_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 48
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 20
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:robot_arm_civ",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 4400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机械复合装配",
+      "baseline_recipe": "hk3gtl_main_component_civ_robot_arm",
+      "output_consumers": [
+        "hk3gtl_main_component_cev_robot_arm"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_rejected_package_rebuild",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-CPT",
+        "RN-OPR"
+      ],
+      "zh_name": "拒收封装补材重制",
+      "purpose": "四份拒收封装补一块新聚四氟乙烯板、金箔和焊料，仅恢复一个可用封装并排残渣；不能完整返还原投入。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:rejected_circuit_package",
+          "count": 4
+        },
+        {
+          "id": "gtceu:polytetrafluoroethylene_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 72
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 250
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "拒收品补料维修",
+      "baseline_recipe": "industrial_circuit_packaging",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "industrial_drone_repair"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_failed_layer_patch_lamination",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-MCE",
+        "RN-OPR"
+      ],
+      "zh_name": "废电路层选择性补片层压",
+      "purpose": "八片失败电路层只提供局部导体补片，仍投入两块新适配基板和四根魂钢细线，产出两片蚀刻层并排四份残渣。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:failed_circuit_layer",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "material:soulium/fine_wire",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 500
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "废层局部再利用",
+      "baseline_recipe": "industrial_circuit_etching",
+      "output_consumers": [
+        "industrial_circuit_packaging"
+      ]
+    },
+    {
+      "id": "wonder_w02_x46_inactive_swarm_reactivation",
+      "role": "W02",
+      "requirements": [
+        "RN-AIM",
+        "RN-NRA",
+        "RN-NSP",
+        "RN-OPR"
+      ],
+      "zh_name": "失活纳米单元补料重组",
+      "purpose": "八份失活单元与四份新构筑单元重新布线编程，只恢复两份受控群；消耗基板、金箔、规则载体和新溶剂，残渣不可回生。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:inactive_nano_unit",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:nano_building_unit",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 1
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 144
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "纳米群补料重组",
+      "baseline_recipe": "industrial_nano_control",
+      "output_consumers": [
+        "industrial_nano_coating",
+        "industrial_substrate_growth"
+      ]
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import java.util.UUID;
 
-/** 【变更记录 #1】2026-11-05（修订209）：复用原版全景作为相册页；仅真实渲染时发送可见回执，手动关闭与被动移除分开处理。 */
+ 
 final class Hk3PhoneGalleryPane {
     private static final java.util.List<ResourceLocation> TEXTURES=java.util.stream.IntStream.range(0,4).mapToObj(i->new ResourceLocation("minecraft","textures/gui/title/background/panorama_"+i+".png")).toList();
     private UUID token;

@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.communication;
 
-/** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
 public enum Hk3FirstContactState {
     LOCKED, AVAILABLE, READ, ACCEPTED, DECLINED;
 
@@ -8,7 +7,6 @@ public enum Hk3FirstContactState {
     public static final String ACCEPT_FACT = "CM-MAX-REPLY-ACCEPT";
     public static final String DECLINE_FACT = "CM-MAX-REPLY-DECLINE";
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public Hk3FirstContactState discover() { return this == LOCKED ? AVAILABLE : this; }
 
     /** 打开首信记录已读，关闭界面不会代表拒绝。 / Opening marks read; closing never means refusal. */
@@ -19,9 +17,7 @@ public enum Hk3FirstContactState {
         return this == READ ? (accept ? ACCEPTED : DECLINED) : this;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean hasObservationData() { return this != LOCKED; }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public String replyFact() { return this == ACCEPTED ? ACCEPT_FACT : this == DECLINED ? DECLINE_FACT : ""; }
 }

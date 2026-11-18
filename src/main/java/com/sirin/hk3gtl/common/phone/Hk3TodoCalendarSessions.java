@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-/** 【变更记录 #1】2026-11-05（修订206）：待办日期会话只保留本人本次开机的完成事实；关机、断线、跨日或时钟倒退后不沿用。 */
+ 
 public final class Hk3TodoCalendarSessions {
     private static final class Session {
         LocalDateTime last,completed;

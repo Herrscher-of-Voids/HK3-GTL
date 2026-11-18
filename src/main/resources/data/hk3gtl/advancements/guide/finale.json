@@ -1,8 +1,7 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 14:16:54（修订129）：服务端账本补授，无物品触发或奖励。",
   "display": {
     "icon": {
-      "item": "minecraft:book"
+      "item": "minecraft:dragon_egg"
     },
     "title": {
       "translate": "hk3gtl.guide.finale.title"
@@ -10,8 +9,8 @@
     "description": {
       "translate": "hk3gtl.guide.finale.description"
     },
-    "frame": "task",
-    "show_toast": true,
+    "frame": "challenge",
+    "show_toast": false,
     "announce_to_chat": false,
     "hidden": false
   },
@@ -25,5 +24,5 @@
       "verified"
     ]
   ],
-  "parent": "hk3gtl:guide/second_review"
+  "parent": "hk3gtl:guide/civilization/c7"
 }

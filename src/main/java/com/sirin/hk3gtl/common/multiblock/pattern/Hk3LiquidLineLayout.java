@@ -6,19 +6,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * 第一条工业线的正式逐格结构数据，坐标单位为方块，顺序为宽、高、深。
- * 【变更记录 #1】2026-09-24 16:32:00（内测5修订66）
- * 删除：不复用旧盒形结构；旧实现已归档。新增：七台独立工艺布局与固定物流口。
- * 修改：以同一确定性数据供成型和测试使用。用途：避免结构、方块清单和接口脱节。
- * 不依赖游戏注册表，允许在普通虚拟机中验证尺寸、通道和符号；不生成预览资源。
- *
- * 【变更记录 #2】2026-09-24 18:56:36（内测5修订67）
- * 删除：液态工业线中仍使用 GTCEu 基础洁净机壳、钢机壳、钢管机壳和原版装饰方块的材料映射。
- * 新增：MAX 阶段统一材料契约、分层外观骨架和边缘服务脊，所有主体材料改为 HK3GTL 海渊高阶方块。
- * 修改：端口位置仍由蓝图确定，但输入/输出方向交由 Pattern 的同类能力谓词判定，允许同类端口互换。
- * 用途：让第一条工业线的结构材料与 MAX 配方电压一致，同时保持结构尺寸和成型数据可复现。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3LiquidLineLayout {
     public enum Kind {
         SEPARATION(25, 25, 29), STABILIZATION(21, 33, 21), REGENERATION(21, 29, 25),
@@ -35,37 +35,29 @@ public final class Hk3LiquidLineLayout {
     public static final int VOLTAGE_TIER = GTValues.MAX;
     public static final String TECHNOLOGY_LEVEL = "MAX";
 
-    /**
-     * 第一条工业线允许使用的 MAX 结构材料白名单。
-     * 只列出本模组注册的海渊机壳、功能构件与稳定玻璃，防止后续布局误把
-     * HV/普通 GTCEu 机壳或原版装饰方块当作正式 MAX 主体材料。
-     */
+    /** 第一条工业线使用的结构材料。 */
     public static final Set<String> MAX_MATERIALS = Set.of(
-            "hk3gtl:casing_abyss_energy",
-            "hk3gtl:casing_abyss_mechanical",
-            "hk3gtl:coil_abyss_flux",
+            "gtceu:max_machine_casing",
+            "gtceu:solid_machine_casing",
+            "gtceu:steel_pipe_casing",
             "hk3gtl:glass_honkai_stabilized",
-            "hk3gtl:structure_abyss_cooling_unit",
-            "hk3gtl:structure_communication_array",
-            "hk3gtl:structure_data_pillar",
-            "hk3gtl:casing_abyss_research",
-            "hk3gtl:casing_reinforced_soulium");
+            "gtceu:computer_heat_vent",
+            "gtceu:computer_casing",
+            "gtceu:assembly_line_grating",
+            "gtceu:steel_gearbox");
 
-    /**
-     * 各符号对应的 MAX/海渊材料；物流能力在 Pattern 适配层单独处理，禁止空气替代缺失方块。
-     * C/F/R/B 是承重层，P/K/W/L 是工艺层，G/V 是观察层。
-     */
+    /** 各符号对应的结构材料；物流能力由 Pattern 适配层处理。 */
     public static final Map<Character,String> MATERIALS = Map.ofEntries(
-            Map.entry('C',"hk3gtl:casing_abyss_energy"),
-            Map.entry('F',"hk3gtl:casing_abyss_mechanical"),
-            Map.entry('P',"hk3gtl:coil_abyss_flux"),
+            Map.entry('C',"gtceu:max_machine_casing"),
+            Map.entry('F',"gtceu:solid_machine_casing"),
+            Map.entry('P',"gtceu:steel_pipe_casing"),
             Map.entry('G',"hk3gtl:glass_honkai_stabilized"),
-            Map.entry('K',"hk3gtl:structure_abyss_cooling_unit"),
-            Map.entry('W',"hk3gtl:structure_communication_array"),
-            Map.entry('L',"hk3gtl:structure_data_pillar"),
-            Map.entry('R',"hk3gtl:casing_abyss_research"),
-            Map.entry('B',"hk3gtl:casing_reinforced_soulium"),
-            Map.entry('V',"hk3gtl:casing_abyss_research"));
+            Map.entry('K',"gtceu:computer_heat_vent"),
+            Map.entry('W',"gtceu:computer_casing"),
+            Map.entry('L',"gtceu:assembly_line_grating"),
+            Map.entry('R',"gtceu:steel_gearbox"),
+            Map.entry('B',"gtceu:max_machine_casing"),
+            Map.entry('V',"gtceu:computer_casing"));
     public final Kind kind;
     private final char[][][] cells;
 
@@ -256,28 +248,20 @@ public final class Hk3LiquidLineLayout {
             box(x,2,6,x,4,40,'C');
             for (int z=7; z<=39; z+=4) box(x,5,z,x,7,z+1,'K');
         }
-        // 正面同面3×3：中央真实主控，八个接口都有背壳和基础支承。
+        // 主控嵌入连续机壳，工作仓由玩家选择实体位置替换。
         box(17,1,0,23,5,3,'C');box(18,6,1,22,6,3,'K');
-        for (int x=19; x<=21; x++) for (int y=1; y<=3; y++) put(x,y,0,'i');
         put(20,2,0,'S');
         box(19,1,4,21,3,kind.depth-1,'#');
     }
     /**
-     * 规划物流接口面：保留连续的后侧检修带和前侧控制器通道。
-     * 具体输入/输出方向不在布局数据中硬编码，由 Pattern 允许同类端口互换。
+     * 保留连续的后侧检修带和前侧控制器通道。
      */
-    private void portsAndAccess() {
+    private void accessPaths() {
         int mid=kind.width/2,back=kind.depth-1;
         box(mid-1,1,0,mid+1,3,back,'#');
         box(mid-2,0,0,mid-2,0,back,'W');box(mid+2,0,0,mid+2,0,back,'W');
         put(mid,1,0,'F');put(mid,2,0,'S');
-        for(int x:new int[]{2,3})put(x,2,back,'i');
-        for(int x:new int[]{kind.width-4,kind.width-3})put(x,2,back,kind==Kind.INJECTION?'C':'o');
-        for(int x=4;x<=7;x++)put(x,2,back,kind==Kind.CALIBRATION?'C':'u');
-        for(int x=kind.width-8;x<=kind.width-5;x++)put(x,2,back,
-                kind==Kind.CALIBRATION||kind==Kind.INJECTION?'C':'v');
-        put(1,2,back,'h');
-        // 后部物流口有连续支座，并保留中间三格通道。
+        // 后部检修带保留中间三格通道。
         box(1,1,back,mid-2,1,back,'F');box(mid+2,1,back,kind.width-2,1,back,'F');
     }
     public static Hk3LiquidLineLayout create(Kind kind) {
@@ -292,7 +276,7 @@ public final class Hk3LiquidLineLayout {
             case INJECTION -> layout.injection();
         }
         layout.serviceSpines();
-        layout.portsAndAccess();return layout;
+        layout.accessPaths();return layout;
     }
 
     /** 防止后续新增布局误把 HV/原版装饰材料混入 MAX 结构。 */

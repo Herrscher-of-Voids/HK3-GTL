@@ -12,15 +12,15 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * I19-I22 批次游标的世界级持久账本。
- * 变更记录 #1 · 2026-10-18 21:46:33 · 修订167：新增严格批次读写、重复ID拒绝及dirty状态更新。
- * 变更记录 #2 · 2026-10-18 22:44:26 · 修订169
- * - 删除：无；保留原批次清理入口。
- * - 新增：清理前读取批次状态；缺失ID不处理，未完成批次拒绝清理，成功删除已完成批次后标记SavedData为dirty。
- * - 修改：原remove可删除任意批次，现只允许删除已完成批次，避免后续控制器误清理活动进度。
- * - 用途：为未来反应堆控制器提供受限的完成批次清理原语；自动保留周期仍需结合控制器和4096条上限设计。
- */
+ 
+
+
+
+
+
+
+
+
 public final class Hk3ReactorEnergyData extends SavedData {
     public static final String DATA_NAME = "hk3gtl_reactor_energy";
     private static final int SCHEMA = 1;
@@ -32,10 +32,14 @@ public final class Hk3ReactorEnergyData extends SavedData {
 
     public static Hk3ReactorEnergyData load(CompoundTag tag) {
         if (tag == null || !tag.getAllKeys().equals(SetHolder.ROOT_KEYS)
-                || tag.getInt(SCHEMA_KEY) != SCHEMA || !tag.contains(BATCHES_KEY, Tag.TAG_LIST)) {
+                || !tag.contains(SCHEMA_KEY, Tag.TAG_INT) || tag.getInt(SCHEMA_KEY) != SCHEMA
+                || !tag.contains(BATCHES_KEY, Tag.TAG_LIST)) {
             throw new IllegalArgumentException("反应堆能源账本字段或版本损坏");
         }
-        ListTag list = tag.getList(BATCHES_KEY, Tag.TAG_COMPOUND);
+        ListTag list = (ListTag) tag.get(BATCHES_KEY);
+        // getList会把错误元素类型转换为空列表，必须先检查原始列表，避免清空坏账本。
+        if (!list.isEmpty() && list.getElementType() != Tag.TAG_COMPOUND)
+            throw new IllegalArgumentException("反应堆能源账本批次列表类型损坏");
         if (list.size() > MAX_BATCHES) throw new IllegalArgumentException("反应堆能源账本批次数超限");
         Hk3ReactorEnergyData data = new Hk3ReactorEnergyData();
         SetHolder.ids(list, data);

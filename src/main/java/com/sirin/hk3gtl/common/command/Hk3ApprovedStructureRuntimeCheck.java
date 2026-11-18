@@ -31,57 +31,55 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-/** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #1】2026-09-25 02:19:54（内测5修订70）
- * 删除：旧建筑退出四机正式入口，历史文件已归档。
- * 新增：已确认逐格建筑及一致的模板与验收入口。
- * 修改：同步主控坐标、材料或测试夹具，不改配方和研究扣费。
- * 用途：使预览、正式结构及游戏放置相互对应；未将静态验证写作实机通过。
- */
-/**
- * 【变更记录 #2】2026-09-27 02:38:43（第 2 次备注 · 内测5修订87 · 正式六机接入）
- * 删除：相关正式入口对旧I04/I05结构的依赖；历史备注与旧布局数据保留。
- * 新增：显式游戏诊断夹具覆盖六台四向结构；仍只允许指定实例专用创造存档由玩家手动启动。
- * 修改：沿获批逐格资源接入23×27×23稳定塔与27×19×23再生中心，数量与方向由正式资源确定。
- * 用途：统一成型、放置模板和诊断坐标；不改变研究费用，不启动游戏，不视为成型验收。
- */
-/**
- * 【变更记录 #3】2026-10-15 01:19:00（第3次备注 · 内测5修订156）
- * 删除：仅允许旧GregTech-Leisure实例的路径，以及128格间距导致S05旋转夹具相交的布局。
- * 新增：当前指定GTL十一周目实例的专用创造超平坦测试入口，按最大批准水平尺寸计算夹具间距。
- * 修改：放置和卸载共用夹具坐标；测试仍需允许作弊及专用世界名，不写入普通玩家存档。
- * 用途：让21种结构的四向成型、破坏和恢复可在正确实例验证；入口不代表已经运行验收。
- */
-/**
- * 【变更记录 #4】2026-10-15 01:49:15（第4次备注 · 内测5修订157）
- * 删除：正式结构验收对GTL十一周目实例的旧路径限制；历史备注保留。
- * 新增：负责人指定的GregTech Leisure-增强版 2.7实例、主世界与OP身份校验。
- * 修改：全部夹具与指定单建筑或单朝向共用相同的创造、作弊、超平坦专用存档边界。
- * 用途：将实机验收转移到内测5后续联机试玩所用整合包，不把入口开放写成验收通过。
- */
-/**
- * 【变更记录 #5】2026-10-15 01:49:15（第5次备注 · 内测5修订157）
- * 删除：84个夹具完成前持续持有全部区块、重复扫描所有建筑计算间距及空气检查的逐格哈希集合。
- * 新增：单夹具空白场地复用、已放方块状态快照、仅释放本轮票据、失联与停服清理及单建筑/单朝向入口。
- * 修改：每座夹具七阶段通过后先清理再继续；失败仅清理放置前已验证为空的自有位置，保留外部替换方块。
- * 用途：让验收自身内存随最大单夹具增长，而非随84个夹具累积；保留全部批准尺寸、四向与破坏恢复检查。
- */
-/**
- * 【变更记录 #6】2026-10-15 02:35:08（香港时间；第6次备注 · 内测5修订158）
- * 删除：无；保留失败时对外部替换方块的保护。
- * 新增：为放置时存在的GT方块实体记录对象身份；清理时允许其官方server_tick属性生命周期变化。
- * 修改：清理不再只比较静态状态ID；同方块、同一方块实体且仅server_tick变化仍认定为本轮夹具，朝向、方块、方块实体替换均保留并终止验收。
- * 用途：修复GT端口成型/失效更新造成的合法状态变化误报，不扩大清理授权，不捕获或覆盖stage7后的外部修改。
- */
-/**
- * 【变更记录 #7】2026-10-20 00:55:29（香港时间；第7次备注 · 修订172）
- * 删除：验收路径中已失效的增强版2.7目录名；保留全部历史备注及其他验收条件。
- * 新增：无新的验收权限或入口。
- * 修改：指定实例路径改为已核实增强版2.9所在的绝对路径，与命令拒绝提示同步。
- * 用途：恢复当前唯一测试实例的结构验收入口；创造、OP、主世界、作弊、超平坦及专用存档限制不变。
- */
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl",bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3ApprovedStructureRuntimeCheck {
     private static int fixture,stage;
@@ -130,13 +128,16 @@ public final class Hk3ApprovedStructureRuntimeCheck {
         return true;
     }
 
+    static boolean isAuditDirectory() {
+        String configured = System.getProperty("hk3gtl.audit.gameDir");
+        return configured != null && FMLPaths.GAMEDIR.get().toAbsolutePath().normalize()
+                .equals(java.nio.file.Path.of(configured).toAbsolutePath().normalize());
+    }
+
     private static boolean beginSelected(ServerPlayer player, String id, Rotation rotation) {
-        String appdata=System.getenv("APPDATA");
-        if (appdata==null || operator!=null || !player.isCreative() || !player.hasPermissions(2)
+        if (!isAuditDirectory() || operator!=null || !player.isCreative() || !player.hasPermissions(2)
                 || player.serverLevel() != player.server.overworld()) return false;
-        var expected=java.nio.file.Path.of("C:/Users/OWNER/AppData/Roaming/PrismLauncher/instances/GregTech Leisure-增强版/minecraft");
-        if (!FMLPaths.GAMEDIR.get().toAbsolutePath().normalize().equals(expected.toAbsolutePath().normalize())
-                || !player.server.getWorldData().getLevelName().startsWith("hk3gtl-structure70-")
+        if (!player.server.getWorldData().getLevelName().startsWith("hk3gtl-structure70-")
                 || !player.server.getWorldData().getAllowCommands() || !player.server.overworld().isFlat()) return false;
         int index=id==null?-1:Hk3ApprovedArchitecture.IDS.indexOf(id);
         if (id!=null && index<0) return false;
@@ -188,9 +189,8 @@ public final class Hk3ApprovedStructureRuntimeCheck {
             if (!expect && machine.checkPatternWithLock()) throw new IllegalStateException("Malformed structure accepted");
             LogUtils.getLogger().info("[HK3-STRUCTURE70] PASS {} {} stage={} formed={} parts={}",id,rotation,stage,machine.isFormed(),machine.getParts().size());
             if (stage==1 || stage==3 || stage==5) {
-                int[] port=activeLayout.ports().get(0).pos();
                 BlockPos local=stage==1?solidCell(activeLayout):stage==3?airCell(activeLayout)
-                        :new BlockPos(port[0],port[1],port[2]);
+                        :solidCell(activeLayout);
                 changed=StructureTemplate.calculateRelativePosition(settings,local).offset(origin);
                 changedIndex=-1;
                 for (int i=0;i<placedStateIds.length;i++) {
@@ -241,12 +241,10 @@ public final class Hk3ApprovedStructureRuntimeCheck {
         changedIndex=-1;mutationEntity=null;
     }
 
-    private static BlockPos solidCell(Hk3ApprovedArchitecture.Layout layout) {
-        var ports=layout.ports().stream().map(port -> new BlockPos(port.pos()[0],port.pos()[1],port.pos()[2]))
-                .collect(java.util.stream.Collectors.toSet());
+    static BlockPos solidCell(Hk3ApprovedArchitecture.Layout layout) {
         var anchor=new BlockPos(layout.controller()[0],layout.controller()[1],layout.controller()[2]);
         return layout.blocks().stream().map(cell -> new BlockPos(cell.pos()[0],cell.pos()[1],cell.pos()[2]))
-                .filter(pos -> !pos.equals(anchor) && !ports.contains(pos)).findFirst()
+                .filter(pos -> !pos.equals(anchor)).findFirst()
                 .orElseThrow(() -> new IllegalStateException("缺少普通实体测试位置："+layout.key()));
     }
 

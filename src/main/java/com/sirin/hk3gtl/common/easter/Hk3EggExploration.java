@@ -12,8 +12,8 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 12:18:50（修订128）：删除：无；新增/修改：自然神庙绊线、本人矿道步行、60秒不推进主线准备及原下界门往返；死亡离线重置连续条件；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #2】2026-11-05 22:19:02（修订211）：删除个人UUID研究计数；新增团队研究与团队身份基线；修改471连续准备在换队或共享研究推进时失效；用途：不能把队友完成的研究当无进度。 */
+ 
+ 
 public final class Hk3EggExploration {
     private Hk3EggExploration(){}
     public static void broken(ServerPlayer p,BlockPos pos,BlockState old){
@@ -49,4 +49,4 @@ public final class Hk3EggExploration {
     private static void reset(ServerPlayer p){var s=Hk3EggRuntime.state(p);s.remove("portalTripOrigin");s.remove("portalTripNether");s.remove("tunnelTick");s.remove("speedPrepareStart");}
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.material;
 
-
-/**
- * 【文件职责】
- * - 维护 SouliumMaterial 的核心功能实现。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import net.minecraft.resources.ResourceLocation;
@@ -44,7 +25,7 @@ import static com.sirin.hk3gtl.common.constants.Hk3Constants.MOD_ID;
  *   <li><b>严禁</b>移除 NO_SMELTING / NO_SMASHING：会导致玩家用炉子 / 锤子绕过冶铸中心</li>
  *   <li>新增材料应另建类，不要塞进本文件（保持单一职责）</li>
  *   <li>修改后需同步更新 zh_cn.json / en_us.json 中的 {@code material.soulium} 条目</li>
- *   <li>贴图由 iconSet 决定，METALLIC 使用 GT 原版金属贴图集</li>
+ *   <li>固体形态沿用 METALLIC，液体使用魂钢专用流体贴图</li>
  * </ul>
  */
 public class SouliumMaterial {
@@ -59,7 +40,8 @@ public class SouliumMaterial {
     public static void register() {
         SOULIUM = new Material.Builder(new ResourceLocation(MOD_ID + ":soulium"))
                 .ingot()
-                .fluid()
+                .fluid(com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys.LIQUID,
+                        new com.gregtechceu.gtceu.api.fluids.FluidBuilder().textures(true, true))
                 .color(0xC0C8D0)
                 .secondaryColor(0x8888A0)
                 .iconSet(MaterialIconSet.METALLIC)

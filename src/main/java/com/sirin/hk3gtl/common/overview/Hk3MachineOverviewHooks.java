@@ -19,33 +19,33 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * 【文件职责】隔离GT生命周期旁路观察；只在真实服务端主线程向总览账本提交。
- * 【变更记录 #1】2026-10-19 02:07:23（第1次备注 · 修订171）
- * 删除：无。新增：放置者权威归属、加载观察、卸载快照、方块移除与结构变化入口。
- * 修改：无；预览世界和异步结构回调不写账本，后者由有预算的已登记位置补查收敛。
- * 用途：不改GT原回调结果；观察异常被隔离且仅输出调试日志，不使机器操作失败。
- */
-/**
- * 【变更记录 #2】2026-10-19 02:16:00（第2次备注 · 修订171）
- * 删除：放置事务尚可被Forge取消时立即修改总览的路径。
- * 新增：下一tick最多64候选的FIFO提交队列、过渡位置屏蔽、4096上限及停服清理。
- * 修改：放置重验同一真实BE；拆除后恢复原BE则保留归属；弱引用不留存世界、机器或服务器。
- * 用途：避免取消/回滚被当成功或吞掉旧归属；无法安全重验及过载时仅撤销索引，不授权他人。
- */
-/**
- * 【变更记录 #3】2026-10-19 02:19:26（第3次备注 · 修订171）
- * 删除：HK加载时提前恢复归属、普通加载候选遇卸载时删除目录的过渡分支。
- * 新增：持久归属加载候选；修改：同一BE确认后才恢复，正常卸载保留快照，逐候选隔离第三方读异常。
- * 用途：回滚窗口不抢占归属，坏控制器不打断服务器；账本保护在循环外先初始化，不把损坏账本当普通观察失败。
- */
-/**
- * 【变更记录 #4】2026-10-19 02:25:53（第4次备注 · 修订171）
- * 删除：持久归属加载候选在4096项队列饱和时删除已有有效索引的分支。
- * 新增：过载加载只保留未加载快照；Service通过原有64项轮转重新提交同BE、后继tick和持久归属复核。
- * 修改：普通放置/拆除过载仍撤销不确定索引；不增加重试集合、不扫描世界、不从历史条目猜测新归属。
- * 用途：已有大基地加载峰值不会永久丢目录；未登记且超过候选限额的机器仍须现场登记，不冒充全覆盖。
- */
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid = "hk3gtl")
 public final class Hk3MachineOverviewHooks {
     private enum Action { PLACED, REMOVED, OWNED_LOAD }
@@ -97,9 +97,7 @@ public final class Hk3MachineOverviewHooks {
         Hk3MachineOverviewData.get(actor.server);
         var team = machine instanceof Hk3WorkableMultiblockMachine local ? local.getResearchTeamUUID()
                 : Hk3ResearchTeams.scope(actor.server, actor.getUUID());
-        try {
-            Hk3MachineOverviewService.register(machine, team);
-        } catch (RuntimeException | LinkageError failure) { report(machine, failure); }
+        Hk3MachineOverviewService.register(machine, team);
     }
 
     public static void loaded(MetaMachine machine) {
@@ -114,11 +112,8 @@ public final class Hk3MachineOverviewHooks {
     private static void update(MetaMachine machine, int action) {
         if (!available(machine)) return;
         Hk3MachineOverviewData.get(((ServerLevel) machine.getLevel()).getServer());
-        try {
-            if (action == 1) Hk3MachineOverviewService.unloaded(machine);
-            else if (action == 2) Hk3MachineOverviewService.removed(machine);
-            else if (!isPending(machine)) Hk3MachineOverviewService.observe(machine);
-        } catch (RuntimeException | LinkageError failure) { report(machine, failure); }
+        if (action == 1) Hk3MachineOverviewService.unloaded(machine);
+        else if (!isPending(machine)) Hk3MachineOverviewService.observe(machine);
     }
     private static boolean available(MetaMachine machine) {
         return machine != null && machine.getLevel() instanceof ServerLevel level && level.getServer().isSameThread();

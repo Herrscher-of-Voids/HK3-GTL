@@ -1,0 +1,1870 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w04_x46_civ_wafer_emitter",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "CIV晶圆切割CPU发射器联制",
+      "purpose": "一片逻辑晶圆切出八颗裸片，两颗封CPU、两颗装发射器、四颗实体返回；前代CPU、前级发射器与同阶电路均消耗。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:emitter_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 4400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "逻辑切割与发射器装配",
+      "baseline_recipe": "hk3gtl_main_component_civ_emitter",
+      "output_consumers": [
+        "hk3gtl_main_component_cev_emitter"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_civ_ram_sensor",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "CIV存储切割CPU传感器联制",
+      "purpose": "一片RAM晶圆切十六颗芯片，四颗用于CPU、四颗用于传感器，八颗返回；逻辑、阵列、前代CPU和前级传感器不省略。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 8
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 4400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "存储切割与传感装配",
+      "baseline_recipe": "hk3gtl_main_component_civ_sensor",
+      "output_consumers": [
+        "hk3gtl_main_component_cev_sensor"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_civ_wafer_field_generator",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "CIV双CPU力场发生器联制",
+      "purpose": "一片逻辑晶圆的四颗裸片封为两颗CPU供力场装配，余四颗返回；两颗前代CPU、前级发生器与CIV电路全部保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 4800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "双CPU与磁场装配",
+      "baseline_recipe": "hk3gtl_main_component_civ_field_generator",
+      "output_consumers": [
+        "hk3gtl_main_component_cev_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_wsv_billet_motor",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "稳界坯料复合导线电机联制",
+      "purpose": "五份稳界坯分流细线、轴杆与轴承环，十六根Shirabon补足非金属导体；余一根载体棒返回，前级电机和WSV电路保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 5
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:electric_motor_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 3800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "主材成形与电机装配",
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_motor",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_piston",
+        "hk3gtl_main_component_civ_electric_motor"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_wsv_billet_emitter",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "稳界坯料发射光学机构联制",
+      "purpose": "三份稳界坯形成两根发射杆和八张功能箔，再与CPU及逻辑裸片装配；相含量432全部进入部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 3
+        },
+        {
+          "id": "hk3gtl:emitter_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_wsv",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "主材成形与发射机构",
+      "baseline_recipe": "hk3gtl_main_component_wsv_emitter",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_emitter"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_wsv_memory_sensor",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "WSV存储晶圆传感器联制",
+      "purpose": "RAM晶圆先切十六颗，四颗用于传感器、十二颗返回；完整保留前级传感器、同阶电路、CPU和壳体材料。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:sensor_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 12
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "存储切割与读出装配",
+      "baseline_recipe": "hk3gtl_main_component_wsv_sensor",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_sensor"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_endurance_film_smd_capacitor",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续介电成膜与电容联制",
+      "purpose": "构界纤维板与八张聚苯并咪唑箔先制八片介电膜，全部用于四批贴片。Naquadah合金箔提供电极；三十二枚前代同类贴片与八张互连网不可跳过。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_capacitor",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_capacitor",
+          "count": 32
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "介电成膜与电容功能化",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_capacitor",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_endurance_film_smd_diode",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续介电成膜与二极管联制",
+      "purpose": "构界纤维板与八张聚苯并咪唑箔先制八片介电膜，全部用于四批贴片。磷化铟镓提供结区材料；三十二枚前代同类贴片与八张互连网不可跳过。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_diode",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_diode",
+          "count": 32
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "介电成膜与二极管功能化",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_diode",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_endurance_film_smd_resistor",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续介电成膜与电阻联制",
+      "purpose": "构界纤维板与八张聚苯并咪唑箔先制八片介电膜，全部用于四批贴片。石墨烯提供电阻功能层；三十二枚前代同类贴片与八张互连网不可跳过。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_resistor",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_resistor",
+          "count": 32
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "介电成膜与电阻功能化",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_resistor",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_endurance_film_smd_transistor",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续介电成膜与晶体管联制",
+      "purpose": "构界纤维板与八张聚苯并咪唑箔先制八片介电膜，全部用于四批贴片。铕板提供本平台规定的晶体管材料；三十二枚前代同类贴片与八张互连网不可跳过。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_transistor",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_transistor",
+          "count": 32
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "介电成膜与晶体管功能化",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_transistor",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_endurance_film_smd_inductor",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续介电成膜与电感联制",
+      "purpose": "构界纤维板与八张聚苯并咪唑箔先制八片介电膜，全部用于四批贴片。中子素环提供电感磁路骨架；三十二枚前代同类贴片与八张互连网不可跳过。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_inductor",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_inductor",
+          "count": 32
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1000
+        },
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "介电成膜与电感功能化",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_inductor",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_wsv_electric_motor_salvage",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "zh_name": "WSV电机分级拆解",
+      "purpose": "一件本级电机只返回一件前级同类部件，另将3份本级主材降为分类废料；按现有最低耗料配方计算仍有材料损失，不返回CPU、电路或第二件前级部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_wfv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_classified_scrap",
+          "count": 3
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机电组件分级退役",
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_motor",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_motor",
+        "main_material/worldstabilizing_confinement_shell/lossy_phase_separation"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_wsv_field_generator_salvage",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "zh_name": "WSV力场发生器分级拆解",
+      "purpose": "一件本级力场发生器只返回一件前级同类部件，另将9份本级主材降为分类废料；按现有最低耗料配方计算仍有材料损失，不返回CPU、电路或第二件前级部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_wfv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_classified_scrap",
+          "count": 9
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机电组件分级退役",
+      "baseline_recipe": "hk3gtl_main_component_wsv_field_generator",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator",
+        "main_material/worldstabilizing_confinement_shell/lossy_phase_separation"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_wsv_emitter_salvage",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "zh_name": "WSV发射器分级拆解",
+      "purpose": "一件本级发射器只返回一件前级同类部件，另将2份本级主材降为分类废料；按现有最低耗料配方计算仍有材料损失，不返回CPU、电路或第二件前级部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:emitter_wsv",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_wfv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_classified_scrap",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机电组件分级退役",
+      "baseline_recipe": "hk3gtl_main_component_wsv_emitter",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_emitter",
+        "main_material/worldstabilizing_confinement_shell/lossy_phase_separation"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_wsv_sensor_salvage",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "zh_name": "WSV传感器分级拆解",
+      "purpose": "一件本级传感器只返回一件前级同类部件，另将1份本级主材降为分类废料；按现有最低耗料配方计算仍有材料损失，不返回CPU、电路或第二件前级部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_wfv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_classified_scrap",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机电组件分级退役",
+      "baseline_recipe": "hk3gtl_main_component_wsv_sensor",
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_sensor",
+        "main_material/worldstabilizing_confinement_shell/lossy_phase_separation"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_civ_electric_motor_salvage",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-CEE"
+      ],
+      "zh_name": "CIV电机分级拆解",
+      "purpose": "一件本级电机只返回一件前级同类部件，另将3份本级主材降为分类废料；按现有最低耗料配方计算仍有材料损失，不返回CPU、电路或第二件前级部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_classified_scrap",
+          "count": 3
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机电组件分级退役",
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_motor",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_motor",
+        "main_material/civilization_quadrisystem_matrix/lossy_phase_separation"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_civ_field_generator_salvage",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-CEE"
+      ],
+      "zh_name": "CIV力场发生器分级拆解",
+      "purpose": "一件本级力场发生器只返回一件前级同类部件，另将9份本级主材降为分类废料；按现有最低耗料配方计算仍有材料损失，不返回CPU、电路或第二件前级部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_civ",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_classified_scrap",
+          "count": 9
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机电组件分级退役",
+      "baseline_recipe": "hk3gtl_main_component_civ_field_generator",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_field_generator",
+        "main_material/civilization_quadrisystem_matrix/lossy_phase_separation"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_civ_emitter_salvage",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-CEE"
+      ],
+      "zh_name": "CIV发射器分级拆解",
+      "purpose": "一件本级发射器只返回一件前级同类部件，另将2份本级主材降为分类废料；按现有最低耗料配方计算仍有材料损失，不返回CPU、电路或第二件前级部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_classified_scrap",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机电组件分级退役",
+      "baseline_recipe": "hk3gtl_main_component_civ_emitter",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_emitter",
+        "main_material/civilization_quadrisystem_matrix/lossy_phase_separation"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_civ_sensor_salvage",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-UPR",
+        "RN-OPR",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-CEE"
+      ],
+      "zh_name": "CIV传感器分级拆解",
+      "purpose": "一件本级传感器只返回一件前级同类部件，另将1份本级主材降为分类废料；按现有最低耗料配方计算仍有材料损失，不返回CPU、电路或第二件前级部件。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_wsv",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_classified_scrap",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "机电组件分级退役",
+      "baseline_recipe": "hk3gtl_main_component_civ_sensor",
+      "output_consumers": [
+        "hk3gtl_main_component_civ_sensor",
+        "main_material/civilization_quadrisystem_matrix/lossy_phase_separation"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_conducting_polarization_integration",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-WMS",
+        "RN-TCA",
+        "RN-CED"
+      ],
+      "zh_name": "导能复材制备与电磁极化联制",
+      "purpose": "四块数据基板、一份维系样本和IRV机壳先制四份导能复材，再与六块额外基板及铌钛细线极化；保留复材边角料与废稳定液。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:voltage_machine_casing_irv",
+          "count": 1
+        },
+        {
+          "id": "gtceu:fine_niobium_titanium_wire",
+          "count": 12
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:polarized_electromagnetic_material",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 750
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 500
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 750
+        }
+      ],
+      "ticks": 3800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "导能复合与极化",
+      "baseline_recipe": "industrial_composite_conducting",
+      "output_consumers": [
+        "wonder_w04_civ_electric_motor_magnetic_assembly",
+        "wonder_w04_civ_field_generator_magnetic_assembly"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_niobium_wire_polarization_integration",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CED"
+      ],
+      "zh_name": "铌钛拉丝与电磁材料联制",
+      "purpose": "两锭铌钛先拉十六根细线，十二根投入四份电磁材料，余四根实体返回；冷却液含拉丝与极化两段用量。",
+      "item_inputs": [
+        {
+          "id": "gtceu:niobium_titanium_ingot",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:conducting_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 6
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:polarized_electromagnetic_material",
+          "count": 4
+        },
+        {
+          "id": "gtceu:fine_niobium_titanium_wire",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "超导拉丝与极化",
+      "baseline_recipe": "wonder_w04_niobium_titanium_fine_wire",
+      "output_consumers": [
+        "wonder_w04_civ_electric_motor_magnetic_assembly",
+        "wonder_w04_civ_sensor_electromagnetic_readout"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_soulium_anneal_shape",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-SRA",
+        "RN-SPM"
+      ],
+      "zh_name": "魂钢原质退火与多产物成形",
+      "purpose": "沿既有磁场退火得到六份稳定原质，四份立刻成四板八细线、余两份原质返回；退火及成形各两份切屑合并排出。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_proto_mass",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:stabilized_soulium_proto_mass",
+          "count": 2
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 4
+        },
+        {
+          "id": "material:soulium/fine_wire",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:soulium_swarf",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 200
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_honkai_stabilization_medium",
+          "amount": 200
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "退火与成形联制",
+      "baseline_recipe": "wonder_w04_soulium_batch_annealing",
+      "output_consumers": [
+        "industrial_soulium_data_substrate",
+        "industrial_circuit_etching"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_defective_substrate_repair_etch",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-BCE",
+        "RN-MCE"
+      ],
+      "zh_name": "不合格基板修补与浸蚀联线",
+      "purpose": "四块不合格基板补硅和金箔恢复三块适配板，再逐片浸蚀成三片电路层；修补装配废料及两种废液明确输出。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:defective_circuit_substrate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:silicon_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 3
+        },
+        {
+          "id": "hk3gtl:nano_assembly_scrap",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 250
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 750
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 250
+        },
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 750
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "基板修补与蚀刻",
+      "baseline_recipe": "wonder_w04_defective_substrate_repair",
+      "output_consumers": [
+        "industrial_circuit_packaging"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_hrv_scrap_to_wire",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-NSP",
+        "RN-SPM",
+        "RN-OPR"
+      ],
+      "zh_name": "谐振晶格废料复配导线",
+      "purpose": "八份分类废料有损分离后补二十四张Shirabon箔重构六坯，再制十二棒和四十八细线；十六份不可逆尾料保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:resonance_oriented_lattice_classified_scrap",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:resonance_oriented_lattice_fine_wire",
+          "count": 48
+        },
+        {
+          "id": "hk3gtl:resonance_oriented_lattice_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 5400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "回收组分至功能导线",
+      "baseline_recipe": "main_material/resonance_oriented_lattice/lossy_phase_separation",
+      "output_consumers": [
+        "hk3gtl_main_component_hrv_electric_motor",
+        "hk3gtl_main_component_hrv_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_qcv_scrap_to_interconnect",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-CPT",
+        "RN-ICA",
+        "RN-OPR"
+      ],
+      "zh_name": "相干栅格废料复配互连导线",
+      "purpose": "八份分类废料重构六坯后制四十八根复合细线；除重构用Shirabon箔外另加四十八根导电细线，不能将非金属载体当成纯金属。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_classified_scrap",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        },
+        {
+          "id": "gtceu:fine_shirabon_wire",
+          "count": 48
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_fine_wire",
+          "count": 48
+        },
+        {
+          "id": "hk3gtl:coherent_interconnect_grid_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 5800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "回收组分至复合导线",
+      "baseline_recipe": "main_material/coherent_interconnect_grid/lossy_phase_separation",
+      "output_consumers": [
+        "hk3gtl_main_component_qcv_electric_motor",
+        "hk3gtl_main_component_qcv_field_generator"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_metal_hydrogen_carrier_recovery",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-OPR"
+      ],
+      "zh_name": "超导金属氢载体有损分离",
+      "purpose": "四份超导金属氢原含一百二十八锭Magmatter载体，本工艺只回收六十四锭；崩坏晶体、Shirabon导线和氢封装均不返回。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superconductive_metal_hydrogen",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:magmatter_ingot",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "超导载体退役",
+      "baseline_recipe": "hk3gtl_superconductive_metal_hydrogen",
+      "output_consumers": [
+        "hk3gtl_superconductive_metal_hydrogen",
+        "hk3gtl_fluid_alloy"
+      ]
+    },
+    {
+      "id": "wonder_w04_x46_phase_mirror_retirement",
+      "role": "W04",
+      "requirements": [
+        "RN-SEM",
+        "RN-OPR"
+      ],
+      "zh_name": "相位转移镜电磁结构拆解",
+      "purpose": "两面镜原含十六份纳米陶瓷和六十四张Shirabon板，只取回四份陶瓷及十六张箔，其余电机电子结构降为拆解料。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:phase_transfer_mirror",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 4
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:drone_disassembly_scrap",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 1000
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "电磁光学结构退役",
+      "baseline_recipe": "hk3gtl_phase_transfer_mirror",
+      "output_consumers": [
+        "hk3gtl_phase_transfer_mirror",
+        "industrial_recovery_drone_scrap",
+        "main_material/coherent_interconnect_grid/fresh_feed_reconstitution"
+      ]
+    }
+  ]
+}

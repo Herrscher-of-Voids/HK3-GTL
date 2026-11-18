@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value=AEWirelessFilterTool.class,remap=false)
-/** 【变更记录 #1】2026-10-01 05:20:36（修订128）：删除无；新增联动工具事务后置核验；修改无；用途：只观察真实提交，不修改联动结果，不授正式资格。 */
+ 
 public abstract class Hk3EggFilterMixin {
     @Unique private final ThreadLocal<GlobalPos> hk3gtl$bound=new ThreadLocal<>();
     @Unique private final ThreadLocal<Boolean> hk3gtl$blacklisted=new ThreadLocal<>();

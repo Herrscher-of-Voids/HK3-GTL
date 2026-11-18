@@ -10,11 +10,11 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * 【变更记录 #1】2026-10-17 13:50:48（内测5修订160）
- * 删除：无。新增：不依赖游戏运行时的物料、设备、研究与事实定点闭包及逐项阻断原因。
- * 修改：统一缺项结果与不可变快照；用途：修正旧判定基础，只证明拓扑可能性，不证明数量、供电或生存验收。
- */
+ 
+
+
+
+
 public final class RecipeReachability {
     private RecipeReachability() {}
 

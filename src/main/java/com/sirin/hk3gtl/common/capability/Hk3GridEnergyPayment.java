@@ -7,13 +7,13 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-/**
- * 【文件职责】机器EU配方及直接取电的精确金额适配；后端负责实际账户和团队归属。
- * 【变更记录 #1】2026-10-01 17:33:35（修订138）
- * 删除：无；新增：任意精度求和、可变剩余清单、模拟/实际支付结果及long有符号改量。
- * 修改：不改价、不改后端余额，只有后端确认成功才报告已处理金额。
- * 用途：防合并费用饱和少付、扣款失败伪成功及Long.MIN_VALUE取反溢出；不代表跨EU/HW事务。
- */
+ 
+
+
+
+
+
+
 public final class Hk3GridEnergyPayment {
     private static final BigInteger LONG_MAX = BigInteger.valueOf(Long.MAX_VALUE);
     private Hk3GridEnergyPayment() {}

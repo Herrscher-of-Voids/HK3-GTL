@@ -14,18 +14,18 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.function.Predicate;
 
-/**
- * 【变更记录 #1】2026-11-04 05:57:01（第1次备注 · 内测5修订196）
- * 删除：无；新增：64旧正式事件逐项处置目录及本人首信的严格同义适配。
- * 修改：候选来源仅供审核，生产只接受OT001已批准首信映射，其余逐项等待。
- * 用途：正式档案保留原要求与具体缺口；查询只读原账本，不改旧收藏、正文或许可。
- */
-/**
- * 【变更记录 #2】2026-11-04 06:12:15（第2次备注 · 内测5修订196）
- * 删除：63事件未采用候选的等待分支；新增：负责人授权的64逐项新正文与准确研究/通信/审查来源。
- * 修改：研究型读取本人新版全文回执，交流审查型投影精确本人经历；未接执行器仍显示等待。
- * 用途：规则和正文指纹绑定，不让旧收藏、泛研究或错误来源授资格；不推断实体设施与上游可玩性。
- */
+ 
+
+
+
+
+
+ 
+
+
+
+
+
 public final class Hk3LegacyArchiveMigration {
     public enum SourceKind { RESEARCH, COMMUNICATION, REVIEW }
     public record Rule(String eventId, String previousTrigger, SourceKind kind, String source,
@@ -92,7 +92,7 @@ public final class Hk3LegacyArchiveMigration {
         };
         if(!complete) {
             if(rule.kind()==SourceKind.RESEARCH&&!Hk3ResearchExecutionContracts.get(rule.source()).existing())
-                return Fact.waiting("课题 "+rule.source()+" 的执行来源尚未全部接入；已有真实完成记录才可阅读本条");
+                return Fact.waiting("课题 "+rule.source()+" 当前尚未开放；完成该课题后可阅读本条");
             return Fact.missing(switch(rule.kind()) {
                 case RESEARCH -> "本队尚未完成准确课题："+rule.source();
                 case COMMUNICATION -> "本人尚未完成该组正式交流："+rule.source();

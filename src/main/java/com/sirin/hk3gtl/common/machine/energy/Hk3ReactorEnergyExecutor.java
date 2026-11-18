@@ -1,23 +1,24 @@
 package com.sirin.hk3gtl.common.machine.energy;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 
 import java.math.BigInteger;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * I19-I22 可保存的纯计算批次游标；不直接写机器仓、账户或世界状态。
- * 变更记录 #1 · 2026-10-18 21:46:33 · 修订167：新增合同校验、BigInteger累计、输出接受回执及严格NBT读写。
- */
-/**
- * 【变更记录 #2】2026-10-18 23:13:00（修订170）
- * - 删除：按机器职责检索单个静态能源合同的批次查找方式。
- * - 新增：批次启动、恢复、推进与乏燃料查询均按工业配方ID解析合同。
- * - 修改：保留机器职责校验，但允许同一I19-I22职责下存在多个独立配方合同。
- * - 用途：为逐燃料工况记账，避免多配方反应堆共享错误工时、电压或产物；仍是隔离纯逻辑，不直接读写游戏仓或账户。
- */
+ 
+
+
+
+ 
+
+
+
+
+
+
 public final class Hk3ReactorEnergyExecutor {
     private static final int SCHEMA = 1;
     private static final Set<String> BATCH_KEYS = Set.of(
@@ -61,6 +62,12 @@ public final class Hk3ReactorEnergyExecutor {
         public static Batch fromNbt(CompoundTag tag) {
             if (tag == null || !tag.getAllKeys().equals(BATCH_KEYS))
                 throw new IllegalArgumentException("反应堆批次字段缺失或包含未知字段");
+            if (!tag.contains("schema", Tag.TAG_INT) || !tag.contains("elapsedTicks", Tag.TAG_INT)
+                    || !tag.contains("totalTicks", Tag.TAG_INT) || !tag.contains("role", Tag.TAG_STRING)
+                    || !tag.contains("recipeId", Tag.TAG_STRING) || !tag.contains("generatedEu", Tag.TAG_STRING)
+                    || !tag.contains("completed", Tag.TAG_BYTE)
+                    || tag.getByte("completed") != 0 && tag.getByte("completed") != 1)
+                throw new IllegalArgumentException("反应堆批次字段类型或完成标记损坏");
             if (tag.getInt("schema") != SCHEMA || !tag.hasUUID("batchId") || !tag.hasUUID("owner"))
                 throw new IllegalArgumentException("反应堆批次版本或身份损坏");
             try {

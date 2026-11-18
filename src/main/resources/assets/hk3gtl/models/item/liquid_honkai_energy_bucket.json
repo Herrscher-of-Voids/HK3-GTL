@@ -1,5 +1,3 @@
 {
-  "parent": "forge:item/bucket",
-  "loader": "forge:fluid_container",
-  "fluid": "hk3gtl:liquid_honkai_energy"
+  "parent": "hk3gtl:item/honkai/liquid_honkai_energy_bucket"
 }

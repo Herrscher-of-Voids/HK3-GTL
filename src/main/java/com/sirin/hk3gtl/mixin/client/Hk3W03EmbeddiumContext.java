@@ -1,6 +1,7 @@
 package com.sirin.hk3gtl.mixin.client;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
@@ -9,4 +10,5 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(targets="me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockRenderContext",remap=false)
 public interface Hk3W03EmbeddiumContext {
     @Invoker("pos") BlockPos hk3gtl$pos();
+    @Invoker("state") BlockState hk3gtl$state();
 }

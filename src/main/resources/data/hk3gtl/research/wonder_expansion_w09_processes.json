@@ -1,0 +1,2307 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w09_x46_endurance_dielectric_interface",
+      "role": "W09",
+      "zh_name": "恒续介电膜共识界面制备",
+      "purpose": "两份WFV板、十六份聚合物箔和两千稳定崩坏能完整保留；附加凝态填料建立低漂移界面，不从档案复制材料。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_interconnect_mesh",
+        "hk3gtl_electronic_civilization_endurance_circuit_substrate"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_dielectric_film",
+      "process_family": "逻辑材料界面"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_interconnect_registration",
+      "role": "W09",
+      "zh_name": "恒续互连网多层对准",
+      "purpose": "三十二根WFV细线与四份介电膜固定产八网；消耗参考光栅做批间套准，共识档案仅作可复用工装。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_fine_wire",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_circuit_substrate",
+        "hk3gtl_electronic_civilization_endurance_cpu"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_interconnect_mesh",
+      "process_family": "多层微互连"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_direct_printed_board",
+      "role": "W09",
+      "zh_name": "恒续基板层压与蚀刻贯通",
+      "purpose": "完整消耗普通两块基板的新主材、介电层、互连、蚀刻层及前平台双基板，再合并湿蚀刻；只省去中间转运。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_printed_circuit_board",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array",
+        "hk3gtl_main_circuit_cev_processor_mainframe"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_circuit_substrate|hk3gtl_electronic_civilization_endurance_printed_circuit_board",
+      "process_family": "逻辑板贯通制造"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_model_guided_substrate",
+      "role": "W09",
+      "zh_name": "模型约束恒续电路基板",
+      "purpose": "保留普通基板的前平台基板与印刷板，不以共识数据跳过电子平台；新增认知复合材承担层序约束。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_printed_circuit_board",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_circuit_substrate",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w09_civilization_board_feedback_etch",
+        "hk3gtl_electronic_civilization_endurance_printed_circuit_board"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_circuit_substrate",
+      "process_family": "模型引导层压"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_epitaxy_feedback",
+      "role": "W09",
+      "zh_name": "恒续外延晶圆闭环生长",
+      "purpose": "两片中子素晶圆、四份WFV板、八份介电膜与八枚前平台裸片全部投入；四片外延晶圆仍需后续光刻。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 8000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 8000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 4000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_logic_wafer",
+        "hk3gtl_electronic_civilization_endurance_ram_wafer"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_epitaxial_wafer",
+      "process_family": "半导体闭环生长"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_dual_wafer_layout",
+      "role": "W09",
+      "zh_name": "恒续逻辑与存储双版曝光",
+      "purpose": "两片外延片分别分配逻辑和存储版，存储支线仍消耗一片前平台存储晶圆；不把一片晶圆复制为两片。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_wafer",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w06_x46_endurance_logic_dicing",
+        "wonder_w06_x46_endurance_memory_dicing"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_logic_wafer|hk3gtl_electronic_civilization_endurance_ram_wafer",
+      "process_family": "双版晶圆光刻"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_cpu_consensus_package",
+      "role": "W09",
+      "zh_name": "恒续CPU一致性共封装",
+      "purpose": "四颗前平台CPU、八裸片、十六存储与完整阵列互连均实际消耗；认知复合材承载封装映射，不产生研究事实。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_cpu",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 4000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_wfv_processor",
+        "hk3gtl_main_component_civ_field_generator"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_cpu",
+      "process_family": "逻辑一致性封装"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_capacitor_dielectric_stack",
+      "role": "W09",
+      "zh_name": "恒续贴片电容介电堆叠",
+      "purpose": "电容支线保留八个前平台电容、介电膜、互连和硅岩合金箔；认知填料只供层间映射，不替代导电极板。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_capacitor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_capacitor",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_capacitor",
+      "process_family": "电容功能制造"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_diode_junction_growth",
+      "role": "W09",
+      "zh_name": "恒续贴片二极管结区生长",
+      "purpose": "保留前平台二极管与磷化铟镓半导体原料；生长液定量消耗，固定产八件。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_diode",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_diode",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_diode",
+      "process_family": "结区半导体制造"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_resistor_graphene_pattern",
+      "role": "W09",
+      "zh_name": "恒续贴片电阻石墨烯图形化",
+      "purpose": "石墨烯、电介质与前平台电阻均真实消耗；精确图形化负责阻值匹配，不把任意贴片改名为电阻。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_resistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_resistor",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 1800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_resistor",
+      "process_family": "阻性功能膜"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_transistor_gate_stack",
+      "role": "W09",
+      "zh_name": "恒续贴片晶体管栅堆叠",
+      "purpose": "前平台晶体管、本平台膜网与铕板完整投入，栅极堆叠与认知映射形成固定八件输出。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_transistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_transistor",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_transistor",
+      "process_family": "晶体管栅工程"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_inductor_magnetic_winding",
+      "role": "W09",
+      "zh_name": "恒续贴片电感磁芯绕制",
+      "purpose": "八个前平台电感与中子素环保留磁路成本，互连网负责绕组；不以逻辑数据替代磁芯实体。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_inductor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_inductor",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_inductor",
+      "process_family": "磁性贴片制造"
+    },
+    {
+      "id": "wonder_w09_x46_endurance_direct_smd_array",
+      "role": "W09",
+      "zh_name": "五类贴片制造与阵列贯通",
+      "purpose": "五类前平台贴片各八件、十膜十网、五类专属添加剂与一块本平台PCB共同消耗，合并五次制造与阵列贴装，只产两阵列。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_smd_capacitor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_diode",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_resistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_transistor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_smd_inductor",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 10
+        },
+        {
+          "id": "gtceu:naquadah_alloy_foil",
+          "count": 4
+        },
+        {
+          "id": "gtceu:indium_gallium_phosphide_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 2
+        },
+        {
+          "id": "gtceu:europium_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:neutronium_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2750
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2750
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "hk3gtl_main_circuit_cev_processor_mainframe"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_smd_array",
+      "process_family": "异构贴片贯通制造"
+    },
+    {
+      "id": "wonder_w09_x46_wfv_processor_signal_mapping",
+      "role": "W09",
+      "zh_name": "WFV处理器物理信号映射",
+      "purpose": "保留处理器全部PCB、存储、互连、双CPU与双阵列；主材仍是本阶WFV箔，认知复合材承担额外映射。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wfv_processor",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_wsv_assembly",
+        "hk3gtl_main_component_wfv_electric_motor"
+      ],
+      "baseline_recipe": "hk3gtl_main_circuit_wfv_processor",
+      "process_family": "处理器信号封装"
+    },
+    {
+      "id": "wonder_w09_x46_wsv_assembly_clock_domain",
+      "role": "W09",
+      "zh_name": "WSV处理器集时钟域接合",
+      "purpose": "两个WFV处理器作为实体前形态继续消耗；本阶壳板与两倍电子件成本不删，合并跨时钟域接合。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wfv_processor",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_civ_computer",
+        "hk3gtl_main_component_wsv_electric_motor"
+      ],
+      "baseline_recipe": "hk3gtl_main_circuit_wsv_assembly",
+      "process_family": "跨时钟域封装"
+    },
+    {
+      "id": "wonder_w09_x46_civ_computer_quadrisystem_links",
+      "role": "W09",
+      "zh_name": "CIV超级计算机四系总线接合",
+      "purpose": "两个WSV处理器集与完整四倍电子成本接入CIV壳板；共识阵列负责布线映射，不跳过系列升级。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 8000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_circuit_cev_processor_mainframe",
+        "hk3gtl_main_component_civ_electric_motor"
+      ],
+      "baseline_recipe": "hk3gtl_main_circuit_civ_computer",
+      "process_family": "四系计算总线"
+    },
+    {
+      "id": "wonder_w09_x46_cev_mainframe_consensus_fabric",
+      "role": "W09",
+      "zh_name": "CEV电路主机一致性互连封装",
+      "purpose": "两个CIV超级计算机、八PCB、三十二存储、十六互连、十六CEV板和八阵列全部消耗；不消耗或产出终审资格。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_plate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_smd_array",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 16000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 16000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 4200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_motor",
+        "hk3gtl_main_component_cev_field_generator"
+      ],
+      "baseline_recipe": "hk3gtl_main_circuit_cev_processor_mainframe",
+      "process_family": "主机互连封装"
+    },
+    {
+      "id": "wonder_w09_x46_optical_feedback_consensus_map",
+      "role": "W09",
+      "zh_name": "光学工艺反馈模块映射装配",
+      "purpose": "保留双光栅、双数据基板、双封装和空间校准件；另投恒续存储与认知复合材保存物理映射。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 144
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w06_x46_endurance_logic_dicing",
+        "wonder_w09_x46_endurance_interconnect_registration"
+      ],
+      "baseline_recipe": "wonder_w01_optical_feedback_module",
+      "process_family": "制造反馈工装"
+    },
+    {
+      "id": "wonder_w09_x46_rule_carrier_physical_compilation",
+      "role": "W09",
+      "zh_name": "重构规则载体物理编译",
+      "purpose": "四份新数据基板、铂箔和纳米群编译两份实体载体；认知材料与母档案不构成档案复制回收入口。",
+      "requirements": [
+        "RN-CKV",
+        "RN-RCA",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:reconstruction_rule_carrier",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_nano_control",
+        "industrial_soulium_reconstruction"
+      ],
+      "baseline_recipe": "wonder_w01_rule_carrier_collaborative",
+      "process_family": "实体控制数据制造"
+    },
+    {
+      "id": "wonder_w09_x46_world_model_data_fusion",
+      "role": "W09",
+      "zh_name": "世界模型载体数据融合",
+      "purpose": "完整新载体、认知复合材、合金箔和校准件构成一份模型；复用母档案只指导融合，不产世界捕获事实。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_foil",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w09_x46_endurance_model_guided_substrate",
+        "wonder_w09_x46_microstructure_inverse_design"
+      ],
+      "baseline_recipe": "wonder_w09_physical_model_carrier",
+      "process_family": "模型载体制造"
+    },
+    {
+      "id": "wonder_w09_x46_mask_overlay_metrology",
+      "role": "W09",
+      "zh_name": "多层光刻掩膜套准制造",
+      "purpose": "四块中子素板提供四份掩膜本体，参考光栅与新数据基板消耗于套准标记；母掩膜不参与复制。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_logic_wafer",
+        "hk3gtl_electronic_civilization_endurance_ram_wafer"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_lithography_mask",
+      "process_family": "套准光刻工装"
+    },
+    {
+      "id": "wonder_w09_x46_microstructure_inverse_design",
+      "role": "W09",
+      "zh_name": "魂钢微结构模板逆向设计",
+      "purpose": "完整保留四份模板的钨钢、铂箔与晶种新料，新增陶瓷稳定定位；模型仅作设计工装，不返还制作成本。",
+      "requirements": [
+        "RN-CKV",
+        "RN-LES",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_microstructure_template",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_soulium_precursor",
+        "industrial_nano_building"
+      ],
+      "baseline_recipe": "industrial_soulium_template",
+      "process_family": "工装逆向设计"
+    },
+    {
+      "id": "wonder_w09_x46_casting_mold_thermal_model",
+      "role": "W09",
+      "zh_name": "魂钢压铸模热模型补偿制造",
+      "purpose": "钨钢、铂箔、模板与陶瓷形成一件实体模具，焊料实际投入；热模型只补偿收缩尺寸。",
+      "requirements": [
+        "RN-CKV",
+        "RN-LES",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 8
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_microstructure_template",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_casting_mold",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w08_x46_empty_vessel_hot_structural_weld",
+        "wonder_w08_x46_silicon_carbide_fuel_hot_charge_seal"
+      ],
+      "baseline_recipe": "wonder_w01_casting_mold_shared_design",
+      "process_family": "铸造工装数据制造"
+    },
+    {
+      "id": "wonder_w09_x46_spatial_calibrator_encoded_reference",
+      "role": "W09",
+      "zh_name": "空间校准模块编码定标",
+      "purpose": "四基板与仿制空之核心继续作为实体原料，认知填料承载标定映射；不从母档案复制核心。",
+      "requirements": [
+        "RN-CKV",
+        "RN-IAA",
+        "RN-CQS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imitation_void_core",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w01_optical_feedback_module",
+        "wonder_w09_x46_world_model_data_fusion"
+      ],
+      "baseline_recipe": "wonder_w01_spatial_calibration_module",
+      "process_family": "空间读出工装"
+    },
+    {
+      "id": "wonder_w09_x46_spatial_probe_encoded_readout",
+      "role": "W09",
+      "zh_name": "空间探针编码读出装配",
+      "purpose": "四基板、双封装与仿制空之核心组成真实探针，附加认知材料保存编码；不直接生成观测资料。",
+      "requirements": [
+        "RN-CKV",
+        "RN-IAA",
+        "RN-CQS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imitation_void_core",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:spatial_probe",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w01_multisensor_world_model",
+        "空间实际观测工艺"
+      ],
+      "baseline_recipe": "wonder_w01_spatial_probe_cofabrication",
+      "process_family": "探测器读出制造"
+    },
+    {
+      "id": "wonder_w09_x46_reference_grating_dielectric_mount",
+      "role": "W09",
+      "zh_name": "光学参考光栅介电安装",
+      "purpose": "玻璃、钻石、钨钢和铂箔完整承担四份光栅成本，新增恒续介电膜隔离安装应力。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "minecraft:glass_pane",
+          "count": 8
+        },
+        {
+          "id": "minecraft:diamond",
+          "count": 4
+        },
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 4
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w09_x46_mask_overlay_metrology",
+        "wonder_w09_x46_endurance_interconnect_registration"
+      ],
+      "baseline_recipe": "wonder_w01_optical_reference_grating",
+      "process_family": "光学制造基准"
+    },
+    {
+      "id": "wonder_w09_x46_etched_layer_mask_registration",
+      "role": "W09",
+      "zh_name": "适配线路层掩膜套准蚀刻",
+      "purpose": "八份适配基板只得到七层合格线路和一层固定失败品；掩膜、试剂与基板真实消耗，不提高物料产率。",
+      "requirements": [
+        "RN-CKV",
+        "RN-MCE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 7
+        },
+        {
+          "id": "hk3gtl:failed_circuit_layer",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 2000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_circuit_substrate",
+        "wonder_w07_x46_failed_layer_reseed_etch"
+      ],
+      "baseline_recipe": "hk3gtl_electronic_etched_layer",
+      "process_family": "线路层套准蚀刻"
+    },
+    {
+      "id": "wonder_w09_x46_cev_sensor_readout_fabric",
+      "role": "W09",
+      "zh_name": "CEV传感器分布读出装配",
+      "purpose": "完整保留CIV传感器、CEV电路和恒续主材；认知复合材只供读出拓扑映射，首份CEV电路仍由独立电路路线制作。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:sensor_civ",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:sensor_cev",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CEV主控与功能接口"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_cev_sensor",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w09_x46_cev_emitter_signal_fabric",
+      "role": "W09",
+      "zh_name": "CEV发射器信号拓扑接合",
+      "purpose": "CIV发射器与两份CEV电路实际消耗，全部恒续主材及CPU裸片继续投入；共识只优化接线工序。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:emitter_civ",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rod",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:emitter_cev",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CEV主控与功能接口"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_cev_emitter",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w09_x46_cev_field_control_fabric",
+      "role": "W09",
+      "zh_name": "CEV场发生器控制拓扑装配",
+      "purpose": "保留CIV场发生器、CEV电路、双CPU与框线箔完整成本；认知材料保存物理控制映射，不生成能源。",
+      "requirements": [
+        "RN-CKV",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_civ",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cev_processor_mainframe",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_cev",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_consensus_archive",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3600,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "CEV主控与能量约束设备"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_cev_field_generator",
+      "process_family": "组件精密装配"
+    }
+  ]
+}

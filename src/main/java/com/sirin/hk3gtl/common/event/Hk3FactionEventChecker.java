@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.event;
 
-
-/**
- * 【文件职责】
- * - 处理 Hk3FactionEventChecker 相关事件分发与触发。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -44,12 +25,12 @@ import net.minecraft.server.level.ServerPlayer;
  *
  * @see Hk3EventManagerImpl 里程碑与 FB 事件管理器
  */
-/**
- * 【变更记录 #1】2026-11-04 06:12:15（第1次编号备注 · 内测5修订196）
- * 删除：旧R研究、退休设备、旧阶段与注视阈值直接发64正式故事的分支。
- * 新增：现行统一档案服务的重核入口；修改：调用名保留，旧调用参数不能制造正式来源。
- * 用途：逐事件按准确课题、本人交流/会面迁移，不新增赠物/权限，原历史收藏与终审自身入口保留。
- */
+ 
+
+
+
+
+
 public class Hk3FactionEventChecker {
     private Hk3FactionEventChecker() {}
     /** 正式故事由独立服务登录及每100tick补投，避免旧每秒轮询重复扫描。 */

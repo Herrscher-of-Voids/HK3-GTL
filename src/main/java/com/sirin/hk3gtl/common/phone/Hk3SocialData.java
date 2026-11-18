@@ -5,8 +5,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-/** 【变更记录 #1】2026-09-30 19:56:03（修订116）：删除无；新增按玩家保存会话、阶段和朋友圈；修改无；用途：服务端主线程账本，每角色保留最近200条、朋友圈120条，AI和Key不写入。 */
-/** 【变更记录 #2】2026-10-01 17:04:49（修订136）：删除聊天数据损坏时的默认空根读取；新增防覆盖加载及已知字段完整性核验；修改合法内容深拷贝保留，未知扩展字段不静默删除；用途：保护私聊、朋友圈、阶段及轮换记录，不保存AI或Key。 */
+ 
+ 
 public final class Hk3SocialData extends SavedData {
     private CompoundTag users=new CompoundTag();
     public static Hk3SocialData get(ServerPlayer p){return com.sirin.hk3gtl.common.util.Hk3SavedDataGuard.get(p.server,"hk3gtl_social",Hk3SocialData::load,Hk3SocialData::new);}

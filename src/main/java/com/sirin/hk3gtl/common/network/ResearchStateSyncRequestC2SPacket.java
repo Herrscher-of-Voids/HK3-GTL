@@ -1,24 +1,5 @@
 package com.sirin.hk3gtl.common.network;
 
-
-/**
- * 【文件职责】
- * - 处理 ResearchStateSyncRequestC2SPacket 网络同步与通信。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import com.sirin.hk3gtl.common.research.Hk3ResearchManager;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
@@ -42,7 +23,7 @@ import java.util.function.Supplier;
  * <h3>修改指南</h3>
  * 如需携带额外参数（如筛选条件），在此类中添加字段并更新 encode/decode。
  */
-/** 【变更记录 #1】2026-10-01 17:04:49（修订136）：删除无；新增服务器关闭限流清理；修改时间回退不沿用旧冷却；用途：同进程切换存档和重生不会被旧同步请求记录锁住，不改研究事实。 */
+ 
 public class ResearchStateSyncRequestC2SPacket {
 
     private static final int REQUEST_COOLDOWN_TICKS = 10;

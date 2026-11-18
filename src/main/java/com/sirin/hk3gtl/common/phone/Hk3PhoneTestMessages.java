@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.common.phone;
 import java.util.ArrayList;
 import java.util.List;
-/**
- * 【变更记录 #1】2026-09-30 18:18:05（内测5修订112）
- * 删除：无；新增：只生成消息数据的三组验收夹具。
- * 修改：不调用研究/事件完成入口；用途：验证队列、分页、防重与长文，避免改剧情。
- */
+ 
+
+
+
+
 public final class Hk3PhoneTestMessages {
     private Hk3PhoneTestMessages(){}
     public record Message(String id,String title,String body,String kind){}

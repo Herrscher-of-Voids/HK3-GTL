@@ -21,22 +21,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * 【文件职责】区别新建公开构造与旧档parse路径，在世界数据实例保存高度合同。
- * 【变更记录 #1】2026-10-17 21:19:41（第1次备注 · 修订166）
- * - 删除：无。新增：新世界身份、原生NBT合同写入/严格读取及瞬态应用标记。
- * - 修改：无合同旧档保持空合同，不依据level.dat存在或initialized猜测新世界。
- * - 用途：新建、重启、客户端新世界流程与专服共用持久身份，损坏合同拒绝加载而非降高。
- * 【变更记录 #2】2026-10-17 21:43:13（第2次备注 · 修订166）
- * - 删除：无，保留全部历史和无合同旧档分支。
- * - 新增：createTag写入前冻结原始注册表快照。
- * - 修改：兼容Minecraft在启动集成服务器前先保存新世界的实际调用顺序，禁止保存启用但无边界的合同。
- * - 用途：首次保存后中断再重开仍能核验原始高度；只读取注册表，不在保存路径修改维度高度。
- * 【变更记录 #3】2026-10-17 21:46:43（第3次备注 · 修订166）
- * - 删除：无。新增：保存封存入口传入本实例的应用标记。
- * - 修改：明确区分启动前原边界与运行后新边界，不由数值相同猜测世界状态。
- * - 用途：在原生世界数据写盘前拒绝维度资源漂移，避免写入不兼容设置。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @Mixin(PrimaryLevelData.class)
 public abstract class Hk3PrimaryLevelHeightMixin implements Hk3HeightWorldData {
     @Unique private static final String HK3GTL_HEIGHT_TAG = Hk3HeightWorldState.TAG_KEY;

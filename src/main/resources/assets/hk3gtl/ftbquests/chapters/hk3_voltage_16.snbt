@@ -1,735 +1,1176 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_16",
-  "id": "4B5189CB324CC1ED",
-  "title": "HK3GTL · CEV · 恒续压",
+  "id": "4B552A261EEC6A8F",
+  "title": "恒续压 CEV",
   "subtitle": [
-    "Tier30 · 为最后的会面做准备"
+    "Tier30-CEV"
   ],
-  "group": "",
-  "order_index": 30,
-  "icon": "hk3gtl:electric_motor_cev",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 31,
+  "icon": "hk3gtl:voltage_machine_casing_cev",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B5971A68C850F57",
-      "title": "为最后的会面做准备",
-      "icon": "hk3gtl:cev_processor_mainframe",
-      "x": 0.0,
-      "y": -4.0,
+      "id": "4B517FCB2C3DA737",
+      "title": "三领域差异复核",
+      "subtitle": "比较已有来源的设施、配方与收支",
       "description": [
-        "把共识、工业统御、演算和世界泡轮回的成果汇在一起，再进行跨领域检查。",
-        "",
-        "朝觐圣座研究仍有明确前置，十五座奇观也需要各自验收。完成属于你的旅程以后，不妨放下终端，去看看屏幕外的世界。",
-        "{@pagebreak}",
-        "本页是CEV · 恒续压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "在逆向实验室复核三领域的真实来源，比较设施、配方、投入和产出。保留各领域原始记录，形成差异复核回执与标准样本。"
+      ],
+      "dependencies": [
+        "4B50C907A3CC0D16"
       ],
       "tasks": [
         {
-          "id": "4B584A641B7DA3FA",
-          "type": "checkmark",
-          "title": "读完这一页",
+          "id": "4B55F50D8D6C93A8",
+          "type": "custom",
+          "title": "实际完成三领域差异复核",
           "tags": [
-            "hk3gtl_quest_voltage_intro_16"
+            "hk3gtl_quest_existing_three_domain_difference"
           ]
         }
       ],
-      "size": 2.0,
-      "shape": "rsquare"
+      "icon": "hk3gtl:honkai_reference_sample",
+      "x": 30,
+      "y": 46,
+      "optional": true
     },
     {
-      "id": "4B59DC68A76196C6",
-      "title": "电路与八大件",
-      "icon": "hk3gtl:electric_motor_cev",
-      "x": -4.0,
-      "y": -4.0,
+      "id": "4B512A71D8CE5C05",
+      "title": "从CIV车间继续",
+      "subtitle": "CIV → CEV",
       "description": [
-        "进入CEV · 恒续压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批CEV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
+      ],
+      "dependencies": [
+        "4B5C0187E115F91B"
       ],
       "tasks": [
         {
-          "id": "4B52D20AF0347BE1",
-          "type": "checkmark",
-          "title": "读完这一页",
+          "id": "4B5FEF52AD01F416",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_civ",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_civ",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B54AFA93EB2FAFB",
+      "title": "可更换服役中介层",
+      "subtitle": "为更换部件保留定位与接口",
+      "description": [
+        "把前级互通接口装入可更换服役中介层，补齐插接定位和服役标识。后续电路与执行部件直接使用这一层组件。"
+      ],
+      "dependencies": [
+        "4B5D96B2EA3C959C",
+        "4B50E11E02DBF988",
+        "4B58A59D17904637"
+      ],
+      "tasks": [
+        {
+          "id": "4B51B908BCE3EC1F",
+          "type": "item",
+          "item": "hk3gtl:replaceable_service_interposer",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:replaceable_service_interposer",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5CF24BD1B7382A",
+      "title": "恒续交接检查点核心",
+      "subtitle": "在部件更换前后交接运行状态",
+      "description": [
+        "封装状态交接所需的计算、存储和时钟组件，制成恒续交接检查点核心。它为部件更换后的状态恢复提供检查点。"
+      ],
+      "dependencies": [
+        "4B54AFA93EB2FAFB",
+        "4B5000890F24860A",
+        "4B5A1B643F27B96F"
+      ],
+      "tasks": [
+        {
+          "id": "4B544BF33FDA54C2",
+          "type": "item",
+          "item": "hk3gtl:perennial_handover_checkpoint_core",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_handover_checkpoint_core",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5FC7F892A19701",
+      "title": "可维护执行器筒",
+      "subtitle": "给执行机构留出拆装位置",
+      "description": [
+        "保留前级支承，将新的执行机构装入可维护筒体。定位和拆装接口随成品一起制成，再投入本级运动部件。"
+      ],
+      "dependencies": [
+        "4B5CF24BD1B7382A",
+        "4B542D8FCF4F68D5",
+        "4B5CCF2A903FF555"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AB030FDB797C3",
+          "type": "item",
+          "item": "hk3gtl:maintainable_actuator_cartridge",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:maintainable_actuator_cartridge",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5AA35FEA9ACA0D",
+      "title": "可排空维护回路夹套",
+      "subtitle": "让维护回路能够隔离与排空",
+      "description": [
+        "将前级通道与新的夹套、隔离阀路组装在一起，接出维护所需的独立供回路。完成气密工序并收集排热液。"
+      ],
+      "dependencies": [
+        "4B5000890F24860A",
+        "4B5D96B2EA3C959C",
+        "4B52162F5A7D0B45"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DC83E0FA8F593",
+          "type": "item",
+          "item": "hk3gtl:drainable_service_loop_jacket",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:drainable_service_loop_jacket",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B537E66D4F8E7F4",
+      "title": "文明恒续处理器主机",
+      "subtitle": "给整台主机安排状态交接与维护接口",
+      "description": [
+        "将两件文明恒续超级计算机装入恒续服役复合结构，连接可更换中介层、交接检查点核心与可排空维护夹套，完成主机总装。"
+      ],
+      "dependencies": [
+        "4B5CF24BD1B7382A",
+        "4B5AA35FEA9ACA0D",
+        "4B542D8FCF4F68D5"
+      ],
+      "tasks": [
+        {
+          "id": "4B577B699B89EE7E",
+          "type": "item",
+          "item": "hk3gtl:cev_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:cev_processor_mainframe",
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B529CC1F658CB71",
+      "title": "CEV 电动马达",
+      "subtitle": "将旧驱动与本阶执行组件合装",
+      "description": [
+        "以两件CIV电动马达为基础，加入可维护执行器筒、恒续交接检查点核心和可排空维护回路夹套，再接入本级处理电路，制成CEV电动马达。"
+      ],
+      "dependencies": [
+        "4B5FC7F892A19701",
+        "4B537E66D4F8E7F4",
+        "4B55115F4A7426F9"
+      ],
+      "tasks": [
+        {
+          "id": "4B57F313129483BF",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_motor_cev",
+      "x": 0,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B52F08DCBE97DD2",
+      "title": "CEV 电动活塞",
+      "subtitle": "先有本级马达，再组装直线执行机构",
+      "description": [
+        "将本级马达与两件CIV电动活塞合装，接入可维护执行器筒和可排空维护回路夹套，完成本级活塞。"
+      ],
+      "dependencies": [
+        "4B529CC1F658CB71",
+        "4B5D45371582EB09"
+      ],
+      "tasks": [
+        {
+          "id": "4B51BE2DBC18CF30",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_piston_cev",
+      "x": 12,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5B7398D82CE19F",
+      "title": "CEV 电动泵",
+      "subtitle": "把驱动、介质回路与状态组件装到一起",
+      "description": [
+        "以两件CIV电动泵为基础，装入本级马达、可排空维护回路夹套、可维护执行器筒与恒续交接检查点核心，完成本级泵。"
+      ],
+      "dependencies": [
+        "4B529CC1F658CB71",
+        "4B5681A8C14DB9E0"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F57A12E46D8A5",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_pump_cev",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5278D164DEB2C9",
+      "title": "CEV 传送带模块",
+      "subtitle": "把输送驱动接入本阶调度接口",
+      "description": [
+        "将两件CIV传送带模块与两件本级马达合装，连接可更换服役中介层、恒续交接检查点核心和执行组件，制成新输送模块。"
+      ],
+      "dependencies": [
+        "4B529CC1F658CB71",
+        "4B5686CEF885ED13"
+      ],
+      "tasks": [
+        {
+          "id": "4B504C54871503F9",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_cev",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5D5D2C42CBA0AA",
+      "title": "CEV 机械臂",
+      "subtitle": "把旋转驱动与直线执行装在同一框架",
+      "description": [
+        "备齐两件本级马达和一件本级活塞，与两件CIV机械臂一起装配，再连接可更换服役中介层和恒续交接检查点核心。"
+      ],
+      "dependencies": [
+        "4B52F08DCBE97DD2",
+        "4B5AA2239404F68C"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D01502500296C",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_cev",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B51AD9D2688F3DD",
+      "title": "CEV 传感器",
+      "subtitle": "通过本阶接口接出状态读数",
+      "description": [
+        "将两件CIV传感器与可更换服役中介层、恒续交接检查点核心和可排空维护回路夹套合装，接好本级电路与结构件，制成新传感器。"
+      ],
+      "dependencies": [
+        "4B537E66D4F8E7F4",
+        "4B5EBFF8A38C06F2"
+      ],
+      "tasks": [
+        {
+          "id": "4B55E69AAB9E94F6",
+          "type": "item",
+          "item": "hk3gtl:sensor_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_cev",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B571F1CEF57B60B",
+      "title": "CEV 发射器",
+      "subtitle": "把发射组件接入本阶控制与回路",
+      "description": [
+        "在两件CIV发射器的基础上，加入可更换服役中介层、恒续交接检查点核心、可排空维护回路夹套和超短脉冲激光器，完成新发射器。"
+      ],
+      "dependencies": [
+        "4B537E66D4F8E7F4",
+        "4B502D8896D1E3DC"
+      ],
+      "tasks": [
+        {
+          "id": "4B542FF1A20909FF",
+          "type": "item",
+          "item": "hk3gtl:emitter_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_cev",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5F6FE9D2F04DCA",
+      "title": "CEV 力场发生器",
+      "subtitle": "把发射与测量组件汇入场控制",
+      "description": [
+        "先备齐四件本级发射器和两件本级传感器，再与两件CIV力场发生器、本级电路及接口组件一起总装。"
+      ],
+      "dependencies": [
+        "4B51AD9D2688F3DD",
+        "4B571F1CEF57B60B",
+        "4B56BA011C237249"
+      ],
+      "tasks": [
+        {
+          "id": "4B58D095E455F9FA",
+          "type": "item",
+          "item": "hk3gtl:field_generator_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_cev",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B50B186C0A5AE9C",
+      "title": "可换服役界面片",
+      "subtitle": "给固定侧与维修侧各留一层界面",
+      "description": [
+        "用文明四系统统合母材、扩散结合薄层与封边材料制成可换服役界面片，为后面的受控拆解和补料修复准备接口。"
+      ],
+      "dependencies": [
+        "4B55EF1E9B3DACDA",
+        "4B56648313820E90"
+      ],
+      "tasks": [
+        {
+          "id": "4B5413ED560C2C7C",
+          "type": "item",
+          "item": "hk3gtl:replaceable_service_interface_tile",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:replaceable_service_interface_tile",
+      "x": 30,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5F4C2DA483A40E",
+      "title": "可解离服役粘接介质",
+      "subtitle": "配制维修侧可解离的接合介质",
+      "description": [
+        "用全新载液与固体辅料配制粘接介质，送往功能层铺设、承载层复合和维修再固化工序。"
+      ],
+      "dependencies": [
+        "4B55EF1E9B3DACDA"
+      ],
+      "tasks": [
+        {
+          "id": "4B55D3239682F8CD",
+          "type": "custom",
+          "title": "实际完成可解离服役粘接介质",
           "tags": [
-            "hk3gtl_quest_voltage_parts_16"
+            "hk3gtl_quest_cev_n02"
           ]
         }
-      ]
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 34,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5D753E6B0EA2B6",
+      "title": "可维修功能层",
+      "subtitle": "分别铺设永久固定侧与维修侧",
+      "description": [
+        "以全新的CIV标准坯和界面片开始铺层，为永久固定侧与可打开维修侧分别投入材料，得到可维修功能层。"
+      ],
+      "dependencies": [
+        "4B50B186C0A5AE9C",
+        "4B5F4C2DA483A40E"
+      ],
+      "tasks": [
+        {
+          "id": "4B50DE7F0D72C9FF",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_stage_1",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_stage_1",
+      "x": 38,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B504BF8313B8490",
+      "title": "维修层复合坯",
+      "subtitle": "把维修功能层接到承载主层",
+      "description": [
+        "将可维修功能层与另一批CIV标准坯复合，用Z向束和止扩夹层连接。承载主层和维修层各自消耗主体材料。"
+      ],
+      "dependencies": [
+        "4B5D753E6B0EA2B6"
+      ],
+      "tasks": [
+        {
+          "id": "4B510952B3A08F0E",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_stage_2",
+      "x": 42,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5DA55AF8039DA0",
+      "title": "人工老化服役件",
+      "subtitle": "把复合坯送入服役工况调理",
+      "description": [
+        "对维修层复合坯进行人工老化和应力调理。接走热冷却液与废调理液，取得供下一步拆检的服役件。"
+      ],
+      "dependencies": [
+        "4B504BF8313B8490"
+      ],
+      "tasks": [
+        {
+          "id": "4B54F6A3D6F2949A",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_stage_3",
+      "x": 46,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5E9B0A6F4BFEDF",
+      "title": "服役件解离拆检",
+      "subtitle": "拆开老化件并分走损伤层",
+      "description": [
+        "将32件人工老化服役件解离，分出28件可修复拆解态和不可回收尾料。把可修复部分送去补料，尾料另行封存处理。"
+      ],
+      "dependencies": [
+        "4B5DA55AF8039DA0"
+      ],
+      "tasks": [
+        {
+          "id": "4B50735E50941723",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_stage_4",
+          "count": 28,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_stage_4",
+      "x": 50,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B547478A13BB8B9",
+      "title": "补料修复复核态",
+      "subtitle": "用新主体补回拆检损失",
+      "description": [
+        "将28件可修复拆解态与4件CIV标准坯合并，另换新的界面片、结合层与封边材料。再固化后取得32件补料修复复核态。"
+      ],
+      "dependencies": [
+        "4B5E9B0A6F4BFEDF"
+      ],
+      "tasks": [
+        {
+          "id": "4B52F21F66EC39D8",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_stage_5",
+      "x": 54,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5BEBA39F5F2638",
+      "title": "恒续服役复合母材标准坯",
+      "subtitle": "修复复核完成后再终封装",
+      "description": [
+        "为补料修复后的材料重新封装端口与护层，冷却后完成定尺。取得的标准坯再加工成本级结构件。"
+      ],
+      "dependencies": [
+        "4B547478A13BB8B9"
+      ],
+      "tasks": [
+        {
+          "id": "4B52DDBE33CA6413",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_billet",
+      "x": 54,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5C675D38FDE274",
+      "title": "可换护面恒续板",
+      "subtitle": "固定板芯，保留可更换护面",
+      "description": [
+        "将永久侧固定在板芯上，让解离侧承载可更换护面，制成恒续服役复合母材板。"
+      ],
+      "dependencies": [
+        "4B5BEBA39F5F2638"
+      ],
+      "tasks": [
+        {
+          "id": "4B517C631F7EF1D4",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_plate",
+      "x": 50,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B54F6817D14D815",
+      "title": "可换端口恒续棒",
+      "subtitle": "保留棒芯，在端部安排更换接口",
+      "description": [
+        "保留连续棒芯，为端部加装可拆换界面片，再完成封装，制成恒续棒。"
+      ],
+      "dependencies": [
+        "4B5BEBA39F5F2638",
+        "4B5169DF2F36CDFE"
+      ],
+      "tasks": [
+        {
+          "id": "4B5317B23E517E2A",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_rod",
+      "x": 46,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B542D8FCF4F68D5",
+      "title": "可检修接头恒续框架",
+      "subtitle": "把检修位置安排在四角接头",
+      "description": [
+        "保留框架梁体，在四角设置可检修连接和止裂封边，制成恒续框架。"
+      ],
+      "dependencies": [
+        "4B54F6817D14D815",
+        "4B510892DE6F743E"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B895AC9D9021C",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_frame",
+      "x": 42,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5000890F24860A",
+      "title": "可拆端面恒续环",
+      "subtitle": "保留连续环体，单独更换磨损端面",
+      "description": [
+        "将可解离界面安排在环的端面，保留连续承力环体，制成恒续环。"
+      ],
+      "dependencies": [
+        "4B54F6817D14D815",
+        "4B54D6847FD5957F"
+      ],
+      "tasks": [
+        {
+          "id": "4B551A6E7EA5495E",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_ring",
+      "x": 38,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5D96B2EA3C959C",
+      "title": "可解离护层恒续箔",
+      "subtitle": "让护层与永久侧分别接合",
+      "description": [
+        "用聚四氟乙烯薄界面制备可解离侧，永久侧另行结合，制成恒续箔。"
+      ],
+      "dependencies": [
+        "4B5C675D38FDE274",
+        "4B5DCD37A1A4F6E4"
+      ],
+      "tasks": [
+        {
+          "id": "4B519AFDF46DF4C7",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_foil",
+      "x": 34,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B50E11E02DBF988",
+      "title": "可更换端接恒续细线",
+      "subtitle": "让端接处可以单独拆换",
+      "description": [
+        "将连续线芯和可换端接分别制作，用薄界面隔离端接处的维护区域，制成恒续复合细线。"
+      ],
+      "dependencies": [
+        "4B54F6817D14D815",
+        "4B52C7B2C8A73F92"
+      ],
+      "tasks": [
+        {
+          "id": "4B59F3C824918EB3",
+          "type": "item",
+          "item": "hk3gtl:perennial_service_composite_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_fine_wire",
+      "x": 30,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B53D2C97ECE3811",
+      "title": "CEV机械方块",
+      "subtitle": "把可维护材料装成终阶壳体",
+      "description": [
+        "以CIV机械方块为核心，加入恒续板、框架、环及独立接口，再完成封装，制成第一批CEV机械方块。首制工况为CIV。"
+      ],
+      "dependencies": [
+        "4B5C675D38FDE274",
+        "4B542D8FCF4F68D5",
+        "4B5000890F24860A",
+        "4B5C0187E115F91B"
+      ],
+      "tasks": [
+        {
+          "id": "4B51B7ABD89728F1",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_cev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_cev",
+      "x": 30,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B594BFC1472C1F8",
+      "title": "拆解CEV机械方块",
+      "subtitle": "留下可复用壳体与完整结构件",
+      "description": [
+        "分层拆开CEV机械方块，取回CIV核心壳体和一半完整的板、框架、环。其余主体分成分类废料，专用功能件和封装材料随拆解消耗。"
+      ],
+      "dependencies": [
+        "4B53D2C97ECE3811"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AD2275D4A8314",
+          "type": "custom",
+          "title": "实际完成拆解CEV机械方块",
+          "tags": [
+            "hk3gtl_quest_cev_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_civ",
+      "x": 0,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B59361147764D33",
+      "title": "恒续服役复合母材废料分离",
+      "subtitle": "把可重建组分与尾料分别收集",
+      "description": [
+        "用魂钢工艺溶剂洗脱分类废料的附着物，再进行离心分离。主体按75%回收组分、25%不可回收尾料分开，废溶剂单独接走。"
+      ],
+      "dependencies": [
+        "4B55EF1E9B3DACDA"
+      ],
+      "tasks": [
+        {
+          "id": "4B57D3BDBC23A2B8",
+          "type": "custom",
+          "title": "实际完成恒续服役复合母材废料分离",
+          "tags": [
+            "hk3gtl_quest_cev_n17"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_recovered_fraction",
+      "x": 4,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B524AB0A1CADE88",
+      "title": "重建可维修功能层",
+      "subtitle": "补新主体并重新投入功能辅料",
+      "description": [
+        "将回收组分与新鲜主体按配方配合，重新投入全部功能辅料，制成可维修功能层。随后从原来的中间工序继续制造。"
+      ],
+      "dependencies": [
+        "4B50B186C0A5AE9C",
+        "4B5F4C2DA483A40E"
+      ],
+      "tasks": [
+        {
+          "id": "4B50D3111C27FB45",
+          "type": "custom",
+          "title": "实际完成重建可维修功能层",
+          "tags": [
+            "hk3gtl_quest_cev_n18"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:perennial_service_composite_stage_1",
+      "x": 8,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B5C758B92F11F79",
+      "title": "恒续服役复合母材尾料封存",
+      "subtitle": "将损坏材料固化为惰性残渣",
+      "description": [
+        "把不可回收尾料固化为灰烬，送往一般灰尘用途。可重建组分从另一出口送回补料工序。"
+      ],
+      "dependencies": [
+        "4B55EF1E9B3DACDA"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EB7051C6C5C71",
+          "type": "custom",
+          "title": "实际完成恒续服役复合母材尾料封存",
+          "tags": [
+            "hk3gtl_quest_cev_n19"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 12,
+      "y": 52,
+      "optional": true
+    },
+    {
+      "id": "4B50F2613657A6F7",
+      "title": "可换式服役接口舱",
+      "subtitle": "把易损封层与采样接口装进独立舱体",
+      "description": [
+        "将易损封层、状态采样和更换接口组成独立舱体，先在既有设备中制好，再装入后续设施。"
+      ],
+      "dependencies": [
+        "4B59451C718B1F9B",
+        "4B5681A8C14DB9E0",
+        "4B56BA011C237249"
+      ],
+      "tasks": [
+        {
+          "id": "4B53B2E049A7C3DA",
+          "type": "item",
+          "item": "hk3gtl:replaceable_service_bay",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:replaceable_service_bay",
+      "x": 0,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B500FF210FA8348",
+      "title": "识之律者·万象·文明共识矩阵主控",
+      "subtitle": "在熔铸炉制造文明共识矩阵主控",
+      "description": [
+        "完成RN-SFF、RN-CKV研究，在炎之律者·劫焰·恒星熔铸炉制造识之律者·万象·文明共识矩阵主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B522E39065BAE09",
+        "4B50F2613657A6F7",
+        "4B5AA2239404F68C",
+        "4B5C0187E115F91B",
+        "4B50C398C1A91D2B"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A81BE46FBC4D7",
+          "type": "item",
+          "item": "hk3gtl:w09_civilization_consensus_matrix",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:w09_civilization_consensus_matrix",
+      "x": 30,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B529183EBE8C67D",
+      "title": "支配之律者·千律·分布式工业统御阵主控",
+      "subtitle": "在引力铸造井接续分布式工业工程",
+      "description": [
+        "完成RN-GSF、RN-DIO研究，在岩之律者·坠星·引力奇点铸造井制造支配之律者·千律·分布式工业统御阵主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B53A013546F4FF4",
+        "4B55CCA4D601F13B"
+      ],
+      "tasks": [
+        {
+          "id": "4B55603324641A5C",
+          "type": "item",
+          "item": "hk3gtl:w11_distributed_industrial_command",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:w11_distributed_industrial_command",
+      "x": 34,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B51E9867D106612",
+      "title": "侵蚀之律者·蚀界·自演算研究母机主控",
+      "subtitle": "从能量约束工程接续自演算研究",
+      "description": [
+        "完成RN-ECB、RN-ASR研究，在约束之律者·戒律·全域能量约束壁制造侵蚀之律者·蚀界·自演算研究母机主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B5F75BA5DA29F9C",
+        "4B59A48A5F3C2FD2"
+      ],
+      "tasks": [
+        {
+          "id": "4B54D836228E6CBD",
+          "type": "item",
+          "item": "hk3gtl:w13_self_computing_research_mother",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:w13_self_computing_research_mother",
+      "x": 38,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B5255658774BFB7",
+      "title": "终焉之律者·终序·世界泡轮回引擎主控",
+      "subtitle": "在研究母机制造世界泡轮回引擎主控",
+      "description": [
+        "完成RN-ASR、RN-WCE研究，在侵蚀之律者·蚀界·自演算研究母机制造终焉之律者·终序·世界泡轮回引擎主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B5024CC6F0E23DA",
+        "4B51E9867D106612"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C89C42EFD86E0",
+          "type": "custom",
+          "title": "实际完成终焉之律者·终序·世界泡轮回引擎主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k14"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:w14_world_bubble_recurrence_engine",
+      "x": 30,
+      "y": 56,
+      "optional": true
+    },
+    {
+      "id": "4B5918482D84D530",
+      "title": "■■■·凌霄·树海朝觐圣座主控",
+      "subtitle": "在轮回引擎制造树海朝觐圣座主控",
+      "description": [
+        "完成RN-WCE、RN-TAA研究，在终焉之律者·终序·世界泡轮回引擎制造■■■·凌霄·树海朝觐圣座主控。取得主控后，继续按该奇观蓝图搭建完整结构。"
+      ],
+      "dependencies": [
+        "4B57B4694173EAAF",
+        "4B5255658774BFB7"
+      ],
+      "tasks": [
+        {
+          "id": "4B5ED33AA3218409",
+          "type": "custom",
+          "title": "实际完成■■■·凌霄·树海朝觐圣座主控",
+          "tags": [
+            "hk3gtl_quest_wonder_k15"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:w15_tree_sea_audience_throne",
+      "x": 34,
+      "y": 56,
+      "optional": true
     },
     {
       "id": "4B5F75BA5DA29F9C",
       "title": "蚀界自演算研究母机",
-      "icon": "hk3gtl:research_point_computer",
-      "x": 0.0,
-      "y": 0.0,
+      "subtitle": "RN-ASR · 实验与正式研究",
       "description": [
-        "侵蚀核心、电路封装与文明认知，会在自演算研究母机的课题里汇合。准备好相应实验资料，再开始这一阶段的研究。",
-        "",
-        "解锁侵蚀之律者 · 蚀界·自演算研究母机；不能用侵蚀之律者 · 蚀界·自演算研究母机加速作为研究出侵蚀之律者 · 蚀界·自演算研究母机本身的前置。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制侵蚀核心已开放侵蚀核心、电路封装与工况测试电路成果、已有课题运行记录与前级隔离演算工装。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S05或更高等级研究所选择“蚀界自演算研究母机”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明认知穹顶工程、仿制侵蚀核心、电路封装与工况测试。",
-        "基础研究费用：9690点；10 × CIV级电路；144 × 三钛板。",
-        "基础工期：42.5分钟；研究用电：2,161,727,821,137,838,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：仿制侵蚀之律者核心×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。实际耗能运行有限基准演算，结果可重复核对并验证可停止；不先加速本课题，不重新授予已完成课题奖励；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择9690研究积分或CIV电路 × 10、三钛板 × 144支付基准费用；另需51,000 tick与2,161,727,821,137,838,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁侵蚀之律者·蚀界·自演算研究母机；不能用侵蚀之律者·蚀界·自演算研究母机加速作为研究出侵蚀之律者·蚀界·自演算研究母机本身的前置。"
+      ],
+      "dependencies": [
+        "4B51C820096302E2",
+        "4B591448503FE870"
       ],
       "tasks": [
         {
           "id": "4B5201043FD06781",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成蚀界自演算研究母机",
           "tags": [
             "hk3gtl_quest_rn_asr"
           ]
         }
       ],
-      "dependencies": [
-        "4B55EF1E9B3DACDA",
-        "4B5B5795A0A0443D",
-        "4B5407261AA82797"
-      ],
-      "subtitle": "S05 · RN-ASR",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B522E39065BAE09",
-      "title": "万象文明共识矩阵",
-      "icon": "hk3gtl:cognitive_composite",
-      "x": 0.0,
-      "y": 3.0,
-      "description": [
-        "在文明认知穹顶与穹界锚定环的基础上，研究万象文明共识矩阵。先把已有成果连起来，理解不同系统如何共同工作。",
-        "",
-        "解锁独立识之律者奇观 · 万象·文明共识矩阵及其知识验证工艺，不与第5级研究所合并。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "可追溯的崩坏/量子/虚数实验证据、具有来源的相互矛盾情报及可复验样本。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S05或更高等级研究所选择“万象文明共识矩阵”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明认知穹顶工程、穹界虚数锚定环。",
-        "基础研究费用：9690点；10 × CIV级电路；144 × 三钛板。",
-        "基础工期：42.5分钟；研究用电：2,161,727,821,137,838,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5964A8A8624B71",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_ckv"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B55EF1E9B3DACDA",
-        "4B5802E842FF9314"
-      ],
-      "subtitle": "S05 · RN-CKV",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B53A013546F4FF4",
-      "title": "千律分布式工业统御",
-      "icon": "hk3gtl:civilization_computing_array",
-      "x": 0.0,
-      "y": 6.0,
-      "description": [
-        "把自律工业、文明能源调度和认知工程用于分布式统御。更多设备并不自动等于更好的协作，需要单独完成这项研究。",
-        "",
-        "解锁支配之律者 · 千律·分布式工业统御阵协调工艺，运行后再取得统御证明。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "已运行的多设备生产链、文明能源调度中枢基础登记与手动授权操作记录、可追溯实际订单与物料。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S05或更高等级研究所选择“千律分布式工业统御”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明认知穹顶工程、万象自律工业矩阵、文明能源调度。",
-        "基础研究费用：9690点；10 × CIV级电路；144 × 三钛板。",
-        "基础工期：42.5分钟；研究用电：2,161,727,821,137,838,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5993D6F13C6E7B",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_dio"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B55EF1E9B3DACDA",
-        "4B5D9AB5C693811A",
-        "4B5E3DA7F13B68CF"
-      ],
-      "subtitle": "S05 · RN-DIO",
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B5024CC6F0E23DA",
-      "title": "终序世界泡轮回引擎",
-      "icon": "hk3gtl:stable_simulated_world_bubble",
-      "x": 0.0,
-      "y": 9.0,
-      "description": [
-        "模拟世界泡回收和世界维系的经验，在轮回引擎研究中再次相遇。构筑、运行与结束的完整过程仍然重要。",
-        "",
-        "解锁终焉之律者 · 终序·世界泡轮回引擎高级模拟工程，不取代前期模拟设备。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "模拟世界泡构筑机构筑、模拟世界泡稳定控制器稳定、模拟世界泡终止回收机终止回收的同一个合法模拟批次记录及模拟世界泡终止回收成果。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S05或更高等级研究所选择“终序世界泡轮回引擎”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明认知穹顶工程、模拟世界泡终止回收、世界维系试验。",
-        "基础研究费用：9690点；10 × CIV级电路；144 × 三钛板。",
-        "基础工期：42.5分钟；研究用电：2,161,727,821,137,838,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B537D8AFE1F512E",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_wce"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B55EF1E9B3DACDA",
-        "4B59EB10C899A33B",
-        "4B5B07B90B75E8EC"
-      ],
-      "subtitle": "S05 · RN-WCE",
-      "shape": "rsquare"
+      "icon": "hk3gtl:research_point_computer",
+      "x": 0,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B50C907A3CC0D16",
       "title": "文明成果交叉验证",
-      "icon": "hk3gtl:world_maintenance_specimen",
-      "x": 3.0,
-      "y": 0.0,
+      "subtitle": "RN-CAV · 实验与正式研究",
       "description": [
-        "把共识矩阵、工业统御、演算母机和轮回引擎的成果交叉检查。先完成这些方向，再来确认它们是否能互相支持。",
-        "",
-        "形成后续总资格汇总可读取的验证报告；不自动提高到终审通过。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "识之律者奇观 · 万象·文明共识矩阵/支配之律者 · 千律·分布式工业统御阵/侵蚀之律者 · 蚀界·自演算研究母机/终焉之律者 · 终序·世界泡轮回引擎的真实本体运行证明、三领域实验档案及机器来源。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S05或更高等级研究所选择“文明成果交叉验证”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：万象文明共识矩阵、千律分布式工业统御、蚀界自演算研究母机、终序世界泡轮回引擎。",
-        "基础研究费用：9690点；10 × CIV级电路；144 × 三钛板。",
-        "基础工期：42.5分钟；研究用电：2,161,727,821,137,838,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。提交四座设备各自的运行记录与工程档案，核对来源和成果；每份记录只计一次。受检物原量返还，完成实验后记录结果。",
+        "实验完成后，选择9690研究积分或CIV电路 × 10、三钛板 × 144支付基准费用；另需51,000 tick与2,161,727,821,137,838,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，形成后续总资格汇总可读取的验证报告；不自动提高到终审通过。"
+      ],
+      "dependencies": [
+        "4B5F75BA5DA29F9C",
+        "4B522E39065BAE09",
+        "4B53A013546F4FF4",
+        "4B5024CC6F0E23DA"
       ],
       "tasks": [
         {
           "id": "4B5BA12CA508B968",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成文明成果交叉验证",
           "tags": [
             "hk3gtl_quest_rn_cav"
           ]
         }
       ],
-      "dependencies": [
-        "4B522E39065BAE09",
-        "4B53A013546F4FF4",
-        "4B5F75BA5DA29F9C",
-        "4B5024CC6F0E23DA"
-      ],
-      "subtitle": "S05 · RN-CAV",
-      "shape": "rsquare"
+      "icon": "hk3gtl:world_maintenance_specimen",
+      "x": 12,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B5744A886919F5B",
       "title": "跨领域工况校验",
-      "icon": "hk3gtl:cognitive_composite",
-      "x": 6.0,
-      "y": 0.0,
+      "subtitle": "RN-DVC · 实验与正式研究",
       "description": [
-        "跨领域检查是最后一轮回看：不同方向的成果，是否在实际工况里仍能成立？把共识与交叉验证的资料准备好，再开始校验。",
-        "",
-        "解锁跨领域工艺诊断/校验资料；不会授予树海主人的权能。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "文明成果交叉验证已验证的三领域成果、保留条件差异与来源的实际工况数据。",
-        "",
-        "按JEI查找对应工艺，在遗留技术逆向实验室完成对应实验后，到S05或更高等级研究所选择“跨领域工况校验”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：万象文明共识矩阵、文明成果交叉验证。",
-        "基础研究费用：9690点；10 × CIV级电路；144 × 三钛板。",
-        "基础工期：42.5分钟；研究用电：2,161,727,821,137,838,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+        "在遗留技术逆向实验室完成本队实验。实际比较崩坏、量子与虚数工况在各自条件下的差异，能追溯原始实验；不能统一删掉不同结果或用三份复制资料凑数；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择9690研究积分或CIV电路 × 10、三钛板 × 144支付基准费用；另需51,000 tick与2,161,727,821,137,838,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁跨领域工艺诊断/校验资料；不会授予树海主人的权能。"
+      ],
+      "dependencies": [
+        "4B517FCB2C3DA737"
       ],
       "tasks": [
         {
           "id": "4B5E5E6AE70BF9C9",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成跨领域工况校验",
           "tags": [
             "hk3gtl_quest_rn_dvc"
           ]
         }
       ],
-      "dependencies": [
-        "4B522E39065BAE09",
-        "4B50C907A3CC0D16"
-      ],
-      "subtitle": "S05 · RN-DVC",
-      "shape": "rsquare"
+      "icon": "hk3gtl:cognitive_composite",
+      "x": 4,
+      "y": 42,
+      "optional": false
     },
     {
       "id": "4B57B4694173EAAF",
       "title": "凌霄树海朝觐圣座",
-      "icon": "hk3gtl:wonder_tree_sea_core_mount",
-      "x": 6.0,
-      "y": 3.0,
+      "subtitle": "RN-TAA · 实验与正式研究",
       "description": [
-        "朝觐圣座需要前面的奇观方向与舰系统研究共同支撑。沿连接线补齐缺项，然后准备工程；最后的会面还要看你亲自走过的经历。",
-        "",
-        "解锁树海主人·凌虛晴 · 凌霄·树海朝觐圣座建造和资格汇总；满卷轴、二审等终审条件按各自系统判定。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "人之律者 · 始源·群星协奏庭至终焉之律者 · 终序·世界泡轮回引擎各自真实工程证明、文明成果交叉验证正式验证报告及仿制休伯利安仿制舰系统整合运行记录。",
-        "",
-        "按JEI查找对应工艺，在文明工程验收中心完成对应实验后，到S05或更高等级研究所选择“凌霄树海朝觐圣座”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：文明成果交叉验证、始源群星协奏工程、万象自律工业矩阵、鸣霆超导电磁天枢、长风理想流体环流、永霜极低温凝态、穹界虚数锚定环、生息物质再生方舟、劫焰恒星熔铸、坠星引力奇点铸造、戒律能量约束壁、仿制舰系统整合。",
-        "基础研究费用：9690点；10 × CIV级电路；144 × 三钛板。",
-        "基础工期：42.5分钟；研究用电：2,161,727,821,137,838,080 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：魂钢数据基板×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。按类型核验14种不同奇观的真实成果和舰船记录，不以14台同类型机器或14个控制器代替；预检成功只给TAA研究证据；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择9690研究积分或CIV电路 × 10、三钛板 × 144支付基准费用；另需51,000 tick与2,161,727,821,137,838,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁■■■·凌霄·树海朝觐圣座建造和资格汇总；满卷轴、二审等终审条件按各自系统判定。"
+      ],
+      "dependencies": [
+        "4B50C907A3CC0D16",
+        "4B5BCAEEE0929B4A",
+        "4B5DBCCB3FAC3E98",
+        "4B5049156571FB42",
+        "4B50C826B7C24906",
+        "4B513376AFB211D3",
+        "4B5DA22287EEF846",
+        "4B58AF9401EC1386",
+        "4B59E02E7D6A402B"
       ],
       "tasks": [
         {
           "id": "4B565F886D7A81DB",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成凌霄树海朝觐圣座",
           "tags": [
             "hk3gtl_quest_rn_taa"
           ]
         }
       ],
-      "dependencies": [
-        "4B50C907A3CC0D16",
-        "4B543D9716760D00",
-        "4B5D9AB5C693811A",
-        "4B58AF9401EC1386",
-        "4B513376AFB211D3",
-        "4B5BCAEEE0929B4A",
-        "4B5802E842FF9314",
-        "4B5DA22287EEF846",
-        "4B59E02E7D6A402B",
-        "4B5049156571FB42",
-        "4B5DBCCB3FAC3E98",
-        "4B50C826B7C24906"
-      ],
-      "subtitle": "S05 · RN-TAA",
-      "shape": "hexagon",
-      "size": 1.3
+      "icon": "hk3gtl:civilization_singularity",
+      "x": 16,
+      "y": 42,
+      "optional": false
     },
     {
-      "id": "4B528432CB9FB45F",
-      "title": "C1 · 崩坏识别",
-      "icon": "minecraft:book",
-      "x": 0.0,
-      "y": 13.0,
+      "id": "4B5024CC6F0E23DA",
+      "title": "终序世界泡轮回引擎",
+      "subtitle": "RN-WCE · 实验与正式研究",
       "description": [
-        "一路积累的成果，会逐步提升文明等级。",
-        "",
-        "打开手机文明总览查看当前缺项，已有成果也可以在文明档案里回看。本节点会随文明等级自动更新。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5739E21E836030",
-          "type": "custom",
-          "title": "达成这一里程碑",
-          "tags": [
-            "hk3gtl_quest_civ_1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4B536B7F08A3D6BC",
-      "title": "C2 · 稳定工业",
-      "icon": "minecraft:book",
-      "x": 3.0,
-      "y": 13.0,
-      "description": [
-        "一路积累的成果，会逐步提升文明等级。",
-        "",
-        "打开手机文明总览查看当前缺项，已有成果也可以在文明档案里回看。本节点会随文明等级自动更新。"
-      ],
-      "tasks": [
-        {
-          "id": "4B58F8225F351AAC",
-          "type": "custom",
-          "title": "达成这一里程碑",
-          "tags": [
-            "hk3gtl_quest_civ_2"
-          ]
-        }
+        "受检物：世界模型载体×1；纸张2用于检测记录，基准样本循环使用",
+        "在文明工程验收中心完成本队实验。同一批次实际耗料、耗能、稳定及终止成功且仅结算一次；封存或暂停不算完成，不拼接不同批次；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择9690研究积分或CIV电路 × 10、三钛板 × 144支付基准费用；另需51,000 tick与2,161,727,821,137,838,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁终焉之律者·终序·世界泡轮回引擎高级模拟工程，不取代前期模拟设备。"
       ],
       "dependencies": [
-        "4B528432CB9FB45F"
-      ]
-    },
-    {
-      "id": "4B5526CE0599C8D6",
-      "title": "C3 · 材料与核心",
-      "icon": "minecraft:book",
-      "x": 6.0,
-      "y": 13.0,
-      "description": [
-        "一路积累的成果，会逐步提升文明等级。",
-        "",
-        "打开手机文明总览查看当前缺项，已有成果也可以在文明档案里回看。本节点会随文明等级自动更新。"
+        "4B55EF1E9B3DACDA"
       ],
       "tasks": [
         {
-          "id": "4B596B9C1AEB610A",
+          "id": "4B537D8AFE1F512E",
           "type": "custom",
-          "title": "达成这一里程碑",
+          "title": "完成终序世界泡轮回引擎",
           "tags": [
-            "hk3gtl_quest_civ_3"
+            "hk3gtl_quest_rn_wce"
           ]
         }
       ],
-      "dependencies": [
-        "4B536B7F08A3D6BC"
-      ]
-    },
-    {
-      "id": "4B5A1771DC3DE126",
-      "title": "C4 · 量子航路",
-      "icon": "minecraft:book",
-      "x": 9.0,
-      "y": 13.0,
-      "description": [
-        "一路积累的成果，会逐步提升文明等级。",
-        "",
-        "打开手机文明总览查看当前缺项，已有成果也可以在文明档案里回看。本节点会随文明等级自动更新。"
-      ],
-      "tasks": [
-        {
-          "id": "4B546952288DCA17",
-          "type": "custom",
-          "title": "达成这一里程碑",
-          "tags": [
-            "hk3gtl_quest_civ_4"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B5526CE0599C8D6"
-      ]
-    },
-    {
-      "id": "4B5C116022F1531D",
-      "title": "C5 · 虚数联系",
-      "icon": "minecraft:book",
-      "x": 0.0,
-      "y": 16.0,
-      "description": [
-        "一路积累的成果，会逐步提升文明等级。",
-        "",
-        "打开手机文明总览查看当前缺项，已有成果也可以在文明档案里回看。本节点会随文明等级自动更新。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5AA92EF4CFCAE0",
-          "type": "custom",
-          "title": "达成这一里程碑",
-          "tags": [
-            "hk3gtl_quest_civ_5"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B5A1771DC3DE126"
-      ]
-    },
-    {
-      "id": "4B588D6ADED8073B",
-      "title": "C6 · 文明奇观",
-      "icon": "minecraft:book",
-      "x": 3.0,
-      "y": 16.0,
-      "description": [
-        "一路积累的成果，会逐步提升文明等级。",
-        "",
-        "打开手机文明总览查看当前缺项，已有成果也可以在文明档案里回看。本节点会随文明等级自动更新。"
-      ],
-      "tasks": [
-        {
-          "id": "4B58B0BE4AF3AED9",
-          "type": "custom",
-          "title": "达成这一里程碑",
-          "tags": [
-            "hk3gtl_quest_civ_6"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B5C116022F1531D"
-      ]
-    },
-    {
-      "id": "4B5242FC0FDA9F2B",
-      "title": "C7 · 认知与审判准备",
-      "icon": "minecraft:book",
-      "x": 6.0,
-      "y": 16.0,
-      "description": [
-        "一路积累的成果，会逐步提升文明等级。",
-        "",
-        "打开手机文明总览查看当前缺项，已有成果也可以在文明档案里回看。本节点会随文明等级自动更新。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5DA85712158867",
-          "type": "custom",
-          "title": "达成这一里程碑",
-          "tags": [
-            "hk3gtl_quest_civ_7"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B588D6ADED8073B"
-      ]
-    },
-    {
-      "id": "4B5C0A5950A39473",
-      "title": "翻开文明档案",
-      "icon": "minecraft:book",
-      "x": 9.0,
-      "y": 16.0,
-      "description": [
-        "想看看这一路已经走到哪里，可以打开手机文明总览，也可以阅读文明档案卷轴。",
-        "",
-        "研究知识按队伍汇总；交流与审查会面还会记录你本人是否参加。收藏彩蛋可以慢慢找，不用把全收集当作主线通关条件。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5BD4B37D20A3DD",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_guide_civilization"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4B54DF6E21FC6256",
-      "title": "第一次审查",
-      "icon": "minecraft:book",
-      "x": 0.0,
-      "y": 19.0,
-      "description": [
-        "先准备好一审要求的研究与工况，再参加正式会面。",
-        "",
-        "本节点显示本队获得的一审许可；你自己是否完成会面，可以在文明档案里查看。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5AC86E318077EB",
-          "type": "custom",
-          "title": "达成这一里程碑",
-          "tags": [
-            "hk3gtl_quest_review_1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4B5F2880EADC9DA0",
-      "title": "第二次审查",
-      "icon": "minecraft:book",
-      "x": 3.0,
-      "y": 19.0,
-      "description": [
-        "完成一审后，继续准备世界泡、无人采掘与维系方面的成果，再申请第二次会面。",
-        "",
-        "本节点显示本队获得的二审许可。琪亚娜的认可之后，还有属于你们的工程与最后的会面。"
-      ],
-      "tasks": [
-        {
-          "id": "4B55DFB4D36F6D41",
-          "type": "custom",
-          "title": "达成这一里程碑",
-          "tags": [
-            "hk3gtl_quest_review_2"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B54DF6E21FC6256"
-      ]
-    },
-    {
-      "id": "4B5A5593F7472C35",
-      "title": "最后的会面",
-      "icon": "minecraft:book",
-      "x": 6.0,
-      "y": 19.0,
-      "description": [
-        "十五座奇观需要分别完成工程验收，你亲自参加的交流与研究经历也要准备齐全，再申请最后的会面。",
-        "",
-        "终审里的26条IF线逐句阅读，每人每存档正式选择最多5条。独立IF阅读指令可回看全部26条，不占正式选择次数。",
-        "",
-        "攻击会触发既定坏结局，别把正式会面当成随意试武器的地方。",
-        "",
-        "旅程结束之后，存档会留在这里。也给自己一点时间，去看看游戏以外的世界。"
-      ],
-      "tasks": [
-        {
-          "id": "4B589CEC60996374",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_guide_finale"
-          ]
-        }
-      ]
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B5E745E4ED7F4A8",
-      "linked_quest": "4B5D9AB5C693811A",
-      "x": 0.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5C9C44A4ABDE98",
-      "linked_quest": "4B5BCAEEE0929B4A",
-      "x": 3.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B599B921732C144",
-      "linked_quest": "4B5E3DA7F13B68CF",
-      "x": 6.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5B9FA7AB774BF4",
-      "linked_quest": "4B55EF1E9B3DACDA",
-      "x": 9.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5DBF03564C8CCE",
-      "linked_quest": "4B5407261AA82797",
-      "x": 12.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B5468AEDCBBE8E8",
-      "linked_quest": "4B5B5795A0A0443D",
-      "x": 15.0,
-      "y": -8.0
-    },
-    {
-      "id": "4B52F44F62CCA92C",
-      "linked_quest": "4B5DBCCB3FAC3E98",
-      "x": 0.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B5CDE2B906D8E25",
-      "linked_quest": "4B5049156571FB42",
-      "x": 3.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B557F406D1FFF26",
-      "linked_quest": "4B543D9716760D00",
-      "x": 6.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B5642C2221C9528",
-      "linked_quest": "4B50C826B7C24906",
-      "x": 9.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B540EDA1A5AE59D",
-      "linked_quest": "4B5802E842FF9314",
-      "x": 12.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B56FA7849EF2EF9",
-      "linked_quest": "4B513376AFB211D3",
-      "x": 15.0,
-      "y": -11.0
-    },
-    {
-      "id": "4B5CC74889306D01",
-      "linked_quest": "4B5DA22287EEF846",
-      "x": 0.0,
-      "y": -14.0
-    },
-    {
-      "id": "4B54BF5CA3C64BE7",
-      "linked_quest": "4B58AF9401EC1386",
-      "x": 3.0,
-      "y": -14.0
-    },
-    {
-      "id": "4B53D1E3A9F96EC6",
-      "linked_quest": "4B59E02E7D6A402B",
-      "x": 6.0,
-      "y": -14.0
-    },
-    {
-      "id": "4B53BB96B860CD24",
-      "linked_quest": "4B59EB10C899A33B",
-      "x": 9.0,
-      "y": -14.0
-    },
-    {
-      "id": "4B5F88FD249F4524",
-      "linked_quest": "4B5B07B90B75E8EC",
-      "x": 12.0,
-      "y": -14.0
+      "icon": "hk3gtl:stable_simulated_world_bubble",
+      "x": 8,
+      "y": 42,
+      "optional": false
     }
   ]
 }

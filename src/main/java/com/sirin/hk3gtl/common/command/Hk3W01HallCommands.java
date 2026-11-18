@@ -13,18 +13,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.level.ChunkEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.loading.FMLPaths;
 
-/** 专用新存档按每tick两区块准备完整W01；不放置建筑、不改isFormed、不跳过Pattern。 */
-/**
- * 【变更记录 #1】2026-10-30 00:08:31（第1次备注 · 内测5修订183）
- * 删除：旧实体数固定文本；新增：无；修改：朝北测试加载使用西入口零转映射，数量读取当前资源。
- * 用途：限定测试命令与新主控、实际蓝图一致；不放置方块，不扩大测试世界或玩家权限。
- */
+/** 限定专用存档，按每tick两区块准备W01检查所需区块。 */
 @Mod.EventBusSubscriber(modid="hk3gtl", bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3W01HallCommands {
     private static ServerLevel level;
@@ -68,8 +61,7 @@ public final class Hk3W01HallCommands {
                 && source.getLevel() == source.getServer().overworld()
                 && source.getServer().getWorldData().getLevelName().startsWith("hk3gtl-w01-azu-runtime-")
                 && source.getServer().getWorldData().getAllowCommands()
-                && FMLPaths.GAMEDIR.get().toAbsolutePath().normalize().equals(java.nio.file.Path.of(
-                    "C:/Users/OWNER/AppData/Roaming/PrismLauncher/instances/GregTech Leisure-增强版/minecraft").toAbsolutePath().normalize());
+                && Hk3ApprovedStructureRuntimeCheck.isAuditDirectory();
     }
 
     @SubscribeEvent public static void tick(TickEvent.ServerTickEvent event) {
@@ -85,10 +77,6 @@ public final class Hk3W01HallCommands {
         }
     }
     @SubscribeEvent public static void stopping(ServerStoppingEvent event) { release(); }
-    @SubscribeEvent public static void chunkUnloaded(ChunkEvent.Unload event) {
-        if (event.getLevel() instanceof ServerLevel level)
-            Hk3W01HallMachine.onBuildingChunkUnload(level, event.getChunk().getPos().toLong());
-    }
     private static void release() {
         if (level != null) for (long key : ADDED) level.setChunkForced(ChunkPos.getX(key), ChunkPos.getZ(key), false);
         ADDED.clear(); level = null; pending = null; operator = null; cursor = 0;

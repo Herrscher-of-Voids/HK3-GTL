@@ -1,22 +1,17 @@
 package com.sirin.hk3gtl.common.multiblock.build;
 
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiController;
 import com.lowdragmc.lowdraglib.utils.BlockInfo;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3ApprovedArchitecture;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3StructureStream;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3LargeArchitectureShapes;
+import com.sirin.hk3gtl.common.multiblock.pattern.Hk3LiquidLineLayout;
+import com.sirin.hk3gtl.common.multiblock.pattern.Hk3LiquidLinePatterns;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3W01HallLayout;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3W01HallPattern;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3StructureBlocks;
-import com.sirin.hk3gtl.common.multiblock.pattern.Hk3LargeStructurePattern;
-import com.sirin.hk3gtl.mixin.gtceu.Hk3BuildPatternAccess;
-import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
-import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -25,8 +20,6 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -34,26 +27,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.zip.GZIPInputStream;
 
-/**
- * 【文件职责】把现行正式结构转换为统一稀疏建造蓝图，仓室实体数据与主控锚点保持源版本。
- * 【变更记录 #1】2026-10-30 01:22:07（第1次备注 · 内测5修订184）
- * - 删除：无；新增：W01零拷贝、巨构逐记录准备、普通批准NBT及小型GT模式四条适配路径。
- * - 修改：巨构仅读取实体坐标、调色板与少量实体NBT，不调用巨型getPreview或分配空气对象。
- * - 用途：统一建造数据入口；缺失、重复、截断或主控不符直接拒绝，不能回退错误旧建筑。
- * 【变更记录 #2】2026-10-30 02:11:33（第2次备注 · 内测5修订184）
- * - 删除：所有小元数据必有ports及巨构准备前默认朝北的假设。
- * - 新增：按台惰性读取正式接口合同；早期元数据缺接口时流式提取批准源，不展开blocks。
- * - 修改：无仓搭建接口返回合法填充壳且不复制仓室NBT；源朝向从真实主控调色板提前确定。
- * - 用途：防止接口缺字段使全部机器失效，避免赠送真实仓室或在错误朝向放置整座建筑。
- */
 public final class Hk3BuildPlans {
+    /** 2026-11-11：工业依赖审计复用正式控制器身份，不从机号推测布局。 */
+    public static String layoutForMachine(String machine) { return Keys.BY_MACHINE.get(machine); }
     private static final String ROOT = "/data/hk3gtl/structures/";
     private Hk3BuildPlans() {}
+
+    public static boolean captureFarView(IMultiController controller) {
+        return !(controller instanceof com.sirin.hk3gtl.common.machine.w03.Hk3W03Machine);
+    }
 
     public static Hk3BuildPlan create(IMultiController controller) {
         if (!"hk3gtl".equals(controller.self().getDefinition().getId().getNamespace()))
@@ -63,32 +47,35 @@ public final class Hk3BuildPlans {
             InputStream input=Hk3BuildPlans.class.getResourceAsStream(ROOT+"w02_19c_a2.bin.gz");
             if(input==null)throw new IllegalStateException("缺少W02 A2完整搭建资源");
             PackedPlan plan=new PackedPlan(input,controller.self().getBlockState().getBlock());
-            plan.creativeOnly=true;
-            for(var pos:com.sirin.hk3gtl.common.machine.w02.Hk3W02Pattern.PORTS)plan.machinePartSlots.add(pos.asLong());
+            plan.creativeOnly=false;
             return plan;
         }
         if (controller instanceof com.sirin.hk3gtl.common.machine.w03.Hk3W03Machine) {
             InputStream input=Hk3BuildPlans.class.getResourceAsStream(ROOT+"w03_c9.bin.gz");
             if(input==null)throw new IllegalStateException("缺少W03 C9完整搭建资源");
             PackedPlan plan=new PackedPlan(input,controller.self().getBlockState().getBlock());
-            plan.creativeOnly=true;plan.captureFarView=false;
-            for(int x:new int[]{-18,-14,-10,-6,6,10,14,18})plan.machinePartSlots.add(BlockPos.asLong(x,0,0));
+            plan.creativeOnly=false;plan.captureFarView=captureFarView(controller);
             return plan;
+        }
+        if (controller instanceof com.sirin.hk3gtl.common.machine.wonder.Hk3WonderMachine wonder) {
+            if(!com.sirin.hk3gtl.common.machine.wonder.Hk3WonderCatalog.hasBlueprint(wonder.researchRole()))
+                throw new IllegalStateException(wonder.researchRole()+"完整蓝图尚未完成，不能搭建或成型");
+            InputStream input=Hk3BuildPlans.class.getResourceAsStream(ROOT+wonder.researchRole().toLowerCase(java.util.Locale.ROOT)+"_candidate.bin.gz");
+            if(wonder.researchRole().equals("W11"))return new Hk3W11BuildPlan(input,controller.self().getBlockState().getBlock());
+            return new PackedPlan(input,controller.self().getBlockState().getBlock());
         }
         if (controller instanceof com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionMachine) {
             InputStream input = Hk3BuildPlans.class.getResourceAsStream(ROOT + "hyperion_construction.bin.gz");
             if (input == null) throw new IllegalStateException("缺少1145格休伯利安原稿搭建资源");
             PackedPlan plan = new PackedPlan(input, controller.self().getBlockState().getBlock());
-            plan.creativeOnly = true;
+            plan.creativeOnly = false;
             plan.dataVersion = 3120;
-            for (int z = -1; z <= 1; z++) {
-                plan.machinePartSlots.add(BlockPos.asLong(-2, -1, z));
-                plan.machinePartSlots.add(BlockPos.asLong(1, 1, z));
-                if (z != 0) plan.machinePartSlots.add(BlockPos.asLong(0, 0, z));
-            }
             return plan;
         }
         String machine = controller.self().getDefinition().getId().toString();
+        if (machine.equals("hk3gtl:ae_nexus"))
+            return fromNbt(com.sirin.hk3gtl.common.machine.ae.Hk3NexusStructure.template(),
+                    controller.self().getBlockState().getBlock());
         String id = Keys.BY_MACHINE.get(machine);
         if (id != null) {
             SparsePlan plan;
@@ -98,32 +85,17 @@ public final class Hk3BuildPlans {
                 if (input == null) throw new IllegalStateException("缺少批准建造模板：" + id);
                 plan = fromNbt(NbtIo.readCompressed(input), controller.self().getBlockState().getBlock());
             } catch (IOException failure) { throw new IllegalStateException("读取批准建造模板失败：" + id, failure); }
-            try {
-                plan.configure(Keys.PORTS.computeIfAbsent(id, Keys::loadPorts), controller);
-                return plan;
-            } catch (RuntimeException failure) {
-                plan.close();
-                throw failure;
-            }
+            return plan;
         }
         if (!machine.equals("hk3gtl:honkai_network_injector"))
             throw new IllegalStateException("控制器缺少正式建造蓝图：" + machine);
-        int[] repetitions = Arrays.stream(controller.getPattern().aisleRepetitions).mapToInt(r -> r[0]).toArray();
-        SparsePlan plan = fromPreview(controller.getPattern().getPreview(repetitions), controller.self().getBlockState().getBlock());
-        var matches = ((Hk3BuildPatternAccess)(Object)controller.getPattern()).hk3gtl$blockMatches();
-        if (matches.length != plan.depth || matches[0].length != plan.height || matches[0][0].length != plan.width)
-            throw new IllegalStateException("小型建造模板与正式Pattern尺寸不符");
-        for (int i=0; i<plan.size(); i++) {
-            int x=plan.x(i)+plan.cx, y=plan.y(i)+plan.cy, z=plan.z(i)+plan.cz;
-            var predicate = matches[z][y][x];
-            if (!predicate.isAny()) plan.portPredicates.put(plan.positions[i],predicate);
-        }
-        return plan;
+        return fromPreview(Hk3LiquidLinePatterns.shape((com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition)
+                controller.self().getDefinition(),Hk3LiquidLineLayout.Kind.INJECTION).getBlocks(),
+                controller.self().getBlockState().getBlock());
     }
 
     private static final class Keys {
         static final Map<String, String> BY_MACHINE = load();
-        static final Map<String, PortData> PORTS = new ConcurrentHashMap<>();
         private static Map<String, String> load() {
             Map<String, String> result = new HashMap<>();
             for (String key : Hk3ApprovedArchitecture.IDS) {
@@ -139,69 +111,7 @@ public final class Hk3BuildPlans {
             return Map.copyOf(result);
         }
 
-        private static PortData loadPorts(String key) {
-            try (InputStream stream = Hk3BuildPlans.class.getResourceAsStream("/data/hk3gtl/compact_architecture/" + key + ".json")) {
-                if (stream == null) throw new IOException("缺少接口身份：" + key);
-                var metadata = JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
-                if (metadata.has("ports")) return ports(metadata, key, "size_xyz");
-                // 早期小元数据没有接口；批准源把接口放在几何前，只读取所需字段即关闭。
-                try (InputStream source = Hk3BuildPlans.class.getResourceAsStream("/data/hk3gtl/approved_architecture/" + key + ".json")) {
-                    if (source == null) throw new IOException("缺少批准接口源：" + key);
-                    try (JsonReader reader = new JsonReader(new InputStreamReader(source, StandardCharsets.UTF_8))) {
-                        JsonObject selected = new JsonObject();
-                        reader.beginObject();
-                        while (reader.hasNext()) {
-                            String name = reader.nextName();
-                            if (name.equals("key") || name.equals("size") || name.equals("controller") || name.equals("ports")) {
-                                if (selected.has(name)) throw new IOException("批准接口字段重复：" + name);
-                                selected.add(name, JsonParser.parseReader(reader));
-                            } else reader.skipValue();
-                            if (selected.size() == 4) return ports(selected, key, "size");
-                        }
-                        throw new IOException("批准接口源缺少必要字段：" + key);
-                    }
-                }
-            } catch (IOException | RuntimeException failure) {
-                throw new IllegalStateException("读取批准接口坐标失败：" + key, failure);
-            }
-        }
-
-        private static PortData ports(JsonObject metadata, String key, String sizeField) throws IOException {
-            if (!metadata.has("key") || !key.equals(metadata.get("key").getAsString()))
-                throw new IOException("批准接口身份不符：" + key);
-            int[] size = triple(metadata, sizeField), center = triple(metadata, "controller");
-            for (int axis=0; axis<3; axis++) if (size[axis]<1 || center[axis]<0 || center[axis]>=size[axis])
-                throw new IOException("批准接口尺寸或主控越界：" + key);
-            var values = metadata.getAsJsonArray("ports");
-            if (values == null || values.isEmpty()) throw new IOException("批准接口列表缺失或为空：" + key);
-            var result = new java.util.ArrayList<PortSlot>(values.size());
-            var ids = new java.util.HashSet<String>();
-            var occupied = new LongOpenHashSet();
-            for (var raw : values) {
-                var port = raw.getAsJsonObject();
-                String id = port.get("id").getAsString(), group = port.get("group").getAsString();
-                Direction face = Direction.byName(port.get("face").getAsString());
-                int[] at = triple(port,"pos");
-                if (id.isBlank() || group.isBlank() || !ids.add(id) || face==null || face.getAxis().isVertical())
-                    throw new IOException("批准接口身份、分组或方向错误：" + key);
-                for (int axis=0; axis<3; axis++) if (at[axis]<0 || at[axis]>=size[axis])
-                    throw new IOException("批准接口坐标越界：" + key + "/" + id);
-                if (Arrays.equals(at,center) || !occupied.add(BlockPos.asLong(at[0],at[1],at[2])))
-                    throw new IOException("批准接口坐标重复或与主控重叠：" + key);
-                result.add(new PortSlot(at[0],at[1],at[2],!group.startsWith("energy"),face));
-            }
-            return new PortData(size,center,List.copyOf(result));
-        }
-
-        private static int[] triple(JsonObject value, String field) throws IOException {
-            var array = value.getAsJsonArray(field);
-            if (array==null || array.size()!=3) throw new IOException("批准接口坐标缺失：" + field);
-            return new int[]{array.get(0).getAsInt(),array.get(1).getAsInt(),array.get(2).getAsInt()};
-        }
     }
-
-    private record PortSlot(int x, int y, int z, boolean machinePart, Direction face) {}
-    private record PortData(int[] size, int[] controller, List<PortSlot> slots) {}
 
     private static final class HallPlan implements Hk3BuildPlan {
         private final Hk3W01HallPattern pattern;
@@ -238,11 +148,6 @@ public final class Hk3BuildPlans {
         final short[] materials;
         final BlockState[] palette;
         final Int2ObjectOpenHashMap<CompoundTag> tags = new Int2ObjectOpenHashMap<>();
-        final LongOpenHashSet machinePartSlots = new LongOpenHashSet();
-        final IntOpenHashSet filledPorts = new IntOpenHashSet();
-        final Map<Integer, TraceabilityPredicate> portPredicates = new HashMap<>();
-        final Map<Integer, Direction> portFaces = new HashMap<>();
-        BlockState portFiller;
         Direction sourceFacing = Direction.NORTH;
         boolean creativeOnly;
         int dataVersion = net.minecraft.SharedConstants.getCurrentVersion().getDataVersion().getVersion();
@@ -262,41 +167,11 @@ public final class Hk3BuildPlans {
         @Override public int x(int i) { return positions[i] / depth / height - cx; }
         @Override public int y(int i) { return positions[i] / depth % height - cy; }
         @Override public int z(int i) { return positions[i] % depth - cz; }
-        @Override public BlockState state(int i) { return filledPorts.contains(positions[i]) ? portFiller : palette[Short.toUnsignedInt(materials[i])]; }
-        @Override public CompoundTag tag(int i) { return filledPorts.contains(positions[i]) ? null : tags.get(i); }
+        @Override public BlockState state(int i) { return palette[Short.toUnsignedInt(materials[i])]; }
+        @Override public CompoundTag tag(int i) { return tags.get(i); }
         @Override public Direction sourceFacing() { return sourceFacing; }
         @Override public BlockPos minOffset() { return new BlockPos(-cx, -cy, -cz); }
         @Override public BlockPos maxOffset() { return new BlockPos(width-1-cx, height-1-cy, depth-1-cz); }
-        @Override public boolean isMachinePartSlot(int x, int y, int z) { return machinePartSlots.contains(BlockPos.asLong(x,y,z)); }
-        @Override public TraceabilityPredicate dismantlePort(int index) { return portPredicates.get(positions[index]); }
-        @Override public Direction portFacing(int index) { return portFaces.get(positions[index]); }
-        void configure(PortData data, IMultiController controller) {
-            if (!Arrays.equals(data.size,new int[]{width,height,depth}) || !Arrays.equals(data.controller,new int[]{cx,cy,cz}))
-                throw new IllegalStateException("批准接口合同与真实建造模板坐标不符");
-            portFiller = Hk3StructureBlocks.require("hk3gtl:industrial_port_casing").defaultBlockState();
-            for (var port : data.slots) {
-                int at = linear(port.x,port.y,port.z);
-                filledPorts.add(at);
-                TraceabilityPredicate predicate;
-                if (controller.getPattern() instanceof Hk3LargeStructurePattern large)
-                    predicate = large.dismantlePort(port.x-cx,port.y-cy,port.z-cz);
-                else {
-                    var matches = ((Hk3BuildPatternAccess)(Object)controller.getPattern()).hk3gtl$blockMatches();
-                    if (matches.length != depth || matches[port.z].length != height || matches[port.z][port.y].length != width)
-                        throw new IllegalStateException("批准接口与固定Pattern尺寸不符");
-                    predicate = matches[port.z][port.y][port.x];
-                }
-                if (predicate == null || predicate.isAny()) throw new IllegalStateException("批准接口缺少真实Pattern谓词");
-                portPredicates.put(at,predicate);
-                portFaces.put(at,port.face);
-                if (port.machinePart) machinePartSlots.add(BlockPos.asLong(port.x-cx,port.y-cy,port.z-cz));
-            }
-            if (!(this instanceof PackedPlan)) {
-                IntOpenHashSet missing = new IntOpenHashSet(filledPorts);
-                for (int position : positions) missing.remove(position);
-                if (!missing.isEmpty()) throw new IllegalStateException("批准接口在建造模板中缺格");
-            }
-        }
         int linear(int x, int y, int z) { return (x * height + y) * depth + z; }
         void put(int index, int linear, int material, CompoundTag tag) {
             if (linear < 0 || linear >= (long) width*height*depth || material < 0 || material >= palette.length
@@ -312,7 +187,6 @@ public final class Hk3BuildPlans {
         private BitSet occupied;
         private final net.minecraft.world.level.block.Block controller;
         private int cursor;
-        private int foundPorts;
         private boolean foundController;
         PackedPlan(InputStream compressed, net.minecraft.world.level.block.Block controller) {
             this(open(compressed,controller), controller);
@@ -330,7 +204,6 @@ public final class Hk3BuildPlans {
                 if(occupied.get(linear))throw new IOException("巨构建造记录重复");
                 CompoundTag tag=Hk3LargeArchitectureShapes.entity(cell.entity());
                 put(cursor, linear, material, tag); occupied.set(linear);
-                if (filledPorts.contains(linear)) foundPorts++;
                 if (palette[material].getBlock() == controller && linear != linear(cx,cy,cz))
                     throw new IOException("巨构建造模板含重复主控");
                 if (linear == linear(cx,cy,cz)) {
@@ -340,8 +213,8 @@ public final class Hk3BuildPlans {
                 }
                 if (++cursor != size()) return false;
                 input.finish();
-                if (!foundController || foundPorts != filledPorts.size())
-                    throw new IOException("巨构建造主控或接口缺格，或包含尾随记录");
+                if (!foundController)
+                    throw new IOException("巨构建造主控缺格，或包含尾随记录");
                 close(); return true;
             } catch (IOException | RuntimeException failure) {
                 close(); throw new IllegalStateException("读取巨构建造记录失败", failure);
@@ -443,7 +316,7 @@ public final class Hk3BuildPlans {
         if(facing==null||facing.getAxis().isVertical())throw new IllegalStateException("建造模板主控必须水平朝向");
         return facing;
     }
-    private static Direction controllerFacing(BlockState[] palette, net.minecraft.world.level.block.Block controller) {
+    static Direction controllerFacing(BlockState[] palette, net.minecraft.world.level.block.Block controller) {
         Direction result = null;
         for (BlockState state : palette) if (state.getBlock() == controller) {
             Direction next = facing(state);

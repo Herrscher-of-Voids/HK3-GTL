@@ -15,20 +15,20 @@ import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.util.UUID;
 
-/**
- * 【文件职责】保存研究账本和付款玩家的事务后像，重放时固定写回相同文件，重复执行不再扣料或发奖。
- * 【变更记录 #1】2026-11-04 01:23:43（第1次备注 · 内测5修订194）
- * - 删除：无。
- * - 新增：压缩NBT预写日志、强制落盘、原子替换与严格结构校验；失败保留日志并向调用者抛错。
- * - 修改：研究支付文件先写日志，再写玩家、账本，最后移除日志；不支持原子移动的文件系统拒绝提交。
- * - 用途：Hk3ResearchPayment调用；恢复JVM强停后的跨文件支付，不承诺操作系统断电或外部能源仓的原子性。
- */
-/**
- * 【变更记录 #2】2026-11-04 02:53:59（第2次备注 · 内测5修订194）
- * - 删除：重放文件后立即删除日志的顺序；新增：独立finish完成点。
- * - 修改：recover/replay保留日志，调用方恢复缓存及玩家内存后才能finish，失败仍能重启恢复。
- * - 用途：防止内存恢复或界面同步异常后正常停服以旧缓存覆盖文件，却已失去重放决定。
- */
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
 public final class Hk3ResearchPaymentJournal {
     private Hk3ResearchPaymentJournal() {}
     public static final String LEDGER = "hk3gtl_research_v5";

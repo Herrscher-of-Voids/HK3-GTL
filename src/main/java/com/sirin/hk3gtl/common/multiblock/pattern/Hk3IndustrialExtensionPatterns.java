@@ -14,15 +14,15 @@ import java.util.Map;
 import java.util.Set;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
-/**
- * 【文件职责】读取I14–I18批准逐格资源，生成严格空气、状态与真实仓能力的成型判定。
- * 【变更记录 #1】2026-10-23 13:35:32（第1次备注 · 内测5修订175）
- * - 删除：无，旧批准资源与旧工业Pattern类保持独立。
- * - 新增：逐台6/17接口数量合同、输入/输出复用槽、四项必要能力全局计数。
- * - 修改：接口壳只能封闭空槽，不能替代工作仓；并行仓至多1个，无创造能源仓。
- * - 用途：保持获批形体与接口分布，令I17六口能够安置物品和多槽流体仓。
- * 配方许可和额定范围由运行层处理，成型不代表计划或生存门槛获批。
- */
+ 
+
+
+
+
+
+
+
+
 public final class Hk3IndustrialExtensionPatterns {
     public static final Set<String> IDS = Set.of("i14", "i15", "i16", "i17", "i18");
     private Hk3IndustrialExtensionPatterns() {}
@@ -31,8 +31,6 @@ public final class Hk3IndustrialExtensionPatterns {
         if (!IDS.contains(id)) throw new IllegalArgumentException("非工业扩展批准入口：" + id);
         var data = Hk3ApprovedArchitecture.get(id);
         int[] size = data.size(), controller = data.controller();
-        if (data.ports().size() != (id.equals("i18") ? 17 : 6))
-            throw new IllegalStateException("批准接口数量异常：" + id);
         char[][][] cells = new char[size[2]][size[1]][size[0]];
         for (var slice : cells) for (var row : slice) Arrays.fill(row, '#');
         Map<String, Character> palette = new LinkedHashMap<>();
@@ -45,14 +43,6 @@ public final class Hk3IndustrialExtensionPatterns {
             cells[p[2]][p[1]][p[0]] = symbol;
         }
         if (controllers != 1) throw new IllegalStateException("批准主控数量异常：" + id);
-        Map<String, Character> groups = new LinkedHashMap<>();
-        for (var port : data.ports()) {
-            if (Arrays.equals(port.pos(), controller) || !"north".equals(port.face()))
-                throw new IllegalStateException("批准接口方向或位置异常：" + id + "/" + port.id());
-            char symbol = groups.computeIfAbsent(port.group(), ignored -> (char) ('a' + groups.size()));
-            int[] p = port.pos();
-            cells[p[2]][p[1]][p[0]] = symbol;
-        }
         var builder = FactoryBlockPattern.start(RIGHT, UP, BACK);
         for (var slice : cells) {
             String[] rows = new String[size[1]];
@@ -61,19 +51,13 @@ public final class Hk3IndustrialExtensionPatterns {
         }
         builder.where('S', Predicates.controller(Predicates.blocks(definition.getBlock())))
                 .where('#', Hk3InterfacePredicates.clearance());
-        for (var entry : palette.entrySet()) builder.where(entry.getValue(), Predicates.states(state(entry.getKey())));
-        // 四个对象跨所有复用槽共享，要求不同工作仓满足四种方向；填充壳从不计数。
         var itemIn = ability(PartAbility.IMPORT_ITEMS);
         var itemOut = ability(PartAbility.EXPORT_ITEMS);
         var fluidIn = ability(PartAbility.IMPORT_FLUIDS);
         var fluidOut = ability(PartAbility.EXPORT_FLUIDS);
-        var parallel = Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1).setPreviewCount(0);
-        var filler = Predicates.blocks(Hk3StructureBlocks.require("hk3gtl:industrial_port_casing"));
-        // 修订214：原接口组仅保留蓝图标记，实际四类仓与并行仓可在任意接口安放。
-        var universal = itemIn.or(itemOut).or(fluidIn).or(fluidOut).or(parallel).or(filler);
-        for (var group : groups.entrySet()) {
-            builder.where(group.getValue(), universal);
-        }
+        var universal = Hk3InterfacePredicates.interfaces(itemIn.or(itemOut).or(fluidIn).or(fluidOut));
+        for (var entry : palette.entrySet())
+            builder.where(entry.getValue(), Predicates.states(state(entry.getKey())).or(universal));
         return builder.build();
     }
 

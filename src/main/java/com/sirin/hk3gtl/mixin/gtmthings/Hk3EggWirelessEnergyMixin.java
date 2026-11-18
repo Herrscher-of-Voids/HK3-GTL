@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.sirin.hk3gtl.common.easter.Hk3EggCovers;
 @Mixin(value=WirelessEnergyReceiveCover.class,priority=1100,remap=false)
-/** 【变更记录 #1】2026-10-01 06:19:47（修订128）：删除无；新增真实操作及连续状态旁注；修改无；用途：只读已加载世界与本人回执，不改游戏结果、不授研究资格。 */
-/** 【变更记录 #2】2026-10-01 14:27:54（修订130）：删除无；新增GTLCore覆盖兼容优先级1100；修改原1000与GTLCore的1000同级冲突，允许观察覆盖后两条真实接收调用；用途：修复初始化崩溃，保持能源返回值和276彩蛋条件不变。 */
+ 
+ 
 public abstract class Hk3EggWirelessEnergyMixin {
     @Shadow @Final private int tier;
     @Inject(method="onAttached",at=@At("RETURN"))private void hk3gtl$attached(ItemStack stack,ServerPlayer p,CallbackInfo ci){Hk3EggCovers.attached((CoverBehavior)(Object)this,p);}

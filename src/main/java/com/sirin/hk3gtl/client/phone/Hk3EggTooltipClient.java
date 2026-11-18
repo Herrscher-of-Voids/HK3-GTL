@@ -9,7 +9,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import com.sirin.hk3gtl.common.network.Hk3Network;
 import com.sirin.hk3gtl.common.easter.Hk3EggUiPacket;
 @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT)
-/** 【变更记录 #1】2026-10-01 12:13:33（修订128）：删除：无；新增/修改：实际工具提示停留一秒与已打开GTLAdd指南页回执，服务端核对取得和当前持物；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public final class Hk3EggTooltipClient {
     private static String seen="";private static long start=-1,last=-1;
     private Hk3EggTooltipClient(){}

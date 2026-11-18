@@ -11,12 +11,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import java.util.*;
 
-/**
- * 【文件职责】把最终运行时配方和已解析标签候选导出成只读JSON，保留GT条件和非消耗模板。
- * 【变更记录 #1】2026-09-30 00:54:00（第1次备注 · 内测5修订103）
- * 删除：无。新增：GT完整编解码定义、物品/流体候选、能量及门槛快照。
- * 修改：普通配方单独标注仅导出通用视图；用途：为资源目录提供候选来源，不自动认可生存可得性。
- */
+ 
+
+
+
+
+
 public final class Hk3RuntimeRecipeSnapshot {
     private Hk3RuntimeRecipeSnapshot() {}
 

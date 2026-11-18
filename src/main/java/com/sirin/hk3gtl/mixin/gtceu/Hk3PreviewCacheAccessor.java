@@ -1,6 +1,7 @@
 package com.sirin.hk3gtl.mixin.gtceu;
 
 import com.lowdragmc.lowdraglib.client.scene.WorldSceneRenderer;
+import com.mojang.blaze3d.vertex.VertexBuffer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
@@ -10,4 +11,5 @@ import java.util.concurrent.atomic.AtomicReference;
 @Mixin(value = WorldSceneRenderer.class, remap = false)
 public interface Hk3PreviewCacheAccessor {
     @Accessor("cacheState") AtomicReference<?> hk3gtl$cacheState();
+    @Accessor("vertexBuffers") VertexBuffer[] hk3gtl$vertexBuffers();
 }

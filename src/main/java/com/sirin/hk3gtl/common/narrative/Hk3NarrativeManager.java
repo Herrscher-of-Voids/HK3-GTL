@@ -1,20 +1,18 @@
 package com.sirin.hk3gtl.common.narrative;
 
+ 
 
-/**
- * 【文件职责】
- * - 管理 Hk3NarrativeManager 叙事节点与档案显示数据。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 修改：
- *   1) 文明档案卷轴打开提示仅在玩家生涯首次解锁档案时显示一次（hk3gtl_codex_hint_shown）。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
+
+
+
+
+
+
+
+
+
+
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.nbt.CompoundTag;
@@ -46,13 +44,13 @@ import com.mojang.logging.LogUtils;
  * 使用"文明档案卷轴"可以查看（/give 或在崩坏三-GTL 创造栏可获取）
  * </pre>
  */
-/**
- * 【变更记录 #1】2026-09-30 16:20:43（内测5修订110）
- * 删除：被新版通知读取流程替代的旧分支，历史备注保留。
- * 新增／修改：已解锁档案的完整原文进入收件箱，仍引用原叙事节点与正文键；阅读不再次解锁或发奖。
- * 用途：通知与业务结果分离，服务端授权和个人持久化；不改结构、贴图和贸易。
- */
-/** 【变更记录 #2】2026-10-01 01:54:14（修订127）：删除：被替代的旧分支；新增/修改：统一分类和正文投递，研究失败残篇同样低优先，重复事件不重复通知；用途：个人收藏与正式资格分离，保留历史记录。 */
+ 
+
+
+
+
+
+ 
 public final class Hk3NarrativeManager {
 
     private static final Logger LOGGER = LogUtils.getLogger();

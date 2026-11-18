@@ -2,7 +2,6 @@
   "schema": 1,
   "source": "香港天文台公历与农历日期对照表 https://www.hko.gov.hk/en/gts/time/conversion.htm",
   "sourceZone": "Asia/Hong_Kong",
-  "_history": "2026-11-05 修订211：由官方逐日表抽取六节日，跳过闰月；不外推缺年。",
   "years": {
     "2024": {
       "spring_festival": "2024-02-10",

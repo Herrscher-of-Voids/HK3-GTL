@@ -5,9 +5,9 @@ import net.minecraft.nbt.*;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.core.registries.BuiltInRegistries;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:41:36（修订128）：删除无；新增每维度最近32768处实际放置记录与持久归属，超界只丢历史证据不补授；修改无；用途：只读当前已加载建筑，不生成结构或授予工程验收。 */
-/** 【变更记录 #2】2026-10-01 05:50:31（修订128）：删除：无；新增/修改：读取损坏账本时拒绝覆盖旧文件，当前维度相关彩蛋关闭并一次记录日志，不让放置或爆炸回调崩溃；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 13:29:18（修订128）：删除：无；新增/修改：生成黑曜石与普通手放方块区分，任何替换都撤销生成标记，采掘前验证真实来源；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
+ 
 public final class Hk3EggBuildMemory extends SavedData {
     private record Cell(UUID owner,String block){}
     private static final int LIMIT=32768;

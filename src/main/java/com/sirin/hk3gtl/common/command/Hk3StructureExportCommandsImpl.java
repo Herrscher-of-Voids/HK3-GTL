@@ -1,31 +1,12 @@
 package com.sirin.hk3gtl.common.command;
 
+ 
 
-/**
- * 【文件职责】
- * - 维护 Hk3StructureExportCommandsImpl 的核心功能实现。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
-/**
- * 【变更记录 #1】2026-10-31 17:42:29（第 1 次备注 · 内测5修订189）
- * - 删除：任意含选区NBT物品的导出棒兜底、逐份覆盖磁盘文件的路径。
- * - 新增：save的OP2命令树与执行双重检查、安全名称、选区维度校验及异常根因日志。
- * - 修改：info/clear仍面向持棒玩家；仅注册导出棒可被识别，四份文本先生成后交ExportFiles独占写入。
- * - 用途：让服务器写文件权限由服务端决定，并避免跨维度误读和同名导出数据损坏。
- */
+
+
+
+
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.logging.LogUtils;

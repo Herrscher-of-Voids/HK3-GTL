@@ -4,6 +4,8 @@ import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import com.sirin.hk3gtl.common.capability.Hk3EnergyTick;
+import com.sirin.hk3gtl.common.capability.Hk3MaterialTick;
+import com.sirin.hk3gtl.common.capability.Hk3RefundJournal;
 import com.sirin.hk3gtl.common.machine.Hk3RecipeLogic;
 import com.sirin.hk3gtl.common.recipe.power.Hk3PowerWork;
 import com.sirin.hk3gtl.common.recipe.power.Hk3RecipePower;
@@ -19,20 +21,21 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * 【文件职责】标准GT循环的显式HK工况足额能源事务，原第三方工况不进入本分支。
- * 【变更记录 #1】2026-10-17 16:45:15（第1次备注 · 修订165）
- * 删除：标记工况的double批处理入口及忽略实际tick IO返回值的推进。
- * 新增：服务器工作票据、精确多仓分摊、失败退款重试及未接入外部推进器拒绝。
- * 修改：HK自有双能源逻辑仍由Hk3RecipeLogic处理；用途：只在输入输出和onWorking成功后封账。
- * 边界：能源可撤销，物品流体仍沿GT原执行语义；本类不宣称完整物料事务。
- */
-/**
- * 【变更记录 #2】2026-10-17 16:55:08（第2次备注 · 修订165）
- * 删除：配方清空后只靠工作方法重试退款的遗漏。
- * 新增：serverTick在服务器线程先处理未完成退款，失败暂停后续调度；修改：只退未还的实际余额差。
- * 用途：中断/onWorking拒绝/实际IO异常不会因配方已重置而跳过能源撤销。
- */
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
 @Mixin(value = RecipeLogic.class, remap = false)
 public abstract class Hk3PowerLogicMixin implements Hk3PowerWork {
     @Shadow protected GTRecipe lastRecipe;
@@ -40,21 +43,34 @@ public abstract class Hk3PowerLogicMixin implements Hk3PowerWork {
     @Shadow protected long totalContinuousRunningTime;
     @Unique private Hk3EnergyTick hk3gtl$powerTick;
     @Unique private boolean hk3gtl$powerWorking;
+    @Unique private long hk3gtl$lastRefundLog;
     @Unique private static final org.slf4j.Logger HK3GTL$POWER_LOG = com.mojang.logging.LogUtils.getLogger();
 
     @Inject(method = "serverTick", at = @At("HEAD"), cancellable = true, require = 1)
     private void hk3gtl$retryPowerRefund(CallbackInfo callback) {
-        if (hk3gtl$powerTick == null || hk3gtl$powerWorking) return;
         RecipeLogic logic = (RecipeLogic) (Object) this;
+        if (logic instanceof Hk3RecipeLogic hk) {
+            if (!hk.retryPendingRefund()) callback.cancel();
+            return;
+        }
+        if (hk3gtl$powerWorking) return;
         if (!(logic.getMachine().getLevel() instanceof ServerLevel level) || !level.getServer().isSameThread()) {
             callback.cancel();
             return;
         }
-        if (hk3gtl$powerTick.finish(false)) hk3gtl$powerTick = null;
-        else {
-            logic.setWaiting(Component.translatable("hk3gtl.machine.energy_refund_pending"));
-            callback.cancel();
+        try {
+            if (hk3gtl$powerTick == null) hk3gtl$powerTick = Hk3RefundJournal.resume(logic.getMachine());
+            if (hk3gtl$powerTick == null) return;
+            if (hk3gtl$powerTick.finish(false)) { hk3gtl$powerTick = null; return; }
+        } catch (RuntimeException problem) {
+            long now = System.nanoTime();
+            if (hk3gtl$lastRefundLog == 0 || now - hk3gtl$lastRefundLog >= 10_000_000_000L) {
+                hk3gtl$lastRefundLog = now;
+                HK3GTL$POWER_LOG.warn("[HK3GTL] 固定工况退款恢复失败，位置={}", logic.getMachine().getPos(), problem);
+            }
         }
+        logic.setWaiting(Component.translatable("hk3gtl.machine.energy_refund_pending"));
+        callback.cancel();
     }
 
     @Inject(method = "handleRecipeWorking", at = @At("HEAD"), cancellable = true, require = 1)
@@ -64,11 +80,17 @@ public abstract class Hk3PowerLogicMixin implements Hk3PowerWork {
         callback.cancel();
         if (hk3gtl$powerWorking) throw new IllegalStateException("能源工作循环不允许重入");
         if (!(logic.getMachine().getLevel() instanceof ServerLevel level) || !level.getServer().isSameThread()) return;
-        if (hk3gtl$powerTick != null && !hk3gtl$powerTick.finish(false)) {
+        try {
+            if (hk3gtl$powerTick == null) hk3gtl$powerTick = Hk3RefundJournal.resume(logic.getMachine());
+            if (hk3gtl$powerTick != null && !hk3gtl$powerTick.finish(false)) {
+                logic.setWaiting(Component.translatable("hk3gtl.machine.energy_refund_pending"));
+                return;
+            }
+            hk3gtl$powerTick = Hk3RefundJournal.open(logic.getMachine());
+        } catch (RuntimeException problem) {
             logic.setWaiting(Component.translatable("hk3gtl.machine.energy_refund_pending"));
             return;
         }
-        hk3gtl$powerTick = new Hk3EnergyTick();
         hk3gtl$powerWorking = true;
         GTRecipe recipe = lastRecipe;
         int before = progress;
@@ -90,8 +112,9 @@ public abstract class Hk3PowerLogicMixin implements Hk3PowerWork {
                     return;
                 }
                 GTRecipe tick = Hk3RecipePower.withoutEU(recipe);
-                if (!tick.handleTickRecipeIO(IO.IN, logic.machine, logic.getChanceCaches())
-                        || !tick.handleTickRecipeIO(IO.OUT, logic.machine, logic.getChanceCaches())) {
+                if (!Hk3MaterialTick.run(hk3gtl$powerTick, tick, logic,
+                        () -> tick.handleTickRecipeIO(IO.IN, logic.machine, logic.getChanceCaches())
+                                && tick.handleTickRecipeIO(IO.OUT, logic.machine, logic.getChanceCaches()))) {
                     logic.setWaiting(Component.translatable("hk3gtl.machine.recipe_commit_failed"));
                     return;
                 }

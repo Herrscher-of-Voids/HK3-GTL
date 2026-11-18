@@ -12,39 +12,43 @@ import com.hepdd.gtmthings.api.misc.WirelessEnergyManager;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 import com.sirin.hk3gtl.common.capability.Hk3GridEnergyPayment;
 import com.sirin.hk3gtl.common.capability.Hk3EnergyTick;
+import com.sirin.hk3gtl.common.capability.Hk3DualEnergyCosts;
+import com.sirin.hk3gtl.common.capability.HonkaiWirelessNetwork;
 import com.sirin.hk3gtl.common.machine.Hk3RecipeLogic;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.machine.trait.Hk3PlayerGridEnergyTrait;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import org.gtlcore.gtlcore.common.machine.trait.MultipleRecipesLogic;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.UUID;
 
-/**
- * 【文件职责】HK3高阶配方的额定电压、足额能源和安全执行入口；JEI与服务端共同读取配方数据。
- * 【变更记录 #1】2026-10-17 16:27:36（第1次备注 · 修订165）
- * 删除：无；新增：注册器require、只读守卫、精确倍乘/合并及已有玩家网事务支付适配。
- * 修改：只约束显式标记的HK3配方，MAX启动不标记；总功率不能代替单路电压。
- * 用途：防止GTL高压euTier钳MAX和double倍乘导致越阶/少付；未证明安全的第三方执行器明确拒绝。
- * 边界：不新增设备，不修改第三方配方；现有玩家网名义输入只到CIV，CEV仍无已验证额定承载。
- */
-/**
- * 【变更记录 #2】2026-10-17 16:43:35（第2次备注 · 修订165）
- * 删除：本轮工程假设引入的单路额定限制及一律拒绝第三方载体的分支。
- * 新增：沿GTL总输入功率语义的缓冲仓事务适配与标准工作循环身份核验。
- * 修改：阶段表示需求功率阶段，进度仍由研究和材料前置决定；HK自带玩家网沿原任意精度支付语义。
- * 用途：现有GTL机器可安全执行显式HK固定工况，不假称MAX高安培是实际升压，不变更原第三方配方。
- */
-/**
- * 【变更记录 #3】2026-10-17 17:58:50（第3次备注 · 修订165）
- * 删除：仅凭工作循环继承就接受未知多配方规划器的漏洞。
- * 新增：多配方选方/完工入口必须继承已接入固定工况的GTL规划器，不得另建getGTRecipe。
- * 修改：GTLAdd光子晶阵复制工况在未经安全规划适配时明确拒绝；标准维度聚焦阵列仍受支持。
- * 用途：阻止自建规划器先吃料再丢失HK费用及研究data，不扩大未验证执行路径。
- */
-/** 【变更记录 #4】2026-11-05：高阶tier数据接受任意NBT数值类型；Forge运行态byte编码可正确读取，不改变功率校验规则。 */
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
 public final class Hk3RecipePower {
     public static final String TIER_KEY = "hk3_required_voltage_tier";
     public static final String MATERIAL_TIER_KEY = "hk3_main_material_tier";
@@ -109,6 +113,12 @@ public final class Hk3RecipePower {
                 if (ports.isEmpty()) return fail("executor");
                 if (Hk3PortPayment.power(ports).compareTo(cost) < 0) return fail("capacity", cost.toString());
                 if (Hk3PortPayment.available(ports).compareTo(cost) < 0) return fail("balance", cost.toString());
+                BigInteger honkai = Hk3DualEnergyCosts.getMergedCost(recipe);
+                if (honkai != null && honkai.signum() > 0) {
+                    UUID payer = externalPayer(machine);
+                    if (payer == null || HonkaiWirelessNetwork.getStoredAmount(payer).compareTo(honkai) < 0)
+                        return fail("honkai_balance", honkai.toString());
+                }
             }
             return GTRecipe.ActionResult.SUCCESS;
         } catch (RuntimeException unavailable) {
@@ -130,7 +140,15 @@ public final class Hk3RecipePower {
     public static boolean pay(GTRecipe recipe, RecipeLogic logic, Hk3EnergyTick tick) {
         if (!check(recipe, logic).isSuccess() || logic.getMachine().getLevel() == null
                 || !logic.getMachine().getLevel().getServer().isSameThread()) return false;
-        return Hk3PortPayment.pay(Hk3PowerPorts.of(logic), Hk3PowerBudget.cost(amounts(recipe)), tick);
+        BigInteger honkai = Hk3DualEnergyCosts.getMergedCost(recipe);
+        return Hk3PortPayment.pay(Hk3PowerPorts.of(logic), Hk3PowerBudget.cost(amounts(recipe)), tick)
+                && (honkai == null || HonkaiWirelessNetwork.reserve(externalPayer(logic.getMachine()), honkai, tick));
+    }
+
+    private static UUID externalPayer(MetaMachine machine) {
+        var pos = machine.getPos();
+        var player = machine.getLevel().getNearestPlayer(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 64, false);
+        return player instanceof ServerPlayer serverPlayer ? serverPlayer.getUUID() : null;
     }
 
     /** HK工作票据已开启后精确付款；其余tick IO使用移除EU的副本，避免真实仓抢先支付或重复扣款。 */
@@ -159,6 +177,8 @@ public final class Hk3RecipePower {
         scaled.data = original.data.copy();
         BigInteger multiple = BigInteger.valueOf(multiplier);
         scaled.data.putString(MINIMUM_COST_KEY, minimum(original).multiply(multiple).toString());
+        BigInteger honkai = Hk3DualEnergyCosts.getMergedCost(original);
+        if (honkai != null) Hk3DualEnergyCosts.setMergedCost(scaled, honkai.multiply(multiple));
         try {
             if (multiplier <= 0) throw new ArithmeticException("并行必须为正数");
             var from = amounts(original);
@@ -180,22 +200,14 @@ public final class Hk3RecipePower {
         BigInteger required = minimum(base).add(minimum(other));
         int highest = Math.max(tier(base), tier(other));
         boolean invalid = base.data.getBoolean(INVALID_KEY) || other.data.getBoolean(INVALID_KEY);
+        BigInteger baseHonkai = Hk3DualEnergyCosts.getMergedCost(base);
+        BigInteger otherHonkai = Hk3DualEnergyCosts.getMergedCost(other);
         base.data = base.data.copy();
         base.data.putInt(TIER_KEY, highest);
         base.data.putString(MINIMUM_COST_KEY, required.toString());
+        if (baseHonkai != null || otherHonkai != null) Hk3DualEnergyCosts.setMergedCost(base,
+                (baseHonkai == null ? BigInteger.ZERO : baseHonkai).add(otherHonkai == null ? BigInteger.ZERO : otherHonkai));
         if (invalid) base.data.putBoolean(INVALID_KEY, true);
-    }
-
-    public static Component tooltip(GTRecipe recipe) {
-        if (!marked(recipe)) return Component.empty();
-        try {
-            int requiredTier = tier(recipe);
-            if (requiredTier <= GTValues.MAX || requiredTier >= Hk3Values.VA_LONG.length) throw new IllegalArgumentException("未知电压");
-            return Component.translatable("hk3gtl.recipe.power.required", Hk3Values.getVN(requiredTier),
-                    Hk3Values.VA_LONG[requiredTier], Hk3PowerBudget.cost(amounts(recipe)).toString());
-        } catch (RuntimeException invalid) {
-            return Component.translatable("hk3gtl.recipe.power.invalid");
-        }
     }
 
     private static GTRecipe.ActionResult fail(String reason, Object... arguments) {

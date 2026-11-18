@@ -1,68 +1,11 @@
 package com.sirin.hk3gtl.common.block;
 
-
-/**
- * 【文件职责】
- * - 维护 CasingBlocks 的核心功能实现。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.RegistryObject;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public class CasingBlocks {
-
-    // ════════════════════════════════════════════
-    // P1 基础 / 海渊阶段机壳（多方块结构主体方块）
-    // 修改数值：不需要改这里，去 casingProperties() 调整
-    // ════════════════════════════════════════════
-    public static RegistryObject<Block> CASING_SOULIUM;              // 魂钢机壳
-    public static RegistryObject<Block> CASING_REINFORCED_SOULIUM;   // 强化魂钢机壳
-    public static RegistryObject<Block> CASING_ABYSS_MECHANICAL;     // 海渊机械机壳
-    public static RegistryObject<Block> CASING_ABYSS_RESEARCH;       // 海渊科研机壳
-    public static RegistryObject<Block> CASING_ABYSS_ENERGY;         // 海渊能源机壳
-
-    // ════════════════════════════════════════════
-    // 虚数阶段机壳（金色 + 黑色色调）
-    // ════════════════════════════════════════════
-    public static RegistryObject<Block> CASING_IMAGINARY_TREE;       // 虚数之树机壳
-    public static RegistryObject<Block> CASING_IMAGINARY_LATTICE;    // 虚数晶格机壳
-    public static RegistryObject<Block> CASING_IMAGINARY_CORE;       // 虚数核心机壳
-    public static RegistryObject<Block> CASING_IMAGINARY_ANCHOR;     // 虚数锚定机壳
-    public static RegistryObject<Block> CASING_IMAGINARY_WEAVE;      // 虚数编织机壳
-
-    // ════════════════════════════════════════════
-    // 量子阶段机壳（浅紫色 + 白色色调）
-    // ════════════════════════════════════════════
-    public static RegistryObject<Block> CASING_QUANTUM_SEA;          // 量子之海机壳
-    public static RegistryObject<Block> CASING_QUANTUM_BUBBLE;       // 世界泡机壳
-    public static RegistryObject<Block> CASING_QUANTUM_FLUX;         // 量子通量机壳
-    public static RegistryObject<Block> CASING_QUANTUM_ENTANGLE;     // 量子纠缠机壳
-    public static RegistryObject<Block> CASING_QUANTUM_SHIPBOARD;    // 量子舰载机壳
-
-    // ════════════════════════════════════════════
-    // 终焉阶段机壳（金色 + 白色 + 黑色，空之律者色调）
-    // ════════════════════════════════════════════
-    public static RegistryObject<Block> CASING_FINALITY_VOID;        // 终焉虚空机壳
-    public static RegistryObject<Block> CASING_FINALITY_SANCTUM;     // 终焉圣殿机壳
-    public static RegistryObject<Block> CASING_FINALITY_DOMINION;    // 终焉统御机壳
-    public static RegistryObject<Block> CASING_FINALITY_HYPERION;    // 休伯利安舰载机壳
-    public static RegistryObject<Block> CASING_FINALITY_WONDER;      // 文明奇观机壳
 
     // ════════════════════════════════════════════
     // 16色通用装饰机壳（用于多方块结构的外壳装饰拼搭）
@@ -91,18 +34,6 @@ public class CasingBlocks {
     public static RegistryObject<Block>[] ALL_COLORED_CASINGS;
 
     /**
-     * 功能性机壳属性（硬度5，爆炸抗性10）。
-     * 修改硬度：调整 strength() 的第一个参数
-     * 修改爆炸抗性：调整 strength() 的第二个参数
-     */
-    private static BlockBehaviour.Properties casingProperties() {
-        return BlockBehaviour.Properties.of()
-                .strength(5.0f, 10.0f)
-                .sound(SoundType.METAL)
-                .requiresCorrectToolForDrops();
-    }
-
-    /**
      * 16色装饰机壳属性（硬度3，爆炸抗性6，比功能机壳更软）。
      * 修改硬度/抗性：调整 strength() 参数
      */
@@ -113,10 +44,6 @@ public class CasingBlocks {
                 .requiresCorrectToolForDrops();
     }
 
-    /** 注册功能性机壳（高硬度） */
-    private static RegistryObject<Block> casing(String id) {
-        return Hk3Blocks.registerBlock(id, () -> new Block(casingProperties()));
-    }
 
     /** 注册装饰性颜色机壳（低硬度） */
     private static RegistryObject<Block> coloredCasing(String color) {
@@ -126,34 +53,6 @@ public class CasingBlocks {
 
     @SuppressWarnings("unchecked")
     public static void register() {
-        // ── 基础 / 海渊（Max后第一批多方块的主体结构方块） ──
-        CASING_SOULIUM = casing("casing_soulium");
-        CASING_REINFORCED_SOULIUM = casing("casing_reinforced_soulium");
-        CASING_ABYSS_MECHANICAL = casing("casing_abyss_mechanical");
-        CASING_ABYSS_RESEARCH = casing("casing_abyss_research");
-        CASING_ABYSS_ENERGY = casing("casing_abyss_energy");
-
-        // ── 虚数阶段 ──
-        CASING_IMAGINARY_TREE = casing("casing_imaginary_tree");
-        CASING_IMAGINARY_LATTICE = casing("casing_imaginary_lattice");
-        CASING_IMAGINARY_CORE = casing("casing_imaginary_core");
-        CASING_IMAGINARY_ANCHOR = casing("casing_imaginary_anchor");
-        CASING_IMAGINARY_WEAVE = casing("casing_imaginary_weave");
-
-        // ── 量子阶段 ──
-        CASING_QUANTUM_SEA = casing("casing_quantum_sea");
-        CASING_QUANTUM_BUBBLE = casing("casing_quantum_bubble");
-        CASING_QUANTUM_FLUX = casing("casing_quantum_flux");
-        CASING_QUANTUM_ENTANGLE = casing("casing_quantum_entangle");
-        CASING_QUANTUM_SHIPBOARD = casing("casing_quantum_shipboard");
-
-        // ── 终焉阶段 ──
-        CASING_FINALITY_VOID = casing("casing_finality_void");
-        CASING_FINALITY_SANCTUM = casing("casing_finality_sanctum");
-        CASING_FINALITY_DOMINION = casing("casing_finality_dominion");
-        CASING_FINALITY_HYPERION = casing("casing_finality_hyperion");
-        CASING_FINALITY_WONDER = casing("casing_finality_wonder");
-
         // ── 16色通用装饰机壳 ──
         CASING_COLORED_WHITE      = coloredCasing("white");
         CASING_COLORED_ORANGE     = coloredCasing("orange");

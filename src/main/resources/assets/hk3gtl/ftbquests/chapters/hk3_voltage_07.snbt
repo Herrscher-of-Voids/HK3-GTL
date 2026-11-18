@@ -1,195 +1,1064 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_07",
-  "id": "4B58E000D9DDB488",
-  "title": "HK3GTL · QEV · 纠缠压",
+  "id": "4B59FF8F953BD7DF",
+  "title": "纠缠压 QEV",
   "subtitle": [
-    "Tier21 · 看见另一处世界"
+    "Tier21-QEV"
   ],
-  "group": "",
-  "order_index": 21,
-  "icon": "hk3gtl:electric_motor_qev",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 22,
+  "icon": "hk3gtl:voltage_machine_casing_qev",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B56FD250E317184",
-      "title": "看见另一处世界",
+      "id": "4B588074C3C76BAA",
+      "title": "从QCV车间继续",
+      "subtitle": "QCV → QEV",
+      "description": [
+        "前级机壳已经备好。本章继续接上主材、电子与设施，制造第一批QEV机械方块。",
+        "先把主材产线接通，再安排回收和升压后的合并工序。用料、功率和工作条件请查看JEI。"
+      ],
+      "dependencies": [
+        "4B5216D08D96321D"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E9C9FE5F06B89",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_qcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qcv",
+      "x": 0,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B579EB8767AA2A4",
+      "title": "对偶标记接口",
+      "subtitle": "让A、B端口带着配对标记接入",
+      "description": [
+        "在前级接口上增加对偶端口与配对标记，接好本级印刷板及隔离层。后续解码从这组明确的接口读取两支信号。"
+      ],
+      "dependencies": [
+        "4B5F27DFD542861F",
+        "4B5B808A4014F1E3",
+        "4B5B5E09A6EE0493"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FA90FC688C6AE",
+          "type": "item",
+          "item": "hk3gtl:heralded_pair_interface",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:heralded_pair_interface",
+      "x": 30,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5FE0037EACB269",
+      "title": "配对校验解码模块",
+      "subtitle": "对两支结果共同校验",
+      "description": [
+        "封装局部计算、存储与时序部件，检查两支输入的配对状态。检测到失配时，由模块给出停止执行的信号。"
+      ],
+      "dependencies": [
+        "4B512C65CEF4309B",
+        "4B579EB8767AA2A4",
+        "4B50B7179E3F37D8"
+      ],
+      "tasks": [
+        {
+          "id": "4B523DC7A1696EE7",
+          "type": "item",
+          "item": "hk3gtl:paired_syndrome_decoder",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_syndrome_decoder",
+      "x": 38,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B59CDF9DC283EED",
+      "title": "双通道联锁伺服筒",
+      "subtitle": "两路一致之后再执行",
+      "description": [
+        "把配对校验接入伺服联锁，保留前级支承，增加本级双通道执行结构。"
+      ],
+      "dependencies": [
+        "4B51D710544E9513",
+        "4B5FE0037EACB269",
+        "4B5802FBE1CFDB67"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FA68201E4567C",
+          "type": "item",
+          "item": "hk3gtl:dual_channel_servo_cartridge",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:dual_channel_servo_cartridge",
+      "x": 42,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B509AAFC7A4F423",
+      "title": "双支路热平衡桥",
+      "subtitle": "给配对支路相称的温度条件",
+      "description": [
+        "将两支温控通路装入平衡桥，各自保留供回路。维持配对支路均温，再接入电路与执行部件。"
+      ],
+      "dependencies": [
+        "4B578111155CA2B0",
+        "4B50B7179E3F37D8",
+        "4B5B808A4014F1E3"
+      ],
+      "tasks": [
+        {
+          "id": "4B582E729AF39BB3",
+          "type": "item",
+          "item": "hk3gtl:paired_thermal_balance_bridge",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_thermal_balance_bridge",
+      "x": 34,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B54D2F9D45C6F00",
+      "title": "QEV 量子桥接处理器主机",
+      "subtitle": "双支路配对校验与对称均温",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成量子桥接处理器主机。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B5FD77A9DD44CF7",
+        "4B5FE0037EACB269",
+        "4B509AAFC7A4F423",
+        "4B5802FBE1CFDB67"
+      ],
+      "tasks": [
+        {
+          "id": "4B57868B88752353",
+          "type": "item",
+          "item": "hk3gtl:quantum_bridge_processor_mainframe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:quantum_bridge_processor_mainframe",
+      "x": 46,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B592BB2320D03D1",
+      "title": "QEV 量子相干超级计算机",
+      "subtitle": "双支路配对校验与对称均温",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成量子相干超级计算机。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B5FE0037EACB269",
+        "4B509AAFC7A4F423",
+        "4B5802FBE1CFDB67"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AD830265B27D3",
+          "type": "item",
+          "item": "hk3gtl:qev_computer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
       "icon": "hk3gtl:qev_computer",
-      "x": 0.0,
-      "y": -4.0,
+      "x": 50,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B5359A2298535A1",
+      "title": "QEV 量子干涉处理器组装件",
+      "subtitle": "双支路配对校验与对称均温",
       "description": [
-        "第一次量子观测，是离开熟悉产线之前必须做的准备。先获得可信的观测资料，再讨论目的地。",
-        "",
-        "从量子异常初观走向量子研究所，最后解析世界泡坐标。观测、坐标和后续任务各有用途，不要把它们混成一个步骤。",
-        "{@pagebreak}",
-        "本页是QEV · 纠缠压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成量子干涉处理器组装件。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B520FFA3A70A471",
+        "4B5FE0037EACB269",
+        "4B509AAFC7A4F423",
+        "4B5802FBE1CFDB67"
       ],
       "tasks": [
         {
-          "id": "4B5114C2C2B97943",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_intro_07"
-          ]
+          "id": "4B562049DBA25981",
+          "type": "item",
+          "item": "hk3gtl:quantum_interference_assembly",
+          "count": 1,
+          "consume_items": false
         }
       ],
-      "size": 2.0,
-      "shape": "rsquare"
+      "icon": "hk3gtl:quantum_interference_assembly",
+      "x": 54,
+      "y": 8,
+      "optional": false
     },
     {
-      "id": "4B5447192CD830E2",
-      "title": "电路与八大件",
+      "id": "4B56A3DE443E58AA",
+      "title": "QEV 纠缠锚定处理器",
+      "subtitle": "双支路配对校验与对称均温",
+      "description": [
+        "消耗完整的前一形态电路，配入本段互连、读出与散热部件，制成纠缠锚定处理器。为后续执行件和工程设备备好计算部件。"
+      ],
+      "dependencies": [
+        "4B5FE0037EACB269",
+        "4B509AAFC7A4F423",
+        "4B5802FBE1CFDB67"
+      ],
+      "tasks": [
+        {
+          "id": "4B5823EA4C5103C5",
+          "type": "item",
+          "item": "hk3gtl:entanglement_anchor_processor",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:entanglement_anchor_processor",
+      "x": 54,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B58815DF49B28EF",
+      "title": "QEV 电动马达",
+      "subtitle": "提供独立的旋转驱动",
+      "description": [
+        "将前级马达与本段承力、反馈部件总装，为后续设备备好旋转驱动。"
+      ],
+      "dependencies": [
+        "4B510190BA9A5D97",
+        "4B59CDF9DC283EED",
+        "4B592BB2320D03D1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5348C7E46CDD81",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
       "icon": "hk3gtl:electric_motor_qev",
-      "x": -4.0,
-      "y": -4.0,
+      "x": 50,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5B68E1E179BBC1",
+      "title": "QEV 电动活塞",
+      "subtitle": "把驱动转换成受控直线运动",
       "description": [
-        "进入QEV · 纠缠压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
+        "将前级活塞与本段定位、反馈部件总装，用于后续设备的受控推拉。"
+      ],
+      "dependencies": [
+        "4B55A44A3D4741F4",
+        "4B58815DF49B28EF"
       ],
       "tasks": [
         {
-          "id": "4B585FCBAD372EE0",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_07"
-          ]
+          "id": "4B5551662D1BDCAF",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_qev",
+          "count": 1,
+          "consume_items": false
         }
-      ]
+      ],
+      "icon": "hk3gtl:electric_piston_qev",
+      "x": 38,
+      "y": 12,
+      "optional": false
     },
     {
-      "id": "4B5CD71B4E04B8A3",
-      "title": "量子异常初观",
+      "id": "4B5C9BB775F30E7B",
+      "title": "QEV 电动泵",
+      "subtitle": "为独立流路提供输送动力",
+      "description": [
+        "将前级泵与本段流路、反馈部件总装，接续后续设备的流体输送。"
+      ],
+      "dependencies": [
+        "4B57494A173A8C55",
+        "4B58815DF49B28EF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5838A4E34AA7CF",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:electric_pump_qev",
+      "x": 34,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5EAC0CC749BDEF",
+      "title": "QEV 传送带模块",
+      "subtitle": "连续移送已有产线中的物料",
+      "description": [
+        "将前级传送部件与本段驱动、读出结构总装，为后续设备备好连续移载组件。"
+      ],
+      "dependencies": [
+        "4B510E092A9EA041",
+        "4B58815DF49B28EF"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B9C896F50869B",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conveyor_module_qev",
+      "x": 30,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5953B3CED349F0",
+      "title": "QEV 机械臂",
+      "subtitle": "把定位和执行接到同一部件",
+      "description": [
+        "将前级机械臂与本段承力、定位和反馈结构总装，供后续装配与移载设备使用。"
+      ],
+      "dependencies": [
+        "4B50C62B53949BDD",
+        "4B5B68E1E179BBC1"
+      ],
+      "tasks": [
+        {
+          "id": "4B55969FBADD820D",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:robot_arm_qev",
+      "x": 34,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5528655154A3ED",
+      "title": "QEV 传感器",
+      "subtitle": "把测量结果送入本级控制",
+      "description": [
+        "将前级传感器与本段接口、读出结构总装，保留独立的采样与反馈部件。"
+      ],
+      "dependencies": [
+        "4B5934F5CF3D7D6B",
+        "4B592BB2320D03D1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BD3F73F494385",
+          "type": "item",
+          "item": "hk3gtl:sensor_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:sensor_qev",
+      "x": 46,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5983D18028736A",
+      "title": "QEV 发射器",
+      "subtitle": "为本级设备准备发射部件",
+      "description": [
+        "将前级发射器与本段接口、承力和控制结构总装，供后续设备装配。"
+      ],
+      "dependencies": [
+        "4B5CE40EEEBE5CBD",
+        "4B592BB2320D03D1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B54DA2775719C",
+          "type": "item",
+          "item": "hk3gtl:emitter_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:emitter_qev",
+      "x": 42,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5B09F891F81B91",
+      "title": "QEV 力场发生器",
+      "subtitle": "为本级设备准备力场部件",
+      "description": [
+        "将前级力场发生器与本段控制、支承结构总装，接续后续设备的力场部件需求。"
+      ],
+      "dependencies": [
+        "4B54A60A7117D269",
+        "4B5528655154A3ED",
+        "4B5983D18028736A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FABCE138DA490",
+          "type": "item",
+          "item": "hk3gtl:field_generator_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:field_generator_qev",
+      "x": 30,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5CC8A3BE040A5D",
+      "title": "共轭晶种配对夹",
+      "subtitle": "先备好固定A、B晶种的实物夹具",
+      "description": [
+        "用前级材料制成配对夹。它在晶种生长、合流和后续形态加工中实际消耗，按产线需求持续供给。"
+      ],
+      "dependencies": [
+        "4B512E947E431C10",
+        "4B5CD71B4E04B8A3",
+        "4B5C19467E9C025E"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A7EED52957711",
+          "type": "item",
+          "item": "hk3gtl:conjugate_seed_coupling_clamp",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:conjugate_seed_coupling_clamp",
+      "x": 0,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B54B484937513B1",
+      "title": "配对晶种生长浴",
+      "subtitle": "为两条独立生长线供液",
+      "description": [
+        "以新料配制生长浴，分别供应A支与B支。两条晶种线各自耗料，合流前分别备齐。"
+      ],
+      "dependencies": [
+        "4B512E947E431C10",
+        "4B5CD71B4E04B8A3"
+      ],
+      "tasks": [
+        {
+          "id": "4B5481F197BBE1AC",
+          "type": "custom",
+          "title": "实际完成配对晶种生长浴",
+          "tags": [
+            "hk3gtl_quest_qev_n02"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:soulium_nucleation_granule",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5746D58AC44B7C",
+      "title": "独立A晶种坯",
+      "subtitle": "铂接触界面的一支",
+      "description": [
+        "在独立生长设备中加工A支晶种，保留它的铂接触界面。把成品留待整对装配，与B支按一比一汇合。"
+      ],
+      "dependencies": [
+        "4B5CC8A3BE040A5D",
+        "4B54B484937513B1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FB78FFCD82087",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_stage_1",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_stage_1",
+      "x": 8,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5654050FCD385A",
+      "title": "独立B晶种坯",
+      "subtitle": "钯接触与晶界调谐的一支",
+      "description": [
+        "单独投入B支所需的前级基体与功能辅料，完成共轭晶种生长。两支成品分别保存，再送往整对装配。"
+      ],
+      "dependencies": [
+        "4B5CC8A3BE040A5D",
+        "4B54B484937513B1"
+      ],
+      "tasks": [
+        {
+          "id": "4B546C4205A7A894",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_stage_2",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_stage_2",
+      "x": 12,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B57B57F7522FE98",
+      "title": "同步配对坯",
+      "subtitle": "让A、B晶种按一比一会合",
+      "description": [
+        "将等量A支、B支晶种放入配对夹，接入同步组件完成装配。合流后的材料始终以完整晶对继续加工。"
+      ],
+      "dependencies": [
+        "4B5746D58AC44B7C",
+        "4B5654050FCD385A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5405BAA9C0F963",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_stage_3",
+      "x": 16,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5599240882CC52",
+      "title": "整对时效坯",
+      "subtitle": "成对完成晶界锁定",
+      "description": [
+        "对完整晶对进行时效，固定晶界与应力状态。保留两支配对关系，再送往封端与低温复核。"
+      ],
+      "dependencies": [
+        "4B57B57F7522FE98"
+      ],
+      "tasks": [
+        {
+          "id": "4B563F575AC13F52",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_stage_4",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_stage_4",
+      "x": 20,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5A1C569C3F18E2",
+      "title": "纠缠配对晶格材标准坯",
+      "subtitle": "封端之后继续按晶对使用",
+      "description": [
+        "封好完整晶对并完成低温复核。标准坯每两件成对流转，切分与后续形态加工也保留这一关系。"
+      ],
+      "dependencies": [
+        "4B5599240882CC52"
+      ],
+      "tasks": [
+        {
+          "id": "4B59970E0E8BE082",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_billet",
+      "x": 24,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B54F7A441537AA1",
+      "title": "纠缠配对晶格材板",
+      "subtitle": "把完整晶对铺入板层",
+      "description": [
+        "以完整配对晶格压合板材，补上背衬、接触层与界面材料。板层中的两支结构一起进入后续装配。"
+      ],
+      "dependencies": [
+        "4B517CFE24713919",
+        "4B5A1C569C3F18E2"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EFA12A7816B65",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_plate",
+      "x": 24,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5385AC86625747",
+      "title": "纠缠配对晶格材棒",
+      "subtitle": "八根棒保留四对晶格",
+      "description": [
+        "按偶数批次加工复合棒，保留每对互补晶格。棒材接着供给框架、接口环和复合细线。"
+      ],
+      "dependencies": [
+        "4B517CFE24713919",
+        "4B50A4D83DED0382",
+        "4B5A1C569C3F18E2"
+      ],
+      "tasks": [
+        {
+          "id": "4B52F8FE5D9AACF2",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_rod",
+      "x": 20,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5802FBE1CFDB67",
+      "title": "纠缠配对晶格材框架",
+      "subtitle": "四对梁组装成一副框架",
+      "description": [
+        "将八根棒按四对梁组定位，接到完整前级框架。成品框架内保留完整配对结构。"
+      ],
+      "dependencies": [
+        "4B52A38ECBBC7D1B",
+        "4B5385AC86625747"
+      ],
+      "tasks": [
+        {
+          "id": "4B5783D443EE74FD",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_frame",
+      "x": 16,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B50B7179E3F37D8",
+      "title": "纠缠配对晶格材环",
+      "subtitle": "接口环也按完整晶对制造",
+      "description": [
+        "将棒材按晶对加工成环，配好定位夹与接触层。环件供给机壳接口，保持两支对应关系。"
+      ],
+      "dependencies": [
+        "4B5BC89DB94CBBA1",
+        "4B5385AC86625747"
+      ],
+      "tasks": [
+        {
+          "id": "4B593E69F10F42F0",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_ring",
+      "x": 12,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5B808A4014F1E3",
+      "title": "纠缠配对晶格材箔",
+      "subtitle": "让两层互补晶格共同固化",
+      "description": [
+        "将完整配对层与前级基箔共固化，制成本级薄箔。展薄后仍保留两层之间的对应关系。"
+      ],
+      "dependencies": [
+        "4B5CF6430127290A",
+        "4B54F7A441537AA1"
+      ],
+      "tasks": [
+        {
+          "id": "4B521B4138B0DFCF",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_foil",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_foil",
+      "x": 8,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B5B5E09A6EE0493",
+      "title": "纠缠配对晶格材复合细线",
+      "subtitle": "成对通道在端部定位",
+      "description": [
+        "将复合细线分成对应通道，配对夹固定端部。每批保持偶数通道，继续用于后续互连。"
+      ],
+      "dependencies": [
+        "4B54610F11B937EC",
+        "4B5385AC86625747"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A5163A0CDC031",
+          "type": "item",
+          "item": "hk3gtl:paired_entangled_lattice_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_fine_wire",
+      "x": 4,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B575076D5F34203",
+      "title": "第一批QEV机械方块",
+      "subtitle": "把整对晶格装到QCV核心外",
+      "description": [
+        "将本级板、框和环接到完整QCV机械方块上。配对定位、时序恢复和低温封装一起完成，取得首批QEV机壳。"
+      ],
+      "dependencies": [
+        "4B5216D08D96321D",
+        "4B54F7A441537AA1",
+        "4B5802FBE1CFDB67",
+        "4B50B7179E3F37D8"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E870143C5711B",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_qev",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qev",
+      "x": 0,
+      "y": 22,
+      "optional": false
+    },
+    {
+      "id": "4B57BD3093906481",
+      "title": "QEV机壳分层拆解",
+      "subtitle": "取回核心，分类处理外层晶格",
+      "description": [
+        "拆出完整QCV核心，回收部分板、框与环。其余主体转入分类废料，继续洗脱和分离。"
+      ],
+      "dependencies": [
+        "4B575076D5F34203"
+      ],
+      "tasks": [
+        {
+          "id": "4B55C61880918D59",
+          "type": "custom",
+          "title": "实际完成QEV机壳分层拆解",
+          "tags": [
+            "hk3gtl_quest_qev_n15"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_qcv",
+      "x": 30,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5DDF371174C139",
+      "title": "QEV分类废料分离",
+      "subtitle": "回收主体组分，分开不可恢复尾料",
+      "description": [
+        "用工艺溶剂洗脱附着物，再离心分离主体组分。回收组分重新补料，尾料另作固化。"
+      ],
+      "dependencies": [
+        "4B512E947E431C10",
+        "4B5CD71B4E04B8A3"
+      ],
+      "tasks": [
+        {
+          "id": "4B53B52C3B5D3FA6",
+          "type": "custom",
+          "title": "实际完成QEV分类废料分离",
+          "tags": [
+            "hk3gtl_quest_qev_n16"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_recovered_fraction",
+      "x": 34,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B558EFD1D3BCC1D",
+      "title": "QEV回收组分重建双支",
+      "subtitle": "A、B两条晶种线都要重新建立",
+      "description": [
+        "分别给两支加入回收主体与新鲜基体，重新投入各自的接触层、配对夹和调谐材料。得到独立A、B晶种后，回到原整对装配路线。"
+      ],
+      "dependencies": [
+        "4B5CC8A3BE040A5D",
+        "4B54B484937513B1"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F69D05D80BF50",
+          "type": "custom",
+          "title": "实际完成QEV回收组分重建双支",
+          "tags": [
+            "hk3gtl_quest_qev_n17"
+          ]
+        }
+      ],
+      "icon": "hk3gtl:paired_entangled_lattice_stage_1",
+      "x": 38,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B5B58129091C610",
+      "title": "QEV尾料固化",
+      "subtitle": "把无法恢复的晶格主体封存",
+      "description": [
+        "将不可回收尾料与固化材料混合，取出惰性灰烬，结束这部分配对晶格的回收。"
+      ],
+      "dependencies": [
+        "4B512E947E431C10",
+        "4B5CD71B4E04B8A3"
+      ],
+      "tasks": [
+        {
+          "id": "4B500CA2DAA7F056",
+          "type": "custom",
+          "title": "实际完成QEV尾料固化",
+          "tags": [
+            "hk3gtl_quest_qev_n18"
+          ]
+        }
+      ],
+      "icon": "gtceu:ash_dust",
+      "x": 42,
+      "y": 36,
+      "optional": true
+    },
+    {
+      "id": "4B554B1F740B455A",
+      "title": "正交相位接收组件",
+      "subtitle": "同相与正交观测分开解调",
+      "description": [
+        "将两类观测通道封装成独立接收组件，配好前级测量、屏蔽与连接部件。观测设施和探针从这里取用。"
+      ],
+      "dependencies": [
+        "4B512E947E431C10",
+        "4B5193E0D06811F7",
+        "4B57494A173A8C55",
+        "4B54A60A7117D269"
+      ],
+      "tasks": [
+        {
+          "id": "4B535C00BCD0B2A1",
+          "type": "item",
+          "item": "hk3gtl:quadrature_phase_receiver",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:quadrature_phase_receiver",
+      "x": 30,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5DF7A7F7C2A319",
+      "title": "量子异常观测阵列",
+      "subtitle": "把接收组件组成观测设备",
+      "description": [
+        "完成量子异常观测研究后，制造阵列控制器。将正交相位接收组件接入设备，继续建立观测基准。"
+      ],
+      "dependencies": [
+        "4B5CD71B4E04B8A3",
+        "4B50C62B53949BDD",
+        "4B5216D08D96321D",
+        "4B554B1F740B455A"
+      ],
+      "tasks": [
+        {
+          "id": "4B599182BE65057A",
+          "type": "item",
+          "item": "hk3gtl:i24_quantum_anomaly_observation_array",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i24_quantum_anomaly_observation_array",
+      "x": 42,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B58488BA5061858",
+      "title": "世界泡坐标解析中心",
+      "subtitle": "把多通道观测换成可用坐标",
+      "description": [
+        "完成坐标解析研究后，制造解析中心控制器。让接收组件与计算部件承担坐标解算和误差配准。"
+      ],
+      "dependencies": [
+        "4B54804DF6CCFEB5"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FCF061CA00CCA",
+          "type": "item",
+          "item": "hk3gtl:i25_world_bubble_coordinate_analysis_center",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:i25_world_bubble_coordinate_analysis_center",
+      "x": 34,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B5DAE3681232992",
+      "title": "量子域研究所",
+      "subtitle": "将研究能力扩展到量子领域",
+      "description": [
+        "完成前阶研究所承担的实验与正式课题后，制造量子域研究所控制器，接续后续研究。"
+      ],
+      "dependencies": [
+        "4B5488E425C5FF10"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EFFC92B96CB90",
+          "type": "item",
+          "item": "hk3gtl:s03_quantum_domain_institute",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "icon": "hk3gtl:s03_quantum_domain_institute",
+      "x": 38,
+      "y": 26,
+      "optional": false
+    },
+    {
+      "id": "4B58834EE21DFE00",
+      "title": "空间观测探针",
+      "subtitle": "把双通道测量带到观测端",
+      "description": [
+        "将接收组件、方向解算与前级工程部件装成探针。空间探针继续用于后续量子观测与坐标研究。"
+      ],
+      "dependencies": [
+        "4B5CD71B4E04B8A3",
+        "4B50C62B53949BDD",
+        "4B554B1F740B455A"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BD1B3DE7705CD",
+          "type": "item",
+          "item": "hk3gtl:spatial_probe",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
       "icon": "hk3gtl:spatial_probe",
-      "x": 0.0,
-      "y": 0.0,
-      "description": [
-        "带上千界一乘、坐标校准设备与合法的基准坐标，开始第一次量子异常观测。要先知道自己看见了什么，再想办法靠近它。",
-        "",
-        "解锁量子异常观测阵列首次观测方法，以可复现的异常实验发现量子之海。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "仿制的千界一乘后可制造千界一乘及坐标校准设备、已知合法基准坐标。",
-        "",
-        "按JEI查找对应工艺，在仿制的千界一乘·信标完成对应实验后，到S02或更高等级研究所选择“量子异常初观”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：仿制的千界一乘。",
-        "基础研究费用：960点；4 × QCV级电路；72 × 钨钢板。",
-        "基础工期：8分钟；研究用电：8,246,337,208,320 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5E70C662FA8E9A",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_qom"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B535AC10CB8CB3B"
-      ],
-      "subtitle": "S02 · RN-QOM",
-      "shape": "rsquare"
+      "x": 46,
+      "y": 26,
+      "optional": false
     },
     {
-      "id": "4B5488E425C5FF10",
-      "title": "量子研究所工程",
-      "icon": "hk3gtl:quantum_research_casing",
-      "x": 3.0,
-      "y": 0.0,
+      "id": "4B512E947E431C10",
+      "title": "电路工况扩展",
+      "subtitle": "RN-CQS · 实验与正式研究",
       "description": [
-        "保留首次量子观测的原始资料和设备来源，用它推进量子研究所工程。没有成功观测之前，先回前一节点检查工况。",
-        "",
-        "解锁第三阶研究所；完整世界泡解析在新所内展开。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "量子异常观测阵列首次成功量子观测的原始记录与设备来源。",
-        "",
-        "按JEI查找对应工艺，在量子异常观测阵列完成对应实验后，到S02或更高等级研究所选择“量子研究所工程”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：量子异常初观。",
-        "基础研究费用：960点；4 × QCV级电路；72 × 钨钢板。",
-        "基础工期：8分钟；研究用电：8,246,337,208,320 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "受检物：电路封装组件×1；纸张2用于检测记录，基准样本循环使用",
+        "在崩坏能样本光谱分析阵列完成本队实验。真实完成封装工况扩展试验并记录样品性能；不消耗尚未能制造的高一电压种子；受检物原量返还，实验以机器真实结算为准",
+        "实验完成后，选择760研究积分或QSV电路 × 4、钨钢板 × 64支付基准费用；另需8,400 tick与2,061,584,302,080 EU/t。高级所按现行材料压力修正。",
+        "研究所按有效能源端口的总功率扣电。完成后，解锁纳米自组织编程舱基板及魂钢精密加工中心蚀刻、封装的高阶工况；逐级种子配方仍必须在前一电压可制造。"
+      ],
+      "dependencies": [
+        "4B5407261AA82797",
+        "4B5D74C9ED85BF0E"
       ],
       "tasks": [
         {
-          "id": "4B5F15D0D5E9EDB9",
+          "id": "4B520994473C15CF",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成电路工况扩展",
           "tags": [
-            "hk3gtl_quest_rn_qle"
+            "hk3gtl_quest_rn_cqs"
           ]
         }
       ],
-      "dependencies": [
-        "4B5CD71B4E04B8A3"
-      ],
-      "subtitle": "S02 · RN-QLE",
-      "shape": "hexagon",
-      "size": 1.3
-    },
-    {
-      "id": "4B54804DF6CCFEB5",
-      "title": "世界泡坐标解析",
-      "icon": "hk3gtl:spatial_calibration_module",
-      "x": 6.0,
-      "y": 0.0,
-      "description": [
-        "利用初观资料和加强技术后的原始目标信号，解析世界泡坐标。误差同样是有用的信息，别只留下最后一串坐标。",
-        "",
-        "解锁世界泡坐标解析中心和可供无人任务使用的世界泡坐标。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "量子异常观测阵列初观资料、获得茧加强技术后的仿制的千界一乘·信标原始目标信号及误差记录。",
-        "",
-        "按JEI查找对应工艺，在量子异常观测阵列完成对应实验后，到S03或更高等级研究所选择“世界泡坐标解析”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：量子研究所工程、量子异常初观。",
-        "基础研究费用：1440点；6 × QCV级电路；72 × 硅岩合金板。",
-        "基础工期：12分钟；研究用电：8,246,337,208,320 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B5072E26AD74851",
-          "type": "custom",
-          "title": "完成这项研究",
-          "tags": [
-            "hk3gtl_quest_rn_wcp"
-          ]
-        }
-      ],
-      "dependencies": [
-        "4B5488E425C5FF10",
-        "4B5CD71B4E04B8A3"
-      ],
-      "subtitle": "S03 · RN-WCP",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B59B1808CAA3EB6",
-      "linked_quest": "4B535AC10CB8CB3B",
-      "x": 0.0,
-      "y": -8.0
+      "icon": "hk3gtl:circuit_encapsulation_part",
+      "x": 0,
+      "y": 32,
+      "optional": false
     }
   ]
 }

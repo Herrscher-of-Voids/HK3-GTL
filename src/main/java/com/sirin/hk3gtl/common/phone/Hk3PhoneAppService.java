@@ -6,30 +6,33 @@ import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import com.mojang.brigadier.arguments.*;
-/**
- * 【变更记录 #1】2026-09-30 19:02:06（内测5修订114）
- * 删除：无；新增：私人笔记与文明档案手机入口；修改：无。
- * 用途：服务端校验手机、本人记录和版本；文明总览只读真实研究/卷轴，不改变进度，交易未接入。
- */
-/** 【变更记录 #2】2026-09-30 23:43:42（修订120）：删除无；新增/修改：文明总览读取本队历史等级，八页里程碑逐项显示真实满足状态，服务器校验手机权限；用途：按真实团队事实展示文明进度，不给机器/配方增加等级锁。 */
-/** 【变更记录 #3】2026-10-01 00:44:06（修订123）：删除无；新增/修改：手机读取统一的本人正式经历摘要，旧档案数量不当满级资格；用途：个人交流、团队决定及额外收藏分开，保留真实记录。 */
-/** 【变更记录 #4】2026-10-01 01:54:14（修订127）：删除：被替代的旧分支；新增/修改：收藏按全部/可选/剧情/里程碑分页，同一本人记录与完整条件正文；用途：个人收藏与正式资格分离，保留历史记录。 */
-/** 【变更记录 #5】2026-10-01 03:55:10（修订128）：删除：旧固定上限或被替代的分支；新增/修改：仅在笔记事务成功且不是删除操作之后提交彩蛋事实，拒绝失败请求解锁；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #6】2026-10-01 04:12:10（修订128）：删除：旧固定上限或被替代的分支；新增/修改：保存成功后统计正文指纹，重新打开只观察服务器保存的本人笔记；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #7】2026-10-01 04:27:55（修订128）：删除：旧固定上限或被替代的分支；新增/修改：笔记与文明总览真实打开回调，缺电拒绝请求不会计入；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #8】2026-10-01 04:30:25（修订128）：删除：旧固定上限或被替代的分支；新增/修改：已拥有收藏回看附正文身份，重复阅读按同一ID去重；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #9】2026-10-01 16:30:04（修订134）：删除无；新增经过安装/电量校验的真实日期页；修改即死年从本人已存笔记重检三项准备，不再等待缺失入口；用途：保持审核条件，只读存档时间且不产生死亡或时间变化。 */
-/** 【变更记录 #10】2026-10-19 02:05:22（第10次备注 · 修订171）：删除无；新增机器总览分页、筛选和服务端详情；修改无；用途：读取当前团队索引，保持手机供电门槛，不同步他队位置、私人能源或库存，不提供远程机器控制。 */
-/** 【变更记录 #11】2026-10-31 21:56:17（第11次备注 · 内测5修订191）：删除无；新增仅按发送人本人记录判断的版本冲突与记录存在标记；修改保存失败回包区分校验失败及旧版本，仍不返回他人正文；用途：让客户端保留草稿后明确选择重载或另存，不绕过供电、配额与CAS。 */
-/** 【变更记录 #12】2026-11-04 06:12:50（第12次备注 · 内测5修订196）：删除64正式收藏手机目录的旧标题投影；新增共用新版标题和仅回看说明；修改普通收藏仍不创建正式阅读会话；用途：正文同源且旧标记不能授予本人正式资格。 */
-/** 【变更记录 #13】2026-11-04（修订197）：删除无；新增文明里程碑当前核验等级及工程来源说明；修改仍只投影本队事实；用途：区分历史称号、当前资格和待接入来源。 */
-/** 【变更记录 #14】2026-11-05 01:51:41（第14次备注 · 内测5修订204）：删除无；新增收藏搜索、保存版本只读笔记、第五百页说明和主动收藏命令；修改目录同步说明入口资格；用途：复用手机权限和阅读通道，搜索只包含本人已拥有条目。 */
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 public final class Hk3PhoneAppService {
-    /** 【变更记录 #16】2026-11-05（修订207）：总览与阅读全文共用本队只读快照，全文阅读沿用原令牌及供电校验。 */
-    /** 【变更记录 #15】2026-11-05（修订205）：新增颜色标签及个人待办命令；仅成功保存提交新事实，复用本人手机供电与CAS。 */
+     
+     
+     
     private Hk3PhoneAppService(){}
     public static com.mojang.brigadier.builder.LiteralArgumentBuilder<net.minecraft.commands.CommandSourceStack> commands(){
         return Commands.literal("apps")
+            .then(Hk3PhoneCipherService.commands())
+            .then(com.sirin.hk3gtl.common.narrative.story.Hk3StoryService.commands())
             .then(Commands.literal("gallery").executes(c->Hk3PhoneGallery.open(c.getSource().getPlayerOrException())))
             .then(Commands.literal("todos").executes(c->Hk3PhoneTodoService.open(c.getSource().getPlayerOrException(),0))
                 .then(Commands.argument("page",IntegerArgumentType.integer(0)).executes(c->Hk3PhoneTodoService.open(c.getSource().getPlayerOrException(),IntegerArgumentType.getInteger(c,"page")))))
@@ -47,6 +50,10 @@ public final class Hk3PhoneAppService {
             .then(Commands.literal("experience").executes(c->experience(c.getSource().getPlayerOrException())))
             .then(Commands.literal("civilization").executes(c->civilization(c.getSource().getPlayerOrException())))
             .then(Commands.literal("civilizationread").executes(c->civilizationRead(c.getSource().getPlayerOrException())))
+            .then(Commands.literal("voltages").executes(c->Hk3PhoneVoltagePages.index(c.getSource().getPlayerOrException())))
+            .then(Commands.literal("voltage").then(Commands.argument("tier",IntegerArgumentType.integer(15,30)).executes(c->Hk3PhoneVoltagePages.open(c.getSource().getPlayerOrException(),IntegerArgumentType.getInteger(c,"tier")))))
+            .then(Commands.literal("instructions").executes(c->Hk3PhoneInstructionPages.index(c.getSource().getPlayerOrException())))
+            .then(Commands.literal("instruction").then(Commands.argument("id",StringArgumentType.word()).executes(c->Hk3PhoneInstructionPages.open(c.getSource().getPlayerOrException(),StringArgumentType.getString(c,"id")))))
             .then(Commands.literal("machines").executes(c->machines(c.getSource().getPlayerOrException(),0,"all"))
                 .then(Commands.literal("bind").executes(c->bindMachine(c.getSource().getPlayerOrException())))
                 .then(Commands.argument("page",IntegerArgumentType.integer(0)).executes(c->machines(c.getSource().getPlayerOrException(),IntegerArgumentType.getInteger(c,"page"),"all"))
@@ -78,7 +85,10 @@ public final class Hk3PhoneAppService {
     private static int note(ServerPlayer p,String id){
         if(!allowed(p))return 0;var n=Hk3PhoneNotes.get(p).find(p.getUUID(),id);if(n==null)return 0;
         var v=row(n);v.putString("Mode","note");Hk3PhoneService.send(p,v);
-        com.sirin.hk3gtl.common.easter.Hk3EggNotes.opened(p,n.title(),n.body());return 1;
+        com.sirin.hk3gtl.common.easter.Hk3EggNotes.opened(p,n.title(),n.body());
+        if(n.task()&&p.server.overworld().getGameTime()-n.taskSince()>=24000)
+            com.sirin.hk3gtl.common.easter.Hk3EggVanilla.caseEvent(p,304);
+        return 1;
     }
     public static void writeNote(ServerPlayer p,Hk3PhoneNotePacket request){
         if(!allowed(p)){error(p,"手机不可用，草稿仍保留；充电后再保存。");return;}
@@ -107,7 +117,8 @@ public final class Hk3PhoneAppService {
     }
     private static int experience(ServerPlayer p){
         if(!allowed(p))return 0;var v=view("archive_detail");v.putString("Title","本人正式经历与待补项");
-        v.putString("Body",Hk3PersonalArchive.summary(p));Hk3PhoneService.send(p,v);return 1;
+        v.putString("Body",Hk3PersonalArchive.summary(p));Hk3PhoneService.send(p,v);
+        com.sirin.hk3gtl.common.easter.Hk3EggPhone.finaleInspection(p);return 1;
     }
     private static int civilization(ServerPlayer p){
         if(!allowed(p))return 0;
@@ -196,4 +207,4 @@ public final class Hk3PhoneAppService {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

@@ -5,11 +5,11 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
 
-/**
- * 【变更记录 #1】2026-09-30 18:18:05（内测5修订112）
- * 删除：无；新增：金属深色、紫金强调的统一通讯终端控件。
- * 修改：原版灰按钮改为自绘按钮；用途：主页、收件箱、信件与设置视觉一致。
- */
+ 
+
+
+
+
 public final class Hk3PhoneStyle {
     public static final int INK=0xFFF0EBFA,MUTED=0xFFAEA5C2,GOLD=0xFFE1BE78,PURPLE=0xFFA687E8;
     private Hk3PhoneStyle(){}

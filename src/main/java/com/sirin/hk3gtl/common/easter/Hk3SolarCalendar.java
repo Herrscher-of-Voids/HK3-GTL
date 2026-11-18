@@ -12,13 +12,13 @@ import java.io.*;
 import java.time.*;
 import java.util.*;
 
-/**
- * 【文件职责】从服务端数据包读取有来源的逐年节气民用日期，运行时不联网或推算。
- * 【变更记录 #1】2026-11-05 19:08:32（修订210）
- * 删除：无。新增：年度日历解析、重载及缺来源休眠；修改：无。
- * 用途：372/377只使用配置日历；时区日期区间不相容、年份缺失或资源损坏时不触发。
- */
-/** 【变更记录 #2】2026-11-05 21:56:28（修订211）：删除无；新增同包农历库复用民用日区间校验；修改仅将校验方法开放给同包；用途：两类日历沿用同一时区边界，原节气结果不变。 */
+ 
+
+
+
+
+
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3SolarCalendar {
     private static final ResourceLocation RESOURCE = new ResourceLocation("hk3gtl", "calendar/solar_terms.json");

@@ -14,13 +14,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.Map;
 
-/**
- * 【文件职责】复核本人相邻灯笼、元宵观天、端午驾驶与重阳安全步行的服务器事实。
- * 【变更记录 #1】2026-11-05 21:56:28（修订211）
- * 删除：无。新增：已加载邻接检查和有界连续位移；修改：无。
- * 用途：只读本人当前动作；换日、维度、船只、连接及异常位移断开轨迹，不强载区块或改世界。
- */
-/** 【变更记录 #2】2026-11-05 22:30:19（修订211）：删除高度等于海平面加64的放行；新增：严格大于的边界检查；修改：376按原条件高于海平面64格判断；用途：避免边界位置提前授予。 */
+ 
+
+
+
+
+
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggFestivalActions {
     private static final String MOVEMENT = "festivalMovement";

@@ -1,0 +1,2110 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w14_x46_fresh_seed_to_unstable_world",
+      "role": "W14",
+      "zh_name": "新制种子与模拟世界直联",
+      "purpose": "独立新料制种后构造模拟世界；二十四件载体分别覆盖种子与世界载体，不依赖回收世界。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:compressed_honkai_core",
+          "count": 4
+        },
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 8
+        },
+        {
+          "id": "gtceu:quartzite_dust",
+          "count": 16
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:unstable_simulated_world_bubble",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2000
+        },
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 6000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_simulated_world_stabilization"
+      ],
+      "process_family": "世界泡新制主干",
+      "baseline_recipe": "hk3gtl_functional_world_matter_seed; industrial_simulated_world_construction"
+    },
+    {
+      "id": "wonder_w14_x46_fresh_seed_to_stable_world",
+      "role": "W14",
+      "zh_name": "新制种子稳界全线",
+      "purpose": "独立制种、构造与稳界；四件锚件及各阶段介质均消耗，是循环以外的完整新制来源。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWC",
+        "RN-SWS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:compressed_honkai_core",
+          "count": 4
+        },
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 8
+        },
+        {
+          "id": "gtceu:quartzite_dust",
+          "count": 16
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2000
+        },
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 4000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 6000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 7200,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_simulated_world_termination",
+        "wonder_civilization_cycle_model"
+      ],
+      "process_family": "世界泡新制主干",
+      "baseline_recipe": "hk3gtl_functional_world_matter_seed; industrial_simulated_world_construction; industrial_simulated_world_stabilization"
+    },
+    {
+      "id": "wonder_w14_x46_termination_charge_spatial_line",
+      "role": "W14",
+      "zh_name": "空间校准与终止组件直装",
+      "purpose": "四件载体和仿制空之核心先制空间校准模块，再与两件载体、封装及焊料装成终止组件。",
+      "requirements": [
+        "RN-WCE",
+        "RN-VCA",
+        "RN-WTR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:imitation_void_core",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_simulated_world_termination",
+        "wonder_w14_simulated_world_model_recovery"
+      ],
+      "process_family": "世界泡控制件",
+      "baseline_recipe": "industrial_spatial_module; industrial_bubble_termination_component"
+    },
+    {
+      "id": "wonder_w14_x46_world_stabilization_anchor_line",
+      "role": "W14",
+      "zh_name": "锚件新料与稳界直联",
+      "purpose": "四件锚件均由原锚件配方的新料现场制作后消耗，不把世界模型当作免费实体锚。",
+      "requirements": [
+        "RN-WCE",
+        "RN-RAT",
+        "RN-SWS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:unstable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 32
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_simulated_world_termination",
+        "wonder_civilization_cycle_model"
+      ],
+      "process_family": "世界泡新制主干",
+      "baseline_recipe": "industrial_anchor_component; industrial_simulated_world_stabilization"
+    },
+    {
+      "id": "wonder_w14_x46_stable_world_inline_termination",
+      "role": "W14",
+      "zh_name": "终止组件直装与世界退役",
+      "purpose": "现场装终止组件再退役稳定世界；只返原有一件种子和残骸，核心、板材与介质不返还。",
+      "requirements": [
+        "RN-WCE",
+        "RN-WTR",
+        "RN-SPM",
+        "RN-SWR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2250
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_simulated_world_construction",
+        "wonder_w12_containment_vessel_relining"
+      ],
+      "process_family": "世界泡有损退役",
+      "baseline_recipe": "industrial_bubble_termination_component; industrial_simulated_world_termination"
+    },
+    {
+      "id": "wonder_w14_x46_unstable_world_stabilize_and_retire",
+      "role": "W14",
+      "zh_name": "不稳世界稳界后退役",
+      "purpose": "先消耗锚件和稳界介质使世界稳定，再正常终止；不凭空返尚未形成的完整容器。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWS",
+        "RN-SWR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:unstable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_simulated_world_construction",
+        "wonder_w12_containment_vessel_relining"
+      ],
+      "process_family": "世界泡有损退役",
+      "baseline_recipe": "industrial_simulated_world_stabilization; industrial_simulated_world_termination"
+    },
+    {
+      "id": "wonder_w14_x46_termination_maintenance_specimen_line",
+      "role": "W14",
+      "zh_name": "世界退役与维护样件联制",
+      "purpose": "退役只返种子和残骸；四件维护样件另耗完整锚件、纳米群和魂钢，不按世界泡名称猜可回收物。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWR",
+        "RN-WME"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 4
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:world_maintenance_specimen",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_composite_confining",
+        "industrial_composite_cognitive",
+        "industrial_simulated_world_construction"
+      ],
+      "process_family": "世界泡实体样件",
+      "baseline_recipe": "industrial_simulated_world_termination; industrial_world_maintenance"
+    },
+    {
+      "id": "wonder_w14_x46_termination_reverse_specimen_line",
+      "role": "W14",
+      "zh_name": "世界模型提取与逆向样件联线",
+      "purpose": "按原模型恢复配方补入重构材，内部模型支撑一次探头观测后作为实体返出；不生成研究事实。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWR",
+        "RN-IOP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:spatial_probe",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:reverse_engineering_specimen",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w14_x46_observation_guided_world_construction",
+        "industrial_simulated_world_construction",
+        "wonder_w14_x46_remnant_to_calibrated_vessel_line"
+      ],
+      "process_family": "世界泡实体样件",
+      "baseline_recipe": "wonder_w14_simulated_world_model_recovery; industrial_imaginary_observation"
+    },
+    {
+      "id": "wonder_w14_x46_termination_world_bubble_sample_line",
+      "role": "W14",
+      "zh_name": "世界退役与物理观测样品",
+      "purpose": "恢复后消耗该模型制四份样品，保留石英岩、稳定液和退役冷却成本；不额外返模型。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWR",
+        "RN-QOM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        },
+        {
+          "id": "gtceu:quartzite_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_bubble_sample",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        },
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w14_x46_observation_guided_world_construction",
+        "industrial_simulated_world_construction",
+        "wonder_w14_x46_remnant_to_calibrated_vessel_line"
+      ],
+      "process_family": "世界泡实体样件",
+      "baseline_recipe": "wonder_w14_simulated_world_model_recovery; hk3gtl_functional_world_bubble_observation_sample"
+    },
+    {
+      "id": "wonder_w14_x46_remnant_to_calibrated_vessel_line",
+      "role": "W14",
+      "zh_name": "残骸再构与校准容器",
+      "purpose": "残骸补IRV合金与约束材重构壳体，再按原校准成本成容器；每轮补料与两类废液不可免除。",
+      "requirements": [
+        "RN-WCE",
+        "RN-BCC",
+        "RN-WMS",
+        "RN-BCA",
+        "RN-UPR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        },
+        {
+          "id": "spent_honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_world_bubble_capture"
+      ],
+      "process_family": "容器有损循环",
+      "baseline_recipe": "wonder_w14_remnant_shell_reconstitution; industrial_vessel_calibration"
+    },
+    {
+      "id": "wonder_w14_x46_observation_guided_world_construction",
+      "role": "W14",
+      "zh_name": "实体观测反馈的世界泡联建",
+      "purpose": "消耗四份世界泡样品与两份逆向样件作实体反馈，将联建工时由4800t缩至2400t；完整保留原联建全部种子、材料、锚件、模型工装及废液，不授予研究事实。",
+      "requirements": [
+        "RN-WCE",
+        "RN-QOM",
+        "RN-IOP",
+        "RN-SWC",
+        "RN-SWS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:world_bubble_sample",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:reverse_engineering_specimen",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 4000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 6000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_simulated_world_termination",
+        "wonder_w14_simulated_world_model_recovery",
+        "wonder_w14_x46_termination_world_bubble_sample_line"
+      ],
+      "process_family": "世界泡实体样件",
+      "baseline_recipe": "wonder_w14_model_guided_world_construction; industrial_simulated_world_construction; industrial_simulated_world_stabilization"
+    },
+    {
+      "id": "wonder_w14_x46_world_retirement_cognitive_feedstock",
+      "role": "W14",
+      "zh_name": "世界退役与认知复材实体联制",
+      "purpose": "模型恢复后完成维护样件和四批认知复材；种子、残骸、模型各返一件，复材另耗全部魂钢、机壳、纳米群及功能工装。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWR",
+        "RN-WME",
+        "RN-WMS",
+        "RN-ECA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_termination_charge",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:reconstructing_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:controlled_nano_swarm",
+          "count": 4
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:voltage_machine_casing_irv",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:world_matter_seed",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:cognitive_composite",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 3000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:imitation_corruption_core",
+          "count": 1
+        }
+      ],
+      "ticks": 6000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w11_rule_carrier_compilation",
+        "wonder_bounded_research_model"
+      ],
+      "process_family": "世界泡实体样件",
+      "baseline_recipe": "wonder_w14_simulated_world_model_recovery; industrial_world_maintenance; industrial_composite_cognitive"
+    },
+    {
+      "id": "wonder_w14_x46_22_rejected_batch_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "anchored_superlattice_structure拒收批有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/anchored_superlattice_structure/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/dismantle_rejected_batch; main_material/anchored_superlattice_structure/lossy_phase_separation; main_material/anchored_superlattice_structure/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_22_frame_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "anchored_superlattice_structure框架有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_frame",
+          "count": 2
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/anchored_superlattice_structure/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/dismantle_frame; main_material/anchored_superlattice_structure/lossy_phase_separation; main_material/anchored_superlattice_structure/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_25_rejected_batch_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "imaginary_reconstructed_alloy拒收批有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-UPR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_reconstructed_alloy/oriented_metal_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/imaginary_reconstructed_alloy/dismantle_rejected_batch; main_material/imaginary_reconstructed_alloy/lossy_phase_separation; main_material/imaginary_reconstructed_alloy/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_25_frame_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "imaginary_reconstructed_alloy框架有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-UPR",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_frame",
+          "count": 2
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_reconstructed_alloy/oriented_metal_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/imaginary_reconstructed_alloy/dismantle_frame; main_material/imaginary_reconstructed_alloy/lossy_phase_separation; main_material/imaginary_reconstructed_alloy/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_26_rejected_batch_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "worldweave_multiaxial_composite拒收批有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWC",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldweave_multiaxial_composite/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/worldweave_multiaxial_composite/dismantle_rejected_batch; main_material/worldweave_multiaxial_composite/lossy_phase_separation; main_material/worldweave_multiaxial_composite/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_26_frame_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "worldweave_multiaxial_composite框架有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-SWC",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_frame",
+          "count": 2
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldweave_multiaxial_composite/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/worldweave_multiaxial_composite/dismantle_frame; main_material/worldweave_multiaxial_composite/lossy_phase_separation; main_material/worldweave_multiaxial_composite/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_27_rejected_batch_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "worldforming_gradient_fiber拒收批有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldforming_gradient_fiber/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/worldforming_gradient_fiber/dismantle_rejected_batch; main_material/worldforming_gradient_fiber/lossy_phase_separation; main_material/worldforming_gradient_fiber/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_27_frame_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "worldforming_gradient_fiber框架有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_frame",
+          "count": 2
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldforming_gradient_fiber/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/worldforming_gradient_fiber/dismantle_frame; main_material/worldforming_gradient_fiber/lossy_phase_separation; main_material/worldforming_gradient_fiber/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_28_rejected_batch_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "worldstabilizing_confinement_shell拒收批有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldstabilizing_confinement_shell/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/dismantle_rejected_batch; main_material/worldstabilizing_confinement_shell/lossy_phase_separation; main_material/worldstabilizing_confinement_shell/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_28_frame_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "worldstabilizing_confinement_shell框架有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 2
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldstabilizing_confinement_shell/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/dismantle_frame; main_material/worldstabilizing_confinement_shell/lossy_phase_separation; main_material/worldstabilizing_confinement_shell/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_29_rejected_batch_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "civilization_quadrisystem_matrix拒收批有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/civilization_quadrisystem_matrix/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/dismantle_rejected_batch; main_material/civilization_quadrisystem_matrix/lossy_phase_separation; main_material/civilization_quadrisystem_matrix/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_29_frame_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "civilization_quadrisystem_matrix框架有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 2
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/civilization_quadrisystem_matrix/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/dismantle_frame; main_material/civilization_quadrisystem_matrix/lossy_phase_separation; main_material/civilization_quadrisystem_matrix/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_30_rejected_batch_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "perennial_service_composite拒收批有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/perennial_service_composite/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/perennial_service_composite/dismantle_rejected_batch; main_material/perennial_service_composite/lossy_phase_separation; main_material/perennial_service_composite/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_30_frame_lossy_reconstitution",
+      "role": "W14",
+      "zh_name": "perennial_service_composite框架有损再制",
+      "purpose": "按主材相含量拆等效八坯实体；四十八份回收组分补二十四片Shirabon，最多重制六坯；十六份尾料不能返回主材。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_frame",
+          "count": 2
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 6
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/perennial_service_composite/composite_laminate_plate"
+      ],
+      "process_family": "主材有损再制",
+      "baseline_recipe": "main_material/perennial_service_composite/dismantle_frame; main_material/perennial_service_composite/lossy_phase_separation; main_material/perennial_service_composite/fresh_feed_reconstitution"
+    },
+    {
+      "id": "wonder_w14_x46_service_ageing_dismantling_line",
+      "role": "W14",
+      "zh_name": "恒续服役老化拆解直联",
+      "purpose": "一次老化后立即拆解，只得可修复态，不重新生成服役件；热冷却液全部返出。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_4",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 32000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 32000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/perennial_service_composite/fresh_feed_repair_cure"
+      ],
+      "process_family": "恒续有限服役",
+      "baseline_recipe": "main_material/perennial_service_composite/accelerated_service_ageing; main_material/perennial_service_composite/service_piece_dismantling"
+    },
+    {
+      "id": "wonder_w14_x46_aged_service_piece_repair_line",
+      "role": "W14",
+      "zh_name": "服役件拆解补料修复",
+      "purpose": "拆已老化服役件后以八坯文明新料修复；固定六十四份不可回收损失，不返回老化入口。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_3",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_5",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 64000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/perennial_service_composite/surface_finish_and_batch_separation"
+      ],
+      "process_family": "恒续有限服役",
+      "baseline_recipe": "main_material/perennial_service_composite/service_piece_dismantling; main_material/perennial_service_composite/fresh_feed_repair_cure"
+    },
+    {
+      "id": "wonder_w14_x46_dismantled_service_piece_final_billet",
+      "role": "W14",
+      "zh_name": "拆解态补料与终检联线",
+      "purpose": "八坯新料、修复氩气和终检氩气分别累计；十四坯合格、两批拒收及六十四份尾料均实出。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_4",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 80000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_field_generator"
+      ],
+      "process_family": "恒续有限服役",
+      "baseline_recipe": "main_material/perennial_service_composite/fresh_feed_repair_cure; main_material/perennial_service_composite/surface_finish_and_batch_separation"
+    },
+    {
+      "id": "wonder_w14_x46_service_laminate_to_final_billet",
+      "role": "W14",
+      "zh_name": "服役层一次循环终检",
+      "purpose": "维修层坯完成一次老化、拆解、补料修复和终检；这是有向工艺终段，回收物不能直接充当全新服役层。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_2",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_rejected_batch",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_unrecoverable_tailings",
+          "count": 64
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 32000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 80000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 32000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "ticks": 4400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_motor"
+      ],
+      "process_family": "恒续有限服役",
+      "baseline_recipe": "main_material/perennial_service_composite/accelerated_service_ageing; main_material/perennial_service_composite/service_piece_dismantling; main_material/perennial_service_composite/fresh_feed_repair_cure; main_material/perennial_service_composite/surface_finish_and_batch_separation"
+    },
+    {
+      "id": "wonder_w14_x46_repair_layer_to_aged_service_piece",
+      "role": "W14",
+      "zh_name": "功能层共装与一次服役老化",
+      "purpose": "八件维修层与八坯文明基材共装十六件服役坯后老化；不免基材、不返维修层。",
+      "requirements": [
+        "RN-WCE",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_1",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_3",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 32000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 32000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 30,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/perennial_service_composite/service_piece_dismantling"
+      ],
+      "process_family": "恒续有限服役",
+      "baseline_recipe": "main_material/perennial_service_composite/service_laminate_assembly; main_material/perennial_service_composite/accelerated_service_ageing"
+    }
+  ]
+}

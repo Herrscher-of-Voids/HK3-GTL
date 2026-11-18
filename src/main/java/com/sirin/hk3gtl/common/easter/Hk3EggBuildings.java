@@ -6,8 +6,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.tags.BlockTags;
 import com.gregtechceu.gtceu.api.pattern.MultiblockWorldSavedData;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:41:36（修订128）：删除无；新增实际本人放置的四向门、21层立柱、7×7与9×9地板和16×10矩形；排除已登记GT结构成员；修改无；用途：只读当前已加载建筑，不生成结构或授予工程验收。 */
-/** 【变更记录 #2】2026-10-01 05:44:13（修订128）：删除：旧固定上限或被替代的分支；新增/修改：四向门检测完整16格跨度，双色地板要求不同地图颜色而非仅不同注册方块；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggBuildings {
     private Hk3EggBuildings(){}
     public static boolean ordinary(ServerPlayer p,BlockPos pos,BlockState state){

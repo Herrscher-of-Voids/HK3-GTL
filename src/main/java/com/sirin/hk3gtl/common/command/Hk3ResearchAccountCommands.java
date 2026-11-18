@@ -1,14 +1,14 @@
 package com.sirin.hk3gtl.common.command;
 
-/**
- * 【文件职责／本轮边界】提供个人账本查询、原付款人取消、材料领取及原队管理者授权重绑入口。
- * 【变更记录 #1】2026-09-29 21:06:40（第 1 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：提供个人账本查询、原付款人取消、材料领取及原队管理者授权重绑入口。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
 
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
@@ -23,12 +23,12 @@ import net.minecraftforge.fml.common.Mod;
 
 /** 修订100 · 2026-09-29：离队后仍能取消本人付款任务、领取原样退款，不要求管理员权限。 */
 @Mod.EventBusSubscriber(modid=Hk3Constants.MOD_ID)
-/**
- * 【变更记录 #2】2026-11-04 01:23:43（第2次备注 · 内测5修订194）
- * - 删除：领取退款后只等待背包与账本分别自动保存的调用。
- * - 新增：无；修改：领取入口接Hk3ResearchPayment.claimRefunds，真实库存分配不变。
- * - 用途：退款领取跨文件提交，硬崩后可重放且不重复发放，满包余量仍留账。
- */
+ 
+
+
+
+
+
 public final class Hk3ResearchAccountCommands {
     @SubscribeEvent public static void register(RegisterCommandsEvent event) {
         event.getDispatcher().register(Commands.literal("hk3research")
@@ -66,4 +66,4 @@ public final class Hk3ResearchAccountCommands {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

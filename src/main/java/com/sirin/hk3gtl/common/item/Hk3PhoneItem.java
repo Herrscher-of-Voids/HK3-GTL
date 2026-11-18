@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.item;
 
-/** 【变更记录 #1】2026-09-29 19:19:27（内测5修订96）：新增一次性个人通讯终端；服务器写入安装资格后才消耗物品，重复使用不消耗。 */
+ 
 import com.sirin.hk3gtl.common.phone.Hk3PhoneData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -11,12 +11,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-/**
- * 【变更记录 #2】2026-09-30 18:44:46（内测5修订113）
- * 删除：安装消耗物品与重复使用失败；新增：GT电池能力、右键安装并打开、物品电量条。
- * 修改：手机保留在背包，实际EU电量随物品保存；用途：与快捷键共用入口且支持GT充电。
- */
-/** 【变更记录 #3】2026-10-01 01:25:10（修订125）：删除电量变化引发的重复持物抬手；新增忽略Charge字段的装备动画判断；修改仅充放电不重播，换槽、换物品及其他NBT改变仍重播；用途：保留真实电量同步且避免每秒抖动。 */
+ 
+
+
+
+
+ 
 public final class Hk3PhoneItem extends Item {
     public static final long CAPACITY=com.sirin.hk3gtl.common.phone.Hk3PhoneBattery.CAPACITY;
     public Hk3PhoneItem(Properties properties){super(properties);}

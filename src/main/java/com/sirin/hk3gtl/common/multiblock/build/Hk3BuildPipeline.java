@@ -7,9 +7,9 @@ import java.util.function.IntFunction;
 /** 有界并行准备批次；读取器只能使用已发布的蓝图，不能读取世界、库存或区块。 */
 final class Hk3BuildPipeline<T> implements AutoCloseable {
     static final int BATCH_SIZE = 2048;
-    static final int WORKER_COUNT = Math.max(1, Math.min(3, Runtime.getRuntime().availableProcessors() / 4));
+    static final int WORKER_COUNT = Math.max(1, Runtime.getRuntime().availableProcessors() - 1);
     private static final ExecutorService WORKERS = new ThreadPoolExecutor(WORKER_COUNT, WORKER_COUNT,
-            30, TimeUnit.SECONDS, new ArrayBlockingQueue<>(8), task -> {
+            30, TimeUnit.SECONDS, new ArrayBlockingQueue<>(WORKER_COUNT * 2), task -> {
                 Thread thread = new Thread(task, "hk3gtl-build-batch");
                 thread.setDaemon(true); thread.setPriority(Thread.NORM_PRIORITY - 1); return thread;
             }, new ThreadPoolExecutor.AbortPolicy());

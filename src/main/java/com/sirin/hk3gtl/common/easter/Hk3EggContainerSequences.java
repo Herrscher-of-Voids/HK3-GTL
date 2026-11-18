@@ -8,9 +8,9 @@ import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:36:00（修订128）：删除无；新增本人箱子访问时间与同次实际存取后序列；修改无；用途：服务端保存放置归属，未有历史时不猜30天，库存改变不当生产证明。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 05:53:29（修订128）：删除：无；新增/修改：30日自有箱子支持双箱；两半须都有本人归属与足够未访问时间，不能用新拼接半箱冒充历史；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public final class Hk3EggContainerSequences {
     private static final String OWNER="hk3gtl_egg_chest_owner",VISIT="hk3gtl_egg_chest_visit",STALE="hk3gtl_egg_chest_stale";
     private Hk3EggContainerSequences(){}

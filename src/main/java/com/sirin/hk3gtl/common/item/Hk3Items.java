@@ -1,7 +1,5 @@
 package com.sirin.hk3gtl.common.item;
 
-
-/** 中文说明：该处说明已按当前代码行为整理。*/
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.item.abyss.AbyssCircuitItems;
 import com.sirin.hk3gtl.common.item.abyss.AbyssComponentItems;
@@ -34,16 +32,15 @@ import com.mojang.logging.LogUtils;
  * @see Hk3CircuitItems 电路统一注册（15种低阶崩坏能电路 + 52种正式系列电路）
  * @see HonkaiMaterialItems 崩坏能体系材料
  */
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/** 【变更记录 #1】2026-09-29 19:19:27（内测5修订96）：新增MAX超时空装配线产出的个人通讯终端物品；使用后消耗并持久安装，作为手机界面唯一正常入口。 */
-/**
- * 【变更记录 #2】2026-10-17 16:25:14（第 2 次备注 · 修订165）
- * - 删除：无，历史注册和魂钢原线保持。
- * - 新增：主材料物品注册入口，在全局注册器挂事件总线前登记十六阶实体形态。
- * - 修改：将主材料登记接入真实物品注册阶段，配方查询不再依赖未注册的候选路径。
- * - 用途：承载整族主材料生产和消费者引用；此调用不代表美术批准或游戏加工验收。
- */
-/** 【变更记录 #3】2026-11-04 23:18:28（修订202）：删除过时64项数量说明；新增无；修改注释为15种低阶与52种正式电路；用途：统一目录口径，不改变注册顺序或行为。 */
+ 
+ 
+
+
+
+
+
+
+ 
 public class Hk3Items {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -62,6 +59,8 @@ public class Hk3Items {
 
         // ── 阶段1：注册真实物品（DeferredRegister.register）──
         com.sirin.hk3gtl.common.registration.Hk3IndustrialContent.registerItems();
+        Hk3WonderItems.register();
+        Hk3CompressedCobblestoneItems.register();
         HonkaiMaterialItems.register();       // 崩坏能体系材料
         SouliumChainItems.register();          // 魂钢工业链中间件
         com.sirin.hk3gtl.common.item.main.Hk3MainMaterialItems.register();
@@ -83,6 +82,8 @@ public class Hk3Items {
         AbyssFunctionalItems.register();       // 海渊阶段功能性中间件
         IMITATION_REASON_CORE = ITEMS.register("imitation_reason_core",
                 () -> new Item(new Item.Properties().stacksTo(1).rarity(net.minecraft.world.item.Rarity.RARE)));
+        EROSION_RESEARCH_MODULE = ITEMS.register("erosion_research_module",
+                () -> new Item(new Item.Properties().stacksTo(1)));
 
         // ── 阶段4：开发调试工具 ──
         STRUCTURE_EXPORT_WAND = ITEMS.register("structure_export_wand",
@@ -97,10 +98,11 @@ public class Hk3Items {
         LOGGER.info("[HK3GTL] 自定义物品注册完成。");
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static RegistryObject<Item> STRUCTURE_EXPORT_WAND;
     /** 仿制理核心：配方催化条件，不逐次消耗，不提供赠物获取入口。 / Physical reason-core catalyst; not consumed or gifted by an event. */
     public static RegistryObject<Item> IMITATION_REASON_CORE;
+    /** 侵蚀研究模块：完成侵蚀电路及二阶研究所研究后，由装配机制造。 */
+    public static RegistryObject<Item> EROSION_RESEARCH_MODULE;
 
     /**
      * 文明档案卷轴 — 世界文本叙事系统（需求 1）的玩家入口物品。
@@ -111,4 +113,4 @@ public class Hk3Items {
     public static RegistryObject<Item> PERSONAL_PHONE;
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

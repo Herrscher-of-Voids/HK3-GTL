@@ -26,46 +26,46 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-/**
- * 【文件职责】整包启动后分帧导出真实注册表和最终配方，核对研究配方；不改研究、存档或玩家物品。
- * 【变更记录 #1】2026-09-30 00:54:01（第1次备注 · 内测5修订103）
- * 删除：无。新增：自动导出、管理员手动重导出、状态命令和中断/异常记录。
- * 修改：每帧最多64配方，软预算8ms；重载导致快照失效时拒绝通过。
- * 用途：给原版/增强版各自资源池提供可追溯候选；没有完成报告的目录一律不算验收通过。
- * 边界：配方存在不证明生存可得；不授予证据，不注册新结构，不读取玩家账户或世界种子。
- */
-/**
- * 【变更记录 #2】2026-09-30 01:18:22（第2次备注 · 内测5修订104）
- * 删除：无。新增：配方表SHA256与预期计划ID清单；修改：报告修订号104。
- * 用途：新增合法配方后按实际清单核验，避免把旧250条常量当成永久完成标准。
- */
-/**
- * 【变更记录 #3】2026-09-30 01:42:00（第3次备注 · 内测5修订106）
- * - 删除：无。新增：基础与序列化预期耗时及清单中的GTLCore倍率。
- * - 修改：报告修订号106；用途：追溯实例配置，继续严格核验，不修改旧报告。
- */
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
 @Mod.EventBusSubscriber(modid = "hk3gtl")
-/**
- * 【变更记录 #4】2026-09-30 02:20:26（第4次备注 · 内测5修订107）
- * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
- * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
- * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
- * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
- */
-/**
- * 【变更记录 #5】2026-09-30 03:24:34（内测5修订108）
- * 删除：无。新增：批准色卡接线及版本追溯。
- * 修改：导出报告修订号同步108，比较规则保持不变。
- * 用途：正确显示与核验，不修改研究逻辑。
- */
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
 public final class Hk3ResearchRuntimeAudit {
-    /** 【变更记录 #6】2026-10-17 17:12:35（第6次备注 · 修订165）：删除导出仍标163的旧修订身份；新增无；修改报告版本为165；用途：本轮新增材料与配方证据不得混记为旧实例验收，其他只读导出逻辑不变。 */
-    /** 【变更记录 #7】2026-10-17 21:50:18（第7次备注 · 修订166）：删除固定165身份；新增无；修改只读导出修订为166；用途：新高度包的实例证据不可冒充旧包，其他合同保持原有核验。 */
-    /**
-     * 【变更记录 #8】2026-11-04 00:12:20（第8次备注 · 内测5修订193）
-     * 删除：导出修订号固定为166的常量。新增：每轮从包内变更记录读取实际修订身份。
-     * 修改：三个报告使用同一轮捕获值，资源缺失或无效时拒绝启动；用途：新包证据不得冒称历史版本，保留只读及分帧预算。
-     */
+     
+     
+     
+
+
+
+
     private static final Gson JSON = new GsonBuilder().disableHtmlEscaping().create();
     private static Job active;
     private static String lastStatus = "尚未运行实例配方核验";
@@ -114,6 +114,7 @@ public final class Hk3ResearchRuntimeAudit {
         final Set<String> seen = new HashSet<>();
         final JsonArray checks = new JsonArray(), errors = new JsonArray();
         final JsonArray researchGates = new JsonArray(), invalidResearchGates = new JsonArray();
+        final JsonArray recipeCopyChecks = new JsonArray(), invalidRecipeCopies = new JsonArray();
         final Map<ResourceLocation, List<String>> gateSnapshot = com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate.snapshot();
         final BufferedWriter writer;
         int index, passed;
@@ -168,6 +169,7 @@ public final class Hk3ResearchRuntimeAudit {
             boolean unchanged = server.getRecipeManager().getRecipes().size() == recipes.size()
                     && recipes.stream().allMatch(r -> server.getRecipeManager().byKey(r.getId()).orElse(null) == r);
             boolean gatesUnchanged = gateSnapshot.equals(com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate.snapshot());
+            inspectRecipeCopies();
             JsonArray orphanBindings = new JsonArray();
             for (var key : gateSnapshot.keySet()) {
                 ResourceLocation alternate = new ResourceLocation(key.getNamespace().equals("gtceu") ? "hk3gtl" : "gtceu", key.getPath());
@@ -180,14 +182,18 @@ public final class Hk3ResearchRuntimeAudit {
             gateReport.addProperty("snapshot_unchanged", gatesUnchanged);
             gateReport.add("recipes", researchGates); gateReport.add("invalid", invalidResearchGates);
             gateReport.add("orphan_bindings", orphanBindings);
-            boolean gatesPassed = unchanged && errors.isEmpty() && gatesUnchanged && invalidResearchGates.isEmpty() && orphanBindings.isEmpty();
+            gateReport.add("recipe_copy_checks", recipeCopyChecks); gateReport.add("invalid_recipe_copies", invalidRecipeCopies);
+            boolean gatesPassed = unchanged && errors.isEmpty() && gatesUnchanged && invalidResearchGates.isEmpty()
+                    && orphanBindings.isEmpty() && invalidRecipeCopies.isEmpty();
             gateReport.addProperty("passed", gatesPassed);
             write(directory.resolve("research-gates.json"), gateReport);
             JsonObject report = new JsonObject();
             report.addProperty("schema", 1); report.addProperty("revision", revision);
             report.addProperty("export_complete", true); report.addProperty("recipe_snapshot_unchanged", unchanged);
             report.addProperty("expected_process_recipes", plans.size()); report.addProperty("passed_process_recipes", passed);
-            report.addProperty("process_recipe_audit_pass", unchanged && passed == plans.size());
+            report.addProperty("expected_research_recipe_copies", recipeCopyChecks.size());
+            report.addProperty("passed_research_recipe_copies", recipeCopyChecks.size() - invalidRecipeCopies.size());
+            report.addProperty("process_recipe_audit_pass", unchanged && passed == plans.size() && invalidRecipeCopies.isEmpty());
             report.addProperty("registered_recipe_export_complete", unchanged && errors.isEmpty());
             report.addProperty("research_gate_audit_pass", gatesPassed);
             report.addProperty("survival_catalog_verified", false); report.addProperty("gameplay_verified", false);
@@ -206,6 +212,25 @@ public final class Hk3ResearchRuntimeAudit {
                     + "；第三方导出错误 " + errors.size() + "；报告：" + directory;
             LogUtils.getLogger().info("[HK3GTL-RESEARCH-AUDIT] {}", lastStatus);
             return true;
+        }
+        private void inspectRecipeCopies() {
+            for (var source : gateSnapshot.entrySet()) {
+                if (server.getRecipeManager().byKey(source.getKey()).isEmpty()) continue;
+                for (var copyId : com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate.copiesOf(source.getKey())) {
+                    var copy = server.getRecipeManager().byKey(copyId);
+                    var actual = copy.map(recipe -> recipe instanceof com.gregtechceu.gtceu.api.recipe.GTRecipe gt
+                            ? com.sirin.hk3gtl.common.research.Hk3RecipeAccess.effectiveRequirements(gt).requirements()
+                            : com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate.getAllRequiredResearch(copyId)).orElse(List.of());
+                    var row = new JsonObject();
+                    row.addProperty("source", source.getKey().toString()); row.addProperty("copy", copyId.toString());
+                    var expectedGates = new JsonArray(); source.getValue().stream().sorted().forEach(expectedGates::add);
+                    var actualGates = new JsonArray(); actual.stream().sorted().forEach(actualGates::add);
+                    row.add("expected_requirements", expectedGates); row.add("actual_requirements", actualGates);
+                    boolean valid = copy.isPresent() && actual.containsAll(source.getValue());
+                    row.addProperty("passed", valid); recipeCopyChecks.add(row);
+                    if (!valid) invalidRecipeCopies.add(row.deepCopy());
+                }
+            }
         }
         /** 同时检查批次元数据和注册表；只读核验，不补研究、物品或团队权限。 */
         private void inspectResearchGates(Recipe<?> recipe) {
@@ -298,7 +323,7 @@ public final class Hk3ResearchRuntimeAudit {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 
 
-// 【变更记录 · 修订162】2026-10-17 14:41:11：新增完整配方类型及序列化器只读快照，以核验退役类型本身未注册；沿用分帧导出、哈希和现行工艺比对，不以配方数量为零代替类型退役。
-// 【变更记录 · 修订163】2026-10-17 15:08:01：新增全配方全部研究门槛与批次元数据核验，单独列出非法条件及孤立绑定并校验导出期间不变；报告与新增文件一并哈希，不将注册通过冒充生存执行通过。
+ 
+ 

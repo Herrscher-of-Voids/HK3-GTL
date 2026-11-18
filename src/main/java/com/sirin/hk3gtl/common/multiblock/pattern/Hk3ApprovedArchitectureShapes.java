@@ -19,13 +19,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
-/**
- * 【变更记录 #1】2026-10-15 02:00:40（内测5修订157）
- * 删除：批准结构预览对逐空气格候选 BlockInfo 的依赖，正式 Pattern 的空气谓词不变。
- * 新增：从正式 NBT 烘焙显式 JEI 形状、普通状态共享和稀疏预览能力检测。
- * 修改：具备定制稀疏预览能力时省略空气；普通 GT 环境使用共享 EMPTY 保持兼容。
- * 用途：保留批准尺寸、逐块几何、真实仓室及北向主控，同时减少预览对象和空气映射。
- */
+ 
+
+
+
+
+
+
 public final class Hk3ApprovedArchitectureShapes {
     private static final boolean SPARSE_AIR_SUPPORTED = supportsSparseAir();
 

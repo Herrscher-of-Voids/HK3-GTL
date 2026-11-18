@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value=ImportBusPart.class,remap=false)
-/** 【变更记录 #1】2026-10-01 06:31:11（修订128）：删除无；新增联动真实安装/传输观察；修改无；用途：模拟、仅持有与空过滤不冒充成功，按本人安装归属。 */
+ 
 public abstract class Hk3EggImportBusMixin {
     @Inject(method="doBusWork",at=@At("RETURN"))private void hk3gtl$moved(IGrid grid,CallbackInfoReturnable<Boolean> ci){
         if(!Boolean.TRUE.equals(ci.getReturnValue()))return;var part=(ImportBusPart)(Object)this;

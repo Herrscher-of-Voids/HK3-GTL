@@ -14,12 +14,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 05:24:14（修订128）：删除无；新增有内容单元查看前后存储快照、空白样板真实存入、无线终端原生打开；修改无；用途：原条件的只读观察，不改物品与权限。 */
-/** 【变更记录 #2】2026-10-01 05:24:46（修订128）：删除：旧固定上限或被替代的分支；新增/修改：按AE当前源码导入样板编码终端菜单；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 05:25:27（修订128）：删除：旧固定上限或被替代的分支；新增/修改：无线终端必须核对审核指定物品ID和有效网络范围，不把任何无线菜单当普通终端；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #4】2026-10-01 05:33:55（修订128）：删除：旧固定上限或被替代的分支；新增/修改：199明确只允许手机入口，不从普通无线菜单触发；262继续核对实际超级终端菜单提供方；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #5】2026-10-01 06:19:47（修订128）：删除：无；新增/修改：单元工作台每次点击和服务端tick检查过程状态，曾修改后恢复仍不算只读；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #6】2026-10-01 13:26:03（修订128）：删除：无；新增/修改：实际渲染的AE样板终端输出预览与本人清空或关闭串联；点击编码即清除取消证据；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
+ 
+ 
+ 
+ 
 public final class Hk3EggAeMenus {
     private record CellView(AbstractContainerMenu menu,net.minecraft.nbt.CompoundTag snapshot){}
     private static final Map<UUID,CellView> CELLS=new java.util.concurrent.ConcurrentHashMap<>();

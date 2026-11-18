@@ -18,6 +18,7 @@ public final class Hk3FarMesh {
         for(int[] face:boundaries)if(face.length!=SIDE*SIDE)throw new IllegalArgumentException("远景邻接面尺寸错误");
         List<Quad> result=new ArrayList<>();int[] mask=new int[SIDE*SIDE];
         for(int axis=0;axis<3;axis++)for(int sign:new int[]{-1,1})for(int plane=0;plane<=SIDE;plane++) {
+            if(Thread.currentThread().isInterrupted())return null;
             for(int u=0;u<SIDE;u++)for(int v=0;v<SIDE;v++) {
                 int here=plane-(sign>0?1:0),other=here+sign;
                 int color=at(colors,axis,here,u,v);

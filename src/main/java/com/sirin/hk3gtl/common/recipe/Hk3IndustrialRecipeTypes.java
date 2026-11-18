@@ -1,7 +1,5 @@
 package com.sirin.hk3gtl.common.recipe;
 
-
-
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
@@ -10,19 +8,18 @@ import com.gregtechceu.gtceu.common.data.GTSoundEntries;
 
 import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection.LEFT_TO_RIGHT;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #1】2026-09-24 16:36:00（内测5修订66）
- * 删除：液态各设备共用全工艺类型的关联。新增：稳定、再生、调配、校准与浓缩专用类型。
- * 修改：保留原精炼ID供离心分离工艺使用；用途：存档标识不变并落实设备分工。
- */
-/**
- * 【变更记录 #2】2026-09-29 23:37:35（内测5修订101）
- * 删除：本轮被替代的单前置或旧提示分支；其余历史保留。
- * 新增／修改：在既有注册生命周期接入独立工艺类型。
- * 用途：补足研究接线并如实保留未接物理执行器及结构审批边界。
- * 追溯：logs/research-mainline-r101；R101_FINAL_RECORD。
- */
+ 
+
+
+
+
+ 
+
+
+
+
+
+
 public final class Hk3IndustrialRecipeTypes {
     private Hk3IndustrialRecipeTypes() {}
 
@@ -78,4 +75,4 @@ public final class Hk3IndustrialRecipeTypes {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

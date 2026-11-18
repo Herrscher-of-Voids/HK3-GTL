@@ -1,15 +1,19 @@
 package com.sirin.hk3gtl.common.communication;
 
-/** 【变更记录 #2】2026-10-01 00:17:25（修订122）：删除无；新增/修改：公开格式严格白名单校验，大数量不受字节Count截断；未可靠留存的旧数量不补造；用途：五方首信与团队限定交流保持一致。 */
+ 
 import net.minecraft.nbt.*;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import com.sirin.hk3gtl.common.research.Hk3ResearchBatchProofs;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 00:14:30（修订122）：删除无；新增/修改：真实采样、光谱、稳定化首批快照；公开字段白名单及中文收支预览；用途：真实成果、团队授权与个人阅读分离，不开放贸易或免费完成研究。 */
-/** 【变更记录 #3】2026-10-01 00:59:10（修订124）：删除无；新增/修改：正式交流/批次原始存档损坏拒绝空白回退，兼容有Teams的既有版本；用途：按五方交流系统整链收口，真实权限和本人经历不混用。 */
-/** 【变更记录 #4】2026-10-01 01:01:52（修订124）：删除无；新增团队批次容器格式检查；修改损坏批次不被新输出静默覆盖；用途：保留原始生产证据。 */
+ 
+ 
+ 
 public final class Hk3CommunicationEvidence extends SavedData {
     private CompoundTag teams=new CompoundTag();
     public static Hk3CommunicationEvidence get(MinecraftServer s){return com.sirin.hk3gtl.common.util.Hk3SavedDataGuard.get(s,"hk3gtl_communication_evidence_v5",Hk3CommunicationEvidence::load,Hk3CommunicationEvidence::new);}
@@ -65,12 +69,12 @@ public final class Hk3CommunicationEvidence extends SavedData {
     }
     public static String describe(CompoundTag r){
         if(r.isEmpty())return "暂无可核验的真实批次";var b=new StringBuilder();
-        b.append("批次：").append(r.getUUID("Batch")).append("\n工艺：").append(r.getString("Recipe")).append("\n结算刻：").append(r.getLong("Tick"));
+        b.append("生产批次记录");
         for(String side:List.of("Inputs","Outputs")){
-            b.append(side.equals("Inputs")?"\n投入（已执行配方规格）：":"\n产出（已结算配方规格）：");var c=r.getCompound(side);
-            for(Tag t:c.getList("Items",Tag.TAG_COMPOUND)){var line=(CompoundTag)t;b.append("\n · ");var options=new ArrayList<String>();for(Tag o:line.getList("Alternatives",Tag.TAG_COMPOUND)){var item=(CompoundTag)o;options.add(item.getString("id")+" × "+item.getLong("Count"));}b.append(String.join(" 或 ",options));if(line.getFloat("Chance")<1)b.append("（配方概率项，非逐槽实测）");}
-            for(Tag t:c.getList("Fluids",Tag.TAG_COMPOUND)){var line=(CompoundTag)t;b.append("\n · ").append(line.getList("Alternatives",Tag.TAG_STRING)).append(" × ").append(line.getLong("Amount")).append(" mB");}
+            b.append(side.equals("Inputs")?"\n投入：":"\n产出：");var c=r.getCompound(side);
+            for(Tag t:c.getList("Items",Tag.TAG_COMPOUND)){var line=(CompoundTag)t;b.append("\n · ");var options=new ArrayList<String>();for(Tag o:line.getList("Alternatives",Tag.TAG_COMPOUND)){var item=(CompoundTag)o;options.add(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(item.getString("id")))).getHoverName().getString()+" × "+item.getLong("Count"));}b.append(String.join(" 或 ",options));if(line.getFloat("Chance")<1)b.append("（按配方概率计算）");}
+            for(Tag t:c.getList("Fluids",Tag.TAG_COMPOUND)){var line=(CompoundTag)t;var options=new ArrayList<String>();for(Tag fluid:line.getList("Alternatives",Tag.TAG_STRING))options.add(new FluidStack(BuiltInRegistries.FLUID.get(new ResourceLocation(fluid.getAsString())),1).getDisplayName().getString());b.append("\n · ").append(String.join(" 或 ",options)).append(" × ").append(line.getLong("Amount")).append(" mB");}
         }
-        return b.append("\n设备实际输出成功后留存；标签候选不是逐槽提取记录。后续储存、运输及回收状态未追踪，不推定已回收。").toString();
+        return b.append("\n本记录保存该批配方的投入产出规格。后续运输与回收请另查对应记录。").toString();
     }
 }

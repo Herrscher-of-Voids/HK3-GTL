@@ -11,8 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/** 【变更记录 #1】2026-11-05（修订211）：新增已审内置话题、欢迎正文及连续阅读回执；自由输入和AI回复不冒充内置选择，预览、失电、换阶段和旧阅读令牌拒绝结算。 */
-/** 【变更记录 #2】2026-11-05 22:30:19（修订211）：删除：无；新增：28项既定话题菜单、8项欢迎正文完整阅读、V14回看及雨后/熟食/拖动/样本事实校验；修改：自由输入不作内置选择，缺失败与维修生产者的102/108/132不授予；用途：个人彩蛋旁注，不改联系人资格、研究或奖励。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3SocialBuiltinTopics {
     public record Topic(int egg,String contact,String text) {}
@@ -51,7 +50,8 @@ public final class Hk3SocialBuiltinTopics {
         return switch(t.egg()){
             case 101->state.getBoolean("socialRainEnded");
             case 131->p.getInventory().items.stream().anyMatch(stack->!stack.isEmpty()&&stack.is(com.sirin.hk3gtl.common.item.honkai.HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get()))||p.getOffhandItem().is(com.sirin.hk3gtl.common.item.honkai.HonkaiMaterialItems.WORLD_BUBBLE_SAMPLE.get());
-            case 102,108,132->false; // 对应真实研究失败、设备修复或样本交付尚无现行生产者，不能用旧存档计数替代。
+            case 102,132->Hk3EggResearchScenes.hasPause(p);
+            case 108->state.getBoolean("socialDeviceRepaired");
             case 107->state.getBoolean("ateCooked");
             case 110->Hk3ReviewData.get(p.server).experienced(p.getUUID(),Hk3ReviewLedger.Kind.SECOND);
             case 130->state.getBoolean("desktopMoved");
@@ -64,6 +64,7 @@ public final class Hk3SocialBuiltinTopics {
         if(state.getBoolean("socialAiDisabled")){Hk3EggVanilla.caseEvent(p,180);state.remove("socialAiDisabled");}
         if(!eligible(p,t))return;
         if(t.egg()==101){var history=Hk3SocialData.get(p).history(p.getUUID(),contact);if(!history.isEmpty())show(p,contact,101,false,false,history.getCompound(history.size()-1).getString("Body"));}
+        else if(t.egg()==102||t.egg()==132)Hk3EggResearchScenes.discussed(p,t.egg());
         else Hk3EggVanilla.caseEvent(p,t.egg());
     }
     public static boolean managed(String id){return id.startsWith("social_read_");}

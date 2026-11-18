@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * 【文件职责】稳定源的坐标与具体实例登记；弱引用不因维度索引阻止机器及世界释放。
- * 【变更记录 #1】2026-11-04 21:04:10（内测5修订200）
- * 删除：无。新增：替换登记、实例身份注销及有效实例快照。
- * 修改：无；用途：同坐标替换和迟到卸载不转移或误删稳定源资格，供生产查询与回归共用。
- */
+ 
+
+
+
+
+
 public final class Hk3SuppressionSourceRegistry<K, V> {
     private final Map<K, WeakReference<V>> sources = new HashMap<>();
 

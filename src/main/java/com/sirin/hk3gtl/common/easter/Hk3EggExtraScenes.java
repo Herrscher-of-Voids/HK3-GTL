@@ -6,8 +6,8 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.tags.*;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:59:33（修订128）：删除无；新增装饰方块的本人放置归属与箱子真实存入序列；修改无；用途：原条件的有界只读检测，不授研究资格。 */
-/** 【变更记录 #2】2026-10-01 06:01:37（修订128）：删除：无；新增/修改：普通放置不扫描装饰窗口，只在羊毛放置时查询局部归属；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggExtraScenes {
     private Hk3EggExtraScenes(){}
     public static void placed(ServerPlayer p,BlockPos pos,net.minecraft.world.level.block.state.BlockState block){

@@ -1,260 +1,2524 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 15:16:33（修订131）：一电压一页，旧任务编号保留；生成源tools/gen_industrial_quests.py。；变更记录 #1 2026-10-17 14:12:15（修订161）：删除版本前缀；新增长期任务标签；修改标识引用，任务ID与布局保留。",
   "filename": "hk3_voltage_02",
-  "id": "4B58C0B95371615F",
-  "title": "HK3GTL · HCV · 约束压",
+  "id": "4B537D3B302B7DCC",
+  "title": "约束压 HCV",
   "subtitle": [
-    "Tier16 · 热量和废料也有去处"
+    "Tier16-HCV"
   ],
-  "group": "",
-  "order_index": 16,
-  "icon": "hk3gtl:electric_motor_hcv",
-  "default_hide_dependency_lines": false,
+  "group": "68CBF1606D696C68",
+  "order_index": 17,
+  "icon": "hk3gtl:voltage_machine_casing_hcv",
   "default_quest_shape": "rsquare",
   "quests": [
     {
-      "id": "4B5626F5B3175377",
-      "title": "热量和废料也有去处",
-      "icon": "hk3gtl:hcv_assembly",
-      "x": 0.0,
-      "y": -4.0,
+      "id": "4B554BD2F769695B",
+      "title": "从HBV车间继续",
+      "subtitle": "把机壳变成下一段工业的起点",
       "description": [
-        "反应堆工作以后，热冷却剂与失活燃料棒都会不断出现。给它们安排去处，发电线才算接得完整。",
-        "",
-        "这一页重点是换热回流、燃料后处理和介质损耗。现实稳定锚则是另一条分支，可以从已有的样本实验开始准备。",
-        "{@pagebreak}",
-        "本页是HCV · 约束压的研究路线。先看连接线上的前置，再按需要安排并行分支。",
-        "研究所需要达到对应等级。部分高阶设备与正式结构仍待开放，遇到未开放的执行设备时请等待后续更新。"
+        "第一批HBV机壳已经做好。接下来先完成电路适配，再把电子、HW供给与纳米工艺逐一接起来。",
+        "本段走到首批HCV机壳，研究需要的功率、实际生产电压与HW账户分别按真实条件准备。"
       ],
       "tasks": [
         {
-          "id": "4B51E2EF09417023",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_intro_02"
-          ]
-        }
-      ],
-      "size": 2.0,
-      "shape": "rsquare"
-    },
-    {
-      "id": "4B527DCBF3C8A21A",
-      "title": "电路与八大件",
-      "icon": "hk3gtl:electric_motor_hcv",
-      "x": -4.0,
-      "y": -4.0,
-      "description": [
-        "进入HCV · 约束压，先在JEI里查看本档电路与设备的配方需求。电路属于哪一档，以配方接受的电路标签为准。",
-        "",
-        "电动马达、活塞、泵、传送带、机械臂、场发生器、发射器和传感器，是这一档设备会用到的八类部件。优先准备你下一台设备真正需要的种类，再考虑自动化备货。",
-        "{@pagebreak}",
-        "马达与活塞用于运动，泵和传送带处理流体与物品，机械臂承担操作；场发生器、发射器与传感器则用于场控制与检测。具体数量和材料按JEI配方准备。",
-        "同档电路可能有不同系列和形态。先核对电路等级，不要只看名字中是否带“主机”。本节点是备料提示，读完不会替代制造或研究。"
-      ],
-      "tasks": [
+          "id": "4B5641AD1425B927",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_hbv",
+          "count": 1,
+          "consume_items": false
+        },
         {
-          "id": "4B58537C6DFAA34D",
-          "type": "checkmark",
-          "title": "读完这一页",
-          "tags": [
-            "hk3gtl_quest_voltage_parts_02"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4B569369C14396CA",
-      "title": "冷却剂换热回流",
-      "icon": "hk3gtl:honkai_heat_exchanger",
-      "x": 0.0,
-      "y": 0.0,
-      "description": [
-        "让小型反应堆实际运行，取得它产生的热冷却剂，再研究换热与回流。空有一桶冷却剂，还说明不了这套循环是否能工作。",
-        "",
-        "解锁I46与循环降温路线。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "小型崩坏能反应堆真实生成热冷却剂、前级换热工装与补充冷却介质。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“冷却剂换热回流”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：小型反应堆工程、稳定介质再生。",
-        "基础研究费用：90点；2 × MAX级电路；32 × 钢板。",
-        "基础工期：1.5分钟；研究用电：8,053,063,680 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
-      ],
-      "tasks": [
-        {
-          "id": "4B509E5D0C54E4CC",
+          "id": "4B5D21921711FF57",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成液态崩坏能稳定化研究",
           "tags": [
-            "hk3gtl_quest_rn_hlc"
+            "hk3gtl_quest_hcv_start"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "icon": "hk3gtl:voltage_machine_casing_hbv",
+      "x": 0,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B56D9767054FD7F",
+      "title": "魂钢电子形态",
+      "subtitle": "细线、薄箔与密封环",
+      "description": [
+        "把上一段的魂钢板和棒继续加工成细线、薄箔与密封环。电子车间和液路装配都会用到它们。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A572E5CB36F83",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_fine_wire",
+          "count": 128,
+          "consume_items": false
+        },
+        {
+          "id": "4B58CE19C90E1A4B",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_foil",
+          "count": 16,
+          "consume_items": false
+        },
+        {
+          "id": "4B50CE11DBC93410",
+          "type": "item",
+          "item": "hk3gtl:abyss_impregnated_soulium_ring",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:abyss_impregnated_soulium_fine_wire",
+      "x": 4,
+      "y": -6,
+      "optional": false
+    },
+    {
+      "id": "4B5A3EEACCA48D02",
+      "title": "新鲜电路生长介质",
+      "subtitle": "给电子制造留一条稳定供给",
+      "description": [
+        "用结晶、掺杂材料和稳定液调出生长介质。第一批从新料制造，废介质的回收随后再接。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F36292738B7BE",
+          "type": "custom",
+          "title": "实际完成新鲜电路生长介质",
+          "tags": [
+            "hk3gtl_quest_hcv_growth_medium"
           ]
         }
       ],
       "dependencies": [
-        "4B50645A14FB0B24",
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:circuit_growth_medium_bucket",
+      "x": 4,
+      "y": 4,
+      "optional": false
+    },
+    {
+      "id": "4B527BA26FBBE1A4",
+      "title": "新鲜崩坏电路蚀刻液",
+      "subtitle": "使用后的液体另留出口",
+      "description": [
+        "先制造新鲜蚀刻液。适配层和晶格印刷线路都要用它，废液集中收好。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F1FBA88CE1A92",
+          "type": "custom",
+          "title": "实际完成新鲜崩坏电路蚀刻液",
+          "tags": [
+            "hk3gtl_quest_hcv_etchant"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:honkai_circuit_etchant_bucket",
+      "x": 4,
+      "y": 10,
+      "optional": false
+    },
+    {
+      "id": "4B5BC659AE5A72B5",
+      "title": "崩坏能适配电路基板",
+      "subtitle": "先让现有电路接上新材料",
+      "description": [
+        "把分析样本、魂钢板、原有MAX电路材料和稳定液装成适配基板。先留一块给光谱阵列做兼容性实验。"
+      ],
+      "tasks": [
+        {
+          "id": "4B56E69E1C39AF15",
+          "type": "item",
+          "item": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:honkai_adapted_circuit_substrate",
+      "x": 8,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5040611BF12E64",
+      "title": "崩坏能标准样本",
+      "subtitle": "给后面的检测留一个基准",
+      "description": [
+        "制造标准样本，供光谱阵列和后续研究比对。每道配方是否消耗样本，以详情中的工具标记为准。"
+      ],
+      "tasks": [
+        {
+          "id": "4B581148A691ED9D",
+          "type": "item",
+          "item": "hk3gtl:honkai_reference_sample",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:honkai_reference_sample",
+      "x": 8,
+      "y": 10,
+      "optional": false
+    },
+    {
+      "id": "4B5042942BCE6960",
+      "title": "起步电路适配",
+      "subtitle": "拿一块真实基板去测",
+      "description": [
+        "在光谱阵列完成兼容性实验，基板会原量返还。再到研究所完成课题，后续晶格电子、注入器与起步工厂由此开放。"
+      ],
+      "tasks": [
+        {
+          "id": "4B50BBA395373660",
+          "type": "custom",
+          "title": "完成起步电路适配",
+          "tags": [
+            "hk3gtl_quest_rn_bce"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5BC659AE5A72B5",
+        "4B5040611BF12E64"
+      ],
+      "icon": "hk3gtl:honkai_adapted_circuit_substrate",
+      "x": 12,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5EFEF2E69D12F9",
+      "title": "电路光刻掩膜",
+      "subtitle": "留在设备里的精密工装",
+      "description": [
+        "把光学部件封装成可复用掩膜。逻辑曝光和RAM压印都会读取它，掩膜在这两道工艺中保留。"
+      ],
+      "tasks": [
+        {
+          "id": "4B55FD6126C54A70",
+          "type": "item",
+          "item": "hk3gtl:circuit_lithography_mask",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:circuit_lithography_mask",
+      "x": 24,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B598A27F82005CB",
+      "title": "崩坏适配蚀刻层",
+      "subtitle": "基板的下一道加工",
+      "description": [
+        "将适配基板送入化学浸洗机，得到蚀刻层，并接走等量废蚀刻液。"
+      ],
+      "tasks": [
+        {
+          "id": "4B557E887571ECAF",
+          "type": "item",
+          "item": "hk3gtl:etched_circuit_layer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5BC659AE5A72B5",
+        "4B527BA26FBBE1A4"
+      ],
+      "icon": "hk3gtl:etched_circuit_layer",
+      "x": 16,
+      "y": 4,
+      "optional": false
+    },
+    {
+      "id": "4B5F1D9A9FA58EF9",
+      "title": "崩坏耐受界面底涂液",
+      "subtitle": "封装和层压都要用的底涂",
+      "description": [
+        "先把底涂液调好。侧壁衬片、层压预浸片和后面的陶瓷增强件，都从这条新鲜供给取料。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F5393AE728630",
+          "type": "custom",
+          "title": "实际完成新鲜崩坏耐受界面底涂液",
+          "tags": [
+            "hk3gtl_quest_hcv_primer"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:honkai_interface_priming_liquid_bucket",
+      "x": 16,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5071F40A698799",
+      "title": "封装衬片与层压预浸片",
+      "subtitle": "两套用途，分别备料",
+      "description": [
+        "侧壁衬片用于电路封装，预浸片用于晶格基板层压。分别完成涂布，捕集的废载液另存。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B602ACA002283",
+          "type": "item",
+          "item": "hk3gtl:encapsulation_sidewall_insulation_liner",
+          "count": 16,
+          "consume_items": false
+        },
+        {
+          "id": "4B5AFFD7D466A601",
+          "type": "item",
+          "item": "hk3gtl:lattice_lamination_prepreg",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5042942BCE6960",
+        "4B5F1D9A9FA58EF9"
+      ],
+      "icon": "hk3gtl:encapsulation_sidewall_insulation_liner",
+      "x": 20,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B51BA7AC8395B2D",
+      "title": "电路封装组件",
+      "subtitle": "把衬片装进封装里",
+      "description": [
+        "用魂钢框架、绝缘衬片和焊接材料制造封装组件。CPU和基板层压都会继续消耗它。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E13B76E52C7A2",
+          "type": "item",
+          "item": "hk3gtl:circuit_encapsulation_part",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5A3EEACCA48D02",
+        "4B5071F40A698799"
+      ],
+      "icon": "hk3gtl:circuit_encapsulation_part",
+      "x": 24,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B538E0ED0E2B585",
+      "title": "崩坏晶格介电隔离膜",
+      "subtitle": "先备好层间绝缘",
+      "description": [
+        "用魂钢薄箔与绝缘材料压出介电膜。互连、晶圆与贴片器件都需要它。"
+      ],
+      "tasks": [
+        {
+          "id": "4B595A02D660C0A6",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_dielectric_film",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5042942BCE6960",
+        "4B56D9767054FD7F"
+      ],
+      "icon": "hk3gtl:honkai_lattice_dielectric_film",
+      "x": 20,
+      "y": -4,
+      "optional": false
+    },
+    {
+      "id": "4B5CCB59FBAD78EA",
+      "title": "晶格互连电铸母模",
+      "subtitle": "一件反复使用的工装",
+      "description": [
+        "制造电铸母模，在镀覆时限定互连图形。它作为工具留在工艺里，下一批继续使用。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5590D309B48DB7",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_electroforming_mandrel",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5042942BCE6960",
+        "4B56D9767054FD7F"
+      ],
+      "icon": "hk3gtl:honkai_lattice_electroforming_mandrel",
+      "x": 24,
+      "y": 2,
+      "optional": false
+    },
+    {
+      "id": "4B557F25660E295A",
+      "title": "晶格互连定向镀覆",
+      "subtitle": "先沉积，再热压",
+      "description": [
+        "在母模上完成定向镀覆，取得互连沉积坯。废生长介质、热冷却液和清洗废液分别排出。"
+      ],
+      "tasks": [
+        {
+          "id": "4B573BC5397EC7B9",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_deposited_interconnect",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B538E0ED0E2B585",
+        "4B5A3EEACCA48D02",
+        "4B5CCB59FBAD78EA"
+      ],
+      "icon": "hk3gtl:honkai_lattice_deposited_interconnect",
+      "x": 28,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5AC50CDB402ACF",
+      "title": "崩坏晶格定向互连网",
+      "subtitle": "把沉积线路接成网",
+      "description": [
+        "将沉积坯与介电膜、细线支架一起热压，制成互连网。后面的基板和功能部件都要从这里取料。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5906514471E107",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_interconnect_mesh",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B557F25660E295A"
+      ],
+      "icon": "hk3gtl:honkai_lattice_interconnect_mesh",
+      "x": 32,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B524FCF976F85D2",
+      "title": "崩坏晶格电路基板",
+      "subtitle": "层压前把各层备齐",
+      "description": [
+        "把互连网、蚀刻层、预浸片和封装材料层压成晶格基板，原有MAX电路板也完整进入这块新基板。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5375B08A3E5A62",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_circuit_substrate",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51BA7AC8395B2D",
+        "4B598A27F82005CB",
+        "4B5AC50CDB402ACF"
+      ],
+      "icon": "hk3gtl:honkai_lattice_circuit_substrate",
+      "x": 32,
+      "y": 4,
+      "optional": false
+    },
+    {
+      "id": "4B528827A6872511",
+      "title": "崩坏晶格印刷线路",
+      "subtitle": "基板完成显影",
+      "description": [
+        "给晶格基板完成显影。成品继续用于CPU、处理器与功能元件，废蚀刻液接到回收或暂存罐。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DECBF0A6EB6FB",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_printed_circuit_board",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B524FCF976F85D2"
+      ],
+      "icon": "hk3gtl:honkai_lattice_printed_circuit_board",
+      "x": 36,
+      "y": 4,
+      "optional": false
+    },
+    {
+      "id": "4B54F26A38ED3857",
+      "title": "崩坏晶格外延晶圆",
+      "subtitle": "逻辑与存储从这里分流",
+      "description": [
+        "制造复合外延晶圆。已有MAX RAM晶圆在这里提供寻址与校准参考，后续逻辑和存储再分别加工。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D3F207A41351E",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_epitaxial_wafer",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B538E0ED0E2B585",
+        "4B5A3EEACCA48D02"
+      ],
+      "icon": "hk3gtl:honkai_lattice_epitaxial_wafer",
+      "x": 28,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B567BC85BF18577",
+      "title": "逻辑曝光与裸片切割",
+      "subtitle": "给两道工序各留一份样件",
+      "description": [
+        "用掩膜完成逻辑晶圆曝光，再切成裸片。任务同时记录晶圆与裸片，安排生产时各留一份。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C4F9492F0E674",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_logic_wafer",
+          "count": 1,
+          "consume_items": false
+        },
+        {
+          "id": "4B59EA762F01838B",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_logic_die",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5EFEF2E69D12F9",
+        "4B54F26A38ED3857"
+      ],
+      "icon": "hk3gtl:honkai_lattice_logic_wafer",
+      "x": 32,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B5EBF42101A9DA3",
+      "title": "RAM压印与晶片切割",
+      "subtitle": "存储工作层在这里加入",
+      "description": [
+        "外延晶圆另加MAX RAM工作层，完成压印后再切成RAM晶片。任务同时记录这两道工序的产物。"
+      ],
+      "tasks": [
+        {
+          "id": "4B53BBF87C747E21",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_ram_wafer",
+          "count": 1,
+          "consume_items": false
+        },
+        {
+          "id": "4B5250E8DD58520F",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_ram_chip",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5EFEF2E69D12F9",
+        "4B54F26A38ED3857"
+      ],
+      "icon": "hk3gtl:honkai_lattice_ram_wafer",
+      "x": 36,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5236864A63B3EF",
+      "title": "晶格五种贴片器件",
+      "subtitle": "电容、二极管、电阻、晶体管与电感",
+      "description": [
+        "分别制造五种贴片器件，再把它们送往功能阵列装配。每种器件的用途和投入都保留在对应配方里。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D92F2D8ACF5AE",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_smd_capacitor",
+          "count": 16,
+          "consume_items": false
+        },
+        {
+          "id": "4B591E183EDD299A",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_smd_diode",
+          "count": 16,
+          "consume_items": false
+        },
+        {
+          "id": "4B5630706F7442D4",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_smd_resistor",
+          "count": 16,
+          "consume_items": false
+        },
+        {
+          "id": "4B5A59D54470F6D5",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_smd_transistor",
+          "count": 16,
+          "consume_items": false
+        },
+        {
+          "id": "4B50727E29F8B778",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_smd_inductor",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51BA7AC8395B2D",
+        "4B5AC50CDB402ACF"
+      ],
+      "icon": "hk3gtl:honkai_lattice_smd_capacitor",
+      "x": 40,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B58881040887ECE",
+      "title": "晶格贴片功能阵列",
+      "subtitle": "五种器件在这里汇合",
+      "description": [
+        "把贴片器件与互连材料组成完整功能阵列。给CPU封装和处理器分别预留产量。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E066D71DBC891",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_smd_array",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B528827A6872511",
+        "4B5236864A63B3EF"
+      ],
+      "icon": "hk3gtl:honkai_lattice_smd_array",
+      "x": 40,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B59C85646A9AEBA",
+      "title": "崩坏晶格CPU",
+      "subtitle": "封装第一批计算核心",
+      "description": [
+        "把逻辑裸片、RAM、印刷线路和功能阵列装入封装。第一批CPU将用于处理器和探测、场控部件。"
+      ],
+      "tasks": [
+        {
+          "id": "4B55F65D52B8048B",
+          "type": "item",
+          "item": "hk3gtl:honkai_lattice_cpu",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B567BC85BF18577",
+        "4B5EBF42101A9DA3",
+        "4B58881040887ECE"
+      ],
+      "icon": "hk3gtl:honkai_lattice_cpu",
+      "x": 40,
+      "y": 4,
+      "optional": false
+    },
+    {
+      "id": "4B509E6CD485D385",
+      "title": "HBV魂钢晶格处理器",
+      "subtitle": "让整套电子工艺交出成品",
+      "description": [
+        "把CPU及所需电子部件接到超时空装配线，完成第一批HBV处理器。功能元件和纳米控制都会用到它。"
+      ],
+      "tasks": [
+        {
+          "id": "4B55BA05F9175C13",
+          "type": "item",
+          "item": "hk3gtl:hbv_processor",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B59C85646A9AEBA"
+      ],
+      "icon": "hk3gtl:hbv_processor",
+      "x": 44,
+      "y": 4,
+      "optional": false
+    },
+    {
+      "id": "4B573A95D544C130",
+      "title": "HBV电动马达",
+      "subtitle": "先备旋转驱动",
+      "description": [
+        "用MAX马达和本段材料装出HBV马达。活塞、泵、传送带与机械臂会继续需要它。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E5AB589E6C664",
+          "type": "item",
+          "item": "hk3gtl:electric_motor_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B509E6CD485D385"
+      ],
+      "icon": "hk3gtl:electric_motor_hbv",
+      "x": 48,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B575FC13126BDAC",
+      "title": "HBV电动活塞",
+      "subtitle": "把直线驱动补齐",
+      "description": [
+        "用HBV马达和MAX活塞完成新级活塞，接着供应机械臂装配。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DA22832809328",
+          "type": "item",
+          "item": "hk3gtl:electric_piston_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B573A95D544C130"
+      ],
+      "icon": "hk3gtl:electric_piston_hbv",
+      "x": 52,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5EA6C72230F5C0",
+      "title": "HBV电动泵",
+      "subtitle": "给后续液路备件",
+      "description": [
+        "保留MAX泵的完整前驱，再装入魂钢材料与HBV驱动。各设施用量按自己的配方安排。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5065E6FED8707F",
+          "type": "item",
+          "item": "hk3gtl:electric_pump_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B573A95D544C130"
+      ],
+      "icon": "hk3gtl:electric_pump_hbv",
+      "x": 52,
+      "y": 4,
+      "optional": false
+    },
+    {
+      "id": "4B5251F90D05E9D9",
+      "title": "HBV传送带",
+      "subtitle": "物料输送也跟上来",
+      "description": [
+        "装出HBV传送带，为后面的搬运与装配设备备货。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EECD4C2DCCFAA",
+          "type": "item",
+          "item": "hk3gtl:conveyor_module_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B573A95D544C130"
+      ],
+      "icon": "hk3gtl:conveyor_module_hbv",
+      "x": 52,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B572F33396E5162",
+      "title": "HBV机械臂",
+      "subtitle": "马达与活塞在这里汇合",
+      "description": [
+        "将HBV马达、活塞、处理器和MAX机械臂装成新级机械臂，完整保留前级部件成本。"
+      ],
+      "tasks": [
+        {
+          "id": "4B551C59531A906B",
+          "type": "item",
+          "item": "hk3gtl:robot_arm_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B575FC13126BDAC"
+      ],
+      "icon": "hk3gtl:robot_arm_hbv",
+      "x": 56,
+      "y": 0,
+      "optional": false
+    },
+    {
+      "id": "4B5FC1D9D41AB082",
+      "title": "HBV传感器",
+      "subtitle": "把测量部件做好",
+      "description": [
+        "制造HBV传感器，所需CPU、RAM与魂钢密封件由前面的电子和材料车间供应。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A7EBBB886D80A",
+          "type": "item",
+          "item": "hk3gtl:sensor_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B509E6CD485D385"
+      ],
+      "icon": "hk3gtl:sensor_hbv",
+      "x": 52,
+      "y": 12,
+      "optional": false
+    },
+    {
+      "id": "4B599F8F4E3CFEBF",
+      "title": "HBV发射器",
+      "subtitle": "给信号输出备件",
+      "description": [
+        "制造HBV发射器，逻辑裸片与CPU在这道装配中承担新的信号处理工作。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5EEAAB023CCB00",
+          "type": "item",
+          "item": "hk3gtl:emitter_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B509E6CD485D385"
+      ],
+      "icon": "hk3gtl:emitter_hbv",
+      "x": 56,
+      "y": 8,
+      "optional": false
+    },
+    {
+      "id": "4B54033589D40821",
+      "title": "HBV力场发生器",
+      "subtitle": "八种功能元件的最后一项",
+      "description": [
+        "完成HBV力场发生器。八大件可以按用途分别生产，所需前驱由各自配方决定。"
+      ],
+      "tasks": [
+        {
+          "id": "4B508092DDEE1232",
+          "type": "item",
+          "item": "hk3gtl:field_generator_hbv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B509E6CD485D385"
+      ],
+      "icon": "hk3gtl:field_generator_hbv",
+      "x": 60,
+      "y": 16,
+      "optional": false
+    },
+    {
+      "id": "4B5EB6B145EC9D9F",
+      "title": "崩坏能网络注入器",
+      "subtitle": "给无线HW账户建立供给",
+      "description": [
+        "造好注入器并绑定运行者。它成功结算后，HW记入绑定玩家的账户；纳米设备也要核对同一绑定者。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57478D23DFB77B",
+          "type": "item",
+          "item": "hk3gtl:honkai_network_injector",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5042942BCE6960"
+      ],
+      "icon": "hk3gtl:honkai_network_injector",
+      "x": 0,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B5B96450FAE8C9D",
+      "title": "稳定液首份HW注入",
+      "subtitle": "每批64,000 HW",
+      "description": [
+        "先用稳定液完成一次注入，每批向绑定者账户加入64,000 HW。这条MAX工艺可以重复运行，供第一批纳米工艺启动。"
+      ],
+      "tasks": [
+        {
+          "id": "4B568C4704A81FDC",
+          "type": "custom",
+          "title": "实际完成稳定液独立首份HW注入",
+          "tags": [
+            "hk3gtl_quest_hcv_bootstrap_hw"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5EB6B145EC9D9F"
+      ],
+      "icon": "hk3gtl:hot_honkai_coolant_bucket",
+      "x": 4,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5FB26B051075D8",
+      "title": "稳定介质再生塔",
+      "subtitle": "接住上一段用过的介质",
+      "description": [
+        "制造再生塔控制器，把用后介质接过来。基础再生实验完成后，再到研究所确认工艺。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D294F63D71626",
+          "type": "item",
+          "item": "hk3gtl:stabilization_medium_regeneration_tower",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5042942BCE6960"
+      ],
+      "icon": "hk3gtl:stabilization_medium_regeneration_tower",
+      "x": 0,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B5A130DF185C499",
+      "title": "稳定介质再生",
+      "subtitle": "先完成一个真实回收批次",
+      "description": [
+        "用再生塔完成基础回收，再到研究所完成课题。新鲜介质继续供首制，回收线逐步承担用后介质处理。"
+      ],
+      "tasks": [
+        {
+          "id": "4B529FC372589B36",
+          "type": "custom",
+          "title": "完成稳定介质再生",
+          "tags": [
+            "hk3gtl_quest_rn_smr"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5FB26B051075D8"
+      ],
+      "icon": "hk3gtl:separation_filter",
+      "x": 4,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B524E58042A5458",
+      "title": "多孔燃料基质",
+      "subtitle": "给液态燃料准备载体",
+      "description": [
+        "制造燃料基质，和稳定液、结晶、标准样本一起供应调配厂。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5183DB5085A5AA",
+          "type": "item",
+          "item": "hk3gtl:fuel_matrix",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5042942BCE6960"
+      ],
+      "icon": "hk3gtl:fuel_matrix",
+      "x": 4,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B59259088218EEE",
+      "title": "崩坏燃料调配厂",
+      "subtitle": "接上首批液态燃料",
+      "description": [
+        "造好调配厂控制器，接齐稳定液与基质等投入，并为燃料、副产物与残液分别留出口。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5200E4C4872555",
+          "type": "item",
+          "item": "hk3gtl:honkai_fuel_blending_plant",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5042942BCE6960"
+      ],
+      "icon": "hk3gtl:honkai_fuel_blending_plant",
+      "x": 4,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B5DDDF726D08AE2",
+      "title": "崩坏燃料调配",
+      "subtitle": "先出燃料，再完成课题",
+      "description": [
+        "在调配厂结算首批液态燃料，再到研究所完成燃料调配课题。燃料棒与反应堆的工艺留在后续能源段。"
+      ],
+      "tasks": [
+        {
+          "id": "4B58F21B0A280468",
+          "type": "custom",
+          "title": "完成崩坏燃料调配",
+          "tags": [
+            "hk3gtl_quest_rn_hfb"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B524E58042A5458",
+        "4B59259088218EEE"
+      ],
+      "icon": "hk3gtl:honkai_fuel_rod",
+      "x": 8,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B52FA95AA4321A1",
+      "title": "液态燃料连续HW注入",
+      "subtitle": "每批240,000 HW",
+      "description": [
+        "用已调配的液态燃料继续注入，每批向绑定者账户加入240,000 HW。把供给接稳后，纳米设备就有了持续来源。"
+      ],
+      "tasks": [
+        {
+          "id": "4B50D86E3EDEA291",
+          "type": "custom",
+          "title": "实际完成液态燃料连续HW注入",
+          "tags": [
+            "hk3gtl_quest_hcv_continuous_hw"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5DDDF726D08AE2",
+        "4B5EB6B145EC9D9F"
+      ],
+      "icon": "hk3gtl:hot_honkai_coolant_bucket",
+      "x": 12,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B532B7ED17AFC40",
+      "title": "魂钢微结构模板",
+      "subtitle": "反应定位用的工装",
+      "description": [
+        "先用现有材料制造微结构模板。前驱液成核时读取它，完成生产后再拿去做微结构检测。"
+      ],
+      "tasks": [
+        {
+          "id": "4B576822CCE647A3",
+          "type": "item",
+          "item": "hk3gtl:soulium_microstructure_template",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:soulium_microstructure_template",
+      "x": 12,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B5E7D421070F130",
+      "title": "新鲜魂钢工艺溶剂",
+      "subtitle": "先接一条独立的新料线",
+      "description": [
+        "制造新鲜工艺溶剂，供应成核、分散和后面的纳米工艺。废溶剂另行收集。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FE4AE081E28A0",
+          "type": "custom",
+          "title": "实际完成新鲜魂钢工艺溶剂",
+          "tags": [
+            "hk3gtl_quest_hcv_solvent"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B554BD2F769695B"
+      ],
+      "icon": "hk3gtl:soulium_process_solvent_bucket",
+      "x": 16,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B508E8A7D8E0D07",
+      "title": "魂钢前驱体研究",
+      "subtitle": "先检测现成的晶种",
+      "description": [
+        "在光谱阵列无损检测已有晶种，再完成研究。首个实验的试样来自上一段，前驱液量产由研究完成后开放。"
+      ],
+      "tasks": [
+        {
+          "id": "4B564D8531EC52D1",
+          "type": "custom",
+          "title": "完成魂钢前驱体研究",
+          "tags": [
+            "hk3gtl_quest_rn_ssp"
+          ]
+        }
+      ],
+      "dependencies": [
         "4B5A130DF185C499"
       ],
-      "subtitle": "S01 · RN-HLC",
-      "shape": "rsquare"
+      "icon": "hk3gtl:soulium_microstructure_template",
+      "x": 12,
+      "y": 24,
+      "optional": false
     },
     {
-      "id": "4B5E4351A34E6E51",
-      "title": "现实稳定锚原理",
-      "icon": "hk3gtl:soulium_anchor_component",
-      "x": 0.0,
-      "y": 3.0,
+      "id": "4B520A29F81D8F75",
+      "title": "魂钢前驱体混合釜",
+      "subtitle": "让成核与分散都有设备可用",
       "description": [
-        "用已经掌握的液态样本和MAX场控制器件，先做基础稳定场实验。研究清楚作用方式，再考虑往更强的约束方向走。",
-        "",
-        "第1级研究所可完成稳定锚理论；建议开放不依赖仿制核心的基础锚配方，以便建第2级研究所前可布置。实际崩坏能现实稳定锚提前为本轮衔接提案。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "样本光谱解析/液态崩坏能稳定化后液态样本、MAX场控制器件、普通屏蔽基材。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“现实稳定锚原理”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：样本光谱解析、液态崩坏能稳定化。",
-        "基础研究费用：90点；2 × MAX级电路；32 × 钢板。",
-        "基础工期：1.5分钟；研究用电：8,053,063,680 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "制造混合釜控制器，接好已有HBV机壳与MAX部件。这座釜还要制备成核颗粒、预分散浆料与多孔微球。"
       ],
       "tasks": [
         {
-          "id": "4B5E873D88DE2073",
+          "id": "4B526E19F24C102C",
+          "type": "item",
+          "item": "hk3gtl:soulium_precursor_mixing_kettle",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B508E8A7D8E0D07"
+      ],
+      "icon": "hk3gtl:soulium_precursor_mixing_kettle",
+      "x": 16,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B5C049EB14E8529",
+      "title": "魂钢成核颗粒",
+      "subtitle": "每一批都会消耗的晶核",
+      "description": [
+        "先在混合釜独立制备成核颗粒。它们进入前驱液后随批次消耗，微结构模板继续作为定位工具保留。"
+      ],
+      "tasks": [
+        {
+          "id": "4B50B429260ED126",
+          "type": "item",
+          "item": "hk3gtl:soulium_nucleation_granule",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B520A29F81D8F75",
+        "4B5E7D421070F130"
+      ],
+      "icon": "hk3gtl:soulium_nucleation_granule",
+      "x": 20,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B53F9D98D99C3DA",
+      "title": "纳米碳预分散浆料",
+      "subtitle": "先把碳材料分散开",
+      "description": [
+        "用工艺溶剂完成润湿和剪切分散，再把浆料送回前驱液成核工序。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5BD1C973EDE7DF",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成纳米碳预分散浆料制备",
           "tags": [
-            "hk3gtl_quest_rn_rat"
+            "hk3gtl_quest_hcv_slurry"
           ]
         }
       ],
       "dependencies": [
-        "4B5CF2EB987405D1",
-        "4B5BE03D48DB244E"
+        "4B520A29F81D8F75",
+        "4B5E7D421070F130"
       ],
-      "subtitle": "S01 · RN-RAT",
-      "shape": "rsquare"
+      "icon": "hk3gtl:nanocarbon_predispersion_slurry_bucket",
+      "x": 20,
+      "y": 24,
+      "optional": false
     },
     {
-      "id": "4B5FCABEEB611F12",
-      "title": "失活燃料后处理",
-      "icon": "hk3gtl:recovered_fuel_casing_material",
-      "x": 0.0,
-      "y": 6.0,
+      "id": "4B56696487A9393E",
+      "title": "魂钢多孔承载微球",
+      "subtitle": "给材料生长留出骨架",
       "description": [
-        "发过电的燃料棒，需要屏蔽和拆解处理。使用反应堆实际产生的失活棒，把后处理接起来，给发电线的末端留出位置。",
-        "",
-        "解锁I47，回收棒壳材料并处理残渣，不恢复原燃料全部能量。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "小型崩坏能反应堆真实生成失活棒、前级屏蔽拆解工装。",
-        "",
-        "按JEI查找对应工艺，在样本光谱分析阵列完成对应实验后，到S01或更高等级研究所选择“失活燃料后处理”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：小型反应堆工程、液态分离工艺。",
-        "基础研究费用：90点；2 × MAX级电路；32 × 钢板。",
-        "基础工期：1.5分钟；研究用电：8,053,063,680 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "制造多孔承载微球。微球、成核颗粒与模板各自承担承载、成核与定位工作，按配方分别准备。"
       ],
       "tasks": [
         {
-          "id": "4B52E786250589FA",
+          "id": "4B5EF4CA1F90F3D2",
+          "type": "item",
+          "item": "hk3gtl:soulium_porous_carrier",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B520A29F81D8F75"
+      ],
+      "icon": "hk3gtl:soulium_porous_carrier",
+      "x": 20,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B57416F9F323919",
+      "title": "魂钢微通道分配歧管",
+      "subtitle": "给装配阵列分组供液",
+      "description": [
+        "制造分配歧管，供应后续纳米机器人装配阵列。它让各组液路可以分别计量。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B66D52F4E20C1",
+          "type": "item",
+          "item": "hk3gtl:soulium_microchannel_manifold",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B508E8A7D8E0D07"
+      ],
+      "icon": "hk3gtl:soulium_microchannel_manifold",
+      "x": 16,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B58FB857BA8E864",
+      "title": "魂钢前驱液",
+      "subtitle": "第一批真实成核产物",
+      "description": [
+        "在混合釜完成前驱液生产，保留本队真实生产记录。随后检测模板，继续研究纳米基元合成。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5643EFD2343DF9",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "实际完成魂钢前驱液受控成核",
           "tags": [
-            "hk3gtl_quest_rn_sfr"
+            "hk3gtl_quest_hcv_precursor"
           ]
         }
       ],
       "dependencies": [
-        "4B50645A14FB0B24",
-        "4B5932E463E1338F"
+        "4B56696487A9393E",
+        "4B5C049EB14E8529",
+        "4B53F9D98D99C3DA",
+        "4B532B7ED17AFC40"
       ],
-      "subtitle": "S01 · RN-SFR",
-      "shape": "rsquare"
+      "icon": "hk3gtl:soulium_precursor_fluid_bucket",
+      "x": 24,
+      "y": 24,
+      "optional": false
     },
     {
-      "id": "4B5DE41A832D8754",
-      "title": "介质损耗优化",
-      "icon": "hk3gtl:separation_filter",
-      "x": 3.0,
-      "y": 0.0,
+      "id": "4B5236D09B7CBB39",
+      "title": "纳米基元合成研究",
+      "subtitle": "先有前驱液生产，再测模板",
       "description": [
-        "现在回头看看介质再生、换热和燃料后处理。把这些已经运行过的批次一起分析，找出真正值得优化的损耗环节。",
-        "",
-        "解锁可验证的节料回收改良配方，具体收益后定。",
-        "{@pagebreak}",
-        "&b实验准备&r",
-        "稳定介质再生塔介质回收、冷却剂换热回流换热和失活燃料后处理后处理的真实批次回执。",
-        "",
-        "按JEI查找对应工艺，在第1级研究所完成对应实验后，到S01或更高等级研究所选择“介质损耗优化”并开题。",
-        "研究完成后，任务书会自动更新。",
-        "{@pagebreak}",
-        "&b开题备忘&r",
-        "先完成：冷却剂换热回流、失活燃料后处理。",
-        "基础研究费用：90点；2 × MAX级电路；32 × 钢板。",
-        "基础工期：1.5分钟；研究用电：8,053,063,680 EU/t。",
-        "以上是研究本身的基础消耗，实验配方另看JEI；最终报价以研究所界面为准。"
+        "前驱液真实生产完成后，拿模板到光谱阵列做无损检测。研究完成后，纳米基元合成器才开放。"
       ],
       "tasks": [
         {
-          "id": "4B5A60A224A3F151",
+          "id": "4B595E38111D2063",
           "type": "custom",
-          "title": "完成这项研究",
+          "title": "完成纳米基元合成研究",
           "tags": [
-            "hk3gtl_quest_rn_opr"
+            "hk3gtl_quest_rn_nbs"
           ]
         }
       ],
       "dependencies": [
-        "4B569369C14396CA",
-        "4B5FCABEEB611F12"
+        "4B58FB857BA8E864"
       ],
-      "subtitle": "S01 · RN-OPR",
-      "shape": "rsquare"
-    }
-  ],
-  "quest_links": [
-    {
-      "id": "4B505F41A43DD11B",
-      "linked_quest": "4B5CF2EB987405D1",
-      "x": 0.0,
-      "y": -8.0
+      "icon": "hk3gtl:nano_building_unit",
+      "x": 28,
+      "y": 24,
+      "optional": false
     },
     {
-      "id": "4B50794DFF246EB2",
-      "linked_quest": "4B5BE03D48DB244E",
-      "x": 3.0,
-      "y": -8.0
+      "id": "4B5E2D8CAABE16C8",
+      "title": "纳米基元合成器",
+      "subtitle": "开始制造纳米尺度的前驱件",
+      "description": [
+        "制造合成器控制器，接上前驱液和工艺溶剂。沉积支架、隔离膜、钝化液都从这里供应。"
+      ],
+      "tasks": [
+        {
+          "id": "4B537E3280AB1D25",
+          "type": "item",
+          "item": "hk3gtl:nano_basic_unit_synthesizer",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5236D09B7CBB39"
+      ],
+      "icon": "hk3gtl:nano_basic_unit_synthesizer",
+      "x": 32,
+      "y": 24,
+      "optional": false
     },
     {
-      "id": "4B5DE81EA215E575",
-      "linked_quest": "4B5932E463E1338F",
-      "x": 6.0,
-      "y": -8.0
+      "id": "4B5E8FA7554067BB",
+      "title": "魂钢纳米沉积支架",
+      "subtitle": "基元合成前先有支架",
+      "description": [
+        "把微结构模板进一步加工为沉积支架。支架在基元合成中消耗，整条模板前驱也随之进入产物。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5ABCCB279EAE6B",
+          "type": "item",
+          "item": "hk3gtl:soulium_nano_deposition_scaffold",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5E2D8CAABE16C8"
+      ],
+      "icon": "hk3gtl:soulium_nano_deposition_scaffold",
+      "x": 32,
+      "y": 18,
+      "optional": false
     },
     {
-      "id": "4B50FF789E47AEAF",
-      "linked_quest": "4B5A130DF185C499",
-      "x": 9.0,
-      "y": -8.0
+      "id": "4B54DBF3C3DE761D",
+      "title": "崩坏适配纳米构筑单元",
+      "subtitle": "每批另需51,200 HW",
+      "description": [
+        "完成第一批基元生产，设备按16 HW/t连续支付3,200 tick。先让注入器给同一绑定者备好HW，再开始这批工艺。"
+      ],
+      "tasks": [
+        {
+          "id": "4B55363E0A8B9E23",
+          "type": "item",
+          "item": "hk3gtl:nano_building_unit",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5B96450FAE8C9D",
+        "4B5E8FA7554067BB"
+      ],
+      "icon": "hk3gtl:nano_building_unit",
+      "x": 36,
+      "y": 20,
+      "optional": false
     },
     {
-      "id": "4B57F03E216859C6",
-      "linked_quest": "4B50645A14FB0B24",
-      "x": 12.0,
-      "y": -8.0
+      "id": "4B5A8D9F7E55D62B",
+      "title": "魂钢纳米驱动坯",
+      "subtitle": "给机器人关节准备驱动件",
+      "description": [
+        "用真实基元继续制造驱动坯。后面装配机器人的主体和关节各自消耗一份基元来源。"
+      ],
+      "tasks": [
+        {
+          "id": "4B588D68493B26A8",
+          "type": "item",
+          "item": "hk3gtl:soulium_nano_actuator_blank",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B54DBF3C3DE761D"
+      ],
+      "icon": "hk3gtl:soulium_nano_actuator_blank",
+      "x": 40,
+      "y": 20,
+      "optional": false
+    },
+    {
+      "id": "4B57CD3F28126769",
+      "title": "纳米关节隔离膜",
+      "subtitle": "关节内部和机体接口分别绝缘",
+      "description": [
+        "制造关节隔离膜，分别供应驱动节和机器人机体装配。外壳封装材料仍按主配方另行投入。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E9E0C5F1B3A6D",
+          "type": "item",
+          "item": "hk3gtl:nano_joint_isolation_membrane",
+          "count": 64,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5E2D8CAABE16C8"
+      ],
+      "icon": "hk3gtl:nano_joint_isolation_membrane",
+      "x": 32,
+      "y": 30,
+      "optional": false
+    },
+    {
+      "id": "4B587FE7B81DCDBB",
+      "title": "新鲜纳米表面钝化液",
+      "subtitle": "首批从前驱液和新鲜溶剂起步",
+      "description": [
+        "在合成器制造新鲜钝化液，供关节与机器人表面处理。用后钝化液集中收集，之后可接有损再生。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B8CB24DFE9148",
+          "type": "custom",
+          "title": "实际完成新鲜纳米表面钝化液",
+          "tags": [
+            "hk3gtl_quest_hcv_passivation"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5E2D8CAABE16C8"
+      ],
+      "icon": "hk3gtl:nano_surface_passivation_liquid_bucket",
+      "x": 36,
+      "y": 34,
+      "optional": false
+    },
+    {
+      "id": "4B51F36779451456",
+      "title": "纳米机器人装配研究",
+      "subtitle": "确认基元能够启动和停止",
+      "description": [
+        "拿一件真实基元去光谱阵列检测，完成研究后再建设机器人装配阵列。受检基元会原量返还。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5DF414ECA936B1",
+          "type": "custom",
+          "title": "完成纳米机器人装配研究",
+          "tags": [
+            "hk3gtl_quest_rn_nra"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B54DBF3C3DE761D"
+      ],
+      "icon": "hk3gtl:unprogrammed_nanobot",
+      "x": 40,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B5FB1B87CBA745B",
+      "title": "纳米机器人装配阵列",
+      "subtitle": "给机体和关节接好液路",
+      "description": [
+        "把分配歧管装进控制器所需的供液系统，完成阵列建设。先造驱动节，再将它与主体基元一起装成机器人。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5672E6D0C7C164",
+          "type": "item",
+          "item": "hk3gtl:nanobot_assembly_array",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51F36779451456",
+        "4B57416F9F323919"
+      ],
+      "icon": "hk3gtl:nanobot_assembly_array",
+      "x": 44,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B511BED43A80249",
+      "title": "魂钢纳米驱动节",
+      "subtitle": "把驱动模块装进关节",
+      "description": [
+        "用驱动坯、隔离膜与钝化液完成驱动节。后面的机体装配还会另用一批基元和驱动信号部件。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5237FF2AE4EE2A",
+          "type": "item",
+          "item": "hk3gtl:soulium_nano_actuator_joint",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5A8D9F7E55D62B",
+        "4B56D9767054FD7F",
+        "4B57CD3F28126769",
+        "4B5FB1B87CBA745B",
+        "4B587FE7B81DCDBB"
+      ],
+      "icon": "hk3gtl:soulium_nano_actuator_joint",
+      "x": 44,
+      "y": 18,
+      "optional": false
+    },
+    {
+      "id": "4B5567DFAB854845",
+      "title": "未编程纳米机器人",
+      "subtitle": "先完成硬件装配",
+      "description": [
+        "装出首批未编程机器人，留下本队真实装配记录。启动、执行和停止的检测随后单独进行。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A707D5E5AFDF4",
+          "type": "item",
+          "item": "hk3gtl:unprogrammed_nanobot",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B511BED43A80249"
+      ],
+      "icon": "hk3gtl:unprogrammed_nanobot",
+      "x": 48,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B5DE0289470D651",
+      "title": "纳米自组织编程研究",
+      "subtitle": "先验证受限指令",
+      "description": [
+        "在光谱阵列检查未编程机器人的启动、执行和停止响应，再完成研究，开放编程舱与受控群工艺。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5303F2405038C3",
+          "type": "custom",
+          "title": "完成纳米自组织编程研究",
+          "tags": [
+            "hk3gtl_quest_rn_nsp"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5567DFAB854845"
+      ],
+      "icon": "hk3gtl:controlled_nano_swarm",
+      "x": 52,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B536B7DFF644D36",
+      "title": "纳米自组织编程舱",
+      "subtitle": "先写明执行边界",
+      "description": [
+        "制造编程舱控制器。群控规则先独立写入核心，再和未编程机器人合成受控群。"
+      ],
+      "tasks": [
+        {
+          "id": "4B56C810C671C893",
+          "type": "item",
+          "item": "hk3gtl:nano_self_organizing_programming_chamber",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5DE0289470D651"
+      ],
+      "icon": "hk3gtl:nano_self_organizing_programming_chamber",
+      "x": 56,
+      "y": 24,
+      "optional": false
+    },
+    {
+      "id": "4B52036468877E9F",
+      "title": "重构规则载体",
+      "subtitle": "保存受限执行规则",
+      "description": [
+        "制造规则载体。每件群控核心消耗两件载体，给规则写入提前备好。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57079FA09CC060",
+          "type": "item",
+          "item": "hk3gtl:reconstruction_rule_carrier",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B51F36779451456"
+      ],
+      "icon": "hk3gtl:reconstruction_rule_carrier",
+      "x": 48,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B5E639C71578826",
+      "title": "纳米群时序同步节点",
+      "subtitle": "分区执行与停止回读",
+      "description": [
+        "在装配阵列制造时序同步节点，再交给编程舱写入规则。群体总控所需的处理器和时钟仍按主配方另投。"
+      ],
+      "tasks": [
+        {
+          "id": "4B59DD2CC6F295D5",
+          "type": "item",
+          "item": "hk3gtl:nano_swarm_timing_node",
+          "count": 4,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5FB1B87CBA745B",
+        "4B509E6CD485D385"
+      ],
+      "icon": "hk3gtl:nano_swarm_timing_node",
+      "x": 52,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B546643501329CC",
+      "title": "受限群控规则核心",
+      "subtitle": "写入一件核心需28,800 HW",
+      "description": [
+        "用四件同步节点和两件规则载体写入核心，设备按16 HW/t运行1,800 tick。完成后再送往受控群装配。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57FEC96DC66643",
+          "type": "item",
+          "item": "hk3gtl:bounded_nano_control_core",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B536B7DFF644D36",
+        "4B52036468877E9F",
+        "4B5E639C71578826"
+      ],
+      "icon": "hk3gtl:bounded_nano_control_core",
+      "x": 56,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B5EBD0A1560BCD6",
+      "title": "受控自组织纳米群",
+      "subtitle": "本机每批115,200 HW",
+      "description": [
+        "让未编程机器人与群控核心完成这批工艺，另按32 HW/t支付3,600 tick。首群整条新增HW工艺合计348,800 HW，稳定液注入六批可先供384,000 HW。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5104F723EFE2D9",
+          "type": "item",
+          "item": "hk3gtl:controlled_nano_swarm",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B546643501329CC"
+      ],
+      "icon": "hk3gtl:controlled_nano_swarm",
+      "x": 60,
+      "y": 28,
+      "optional": false
+    },
+    {
+      "id": "4B555AB7503AC71A",
+      "title": "崩坏抗性包覆研究",
+      "subtitle": "同一份受控群接着去检测",
+      "description": [
+        "将真实生产的受控群送往光谱阵列，完成抗性界面检测与研究。同一群随后可在陶瓷复合界面铺设中作为工具继续使用。"
+      ],
+      "tasks": [
+        {
+          "id": "4B58FDD070DB9004",
+          "type": "custom",
+          "title": "完成崩坏抗性包覆研究",
+          "tags": [
+            "hk3gtl_quest_rn_hrc"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5EBD0A1560BCD6"
+      ],
+      "icon": "hk3gtl:coated_nano_swarm",
+      "x": 60,
+      "y": 32,
+      "optional": false
+    },
+    {
+      "id": "4B564120901446E2",
+      "title": "多相陶瓷预混粉",
+      "subtitle": "先混粉，再做反应合成",
+      "description": [
+        "将六种粉体按配方分级预混，再送往超临界合成机。陶瓷烧结放在树脂复合之前。"
+      ],
+      "tasks": [
+        {
+          "id": "4B564ABFEE9E68CD",
+          "type": "item",
+          "item": "hk3gtl:constraint_ceramic_powder_blend",
+          "count": 64,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B555AB7503AC71A"
+      ],
+      "icon": "hk3gtl:constraint_ceramic_powder_blend",
+      "x": 60,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B523989720A35A7",
+      "title": "崩坏功能纳米陶瓷",
+      "subtitle": "在原包超临界合成机完成",
+      "description": [
+        "让预混粉、原始粒子与其余投入完成反应合成，得到本段的纳米陶瓷。"
+      ],
+      "tasks": [
+        {
+          "id": "4B553BE51BD696FB",
+          "type": "item",
+          "item": "hk3gtl:nano_ceramic",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B564120901446E2"
+      ],
+      "icon": "hk3gtl:nano_ceramic",
+      "x": 56,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B54CE87B24796F7",
+      "title": "陶瓷流延悬浮液",
+      "subtitle": "把陶瓷粉体分散进载液",
+      "description": [
+        "在前驱体混合釜完成润湿与剪切分散，得到流延悬浮液。后续浸渍会捕集其中的挥发载液。"
+      ],
+      "tasks": [
+        {
+          "id": "4B52CCA0DB3BCB62",
+          "type": "custom",
+          "title": "实际完成陶瓷流延悬浮液",
+          "tags": [
+            "hk3gtl_quest_hcv_suspension"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B523989720A35A7"
+      ],
+      "icon": "hk3gtl:constraint_ceramic_suspension_bucket",
+      "x": 52,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B534868CCA8F70A",
+      "title": "陶瓷界面增强纤维片",
+      "subtitle": "先把增强覆带做好",
+      "description": [
+        "用底涂把氧化锆与碳化硅固定在碳纤维板表面，再交给魂钢基体覆带浸渍。"
+      ],
+      "tasks": [
+        {
+          "id": "4B532B07280530A1",
+          "type": "item",
+          "item": "hk3gtl:ceramic_interface_reinforced_fiber_sheet",
+          "count": 128,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B555AB7503AC71A"
+      ],
+      "icon": "hk3gtl:ceramic_interface_reinforced_fiber_sheet",
+      "x": 56,
+      "y": 44,
+      "optional": false
+    },
+    {
+      "id": "4B534EFD6935EDAE",
+      "title": "碳化锆纳米封孔液",
+      "subtitle": "填好护板之间的接缝",
+      "description": [
+        "在纳米合成器制造封孔液，供耐蚀界面层铺设。板材、PBI与定位用的纳米群仍按主配方分别准备。"
+      ],
+      "tasks": [
+        {
+          "id": "4B509679D0824BAA",
+          "type": "custom",
+          "title": "实际完成碳化锆纳米封孔液",
+          "tags": [
+            "hk3gtl_quest_hcv_sealing_liquid"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5E2D8CAABE16C8"
+      ],
+      "icon": "hk3gtl:zirconium_carbide_nano_sealing_liquid_bucket",
+      "x": 50,
+      "y": 44,
+      "optional": false
+    },
+    {
+      "id": "4B536F99680175C9",
+      "title": "魂钢基体陶瓷覆带",
+      "subtitle": "从现成魂钢坯开始浸渍",
+      "description": [
+        "让魂钢标准坯与增强覆带进入悬浮液，完成第一层复合。用后陶瓷载液接到独立出口。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FDFC009EA185F",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_stage_1",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B534868CCA8F70A",
+        "4B54CE87B24796F7"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_stage_1",
+      "x": 48,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B518B670B74B672",
+      "title": "耐蚀界面层坯",
+      "subtitle": "受控纳米群负责定位",
+      "description": [
+        "依序铺设护板和功能箔，用PBI与封孔液低温固结。受控纳米群作为工具保留。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D573CD0C22DF2",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_stage_2",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B536F99680175C9",
+        "4B534EFD6935EDAE"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_stage_2",
+      "x": 44,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B536AD0311B2E36",
+      "title": "碳纳米管锚固网",
+      "subtitle": "给层间连接准备骨架",
+      "description": [
+        "把抗裂箔与带孔骨架制成锚固网，再送往梯度层压工序。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C25079990CC0A",
+          "type": "item",
+          "item": "hk3gtl:carbon_nanotube_anchoring_mesh",
+          "count": 128,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B555AB7503AC71A"
+      ],
+      "icon": "hk3gtl:carbon_nanotube_anchoring_mesh",
+      "x": 44,
+      "y": 44,
+      "optional": false
+    },
+    {
+      "id": "4B59BADC4D297415",
+      "title": "梯度应力层坯",
+      "subtitle": "把承压与绝缘层压在一起",
+      "description": [
+        "将界面层坯、魂钢箔、绝缘箔与锚固网完成层压，再进行低温表面封孔。"
+      ],
+      "tasks": [
+        {
+          "id": "4B59AFEA071A0BFB",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_stage_3",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B536AD0311B2E36",
+        "4B518B670B74B672"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_stage_3",
+      "x": 40,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B5564743590D90C",
+      "title": "约束梯度复合标准坯",
+      "subtitle": "低温固结，保留内部树脂层",
+      "description": [
+        "完成低温浸润与表面封孔，取得合格标准坯。板、棒、环与后续框架从这里分流。"
+      ],
+      "tasks": [
+        {
+          "id": "4B58200B6F8BF391",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_billet",
+          "count": 32,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B59BADC4D297415"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_billet",
+      "x": 36,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B583A42E98955E9",
+      "title": "耐蚀承压复合板",
+      "subtitle": "先留给机壳装配",
+      "description": [
+        "用标准坯与承压护面加工复合板。每个HCV机壳需要十六块，其他用途另行安排产量。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5A72C46D534697",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_plate",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5564743590D90C"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_plate",
+      "x": 32,
+      "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B5E93BCCA4B1697",
+      "title": "陶瓷包覆承力棒",
+      "subtitle": "连续金属芯承担载荷",
+      "description": [
+        "在金属承力件外形成陶瓷复合包覆。框架和密封环继续从棒材分流。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AB18D2DC142CD",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_rod",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5564743590D90C"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_rod",
+      "x": 32,
+      "y": 44,
+      "optional": false
+    },
+    {
+      "id": "4B5476B570DC3DC6",
+      "title": "耐蚀空间框架组件",
+      "subtitle": "先装出框架",
+      "description": [
+        "用包覆棒与原有框架、连接件装成耐蚀空间框架，每个HCV机壳需要两件。"
+      ],
+      "tasks": [
+        {
+          "id": "4B52AB70295FB8D3",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_frame",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5E93BCCA4B1697"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_frame",
+      "x": 28,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B51A997EC760B5C",
+      "title": "低应力密封复合环",
+      "subtitle": "金属芯环外覆功能层",
+      "description": [
+        "制造密封复合环，供HCV机壳装配。陶瓷相保留在包覆层，连续金属芯承担弯曲。"
+      ],
+      "tasks": [
+        {
+          "id": "4B598887D52AA7A1",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_ring",
+          "count": 8,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5E93BCCA4B1697"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_ring",
+      "x": 28,
+      "y": 44,
+      "optional": false
+    },
+    {
+      "id": "4B533F8487401E97",
+      "title": "HCV复合薄层与细线",
+      "subtitle": "给后续电子和装配留料",
+      "description": [
+        "分别制造柔性复合薄层与包覆细线。它们供应后续工艺，本段首个机壳沿板、框架和密封环路线完成。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E5CE44B01E41C",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_foil",
+          "count": 16,
+          "consume_items": false
+        },
+        {
+          "id": "4B5F0DA77B9951FD",
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_fine_wire",
+          "count": 16,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B583A42E98955E9",
+        "4B5E93BCCA4B1697"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_foil",
+      "x": 24,
+      "y": 48,
+      "optional": false
+    },
+    {
+      "id": "4B517B796028B0E3",
+      "title": "HCV约束压机械方块",
+      "subtitle": "HBV机壳上装好新的承压结构",
+      "description": [
+        "让复合板、框架与密封环在组装厂汇合，完成第一块HCV机械方块。首制工艺使用HBV电力。"
+      ],
+      "tasks": [
+        {
+          "id": "4B50B0700C21DDF3",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_hcv",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5476B570DC3DC6",
+        "4B583A42E98955E9",
+        "4B51A997EC760B5C"
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_hcv",
+      "x": 24,
+      "y": 40,
+      "optional": false
+    },
+    {
+      "id": "4B53701A7D232201",
+      "title": "三种工艺介质有损再生",
+      "subtitle": "每1,000 mB废介质返600 mB有效介质",
+      "description": [
+        "分别接通废蚀刻液、废生长介质和废魂钢溶剂的再生。新鲜供给继续补足损失，所有最终废液都有独立出口。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57BAD1C5F22537",
+          "type": "custom",
+          "title": "实际完成废崩坏能蚀刻液有损再生",
+          "tags": [
+            "hk3gtl_quest_hcv_media_recovery",
+            "hk3gtl_quest_hcv_media_recovery_task_1"
+          ]
+        },
+        {
+          "id": "4B5331661EC551E5",
+          "type": "custom",
+          "title": "实际完成废电路生长介质有损再生",
+          "tags": [
+            "hk3gtl_quest_hcv_media_recovery",
+            "hk3gtl_quest_hcv_media_recovery_task_2"
+          ]
+        },
+        {
+          "id": "4B5E1A706AF41A6A",
+          "type": "custom",
+          "title": "实际完成废魂钢工艺溶剂有损再生",
+          "tags": [
+            "hk3gtl_quest_hcv_media_recovery",
+            "hk3gtl_quest_hcv_media_recovery_task_3"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5A130DF185C499"
+      ],
+      "icon": "hk3gtl:honkai_circuit_etchant_bucket",
+      "x": 0,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B58B599C65FBE9A",
+      "title": "纳米尾料与精炼残液处理",
+      "subtitle": "四种来料分别进入分离中心",
+      "description": [
+        "处理反应尾液、失活单元、装配边角料与燃料精炼残液，回收少量介质或金属。先存够对应批量，再分别开机。"
+      ],
+      "tasks": [
+        {
+          "id": "4B56FE42193BB865",
+          "type": "custom",
+          "title": "实际完成纳米反应尾液分离",
+          "tags": [
+            "hk3gtl_quest_hcv_nano_recovery",
+            "hk3gtl_quest_hcv_nano_recovery_task_1"
+          ]
+        },
+        {
+          "id": "4B5E3E4E7B767798",
+          "type": "custom",
+          "title": "实际完成失活纳米单元材料回收",
+          "tags": [
+            "hk3gtl_quest_hcv_nano_recovery",
+            "hk3gtl_quest_hcv_nano_recovery_task_2"
+          ]
+        },
+        {
+          "id": "4B55E9359A1B1804",
+          "type": "custom",
+          "title": "实际完成纳米装配边角料解体",
+          "tags": [
+            "hk3gtl_quest_hcv_nano_recovery",
+            "hk3gtl_quest_hcv_nano_recovery_task_3"
+          ]
+        },
+        {
+          "id": "4B58E4F6F3198858",
+          "type": "custom",
+          "title": "实际完成燃料精炼残液净化",
+          "tags": [
+            "hk3gtl_quest_hcv_nano_recovery",
+            "hk3gtl_quest_hcv_nano_recovery_task_4"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5042942BCE6960"
+      ],
+      "icon": "hk3gtl:honkai_separation_medium_bucket",
+      "x": 4,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B51D85C822B1086",
+      "title": "聚合残渣晶核回收",
+      "subtitle": "从真实残渣中收回少量晶核",
+      "description": [
+        "把前驱液生产留下的聚合残渣分级处理，收回少量成核颗粒，补回原成核供给。"
+      ],
+      "tasks": [
+        {
+          "id": "4B52C0A9AC58DDB7",
+          "type": "custom",
+          "title": "实际完成魂钢聚合残渣晶核回收",
+          "tags": [
+            "hk3gtl_quest_hcv_nucleation_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B508E8A7D8E0D07",
+        "4B5E7D421070F130"
+      ],
+      "icon": "hk3gtl:soulium_nucleation_granule",
+      "x": 0,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B50BDDBFC2DC169",
+      "title": "钝化液有损再生",
+      "subtitle": "8,000 mB废液返6,000 mB钝化液",
+      "description": [
+        "处理用后钝化液，补入必要活性组分与溶剂。新鲜钝化液仍是独立首源。"
+      ],
+      "tasks": [
+        {
+          "id": "4B508F9C7E4F86CE",
+          "type": "custom",
+          "title": "实际完成纳米表面钝化液有损再生",
+          "tags": [
+            "hk3gtl_quest_hcv_passivation_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B51F36779451456"
+      ],
+      "icon": "hk3gtl:nano_surface_passivation_liquid_bucket",
+      "x": 4,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B56C24CD5AFC07B",
+      "title": "界面载液净化与底涂再配",
+      "subtitle": "载液回用，成膜材料照常补足",
+      "description": [
+        "回用捕集载液，并重新补齐硅、铪填料、PVB与稳定液，再配成底涂。已经留在成品上的材料继续按量消耗。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5527043D0FD2C5",
+          "type": "custom",
+          "title": "实际完成废界面载液净化与底涂再配",
+          "tags": [
+            "hk3gtl_quest_hcv_primer_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5A130DF185C499"
+      ],
+      "icon": "hk3gtl:honkai_interface_priming_liquid_bucket",
+      "x": 8,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B5F1FF3D6A563DE",
+      "title": "复合废料分类与补料再生",
+      "subtitle": "回收组分配合新鲜坯继续使用",
+      "description": [
+        "先把分类废料分成回收组分与最终尾料，再用十四份新鲜坯及辅料补成十六份标准坯。首批标准坯由独立主线供应。"
+      ],
+      "tasks": [
+        {
+          "id": "4B549E11798DAD1C",
+          "type": "custom",
+          "title": "实际完成复合废料分类回收",
+          "tags": [
+            "hk3gtl_quest_hcv_composite_recovery",
+            "hk3gtl_quest_hcv_composite_recovery_task_1"
+          ]
+        },
+        {
+          "id": "4B564C6A7C1A2E84",
+          "type": "custom",
+          "title": "实际完成再生组分补料复合",
+          "tags": [
+            "hk3gtl_quest_hcv_composite_recovery",
+            "hk3gtl_quest_hcv_composite_recovery_task_2"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5564743590D90C"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_recovered_fraction",
+      "x": 8,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B5FFEE440C35A2B",
+      "title": "陶瓷载液分馏回收",
+      "subtitle": "回收75%的载液体积",
+      "description": [
+        "将用后陶瓷载液分馏，收回乙醇与丙酮，其余载液随吸附残渣进入尾料。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CAE4CCE95B430",
+          "type": "custom",
+          "title": "实际完成陶瓷载液分馏回收",
+          "tags": [
+            "hk3gtl_quest_hcv_vehicle_recovery"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B555AB7503AC71A"
+      ],
+      "icon": "gtceu:ethanol_bucket",
+      "x": 12,
+      "y": 40,
+      "optional": true
+    },
+    {
+      "id": "4B5CE1843D3943FE",
+      "title": "HCV壳体检修拆解",
+      "subtitle": "旧机壳与部分构件分别退回",
+      "description": [
+        "检修时拆下一件HCV机壳，退回HBV机壳和部分复合构件。处理液、紧固件与灌封材料仍有消耗。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E40CB83CD0988",
+          "type": "custom",
+          "title": "实际完成HCV壳体检修拆解",
+          "tags": [
+            "hk3gtl_quest_hcv_casing_service"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B517B796028B0E3"
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_hbv",
+      "x": 12,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B51E1D0ABAA56F7",
+      "title": "历史拒收批解体",
+      "subtitle": "留给旧库存的处理办法",
+      "description": [
+        "库存里的拒收批可以在这里分类处理。首批合格标准坯按前面的分步工序生产。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B7D11371B22DC",
+          "type": "custom",
+          "title": "实际完成存量拒收批解体分类",
+          "tags": [
+            "hk3gtl_quest_hcv_legacy_reject"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B555AB7503AC71A"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_classified_scrap",
+      "x": 16,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B52B7A57DA236D3",
+      "title": "HCV层压与表面封孔一体化",
+      "subtitle": "精密加工中心建成后的提速路线",
+      "description": [
+        "后续完成魂钢精密加工研究并建成魂钢精密加工中心后，可以合并层压与封孔。原两道工序的全部投入保留，基础时间由310秒缩为75秒。"
+      ],
+      "tasks": [
+        {
+          "id": "4B579E1281D8D544",
+          "type": "custom",
+          "title": "实际完成梯度层压与表面封孔一体化",
+          "tags": [
+            "hk3gtl_quest_hcv_continuous"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5C16BE079A2488"
+      ],
+      "icon": "hk3gtl:constraint_gradient_composite_billet",
+      "x": 20,
+      "y": 48,
+      "optional": true
+    },
+    {
+      "id": "4B5C16BE079A2488",
+      "title": "后续精密加工条件",
+      "subtitle": "RN-SPM与魂钢精密加工中心属于后续工艺",
+      "description": [
+        "取得HCV机壳后，后续魂钢精密加工研究与魂钢精密加工中心设备就绪，才使用连续加工路线。相关研究和控制器的完整制造链放在后续区段。"
+      ],
+      "tasks": [
+        {
+          "id": "4B51579F5CB7198B",
+          "type": "custom",
+          "title": "完成魂钢精密加工研究",
+          "tags": [
+            "hk3gtl_quest_hcv_precision_prerequisite"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B517B796028B0E3"
+      ],
+      "icon": "hk3gtl:soulium_data_substrate",
+      "x": 20,
+      "y": 44,
+      "optional": true
+    },
+    {
+      "id": "4B579412BD231A64",
+      "title": "第一批约束压机壳",
+      "subtitle": "下一间车间可以开工了",
+      "description": [
+        "第一块约束压机壳已经装好。前面的电子、纳米和陶瓷工艺，也都有了各自可以继续生产的供给。",
+        "把厂房的出口和库存安排好，下一段再从这些实物往前走。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E9FDF147CFCF0",
+          "type": "checkmark",
+          "title": "阅读本段结语",
+          "tags": [
+            "hk3gtl_quest_hcv_foundation"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B517B796028B0E3"
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_hcv",
+      "x": 20,
+      "y": 40,
+      "optional": false
     }
   ]
 }

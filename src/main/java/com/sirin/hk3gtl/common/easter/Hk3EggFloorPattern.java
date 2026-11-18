@@ -1,5 +1,5 @@
 package com.sirin.hk3gtl.common.easter;
-/** 【变更记录 #1】2026-10-01 05:41:36（修订128）：删除无；新增普通地板前缀和校验，检查完整矩形而非仅数方块；修改无；用途：只读当前已加载建筑，不生成结构或授予工程验收。 */
+ 
 public final class Hk3EggFloorPattern {
     private Hk3EggFloorPattern(){}
     public static boolean contains(boolean[][] cells,int width,int height){

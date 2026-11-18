@@ -3,10 +3,10 @@ package com.sirin.hk3gtl.common.multiblock.build;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiController;
-import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart;
 import com.gregtechceu.gtceu.api.pattern.MultiblockState;
 import com.gregtechceu.gtceu.api.pattern.MultiblockWorldSavedData;
 import com.mojang.logging.LogUtils;
+import com.sirin.hk3gtl.common.farview.Hk3FarViewData;
 import com.sirin.hk3gtl.common.machine.Hk3W01HallMachine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -36,25 +36,25 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * 【文件职责】所有HK3GTL控制器共用的终端分批建造入口；材料事务与最终GT成型判定分离。
- * 【变更记录 #1】2026-10-30 01:32:51（第1次备注 · 内测5修订184）
- * - 新增：W01、批准NBT/稀疏结构及小型Pattern共用的限时建造任务；普通背包与AE材料逐格预扣。
- * - 修改：搭建期间抑制重复结构扫描；只维持控制器和当前目标区块的有限票据，不逐格扫描或强加载整座结构。
- * - 用途：统一终极终端和GT Pattern自动建造入口；放置后仍由原Pattern实际验证，不伪造成型。
- * 【变更记录 #2】2026-10-30（修订184）
- * - 修改：准备完成后建立稳定支撑顺序；检查朝向变化；暂停只保留控制器票，结束立即释放蓝图与票据。
- * - 用途：不把有限区块建造误称为整座已成型，不让等待原Pattern检查的任务永久占用建造入口。
- * 【变更记录 #3】2026-10-30 02:29:19（修订184）
- * - 删除：无效WAIT分支及重复失效回调；新增：开工锁、任务身份校验与异常清理。
- * - 修改：结束立即释放有限票据并恢复原GT检查；保护取消或回调中断时恢复快照、退还预扣材料。
- * - 用途：不覆盖玩家改向或取消后的世界，不把实体搭建完成视为整座区块已加载或已成型。
- * 【变更记录 #4】2026-10-30 02:34:31（修订184）
- * - 修改：同一快照只尝试回退一次；回退失败结算该格材料并停工，保留原异常及回退异常。
- * - 用途：避免保护取消或异常时方块仍在世界而材料已退回，需要人工核对的情况明确报告。
- * 【变更记录 #5】2026-10-30（修订184）：主控锚点按真实控制器身份与朝向验证，避免原建筑方块或运行态属性阻断建造。
- * 【变更记录 #6】2026-10-30：拆除复用分批预算、有限票据及取消清理；正式实体与合法仓位逐格校验，开工及结束清理GT匹配缓存。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid = "hk3gtl", bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3UniversalTerminalBuilder {
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -73,6 +73,9 @@ public final class Hk3UniversalTerminalBuilder {
         if (owner.isSpectator() || !owner.getAbilities().mayBuild || !level.mayInteract(owner,controller.getPos())
                 || !owner.mayUseItemAt(controller.getPos(),Direction.UP,owner.getMainHandItem())) {
             tell(owner,"无权操作该HK3GTL控制器。"); return;
+        }
+        if (com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionJumpData.locked(level,controller.getPos())) {
+            tell(owner,"整舰跃迁期间暂停终端建造与拆除。");return;
         }
 
         if (setting == null) setting = new AutoBuildSetting();
@@ -119,7 +122,7 @@ public final class Hk3UniversalTerminalBuilder {
             plan = Hk3BuildPlans.create(controller);
             if (plan.creativeOnly() && (!owner.isCreative() || setting.isDismantleMode())) {
                 plan.close();
-                tell(owner, "该批准蓝图当前仅开放创造模式搭建测试；生产与生存材料流程尚未开放。");
+                tell(owner, "此蓝图仅支持创造模式搭建，暂不支持生存取料。");
                 return;
             }
             job = new Job(owner, controller, level, plan, setting);
@@ -263,7 +266,12 @@ public final class Hk3UniversalTerminalBuilder {
                 && job.controller instanceof com.sirin.hk3gtl.common.machine.Hk3CommissionMachine wonder)
             wonder.requestIntegrityCheck();
         if (owner != null && message != null) tell(owner, message);
-        LOGGER.info("HK3GTL分批建造任务结束：{}，处理{}格，放置{}格", job.controller.self().getDefinition().getId(), job.checked, job.placed);
+        long finished = System.nanoTime();
+        LOGGER.info("HK3GTL分批建造任务结束：{}，处理{}格，放置{}格，总耗时{}ms（含暂停），准备{}ms，等待区块{}tick，等待后台{}tick",
+                job.controller.self().getDefinition().getId(), job.checked, job.placed,
+                (finished-job.started)/1_000_000L,
+                ((job.buildStarted==0?finished:job.buildStarted)-job.started)/1_000_000L,
+                job.chunkWaitTicks, job.pipelineWaitTicks);
     }
 
     private static void tell(Player player, String message) { player.sendSystemMessage(Component.literal(message)); }
@@ -300,6 +308,9 @@ public final class Hk3UniversalTerminalBuilder {
         private long frameReportTick;
         private int chunkMinX,chunkMinZ,chunkWidth,chunkCount;
         private Hk3BuildChunkWindow chunkWindow;
+        private final long started = System.nanoTime();
+        private long buildStarted;
+        private int chunkWaitTicks, pipelineWaitTicks;
 
         private Job(ServerPlayer owner, MultiblockControllerMachine controller, ServerLevel level,
                     Hk3BuildPlan plan, AutoBuildSetting setting) {
@@ -377,9 +388,11 @@ public final class Hk3UniversalTerminalBuilder {
                             rotated.computeIfAbsent(plan.state(index),state->state.rotate(rotation)));
                 });
                 stage=Stage.BUILD;
+                buildStarted=System.nanoTime();
                 if(!dismantle) chunkWindow=new Hk3BuildChunkWindow(level,center.asLong());
             }
             int tickPlaced=placed;
+            long farSection=Long.MIN_VALUE;
             int steps = Hk3W01BuildBudget.BUILD_STEPS;
             for (int n = 0; n < steps && System.nanoTime() < deadline; n++) {
                 if (JOBS.get(level.getServer()) != this) return;
@@ -389,25 +402,25 @@ public final class Hk3UniversalTerminalBuilder {
                     return;
                 }
                 var prepared=pipeline.peek();
-                if(prepared==null) { report();return; }
+                if(prepared==null) { pipelineWaitTicks++;report();return; }
                 int index=prepared.index();
                 pos.set(prepared.x(),prepared.y(),prepared.z());
                 if (chunkWindow!=null) {
                     if(!chunkWindow.ready(cursor,plan.size(),at -> {
                         worldPos(order.index(at),lookAheadPos);
                         return ChunkPos.asLong(lookAheadPos.getX()>>4,lookAheadPos.getZ()>>4);
-                    },order::nextChunkIndex)) return;
-                } else if (!ensureChunk(pos)) return;
+                    },order::nextChunkIndex)) {chunkWaitTicks++;return;}
+                } else if (!ensureChunk(pos)) {chunkWaitTicks++;return;}
                 BlockState expected = prepared.state();
                 BlockState present = level.getBlockState(pos);
                 if(!dismantle && (Hk3BuildState.matches(present,expected)||pos.equals(center)))
                     if(plan.captureFarView())com.sirin.hk3gtl.common.farview.Hk3FarViewData.observe(level,pos,present);
                 if (dismantle) {
-                    if (removal.matches(plan,index,pos,present,expected,rotation)) {
+                    if (removal.matches(plan,index,pos,present,expected)) {
                         ServerPlayer ownerPlayer = player();
                         if (!removal.permitted(ownerPlayer,pos)) { pause("无权拆除：" + pos.toShortString()); return; }
                         if (JOBS.get(level.getServer()) != this || !valid()) return;
-                        if (level.getBlockState(pos) != present || !removal.matches(plan,index,pos,present,expected,rotation)) continue;
+                        if (level.getBlockState(pos) != present || !removal.matches(plan,index,pos,present,expected)) continue;
                         if (!removal.remove(ownerPlayer,pos.immutable(),present,materials,
                                 () -> JOBS.get(level.getServer()) == this && valid())) {
                             pause("拆除失败或目标已变化：" + pos.toShortString()); return;
@@ -418,8 +431,8 @@ public final class Hk3UniversalTerminalBuilder {
                 }
                 // 主控已由valid()验证身份与朝向，模板锚点可能仍是原建筑方块。
                 if (!pos.equals(center) && !Hk3BuildState.matches(present,expected)) {
-                    if (plan.isMachinePartSlot(plan.x(index), plan.y(index), plan.z(index))
-                            && MetaMachine.getMachine(level, pos) instanceof IMultiPart) {
+                    if (com.sirin.hk3gtl.common.multiblock.pattern.Hk3InterfacePredicates.isInterface(present)
+                            && plan.isMachinePartSlot(plan.x(index), plan.y(index), plan.z(index))) {
                         if(plan.captureFarView())com.sirin.hk3gtl.common.farview.Hk3FarViewData.observe(level,pos,present);
                         advance(); continue;
                     }
@@ -429,7 +442,6 @@ public final class Hk3UniversalTerminalBuilder {
                         return;
                     }
                     ServerPlayer ownerPlayer = player();
-                    if (!valid()) { release(this,"控制器或建造者状态已改变，建造已停止。",true); return; }
                     if (!level.mayInteract(ownerPlayer, pos) || !ownerPlayer.mayUseItemAt(pos, Direction.UP, ownerPlayer.getMainHandItem())) {
                         pause("没有权限在 " + pos.toShortString() + " 建造。"); return;
                     }
@@ -438,12 +450,16 @@ public final class Hk3UniversalTerminalBuilder {
                     if (reservation == null) { pause("缺少精确蓝图材料或当前终端材料选项不兼容；停在 " + pos.toShortString() + "。"); return; }
                     try (reservation) {
                         if (JOBS.get(level.getServer()) != this) return;
-                        if (level.getBlockState(pos) != present) { pause("扣料期间目标位置改变，已退还该格材料。"); return; }
                         BlockSnapshot before = BlockSnapshot.create(level.dimension(), level, pos.immutable());
+                        if (before.getReplacedBlock() != present) { pause("扣料期间目标位置改变，已退还该格材料。"); return; }
                         String rollbackMessage = null;
                         RuntimeException placementFailure = null;
                         boolean stop = false;
                         try {
+                            if(plan.captureFarView() && Hk3FarViewData.key(pos)!=farSection) {
+                                Hk3FarViewData.ensureSection(level,pos);
+                                farSection=Hk3FarViewData.key(pos);
+                            }
                             if (!level.setBlock(pos, expected, Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE)) {
                                 rollbackMessage = "方块放置失败，已退还该格材料。";
                             } else if (ForgeEventFactory.onBlockPlace(ownerPlayer, before, Direction.UP)) {
@@ -467,7 +483,7 @@ public final class Hk3UniversalTerminalBuilder {
                                                 .getDataVersion().getVersion()).getValue();
                                 entity.load(tag);
                                 entity.setChanged();
-                                level.sendBlockUpdated(pos, expected, expected, Block.UPDATE_CLIENTS);
+                                level.getChunkSource().blockChanged(pos);
                             }
                         } catch (RuntimeException failure) {
                             placementFailure = failure;
@@ -480,7 +496,6 @@ public final class Hk3UniversalTerminalBuilder {
                             return;
                         }
                         reservation.commit(); placed++;
-                        if(plan.captureFarView())com.sirin.hk3gtl.common.farview.Hk3FarViewData.observe(level,pos,expected);
                         if(placed-tickPlaced >= Hk3W01BuildBudget.placementLimit(frameMillis)) {
                             advance();report();return;
                         }

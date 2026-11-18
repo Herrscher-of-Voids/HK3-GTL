@@ -5,14 +5,14 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-10-01 00:41:04（修订123）
- * 删除：无；新增：本人、团队、主题三重隔离的补谈快照、逐篇检查点和完成回执。
- * 修改：普通阅读不写入本账本；服务端确认当前路线及成员资格后才能推进。
- * 用途：保存五方正式交流经历；换队不混接步骤，重谈保留本人历史，不发团队奖励。
- */
-/** 【变更记录 #2】2026-10-01 00:46:24（修订123）：删除无；新增末步与完成时间一致性核验；修改损坏快照拒绝进入阅读；用途：避免末步缺回执时越界或误授经历。 */
-/** 【变更记录 #3】2026-10-01 01:01:52（修订124）：删除无；新增个人完成历史容器格式检查；修改损坏历史不可由新补谈静默覆盖；用途：保留异常原始数据。 */
+ 
+
+
+
+
+
+ 
+ 
 public final class Hk3PersonalCommunicationData extends SavedData {
     private CompoundTag players = new CompoundTag();
     public static Hk3PersonalCommunicationData get(MinecraftServer server) {

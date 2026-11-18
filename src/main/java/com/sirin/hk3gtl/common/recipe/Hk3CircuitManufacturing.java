@@ -4,6 +4,7 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.machine.multiblock.CleanroomType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
+import com.sirin.hk3gtl.common.constants.Hk3Tiers;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 import com.sirin.hk3gtl.common.item.Hk3CircuitCatalog;
 import com.sirin.hk3gtl.common.item.Hk3CircuitItems;
@@ -17,27 +18,27 @@ import static com.sirin.hk3gtl.common.recipe.Hk3ElectronicRecipes.part;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.item;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.fluid;
 
-/**
- * 【变更记录 #1】2026-09-26 01:58:37（第 1 次备注 · 内测5修订74）
- * 删除：无。新增：四形态封装工艺与四平台前级种子配方。
- * 修改：以真实PCB、CPU、RAM、贴片阵列、互连网及封装件组成工艺，不使用铝框/退火铜线冒充终局封装。
- * 用途：复用34条已存在的专用路线及研究绑定，系列升级精确引用前形态；MAX起步不依赖HBV电路或机壳。
- */
-/**
- * 【变更记录 #2】2026-09-26 22:06:33（第 2 次备注 · 内测5修订75）
- * 删除：无。新增：六个已确认系列24条制造路线与平台映射。
- * 修改：输入仍为平台电子部件与具体前形态；首形态使用前一级电压。
- * 用途：新系列可制造，沿用现役专用机器和研究门槛，不依赖待产电路自身。
- */
-/**
- * 【变更记录 #3】2026-09-30 02:17:47（第3次备注 · 内测5修订107）
- * 删除：本文件可执行代码中的旧电压键及常量引用，不保留旧键注册别名。
- * 新增：16档正式缩写作为唯一电压标识；逐文件映射见logs/voltage-keys-r107。
- * 修改：注册、配方、查询或标签引用按原tier序号一一迁移；数值、层级与资源内容保持原义。
- * 用途：避免显示名与实际注册键不一致；历史备注保留，旧存档不自动改写。
- */
-/** 【变更记录 #4】2026-10-01 20:58:37（修订149）：删除本轮电路旧研究绑定；新增/修改：普通、补充系列、批量和前级种子电路全部按平台读取RN多前置；用途：新版团队研究一致核验，保留材料、耗时、能耗与历史备注，不代表结构已接通。 */
-/** 【变更记录 #5】2026-10-17 16:28:34（修订165）：删除仅HBV一项的生产注册；新增52项正式电路本阶主材封装与前形态消耗；修改封装件通过CPU上游消耗以维持六种物品输入，成品在前一级供电下首制；用途：闭合四平台消费者，不恢复退役配方类型或自动授予研究。 */
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+ 
 public final class Hk3CircuitManufacturing {
     private Hk3CircuitManufacturing() {}
 
@@ -84,9 +85,9 @@ public final class Hk3CircuitManufacturing {
             var builder = assemble(GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("hk3gtl_main_circuit_" + entry.id()),
                     entry.id(), Hk3Values.VA_LONG[powerTier]);
             if (powerTier > GTValues.MAX) Hk3RecipePower.require(builder, powerTier);
-            builder.duration(2400 + entry.form() * 600).save(provider);
+            builder.duration(2400 + (entry.tier() - Hk3Tiers.HBV) * 600).save(provider);
         }
     }
 }
 
-// 【变更记录 · 修订162】2026-10-17 14:40:05：删除退役设备上的补充系列及后三平台种子注册；保留MAX首制与封装成本构造器，其他种子设计目标待现行设备接线。
+ 

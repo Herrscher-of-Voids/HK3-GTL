@@ -21,7 +21,7 @@ public abstract class Hk3LongItemTickUndoMixin {
             "Lcom/lowdragmc/lowdraglib/misc/ItemStackTransfer;extractItem(IIZ)Lnet/minecraft/world/item/ItemStack;"), require = 1)
     private static ItemStack hk3gtl$extract(ItemStackTransfer storage, int slot, int amount, boolean simulate,
             IO io, GTRecipe recipe, List<Ingredient> left, boolean simulation, IO handlerIO, ItemStackTransfer original) {
-        return Hk3MaterialTick.item(recipe, storage, slot, simulate || simulation || !recipe.ingredientActions.isEmpty(),
+        return Hk3MaterialTick.item(recipe, storage, slot, simulate || simulation,
                 () -> storage.extractItem(slot, amount, simulate));
     }
 
@@ -30,7 +30,7 @@ public abstract class Hk3LongItemTickUndoMixin {
             "Lcom/lowdragmc/lowdraglib/misc/ItemStackTransfer;insertItem(ILnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;"), require = 1)
     private static ItemStack hk3gtl$insert(ItemStackTransfer storage, int slot, ItemStack stack, boolean simulate,
             IO io, GTRecipe recipe, List<Ingredient> left, boolean simulation, IO handlerIO, ItemStackTransfer original) {
-        return Hk3MaterialTick.item(recipe, storage, slot, simulate || simulation || !recipe.ingredientActions.isEmpty(),
+        return Hk3MaterialTick.item(recipe, storage, slot, simulate || simulation,
                 () -> storage.insertItem(slot, stack, simulate));
     }
 }

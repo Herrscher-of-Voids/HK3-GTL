@@ -9,12 +9,12 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/** 【变更记录 #1】2026-09-30 19:56:03（修订116）：删除无；新增微讯息服务端入口、身份/电量/阶段/频率校验及每日两条朋友圈；修改无；用途：离线对话不授予研究经历，管理员预览只读且不建档。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 04:27:55（修订128）：删除：旧固定上限或被替代的分支；新增/修改：已有可见联系人成功离线通信后的事实回调，不把自由输入当未接入固定话题选择；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 04:43:52（修订128）：删除：旧固定上限或被替代的分支；新增/修改：合法阶段首次打开匿名联系人会话旁注，管理员预览不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #4】2026-10-01 05:11:58（修订128）：删除：旧固定上限或被替代的分支；新增/修改：死亡恢复后的第一条合法离线通信若发给已开放V10则投递旁注；其他联系人会消耗首次条件；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #5】2026-11-05 22:19:02（修订211）：删除无；新增服务端固定话题与欢迎阅读入口，成功内置回复后才记录彩蛋；修改自由输入不触发固定话题，预览及频率校验保持；用途：补齐101至140及180真实入口。 */
+ 
+ 
+ 
+ 
 public final class Hk3SocialService {
     private Hk3SocialService(){}
     public static LiteralArgumentBuilder<CommandSourceStack> commands(){return Commands.literal("social").executes(c->open(c.getSource().getPlayerOrException(),false))

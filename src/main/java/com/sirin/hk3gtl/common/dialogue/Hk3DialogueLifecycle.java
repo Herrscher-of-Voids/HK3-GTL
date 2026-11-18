@@ -8,11 +8,11 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/**
- * 【变更记录 #1】2026-10-01 17:04:49（修订136）
- * 删除：无；新增：死亡/末地返回实体重建、维度变化及服务器停止的临时会话清理。
- * 修改：仅暂停审查与对话，不清研究、信件、本人经历或终审资格快照；用途：重生后可重新交互，不遗留跨存档会话。
- */
+ 
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3DialogueLifecycle {
     private Hk3DialogueLifecycle(){}

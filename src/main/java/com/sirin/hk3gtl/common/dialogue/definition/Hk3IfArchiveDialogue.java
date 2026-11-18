@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.common.dialogue.definition;
 
-/**
- * 【变更记录 #1】2026-09-29 17:51:46（内测5修订93）
- * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
- * - 新增／修改：免费IF指令共用26条审核原文，每条十句，不扣正式终审五选名额。
- * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
- */
+ 
+
+
+
+
+
 import com.sirin.hk3gtl.common.dialogue.DialogueChoice;
 import com.sirin.hk3gtl.common.dialogue.DialogueDefinition;
 import com.sirin.hk3gtl.common.dialogue.DialogueLine;

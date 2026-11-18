@@ -1,0 +1,1858 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w10_x46_ultradense_multiaxial_densification",
+      "role": "W10",
+      "zh_name": "超致密魂钢多轴分级致密化",
+      "purpose": "十六份前阶晶格坯与十六锭魂钢进入多轴压制；输出仍是第一态预制坯，不能越过退火与应力释放。",
+      "requirements": [
+        "RN-GSF",
+        "RN-SPM",
+        "RN-HLC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:resonance_oriented_lattice_billet",
+          "count": 16
+        },
+        {
+          "id": "material:soulium/ingot",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_stage_1",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/ultradense_loadbearing_soulium/homogenizing_anneal",
+        "wonder_w10_ultradense_pressure_anneal_finish"
+      ],
+      "baseline_recipe": "main_material/ultradense_loadbearing_soulium/multistage_densification",
+      "process_family": "多轴致密化"
+    },
+    {
+      "id": "wonder_w10_x46_ultradense_pressure_release",
+      "role": "W10",
+      "zh_name": "承压魂钢分级卸压释应力",
+      "purpose": "只处理已均匀退火的第二态坯，冷却液等量变热；卸压不直接跳成合格坯。",
+      "requirements": [
+        "RN-GSF",
+        "RN-SPM",
+        "RN-HLC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_stage_3",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 4000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 4000
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/ultradense_loadbearing_soulium/surface_finish_and_batch_separation"
+      ],
+      "baseline_recipe": "main_material/ultradense_loadbearing_soulium/controlled_stress_release",
+      "process_family": "分级卸压"
+    },
+    {
+      "id": "wonder_w10_x46_superposed_ordered_pressure_layup",
+      "role": "W10",
+      "zh_name": "叠态导体与介电层序压合",
+      "purpose": "独立导体层与介电层各八份，合并为十六份层序坯，不用同一层复制另一支线。",
+      "requirements": [
+        "RN-GSF",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_stage_1",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_stage_2",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_stage_3",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/superposed_laminate_matrix/surface_finish_and_batch_separation"
+      ],
+      "baseline_recipe": "main_material/superposed_laminate_matrix/ordered_laminate_consolidation",
+      "process_family": "层序压力复合"
+    },
+    {
+      "id": "wonder_w10_x46_superlattice_triaxial_anchor",
+      "role": "W10",
+      "zh_name": "超晶格三轴锚定压合",
+      "purpose": "十六份已涂层坯和八枚环磁体完成三轴承力装配；锚场固化与终检仍在下游。",
+      "requirements": [
+        "RN-GSF",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_stage_1",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:einstein_ringmagnet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_stage_2",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/anchored_superlattice_structure/anchored_superlattice_curing"
+      ],
+      "baseline_recipe": "main_material/anchored_superlattice_structure/triaxial_anchor_composite",
+      "process_family": "三轴锚定"
+    },
+    {
+      "id": "wonder_w10_x46_superlattice_pressure_field_cure",
+      "role": "W10",
+      "zh_name": "超晶格压力锚场固化",
+      "purpose": "三轴锚定坯继续消耗四千空间介质，压力井完成固定工况固化；产物仍为待验第三态。",
+      "requirements": [
+        "RN-GSF",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_stage_3",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 4000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/anchored_superlattice_structure/surface_finish_and_batch_separation"
+      ],
+      "baseline_recipe": "main_material/anchored_superlattice_structure/anchored_superlattice_curing",
+      "process_family": "压力锚场固化"
+    },
+    {
+      "id": "wonder_w10_x46_perennial_service_laminate",
+      "role": "W10",
+      "zh_name": "恒续可维修服役层压合",
+      "purpose": "八份CIV新坯与八份已制功能层共同形成十六份维修层复合坯；不输出已老化件或修复态，保留单向服役链。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CLE",
+        "RN-WMS",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_1",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:perennial_service_composite_stage_2",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 4200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/perennial_service_composite/accelerated_service_ageing"
+      ],
+      "baseline_recipe": "main_material/perennial_service_composite/service_laminate_assembly",
+      "process_family": "服役层压力复合"
+    },
+    {
+      "id": "wonder_w10_x46_worldweave_pressure_plate",
+      "role": "W10",
+      "zh_name": "织界多轴复合板压力成形",
+      "purpose": "八份合格织界坯只成八板，压力作用于已经完成四层共固化的材料，不复制任何增强层。",
+      "requirements": [
+        "RN-GSF",
+        "RN-SWC",
+        "RN-SPM"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_plate",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_iwv_electric_piston",
+        "hk3gtl_main_component_iwv_sensor"
+      ],
+      "baseline_recipe": "main_material/worldweave_multiaxial_composite/composite_laminate_plate",
+      "process_family": "多轴板压力成形"
+    },
+    {
+      "id": "wonder_w10_x46_gradient_fiber_oriented_layup",
+      "role": "W10",
+      "zh_name": "梯度纤维构型铺设压合",
+      "purpose": "八份经过实测梯度处理的纤维与十六份织界箔形成八份构型坯，保留第三态及质量分选。",
+      "requirements": [
+        "RN-GSF",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_stage_2",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldweave_multiaxial_composite_foil",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_stage_3",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldforming_gradient_fiber/surface_finish_and_batch_separation"
+      ],
+      "baseline_recipe": "main_material/worldforming_gradient_fiber/oriented_fiber_layup",
+      "process_family": "纤维构型压合"
+    },
+    {
+      "id": "wonder_w10_x46_quadrisystem_pressure_acceptance",
+      "role": "W10",
+      "zh_name": "文明四系共固化坯承压验收",
+      "purpose": "只检验已完成四系共固化的第五态，十四份合格与两份拒收保持原固定分选，不免去四路模块。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_5",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/civilization_quadrisystem_matrix/composite_laminate_plate",
+        "wonder_w07_x46_quadrisystem_reject_interface_repair"
+      ],
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/surface_finish_and_batch_separation",
+      "process_family": "四系承压验收"
+    },
+    {
+      "id": "wonder_w10_x46_ultradense_pressure_plate",
+      "role": "W10",
+      "zh_name": "超致密承压板闭模成形",
+      "purpose": "八份合格坯形成八板，闭模压力控制尺寸；不把未退火预制坯当作成品。",
+      "requirements": [
+        "RN-GSF",
+        "RN-SPM",
+        "RN-HLC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_billet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_plate",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_hdv_electric_piston",
+        "hk3gtl_main_component_hdv_sensor"
+      ],
+      "baseline_recipe": "main_material/ultradense_loadbearing_soulium/oriented_metal_plate",
+      "process_family": "闭模板材成形"
+    },
+    {
+      "id": "wonder_w10_x46_worldshell_pressure_rods",
+      "role": "W10",
+      "zh_name": "稳界壳长程承力棒压制",
+      "purpose": "四份合格稳界坯成八棒，等量冷却液承接压力加工热量，结构相守恒。",
+      "requirements": [
+        "RN-GSF",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_piston",
+        "hk3gtl_main_component_wsv_robot_arm"
+      ],
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/formed_loadbearing_rods",
+      "process_family": "承力棒压力成形"
+    },
+    {
+      "id": "wonder_w10_x46_quadrisystem_pressure_rings",
+      "role": "W10",
+      "zh_name": "四系统合环多轴收口",
+      "purpose": "八根CIV棒形成十六个环，耐蚀界面层随工艺消耗；四系功能相不由压力增殖。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_pump",
+        "hk3gtl_main_component_civ_sensor"
+      ],
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/formed_interface_rings",
+      "process_family": "多轴环件成形"
+    },
+    {
+      "id": "wonder_w10_x46_quadrisystem_pressure_frame",
+      "role": "W10",
+      "zh_name": "四系框架整体压力接合",
+      "purpose": "三十二根CIV棒只构成四个框架，新焊料用于节点接合，不抵扣主材实体。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_frame",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 576
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_field_generator",
+        "wonder_w08_motor_rotor_hotfit"
+      ],
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/loadbearing_frame_assembly",
+      "process_family": "整体框架压力接合"
+    },
+    {
+      "id": "wonder_w10_x46_quadrisystem_pressure_thin_laminate",
+      "role": "W10",
+      "zh_name": "四系薄层等压展铺",
+      "purpose": "四板制十六复合箔，聚合物层作为可消耗支撑相；不把复合材解释成纯金属无限延展。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 576
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_emitter",
+        "hk3gtl_main_component_civ_electric_pump"
+      ],
+      "baseline_recipe": "main_material/civilization_quadrisystem_matrix/functional_thin_layers",
+      "process_family": "等压复合薄层"
+    },
+    {
+      "id": "wonder_w10_x46_gradient_fiber_frame_pressure_join",
+      "role": "W10",
+      "zh_name": "构界纤维框架多轴接合",
+      "purpose": "三十二根构界棒形成四框架；压力与界面涂层控制纤维端部接头，不重置或复制梯度处理。",
+      "requirements": [
+        "RN-GSF",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_rod",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_frame",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wfv_field_generator"
+      ],
+      "baseline_recipe": "main_material/worldforming_gradient_fiber/loadbearing_frame_assembly",
+      "process_family": "纤维框架接合"
+    },
+    {
+      "id": "wonder_w10_x46_superlattice_frame_pressure_alignment",
+      "role": "W10",
+      "zh_name": "锚定超晶格框架承力对准",
+      "purpose": "三十二根锚定棒构成四个框架，实体锚件作为新增对准消耗，不能由可复用场工装代替结构料。",
+      "requirements": [
+        "RN-GSF",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_rod",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_frame",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_qav_field_generator"
+      ],
+      "baseline_recipe": "main_material/anchored_superlattice_structure/loadbearing_frame_assembly",
+      "process_family": "锚定承力接合"
+    },
+    {
+      "id": "wonder_w10_x46_fuel_casing_pressure_flange",
+      "role": "W10",
+      "zh_name": "燃料棒壳整体压力翻边",
+      "purpose": "八份稳界板与十六个环构成棒壳承压翻边，仍投入约束复合材与陶瓷；不产生任何燃料或HW。",
+      "requirements": [
+        "RN-GSF",
+        "RN-FRP",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_fuel_rod_casing",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 2000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:soulium_casting_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_fuel_rod_encapsulation",
+        "wonder_w08_x46_silicon_carbide_fuel_hot_charge_seal"
+      ],
+      "baseline_recipe": "wonder_w08_fuel_casing_joint_forge",
+      "process_family": "承压燃料封装壳"
+    },
+    {
+      "id": "wonder_w10_x46_fuel_endcap_pressure_laminate",
+      "role": "W10",
+      "zh_name": "燃料封装端盖压力复合",
+      "purpose": "四个新棒壳、十六份稳界箔与八陶瓷构成八封装件，箔层提供独立压力密封界面。",
+      "requirements": [
+        "RN-GSF",
+        "RN-FRP",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_fuel_rod_casing",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_encapsulation_part",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 1152
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_fuel_rod_encapsulation",
+        "wonder_w08_x46_zirconia_fuel_hot_charge_seal"
+      ],
+      "baseline_recipe": "wonder_w08_fuel_endcap_hot_sealing",
+      "process_family": "压力封装端盖"
+    },
+    {
+      "id": "wonder_w10_x46_civ_pump_pressure_reinforcement",
+      "role": "W10",
+      "zh_name": "CIV电泵承压壳二次加固",
+      "purpose": "保留完整WSV电泵升级、CIV电路和本阶环板箔；两件承压壳坯只作附加加强层。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_pump_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:ultradense_pump_housing_blank",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_pump_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:ultradense_pump_housing_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_pump"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_pump",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w10_x46_civ_piston_pressure_seals",
+      "role": "W10",
+      "zh_name": "CIV活塞承压密封装配",
+      "purpose": "本阶电路、前阶活塞、电机与全部杆板环保留，约束填料负责新增的压力密封。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_piston_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_piston_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 500
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2600,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_electric_piston"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_civ_electric_piston",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w10_x46_civ_robot_arm_gravity_alignment",
+      "role": "W10",
+      "zh_name": "CIV机械臂多轴引力对准",
+      "purpose": "保留前阶机械臂、双电机、活塞、本阶电路与PCB；锚定件作为实际耗材，重力只合并多轴装调。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:robot_arm_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_piston_civ",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:robot_arm_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_robot_arm"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_civ_robot_arm",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w10_x46_civ_conveyor_pressure_laminate",
+      "role": "W10",
+      "zh_name": "CIV传送组件压力层合",
+      "purpose": "WSV传送件、双CIV电机、本阶电路及完整膜网成本均保留，凝态填料只补压力层合界面。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:conveyor_module_wsv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civ_computer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:electric_motor_civ",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:cryogenic_condensed_material",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:conveyor_module_civ",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 288
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_cev_conveyor_module"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_civ_conveyor_module",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w10_x46_wsv_field_pressure_anchor",
+      "role": "W10",
+      "zh_name": "WSV场发生器承力锚定装配",
+      "purpose": "完整保留WFV场发生器、本阶电路、双CPU及主材框线箔，另消耗锚件固定承力节点。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:field_generator_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_cpu",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:field_generator_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_field_generator"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_field_generator",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w10_x46_wsv_motor_pressure_bearing",
+      "role": "W10",
+      "zh_name": "WSV电机承压轴承装配",
+      "purpose": "前阶电机、本阶电路和完整绕组料继续投入，陶瓷补充轴承隔离界面，不能只压缩前阶件就升阶。",
+      "requirements": [
+        "RN-GSF",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:electric_motor_wfv",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:wsv_assembly",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_fine_wire",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rod",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:electric_motor_wsv",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 250
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_resistant_coating",
+          "amount": 250
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_civ_electric_motor"
+      ],
+      "baseline_recipe": "hk3gtl_main_component_wsv_electric_motor",
+      "process_family": "组件精密装配"
+    },
+    {
+      "id": "wonder_w10_x46_pump_blank_recycled_phase_pressure_cast",
+      "role": "W10",
+      "zh_name": "承压泵壳回收相补坯压铸",
+      "purpose": "十六份回收组分等于两坯相，另加一份新HDV坯；两件泵壳与八份尾料合计三坯相，新增Shirabon和陶瓷消耗换取一半新坯节约。",
+      "requirements": [
+        "RN-GSF",
+        "RN-SPM",
+        "RN-HLC",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_recovered_fraction",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_billet",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 2
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ultradense_pump_housing_blank",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_unrecoverable_tailings",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 8000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:ultradense_pump_housing_mold",
+          "count": 1
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w10_hdv_pump_housing_finish_assembly",
+        "main_material/ultradense_loadbearing_soulium/irreversible_tailings_inerting"
+      ],
+      "baseline_recipe": "main_material/ultradense_loadbearing_soulium/fresh_feed_reconstitution|wonder_w08_pump_housing_precision_casting",
+      "process_family": "补料回收相压力成形"
+    },
+    {
+      "id": "wonder_w10_x46_vessel_remnant_recovery_and_new_assembly",
+      "role": "W10",
+      "zh_name": "容器残件拆解与新空容器压装",
+      "purpose": "通用容器残件只回收两份魂钢屑和一份分离渣，不假定其含有IRV或纳米器件；新容器若有生产仍全额投入全部材料。",
+      "requirements": [
+        "RN-GSF",
+        "RN-BCC",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_frame",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_swarf",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 2000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 2000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 4200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_recovery_soulium_swarf",
+        "industrial_separation_residue_purge",
+        "世界泡实际捕获工艺"
+      ],
+      "baseline_recipe": "wonder_w07_containment_remnant_material_salvage|wonder_w10_empty_vessel_pressure_assembly",
+      "process_family": "容器回收与新制贯通"
+    },
+    {
+      "id": "wonder_w10_x46_anchor_multiaxial_backing",
+      "role": "W10",
+      "zh_name": "魂钢锚件多轴承力背衬",
+      "purpose": "四件锚件保留半批普通热压材料，即八根IRV棒、四个稳界环和四份约束复合材；另加稳界板承接多轴载荷。",
+      "requirements": [
+        "RN-GSF",
+        "RN-IAA",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_rod",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_anchor_component",
+          "count": 4
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w10_empty_vessel_pressure_assembly",
+        "wonder_w03_wsv_field_generator_anchor_batch"
+      ],
+      "baseline_recipe": "wonder_w08_anchor_hot_isostatic_joint",
+      "process_family": "多轴锚件装配"
+    },
+    {
+      "id": "wonder_w10_x46_pump_mold_pressure_bracing",
+      "role": "W10",
+      "zh_name": "承压泵壳模具压力背撑",
+      "purpose": "完整投入普通泵模的HDV框架、中子素板与陶瓷，附加IRV棒构成背撑，形成可复用实体工装。",
+      "requirements": [
+        "RN-GSF",
+        "RN-SPM",
+        "RN-HLC",
+        "RN-UPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:ultradense_loadbearing_soulium_frame",
+          "count": 1
+        },
+        {
+          "id": "gtceu:neutronium_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_rod",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ultradense_pump_housing_mold",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 6000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3200,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w08_pump_housing_precision_casting",
+        "wonder_w10_x46_pump_blank_recycled_phase_pressure_cast"
+      ],
+      "baseline_recipe": "wonder_w08_pump_die_thermal_tooling",
+      "process_family": "承压工装制造"
+    },
+    {
+      "id": "wonder_w10_x46_soulium_mold_pressure_tooling",
+      "role": "W10",
+      "zh_name": "魂钢压铸模压力衬层制造",
+      "purpose": "钨钢与铂箔保持普通模具新料，魂钢板和陶瓷形成额外承压衬层；工装不能拆解返还原料。",
+      "requirements": [
+        "RN-GSF",
+        "RN-LES",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 8
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 4
+        },
+        {
+          "id": "material:soulium/plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_casting_mold",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2800,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "wonder_w10_x46_fuel_casing_pressure_flange",
+        "wonder_w08_x46_empty_vessel_hot_structural_weld"
+      ],
+      "baseline_recipe": "wonder_w01_casting_mold_shared_design",
+      "process_family": "压力工装制造"
+    },
+    {
+      "id": "wonder_w10_x46_mixed_tailings_pressure_inerting",
+      "role": "W10",
+      "zh_name": "三类不可回收尾料压力固化",
+      "purpose": "陶瓷、重构合金与四系尾料各十六份，仅按普通每十六份两灰合计产六灰；碳作固化辅料，不回成材。",
+      "requirements": [
+        "RN-GSF",
+        "RN-SSQ",
+        "RN-UPR",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-OPR"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_unrecoverable_tailings",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:imaginary_reconstructed_alloy_unrecoverable_tailings",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_unrecoverable_tailings",
+          "count": 16
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:ash_dust",
+          "count": 6
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "unrecoverable_process_effluent",
+          "amount": 3000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 3000,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "GT灰粉后处理",
+        "不可回收废液终端处置"
+      ],
+      "baseline_recipe": "main_material/imaginary_phase_transfer_ceramic/irreversible_tailings_inerting|main_material/imaginary_reconstructed_alloy/irreversible_tailings_inerting|main_material/civilization_quadrisystem_matrix/irreversible_tailings_inerting",
+      "process_family": "不可逆尾料固化"
+    }
+  ]
+}

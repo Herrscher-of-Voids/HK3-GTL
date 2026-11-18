@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.regex.Pattern;
 
-/** 【变更记录 #1】2026-09-30 20:41:09（修订118）：删除无；新增20位角色档案加载、逐请求固定提示词及明显身份漂移检查；修改无；用途：Hk3SocialAiClient按联系人ID绑定公开身份，匿名幕后信息不进入请求，检测不代表任意模型语义保证。 */
+ 
 public final class Hk3SocialPersonas {
     public record Example(String question,String answer){}
     public record Persona(String id,String name,String selfReference,List<String> aliases,String identity,

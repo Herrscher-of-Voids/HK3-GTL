@@ -1,5 +1,4 @@
 {
-  "_comment": "【变更记录 #1】2026-10-01 14:16:54（修订129）：服务端账本补授，无物品触发或奖励。",
   "display": {
     "icon": {
       "item": "hk3gtl:spatial_calibration_module"
@@ -25,5 +24,5 @@
       "verified"
     ]
   ],
-  "parent": "hk3gtl:guide/research/rn-qle"
+  "parent": "hk3gtl:guide/research/rn-qom"
 }

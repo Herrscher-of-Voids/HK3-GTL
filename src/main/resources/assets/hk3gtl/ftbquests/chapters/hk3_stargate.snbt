@@ -1,0 +1,549 @@
+{
+  "filename": "hk3_stargate",
+  "id": "4B5149C83AB30E4A",
+  "title": "星门线",
+  "subtitle": [
+    "MAX → 星门线 → HBV"
+  ],
+  "group": "68CBF1606D696C68",
+  "order_index": 15,
+  "icon": "sgjourney:classic_stargate_base_block",
+  "default_quest_shape": "rsquare",
+  "quests": [
+    {
+      "id": "4B557312C16A1494",
+      "title": "星图上的空白",
+      "subtitle": "这次，我们自己去看看",
+      "description": [
+        "鱼大把几份观测记录摊在桌上，指向星图上的同一片区域。",
+        "“这几次读数，都指向这里。”",
+        "已有的航线到不了那里。你把星图挪到空间研究资料旁边，打算亲自找一条过去的路。"
+      ],
+      "tasks": [
+        {
+          "id": "4B502D5DF3D9133E",
+          "type": "checkmark",
+          "title": "阅读远行计划",
+          "tags": [
+            "hk3gtl_quest_stargate_start"
+          ]
+        }
+      ],
+      "dependencies": [
+        "516498830339A0A9"
+      ],
+      "x": 0,
+      "y": 8,
+      "icon": "minecraft:compass"
+    },
+    {
+      "id": "4B5F9880439C3AC6",
+      "title": "远海鲸吞之桶",
+      "subtitle": "茶的生产线会消耗它",
+      "description": [
+        "茶的配方每批会消耗1024个远海鲸吞之桶，先把桶的来源安排好。",
+        "这条装配线配方也需要用远海鲸吞之桶作为研究样品。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5E3351E10F6BFB",
+          "type": "item",
+          "item": "avaritia:infinity_bucket",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B557312C16A1494"
+      ],
+      "x": 4,
+      "y": 0,
+      "icon": "avaritia:infinity_bucket"
+    },
+    {
+      "id": "4B51F1163A2CEC66",
+      "title": "棉花糖之心",
+      "subtitle": "内鬼饼干夹烤棉花糖之心",
+      "description": [
+        "反应室和茶都要用到内鬼饼干夹烤棉花糖之心。先完成一批超临界合成，再给两条生产线分别留出用量。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5C6268BFA73A45",
+          "type": "item",
+          "item": "kubejs:heartofthesmogus",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B557312C16A1494"
+      ],
+      "x": 4,
+      "y": 4,
+      "icon": "kubejs:heartofthesmogus"
+    },
+    {
+      "id": "4B5780A4766B61FA",
+      "title": "星门辐射防护板",
+      "subtitle": "接上超时空装配线",
+      "description": [
+        "防护板要用在反应室、门环、基座和飞马DHD里，后面的装配会一直用到它。",
+        "宇宙星门导标的研究也需要一块防护板作样品，先给研究站留一块。"
+      ],
+      "tasks": [
+        {
+          "id": "4B55220FF0DFB2E4",
+          "type": "item",
+          "item": "gtladditions:stargate_shielding_foil",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B557312C16A1494"
+      ],
+      "x": 4,
+      "y": 8,
+      "icon": "gtladditions:stargate_shielding_foil"
+    },
+    {
+      "id": "4B5E655140C7461C",
+      "title": "星门框架部件",
+      "subtitle": "先让第一件框架出线",
+      "description": [
+        "门环、导标升级和飞马DHD都要用到框架部件。先完成装配线研究，再开始加工。"
+      ],
+      "tasks": [
+        {
+          "id": "4B54E41F4CBD19A8",
+          "type": "item",
+          "item": "gtladditions:stargate_frame_part",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B557312C16A1494"
+      ],
+      "x": 8,
+      "y": 12,
+      "icon": "gtladditions:stargate_frame_part"
+    },
+    {
+      "id": "4B59344AF2A873F5",
+      "title": "星门水晶浆液",
+      "subtitle": "先取一桶样本",
+      "description": [
+        "在超维度搅拌工艺中制备星门水晶浆液。生产需要绝对超净间，还要满足配方的重力条件。",
+        "先向绑定本任务的任务屏幕注入1000 mB样本，再为水晶基座安排后续供给。样本提交后会被消耗。"
+      ],
+      "tasks": [
+        {
+          "id": "4B590FB811D47C7C",
+          "type": "fluid",
+          "fluid": "gtladditions:star_gate_crystal_slurry",
+          "amount": 1000
+        }
+      ],
+      "dependencies": [
+        "4B557312C16A1494"
+      ],
+      "x": 4,
+      "y": 20,
+      "icon": "gtladditions:star_gate_crystal_slurry_bucket"
+    },
+    {
+      "id": "4B50ED48B36D1D80",
+      "title": "茶",
+      "subtitle": "导标块与基座都要用到它",
+      "description": [
+        "导标块和基座块都需要茶。给这条超时空装配线分出足够的桶和棉花糖之心，等第一批完成。",
+        "研究站使用鱼大作样品。研究参数和生产用料可以在JEI中查看。"
+      ],
+      "tasks": [
+        {
+          "id": "4B573C0427B914B5",
+          "type": "item",
+          "item": "gtlcore:ultimate_tea",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5F9880439C3AC6",
+        "4B51F1163A2CEC66"
+      ],
+      "x": 8,
+      "y": 0,
+      "icon": "gtlcore:ultimate_tea"
+    },
+    {
+      "id": "4B5F161707432FE4",
+      "title": "反应室",
+      "subtitle": "聚合装置每批产出两个",
+      "description": [
+        "把防护板和棉花糖之心送进聚合装置。每批产出两个反应室，门环、基座和飞马DHD都会用到它们。",
+        "龙之稳态核心放在不消耗输入里，完成这一批后还会保留。"
+      ],
+      "tasks": [
+        {
+          "id": "4B50457DD32A9F63",
+          "type": "item",
+          "item": "sgjourney:reaction_chamber",
+          "count": 2,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5780A4766B61FA",
+        "4B51F1163A2CEC66"
+      ],
+      "x": 8,
+      "y": 4,
+      "icon": "sgjourney:reaction_chamber"
+    },
+    {
+      "id": "4B57DAEB291B2CFC",
+      "title": "宇宙星门导标",
+      "subtitle": "先用防护板完成研究",
+      "description": [
+        "先用星门辐射防护板完成研究，再到装配线加工宇宙星门导标。",
+        "门环和导标升级都会消耗它，后面两条装配线要分别留量。"
+      ],
+      "tasks": [
+        {
+          "id": "4B56C0140089D6AD",
+          "type": "item",
+          "item": "sgjourney:universe_stargate_chevron",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5780A4766B61FA"
+      ],
+      "x": 8,
+      "y": 8,
+      "icon": "sgjourney:universe_stargate_chevron"
+    },
+    {
+      "id": "4B552B1DE52CCB4F",
+      "title": "水晶基座",
+      "subtitle": "浆液送进太空组装工序",
+      "description": [
+        "把星门水晶浆液送进太空组装工序，制成水晶基座。记得提供MK5动力模块。",
+        "门的基座需要一个，飞马DHD还需要三个。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5AD571CDD5AC52",
+          "type": "item",
+          "item": "sgjourney:crystal_base",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B59344AF2A873F5"
+      ],
+      "x": 16,
+      "y": 16,
+      "icon": "sgjourney:crystal_base"
+    },
+    {
+      "id": "4B5A1E80CA96AB40",
+      "title": "星门导标升级",
+      "subtitle": "框架和宇宙导标在这里汇合",
+      "description": [
+        "框架部件、宇宙星门导标和MAX部件已经备好，就能制作星门导标升级。",
+        "9×9无尽合成与梦魇合成使用同样的投入，按现有设备选择一种做法即可。"
+      ],
+      "tasks": [
+        {
+          "id": "4B569461D2559F1B",
+          "type": "item",
+          "item": "gtladditions:stargate_chevron_upgrade",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5E655140C7461C",
+        "4B57DAEB291B2CFC"
+      ],
+      "x": 12,
+      "y": 8,
+      "icon": "gtladditions:stargate_chevron_upgrade"
+    },
+    {
+      "id": "4B5BA2384DBA1C28",
+      "title": "星门环块",
+      "subtitle": "先把门环做出来",
+      "description": [
+        "把框架部件、宇宙导标、防护板和反应室装配成门环。完整用料请查看JEI。",
+        "门环还会被继续加工成导标块，给最后摆门用的十四块另留一份。"
+      ],
+      "tasks": [
+        {
+          "id": "4B55A0614AC08A90",
+          "type": "item",
+          "item": "sgjourney:classic_stargate_ring_block",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5F161707432FE4",
+        "4B5E655140C7461C",
+        "4B57DAEB291B2CFC"
+      ],
+      "x": 12,
+      "y": 4,
+      "icon": "sgjourney:classic_stargate_ring_block"
+    },
+    {
+      "id": "4B5FDBC63754F7AB",
+      "title": "星门导标块",
+      "subtitle": "门环继续加工",
+      "description": [
+        "用一个门环配合茶、导标升级和其余材料，做出第一个导标块。",
+        "门的基座会先消耗八个导标块，摆放结构还要再留九个。"
+      ],
+      "tasks": [
+        {
+          "id": "4B53B9C16595C9C5",
+          "type": "item",
+          "item": "sgjourney:classic_stargate_chevron_block",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5BA2384DBA1C28",
+        "4B50ED48B36D1D80",
+        "4B5A1E80CA96AB40"
+      ],
+      "x": 16,
+      "y": 4,
+      "icon": "sgjourney:classic_stargate_chevron_block"
+    },
+    {
+      "id": "4B53CE02986691A3",
+      "title": "星门基座块",
+      "subtitle": "整座门从这里激活",
+      "description": [
+        "把导标块、水晶基座和各条支线送来的材料装成星门基座。",
+        "等它完成，拿出预留的门环和导标块，就可以到厂区外搭门了。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57BDF9DC26DFE7",
+          "type": "item",
+          "item": "sgjourney:classic_stargate_base_block",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5FDBC63754F7AB",
+        "4B552B1DE52CCB4F"
+      ],
+      "x": 20,
+      "y": 8,
+      "icon": "sgjourney:classic_stargate_base_block"
+    },
+    {
+      "id": "4B552042CD67B9A1",
+      "title": "飞马DHD",
+      "subtitle": "这条装配线与门体并行",
+      "description": [
+        "用框架、导标升级、防护板、反应室和水晶基座，连同混沌块及配方中的其余投入，制成飞马DHD。",
+        "把控制台留在星门附近。临行前，记下基地这座门的地址，回程还要用。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57E8FD05B8198F",
+          "type": "item",
+          "item": "sgjourney:pegasus_dhd",
+          "count": 1,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B5F161707432FE4",
+        "4B552B1DE52CCB4F",
+        "4B5A1E80CA96AB40"
+      ],
+      "x": 20,
+      "y": 12,
+      "icon": "sgjourney:pegasus_dhd"
+    },
+    {
+      "id": "4B50D2D3988313A8",
+      "title": "备齐门体",
+      "subtitle": "摆放用量：一底座、十四环、九导标",
+      "description": [
+        "把摆放用的一个基座块、十四个门环块和九个导标块备齐。",
+        "这些是留给结构的成品。制作过程中已经用掉的门环与导标，分别记在各自配方里。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5F8EC7F3EA040C",
+          "type": "item",
+          "item": "sgjourney:classic_stargate_base_block",
+          "count": 1,
+          "consume_items": false
+        },
+        {
+          "id": "4B5F5B565683A0F7",
+          "type": "item",
+          "item": "sgjourney:classic_stargate_ring_block",
+          "count": 14,
+          "consume_items": false
+        },
+        {
+          "id": "4B5C7DC783ED0A84",
+          "type": "item",
+          "item": "sgjourney:classic_stargate_chevron_block",
+          "count": 9,
+          "consume_items": false
+        }
+      ],
+      "dependencies": [
+        "4B53CE02986691A3"
+      ],
+      "x": 24,
+      "y": 8,
+      "icon": "sgjourney:classic_stargate_base_block"
+    },
+    {
+      "id": "4B5ED88C534BA149",
+      "title": "把门立起来",
+      "subtitle": "第一座能用的经典星门",
+      "description": [
+        "把部件搭成完整的经典星门，激活底部中央的底座。",
+        "原先堆在仓库里的零件，终于在厂区外连成了一圈。你退后几步看了看，又走过去检查了一遍底座。下一步，就轮到拨号了。"
+      ],
+      "tasks": [
+        {
+          "id": "4B57BFB65232912B",
+          "type": "custom",
+          "title": "实际激活一座完整经典星门",
+          "tags": [
+            "hk3gtl_candidate_stargate_activate",
+            "hk3gtl_quest_stargate_activate"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B50D2D3988313A8"
+      ],
+      "x": 28,
+      "y": 8,
+      "icon": "sgjourney:classic_stargate_base_block"
+    },
+    {
+      "id": "4B51AD5256FB6064",
+      "title": "那边接通了",
+      "subtitle": "让第一条虫洞稳定地打开",
+      "description": [
+        "补足拨号所需的能量，选好地址，等DHD把连接结果报出来。",
+        "虫洞展开时，你叫了鱼大一声。它先问你地址有没有记全，又提醒你把手机带上。"
+      ],
+      "tasks": [
+        {
+          "id": "4B59D23DB73ED97B",
+          "type": "custom",
+          "title": "通过DHD成功建立一次出站虫洞",
+          "tags": [
+            "hk3gtl_candidate_stargate_dial",
+            "hk3gtl_quest_stargate_dial"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5ED88C534BA149",
+        "4B552042CD67B9A1"
+      ],
+      "x": 28,
+      "y": 12,
+      "icon": "sgjourney:pegasus_dhd"
+    },
+    {
+      "id": "4B5ADA51B3F91F12",
+      "title": "门外的第一步",
+      "subtitle": "工具、补给，还有一部开着的手机",
+      "description": [
+        "鱼大的人偶留在基地。你绕到镜头前挥了挥手，带着工具和补给走向虫洞。",
+        "门外有很大的风。手机里问你看见了什么，你抬起头，才发现自己已经走出了那座熟悉的工厂。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5CE2898DE5FFDC",
+          "type": "advancement",
+          "advancement": "sgjourney:adventure/use_stargate",
+          "criterion": ""
+        }
+      ],
+      "dependencies": [
+        "4B51AD5256FB6064"
+      ],
+      "x": 28,
+      "y": 16,
+      "icon": "minecraft:compass"
+    },
+    {
+      "id": "4B5A7AC59C392D25",
+      "title": "欢迎回来",
+      "subtitle": "在门外重新拨号，回到出发的地方",
+      "description": [
+        "沿途的标记、几份样本，还有那张被设备挡住半边天空的照片，都带回来吧。",
+        "从那一头重新拨回出发地。再看见厂区的灯时，鱼大已经把两处高地的观测资料放好了，等你回来补上亲眼见到的那一部分。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5FEF64E351F76C",
+          "type": "custom",
+          "title": "本人经星门出发，并经星门返回出发地",
+          "tags": [
+            "hk3gtl_candidate_stargate_return",
+            "hk3gtl_quest_stargate_return"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5ADA51B3F91F12"
+      ],
+      "x": 28,
+      "y": 20,
+      "icon": "minecraft:recovery_compass"
+    },
+    {
+      "id": "4B5D2A33F0DB2367",
+      "title": "把路线记下来",
+      "subtitle": "星图上的那个点，现在有了你走过的路",
+      "description": [
+        "你画出两处高地的位置，给样本添上出处。鱼大把这些放到旧观测旁边，原先那个小点，终于有了可以仔细看的样子。",
+        "拍坏的照片也留了下来。以后再去时，你大概还会想起第一次站在那里，举着设备找角度的自己。",
+        "今晚先把记录收好。明天，工厂还要开工，门外也还有许多地方可以去。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5D3B313B6A4B66",
+          "type": "checkmark",
+          "title": "阅读首航记录",
+          "tags": [
+            "hk3gtl_quest_stargate_archive"
+          ]
+        }
+      ],
+      "dependencies": [
+        "4B5A7AC59C392D25"
+      ],
+      "x": 24,
+      "y": 20,
+      "icon": "minecraft:book"
+    }
+  ]
+}

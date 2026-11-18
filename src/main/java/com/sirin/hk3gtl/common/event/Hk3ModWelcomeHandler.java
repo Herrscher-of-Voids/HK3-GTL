@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.common.event;
 
-/**
- * 【变更记录 #1】2026-09-29 17:51:46（内测5修订93）
- * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
- * - 新增／修改：修订93独立已读标识，新增hk3updates重读；确认才持久化已读。
- * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
- */
+ 
+
+
+
+
+
 import com.sirin.hk3gtl.common.bootstrap.Hk3ModHealthReport;
 import com.sirin.hk3gtl.common.bootstrap.Hk3WelcomeState;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
@@ -19,15 +19,15 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 
-/**
- * 【文件职责】
- * - 玩家首次进入世界或模组版本变更时，下发欢迎/加载状态弹窗。
- *
- * 【变更记录】2026-05-19
- * - 新增：内测二进世界介绍与注册自检展示。
- */
+ 
+
+
+
+
+
+
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-/** 【变更记录 #2】2026-10-01 16:11:00（修订133）：删除固定93标识与无条件确认；新增登录/手动来源及已发送说明校验、断线清理；修改同版说明可独立更新；用途：版本已读与游戏资格隔离。 */
+ 
 public final class Hk3ModWelcomeHandler {
 
     private static final java.util.Map<java.util.UUID, String> OFFERED = new java.util.concurrent.ConcurrentHashMap<>();

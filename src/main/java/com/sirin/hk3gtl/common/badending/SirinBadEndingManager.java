@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.common.badending;
 
-/**
- * 【变更记录 #1】2026-09-29 17:51:46（内测5修订93）
- * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
- * - 新增／修改：攻击阶段对白使用审核FP03，重返后九句收束使用F09。保留攻击阈值、演出时序、世界改名、强制登出及旧世界级结算。
- * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
- */
+ 
+
+
+
+
+
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import com.sirin.hk3gtl.common.dimension.Hk3Dimensions;
 import com.sirin.hk3gtl.common.dimension.Hk3GraduationData;
@@ -59,8 +59,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 阶段仍为 ERASED，直接走收尾流程，不会延续 Boss 战。</p>
  */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID)
-/** 【变更记录 #2】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：复用个人攻击账本，演出绑定玩家与实体UUID，仅本人黑屏/拉拽/踢出/回城；坏结局不发正常毕业奖励，九句收尾保存进度；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
-/** 【变更记录 #3】2026-10-01 04:21:47（修订128）：删除：旧固定上限或被替代的分支；新增/修改：复用服务端终审攻击合法性结果投递可选旁注，不改变攻击阈值、改名或登出流程；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class SirinBadEndingManager {
 
     private static final Logger LOGGER = LogUtils.getLogger();

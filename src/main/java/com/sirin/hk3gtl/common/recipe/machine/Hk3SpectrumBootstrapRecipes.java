@@ -20,17 +20,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import java.util.function.Consumer;
 
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class Hk3SpectrumBootstrapRecipes {
-    /** 【变更记录 #1】2026-09-29 19:19:27（内测5修订96）：新增MAX阶段复杂材料的超时空装配线手机配方；不借用免费命令入口。 */
+     
     private Hk3SpectrumBootstrapRecipes() {}
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     public static ItemStack item(String id) { return new ItemStack(Hk3IndustrialContent.items().get(id).get()); }
 
-    /** 中文维护备注：历史变更说明已整理；当前实现以代码为准。 */
     public static void register(Consumer<FinishedRecipe> provider) {
         long max = Hk3Values.VA_LONG[GTValues.MAX];
         org.gtlcore.gtlcore.common.data.GTLRecipeTypes.SUPRACHRONAL_ASSEMBLY_LINE_RECIPES
@@ -44,7 +39,6 @@ public final class Hk3SpectrumBootstrapRecipes {
                 .inputFluids(GTMaterials.SolderingAlloy.getFluid(2304))
                 .outputItems(Hk3Items.PERSONAL_PHONE.get())
                 .duration(2400).EUt(max).save(provider);
-        // 中文维护备注：历史说明已整理；当前实现以代码为准。
         org.gtlcore.gtlcore.common.data.GTLRecipeTypes.SUPRACHRONAL_ASSEMBLY_LINE_RECIPES
                 .recipeBuilder(new ResourceLocation("hk3gtl", "industrial_prototype_honkai_detector"))
                 .inputItems(CustomTags.MAX_CIRCUITS, 4)
@@ -108,4 +102,4 @@ public final class Hk3SpectrumBootstrapRecipes {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

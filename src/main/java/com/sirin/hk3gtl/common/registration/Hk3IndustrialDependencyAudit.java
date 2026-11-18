@@ -8,6 +8,8 @@ import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.sirin.hk3gtl.common.machine.research.Hk3LiquidProcessMachine;
 import com.sirin.hk3gtl.common.material.Hk3Materials;
 import com.sirin.hk3gtl.common.material.SouliumMaterial;
+import com.sirin.hk3gtl.common.multiblock.build.Hk3BuildPlans;
+import com.sirin.hk3gtl.common.multiblock.pattern.Hk3ArchitectureMaterials;
 import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessPlans;
 import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessTypes;
 import com.sirin.hk3gtl.common.recipe.audit.RecipeReachability;
@@ -18,22 +20,24 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.material.FlowingFluid;
 import java.util.*;
 
-/**
- * 【文件职责】从整包最终注册表构造工业依赖图；只读，不授予研究、事实或物品。
- * 【变更记录 #1】2026-10-17 13:55:11（第1次备注 · 内测5修订160）
- * 删除：无。新增：完整研究门槛、PLAN实验/事实、标签替代、现有控制器和研究费用的统一适配。
- * 修改：核验范围覆盖HK3物料生产者及全部已注册HK3配方，不把缺少执行器的类型当作GT通用设备。
- * 用途：输出可追溯的拓扑阻断；外部GTL资源可用仍是明确前提，不证明数量、供电、成型和生存通关。
- * 【变更记录 #2】2026-10-17 14:07:48（第2次备注 · 内测5修订160）
- * 删除：把所有设备都视为生产机器的空数组前提。新增：无配方类型和空类型项守卫。
- * 修改：储存/管网等非加工设备跳过能力桥接；用途：修复2.8实际启动时的空指针，不授予虚构执行能力。
- */
+ 
+
+
+
+
+
+
+
+
+
+
 public final class Hk3IndustrialDependencyAudit {
     private Hk3IndustrialDependencyAudit() {}
 
@@ -55,16 +59,18 @@ public final class Hk3IndustrialDependencyAudit {
         });
         // 真实注册定义提供设备类型，不以规划清单或配方类型注册冒充已存在的控制器。
         var deviceRules = new ArrayList<RecipeReachability.Recipe>();
+        var unresolved = new ArrayList<String>();
         for (var definition : GTRegistries.MACHINES) {
             String item = BuiltInRegistries.ITEM.getKey(definition.asStack().getItem()).toString();
             if (definition.asStack().isEmpty()) continue;
             var recipeTypes = definition.getRecipeTypes();
             if (recipeTypes == null) continue;
+            var inputs = deviceInputs(definition.getId().toString(), item, unresolved);
             for (var type : new LinkedHashSet<>(Arrays.asList(recipeTypes))) {
                 if (type == null) continue;
                 String capability = "executor:" + type.registryName;
                 deviceRules.add(new RecipeReachability.Recipe("device:" + definition.getId() + "/" + type.registryName,
-                        List.of(Set.of(item)), List.of(), Set.of(), "", Set.of(),
+                        inputs, List.of(), Set.of(), "", Set.of(),
                         Set.of(capability), Set.of(), Set.of(), Set.of()));
             }
         }
@@ -77,14 +83,13 @@ public final class Hk3IndustrialDependencyAudit {
                     .filter(c -> c.unlocks().contains(role)).findFirst().ifPresentOrElse(
                             c -> permission.add(c.id()), () -> permission.add("unassigned_machine_permission:" + role));
             deviceRules.add(new RecipeReachability.Recipe("facility:" + role,
-                    List.of(Set.of(BuiltInRegistries.ITEM.getKey(institute.asStack().getItem()).toString())), List.of(),
+                    deviceInputs(institute.getId().toString(), BuiltInRegistries.ITEM.getKey(institute.asStack().getItem()).toString(), unresolved), List.of(),
                     permission, "", Set.of(), Set.of("laboratory_ready:" + lab), Set.of(), Set.of(), Set.of()));
         }
         var plans = new HashMap<String, Hk3ResearchProcessPlans.Plan>();
         Hk3ResearchProcessPlans.all().forEach(p -> plans.put(p.id(), p));
         var recipes = new ArrayList<RecipeReachability.Recipe>();
         var productionIds = new TreeSet<String>();
-        var unresolved = new ArrayList<String>();
         var registered = server.getRecipeManager().getRecipes();
         for (var raw : registered) {
             if (!(raw instanceof GTRecipe gt)) {
@@ -119,6 +124,11 @@ public final class Hk3IndustrialDependencyAudit {
             var facts = new TreeSet<String>();
             var factOutputs = new TreeSet<String>();
             var evidence = new TreeSet<String>();
+            String circuitManufacturing = "assembler/hk3gtl_functional_honkai_circuit_";
+            if(gt.id.getPath().startsWith(circuitManufacturing))
+                factOutputs.add("circuit_technology:"+gt.id.getPath().substring(circuitManufacturing.length()));
+            String recovery=Hk3ProcessReceipts.category(gt);
+            if(!recovery.isBlank())factOutputs.add("recovery:"+recovery);
             String oldExperiment = gt.data.getString(Hk3LiquidProcessMachine.EXPERIMENT);
             if (!oldExperiment.isBlank()) evidence.add(oldExperiment);
             String planId = gt.data.getString(Hk3ResearchRecipeRuntime.PLAN);
@@ -127,11 +137,18 @@ public final class Hk3IndustrialDependencyAudit {
                 if (plan == null) {
                     facts.add("invalid_execution_plan:" + planId);
                 } else {
+                    if (!Hk3IndustrialExtensionPolicy.permits(plan.role(), plan.provisional()))
+                        facts.add("provisional_process_locked:" + plan.id());
                     String expectedPath = Hk3ResearchProcessTypes.get(plan.role()).registryName.getPath() + "/" + plan.id();
                     if (!gt.id.getPath().equals(expectedPath) || !(gt.id.getNamespace().equals("gtceu") || gt.id.getNamespace().equals("hk3gtl"))
                             || gt.recipeType != Hk3ResearchProcessTypes.get(plan.role())) facts.add("invalid_plan_recipe_binding:" + planId);
                     gates.addAll(plan.requirements());
                     factOutputs.addAll(plan.facts());
+                    String circuitAnalysis="industrial_circuit_sample_analysis_";
+                    if(plan.id().startsWith(circuitAnalysis)) {
+                        String tier=plan.id().substring(circuitAnalysis.length());
+                        facts.add("circuit_technology:"+tier);factOutputs.add("circuit_analysis:"+tier);
+                    }
                     if (!plan.experiment().isBlank()) {
                         evidence.add(plan.experiment());
                         var contract = Hk3ResearchExecutionContracts.get(plan.experiment());
@@ -157,6 +174,10 @@ public final class Hk3IndustrialDependencyAudit {
         recipes.addAll(deviceRules);
         addLaboratoryExperiments(recipes);
         var topics = new ArrayList<RecipeReachability.Research>();
+        for(String tier:Hk3ResearchData.CIRCUIT_TIERS)
+            topics.add(new RecipeReachability.Research(Hk3ResearchData.CIRCUIT_PREFIX+tier,
+                    Set.of(Hk3ResearchData.CORE_RESEARCH),Set.of(),
+                    Set.of("circuit_technology:"+tier,"circuit_analysis:"+tier),List.of(),List.of()));
         for (var topic : Hk3ResearchCatalog.bundled().topics().values()) {
             var contract = Hk3ResearchExecutionContracts.get(topic.id());
             var parents = new TreeSet<>(topic.prerequisites());
@@ -173,6 +194,24 @@ public final class Hk3IndustrialDependencyAudit {
         var result = RecipeReachability.analyze(recipes, topics,
                 new RecipeReachability.Seeds(seedItems, seedFluids, Set.of(), Set.of(), Set.of()));
         return new Snapshot(registered.size(), Collections.unmodifiableSet(productionIds), result, List.copyOf(unresolved));
+    }
+
+    private static List<Set<String>> deviceInputs(String machine, String item, List<String> unresolved) {
+        var inputs = new ArrayList<Set<String>>();
+        inputs.add(Set.of(item));
+        String layout = Hk3BuildPlans.layoutForMachine(machine);
+        if (layout == null) {
+            if (machine.startsWith("hk3gtl:")) unresolved.add(machine + "：未映射批准建筑，结构建材可达性未核验");
+            return inputs;
+        }
+        for (String state : Hk3ArchitectureMaterials.states(layout)) {
+            var material = BuiltInRegistries.BLOCK.get(new ResourceLocation(state.split("\\[", 2)[0])).asItem();
+            if (material == Items.AIR) {
+                inputs.add(Set.of());
+                unresolved.add(layout + "：固定材料不能映射为物品，阻断设备可达性：" + state);
+            } else inputs.add(Set.of(BuiltInRegistries.ITEM.getKey(material).toString()));
+        }
+        return inputs;
     }
 
     /** 空标签、无效数量与超出配方类型接口上限均属于错误。 */
@@ -223,7 +262,7 @@ public final class Hk3IndustrialDependencyAudit {
                 needs.add(Set.of(BuiltInRegistries.ITEM.getKey(org.gtlcore.gtlcore.common.data.GTLItems.SENSOR_MAX.asItem()).toString()));
                 evidenceOutputs.add(spec.research());
             } else if (id.equals("LAB-OPR")) {
-                facts.add("external_ledger:three_recovery_proofs");
+                Hk3ResearchBatchProofs.RECOVERY.forEach(category->facts.add("recovery:"+category));
                 evidenceOutputs.add(spec.research());
             } else {
                 needs.add(tagItems("gtceu:circuits/max"));
@@ -284,6 +323,6 @@ public final class Hk3IndustrialDependencyAudit {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 
 
-// 【变更记录 · 修订161】2026-10-17 14:20:59：将原有GT格式校验前移至选中生产者后、加入依赖闭包前；非法配方仅进入问题清单，不计为生产者或产生拓扑资源，校验范围和判据不变。
+ 

@@ -3,11 +3,11 @@ package com.sirin.hk3gtl.common.util;
 import net.minecraft.nbt.*;
 import java.util.UUID;
 
-/**
- * 【变更记录 #1】2026-10-01 17:04:49（修订136）
- * 删除：无；新增：账本类型、列表元素、规范UUID及布尔字段校验。
- * 修改：NBT默认空值不能再掩盖已有字段的错误类型；用途：读取失败交回防覆盖保护，不吞条目或记录私人正文。
- */
+ 
+
+
+
+
 public final class Hk3LedgerValidation {
     private Hk3LedgerValidation(){}
     public static void require(boolean valid,String field){if(!valid)throw new IllegalStateException("账本字段损坏，拒绝重置："+field);}

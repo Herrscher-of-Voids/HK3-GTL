@@ -1,30 +1,11 @@
 package com.sirin.hk3gtl.common.command;
 
+ 
 
-/**
- * 【文件职责】
- * - 维护 Hk3DebugCommands 的核心功能实现。
- * - 关键调用链：由上层系统入口调用 -> 本文件核心方法 -> 下游模块。
- *
- * 【变更记录】2026-05-19
- * - 删除：
- *   1) 初始归档备注：自 v0.3 基线梳理，无本次 diff。
- * - 新增：
- *   1) 新增统一变更备注块，便于后续维护与审计追踪。
- * - 修改：
- *   1) 未改动业务逻辑，仅补充文件级职责与维护注释模板。
- * - 用途：
- *   1) 帮助维护者快速理解文件职责、变更背景与风险点。
- *
- * 【段内说明】
- * - 复杂方法补充“干什么 / 边界 / 线程侧”精简中文注释。
- */
-/**
- * 【变更记录 #1】2026-09-29 17:51:46（内测5修订93）
- * - 删除：旧正文活动引用被审核原文替代；保留历史资源和存档。
- * - 新增／修改：调试重开清除新检查点；正式终审读取本存档玩家IF账本，不使用旧跨存档掩码。
- * - 用途：接通审核正文；其他系统触发及归属不据此宣称完成。
- */
+
+
+
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -55,8 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-/** 【变更记录 #2】2026-09-30 23:34:26（修订119）：删除：世界级结果对所有玩家的隐式授权；新增/修改：毕业/传送/彩蛋/调试改为查询当前玩家，实体避免在已有坏结局演出时开启新会面；用途：个人结算不覆盖其他玩家，未完成的资格采集仍单独接入。 */
-/** 【变更记录 #3】2026-10-01 16:49:18（修订135）：删除调试触发正文直接走正式毕业的路径；新增个人准入账本随本人调试重置；修改trigger_dialogue为审核正文预览；用途：继续支持测试文本和演出，不产生真实资格或消耗正式IF五选。 */
+ 
+ 
 public class Hk3DebugCommands {
 
     private static final String TAG = "§a[HK3DEBUG] §f";
@@ -280,7 +261,10 @@ public class Hk3DebugCommands {
     private static int researchComplete(CommandSourceStack source, String id) {
         ServerPlayer player = source.getPlayer();
         if (player == null) return 0;
-        Hk3ResearchManager.forceCompleteResearch(player, id);
+        if (!Hk3ResearchManager.forceCompleteResearch(player, id)) {
+            source.sendFailure(Component.literal("旧版研究已退役，未授予任何研究完成标记。"));
+            return 0;
+        }
         source.sendSuccess(() -> Component.literal(TAG + "已强制完成研究: " + id), true);
         return 1;
     }

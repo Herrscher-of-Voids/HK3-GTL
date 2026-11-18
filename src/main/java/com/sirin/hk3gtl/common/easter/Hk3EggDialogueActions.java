@@ -7,7 +7,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:33:27（修订128）：删除无；新增当前终审节点等待与输入节奏观察；修改无；用途：会话身份、节点、在线状态由服务器校验，关闭/换段释放，不替玩家选择或结算。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggDialogueActions {
     private static final class Page {

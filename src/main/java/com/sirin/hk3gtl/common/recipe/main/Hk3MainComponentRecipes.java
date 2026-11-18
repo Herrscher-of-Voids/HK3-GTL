@@ -21,14 +21,14 @@ import org.gtlcore.gtlcore.common.data.GTLItems;
 import java.util.List;
 import java.util.function.Consumer;
 
-/**
- * 【文件职责】16阶八大件消费本阶主材料和电子平台，前一阶组件作为不可跳过的装配基件。
- * 【变更记录 #1】2026-10-17 16:26:10（修订165）
- * - 删除：本入口不再沿用通用魂钢巨量压缩及仅有前三族的旧组件配方。
- * - 新增：128条有明确主材形状、功能部件、前级实物和本阶电路的装配路线。
- * - 修改：现有物品ID保持；总入口只调用本类，配方按实际额定电压和完整研究权限执行。
- * - 用途：将主材接入全部八大件；不注册新设备、方块或贴图，不代表第三方机器已通过高阶承载验收。
- */
+ 
+
+
+
+
+
+
+
 public final class Hk3MainComponentRecipes {
     public static final List<String> PARTS = List.of("electric_motor", "electric_piston", "electric_pump",
             "conveyor_module", "robot_arm", "field_generator", "emitter", "sensor");
@@ -63,7 +63,7 @@ public final class Hk3MainComponentRecipes {
         String id = "hk3gtl_main_component_" + Hk3Tiers.voltageKey(tier) + "_" + part;
         var builder = GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(id)
                 .EUt(Hk3Values.VA_LONG[tier])
-                .duration(800 + 160 * ((tier - Hk3Tiers.HBV) % 4))
+                .duration(800 + 160 * (tier - Hk3Tiers.HBV))
                 .inputItems(component(tier - 1, part, 2))
                 .inputItems(Hk3CircuitCatalog.tag(tier), 2)
                 .outputItems(component(tier, part, 1));

@@ -10,10 +10,10 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 05:04:18（修订128）：删除无；新增已显示背包/地图的服务器物品核验及已加载机器状态观察；用途：客户端只报界面动作，物品与数量由服务器读取；机器观察不加载区块不授个人产能。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 06:25:16（修订128）：删除：无；新增/修改：非旗舰多方块的已成型真实缓存顶面也统计跳跃，未加载或失效结构不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 12:18:50（修订128）：删除：无；新增/修改：实际显示与已填地图等比例相邻区域的新地图时触发，打开同图或已填成品不计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggViews {
     private Hk3EggViews(){}
     public static void input(ServerPlayer p,String action){

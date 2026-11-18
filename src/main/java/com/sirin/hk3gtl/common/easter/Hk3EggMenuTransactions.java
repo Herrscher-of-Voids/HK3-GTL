@@ -4,9 +4,9 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.registries.BuiltInRegistries;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 06:01:37（修订128）：删除无；新增服务端点击前后物品守恒、切石原料消耗与实际获得成品配对；修改无；用途：预览/丢弃/纯搬移原料均不算完成制造，背包整理逐槽计不同物品。 */
-/** 【变更记录 #2】2026-10-01 12:14:23（修订128）：删除：无；新增/修改：生存玩家通过有效菜单实际取到数据物品时建立取得记录，工具提示仍须随后显示；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 12:16:23（修订128）：删除：无；新增/修改：本人取到电池立即记录归属，随后充电才触发，不把持有当充电；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
+ 
 public final class Hk3EggMenuTransactions {
     public record Snapshot(List<ItemStack> inventory,ItemStack carried,ItemStack input,ItemStack result){}
     public static final class Sorting {

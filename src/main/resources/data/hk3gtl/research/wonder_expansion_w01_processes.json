@@ -1,0 +1,1821 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w01_x46_honkai_lattice_logic_photodicing",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-BCE"
+      ],
+      "zh_name": "崩坏晶格逻辑曝光切割联线",
+      "purpose": "外延片曝光后原位切割，省去晶圆搬运；裸片数量不超过普通曝光和切割的合计产率。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_epitaxial_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_logic_die",
+          "count": 8
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "曝光与切割",
+      "baseline_recipe": "hk3gtl_electronic_honkai_lattice_logic_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_honkai_lattice_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_quantum_coherence_logic_photodicing",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-MCE"
+      ],
+      "zh_name": "量子相干逻辑曝光切割联线",
+      "purpose": "外延片曝光后原位切割，省去晶圆搬运；裸片数量不超过普通曝光和切割的合计产率。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_epitaxial_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 8
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2500,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "曝光与切割",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_logic_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_imaginary_topology_logic_photodicing",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数拓扑逻辑曝光切割联线",
+      "purpose": "外延片曝光后原位切割，省去晶圆搬运；裸片数量不超过普通曝光和切割的合计产率。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_epitaxial_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 8
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "曝光与切割",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_logic_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_civilization_endurance_logic_photodicing",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续逻辑曝光切割联线",
+      "purpose": "外延片曝光后原位切割，省去晶圆搬运；裸片数量不超过普通曝光和切割的合计产率。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 8
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 3100,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "曝光与切割",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_logic_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_honkai_lattice_memory_press_dicing",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-BCE"
+      ],
+      "zh_name": "崩坏晶格存储压印切割联线",
+      "purpose": "前代存储母片参与阵列压印；一片外延片制成十六颗存储芯片，不复制前代母片。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_epitaxial_wafer",
+          "count": 1
+        },
+        {
+          "id": "kubejs:supracausal_ram_wafer",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_ram_chip",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2100,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "存储压印与切割",
+      "baseline_recipe": "hk3gtl_electronic_honkai_lattice_ram_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_honkai_lattice_cpu",
+        "hk3gtl_main_component_wsv_sensor"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_quantum_coherence_memory_press_dicing",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-MCE"
+      ],
+      "zh_name": "量子相干存储压印切割联线",
+      "purpose": "前代存储母片参与阵列压印；一片外延片制成十六颗存储芯片，不复制前代母片。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_epitaxial_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "存储压印与切割",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_ram_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_cpu",
+        "hk3gtl_main_component_wsv_sensor"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_imaginary_topology_memory_press_dicing",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数拓扑存储压印切割联线",
+      "purpose": "前代存储母片参与阵列压印；一片外延片制成十六颗存储芯片，不复制前代母片。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_epitaxial_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 2700,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "存储压印与切割",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_ram_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu",
+        "hk3gtl_main_component_wsv_sensor"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_civilization_endurance_memory_press_dicing",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续存储压印切割联线",
+      "purpose": "前代存储母片参与阵列压印；一片外延片制成十六颗存储芯片，不复制前代母片。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 250
+        }
+      ],
+      "ticks": 3000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "存储压印与切割",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_ram_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu",
+        "hk3gtl_main_component_wsv_sensor"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_quantum_coherence_epitaxy_exposure",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-MCE"
+      ],
+      "zh_name": "量子相干外延生长曝光一体化",
+      "purpose": "保留中子素晶圆、本族载体、介电膜与前代逻辑裸片；将外延生长与两次曝光在同一计量基准内完成。",
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_logic_die",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_wafer",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4100,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "外延与曝光",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_epitaxial_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_logic_die",
+        "wonder_w02_x46_quantum_coherence_wafer_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_imaginary_topology_epitaxy_exposure",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数拓扑外延生长曝光一体化",
+      "purpose": "保留中子素晶圆、本族载体、介电膜与前代逻辑裸片；将外延生长与两次曝光在同一计量基准内完成。",
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_wafer",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "外延与曝光",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_epitaxial_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_logic_die",
+        "wonder_w02_x46_imaginary_topology_wafer_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_civilization_endurance_epitaxy_exposure",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续外延生长曝光一体化",
+      "purpose": "保留中子素晶圆、本族载体、介电膜与前代逻辑裸片；将外延生长与两次曝光在同一计量基准内完成。",
+      "item_inputs": [
+        {
+          "id": "gtceu:neutronium_wafer",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_wafer",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "ticks": 4700,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "外延与曝光",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_epitaxial_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_logic_die",
+        "wonder_w02_x46_civilization_endurance_wafer_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_honkai_lattice_laminate_etch",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-BCE"
+      ],
+      "zh_name": "崩坏晶格多层压合蚀刻联制",
+      "purpose": "两片本族印刷板由层压与双面蚀刻联制；前代基板、前代印刷板与实体蚀刻层完整保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:abyss_impregnated_soulium_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "kubejs:supracausal_circuit_board",
+          "count": 2
+        },
+        {
+          "id": "kubejs:supracausal_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 500
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 500
+        },
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 1000
+        }
+      ],
+      "ticks": 3200,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "层压与蚀刻",
+      "baseline_recipe": "hk3gtl_electronic_honkai_lattice_circuit_substrate",
+      "output_consumers": [
+        "hk3gtl_electronic_honkai_lattice_smd_array",
+        "hk3gtl_main_component_wsv_robot_arm"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_quantum_coherence_laminate_etch",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-MCE"
+      ],
+      "zh_name": "量子相干多层压合蚀刻联制",
+      "purpose": "两片本族印刷板由层压与双面蚀刻联制；前代基板、前代印刷板与实体蚀刻层完整保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 1000
+        },
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 2000
+        }
+      ],
+      "ticks": 3500,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "层压与蚀刻",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_circuit_substrate",
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_smd_array",
+        "hk3gtl_main_component_wsv_robot_arm"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_imaginary_topology_laminate_etch",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数拓扑多层压合蚀刻联制",
+      "purpose": "两片本族印刷板由层压与双面蚀刻联制；前代基板、前代印刷板与实体蚀刻层完整保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 1500
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 3000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 1500
+        },
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 3000
+        }
+      ],
+      "ticks": 3800,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "层压与蚀刻",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_circuit_substrate",
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_smd_array",
+        "hk3gtl_main_component_wsv_robot_arm"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_civilization_endurance_laminate_etch",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续多层压合蚀刻联制",
+      "purpose": "两片本族印刷板由层压与双面蚀刻联制；前代基板、前代印刷板与实体蚀刻层完整保留。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_interconnect_mesh",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:etched_circuit_layer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_circuit_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_printed_circuit_board",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_circuit_etchant",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_circuit_growth_medium",
+          "amount": 2000
+        },
+        {
+          "id": "spent_honkai_etchant",
+          "amount": 4000
+        }
+      ],
+      "ticks": 4100,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "层压与蚀刻",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_circuit_substrate",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_smd_array",
+        "hk3gtl_main_component_wsv_robot_arm"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_quantum_coherence_mixed_logic_memory",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-MCE"
+      ],
+      "zh_name": "量子相干逻辑存储混合批曝光",
+      "purpose": "两片外延片分别用于逻辑与存储，使用前代RAM母片；同批换掩膜降低调机次数，逻辑与存储产率各自守恒。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_epitaxial_wafer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:honkai_lattice_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_logic_die",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_chip",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "ticks": 3700,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "混合产品计量批次",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_ram_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_imaginary_topology_mixed_logic_memory",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-WCP"
+      ],
+      "zh_name": "虚数拓扑逻辑存储混合批曝光",
+      "purpose": "两片外延片分别用于逻辑与存储，使用前代RAM母片；同批换掩膜降低调机次数，逻辑与存储产率各自守恒。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_epitaxial_wafer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:quantum_coherence_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_logic_die",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_chip",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "混合产品计量批次",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_ram_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_civilization_endurance_mixed_logic_memory",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "zh_name": "文明恒续逻辑存储混合批曝光",
+      "purpose": "两片外延片分别用于逻辑与存储，使用前代RAM母片；同批换掩膜降低调机次数，逻辑与存储产率各自守恒。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_epitaxial_wafer",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:imaginary_topology_ram_wafer",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_logic_die",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:civilization_endurance_ram_chip",
+          "count": 16
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:circuit_lithography_mask",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "ticks": 4300,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "混合产品计量批次",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_ram_wafer",
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_cpu"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_rejected_encapsulation_strip",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-CPT",
+        "RN-OPR"
+      ],
+      "zh_name": "封装拒收品分层剥离",
+      "purpose": "八份拒收封装只取回一块聚四氟乙烯板与两张金箔；其余结构进入残渣，不能还原完整封装。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:rejected_circuit_package",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "gtceu:polytetrafluoroethylene_plate",
+          "count": 1
+        },
+        {
+          "id": "gtceu:gold_foil",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_soulium_solvent",
+          "amount": 1000
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "分层拆解",
+      "baseline_recipe": "industrial_circuit_packaging",
+      "output_consumers": [
+        "industrial_circuit_packaging",
+        "industrial_nano_assembly"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_feedback_module_disassembly",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-OPR"
+      ],
+      "zh_name": "退役反馈模块拆解",
+      "purpose": "一个完整模块只回收一个封装件；两块数据基板与光学组件降为边角料，不产出原始档案。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 250
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "工装退役",
+      "baseline_recipe": "wonder_w01_optical_feedback_module",
+      "output_consumers": [
+        "industrial_circuit_packaging",
+        "industrial_recovery_composite_offcut"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_optical_grating_salvage",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-OPR"
+      ],
+      "zh_name": "废弃光栅金刚石分选",
+      "purpose": "两片光栅含两颗金刚石，只回收一颗；玻璃和金属镀层进入分离残渣，不能闭环增殖。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:optical_reference_grating",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:separation_filter",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "minecraft:diamond",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:separation_residue",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 500
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "光学工装回收",
+      "baseline_recipe": "wonder_w01_optical_reference_grating",
+      "output_consumers": [
+        "wonder_w01_optical_reference_grating"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_legacy_record_to_research_package",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-LTA"
+      ],
+      "zh_name": "采掘遗留记录解码封装",
+      "purpose": "一份真实采掘遗留记录先解出四份数据碎片，再分装两份研究数据包；记录被消耗，不复制档案。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:world_mining_legacy_record",
+          "count": 1
+        },
+        {
+          "id": "gtceu:silicon_plate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:data_research_package",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "档案解码集成",
+      "baseline_recipe": "hk3gtl_functional_precivilization_fragment_analysis",
+      "output_consumers": [
+        "hk3gtl_functional_ancient_legacy_reconstruction"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_legacy_record_to_ancient_legacy",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-LTA"
+      ],
+      "zh_name": "遗留记录实体遗产复原",
+      "purpose": "两份真实记录提供八份碎片，六份用于一个数据包和一份远古遗产，余下两份碎片实体返回。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:world_mining_legacy_record",
+          "count": 2
+        },
+        {
+          "id": "gtceu:silicon_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        },
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ancient_legacy",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:data_precivilization_fragment",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "档案解码集成",
+      "baseline_recipe": "hk3gtl_functional_ancient_legacy_reconstruction",
+      "output_consumers": [
+        "hk3gtl_functional_ancient_will_reconstruction",
+        "hk3gtl_schicksal_imaginary_core"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_legacy_record_to_ancient_will",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-LTA"
+      ],
+      "zh_name": "遗留记录意志载体重构",
+      "purpose": "三份真实记录的十二份碎片全部用于两份遗产，再消耗世界模型和新封装重构远古意志；不授予研究或考古事实。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:world_mining_legacy_record",
+          "count": 3
+        },
+        {
+          "id": "gtceu:silicon_plate",
+          "count": 12
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 8
+        },
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:world_model_carrier",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:ancient_will",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 4000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "档案解码集成",
+      "baseline_recipe": "hk3gtl_functional_ancient_will_reconstruction",
+      "output_consumers": [
+        "hk3gtl_anti_entropy_imaginary_core"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_detector_cross_spectrum_calibration",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-DMT",
+        "RN-BCE"
+      ],
+      "zh_name": "双探测器交叉光谱校准",
+      "purpose": "原型与液态探测器共同提供两种响应基准，配合反馈工装节省纸与铂箔；标准样本和分析样本仍各消耗四份。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_reference_sample",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:analyzed_honkai_sample",
+          "count": 4
+        },
+        {
+          "id": "minecraft:paper",
+          "count": 8
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_detector_calibration_report",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:prototype_honkai_detector",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:liquid_honkai_detector",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [],
+      "fluid_outputs": [],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "多基准校准",
+      "baseline_recipe": "industrial_liquid_detector_calibration",
+      "output_consumers": [
+        "hk3gtl_supply_solid_honkai_detector",
+        "hk3gtl_supply_gaseous_honkai_detector"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_model_observation_sample_integration",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-QOM"
+      ],
+      "zh_name": "双探针建模与观察样本联制",
+      "purpose": "先以标准样本和两块数据基板建模，再消耗石英岩与稳定液制取观察样本；两支探针只作工装，不产生捕获事实。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_reference_sample",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:quartzite_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:world_bubble_sample",
+          "count": 4
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:spatial_probe",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 250
+        },
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 250
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "建模与采样",
+      "baseline_recipe": "hk3gtl_functional_world_bubble_observation_sample",
+      "output_consumers": [
+        "工业世界泡观察与研究提交"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_proto_mass_data_substrate",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-SPM"
+      ],
+      "zh_name": "稳定原质成形布线联制",
+      "purpose": "四份稳定魂钢原质先制四板八细线，再按普通基板用量全部封装成两块基板；切屑和冷却热液定量排出。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:stabilized_soulium_proto_mass",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:soulium_swarf",
+          "count": 2
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 288
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "成形与计量布线",
+      "baseline_recipe": "industrial_soulium_processing",
+      "output_consumers": [
+        "industrial_spatial_probe",
+        "industrial_drone_assembly"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_raw_grating_feedback_integration",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO"
+      ],
+      "zh_name": "原料光栅反馈工装联制",
+      "purpose": "从玻璃、金刚石和金属支架制成两片光栅，随即与数据基板、校准件和封装件集成为反馈工装；保留两工序完整物耗。",
+      "item_inputs": [
+        {
+          "id": "minecraft:glass_pane",
+          "count": 4
+        },
+        {
+          "id": "minecraft:diamond",
+          "count": 2
+        },
+        {
+          "id": "gtceu:tungsten_steel_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:platinum_foil",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:soulium_data_substrate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:optical_process_feedback_module",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [
+        {
+          "id": "hk3gtl:civilization_cooperation_archive",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:soldering_alloy",
+          "amount": 144
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "ticks": 2400,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "光学工装集成",
+      "baseline_recipe": "wonder_w01_optical_feedback_module",
+      "output_consumers": [
+        "wonder_w01_x46_honkai_lattice_logic_photodicing",
+        "wonder_w02_deterministic_etched_layer"
+      ]
+    },
+    {
+      "id": "wonder_w01_x46_research_package_media_recovery",
+      "role": "W01",
+      "requirements": [
+        "RN-HCCO",
+        "RN-LTA",
+        "RN-OPR"
+      ],
+      "zh_name": "退役研究数据包介质拆解",
+      "purpose": "销毁一份实体数据包，只回收一个封装件和一份基板边角料；不返回数据碎片、采掘记录或任何档案。",
+      "item_inputs": [
+        {
+          "id": "hk3gtl:data_research_package",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:composite_offcut",
+          "count": 1
+        }
+      ],
+      "item_catalysts": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_analysis_reagent",
+          "amount": 250
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_analysis_reagent",
+          "amount": 250
+        }
+      ],
+      "ticks": 2000,
+      "energy_tier": 28,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "process_family": "数据介质退役",
+      "baseline_recipe": "hk3gtl_functional_data_research_package",
+      "output_consumers": [
+        "industrial_circuit_packaging",
+        "industrial_recovery_composite_offcut"
+      ]
+    }
+  ]
+}

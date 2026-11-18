@@ -1,20 +1,20 @@
 package com.sirin.hk3gtl.common.research;
 
-/** 【变更记录 #8】2026-10-01 00:00:53（修订121）：删除无；新增/修改：正式交流来源严格核对首信、回复路径和本队归属；用途：个人与团队记录隔离，保留历史与权限。 */
+ 
 
-/** 【变更记录 #7】2026-09-30 23:58:50（修订121）：删除旧个人答复自动代表新队的生产路径；新增/修改：历史迁队投影不作为新研究工况；真实答复原位替换并保留旧凭据；用途：团队外交、阅读与个人经历分账，不发研究或物品奖励。 */
+ 
 
 
 
-/**
- * 【文件职责／本轮边界】同一SavedData保存团队知识、个人付款、任务及待领退款；完成成果迁移、在研不复制、解散退款。
- * 【变更记录 #3】2026-09-29 21:06:40（第 3 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：同一SavedData保存团队知识、个人付款、任务及待领退款；完成成果迁移、在研不复制、解散退款。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+ 
+
+
+
+
+
+
+
+
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -26,40 +26,40 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #1】2026-09-27 04:15:46（第 1 次备注 · 内测5修订90）
- * 删除：无。新增：计算机扣电回调隔离；研究推进异常时标记存档待保存。
- * 修改：保留支付、实验和槽位规则，拒绝回调重入；异常后保留已发生的任务计时。
- * 用途：验证付费任务、点数生产及存档恢复的一致性，不改退款或团队归属。
- */
-/**
- * 【变更记录 #2】2026-09-27 04:32:00（第 2 次备注 · 内测5修订90）
- * 删除：损坏存档加载失败后回落空研究账本的隐式路径。新增：共用保存读取保护。
- * 修改：保留旧Accounts存档兼容，但已有文件缺少Accounts时拒绝重置；用途：保留费用和完成记录。
- */
-/**
- * 【变更记录 #4】2026-09-29 23:37:35（内测5修订101）
- * 删除：本轮被替代的单前置或旧提示分支；其余历史保留。
- * 新增／修改：保存三类回收回执与生产工况；OPR绑定开题时的真实批次快照，生产批次不随队员复制。
- * 用途：补足研究接线并如实保留未接物理执行器及结构审批边界。
- * 追溯：logs/research-mainline-r101；R101_FINAL_RECORD。
- */
-/** 【变更记录 #5】2026-09-30 20:28:36（修订117）：删除无；新增：团队会面许可独立保存，茧授权不冒充机器配方结算；修改许可读取/结算守卫；用途：分开审查与研究，防预览或关闭误授予。 */
-/** 【变更记录 #6】2026-09-30 23:43:42（修订120）：删除无；新增/修改：供文明等级核对真实来源的工况回执只读副本；用途：按真实团队事实展示文明进度，不给机器/配方增加等级锁。 */
-/**
- * 【变更记录 #9】2026-11-04 01:23:43（第9次备注 · 内测5修订194）
- * - 删除：无，保留历史与原有内存事务入口。
- * - 新增：付款日志恢复和同对象后像恢复；加载先恢复文件，再恢复已缓存账本和在线库存。
- * - 修改：服务端取得账本时阻断未能恢复的日志，避免旧缓存覆盖已经支付的工作。
- * - 用途：配合Hk3ResearchPayment接通材料、实验和退款跨文件原子提交；计算机能源接口不变。
- */
-/**
- * 【变更记录 #10】2026-11-04 02:53:59（第10次备注 · 内测5修订194）
- * - 删除：本类直接恢复缓存的分散调用；新增：无。
- * - 修改：缓存与玩家恢复委托Hk3ResearchPayment.recovered，成功后才结束日志，异常阻断运行。
- * - 用途：加载时的内存同步与文件提交共用完成边界，防旧缓存覆盖已付款工单。
- */
+ 
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
 public final class Hk3ResearchData extends SavedData {
     private CompoundTag accounts = new CompoundTag();
     private Hk3ResearchWorkQueue jobs = new Hk3ResearchWorkQueue();
@@ -68,6 +68,7 @@ public final class Hk3ResearchData extends SavedData {
     private CompoundTag memberships = new CompoundTag();
     private CompoundTag teams = new CompoundTag();
     private CompoundTag refunds = new CompoundTag();
+    private CompoundTag legacyResearch = new CompoundTag();
     private boolean inRefundClaim;
     private boolean inComputerPayment;
 
@@ -80,12 +81,10 @@ public final class Hk3ResearchData extends SavedData {
     public static final String CIRCUIT_PREFIX = "RN-RCA/circuit/";
     public static final Set<String> CIRCUIT_TIERS = Set.of("ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max");
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Hk3ResearchData get(ServerPlayer player) {
         return get(player.server);
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Hk3ResearchData get(net.minecraft.server.MinecraftServer server) {
         CompoundTag recovered = Hk3ResearchPayment.recover(server);
         Hk3ResearchData data = com.sirin.hk3gtl.common.util.Hk3SavedDataGuard.get(server, NAME,
@@ -96,7 +95,6 @@ public final class Hk3ResearchData extends SavedData {
         return data;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Hk3ResearchData load(CompoundTag tag) {
         if (!tag.contains("Accounts", Tag.TAG_COMPOUND)) throw new IllegalArgumentException("Invalid or missing research accounts");
         Hk3ResearchData data = new Hk3ResearchData();
@@ -115,6 +113,7 @@ public final class Hk3ResearchData extends SavedData {
         data.memberships = tag.getCompound("Memberships").copy();
         data.teams = tag.getCompound("Teams").copy();
         data.refunds = tag.getCompound("Refunds").copy();
+        data.legacyResearch = tag.getCompound("LegacyResearch").copy();
         for (String member : data.memberships.getAllKeys()) {
             UUID.fromString(member);
             if (!data.memberships.hasUUID(member)) throw new IllegalArgumentException("Invalid membership");
@@ -128,6 +127,7 @@ public final class Hk3ResearchData extends SavedData {
         Hk3ResearchData restored = load(snapshot);
         accounts = restored.accounts; jobs = restored.jobs; computers = restored.computers;
         memberships = restored.memberships; teams = restored.teams; refunds = restored.refunds;
+        legacyResearch = restored.legacyResearch;
         setDirty();
     }
 
@@ -136,10 +136,40 @@ public final class Hk3ResearchData extends SavedData {
         tag.put("Accounts", accounts.copy()); tag.put("Jobs", jobs.save());
         tag.put("Computers", computers.copy());
         tag.put("Memberships", memberships.copy()); tag.put("Teams", teams.copy());
-        tag.put("Refunds", refunds.copy()); return tag;
+        tag.put("Refunds", refunds.copy());
+        tag.put("LegacyResearch", legacyResearch.copy()); return tag;
     }
 
-    /** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
+    public void archiveLegacyResearch(UUID player, CompoundTag original) {
+        var players = legacyResearch.getCompound("Players").copy();
+        var record = players.getCompound(player.toString()).copy();
+        var completed = record.getCompound("Completed").copy();
+        for (var node : Hk3ResearchNodes.ordered())
+            if (original.getBoolean("hk3gtl_res_" + node.id())) completed.putBoolean(node.id(), true);
+        if (!completed.isEmpty()) record.put("Completed", completed);
+        if (original.contains("hk3gtl_res_selected"))
+            record.put("Selected", original.get("hk3gtl_res_selected").copy());
+        if (record.isEmpty() || record.equals(players.getCompound(player.toString()))) return;
+        players.put(player.toString(), record);
+        legacyResearch.put("Players", players); setDirty();
+    }
+
+    public boolean legacyCompleted(UUID player, String research) {
+        return legacyResearch.getCompound("Players").getCompound(player.toString())
+                .getCompound("Completed").getBoolean(research);
+    }
+
+    public void archiveLegacyTask(String facility, CompoundTag original) {
+        var tasks = legacyResearch.getCompound("Tasks").copy();
+        var history = tasks.getList(facility, Tag.TAG_COMPOUND).copy();
+        if (history.contains(original)) return;
+        history.add(original.copy());
+        tasks.put(facility, history);
+        legacyResearch.put("Tasks", tasks); setDirty();
+    }
+
+    public CompoundTag legacyResearchArchive() { return legacyResearch.copy(); }
+
     public java.math.BigInteger points(UUID owner) {
         CompoundTag account = account(owner);
         if (!account.contains("Points")) return java.math.BigInteger.ZERO;
@@ -149,13 +179,11 @@ public final class Hk3ResearchData extends SavedData {
         return value;
     }
 
-    /** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
     private void putPoints(UUID owner, java.math.BigInteger value) {
         CompoundTag account = account(owner).copy(); account.putString("Points", value.toString());
         accounts.put(owner.toString(), account); setDirty();
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean tickComputer(UUID owner, String facility, long tick, int circuit, boolean online,
                                 java.util.function.BooleanSupplier debitEnergy) {
         rejectComputerReentry();
@@ -175,7 +203,6 @@ public final class Hk3ResearchData extends SavedData {
             if (owner.equals(stored.getUUID("Owner"))) remainder = stored.getInt("Remainder");
         }
         // 在扣电前解析余额，损坏账户不能先消耗能源后才报错。
-        // 中文备注：该处说明已按当前代码行为整理。
         java.math.BigInteger balance = points(owner);
         inComputerPayment = true;
         try { if (!debitEnergy.getAsBoolean()) return false; }
@@ -195,7 +222,6 @@ public final class Hk3ResearchData extends SavedData {
         if (meter.hasUUID("Owner") && meter.getUUID("Owner").equals(owner)) { computers.remove(facility); setDirty(); }
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean startResearchWithPoints(UUID owner, Hk3ResearchWorkQueue.Quote quote, boolean evidenceReady) {
         return startResearchWithPoints(owner, owner, quote, evidenceReady);
     }
@@ -211,7 +237,6 @@ public final class Hk3ResearchData extends SavedData {
         });
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean startResearch(UUID owner, Hk3ResearchWorkQueue.Quote quote, boolean evidenceReady,
                                  java.util.function.BooleanSupplier debit) {
         rejectComputerReentry();
@@ -219,6 +244,11 @@ public final class Hk3ResearchData extends SavedData {
         if (experiment!=null && (hasExperiment(owner,experiment.research())
                 || (quote.topic().equals("LAB-ERM-AID") && !hasLabBaseline(owner))
                 || (experiment.baseline() && hasLabBaseline(owner)))) return false;
+        if (quote.topic().equals("LAB-ERM-AID") && awaitingLabAid(owner)) {
+            var baseline=jobs.snapshot(owner,"LAB-ERM-BASE");
+            if(!baseline.quote().facility().equals(quote.facility())
+                    || !baseline.id().equals(quote.paid().getUUID("BaselineJob")))return false;
+        }
         if (quote.topic().equals("LAB-OPR") && (!recoveryAuditReady(owner)
                 || !recoveryProofs(owner).equals(quote.paid().getCompound("RecoveryProofs")))) return false;
         boolean started = jobs.start(owner, quote, id -> completed(owner, id), evidenceReady, debit);
@@ -226,13 +256,14 @@ public final class Hk3ResearchData extends SavedData {
         return started;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public Hk3ResearchWorkQueue.Outcome advanceResearch(UUID owner, String topic, String facility, long tick,
             boolean formed, boolean online, double speed, java.util.function.BooleanSupplier debitEnergy) {
         rejectComputerReentry();
         var snapshot = jobs.snapshot(owner, topic);
         if (snapshot == null) return Hk3ResearchWorkQueue.Outcome.MISSING;
         var experiment=Hk3LabExperimentRules.get(topic);
+        if (experiment!=null && experiment.baseline() && hasLabBaseline(owner))
+            return Hk3ResearchWorkQueue.Outcome.PAUSED;
         var definition = Hk3ResearchCatalog.bundled().get(experiment==null?topic:experiment.research());
         if (experiment!=null) { online=true; speed=1; }
         boolean valid = definition != null && snapshot.quote().lab() >= definition.lab()
@@ -242,6 +273,10 @@ public final class Hk3ResearchData extends SavedData {
             result = jobs.advance(owner, topic, facility, tick, formed && valid, online, speed, debitEnergy,
                     () -> experiment==null ? completed(owner, topic) || recordCompletion(owner, topic, snapshot.quote().lab())
                             : completeLabExperiment(owner,snapshot.quote(),experiment));
+            if(experiment!=null && experiment.baseline() && hasLabBaseline(owner))
+                result=Hk3ResearchWorkQueue.Outcome.STAGE_COMPLETED;
+            if(result==Hk3ResearchWorkQueue.Outcome.COMPLETED && topic.equals("LAB-ERM-AID"))
+                jobs.cancel(owner,"LAB-ERM-BASE");
             return result;
         } finally {
             // 只保存可能改变的计时；纯离线/未成型/重复调用不持续标脏。
@@ -254,7 +289,6 @@ public final class Hk3ResearchData extends SavedData {
     /** 用于后续界面同步的不可变任务快照；不存在返回null。 / Immutable job snapshot for future UI sync; absent jobs return null. */
     public Hk3ResearchWorkQueue.Snapshot researchJob(UUID owner, String topic) { return jobs.snapshot(owner, topic); }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean recordExperiment(UUID owner, String topic) {
         return recordExperiment(owner, topic, "legacy-real-event:" + owner);
     }
@@ -269,10 +303,14 @@ public final class Hk3ResearchData extends SavedData {
         return Hk3ResearchCatalog.bundled().get(topic) != null && values(owner, "Experiments").contains(topic);
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public java.util.List<Hk3ResearchWorkQueue.Snapshot> activeResearch(UUID owner, String facility) { return jobs.active(owner, facility); }
+    public int usedResearchSlots(String facility) { return jobs.usedSlots(facility); }
 
     public boolean hasLabBaseline(UUID scope) { return values(scope,"LabSteps").contains("ERM_BASELINE_V1"); }
+    public boolean awaitingLabAid(UUID scope) {
+        return hasLabBaseline(scope) && jobs.snapshot(scope,"LAB-ERM-BASE")!=null
+                && jobs.snapshot(scope,"LAB-ERM-AID")==null;
+    }
     /** 修订101 · 2026-09-29：新增三类真实回收账；不继承原队生产批次，不重复扣生产投入。 */
     public boolean recordRecovery(UUID scope, String category, CompoundTag receipt) {
         rejectComputerReentry();
@@ -291,6 +329,15 @@ public final class Hk3ResearchData extends SavedData {
         if(!Hk3ResearchExecutionContracts.factNames().contains(fact) || !Hk3ResearchBatchProofs.valid(receipt))return false;
         var account=account(scope).copy();var proofs=account.getCompound("ProcessFacts").copy();
         if(proofs.contains(fact))return false;
+        proofs.put(fact,receipt.copy());account.put("ProcessFacts",proofs);accounts.put(scope.toString(),account);setDirty();return true;
+    }
+    /** 工程凭据跟随最近一次真实生产机身；普通实验仍保留首份回执。 */
+    public boolean recordEngineeringFact(UUID scope,String fact,CompoundTag receipt) {
+        rejectComputerReentry();
+        if (!(fact.matches("wonder_W(0[1-9]|1[0-5])") || fact.equals("hyperion_engineering") || fact.equals("wonder_application"))
+                || !Hk3ResearchBatchProofs.valid(receipt)) return false;
+        var account=account(scope).copy();var proofs=account.getCompound("ProcessFacts").copy();
+        if(proofs.getCompound(fact).equals(receipt))return false;
         proofs.put(fact,receipt.copy());account.put("ProcessFacts",proofs);accounts.put(scope.toString(),account);setDirty();return true;
     }
     /** 真实团队答复可替换旧迁队投影；旧凭据保留归档，不重新结算研究。 */
@@ -331,6 +378,9 @@ public final class Hk3ResearchData extends SavedData {
     }
     public Hk3ResearchWorkQueue.Snapshot displayJob(UUID scope,String research) {
         var formal=researchJob(scope,research); if(formal!=null)return formal;
+        if(research.equals("RN-ERM")) {
+            var aid=researchJob(scope,"LAB-ERM-AID");if(aid!=null)return aid;
+        }
         return jobs.entries().stream().filter(e -> e.scope().equals(scope))
                 .map(Hk3ResearchWorkQueue.Entry::snapshot).filter(s -> {
                     var spec=Hk3LabExperimentRules.get(s.quote().topic());
@@ -338,25 +388,43 @@ public final class Hk3ResearchData extends SavedData {
                 }).findFirst().orElse(null);
     }
     private boolean completeLabExperiment(UUID scope,Hk3ResearchWorkQueue.Quote quote,Hk3LabExperimentRules.Spec spec) {
+        if(spec.baseline()) {
+            // 普通阶段保留原付费工单，辅助成功后才结算整项耗材。
+            append(scope,"LabSteps","ERM_BASELINE_V1");
+            return false;
+        }
         var receipt=quote.paid(); var tools=checkedItems(receipt,"Tools");
         UUID payer=payer(scope,quote); var pending=refundItems(payer);
         for(Tag tool:tools)pending.add(tool.copy());
-        if(spec.baseline()) append(scope,"LabSteps","ERM_BASELINE_V1");
-        else {
-            String source=quote.facility()+"/"+spec.id();
-            if(spec.id().equals("LAB-OPR")){
-                var proofs=receipt.getCompound("RecoveryProofs");
-                if(!Hk3ResearchBatchProofs.recoveryReady(proofs))return false;
-                for(String category:Hk3ResearchBatchProofs.RECOVERY.stream().sorted().toList())
-                    source+="/"+category+":"+proofs.getCompound(category).getUUID("Batch");
+        String source=quote.facility()+"/"+spec.id();
+        if(spec.id().equals("LAB-ERM-AID")) {
+            var assisted=jobs.snapshot(scope,spec.id());
+            var proof=new CompoundTag();proof.put("Assisted",labExperimentReceipt(assisted));
+            var baseline=jobs.snapshot(scope,"LAB-ERM-BASE");
+            if(baseline!=null) {
+                proof.put("Baseline",labExperimentReceipt(baseline));
+                source+="/baseline:"+baseline.id();
             }
-            recordExperiment(scope,spec.research(),source);
+            var account=account(scope).copy();account.put("ErmExperimentProof",proof);accounts.put(scope.toString(),account);
+            source+="/assisted:"+assisted.id();
         }
+        if(spec.id().equals("LAB-OPR")){
+            var proofs=receipt.getCompound("RecoveryProofs");
+            if(!Hk3ResearchBatchProofs.recoveryReady(proofs))return false;
+            for(String category:Hk3ResearchBatchProofs.RECOVERY.stream().sorted().toList())
+                source+="/"+category+":"+proofs.getCompound(category).getUUID("Batch");
+        }
+        recordExperiment(scope,spec.research(),source);
         if(!pending.isEmpty())refunds.put(payer.toString(),pending);
         setDirty(); return true;
     }
+    private static CompoundTag labExperimentReceipt(Hk3ResearchWorkQueue.Snapshot job) {
+        var quote=job.quote();var receipt=new CompoundTag();
+        receipt.putUUID("Job",job.id());receipt.putString("Facility",quote.facility());
+        receipt.putLong("Ticks",quote.ticks());receipt.putLong("EUt",quote.eut());
+        receipt.put("Paid",quote.paid());return receipt;
+    }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     private CompoundTag account(UUID id) {
         if (accounts.contains(id.toString()) && !accounts.contains(id.toString(), Tag.TAG_COMPOUND)) throw new IllegalArgumentException("Invalid research account " + id);
         return accounts.getCompound(id.toString());
@@ -389,7 +457,6 @@ public final class Hk3ResearchData extends SavedData {
         return true;
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean recordCompletion(UUID id, String research, int lab) {
         Set<String> complete = values(id, "Completed");
         if (!Hk3ResearchCatalog.bundled().prerequisitesMet(research, complete, lab)) return false;
@@ -403,22 +470,25 @@ public final class Hk3ResearchData extends SavedData {
     public boolean recordCircuitTechnology(UUID id, String tier) {
         return CIRCUIT_TIERS.contains(tier) && append(id, "CircuitTechnology", tier);
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
+    public boolean hasCircuitTechnology(UUID id, String tier) {
+        return values(id, "CircuitTechnology").contains(tier);
+    }
+    public boolean hasCircuitAnalysis(UUID id, String tier) {
+        return values(id, "CircuitAnalysis").contains(tier);
+    }
     public boolean recordCircuitAnalysis(UUID id, String tier) {
         return CIRCUIT_TIERS.contains(tier) && completed(id, CORE_RESEARCH)
-                && values(id,"CircuitTechnology").contains(tier) && append(id, "CircuitAnalysis", tier);
+                && hasCircuitTechnology(id, tier) && append(id, "CircuitAnalysis", tier);
     }
     /** 逐级授权，不把MAX知识自动展开为所有电路；物理核心仍由配方notConsumable检查。 / Per-tier entitlement; physical core is separately required by recipe input. */
     public boolean canReconstruct(UUID id, String tier) {
         return CIRCUIT_TIERS.contains(tier) && completed(id, CORE_RESEARCH)
-                && values(id,"CircuitTechnology").contains(tier) && values(id,"CircuitAnalysis").contains(tier);
+                && hasCircuitTechnology(id, tier) && hasCircuitAnalysis(id, tier);
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean permits(UUID id, String key) {
         if (key.startsWith(CIRCUIT_PREFIX)) return canReconstruct(id, key.substring(CIRCUIT_PREFIX.length()));
         return completed(id, key);
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     private boolean append(UUID id, String field, String value) {
         rejectComputerReentry();
         Set<String> entries = values(id, field);
@@ -487,6 +557,13 @@ public final class Hk3ResearchData extends SavedData {
         rejectComputerReentry();
         var job = jobs.snapshot(scope, topic);
         if (job == null || !payer(scope, job.quote()).equals(player)) return false;
+        if(topic.startsWith("LAB-ERM-")) {
+            for(String stage:java.util.List.of("LAB-ERM-AID","LAB-ERM-BASE")) {
+                var phase=jobs.snapshot(scope,stage);
+                if(phase!=null)refundAndRemove(scope,phase.quote());
+            }
+            if(hasLabBaseline(scope))clearLabBaseline(scope);return true;
+        }
         return refundAndRemove(scope, job.quote());
     }
     private boolean refundAndRemove(UUID scope, Hk3ResearchWorkQueue.Quote q) {
@@ -504,9 +581,15 @@ public final class Hk3ResearchData extends SavedData {
             for (Tag item : items) nextItems.add(item.copy());
         }
         if (!jobs.cancel(scope, q.topic())) return false;
+        if(q.topic().equals("LAB-ERM-BASE"))clearLabBaseline(scope);
         if (nextBalance != null) putPoints(payer, nextBalance);
         if (!nextItems.isEmpty()) refunds.put(payer.toString(), nextItems);
         setDirty(); return true;
+    }
+    private void clearLabBaseline(UUID scope) {
+        var steps=new ListTag();
+        for(String step:values(scope,"LabSteps"))if(!step.equals("ERM_BASELINE_V1"))steps.add(net.minecraft.nbt.StringTag.valueOf(step));
+        var account=account(scope).copy();account.put("LabSteps",steps);accounts.put(scope.toString(),account);setDirty();
     }
     private static ListTag checkedItems(CompoundTag parent, String key) {
         if (!parent.contains(key, Tag.TAG_LIST)) throw new IllegalArgumentException("Missing material receipt");
@@ -558,4 +641,4 @@ public final class Hk3ResearchData extends SavedData {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

@@ -6,11 +6,13 @@ uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
 uniform vec3 TileOrigin;
 out vec3 worldPosition;
+out vec3 tilePosition;
 out vec4 vertexColor;
 out vec2 faceUV;
 void main() {
     gl_Position=ProjMat*ModelViewMat*vec4(Position,1.0);
     worldPosition=Position+TileOrigin;
+    tilePosition=Position;
     vertexColor=Color;
     faceUV=UV0;
 }

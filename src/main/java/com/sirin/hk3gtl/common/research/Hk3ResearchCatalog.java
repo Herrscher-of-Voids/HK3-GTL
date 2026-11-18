@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
 public final class Hk3ResearchCatalog {
     /** 研究所级别1..5，能力窗口0(MAX)..16；前置为全部满足，机器仅关联元数据。 / Lab 1..5, capability 0(MAX)..16; all prerequisites required, machines are metadata. */
     public record Topic(String id, int lab, int tier, List<String> prerequisites) {
@@ -28,7 +27,6 @@ public final class Hk3ResearchCatalog {
 
     private final Map<String, Topic> topics;
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public Hk3ResearchCatalog(List<Topic> definitions) {
         Map<String, Topic> map = new LinkedHashMap<>();
         for (Topic topic : definitions) {
@@ -50,17 +48,14 @@ public final class Hk3ResearchCatalog {
         active.remove(id); complete.add(id);
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public Topic get(String id) { return topics.get(id); }
     public Map<String, Topic> topics() { return topics; }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public boolean prerequisitesMet(String id, Set<String> completed, int lab) {
         Topic topic = get(id);
         return topic != null && lab >= topic.lab() && lab <= 5 && completed.containsAll(topic.prerequisites());
     }
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Hk3ResearchCatalog bundled() { return Holder.INSTANCE; }
     private static final class Holder {
         private static final Hk3ResearchCatalog INSTANCE = load();
@@ -85,4 +80,4 @@ public final class Hk3ResearchCatalog {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

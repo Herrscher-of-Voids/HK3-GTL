@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/** 【变更记录 #1】2026-11-05（修订209）：新增带电风景相册与本人手动关闭回执；不读截图文件，不授研究、物品或截图权限。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3PhoneGallery {
     private static final Hk3PhoneGallerySessions SESSIONS=new Hk3PhoneGallerySessions();

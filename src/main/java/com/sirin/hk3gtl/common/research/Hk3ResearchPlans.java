@@ -1,25 +1,23 @@
 package com.sirin.hk3gtl.common.research;
 
-/**
- * 【文件职责／本轮边界】加载100题实际EU/t及材料敏感度，校验数值，不以目录存在代替执行接线。
- * 【变更记录 #1】2026-09-29 21:06:40（第 1 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：加载100题实际EU/t及材料敏感度，校验数值，不以目录存在代替执行接线。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+ 
 
-/** 【变更记录 · 内测5修订100】2026-09-29：落实已批准研究费用、三公式及离线账户规则。 */
+
+
+
+
+
+
+
+
+ 
 
 import com.google.gson.JsonParser;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 public final class Hk3ResearchPlans {
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public record Material(String tag, long count, double sensitivity) {
         public Material(String tag, long count) { this(tag, count, 1.0); }
         public Material {
@@ -66,4 +64,4 @@ public final class Hk3ResearchPlans {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

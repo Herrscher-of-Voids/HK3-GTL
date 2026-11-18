@@ -26,7 +26,7 @@ public final class Hk3WonderCommissionCommands {
                 var pos=BlockPosArgument.getLoadedBlockPos(c,"controller");
                 var machine=MetaMachine.getMachine(source.getLevel(),pos);
                 if(!(machine instanceof Hk3CommissionMachine)&&!(machine instanceof Hk3W03Machine)){
-                    source.sendFailure(Component.literal("此处不是W01–W03真实主控"));return 0;
+                    source.sendFailure(Component.literal("此处不是已接入的奇观真实主控"));return 0;
                 }
                 var control=(com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine)machine;
                 String action=StringArgumentType.getString(c,"action");

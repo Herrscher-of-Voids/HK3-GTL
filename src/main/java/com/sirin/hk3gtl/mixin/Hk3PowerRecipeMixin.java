@@ -10,12 +10,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * 【文件职责】显式HK高阶工况按同源费用模拟能源，其他tick能力继续走GT原匹配器。
- * 【变更记录 #1】2026-10-17 16:45:15（第1次备注 · 修订165）
- * 删除：只对标记工况绕开旧EU清单long求和；新增：功率/余额守卫与不含EU的其余能力模拟。
- * 修改：原GTL配方立即返回原方法；用途：多个long费用不因溢出被误判为无需能源。
- */
+ 
+
+
+
+
+
 @Mixin(value = GTRecipe.class, remap = false)
 public abstract class Hk3PowerRecipeMixin {
     @Inject(method = "matchTickRecipe", at = @At("HEAD"), cancellable = true, require = 1)

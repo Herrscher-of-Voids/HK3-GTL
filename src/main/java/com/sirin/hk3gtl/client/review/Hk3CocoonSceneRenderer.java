@@ -15,20 +15,18 @@ import net.minecraftforge.client.event.RenderLevelStageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/**
- * 【文件职责】仅在一审独立空间绘制球形终焉之茧，不注册人形实体、不操作世界方块。
- * 【变更记录 #1】2026-10-01 20:00:40（内测5修订146）
- * - 删除：无；新增：球壳、亮核、碎片与光环的场景绘制，读取Hk3CocoonGeometry快照。
- * - 修改：沿用512格房间布局；用途：每场会面的玩家共同看到固定在前上方的茧。
- * - 边界：其他维度不绘制，离开会面自动消失；先画不透明面再画薄光环，不改审查或结算。
- */
-/** 【变更记录 #2】2026-10-01 20:04:51（修订146追加）：删除：小尺度展示假设；新增：200格球体支持；修改：面数上限45000及场景512格距离边界，渲染器临时延长远裁面并还原雾与投影；用途：落实玩家百倍尺度与菱形核心，不让低视距截断球体。 */
+ 
+
+
+
+
+
+
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl", value=Dist.CLIENT)
 public final class Hk3CocoonSceneRenderer {
     private static final ResourceLocation DIMENSION=new ResourceLocation("hk3gtl","cocoon_review");
-    private static final ResourceLocation WHITE=new ResourceLocation("hk3gtl","textures/effect/cocoon_white.png");
-    private static final RenderType SOLID=RenderType.entityCutoutNoCull(WHITE);
-    private static final RenderType GLOW=RenderType.entityTranslucentEmissive(WHITE);
+    private static final RenderType ROCK=RenderType.entityCutoutNoCull(new ResourceLocation("hk3gtl","textures/effect/cocoon_rock.png"));
     private Hk3CocoonSceneRenderer(){}
     @SubscribeEvent public static void render(RenderLevelStageEvent event){
         if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS)return;
@@ -39,13 +37,14 @@ public final class Hk3CocoonSceneRenderer {
         double z=Math.floor(mc.player.getZ()/data.spacing()+.5)*data.spacing()+data.z();
         if(camera.distanceToSqr(x,data.y(),z)>512*512)return;
         float time=(mc.level.getGameTime()%240000+event.getPartialTick())/20f;
+        Hk3CocoonRenderTypes.time(time);
         float wave=(float)Math.sin(time*Math.PI*2/data.period());
         var pose=event.getPoseStack();var buffers=mc.renderBuffers().bufferSource();
         float fogStart=RenderSystem.getShaderFogStart(),fogEnd=RenderSystem.getShaderFogEnd();
         var projection=new Matrix4f(RenderSystem.getProjectionMatrix());var sorting=RenderSystem.getVertexSorting();
         pose.pushPose();
         try{
-            // 茧是远处的200格天体；仅自身绘制临时延长远裁面、移走距离雾，随后完整恢复。
+            // 仅此隔离场景延长远裁面，绘制后恢复世界投影和距离雾。
             if(mc.gameRenderer.getDepthFar()<1024 && Math.abs(projection.m23()+1)<.001f){
                 float near=projection.m32()/(projection.m22()-1),far=1024;
                 RenderSystem.setProjectionMatrix(new Matrix4f(projection).m22(-(far+near)/(far-near)).m32(-2*far*near/(far-near)),sorting);
@@ -53,32 +52,46 @@ public final class Hk3CocoonSceneRenderer {
             RenderSystem.setShaderFogStart(900);RenderSystem.setShaderFogEnd(1024);
             pose.translate(x-camera.x,data.y()+data.bob()*wave-camera.y,z-camera.z);
             pose.mulPose(Axis.YP.rotation(data.yaw()*wave));
-            for(boolean glow:new boolean[]{false,true}){
-                var type=glow?GLOW:SOLID;var consumer=buffers.getBuffer(type);
+            for(int pass=0;pass<3;pass++){
+                var type=pass==0?ROCK:pass==1?Hk3CocoonRenderTypes.LIGHT:Hk3CocoonRenderTypes.GLOW;
+                var consumer=buffers.getBuffer(type);
                 for(var part:data.parts()){
-                    if(part.kind().equals("glow")!=glow)continue;
+                    if((part.rock()?0:part.opacity()<1?2:1)!=pass)continue;
+                    boolean moving=part.group().equals("debris");
                     pose.pushPose();
-                    pose.translate(part.x(),part.y()+part.bob()*Math.sin(time*.55+part.phase()),part.z());
-                    if(part.speed()!=0)pose.mulPose(Axis.YP.rotation(time*part.speed()+part.phase()));
-                    float brightness=part.kind().equals("pulse")?.91f+.09f*wave:1f;
-                    int alpha=glow?(int)(72+18*wave):255;
-                    for(var face:part.faces())draw(consumer,pose.last(),face,brightness,alpha);
+                    double bob=moving?part.bob()*(Math.sin(time*(.19+(part.phase()%1)*.23)+part.phase())+.16*Math.sin(time*.61+part.phase()*1.7)):0;
+                    pose.translate(part.x(),part.y()+bob,part.z());
+                    if(moving&&part.speed()!=0)pose.mulPose(Axis.YP.rotation(time*part.speed()+part.phase()));
+                    float brightness=part.kind().equals("pulse")&&!part.flow()&&!part.soft()?
+                            (float)(.94+.045*Math.sin(time*(part.group().equals("core")?.34:.57)+part.phase())+.015*Math.sin(time*.97+part.phase()*2.1)):1;
+                    int mode=(part.flow()?1:0)+(part.soft()?2:0);
+                    int overlay=(Math.round(part.flowWidth()*100)*4+mode)|(Math.round(part.intensity()*1000)<<16);
+                    int metadata=(Math.round(part.phase()*1000)&65535)|(Math.round(part.speed()*10000)<<16);
+                    for(var face:part.faces())draw(consumer,pose.last(),part,face,brightness,overlay,metadata);
                     pose.popPose();
                 }
                 buffers.endBatch(type);
             }
+            Hk3CocoonAtmosphere.render(pose,buffers,event.getCamera(),time,data.hotspots());
         }finally{
             pose.popPose();RenderSystem.setProjectionMatrix(projection,sorting);
             RenderSystem.setShaderFogStart(fogStart);RenderSystem.setShaderFogEnd(fogEnd);
         }
     }
     /** 原版实体格式为四边形；重复末点准确表达三角面，不产生额外可见面。 */
-    private static void draw(VertexConsumer out,PoseStack.Pose pose,Hk3CocoonGeometry.Face face,float light,int alpha){
+    private static void draw(VertexConsumer out,PoseStack.Pose pose,Hk3CocoonGeometry.Part part,Hk3CocoonGeometry.Face face,float light,int overlay,int metadata){
         for(int i=0;i<4;i++){
-            int p=Math.min(i,2)*3;
+            int vertex=Math.min(i,2),p=vertex*3;
+            float u=face.travel()[vertex],v=face.across()[vertex];
+            if(part.rock()){
+                float x=(float)(face.xyz()[p]+part.x()),y=(float)(face.xyz()[p+1]+part.y()),z=(float)(face.xyz()[p+2]+part.z());
+                if(Math.abs(face.ny())>=Math.max(Math.abs(face.nx()),Math.abs(face.nz()))){u=x/32;v=z/32;}
+                else if(Math.abs(face.nx())>Math.abs(face.nz())){u=z/32;v=y/32;}
+                else{u=x/32;v=y/32;}
+            }
             out.vertex(pose.pose(),face.xyz()[p],face.xyz()[p+1],face.xyz()[p+2])
-                    .color((int)(face.red()*light),(int)(face.green()*light),(int)(face.blue()*light),alpha)
-                    .uv(.5f,.5f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT)
+                    .color((int)(face.red()*light),(int)(face.green()*light),(int)(face.blue()*light),Math.round(part.opacity()*255))
+                    .uv(u,v).overlayCoords(part.rock()?OverlayTexture.NO_OVERLAY:overlay).uv2(part.rock()?LightTexture.FULL_BRIGHT:metadata)
                     .normal(pose.normal(),face.nx(),face.ny(),face.nz()).endVertex();
         }
     }

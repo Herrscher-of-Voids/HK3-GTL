@@ -12,8 +12,8 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 06:05:54（修订128）：删除无；新增服务端连续位移、楼梯/梯子往返、探洞返回、森林夜行和高台安全检查；修改无；用途：瞬移、死亡和离线不累计位移，不强载区块，不变更世界。 */
-/** 【变更记录 #2】2026-10-01 06:09:22（修订128）：删除：无；新增/修改：修正放置箱子后中心碰撞自锁，20块梯子的端点跨度，夜行不跨白天累计；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggTravel {
     private Hk3EggTravel(){}
     public static boolean home(ServerPlayer p,int radius){var at=p.getRespawnPosition();return at!=null&&p.getRespawnDimension().equals(p.level().dimension())&&p.position().distanceToSqr(Vec3.atCenterOf(at))<=radius*radius;}

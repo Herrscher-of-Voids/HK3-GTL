@@ -11,12 +11,10 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
 @Mod.EventBusSubscriber(modid = "hk3gtl", bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3ContentRegistryAudit {
     private Hk3ContentRegistryAudit() {}
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @SubscribeEvent
     public static void onServerStarted(ServerStartedEvent event) {
         String path = "/data/hk3gtl/catalog/industrial_content.json";
@@ -46,4 +44,4 @@ public final class Hk3ContentRegistryAudit {
     }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

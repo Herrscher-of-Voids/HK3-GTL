@@ -1,16 +1,14 @@
 package com.sirin.hk3gtl.common.gui;
 
+ 
 
 
-/**
- * 【文件职责／本轮边界】显示取消、领取和独立实验入口；按实际供电档位展示电流，新增区域沿用缩放逻辑。
- * 【变更记录 #2】2026-09-29 21:06:40（第 2 次编号备注 · 内测5修订100）
- * 删除：取消已被批准规则替代的研究个人独占、旧数值或在线限定分支；历史备注与其他系统保留。
- * 新增／修改：显示取消、领取和独立实验入口；按实际供电档位展示电流，新增区域沿用缩放逻辑。
- * 用途：接通实际证据→付款→研究完成与权限检查；不授予缺真实证据的课题。
- * 边界：编译和账本测试不代表游戏验收；S02至S05正式结构及未接线课题仍未完成。
- * 追溯：logs/research-mainline-r100；R100_FINAL_RECORD。
- */
+
+
+
+
+
+
 
 import com.lowdragmc.lowdraglib.gui.widget.Widget;
 import net.minecraft.client.Minecraft;
@@ -28,29 +26,27 @@ import java.util.Locale;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #1】2026-09-26 21:56:00（第 1 次备注 · 内测5修订75）
- * 删除：功率行直接堆叠完整EU数值和无参数的研究所不足提示。
- * 新增：安培电压摘要、完整功率悬停提示及所需研究所阶级参数。
- * 修改：保留原交互坐标和支付方式，由语言文件显示“开始研究”。
- * 用途：让高电压研究信息可读，完整用电量在提示中保留；不改变服务器扣能。
- */
-/**
- * 【变更记录 #3】2026-09-29 23:37:35（内测5修订101）
- * 删除：本轮被替代的单前置或旧提示分支；其余历史保留。
- * 新增／修改：展示经批准的证据来源与成功要求，区分未完成实验和未付款研究。
- * 用途：补足研究接线并如实保留未接物理执行器及结构审批边界。
- * 追溯：logs/research-mainline-r101；R101_FINAL_RECORD。
- */
-/**
- * 【变更记录 #4】2026-09-30 03:24:34（内测5修订108）
- * 删除：无。新增：批准色卡接线及版本追溯。
- * 修改：研究终端功率说明使用Component精确电压色，保留宽度限制。
- * 用途：正确显示与核验，不修改研究逻辑。
- */
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
 public final class Hk3ResearchTerminalWidget extends Widget {
     /** 修订100 · 2026-09-29：增加原付款人取消与待领取材料入口，原有布局保留。 */
     public static final int WIDTH = 520, HEIGHT = 350;
@@ -63,7 +59,6 @@ public final class Hk3ResearchTerminalWidget extends Widget {
     private boolean searchFocus;
     private int draggingBar, detailLineCount;
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public Hk3ResearchTerminalWidget(Supplier<CompoundTag> source, Consumer<String> action) {
         super(0,0,WIDTH,HEIGHT); this.source=source; this.action=action;
     }
@@ -83,17 +78,14 @@ public final class Hk3ResearchTerminalWidget extends Widget {
         if (!next.getString("selected").equals(state.getString("selected"))) detailOffset=0;
         state=next;
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Override public void handleClientAction(int id, FriendlyByteBuf buf) {
         if (id==51) { action.accept(buf.readUtf(96)); ticks=9; }
         else super.handleClientAction(id,buf);
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @OnlyIn(Dist.CLIENT) private Hk3GuiFit fit() {
         var window=Minecraft.getInstance().getWindow();
         return Hk3GuiFit.centered(Math.max(1,window.getGuiScaledWidth()),Math.max(1,window.getGuiScaledHeight()),WIDTH,HEIGHT,8);
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Override @OnlyIn(Dist.CLIENT) public boolean isMouseOverElement(double x,double y) {
         return fit().contains(x,y,WIDTH,HEIGHT);
     }
@@ -123,7 +115,6 @@ public final class Hk3ResearchTerminalWidget extends Widget {
     @OnlyIn(Dist.CLIENT) private void panel(GuiGraphics g,int x,int y,int w,int h,int edge,int fill) {
         g.fill(x,y,x+w,y+h,edge); g.fill(x+1,y+1,x+w-1,y+h-1,fill);
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Override @OnlyIn(Dist.CLIENT) public void drawInBackground(GuiGraphics g,int mouseX,int mouseY,float partial) {
         g.pose().pushPose(); var fit=fit(); g.pose().translate(fit.left(),fit.top(),0);
         g.pose().scale((float)fit.scale(),(float)fit.scale(),1);
@@ -141,7 +132,6 @@ public final class Hk3ResearchTerminalWidget extends Widget {
             int fill=selected?0xff254675:status==0?0xff452838:status==1?0xff594a2d:status==2?0xff342b53:0xff203f3d;
             panel(g,7,y,143,26,edge,fill); g.fill(8,y+1,10,y+25,edge);
             // 斜切电路线为原创几何装饰，颜色同时配合文字，不仅依赖色觉。
-            // 中文备注：该处说明已按当前代码行为整理。
             for(int k=0;k<12;k++) g.fill(128+k,y+23-k,130+k,y+24-k,edge & 0x33ffffff | 0x33000000);
             ItemStack icon=ItemStack.of(r.getCompound("icon")); g.renderItem(icon,13,y+5);
             text(g,name(r.getString("id")),34,y+4,WHITE,110);
@@ -150,6 +140,11 @@ public final class Hk3ResearchTerminalWidget extends Widget {
         if(rows.isEmpty()) text(g,ui("empty"),13,64,MUTED,137);
         scrollbar(g,152,56,222,rows.size(),8,listOffset);
         text(g,(rows.isEmpty()?0:listOffset+1)+"–"+Math.min(rows.size(),listOffset+8)+" / "+rows.size(),12,285,MUTED,142);
+        panel(g,7,299,149,20,0xff40536e,0xff080e18);
+        String ermState=state.getString("ermState");
+        text(g,ermState.isEmpty()?ui("waiting"):ui("erm."+ermState),13,305,CYAN,137);
+        button(g,7,325,72,state.getBoolean("ermInstalled")?"erm.remove":"erm.install",canChangeErmModule());
+        button(g,84,325,72,state.getBoolean("ermEnabled")?"erm.disable":"erm.enable",canToggleErmModule());
         panel(g,162,33,351,172,0xff40536e,0xff080e18);
         String selected=state.getString("selected");
         text(g,name(selected),170,40,WHITE,230);
@@ -197,9 +192,22 @@ public final class Hk3ResearchTerminalWidget extends Widget {
     }
     @OnlyIn(Dist.CLIENT) private List<Component> description() {
         List<Component> result=new ArrayList<>();
+        result.add(Component.translatable("hk3gtl.research.terminal.w13.status",
+                Component.translatable("hk3gtl.research.terminal.w13."+state.getString("w13State"))));
+        result.add(Component.translatable("hk3gtl.research.terminal.w13.cost"));
         String selected=state.getString("selected");
         if(selected.equals("RN-ALE") || selected.equals("RN-ERM") || selected.equals("RN-OPR"))
             result.add(Component.translatable("hk3gtl.research.terminal.experiment."+selected.substring(3).toLowerCase(Locale.ROOT)));
+        if(selected.equals("RN-ERM")) result.add(Component.translatable("hk3gtl.research.terminal.erm.hint"));
+        if(selected.equals("RN-RCA")) {
+            result.add(Component.translatable("hk3gtl.research.terminal.circuit.hint"));
+            for (var raw : state.getList("circuits",10)) {
+                var row=(CompoundTag)raw;
+                result.add(Component.translatable("hk3gtl.research.terminal.circuit.status",
+                        row.getString("tier").toUpperCase(Locale.ROOT),
+                        ui(row.getBoolean("technology")?"yes":"no"),ui(row.getBoolean("analysis")?"yes":"no")));
+            }
+        }
         result.add(Component.literal(ui("story")).withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
         result.add(Component.literal(state.getString("story")));
         result.add(Component.literal(""));
@@ -239,6 +247,12 @@ public final class Hk3ResearchTerminalWidget extends Widget {
         panel(g,x,y,w,20,enabled?0xff8771b4:0xff344159,enabled?0xff2a2343:0xff151c29);
         text(g,ui(key),x+5,y+6,enabled?WHITE:MUTED,w-10);
     }
+    @OnlyIn(Dist.CLIENT) private boolean canChangeErmModule() {
+        return state.getBoolean("authorized") && (state.getBoolean("ermInstalled") || state.getBoolean("ermAllowed"));
+    }
+    @OnlyIn(Dist.CLIENT) private boolean canToggleErmModule() {
+        return state.getBoolean("authorized") && state.getBoolean("ermAllowed") && state.getBoolean("ermInstalled");
+    }
     @OnlyIn(Dist.CLIENT) private void scrollbar(GuiGraphics g,int x,int y,int h,int count,int visible,int offset) {
         g.fill(x,y,x+3,y+h,0xff24314a);
         int thumb=count<=visible?h:Math.max(12,h*visible/count);
@@ -247,6 +261,11 @@ public final class Hk3ResearchTerminalWidget extends Widget {
     }
     @Override @OnlyIn(Dist.CLIENT) public void drawInForeground(GuiGraphics g,int mx,int my,float partial) {
         int x=(int)Math.floor(fit().x(mx)),y=(int)Math.floor(fit().y(my));
+        if(x>=7 && x<156 && y>=299 && y<345) {
+            g.renderTooltip(Minecraft.getInstance().font,
+                    Minecraft.getInstance().font.split(Component.translatable("hk3gtl.research.terminal.erm.hint"),300),mx,my);
+            return;
+        }
         if(x>=170 && x<505 && y>=175 && y<187) {
             g.renderComponentTooltip(Minecraft.getInstance().font,List.of(
                     Component.translatable("hk3gtl.research.terminal.powerExact",
@@ -274,7 +293,6 @@ public final class Hk3ResearchTerminalWidget extends Widget {
             g.renderComponentTooltip(Minecraft.getInstance().font,List.of(stack.isEmpty()?Component.translatable("hk3gtl.research.lab.unavailable_material"):stack.getHoverName(),Component.literal(ui("quantity",m.getLong("available"),m.getLong("count"))),Component.literal(m.getString("tag"))),mx,my);
         }
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @Override @OnlyIn(Dist.CLIENT) public boolean mouseClicked(double mx,double my,int button) {
         if(!isMouseOverElement(mx,my)) return false;
         int x=(int)Math.floor(fit().x(mx)),y=(int)Math.floor(fit().y(my));
@@ -285,6 +303,10 @@ public final class Hk3ResearchTerminalWidget extends Widget {
         if(x>=7 && x<150 && y>=56 && y<280) {
             var rows=filtered(); int index=listOffset+(y-56)/28;
             if(index<rows.size()) send("select:"+rows.get(index).getString("id"));
+        }
+        if(y>=325 && y<345) {
+            if(x>=7 && x<79 && canChangeErmModule()) send(state.getBoolean("ermInstalled")?"erm_remove":"erm_install");
+            else if(x>=84 && x<156 && canToggleErmModule()) send("erm_toggle");
         }
         if(y>=273 && y<293) {
             if(x>=162 && x<272 && state.getBoolean("authorized")) send("points");
@@ -298,7 +320,6 @@ public final class Hk3ResearchTerminalWidget extends Widget {
         if(y>=325 && y<345 && x>=162 && x<331 && state.getBoolean("canExperiment"))send("experiment");
         return true;
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     @OnlyIn(Dist.CLIENT) private void dragScroll(double y) {
         double ratio=Math.max(0,Math.min(1,(y-(draggingBar==1?56:57))/(draggingBar==1?222.0:99.0)));
         if(draggingBar==1) listOffset=(int)Math.round(ratio*Math.max(0,filtered().size()-8));

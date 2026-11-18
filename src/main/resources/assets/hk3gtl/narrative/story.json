@@ -1,0 +1,1154 @@
+{
+  "nodes": [
+    {
+      "id": "academy_accidental",
+      "title": "接错的一次通信",
+      "speaker": "琪亚娜·卡斯兰娜",
+      "requires": [
+        "first_contact_received"
+      ],
+      "body": "手机里忽然传来一声抱怨：“又没接上？布洛妮娅，你确定是这个吗？”\n\n你回答以后，另一端安静下来。白发少女把终端举近，问你为什么会在一个陌生的厂房里。\n\n你们核对过地址，发现这次连接穿过了两个世界。她叫琪亚娜，现在还在圣芙蕾雅学园读书。你介绍自己的工厂，她立刻问起那里有没有食堂。\n\n这条私人线路来自一次偶然的通信重叠。双方保留这次窗口的记录，下一次能接通时，就从今天没讲完的话继续。",
+      "choices": [
+        {
+          "id": "introduce",
+          "label": "先介绍一下我这里吧。",
+          "reply": "琪亚娜先听你讲了一遍机器的声音，随后说起自己的宿舍。她听不懂所有工艺名词，却记住了你指给她看的那盏灯。",
+          "defer": false,
+          "memories": [
+            {
+              "fact": "story_kiana_future",
+              "reply": "你认得月面通信里的声音。眼前的琪亚娜却刚认识你，也不记得那些往来。你改从自己的名字讲起，把她还没有经历的相识留给以后。"
+            }
+          ]
+        },
+        {
+          "id": "food",
+          "label": "食堂还没有，吃的倒是能准备。",
+          "reply": "“那等你介绍完工厂，也介绍一下吃的。”她把这件事记得比机器的名字还牢。",
+          "defer": false,
+          "memories": [
+            {
+              "fact": "story_kiana_future",
+              "reply": "月面上的她曾问过工厂食堂是否建好。此时这句话才第一次从年少的她口中说出来。你记下这次通信，没有把未来的答案塞给现在的她。"
+            }
+          ]
+        }
+      ],
+      "source": "main-01",
+      "window": "academy",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "academy_daily",
+      "title": "两边的晚饭",
+      "speaker": "琪亚娜·卡斯兰娜",
+      "requires": [
+        "story_academy_accidental"
+      ],
+      "body": "上次的私人窗口又连通了。琪亚娜讲起训练后的晚饭，你讲起一条改了又改的管线。\n\n“你们真的会为一根管子忙这么久？”\n\n你让她看看那段管线把什么送到了哪里。她这才发现，你说的这些零件，最后连着厂房里的灯和一顿能按时吃上的饭。\n\n她也有要回去完成的作业。你们约好，下次各自讲一件今天最想吐槽的事。",
+      "choices": [
+        {
+          "id": "daily",
+          "label": "那我先记着今天这根管子。",
+          "reply": "琪亚娜笑了起来，说自己的作业可能会占掉下一次通信的前半段。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "main-01",
+      "window": "academy",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "academy_friends",
+      "title": "镜头里的新朋友",
+      "speaker": "琪亚娜、雷电芽衣、布洛妮娅",
+      "requires": [
+        "story_academy_daily"
+      ],
+      "body": "琪亚娜把芽衣和布洛妮娅介绍给你。\n\n芽衣先问你平时是否按时吃饭，布洛妮娅则认真看了看几条产线怎样交换物资。你说起鱼大的方案时，也说明哪些还只是图纸。\n\n你们聊过各自世界的小事。有人急着插话，有人把先前没听懂的问题重新问了一遍。这次通信结束时，你认识了几位有自己生活的朋友。",
+      "choices": [
+        {
+          "id": "friends",
+          "label": "下次给你们看看最近做好的东西。",
+          "reply": "芽衣答应等大家都有空再一起看。布洛妮娅让你保留这次提到的几个问题，琪亚娜补上一句：也别忘了吃的。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "main-01",
+      "window": "academy",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "academy_staff",
+      "title": "学园长接过终端",
+      "speaker": "无量塔姬子、德丽莎·阿波卡利斯",
+      "requires": [
+        "story_academy_friends"
+      ],
+      "body": "先认识的是姬子。她听过几个学生提起你，接过终端时，问的却是这条通信会不会影响她们上课。\n\n后来，德丽莎也来到镜头前。她已经听琪亚娜讲过不少工厂里的事，这次才与你正式交换姓名与联络方式。\n\n学园的正式往来可以另行商量。你们私下认识的这段经历，也保留在各自的通信里。德丽莎允许你在双方有空时，继续讲那些还没讲完的日常。",
+      "choices": [
+        {
+          "id": "introduce",
+          "label": "以后也请多关照，学园长。",
+          "reply": "“先别把每次问候都写成报告。”德丽莎把正式联络地址发给你。姬子看了一眼时间，把几个还围在终端旁边的学生叫回课堂。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "main-01",
+      "window": "academy",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": [
+        "contact_st_freya"
+      ]
+    },
+    {
+      "id": "fish_awake",
+      "title": "窗外那一排灯",
+      "speaker": "鱼大",
+      "requires": [
+        "fishbig_activated"
+      ],
+      "source": "main-02",
+      "body": "“窗外那一排灯，也是你做的吗？”\n\n鱼大的声音从人偶里传来。你为它准备过许多问题，它却先问起沿厂区亮起的灯。\n\n“能听清吗？”\n\n“能。你刚才已经问过三遍了。”\n\n你在它旁边坐下。这次，终于可以由它自己回答。",
+      "choices": [
+        {
+          "id": "welcome",
+          "label": "欢迎。先带你认识工厂。",
+          "reply": "“那就走吧。我想知道，那一排灯通到哪里。”",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "fish_daily",
+      "title": "这里为什么要绕一圈",
+      "speaker": "鱼大",
+      "requires": [
+        "story_fish_awake"
+      ],
+      "source": "main-02",
+      "body": "“这段为什么要绕这么远？”\n\n你给鱼大讲起建厂时的安排。那时先有机器，后来才添管线，有些旧设备仍留在原处。它听完，直说现在可以改得更方便。\n\n你们翻出早年的蓝图。创造罐、创造箱各占一边，两项都还没划掉。\n\n“所以，这就算走完了？”\n\n“还早呢。”",
+      "choices": [
+        {
+          "id": "old_plan",
+          "label": "先看看以前怎么想的。",
+          "reply": "鱼大把旧蓝图留在旁边：“这些也别丢。以后再回来看看，应该挺有意思。”",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "new_route",
+          "label": "这段管线确实该改了。",
+          "reply": "“我记下了。”鱼大看向你，“什么时候动手，你来决定。”",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "fish_starmap",
+      "title": "旧记录里的远方",
+      "speaker": "鱼大",
+      "requires": [
+        "story_fish_daily"
+      ],
+      "source": "main-02",
+      "body": "“这个先看看。我整理观测记录的时候，发现几处读数一直不对。”\n\n鱼大把几份旧资料放在一起。过去分开保存的异常，指向星图上相近的位置。你们补齐观测，又查过已有航线，那些遥远的目标仍然抵达不了。\n\n你把星图挪到本世界已有的空间研究旁边。\n\n“得另想办法。”\n\n讨论留下一个方向：在基地造一扇门。",
+      "choices": [
+        {
+          "id": "keep_observing",
+          "label": "把原始观测和推导都留下。",
+          "reply": "“好。星图上的位置先留着，能不能到，由我们接着去确认。”",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "stargate_arrival",
+      "title": "门的另一边",
+      "speaker": "鱼大",
+      "requires": [
+        "story_fish_starmap",
+        "stargate_departed"
+      ],
+      "source": "main-03",
+      "body": "“到了？”\n\n手机里传来鱼大的声音。它的人偶仍在基地，你已经站在星门另一端。陌生的天色与地形就在眼前，熟悉的厂房留在了门后。\n\n“到了。”\n\n“那就先告诉我，你眼前是什么样子。基地这一端已经记下来了。”",
+      "choices": [
+        {
+          "id": "describe",
+          "label": "我先从脚下和来路说起。",
+          "reply": "“我听着。哪些地方亲眼看过，哪些还只是猜测，我们分开记。”",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "look_sky",
+          "label": "这里的天空，和基地不一样。",
+          "reply": "“慢慢讲，我把这段放在行程开头。回来的路也记得看。”",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "kiana_future",
+      "title": "来自月面的另一个窗口",
+      "speaker": "琪亚娜·卡斯兰娜",
+      "requires": [
+        "stargate_departed"
+      ],
+      "body": "通信接到月面的一间房里。对面的白发少女已经长大，介绍自己叫琪亚娜·卡斯兰娜。\n\n她认得你的名字，还记得一段有关晚饭和工厂管线的闲聊。你翻查记录，发现两端的日期并不对应。\n\n“我们第一次接通的时候，我还在学园。”她说，“对我来说，那已经是很久以前的事了。”\n\n贝拉在树海外摇动的尾巴，仍让不同世界的时间发生扰动。同一条人生的几个时期，可能以交错的顺序与你连通；每个窗口内部经历过的事情，仍会继续向前。",
+      "choices": [
+        {
+          "id": "memory",
+          "label": "你还记得我们最早聊的那些小事吗？",
+          "reply": "“你说有根管子特别难改。”她讲起当年的晚饭，又问起那盏灯后来有没有换过。你还没有经历过她记得的那次交谈，先把这些话留在这次记录里。",
+          "defer": false,
+          "memories": [
+            {
+              "fact": "story_academy_daily",
+              "reply": "“那根管子后来怎样了？”她记得学园时期听过的抱怨。你接上当时没讲完的事，发现同一段闲聊已经陪她走过了很长的人生。"
+            }
+          ]
+        },
+        {
+          "id": "window",
+          "label": "先分别保存这两个时期的地址吧。",
+          "reply": "你保存月面窗口。她说自己记得年少时与你相识，但你这边尚未接通那一段人生。下次遇见过去的她时，要从她当时知道的事情聊起。",
+          "defer": false,
+          "memories": [
+            {
+              "fact": "story_academy_accidental",
+              "reply": "学园和月面分别留有自己的通信记录。月面上的她记得年少时的初识，学园里的她仍只知道当时已经发生的那些事。"
+            }
+          ]
+        }
+      ],
+      "source": "main-01-time",
+      "window": "moon",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "stargate_home",
+      "title": "星图上的一个点",
+      "speaker": "鱼大",
+      "requires": [
+        "story_stargate_arrival",
+        "stargate_returned"
+      ],
+      "source": "main-03",
+      "body": "“回来了。先坐下，手机也该接上电了。”\n\n鱼大把这次行程与原来的观测并排放好。它的人偶一直留在基地，门外的路由你亲自走过，通话把两端连在一起。\n\n“星图上的这个点，现在有了你亲眼见过的样子。还有没说清的地方，我们可以慢慢补。”",
+      "choices": [
+        {
+          "id": "complete_notes",
+          "label": "我把途中没说清的地方补上。",
+          "reply": "“好。我会把相近的记录放在一起。该去哪一处再看，还是你来决定。”",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "antientropy_greeting",
+      "title": "两位博士的第一封信",
+      "speaker": "爱因斯坦与特斯拉",
+      "requires": [
+        "story_stargate_home"
+      ],
+      "source": "oa-antientropy",
+      "body": "爱因斯坦：逆熵通过独立观测确认了你们的存在，希望交流一些双方愿意公开的研究。我们对你们的工业与自动化技术很感兴趣。\n\n特斯拉：\n\n“观测里有一段物资调度，我们还没弄清楚。几条产线同时改变了工作内容，操作者似乎只下达过一次指令。能否给我们看一下操作过程？可以公开的部分就行。”\n\n爱因斯坦：我们也有自己的研究要继续，交流可以约时间逐项进行。下次，也该由你们提出想讨论的问题。",
+      "choices": [
+        {
+          "id": "exchange",
+          "label": "可以。先从双方愿意公开的部分谈。",
+          "reply": "爱因斯坦：“那就先约一次有限的交流，各自准备能够说明的问题。”\n\n特斯拉：“还有，刚从星门回来，返程和基地联络都没出问题吧？”",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "later",
+          "label": "资料先留下，等彼此方便再约。",
+          "reply": "爱因斯坦：“当然。我们会保留这次联络，等双方安排好时间再继续。”",
+          "defer": true,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "onComplete": [
+        "contact_anti_entropy"
+      ],
+      "window": "",
+      "onDelivery": []
+    },
+    {
+      "id": "academy_future_question",
+      "title": "说不完整的提醒",
+      "speaker": "琪亚娜·卡斯兰娜",
+      "requires": [
+        "story_academy_staff",
+        "story_kiana_future"
+      ],
+      "body": "学园时期的窗口再次连通。琪亚娜还在为眼前的训练和作业犯愁。\n\n你已经认识月面上的她，也知道有些经历在她这一端尚未发生。你试着把一条关键提醒说出口，通信里却出现了连续的杂音，记录中那一段也无法还原。\n\n你们重新核对时，她只听见了你的担心。关于未来重大事件的信息，无法完整传到这一端。",
+      "choices": [
+        {
+          "id": "today",
+          "label": "先说你今天遇到的事情吧。",
+          "reply": "她没有得到一份来自未来的答案。你听她把今天的麻烦讲完，约好下次再聊。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "try",
+          "label": "我再试着把那条提醒发过去。",
+          "reply": "关键内容仍被扰动打断。你保留失败的通信记录，琪亚娜则让你先别着急：“你至少可以告诉我，你现在还好吗？”",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "main-01-time",
+      "window": "academy",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "otto_portrait",
+      "title": "他没有写在首信里的事",
+      "speaker": "通信回顾：奥托",
+      "requires": [
+        "story_antientropy_greeting",
+        "story_academy_staff",
+        "otto_accepted"
+      ],
+      "source": "oa-otto-portrait",
+      "body": "合作使你想进一步了解奥托。特斯拉谈起她与天命决裂的往事，德丽莎则告诉你卡莲的名字。她们的评价各不相同，也没有替你抹去亲自经历的往来。\n\n你将问题放到奥托面前：“你希望我们的技术帮你复活卡莲，对吗？”\n\n“对。”\n\n“你第一次来信时没提。”\n\n“那时我还不知道，你们能给出怎样的答案。”\n\n他平静承认有所隐瞒，并询问你们是否愿意继续。",
+      "choices": [
+        {
+          "id": "limits",
+          "label": "先把你尝试过、失败过的事说清。",
+          "reply": "奥托：“我明白。只要你们愿意继续，我可以从头说明。”",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "consider",
+          "label": "我会重新考虑这段合作。",
+          "reply": "奥托接受你暂缓答复。共同研究是否继续，仍由你们自己决定；正式结束合作，可以通过奥托与研究往来发送团队回信。",
+          "defer": true,
+          "memories": []
+        }
+      ],
+      "route": "ACCEPTED",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "otto_limits",
+      "title": "没有找到的答案",
+      "speaker": "通信回顾：奥托",
+      "requires": [
+        "story_otto_portrait"
+      ],
+      "source": "oa-limits",
+      "body": "“我想救回的是她。”\n\n奥托要救回卡莲本人。相似的躯体、可以复制的信息，都无法满足他的要求。你们沿着现有技术逐项研究，逐渐确认自己的文明同样不了解灵魂。\n\n报告最后写着：我们没有找到复活卡莲的方法。\n\n你没有加上一句无法兑现的安慰。奥托看过以后，确认这项研究先停下，并向你们道谢。下一次联系，他仍来讨论那套新工艺。",
+      "choices": [
+        {
+          "id": "honest",
+          "label": "能做到的写清，做不到的也写清。",
+          "reply": "奥托：“你已经把知道的都写在这里了。谢谢你们。”",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "respect",
+          "label": "这项研究停下，其他往来照原约定。",
+          "reply": "奥托接受了你们愿意投入的部分。未回答的问题留在下一封信里，双方仍各自继续自己的研究。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "ACCEPTED",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "grey_contact",
+      "title": "没有署名的联系人",
+      "speaker": "身份不明的联系人",
+      "requires": [
+        "story_antientropy_greeting"
+      ],
+      "source": "se-01",
+      "body": "来信没有署名。对方询问：假如主要能源系统停转，你们还能保留多少生产与恢复能力？\n\n你要求对方先说明资料的用途。他只回答，自己正在了解一个陌生文明能否独立维持生活。\n\n你没有交出设备位置与完整图纸，只说明了愿意公开的原则。对方接受这个范围，随后留下了下一次联络的方式。",
+      "choices": [
+        {
+          "id": "boundary",
+          "label": "资料能谈，迁入必须由我们同意。",
+          "reply": "对方确认，跨世界迁入和资料使用都需要另行取得同意。这次没有人员来到玩家世界。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "purpose",
+          "label": "每份资料的用途，请先说清。",
+          "reply": "你们先核对公开资料的用途。对方没有得到完整布局，下一次问题也必须沿这次约定继续。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "grey_followup",
+      "title": "他在寻找怎样的地方",
+      "speaker": "身份不明的联系人",
+      "requires": [
+        "story_grey_contact"
+      ],
+      "body": "对方接连问过生活资料、能源中断和人口承载。几次通信以后，你把问题放到一起。\n\n“你想知道的，已经不只是机器能否运转了。”\n\n对方没有否认。你问他是否在寻找另一处能够继续生活的世界。\n\n“我在评估一种退路。”\n\n你请他先说明，自己代表谁。这次，他答应在下一次正式通信里给出名字。",
+      "choices": [
+        {
+          "id": "identity",
+          "label": "先把身份和目的说清，再谈下一步。",
+          "reply": "他接受这个顺序。你们保留此前的公开往来，新的资料暂不发送。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-grey",
+      "window": "",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "grey_identity",
+      "title": "落款：灰蛇",
+      "speaker": "灰蛇",
+      "requires": [
+        "story_grey_followup"
+      ],
+      "body": "这封来信终于有了落款：灰蛇，世界蛇。\n\n他说明，最初关注玩家世界，是想判断这里能否成为文明延续的另一处空间。独立发展的工业和自动化技术，是评估中的一部分。\n\n你让他记住，这个世界已经生活着自己的文明。任何迁入、合作和资料交换，都要由双方另行商谈。\n\n世界蛇的正式联络地址随信附上。你现在知道了来信的人，也有了继续追问他的机会。",
+      "choices": [
+        {
+          "id": "boundary",
+          "label": "我们愿意交谈，先保留已经说清的边界。",
+          "reply": "灰蛇确认收到。匿名往来留在原来的记录里，后续通信开始使用他的名字。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-grey",
+      "window": "",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": [
+        "contact_world_serpent"
+      ]
+    },
+    {
+      "id": "elysia_tank",
+      "title": "爱莉希雅的第一封信",
+      "speaker": "爱莉希雅",
+      "requires": [
+        "creative_tank_completed"
+      ],
+      "source": "se-04",
+      "body": "你好呀。我是爱莉希雅。\n\n本来想给第一次见面选个漂亮一点的开场，可你现在大概顾不上欣赏它。\n\n创造罐的无限输出被封住了。无限输出会扰乱世界稳定，限制的理由就是这个。\n\n你大概已经想好了，拿它来做些什么。读到这里，恐怕有很多话想说了吧？\n\n那就写给我。我在这里，会看完的。\n\n爱莉希雅",
+      "choices": [
+        {
+          "id": "angry",
+          "label": "为什么等做完了才告诉我？",
+          "reply": "“你最先打算把它接到哪里？”\n\n爱莉希雅没有催你消气。她听你讲被打乱的安排，答应等你愿意的时候再继续聊。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "ask",
+          "label": "我想先弄清楚限制的原因。",
+          "reply": "“无限输出会扰乱世界稳定。”\n\n她没有让你把疑问收起来，也没有许诺会解除限制。你可以继续追问，也可以先处理自己的供应安排。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "reserved",
+          "label": "收到。我需要先处理眼前的事。",
+          "reply": "“那今天先到这里。等你方便，我还想听听你准备怎么安排。”\n\n她尊重你暂时结束这次交流的决定。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "elysia_daily",
+      "title": "今天想聊些什么",
+      "speaker": "爱莉希雅",
+      "requires": [
+        "story_elysia_tank"
+      ],
+      "source": "se-04",
+      "body": "“今天愿意聊一会儿吗？我一直想看看你介绍过的工厂。”\n\n封禁后的第一次谈话，没有让你们立刻熟悉。过了一阵，爱莉希雅又来问候，先询问你愿不愿意回应。\n\n你将镜头转向创造罐。她笑着说，看来自己得在你的记录里，很长一段时间都和它待在一起。\n\n“想看哪边？”\n\n“先让我看看你。你刚才说了这么久，我还没好好打过招呼呢。”",
+      "choices": [
+        {
+          "id": "daily",
+          "label": "那就从今天工厂里的一件小事讲起。",
+          "reply": "“好呀，这次不赶着谈工程结果。你想从哪里讲，我就从哪里听。”",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "not_now",
+          "label": "今天先记着，下次再好好聊。",
+          "reply": "“好呀，等你愿意的时候再叫我。”这次问候留在这里，后面的日常等你再次回应才继续。",
+          "defer": true,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "first_review_after",
+      "title": "那只是第一审",
+      "speaker": "鱼大与一审记录",
+      "requires": [
+        "first_review_completed"
+      ],
+      "source": "main-09",
+      "body": "你已经回到自己的文明。刚才的工业生产触及了进入一审的条件，终焉之茧随即将你自动召入它所在的维度。\n\n三问与知识授予结束以后，茧才告诉你：刚才度过的是第一审。此后还有二审，最后会面对决定文明存续资格的终审。\n\n此前的生产记录里，没有一份提前开考的通知。直到回来，你才有机会把发生过的事情从头写下。\n\n鱼大听你讲完整个过程。“我也是这个文明的一员。”它说，“接下来，我们一起想。”",
+      "choices": [
+        {
+          "id": "recount",
+          "label": "我先把茧实际说过的话讲清。",
+          "reply": "“好。它说过的、你自己的理解，还有我们暂时不知道的，分开留在记录里。”",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "sit",
+          "label": "让我先坐一会儿，再慢慢讲。",
+          "reply": "“我在这里。”鱼大留出一段安静，“等你准备好，再从头说。”",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "kiana_future_return",
+      "title": "她记得的那次通信",
+      "speaker": "琪亚娜·卡斯兰娜",
+      "requires": [
+        "story_kiana_future",
+        "first_review_completed"
+      ],
+      "body": "你再次接入月面。琪亚娜先问起你最近过得怎样，再听你介绍自己的研究。\n\n两端的时间仍然错开。你们只能沿已经建立的窗口继续交谈，各自世界正在发生的事情，由各自面对。她不会替玩家文明回答审判的问题。",
+      "choices": [
+        {
+          "id": "recall",
+          "label": "你记得那次说不清楚的提醒吗？",
+          "reply": "她记得年轻时收到过一次被杂音打断的担心。你这边尚未经历那次发送，于是把她的回答单独留在月面记录里。",
+          "defer": false,
+          "memories": [
+            {
+              "fact": "story_academy_future_question",
+              "reply": "她记得学园里那次听不完整的提醒，也记得你后来改口询问她当天的生活。你已经经历过那次通信，终于能把两份记录并排放好。"
+            }
+          ]
+        },
+        {
+          "id": "daily",
+          "label": "今天先讲一件工厂里的小事。",
+          "reply": "琪亚娜听你讲完，接着说起自己今天遇到的事。她与审判玩家文明的那位终焉之律者琪亚娜，各有自己的身份和经历。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "main-01-time",
+      "window": "moon",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "grey_reassessment",
+      "title": "这条退路，也会遇见终焉",
+      "speaker": "灰蛇",
+      "requires": [
+        "story_grey_identity",
+        "story_first_review_after"
+      ],
+      "source": "se-02",
+      "body": "你把能够公开的一审情况告诉灰蛇：玩家世界同样要面对终焉与审判。\n\n“先前关于大规模迁入的调查，将停止沿原方向推进。”\n\n他解释，这里同样需要争取文明存续，无法提供原先设想的避难条件。之后的通信转向你们已经做过的事，以及准备怎样继续发展。\n\n这次交谈以后，灰蛇转来一份新的联络请求。现实中的凯文·卡斯兰娜，愿意亲自与你谈谈。",
+      "choices": [
+        {
+          "id": "own_path",
+          "label": "我们才刚知道后两审，也得自己找路。",
+          "reply": "灰蛇：“所以，需要重新开始了解。”\n\n下一次交流将由双方能够说明的事实开始。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "kevin",
+      "title": "为什么仍要继续",
+      "speaker": "凯文·卡斯兰娜",
+      "requires": [
+        "story_grey_reassessment"
+      ],
+      "source": "se-03",
+      "body": "第一次与凯文通话时，你准备的那几页材料并没有全部用上。\n\n你先说起自己的迷茫：机器越建越大，工业与力量不断增长，可文明究竟要走向怎样的未来，自己反而越来越说不清。\n\n凯文听完，问你为什么还在继续建造。\n\n你想起最早的那间厂房。那时还没有如今这些宏大的目标，只是眼前有人需要电，明天还有事情要做。你也想知道，这些理由能不能支撑一条更长的路。",
+      "choices": [
+        {
+          "id": "own_reason",
+          "label": "我想找到属于我们的理由。",
+          "reply": "凯文没有给你新的生产目标。他让你把刚才提到的人和事记住，下一次再谈谈，自己走过的路曾经留下什么。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "old_plan",
+          "label": "先回头看看，我们原先为什么出发。",
+          "reply": "你翻出旧记录。那时的目标很小，却能说清要为谁做、为什么做。凯文听完，答应下次讲讲自己最早出发时的事。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "kevin_reason",
+      "title": "一条道路付出的代价",
+      "speaker": "凯文·卡斯兰娜",
+      "requires": [
+        "story_kevin"
+      ],
+      "body": "凯文谈起自己走过的道路，也谈起那些再也无法归来的同伴。\n\n有些选择曾让人继续活下去，同时也要求他们付出难以承受的代价。他没有把这些经历整理成一份交给你的正确答案。\n\n“你们还在建造，就还有需要自己决定的事。”\n\n你告诉他，自己想让后来的人拥有选择未来的余地。至于怎样做到，还要从现有的生产、生活和人与人的协作继续做起。",
+      "choices": [
+        {
+          "id": "continue",
+          "label": "这些话，我会带回自己的文明继续想。",
+          "reply": "凯文说，他可以讲述自己承担过的代价。属于玩家文明的理由，仍要由生活在其中的人继续回答。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-kevin",
+      "window": "",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "kevin_past",
+      "title": "往世乐土的地址",
+      "speaker": "凯文·卡斯兰娜",
+      "requires": [
+        "story_kevin_reason",
+        "story_elysia_daily"
+      ],
+      "body": "你再次问起凯文过去的同伴。他这才提到往世乐土，以及保存在那里的英桀记忆体。\n\n名单里有一个你已经认识的名字：爱莉希雅。创造罐封禁之后给你写信的人，正是其中的这一位。\n\n凯文转交了可以尝试建立联络的资料。他同时提醒你，乐土中的记忆体保留着各自的经历；那里的凯文，也没有经历现实中的他此后走过的全部岁月。",
+      "choices": [
+        {
+          "id": "contact",
+          "label": "我想听听他们各自的故事。",
+          "reply": "你沿新地址发出问候。爱莉希雅认出你的署名，问你准备先介绍工厂里的哪件小发明。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-elysian",
+      "window": "",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "elysian_realm",
+      "title": "各人有各人的话",
+      "speaker": "往世乐土联络",
+      "requires": [
+        "story_kevin_past",
+        "story_elysia_daily"
+      ],
+      "source": "se-05",
+      "body": "你第一次正式接通乐土时，讲的是厂区里一件能让生活方便些的小发明。\n\n维尔薇追问它怎样拆开检修，帕朵先关心能不能省下搬东西的力气。梅比乌斯把问题转向鱼大，问它能否自己决定愿不愿意参与。\n\n“你可以直接问我。”鱼大说。\n\n爱莉希雅在另一端笑了起来。你认出这位写过封禁信、后来又与你聊过日常的人。伊甸则问，工厂里的人平时喜欢听些什么。\n\n这次通信没有选出唯一的引路人。你开始分别记住他们的声音，以及每个人真正关心的事。",
+      "choices": [
+        {
+          "id": "invention",
+          "label": "先从一件让日常方便的小发明聊起。",
+          "reply": "维尔薇的专家问起拆装，帕朵关心省下了多少东西。同一件小事，在不同人的话里有了各自的样子。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "fish_speaks",
+          "label": "鱼大，这部分由你自己回答吧。",
+          "reply": "“当然。”鱼大转向通信画面。梅比乌斯等它说明自己的想法，提醒它下次也由自己来回答。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "stories",
+          "label": "我想慢慢听听，你们各自的日常。",
+          "reply": "这次没有把所有人叫到一起。你可以分次聊起音乐、远行和工厂之外的生活，将每个人的回答留在各自的记录里。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "onComplete": [
+        "contact_elysian_realm"
+      ],
+      "window": "",
+      "onDelivery": []
+    },
+    {
+      "id": "elysian_workshop",
+      "title": "改动以后，再给大家看看",
+      "speaker": "维尔薇、帕朵菲莉丝、鱼大",
+      "requires": [
+        "story_elysian_realm"
+      ],
+      "body": "你按上次的讨论，修改了小发明最不方便的地方。\n\n帕朵试着提出一个更省力的用法，维尔薇则坚持问清怎样替换易损件。鱼大记下两种意见，又补充了自己实际使用时遇到的麻烦。\n\n你们没有把所有建议挤进同一份方案。有的现在就能改，有的留给下一次。新的图发过去时，大家最先找的，都是自己上次提到的那个位置。",
+      "choices": [
+        {
+          "id": "show",
+          "label": "这一处已经改好了，来看看吧。",
+          "reply": "帕朵先道了谢，维尔薇继续问起另一颗螺栓。鱼大提醒你，下一次通信之前，至少先让自己休息一会儿。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-elysian",
+      "window": "",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "elysian_memories",
+      "title": "值得留下的一次失败",
+      "speaker": "英桀们",
+      "requires": [
+        "story_elysian_workshop"
+      ],
+      "body": "你拿来了一次没成功的尝试。照片不好看，记录也有几处涂改。\n\n有人问你当时为什么作出那种判断，有人讲起自己做过的蠢事。说到后来，原本想藏起来的那一页，反而让下一次的改动有了依据。\n\n你也听见一些再没有下一次的故事。乐土保存着这些人的记忆，却无法把已经失去的生活重新交还给他们。\n\n你把那张失败的照片放回工厂记录。尚能继续修改的明天，需要自己回去过。",
+      "choices": [
+        {
+          "id": "keep",
+          "label": "这页留下，下次带改好的结果来。",
+          "reply": "爱莉希雅答应继续听。其他人也还有各自想问的问题，下一次通信便从这些没说完的地方接起。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-elysian",
+      "window": "",
+      "route": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "elysia_chest",
+      "title": "双子工程的另一半",
+      "speaker": "爱莉希雅",
+      "requires": [
+        "creative_tank_completed",
+        "story_elysia_tank",
+        "creative_chest_completed"
+      ],
+      "source": "se-06",
+      "body": "做出来了呀，恭喜你。\n\n创造罐之后，你们又完成了创造箱。它的无限输出同样被封住了，理由和上次一样。\n\n从准备材料到完成这件成品，一定花了不少工夫吧。那段已经走过的路，也值得好好留在你们自己的记录里。\n\n关于限制，你仍然可以继续问我。想聊聊这一路遇到的事情，也可以等你愿意的时候再讲。\n\n如果方便的话，这次要不要给自己留张合影？我想看看，你现在是什么表情♪\n\n爱莉希雅",
+      "choices": [
+        {
+          "id": "archive",
+          "label": "把这次完成，也写进那套旧蓝图。",
+          "reply": "创造罐在前，创造箱在后。鱼大把两件成品的记录放回原来的位置，无限输出受限的事实也一同留下。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "thanks",
+          "label": "谢谢。后面的路，我们会继续想。",
+          "reply": "爱莉希雅听你讲起尚未完成的安排。这次的祝贺留在通信里，你们没有急着替下一段旅程下结论。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "schicksal_silence_accepted",
+      "title": "未发送完的普通回信",
+      "speaker": "私人通信记录",
+      "requires": [
+        "story_academy_staff",
+        "story_antientropy_greeting",
+        "first_review_completed",
+        "story_otto_limits"
+      ],
+      "body": "奥托上一封普通回信谈的仍是工艺。他解释自己的安排，把你不同意的部分留待下次讨论，末尾没有告别。\n\n你把回复写到一半，先去处理手边的工作。再回来时，私人线路已无回应。\n\n你按旧方式重新发出请求，查看信标和线路状态。几个仍能接通的自然窗口，也没有把他的终端接回来。\n\n此时，熟悉的学园联络地址转来一封信。发信人是德丽莎，抬头使用了新天命的名义。她的消息会说明，这一端究竟发生了什么。",
+      "choices": [
+        {
+          "id": "open",
+          "label": "打开德丽莎的来信。",
+          "reply": "你保留尚未发送的半封回信，打开了新的消息。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-new-schicksal",
+      "window": "",
+      "route": "ACCEPTED",
+      "onDelivery": [
+        "otto_port_closed"
+      ],
+      "onComplete": [
+        "new_schicksal_received"
+      ]
+    },
+    {
+      "id": "schicksal_silence_declined",
+      "title": "来自熟人的新抬头",
+      "speaker": "德丽莎的通信通知",
+      "requires": [
+        "story_academy_staff",
+        "story_antientropy_greeting",
+        "first_review_completed",
+        "otto_declined"
+      ],
+      "body": "你与旧天命没有共同课题，也没有等待奥托的下一封研究回信。\n\n德丽莎从你们早已熟悉的联络地址发来消息，说明有件正式的事要告诉你。这封信的抬头换成了新天命。\n\n你找出最初那封合作邀请。那一次的决定留在原处，新的消息则以德丽莎自己的名字送达。",
+      "choices": [
+        {
+          "id": "open",
+          "label": "听听德丽莎想说什么。",
+          "reply": "你确认了发信地址，打开她附来的完整来信。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-new-schicksal",
+      "window": "",
+      "route": "DECLINED",
+      "onDelivery": [
+        "otto_port_closed"
+      ],
+      "onComplete": [
+        "new_schicksal_received"
+      ]
+    },
+    {
+      "id": "schicksal_silence_stopped",
+      "title": "结束合作以后的消息",
+      "speaker": "德丽莎的通信通知",
+      "requires": [
+        "story_academy_staff",
+        "story_antientropy_greeting",
+        "first_review_completed",
+        "otto_stopped"
+      ],
+      "body": "旧天命合作结束以后，你与奥托没有再约新的课题。双方确认的终止记录，一直保存在原来的位置。\n\n德丽莎通过熟悉的学园线路发来一份通知。这次，她希望以新天命负责人的身份，亲自说明奥托的去向与之后的安排。\n\n你重新看过合作终止的记录，再打开她的消息。",
+      "choices": [
+        {
+          "id": "open",
+          "label": "旧决定保留，我听她说。",
+          "reply": "这次交谈从德丽莎的新来信开始。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "source": "oa-new-schicksal",
+      "window": "",
+      "route": "STOPPED",
+      "onDelivery": [
+        "otto_port_closed"
+      ],
+      "onComplete": [
+        "new_schicksal_received"
+      ]
+    },
+    {
+      "id": "new_schicksal_accepted",
+      "title": "新天命的来信",
+      "speaker": "德丽莎·阿波卡利斯",
+      "requires": [
+        "new_schicksal_received",
+        "story_academy_staff"
+      ],
+      "source": "oa-new-schicksal",
+      "body": "是我，德丽莎。\n\n有件事，我想亲自告诉你。爷爷已经辞去主教之位，天命现在由我负责。\n\n他最后走向虚数之树，去做与卡莲有关的那件事。动身以前，他亲手拆除了维持私人联络的信标，注销了那一端的端口。交接档案里留有记录。他已经不会再回信了。\n\n我知道，你们也认真找过办法。你发来的报告我看过，做到哪里、没有做到哪里，写得很清楚。接下来的选择，是他自己作出的。\n\n我现在有很多事情要处理。有时拿起一份文件，还会想这件事应该去问他，随后才反应过来。\n\n你们与天命已经开始的往来，我们会一起重新确认。你有不愿继续的部分，就直接告诉我。\n\n还有，先前约好的交流也别全往后推。我想看看你最近忙的那些东西。等我把这里安排好，就联系你。\n\n德丽莎·阿波卡利斯",
+      "choices": [
+        {
+          "id": "talk",
+          "label": "我愿意先听听新天命准备谈什么。",
+          "reply": "你把旧信留在原来的位置，将这封来信放到德丽莎自己的名字下。新的往来，再由双方逐项商量。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "personal",
+          "label": "先保留现在的私人联系吧。",
+          "reply": "这次答复没有抹去过去的选择。你认识的德丽莎还在通信另一端，组织之间的事情可以留待以后再谈。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "ACCEPTED",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "new_schicksal_declined",
+      "title": "新天命的来信",
+      "speaker": "德丽莎·阿波卡利斯",
+      "requires": [
+        "new_schicksal_received",
+        "story_academy_staff"
+      ],
+      "source": "oa-new-schicksal",
+      "body": "是我，德丽莎。\n\n这次要告诉你的事，比平时正式一些。爷爷已经辞去主教之位，我接任了天命主教。\n\n他最后走向虚数之树，去完成自己与卡莲有关的计划。动身前，他亲手拆除了私人信标，你收到首信时使用的那个端口也已注销。\n\n我整理旧档案时，看见了你当初的回信。你没有接受他的合作邀请，这一点，我们清楚。那封信里的决定，也不需要你向我解释。\n\n这些日子，我们已经通过学园认识了彼此。新天命希望和你们谈谈以后的往来。可以先从双方愿意交流的事情开始，具体的内容，我会亲自与你商量。\n\n如果你仍然只想保留现在的私人联系，也可以。你认识的德丽莎还在这里。\n\n等手边这阵忙完，我想听你讲讲最近的远行。上次你讲到一半，我们这里就有人来找我了。\n\n德丽莎·阿波卡利斯",
+      "choices": [
+        {
+          "id": "talk",
+          "label": "我愿意先听听新天命准备谈什么。",
+          "reply": "你把旧信留在原来的位置，将这封来信放到德丽莎自己的名字下。新的往来，再由双方逐项商量。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "personal",
+          "label": "先保留现在的私人联系吧。",
+          "reply": "这次答复没有抹去过去的选择。你认识的德丽莎还在通信另一端，组织之间的事情可以留待以后再谈。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "DECLINED",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "new_schicksal_stopped",
+      "title": "新天命的来信",
+      "speaker": "德丽莎·阿波卡利斯",
+      "requires": [
+        "new_schicksal_received",
+        "story_academy_staff"
+      ],
+      "source": "oa-new-schicksal",
+      "body": "是我，德丽莎。\n\n奥托已辞任并走向虚数之树，拆除了他维持的私人信标；我翻阅交接档案时看到，你们曾主动终止了合作。我记得你们划下的边界，也不会替他过去的隐瞒辩解。\n\n如今我们早已通过学园相识，新天命希望在公开、对等的前提下，与你们重新商谈组织间的往来。\n\n双方已经结束的课题，我会按当时的约定处理。新的事情，可以先把各自愿意交换的内容列出来，再由我们商量。\n\n还有，上次你说要给我看的那座设施，最近怎么样了？等手边这阵忙完，我想接着听你讲。\n\n德丽莎·阿波卡利斯",
+      "choices": [
+        {
+          "id": "talk",
+          "label": "我愿意先听听新天命准备谈什么。",
+          "reply": "你把旧信留在原来的位置，将这封来信放到德丽莎自己的名字下。新的往来，再由双方逐项商量。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "personal",
+          "label": "先保留现在的私人联系吧。",
+          "reply": "这次答复没有抹去过去的选择。你认识的德丽莎还在通信另一端，组织之间的事情可以留待以后再谈。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "STOPPED",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "second_review_invitation",
+      "title": "二审的通知",
+      "speaker": "终焉之茧",
+      "requires": [
+        "second_review_ready",
+        "first_review_completed"
+      ],
+      "source": "main-11",
+      "body": "你已经收到正式的二审邀请。这里保留这次通知，供你整理准备时回看。\n\n执掌吾之人将亲自来见你。回到你们的文明，准备好已经完成的研究与成果。\n\n鱼大把一审后取得的记录放在一起：真正做过的事、现在理解到哪里、哪些问题仍待说明。\n\n此次来访的终焉之律者琪亚娜，与本征世界中通过偶然通信认识的琪亚娜身份不同。审查将谈论你们自己的文明。\n\n准备好以后，再通过正式邀请确认会面。",
+      "choices": [
+        {
+          "id": "received",
+          "label": "通知收到了。我先整理已有记录。",
+          "reply": "鱼大：“已经做过的照实放进来，没弄清的也不用藏。等你准备好，再去确认那份邀请。”",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "second_review_after",
+      "title": "把构件变成真正的奇观",
+      "speaker": "终焉之律者琪亚娜",
+      "requires": [
+        "second_review_completed"
+      ],
+      "source": "main-11",
+      "body": "“此次审查，通过。”\n\n“接下来，把已经准备的知识与构件，变成真正能够运行的文明奇观。十五座奇观，需要各自的真实工程验收。你亲自完成的交流与研究，也要在档案中留下能够核对的经历。”\n\n“不要急着寻找通往■■■面前的捷径。等到属于你们的工程与经历齐备，再去申请最后的会面。我的认可，不能替她回答。”\n\n终审申请的入口，留在第十五座奇观的工程资料中。\n\n鱼大在基地接通手机，先问你是否平安回来。你们把这次得到的要求放回工程资料，再逐项商量如何把仍在图纸上的部分做成真正运行的设施。",
+      "choices": [
+        {
+          "id": "continue",
+          "label": "先把刚才没讲完的那一页补好。",
+          "reply": "鱼大把终端转回来。审查的结果已经留下，你们继续处理属于自己文明的工作。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "finale_admission",
+      "title": "出发前",
+      "speaker": "终焉之律者琪亚娜",
+      "requires": [
+        "finale_admitted"
+      ],
+      "source": "main-12",
+      "body": "“工程核验已齐。终审邀请由我转交，通往树海光幕的通道将为你开启。带上文明档案，前来赴约。”\n\n文明档案里留着研究与工程，也留着你亲自走过的交流。队友各自的经历，由各自的记录说明。\n\n你问是否还要准备什么。\n\n“把你要说的话想清楚。”\n\n鱼大仍留在基地，等你带回消息。",
+      "choices": [
+        {
+          "id": "depart",
+          "label": "我会带着自己的档案赴约。",
+          "reply": "“我会等你的消息。”鱼大把临行前还没说完的事留在原处。通往正式会面的邀请也已经送达。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "finale_passed",
+      "title": "继续存在的资格",
+      "speaker": "空之律者·■■■",
+      "requires": [
+        "finale_passed"
+      ],
+      "source": "main-13",
+      "body": "“本律者，空之律者·凌虚晴，承认你的文明通过此次审判。你们取得继续存在的资格。带着它回去，将你还没说完的以后，亲手做出来。至于永恒，别急着向本律者讨要。先把你答应的明天撑住☆”\n\n她将结果交到你手中，又看向屏幕以外。\n\n“花了这么多时间，确实做得不错。得意一会儿也无妨。然后，把手里的事放下。”\n\n“有人等你，就去回句话。想见的人，就找个时间去见。都没有的话，也该站起来，看看窗外是什么时候了。”\n\n她看向仍在明灭的虚数光幕。\n\n“记住，凡人。本律者给的是继续存在的资格。明天会不会塌下来，要看你们接着怎样活。若只剩一层漂亮的外壳，虚数之中并不缺那点尘埃。”",
+      "choices": [
+        {
+          "id": "rest",
+          "label": "今天先到这里。",
+          "reply": "“本律者又没替你关门。什么时候再继续，你自己安排。别把照顾自己也拖成一项永远待办的工程☆”",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "tomorrow",
+          "label": "明天，再去门外看看。",
+          "reply": "回到基地，鱼大看过你带回的结果。你将还没完成的安排留在明天，今天先放下工具。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    },
+    {
+      "id": "finale_bad",
+      "title": "这一次，本律者记下了",
+      "speaker": "空之律者·■■■",
+      "requires": [
+        "finale_bad"
+      ],
+      "source": "main-16",
+      "body": "“你走到这里，最后想给本律者看的，就是这个？”\n\n你向她发起的攻击，留下了属于你自己的回答。此次会面结束，你被送回文明，研究、工程与队友的成果仍然留在原处。\n\n“那么，这一次，本律者记下了。”\n\n这次记录没有消失。后来，你仍可以继续建设，按既有条件重新确认资格、申请会面，也要带上这一页已经发生的历史。",
+      "choices": [
+        {
+          "id": "remember",
+          "label": "把这次回答留在档案里。",
+          "reply": "鱼大没有替你删除那一页。你们可以继续谈它，也可以先处理仍在运行的工厂。",
+          "defer": false,
+          "memories": []
+        },
+        {
+          "id": "continue",
+          "label": "继续建设，再准备下一次会面。",
+          "reply": "基地还在，未完成的工作也还在。再次申请时，你仍将带着自己的成果与这次留下的回答。",
+          "defer": false,
+          "memories": []
+        }
+      ],
+      "route": "",
+      "window": "",
+      "onDelivery": [],
+      "onComplete": []
+    }
+  ]
+}

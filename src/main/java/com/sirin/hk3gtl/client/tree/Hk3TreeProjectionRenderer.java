@@ -29,6 +29,23 @@ public final class Hk3TreeProjectionRenderer {
     private static int lineAt,pointAt;
     private static boolean failed;
     private Hk3TreeProjectionRenderer(){}
+    public static boolean ready(){return model!=null&&lineAt>=model.positions().length/3&&pointAt>=model.points().length/6;}
+    public static boolean preparePreview(){
+        if(pointShader==null||lineShader==null||failed)return false;
+        if(ready())return true;
+        if(model==null){
+            if(loading==null)loading=CompletableFuture.supplyAsync(()->{try{return Hk3TreeProjectionModel.read(Hk3TreeProjectionRenderer.class.getResourceAsStream("/assets/hk3gtl/effects/i34_tree.bin.gz"));}catch(java.io.IOException e){throw new IllegalStateException("I34树影读取失败",e);}});
+            if(!loading.isDone())return false;model=loading.join();loading=null;
+        }
+        long until=System.nanoTime()+2_000_000;
+        do{if(ready())break;upload();}while(System.nanoTime()<until);
+        return ready();
+    }
+    /** 导出坐标保持原树影偏移；调用者提供独立秒数及预览视口像素。 */
+    public static void drawPreview(double seconds,int pixelWidth,int pixelHeight){
+        var origin=new Matrix4f(RenderSystem.getModelViewMatrix()).translate(240,92,167).scale(.9f);
+        draw(origin,new Matrix4f(RenderSystem.getProjectionMatrix()),(float)seconds,1,true,pixelWidth,pixelHeight);
+    }
     private static void clear(){buffers.forEach(b->b.buffer.close());buffers.clear();if(flowBuffer!=null){flowBuffer.close();flowBuffer=null;}model=null;loading=null;lineAt=pointAt=0;failed=false;}
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut e){Hk3TreeProjectionScenes.clear();clear();}
     @SubscribeEvent(priority=EventPriority.LOWEST) public static void render(RenderLevelStageEvent event){
@@ -36,28 +53,27 @@ public final class Hk3TreeProjectionRenderer {
         if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS||pointShader==null||lineShader==null||failed)return;
         Hk3TreeProjectionScenes.maintain();var mc=Minecraft.getInstance();if(mc.level==null||Hk3TreeProjectionScenes.scenes().isEmpty())return;
         try{
-            if(model==null){
-                if(loading==null)loading=CompletableFuture.supplyAsync(()->{try{return Hk3TreeProjectionModel.read(Hk3TreeProjectionRenderer.class.getResourceAsStream("/assets/hk3gtl/effects/i34_tree.bin.gz"));}catch(Exception e){throw new IllegalStateException("I34树影读取失败",e);}});
-                if(!loading.isDone())return;model=loading.join();loading=null;
-            }
-            long until=System.nanoTime()+2_000_000;
-            do{if(lineAt>=model.positions().length/3&&pointAt>=model.points().length/6)break;upload();}while(System.nanoTime()<until);
-            if(lineAt<model.positions().length/3||pointAt<model.points().length/6)return;
+            if(!preparePreview())return;
             var camera=event.getCamera().getPosition();
-            RenderSystem.enableDepthTest();RenderSystem.depthMask(false);RenderSystem.enableBlend();RenderSystem.blendFunc(com.mojang.blaze3d.platform.GlStateManager.SourceFactor.SRC_ALPHA,com.mojang.blaze3d.platform.GlStateManager.DestFactor.ONE);RenderSystem.disableCull();
-            try{for(var scene:Hk3TreeProjectionScenes.scenes()){
+            for(var scene:Hk3TreeProjectionScenes.scenes()){
                 var s=scene.state();if(camera.distanceToSqr(s.pos().getX(),s.pos().getY(),s.pos().getZ())>2048d*2048)continue;
                 float angle=switch(s.facing()){case EAST->-90;case SOUTH->-180;case WEST->-270;default->0;};
                 var origin=new Matrix4f(event.getPoseStack().last().pose()).translate((float)(s.pos().getX()-camera.x),(float)(s.pos().getY()-camera.y),(float)(s.pos().getZ()-camera.z));
                 origin.translate(.5f,0,.5f).rotateY((float)Math.toRadians(angle)).translate(-.5f,49,148.5f).scale(.9f);
                 float time=(s.clock()+(s.paused()?0:mc.level.getGameTime()-scene.received()+event.getPartialTick()))/20f;
-                float power=s.mode()==2?1:.22f;pointShader.safeGetUniform("Time").set(time);pointShader.safeGetUniform("Power").set(power);
-                pointShader.safeGetUniform("Viewport").set((float)mc.getWindow().getWidth(),(float)mc.getWindow().getHeight());
-                lineShader.safeGetUniform("Power").set(power);
-                for(var batch:buffers){batch.buffer.bind();batch.buffer.drawWithShader(origin,event.getProjectionMatrix(),batch.points?pointShader:lineShader);}
-                if(s.mode()==2){RenderSystem.setShaderColor(1,1,1,1);drawFlows(time,origin,event.getProjectionMatrix());}
-            }}finally{VertexBuffer.unbind();RenderSystem.setShaderColor(1,1,1,1);RenderSystem.depthMask(true);new com.mojang.blaze3d.shaders.BlendMode().apply();RenderSystem.defaultBlendFunc();RenderSystem.disableBlend();RenderSystem.enableCull();}
+                draw(origin,event.getProjectionMatrix(),time,s.mode()==2?1:.22f,s.mode()==2,mc.getWindow().getWidth(),mc.getWindow().getHeight());
+            }
         }catch(RuntimeException e){failed=true;LogUtils.getLogger().error("I34树影绘制失败，未修改世界方块",e);}
+    }
+    private static void draw(Matrix4f origin,Matrix4f projection,float time,float power,boolean running,int pixelWidth,int pixelHeight){
+        RenderSystem.enableDepthTest();RenderSystem.depthMask(false);RenderSystem.enableBlend();RenderSystem.blendFunc(com.mojang.blaze3d.platform.GlStateManager.SourceFactor.SRC_ALPHA,com.mojang.blaze3d.platform.GlStateManager.DestFactor.ONE);RenderSystem.disableCull();
+        try{
+            pointShader.safeGetUniform("Time").set(time);pointShader.safeGetUniform("Power").set(power);
+            pointShader.safeGetUniform("Viewport").set((float)pixelWidth,(float)pixelHeight);
+            lineShader.safeGetUniform("Power").set(power);
+            for(var batch:buffers){batch.buffer.bind();batch.buffer.drawWithShader(origin,projection,batch.points?pointShader:lineShader);}
+            if(running){RenderSystem.setShaderColor(1,1,1,1);drawFlows(time,origin,projection);}
+        }finally{VertexBuffer.unbind();RenderSystem.setShaderColor(1,1,1,1);RenderSystem.depthMask(true);new com.mojang.blaze3d.shaders.BlendMode().apply();RenderSystem.defaultBlendFunc();RenderSystem.disableBlend();RenderSystem.enableCull();}
     }
     private static void upload(){
         boolean points=lineAt>=model.positions().length/3;

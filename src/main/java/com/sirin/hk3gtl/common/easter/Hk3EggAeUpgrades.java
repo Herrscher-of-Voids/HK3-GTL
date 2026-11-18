@@ -5,7 +5,7 @@ import appeng.menu.implementations.UpgradeableMenu;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 06:31:11（修订128）：删除无；新增联动真实安装/传输观察；修改无；用途：模拟、仅持有与空过滤不冒充成功，按本人安装归属。 */
+ 
 public final class Hk3EggAeUpgrades {
     private Hk3EggAeUpgrades(){}
     public static List<Integer> snapshot(AbstractContainerMenu menu){

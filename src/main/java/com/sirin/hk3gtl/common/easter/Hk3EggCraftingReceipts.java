@@ -4,8 +4,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import java.util.UUID;
-/** 【变更记录 #1】2026-10-01 06:27:59（修订128）：删除无；新增AE实际提交、完成与转化回执；修改无；用途：失败、取消、模拟及创造拿取不当生产，归属写入CPU存档。 */
-/** 【变更记录 #2】2026-10-01 06:35:47（修订128）：删除：无；新增/修改：任务旁注有界淘汰旧证据而非永久拒绝新任务；转化快照移到普通公共record，不依赖Mixin嵌套访问；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
 public final class Hk3EggCraftingReceipts {
     public record TransformInput(net.minecraft.world.entity.item.ItemEntity entity,int count,UUID owner){}
     private Hk3EggCraftingReceipts(){}

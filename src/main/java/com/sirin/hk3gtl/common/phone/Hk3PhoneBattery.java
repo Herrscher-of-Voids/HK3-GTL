@@ -3,11 +3,11 @@ import com.gregtechceu.gtceu.api.capability.IElectricItem;
 import net.minecraft.nbt.CompoundTag;
 import java.util.function.Supplier;
 import java.util.function.IntSupplier;
-/**
- * 【变更记录 #1】2026-09-30 18:44:46（内测5修订113）
- * 删除：无；新增：手机GT电池能力实现，NBT与物品数量由物品提供。
- * 修改：显式限制128000EU、LV32EU传输与禁止外放电；用途：实际充电槽和服务器用电共用可回归实现。
- */
+ 
+
+
+
+
 public final class Hk3PhoneBattery implements IElectricItem {
     public static final long CAPACITY=128000;
     private final Supplier<CompoundTag> tag;private final IntSupplier count;

@@ -11,20 +11,20 @@ import java.util.TreeMap;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-/**
- * 【文件职责】保存每个世界独立的高度合同及按维度类型ID冻结的原始边界快照。
- * 【变更记录 #1】2026-10-17 21:24:01（修订166）
- * - 删除：无。
- * - 新增：世界UUID、版本1合同、不可变维度快照与严格NBT读写、替换快照副本入口。
- * - 修改：未知版本、缺字段、错误类型和不一致边界一律拒绝，不将损坏合同降级为低高度世界。
- * - 用途：供PrimaryLevelData实例持有并写入世界数据；配置重载不隐式改变既有世界合同。
- *
- * 【变更记录 #2】2026-10-17 21:41:50（修订166）
- * - 删除：启用合同空快照直接读写NBT的通道。
- * - 新增：序列化与反序列化均拒绝启用且维度快照为空的合同；构造器仍允许新建时短暂持有空快照。
- * - 修改：首次提前保存必须先由服务冻结注册表快照，旧存档不能靠清空快照绕过资源漂移核验。
- * - 用途：闭合客户端先保存后启动服务器的真实路径，防止错误合同被再次解释为待初始化新世界。
- */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 public record Hk3HeightWorldState(UUID worldId, int contractVersion, int topExclusive, boolean enabled,
                                  Map<String, Hk3HeightBounds> dimensions) {
     public static final String TAG_KEY = "hk3gtl:height_contract";

@@ -7,11 +7,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
-/**
- * 破晓之时的实际视线：允许浅角度仰视，逐层穿过橙色玻璃后检查天空。
- * 【变更记录 #1】2026-10-01 16:30:04（修订134）：删除无；新增局部有界射线与区块预检。
- * 修改：替代第一块玻璃顶部见天的错误判断；用途：多层/高窗不自我遮挡，实体和世界不发生修改。
- */
+ 
+
+
+
+
 public final class Hk3EggDawnSight {
     private Hk3EggDawnSight() {}
     public interface World {

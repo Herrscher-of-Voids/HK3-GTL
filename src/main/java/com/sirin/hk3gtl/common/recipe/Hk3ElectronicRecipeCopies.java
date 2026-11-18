@@ -12,14 +12,14 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 
 import java.util.function.Consumer;
 
-/**
- * 【文件职责】给本电子注册器被目标整合包自动复制的十条光刻配方保留研究和精确运行功率。
- * 【变更记录 #1】2026-10-17 17:47:19（第1次备注 · 修订165）
- * - 删除：无；不覆盖GTL/GTLAdditions全局复制回调，不修改第三方原料或配方。
- * - 新增：限定本模组五个源ID及两种实际复制类型的FinishedRecipe包装。
- * - 修改：光子副本维持原工况，维度聚焦副本使用原四倍long费用及升一阶的功率元数据；两者继承完整研究。
- * - 用途：copyFrom会清空onSave回调，故在本注册器输出边界修正实际序列化数据；不代表机器供电已实测。
- */
+ 
+
+
+
+
+
+
+
 public final class Hk3ElectronicRecipeCopies {
     private Hk3ElectronicRecipeCopies() {}
 

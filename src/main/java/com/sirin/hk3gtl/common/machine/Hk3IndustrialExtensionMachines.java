@@ -16,15 +16,15 @@ import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
-/**
- * 【文件职责】正式注册I14–I18批准结构；复用玩家电网、研究身份和既有类型。
- * 【变更记录 #1】2026-10-23 13:35:32（第1次备注 · 内测5修订175）
- * - 删除：I17对旧海渊几何和机壳的注册依赖；既有ID及MAX浓缩类型保持。
- * - 新增：I14/I15/I16/I18四个控制器，以及五台精确Pattern和显式JEI形状绑定。
- * - 修改：结构、模板和诊断读取相同批准资源；暂定工艺由运行策略关闭。
- * - 用途：使批准建筑可以使用真实控制器与仓室；不增加制作配方或宣称生存链已通过。
- * 注册tier沿既有MAX技术基线，仅为GT定义兼容，不用于反推建筑电压或额定执行范围。
- */
+ 
+
+
+
+
+
+
+
+
 public final class Hk3IndustrialExtensionMachines {
     public static MultiblockMachineDefinition SOULIUM_POLYMERIZATION_DIE_CASTER;
     public static MultiblockMachineDefinition SOULIUM_RECONSTRUCTION_ANNEALING_FURNACE;
@@ -51,7 +51,9 @@ public final class Hk3IndustrialExtensionMachines {
                 .shapeInfo(def -> Hk3ApprovedArchitectureShapes.create(def, "i17"))
                 .workableCasingRenderer(SHELL, new ResourceLocation("hk3gtl", "block/overlay/i17_unique_r178"))
                 .tooltips(Component.translatable("hk3gtl.machine.honkai_fuel_concentration_plant.tooltip.0"),
-                        Component.translatable("hk3gtl.machine.honkai_fuel_concentration_plant.tooltip.1"))
+                        Component.translatable("hk3gtl.machine.honkai_fuel_concentration_plant.tooltip.1"),
+                        Component.translatable("hk3gtl.machine.honkai_fuel_concentration_plant.tooltip.2"),
+                        Component.translatable("hk3gtl.machine.controller.research_required"))
                 .register();
     }
 
@@ -64,11 +66,10 @@ public final class Hk3IndustrialExtensionMachines {
                 .pattern(def -> Hk3IndustrialExtensionPatterns.create(def, layout))
                 .shapeInfo(def -> Hk3ApprovedArchitectureShapes.create(def, layout))
                 .workableCasingRenderer(SHELL, new ResourceLocation("hk3gtl", "block/overlay/" + layout + "_unique_r178"))
-                .tooltips(Component.translatable("hk3gtl.machine.industrial_extension.structure_ready"),
-                        Component.translatable(layout.equals("i18")
-                                ? "hk3gtl.machine.industrial_extension.provisional_locked"
-                                : "hk3gtl.machine.industrial_extension.processes_enabled"),
-                        Component.translatable("hk3gtl.machine.industrial_extension.survival_unverified"))
+                .tooltips(Component.translatable("hk3gtl.machine." + name + ".tooltip.0"),
+                        Component.translatable("hk3gtl.machine." + name + ".tooltip.1"),
+                        Component.translatable("hk3gtl.machine." + name + ".tooltip.2"),
+                        Component.translatable("hk3gtl.machine.controller.research_required"))
                 .register();
     }
 }

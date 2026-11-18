@@ -8,7 +8,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 12:32:24（修订128）：删除：无；新增/修改：成功放水建立源水归属，本人挖脚下后的实际无伤落水才触发；死亡、飞行、换维度或超时撤销；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public final class Hk3EggWaterFall {
     private Hk3EggWaterFall(){}
     public static void placed(ServerPlayer p,BlockPos pos){

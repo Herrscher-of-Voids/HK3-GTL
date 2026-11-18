@@ -11,7 +11,7 @@ import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
-/** 【变更记录 #1】2026-10-01 04:45:29（修订128）：删除无；新增AE真实样板保存及压印输入消耗后回执；用途：拒绝模拟产出和空样板，离线产量持久记录，不授研究资格。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggAe {
     private Hk3EggAe(){}

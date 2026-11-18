@@ -1,0 +1,1740 @@
+{
+  "schema": 1,
+  "revision": 268,
+  "recipes": [
+    {
+      "id": "wonder_w12_x46_carbon_fuel_matrix_line",
+      "role": "W12",
+      "zh_name": "碳载体燃料基质联制",
+      "purpose": "把四件碳载体的实体装配与浸渍联成一线；沿用该载体原材料和对应基质量，不把不同载体仅按名称视为等价原料。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HFB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 16
+        },
+        {
+          "id": "gtceu:steel_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_matrix",
+          "count": 8
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 400
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_liquid_fuel_blending",
+        "industrial_liquid_fuel_concentration",
+        "industrial_stabilization_medium_recovery"
+      ],
+      "process_family": "约束载体与燃料基质",
+      "baseline_recipe": "hk3gtl_supply_honkai_carbon_carrier; hk3gtl_supply_honkai_carbon_carrier_fuel_matrix"
+    },
+    {
+      "id": "wonder_w12_x46_boron_carbide_fuel_matrix_line",
+      "role": "W12",
+      "zh_name": "碳化硼载体燃料基质联制",
+      "purpose": "把四件碳化硼载体的实体装配与浸渍联成一线；沿用该载体原材料和对应基质量，不把不同载体仅按名称视为等价原料。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HFB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:boron_carbide_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:steel_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_matrix",
+          "count": 20
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_liquid_fuel_blending",
+        "industrial_liquid_fuel_concentration",
+        "industrial_stabilization_medium_recovery"
+      ],
+      "process_family": "约束载体与燃料基质",
+      "baseline_recipe": "hk3gtl_supply_honkai_boron_carbide_carrier; hk3gtl_supply_honkai_boron_carbide_carrier_fuel_matrix"
+    },
+    {
+      "id": "wonder_w12_x46_zirconia_fuel_matrix_line",
+      "role": "W12",
+      "zh_name": "氧化锆载体燃料基质联制",
+      "purpose": "把四件氧化锆载体的实体装配与浸渍联成一线；沿用该载体原材料和对应基质量，不把不同载体仅按名称视为等价原料。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HFB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:zirconium_oxide_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:steel_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_matrix",
+          "count": 24
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1200
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_liquid_fuel_blending",
+        "industrial_liquid_fuel_concentration",
+        "industrial_stabilization_medium_recovery"
+      ],
+      "process_family": "约束载体与燃料基质",
+      "baseline_recipe": "hk3gtl_supply_honkai_zirconia_carrier; hk3gtl_supply_honkai_zirconia_carrier_fuel_matrix"
+    },
+    {
+      "id": "wonder_w12_x46_diamond_copper_fuel_matrix_line",
+      "role": "W12",
+      "zh_name": "金刚石铜载体燃料基质联制",
+      "purpose": "把四件金刚石铜载体的实体装配与浸渍联成一线；沿用该载体原材料和对应基质量，不把不同载体仅按名称视为等价原料。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HFB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:diamond_dust",
+          "count": 4
+        },
+        {
+          "id": "gtceu:copper_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:steel_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_matrix",
+          "count": 32
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1600
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_liquid_fuel_blending",
+        "industrial_liquid_fuel_concentration",
+        "industrial_stabilization_medium_recovery"
+      ],
+      "process_family": "约束载体与燃料基质",
+      "baseline_recipe": "hk3gtl_supply_honkai_diamond_copper_carrier; hk3gtl_supply_honkai_diamond_copper_carrier_fuel_matrix"
+    },
+    {
+      "id": "wonder_w12_x46_graphene_fuel_matrix_line",
+      "role": "W12",
+      "zh_name": "石墨烯载体燃料基质联制",
+      "purpose": "把四件石墨烯载体的实体装配与浸渍联成一线；沿用该载体原材料和对应基质量，不把不同载体仅按名称视为等价原料。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HFB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:graphene_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:steel_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_matrix",
+          "count": 32
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1600
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_liquid_fuel_blending",
+        "industrial_liquid_fuel_concentration",
+        "industrial_stabilization_medium_recovery"
+      ],
+      "process_family": "约束载体与燃料基质",
+      "baseline_recipe": "hk3gtl_supply_honkai_graphene_carrier; hk3gtl_supply_honkai_graphene_carrier_fuel_matrix"
+    },
+    {
+      "id": "wonder_w12_x46_tungsten_fuel_matrix_line",
+      "role": "W12",
+      "zh_name": "钨载体燃料基质联制",
+      "purpose": "把四件钨载体的实体装配与浸渍联成一线；沿用该载体原材料和对应基质量，不把不同载体仅按名称视为等价原料。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HFB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:tungsten_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:steel_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_matrix",
+          "count": 24
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1200
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_liquid_fuel_blending",
+        "industrial_liquid_fuel_concentration",
+        "industrial_stabilization_medium_recovery"
+      ],
+      "process_family": "约束载体与燃料基质",
+      "baseline_recipe": "hk3gtl_supply_honkai_tungsten_carrier; hk3gtl_supply_honkai_tungsten_carrier_fuel_matrix"
+    },
+    {
+      "id": "wonder_w12_x46_ptfe_membrane_fuel_matrix_line",
+      "role": "W12",
+      "zh_name": "PTFE膜载体燃料基质联制",
+      "purpose": "把四件PTFE膜载体的实体装配与浸渍联成一线；沿用该载体原材料和对应基质量，不把不同载体仅按名称视为等价原料。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HFB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:polytetrafluoroethylene_foil",
+          "count": 8
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:steel_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_matrix",
+          "count": 28
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1400
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_liquid_fuel_blending",
+        "industrial_liquid_fuel_concentration",
+        "industrial_stabilization_medium_recovery"
+      ],
+      "process_family": "约束载体与燃料基质",
+      "baseline_recipe": "hk3gtl_supply_honkai_ptfe_membrane_carrier; hk3gtl_supply_honkai_ptfe_membrane_carrier_fuel_matrix"
+    },
+    {
+      "id": "wonder_w12_x46_pbi_microcapsule_fuel_matrix_line",
+      "role": "W12",
+      "zh_name": "PBI微胶囊载体燃料基质联制",
+      "purpose": "把四件PBI微胶囊载体的实体装配与浸渍联成一线；沿用该载体原材料和对应基质量，不把不同载体仅按名称视为等价原料。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HFB"
+      ],
+      "item_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:steel_plate",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:fuel_matrix",
+          "count": 32
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1600
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_liquid_fuel_blending",
+        "industrial_liquid_fuel_concentration",
+        "industrial_stabilization_medium_recovery"
+      ],
+      "process_family": "约束载体与燃料基质",
+      "baseline_recipe": "hk3gtl_supply_honkai_pbi_microcapsule_carrier; hk3gtl_supply_honkai_pbi_microcapsule_carrier_fuel_matrix"
+    },
+    {
+      "id": "wonder_w12_x46_honkai_lattice_dielectric_billet_line",
+      "role": "W12",
+      "zh_name": "魂钢晶格介电层坯料联制",
+      "purpose": "先完成本平台两件主材板的专属成形，再制得十六片介电膜；保留PBI薄层与稳定崩坏能投入。",
+      "requirements": [
+        "RN-ECB",
+        "RN-BCE",
+        "RN-LES",
+        "RN-NSP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:abyss_impregnated_soulium_billet",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:honkai_lattice_dielectric_film",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_honkai_lattice_interconnect_mesh",
+        "hk3gtl_electronic_honkai_lattice_circuit_substrate"
+      ],
+      "process_family": "介电层与屏蔽",
+      "baseline_recipe": "hk3gtl_electronic_honkai_lattice_dielectric_film; main_material/abyss_impregnated_soulium/oriented_metal_plate"
+    },
+    {
+      "id": "wonder_w12_x46_quantum_coherence_dielectric_billet_line",
+      "role": "W12",
+      "zh_name": "量子相干介电层坯料联制",
+      "purpose": "先完成本平台两件主材板的专属成形，再制得十六片介电膜；保留PBI薄层与稳定崩坏能投入。",
+      "requirements": [
+        "RN-ECB",
+        "RN-MCE",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:quantum_coherence_dielectric_film",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_quantum_coherence_interconnect_mesh",
+        "hk3gtl_electronic_quantum_coherence_circuit_substrate"
+      ],
+      "process_family": "介电层与屏蔽",
+      "baseline_recipe": "hk3gtl_electronic_quantum_coherence_dielectric_film; main_material/superposed_laminate_matrix/composite_laminate_plate"
+    },
+    {
+      "id": "wonder_w12_x46_imaginary_topology_dielectric_billet_line",
+      "role": "W12",
+      "zh_name": "虚数拓扑介电层坯料联制",
+      "purpose": "先完成本平台两件主材板的专属成形，再制得十六片介电膜；保留PBI薄层与稳定崩坏能投入。",
+      "requirements": [
+        "RN-ECB",
+        "RN-CQS",
+        "RN-WCP",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:imaginary_phase_transfer_ceramic_billet",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:imaginary_topology_dielectric_film",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 1500
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 4000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_imaginary_topology_interconnect_mesh",
+        "hk3gtl_electronic_imaginary_topology_circuit_substrate"
+      ],
+      "process_family": "介电层与屏蔽",
+      "baseline_recipe": "hk3gtl_electronic_imaginary_topology_dielectric_film; main_material/imaginary_phase_transfer_ceramic/protected_atmosphere_ceramic_plate"
+    },
+    {
+      "id": "wonder_w12_x46_civilization_endurance_dielectric_billet_line",
+      "role": "W12",
+      "zh_name": "文明恒续介电层坯料联制",
+      "purpose": "先完成本平台两件主材板的专属成形，再制得十六片介电膜；保留PBI薄层与稳定崩坏能投入。",
+      "requirements": [
+        "RN-ECB",
+        "RN-CQS",
+        "RN-IAA",
+        "RN-WMS",
+        "RN-WCP"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_endurance_dielectric_film",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 2000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_electronic_civilization_endurance_interconnect_mesh",
+        "hk3gtl_electronic_civilization_endurance_circuit_substrate"
+      ],
+      "process_family": "介电层与屏蔽",
+      "baseline_recipe": "hk3gtl_electronic_civilization_endurance_dielectric_film; main_material/worldforming_gradient_fiber/composite_laminate_plate"
+    },
+    {
+      "id": "wonder_w12_x46_transport_medium_from_confinement_precursors",
+      "role": "W12",
+      "zh_name": "封域前驱直联稳定输运介质",
+      "purpose": "先制所需半桶封域介质再完成稳定输运；六件晶种包含两阶段的实际消耗，保留热冷却液出口。",
+      "requirements": [
+        "RN-ECB",
+        "RN-BCC",
+        "RN-CJK"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 6
+        },
+        {
+          "id": "minecraft:ender_pearl",
+          "count": 2
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "stabilized_liquid_honkai_energy",
+          "amount": 250
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 250
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "stable_transport_medium",
+          "amount": 1000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_route_relay_module"
+      ],
+      "process_family": "约束介质联线",
+      "baseline_recipe": "industrial_bubble_confinement_medium; industrial_stable_transport_medium"
+    },
+    {
+      "id": "wonder_w12_x46_world_medium_transport_crosslink_line",
+      "role": "W12",
+      "zh_name": "输运与稳界交联联线",
+      "purpose": "从封域介质生成输运相后立即交联稳界介质，晶种与冷却液不免除；高阶壁承担同一批料的两段处理。",
+      "requirements": [
+        "RN-ECB",
+        "RN-CJK",
+        "RN-SWS",
+        "RN-WMS",
+        "RN-BCA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:honkai_crystal_seed",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 2
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "bubble_confinement_medium",
+          "amount": 500
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 1000
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "honkai_resistant_coating",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 4000
+        },
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_simulated_world_stabilization",
+        "wonder_w14_model_guided_world_construction"
+      ],
+      "process_family": "约束介质联线",
+      "baseline_recipe": "industrial_stable_transport_medium; wonder_w12_world_medium_crosslinked"
+    },
+    {
+      "id": "wonder_w12_x46_world_medium_coating_crosslink_line",
+      "role": "W12",
+      "zh_name": "耐蚀层原料直联稳界交联",
+      "purpose": "以PTFE、碳和工艺溶剂现场制备一桶耐蚀层，再与稳定相及输运相交联；保留独立新制介质来源。",
+      "requirements": [
+        "RN-ECB",
+        "RN-NSP",
+        "RN-SWS",
+        "RN-WMS",
+        "RN-BCA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polytetrafluoroethylene_dust",
+          "count": 8
+        },
+        {
+          "id": "gtceu:carbon_dust",
+          "count": 4
+        }
+      ],
+      "item_outputs": [],
+      "fluid_inputs": [
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 2000
+        },
+        {
+          "id": "stable_transport_medium",
+          "amount": 1000
+        },
+        {
+          "id": "soulium_process_solvent",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "world_stabilization_medium",
+          "amount": 4000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_world_maintenance",
+        "wonder_w12_maintenance_load_specimen"
+      ],
+      "process_family": "约束介质联线",
+      "baseline_recipe": "industrial_resistant_coating; wonder_w12_world_medium_crosslinked"
+    },
+    {
+      "id": "wonder_w12_x46_22_finished_plate_line",
+      "role": "W12",
+      "zh_name": "锚定超晶格机壳与约束板终检直联",
+      "purpose": "从第二阶段实体完成最终固化、固定拒收分离与形态制造；十四坯可用相与两件拒收批完整保留，框架尾数以板材返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_plate",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "voltage_machine_casing_qav",
+        "hk3gtl_main_component_qav_electric_piston",
+        "hk3gtl_main_component_qav_electric_pump",
+        "hk3gtl_main_component_qav_sensor"
+      ],
+      "process_family": "约束主材终检成形",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/surface_finish_and_batch_separation; main_material/anchored_superlattice_structure/formed_interface_rings; main_material/anchored_superlattice_structure/functional_thin_layers",
+      "circuit": 1
+    },
+    {
+      "id": "wonder_w12_x46_22_finished_ring_line",
+      "role": "W12",
+      "zh_name": "锚定超晶格密封环终检直联",
+      "purpose": "从第二阶段实体完成最终固化、固定拒收分离与形态制造；十四坯可用相与两件拒收批完整保留，框架尾数以板材返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_ring",
+          "count": 56
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_qav_electric_motor",
+        "hk3gtl_main_component_qav_electric_piston",
+        "hk3gtl_main_component_qav_electric_pump",
+        "hk3gtl_main_component_qav_sensor"
+      ],
+      "process_family": "约束主材终检成形",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/surface_finish_and_batch_separation; main_material/anchored_superlattice_structure/formed_interface_rings; main_material/anchored_superlattice_structure/functional_thin_layers",
+      "circuit": 2
+    },
+    {
+      "id": "wonder_w12_x46_22_finished_foil_line",
+      "role": "W12",
+      "zh_name": "锚定超晶格屏蔽薄层终检直联",
+      "purpose": "从第二阶段实体完成最终固化、固定拒收分离与形态制造；十四坯可用相与两件拒收批完整保留，框架尾数以板材返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_foil",
+          "count": 56
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_qav_electric_pump",
+        "hk3gtl_main_component_qav_conveyor_module",
+        "hk3gtl_main_component_qav_field_generator",
+        "hk3gtl_main_component_qav_emitter"
+      ],
+      "process_family": "约束主材终检成形",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/surface_finish_and_batch_separation; main_material/anchored_superlattice_structure/formed_interface_rings; main_material/anchored_superlattice_structure/functional_thin_layers",
+      "circuit": 3
+    },
+    {
+      "id": "wonder_w12_x46_22_finished_frame_line",
+      "role": "W12",
+      "zh_name": "锚定超晶格承力框架终检直联",
+      "purpose": "从第二阶段实体完成最终固化、固定拒收分离与形态制造；十四坯可用相与两件拒收批完整保留，框架尾数以板材返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_frame",
+          "count": 3
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_qav_field_generator",
+        "voltage_machine_casing_qav"
+      ],
+      "process_family": "约束主材终检成形",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/surface_finish_and_batch_separation; main_material/anchored_superlattice_structure/formed_interface_rings; main_material/anchored_superlattice_structure/functional_thin_layers",
+      "circuit": 4
+    },
+    {
+      "id": "wonder_w12_x46_28_finished_plate_line",
+      "role": "W12",
+      "zh_name": "稳界约束壳机壳与约束板终检直联",
+      "purpose": "从第二阶段实体完成最终固化、固定拒收分离与形态制造；十四坯可用相与两件拒收批完整保留，框架尾数以板材返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 16000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "voltage_machine_casing_wsv",
+        "hk3gtl_main_component_wsv_electric_piston",
+        "hk3gtl_main_component_wsv_electric_pump",
+        "hk3gtl_main_component_wsv_sensor"
+      ],
+      "process_family": "约束主材终检成形",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/surface_finish_and_batch_separation; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers",
+      "circuit": 1
+    },
+    {
+      "id": "wonder_w12_x46_28_finished_ring_line",
+      "role": "W12",
+      "zh_name": "稳界约束壳密封环终检直联",
+      "purpose": "从第二阶段实体完成最终固化、固定拒收分离与形态制造；十四坯可用相与两件拒收批完整保留，框架尾数以板材返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_ring",
+          "count": 56
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 16000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_motor",
+        "hk3gtl_main_component_wsv_electric_piston",
+        "hk3gtl_main_component_wsv_electric_pump",
+        "hk3gtl_main_component_wsv_sensor"
+      ],
+      "process_family": "约束主材终检成形",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/surface_finish_and_batch_separation; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers",
+      "circuit": 2
+    },
+    {
+      "id": "wonder_w12_x46_28_finished_foil_line",
+      "role": "W12",
+      "zh_name": "稳界约束壳屏蔽薄层终检直联",
+      "purpose": "从第二阶段实体完成最终固化、固定拒收分离与形态制造；十四坯可用相与两件拒收批完整保留，框架尾数以板材返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_foil",
+          "count": 56
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 16000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_electric_pump",
+        "hk3gtl_main_component_wsv_conveyor_module",
+        "hk3gtl_main_component_wsv_field_generator",
+        "hk3gtl_main_component_wsv_emitter"
+      ],
+      "process_family": "约束主材终检成形",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/surface_finish_and_batch_separation; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers",
+      "circuit": 3
+    },
+    {
+      "id": "wonder_w12_x46_28_finished_frame_line",
+      "role": "W12",
+      "zh_name": "稳界约束壳承力框架终检直联",
+      "purpose": "从第二阶段实体完成最终固化、固定拒收分离与形态制造；十四坯可用相与两件拒收批完整保留，框架尾数以板材返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_2",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_frame",
+          "count": 3
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 16000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "hk3gtl_main_component_wsv_field_generator",
+        "voltage_machine_casing_wsv"
+      ],
+      "process_family": "约束主材终检成形",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/surface_finish_and_batch_separation; main_material/worldstabilizing_confinement_shell/formed_interface_rings; main_material/worldstabilizing_confinement_shell/functional_thin_layers",
+      "circuit": 4
+    },
+    {
+      "id": "wonder_w12_x46_containment_shell_encapsulation_line",
+      "role": "W12",
+      "zh_name": "封装件现场制造承压容器壳",
+      "purpose": "以原封装配方现场制四件封装后成形魂钢容器壳，维持晶体、PBI及生长液成本。",
+      "requirements": [
+        "RN-ECB",
+        "RN-BCE",
+        "RN-SPM",
+        "RN-JOK"
+      ],
+      "item_inputs": [
+        {
+          "id": "material:soulium/plate",
+          "count": 16
+        },
+        {
+          "id": "gtceu:neutronium_plate",
+          "count": 2
+        },
+        {
+          "id": "gtceu:polybenzimidazole_foil",
+          "count": 8
+        },
+        {
+          "id": "hk3gtl:honkai_energy_crystal",
+          "count": 2
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:failed_containment_shell",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "circuit_growth_medium",
+          "amount": 250
+        },
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_vessel_calibration"
+      ],
+      "process_family": "容器与封装联制",
+      "baseline_recipe": "hk3gtl_electronic_encapsulation; industrial_vessel_shell"
+    },
+    {
+      "id": "wonder_w12_x46_fresh_calibrated_vessel_line",
+      "role": "W12",
+      "zh_name": "新壳与校准容器直联",
+      "purpose": "现场成壳并以真实空间校准模块及仿制约束核心校准；不依赖回收残骸，不省略两个工序的热与废介质。",
+      "requirements": [
+        "RN-ECB",
+        "RN-SPM",
+        "RN-JOK",
+        "RN-BCC"
+      ],
+      "item_inputs": [
+        {
+          "id": "material:soulium/plate",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:circuit_encapsulation_part",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:spatial_calibration_module",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:imitation_binding_core",
+          "count": 1
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 500
+        },
+        {
+          "id": "honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 500
+        },
+        {
+          "id": "spent_honkai_stabilization_medium",
+          "amount": 1000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_world_bubble_capture"
+      ],
+      "process_family": "容器与封装联制",
+      "baseline_recipe": "industrial_vessel_shell; industrial_vessel_calibration"
+    },
+    {
+      "id": "wonder_w12_x46_rejected_shell_billet_relining",
+      "role": "W12",
+      "zh_name": "拒收壳材补料重衬",
+      "purpose": "只回收八件WSV拒收批中可用的六坯相，以Shirabon补料重制并成板，再消费四片板重衬一件残骸；余两片及不可回收损失均实出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-WME",
+        "RN-WMS",
+        "RN-BCC",
+        "RN-BCA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 8
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 24
+        },
+        {
+          "id": "hk3gtl:bubble_container_remnant",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:confining_composite",
+          "count": 4
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_plate",
+          "count": 2
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_unrecoverable_tailings",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:hydrochloric_acid",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:distilled_water",
+          "amount": 8000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 56000
+        },
+        {
+          "id": "world_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "spent_world_stabilization_medium",
+          "amount": 500
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "industrial_world_bubble_capture"
+      ],
+      "process_family": "容器有损重衬",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/dismantle_rejected_batch; main_material/worldstabilizing_confinement_shell/lossy_phase_separation; main_material/worldstabilizing_confinement_shell/fresh_feed_reconstitution; wonder_w12_containment_vessel_relining"
+    },
+    {
+      "id": "wonder_w12_x46_hcv_interface_to_barrier_plate",
+      "role": "W12",
+      "zh_name": "约束梯度界面与陶瓷板直联",
+      "purpose": "由已浸渍前体完成耐蚀界面、压合、拒收分离和保护气成板；合计保留三段氩气。",
+      "requirements": [
+        "RN-ECB",
+        "RN-HRC"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:constraint_gradient_composite_stage_1",
+          "count": 16
+        },
+        {
+          "id": "gtceu:shirabon_foil",
+          "count": 16
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:constraint_gradient_composite_plate",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:constraint_gradient_composite_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 60000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "voltage_machine_casing_hcv",
+        "hk3gtl_main_component_hcv_electric_piston",
+        "hk3gtl_main_component_hcv_electric_pump",
+        "hk3gtl_main_component_hcv_sensor"
+      ],
+      "process_family": "约束主材前驱联线",
+      "baseline_recipe": "main_material/constraint_gradient_composite/corrosion_resistant_interface; main_material/constraint_gradient_composite/gradient_pressure_lamination; main_material/constraint_gradient_composite/surface_finish_and_batch_separation; main_material/constraint_gradient_composite/protected_atmosphere_ceramic_plate"
+    },
+    {
+      "id": "wonder_w12_x46_qav_fresh_constraint_billet_line",
+      "role": "W12",
+      "zh_name": "锚定超晶格新料固化",
+      "purpose": "把定向涂层、三轴锚定、空间固化与拒收分离连成一线，保留独立磁环前驱。",
+      "requirements": [
+        "RN-ECB",
+        "RN-ERA",
+        "RN-SSQ"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:paired_entangled_lattice_billet",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 32
+        },
+        {
+          "id": "hk3gtl:einstein_ringmagnet",
+          "count": 8
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_billet",
+          "count": 14
+        },
+        {
+          "id": "hk3gtl:anchored_superlattice_structure_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 4608
+        },
+        {
+          "id": "gtceu:spatialfluid",
+          "amount": 4000
+        },
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/imaginary_phase_transfer_ceramic/ceramic_precursor_slurry"
+      ],
+      "process_family": "约束主材前驱联线",
+      "baseline_recipe": "main_material/anchored_superlattice_structure/directional_constraint_coating; main_material/anchored_superlattice_structure/triaxial_anchor_composite; main_material/anchored_superlattice_structure/anchored_superlattice_curing; main_material/anchored_superlattice_structure/surface_finish_and_batch_separation"
+    },
+    {
+      "id": "wonder_w12_x46_worldshell_barrier_prelamination",
+      "role": "W12",
+      "zh_name": "稳界壳前体与纤维封隔联压",
+      "purpose": "现场浸渍WFV基材并立即压入独立纤维薄层；仍须后续热疲劳工序和固定拒收分离。",
+      "requirements": [
+        "RN-ECB",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_billet",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 64
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_2",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldstabilizing_confinement_shell/thermal_fatigue_conditioning"
+      ],
+      "process_family": "约束主材前驱联线",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/constraint_barrier_precursor; main_material/worldstabilizing_confinement_shell/fiber_barrier_multilayer"
+    },
+    {
+      "id": "wonder_w12_x46_worldshell_laminate_conditioning",
+      "role": "W12",
+      "zh_name": "纤维封隔与疲劳联线",
+      "purpose": "从约束前体压入完整纤维层后进行热疲劳处理，热冷却液等量返出；产物仍需终检。",
+      "requirements": [
+        "RN-ECB",
+        "RN-WME",
+        "RN-WMS"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_1",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:worldforming_gradient_fiber_foil",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_3",
+          "count": 16
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "fluid_outputs": [
+        {
+          "id": "hot_honkai_coolant",
+          "amount": 16000
+        }
+      ],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/worldstabilizing_confinement_shell/surface_finish_and_batch_separation"
+      ],
+      "process_family": "约束主材前驱联线",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/fiber_barrier_multilayer; main_material/worldstabilizing_confinement_shell/thermal_fatigue_conditioning"
+    },
+    {
+      "id": "wonder_w12_x46_worldshell_acceptance_to_constraint_branch",
+      "role": "W12",
+      "zh_name": "稳界终检与文明约束支线",
+      "purpose": "先分离十四件合格WSV坯与两件拒收批，仅消费其中四坯制备文明约束模块，剩余十坯实物返出。",
+      "requirements": [
+        "RN-ECB",
+        "RN-WME",
+        "RN-WMS",
+        "RN-CEE",
+        "RN-CQS",
+        "RN-IAA"
+      ],
+      "item_inputs": [
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_stage_3",
+          "count": 16
+        },
+        {
+          "id": "hk3gtl:nano_ceramic",
+          "count": 32
+        }
+      ],
+      "item_outputs": [
+        {
+          "id": "hk3gtl:civilization_quadrisystem_matrix_stage_2",
+          "count": 4
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_billet",
+          "count": 10
+        },
+        {
+          "id": "hk3gtl:worldstabilizing_confinement_shell_rejected_batch",
+          "count": 2
+        }
+      ],
+      "fluid_inputs": [
+        {
+          "id": "gtceu:argon",
+          "amount": 16000
+        },
+        {
+          "id": "gtceu:polybenzimidazole",
+          "amount": 18432
+        }
+      ],
+      "fluid_outputs": [],
+      "item_catalysts": [],
+      "ticks": 2400,
+      "energy_tier": 29,
+      "energy_direction": "input",
+      "facts": [],
+      "experiment": "",
+      "provisional": false,
+      "output_consumers": [
+        "main_material/civilization_quadrisystem_matrix/quadrisystem_cocure",
+        "wonder_w11_four_system_prefabrication"
+      ],
+      "process_family": "约束主材前驱联线",
+      "baseline_recipe": "main_material/worldstabilizing_confinement_shell/surface_finish_and_batch_separation; main_material/civilization_quadrisystem_matrix/independent_constraint_module"
+    }
+  ]
+}

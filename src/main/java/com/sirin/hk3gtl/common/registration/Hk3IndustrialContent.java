@@ -1,7 +1,5 @@
 package com.sirin.hk3gtl.common.registration;
 
-
-
 import com.sirin.hk3gtl.common.item.Hk3Items;
 import com.sirin.hk3gtl.common.block.Hk3Blocks;
 import net.minecraft.world.item.Item;
@@ -13,58 +11,15 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/** 中文说明：该处说明已按当前代码行为整理。*/
-/**
- * 【变更记录 #1】2026-09-24 16:37:18（内测5修订66）
- * 删除：无。新增：探测器校准报告物品。修改：报告使用独立模型与中文名称。
- * 用途：校准和探测器升级之间使用可见物品衔接，不改变采集催化剂规则。
- */
-/**
- * 【变更记录 #2】2026-09-27 01:54:24（第 2 次备注 · 内测5修订86）
- * 删除：无，保留全部历史注册与工艺。
- * 新增：独立封装试验样件物品，仅用于破坏性隔离检测。
- * 修改：接入负责人确认的棒壳、封装样件与I02检测路线。
- * 用途：补齐RN-FRP实验入口，不注册I18，不跳过研究支付或前置。
- */
-/**
- * 【变更记录 #3】2026-09-27 03:05:48（第 3 次备注 · 内测5修订88）
- * 删除：无，保留历史注册。新增：工业接口机械方块及对应物品，沿既有创造页分类收录。
- * 修改：注册普通完整金属方块，六面模型直接引用现有控制器侧面材质。
- * 用途：填充多方块空余接口；自身不提供物品、流体、供能或并行能力。
- */
-/**
- * 【变更记录 #4】2026-09-29 23:37:35（内测5修订101）
- * 删除：本轮被替代的单前置或旧提示分支；其余历史保留。
- * 新增／修改：注册检测专用样件及任务资料物品；持有这些物品不能完成课题。
- * 用途：补足研究接线并如实保留未接物理执行器及结构审批边界。
- * 追溯：logs/research-mainline-r101；R101_FINAL_RECORD。
- */
-/**
- * 【变更记录 #5】2026-10-01 21:51:39（第5次备注 · 内测5修订152）
- * 删除：无。新增：16档电压配色机械机壳。
- * 修改：沿既有方块注册和创造栏收集入口添加完整立方体机壳。
- * 用途：提供独立建筑材料，不授予电压能力或研究进度，不修改既有结构。
- */
-/**
- * 【变更记录 #6】2026-10-20 03:47:24（第6次备注 · 修订174）
- * 删除：无，保留既有物品注册与顺序。
- * 新增：注册13种已批准的能源载体物品，供后续燃料工艺引用；既有创造页会自动收录未分类物品。
- * 修改：未增加配方、方块、机器能力或多方块结构；燃料棒与乏燃料贴图不属于本次资源替换范围。
- * 用途：建立能源工艺所需的载体物品身份，实际制造路线仍由后续配方接入。
- */
 public final class Hk3IndustrialContent {
     // 注册线程写入，完成后只读；保持目录顺序，不允许调用方修改。
-    // 中文备注：该处说明已按当前代码行为整理。
     private static final Map<String, RegistryObject<Item>> ITEMS = new LinkedHashMap<>();
     private static final Map<String, RegistryObject<Block>> BLOCKS = new LinkedHashMap<>();
     private Hk3IndustrialContent() {}
 
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static void registerItems() {
         item("world_mining_legacy_record",64);
         item("ship_engineering_archive",64);
-        for(var contract:com.sirin.hk3gtl.common.research.Hk3ResearchExecutionContracts.all().values())
-            if(!contract.existing())item(contract.specimen(),64);
         item("honkai_detector_calibration_report", 64); // 探测器真实校准的纸质报告，升级时消耗。
         item("prototype_honkai_detector", 1); // 试作型崩坏能探测器 / Prototype Honkai Detector; I01/I07
         item("liquid_honkai_detector", 1); // 一阶液态崩坏能探测器 / Liquid Honkai Detector; I01/I07
@@ -74,6 +29,7 @@ public final class Hk3IndustrialContent {
         item("honkai_analysis_sample", 64); // 崩坏能分析样本 / Honkai Analysis Sample; I02–I08
         item("analyzed_honkai_sample", 64); // 已分析崩坏能样本 / Analyzed Honkai Sample; I02–I08
         item("honkai_reference_sample", 64); // 崩坏能标准样本 / Honkai Reference Sample; I02–I08
+        item("failed_engineering_specimen", 64);
         item("honkai_crystal_seed", 64); // 崩坏结晶晶种 / Honkai Crystal Seed; I02–I08
         item("directional_crystallization_matrix", 64); // 定向结晶基质 / Directional Crystallization Matrix; I02–I08
         item("separation_filter", 64); // 崩坏能分离滤芯 / Separation Filter; I02–I08
@@ -94,6 +50,19 @@ public final class Hk3IndustrialContent {
         item("honkai_tungsten_carrier", 64);
         item("honkai_ptfe_membrane_carrier", 64);
         item("honkai_pbi_microcapsule_carrier", 64);
+        for (var fuel : com.sirin.hk3gtl.common.recipe.honkai.Hk3ReactorFuels.ALL) {
+            item(fuel.item("_precursor"), 64);
+            item(fuel.item("_charge"), 64);
+            item(fuel.item("_fuel"), 64);
+            item("depleted_" + fuel.item("_fuel"), 64);
+            item("broken_" + fuel.item("_fuel"), 64);
+        }
+        for (var rod : com.sirin.hk3gtl.common.recipe.honkai.Hk3ReactorFuels.RODS)
+            for (int count : com.sirin.hk3gtl.common.recipe.honkai.Hk3ReactorFuels.BUNDLE_SIZES) {
+                item(rod.bundle(count), 64);
+                item("depleted_" + rod.bundle(count), 64);
+                item("broken_" + rod.bundle(count), 64);
+            }
         item("soulium_microstructure_template", 64); // 魂钢微结构模板 / Soulium Microstructure Template; I09–I16
         item("nano_building_unit", 64); // 纳米构筑单元 / Nano Building Unit; I09–I16
         item("unprogrammed_nanobot", 64); // 未编程纳米机器人 / Unprogrammed Nanobot; I09–I16
@@ -107,7 +76,6 @@ public final class Hk3IndustrialContent {
         item("soulium_data_substrate", 64); // 魂钢数据基板 / Soulium Data Substrate; I09–I16
         item("soulium_swarf", 64); // 魂钢加工屑 / Soulium Swarf; I09–I16
         item("honkai_fuel_rod_casing", 64); // 崩坏燃料棒壳体 / Honkai Fuel Rod Casing; I18–I23/I47
-        item("fuel_encapsulation_test_specimen", 64); // 仅供实验，不属于发电燃料棒标签。
         item("fuel_encapsulation_part", 64); // 燃料封装组件 / Fuel Encapsulation Part; I18–I23/I47
         item("rejected_fuel_rod", 64); // 不合格燃料棒 / Rejected Fuel Rod; I18–I23/I47
         item("depleted_honkai_fuel_rod", 64); // 乏崩坏燃料棒 / Depleted Honkai Fuel Rod; I18–I23/I47
@@ -123,6 +91,7 @@ public final class Hk3IndustrialContent {
         item("worn_work_drone", 1); // 磨损的作业无人机 / Worn Work Drone; I24–I32/I51/I53
         item("drone_disassembly_scrap", 1); // 无人设备拆解废料 / Drone Disassembly Scrap; I24–I32/I51/I53
         item("empty_bubble_containment_vessel", 1); // 空世界泡收容容器 / Empty Bubble Containment Vessel; I24–I32/I51/I53
+        item("located_real_world_bubble", 1);
         item("sealed_real_world_bubble", 1); // 中文备注：该处说明已按当前代码行为整理。
         item("unstable_simulated_world_bubble", 1); // 中文备注：该处说明已按当前代码行为整理。
         item("stable_simulated_world_bubble", 1); // 中文备注：该处说明已按当前代码行为整理。
@@ -132,7 +101,6 @@ public final class Hk3IndustrialContent {
         item("bubble_container_remnant", 1); // 世界泡容器残件 / Bubble Container Remnant; I24–I32/I51/I53
         item("failed_containment_shell", 1); // 不合格收容壳体 / Failed Containment Shell; I24–I32/I51/I53
         item("reverse_engineering_specimen", 1); // 逆向工程复现样本 / Reverse Engineering Specimen; I24–I32/I51/I53
-        item("failed_engineering_specimen", 1); // 失败工程样本 / Failed Engineering Specimen; I24–I32/I51/I53
         item("soulium_anchor_component", 64); // 魂钢锚定组件 / Soulium Anchor Component; I34–I45
         item("spatial_calibration_module", 64); // 空间校准模块 / Spatial Calibration Module; I34–I45
         item("world_maintenance_specimen", 64); // 中文备注：该处说明已按当前代码行为整理。
@@ -160,31 +128,165 @@ public final class Hk3IndustrialContent {
         item("hyperion_thruster_assembly", 64); // 仿制休伯利安推进器组件 / Hyperion Thruster Assembly; H01
         item("hyperion_navigation_module", 64); // 仿制休伯利安导航模块 / Hyperion Navigation Module; H01
         item("hyperion_bridge_module", 64); // 仿制休伯利安舰桥模块 / Hyperion Bridge Module; H01
-        item("unencapsulated_flame_core", 64); // 未封装仿制炎之律者核心 / Unencapsulated Flame Core; I08/I33
-        item("imitation_flame_core", 1); // 仿制炎之律者核心 / Imitation Flame Core; I33
-        item("unencapsulated_ice_core", 64); // 未封装仿制冰之律者核心 / Unencapsulated Ice Core; I08/I33
-        item("imitation_ice_core", 1); // 仿制冰之律者核心 / Imitation Ice Core; I33
-        item("unencapsulated_reason_core", 64); // 未封装仿制理之律者核心 / Unencapsulated Reason Core; I08/I33
-        item("unencapsulated_void_core", 64); // 未封装仿制空之律者核心 / Unencapsulated Void Core; I08/I33
-        item("imitation_void_core", 1); // 仿制空之律者核心 / Imitation Void Core; I33
-        item("unencapsulated_corruption_core", 64); // 未封装仿制侵蚀之律者核心 / Unencapsulated Corruption Core; I08/I33
-        item("imitation_corruption_core", 1); // 仿制侵蚀之律者核心 / Imitation Corruption Core; I33
-        item("unencapsulated_rock_core", 64); // 未封装仿制岩之律者核心 / Unencapsulated Rock Core; I08/I33
-        item("imitation_rock_core", 1); // 仿制岩之律者核心 / Imitation Rock Core; I33
-        item("unencapsulated_binding_core", 64); // 未封装仿制约束之律者核心 / Unencapsulated Binding Core; I08/I33
-        item("imitation_binding_core", 1); // 仿制约束之律者核心 / Imitation Binding Core; I33
-        item("unencapsulated_thunder_core", 64); // 未封装仿制雷之律者核心 / Unencapsulated Thunder Core; I08/I33
-        item("imitation_thunder_core", 1); // 仿制雷之律者核心 / Imitation Thunder Core; I33
-        item("unencapsulated_wind_core", 64); // 未封装仿制风之律者核心 / Unencapsulated Wind Core; I08/I33
-        item("imitation_wind_core", 1); // 仿制风之律者核心 / Imitation Wind Core; I33
+        item("imitation_flame_core", 1); // 仿制炎之律者核心 / Imitation Flame Core; I08/I33
+        item("imitation_ice_core", 1); // 仿制冰之律者核心 / Imitation Ice Core; I08/I33
+        item("imitation_void_core", 1); // 仿制空之律者核心 / Imitation Void Core; I08/I33
+        item("imitation_corruption_core", 1); // 仿制侵蚀之律者核心 / Imitation Corruption Core; I08/I33
+        item("imitation_rock_core", 1); // 仿制岩之律者核心 / Imitation Rock Core; I08/I33
+        item("imitation_binding_core", 1); // 仿制约束之律者核心 / Imitation Binding Core; I08/I33
+        item("imitation_thunder_core", 1); // 仿制雷之律者核心 / Imitation Thunder Core; I08/I33
+        item("imitation_wind_core", 1); // 仿制风之律者核心 / Imitation Wind Core; I08/I33
         item("imitation_void_archives", 1); // 仿制的虚空万藏 / Imitation Void Archives; I33/RN divine keys
-        item("imitation_cosmic_juggernaut", 1); // 仿制的千界一乘 / Imitation Cosmic Juggernaut; I33/RN divine keys
         item("imitation_star_of_eden", 1); // 仿制的伊甸之星 / Imitation Star Of Eden; I33/RN divine keys
         item("imitation_oath_of_judah", 1); // 仿制的犹大的誓约 / Imitation Oath Of Judah; I33/RN divine keys
         item("divine_key_housing", 1); // 神之键封装框架 / Divine Key Housing; I33/RN divine keys
+        // V3仅补工装、目标几何坯和芯粒；既有主材与电子部件继续复用。
+        item("honkai_lattice_electroforming_mandrel", 64);
+        item("honkai_lattice_deposited_interconnect", 64);
+        item("optical_reference_grating", 64);
+        item("optical_process_feedback_module", 64);
+        item("ultradense_pump_housing_mold", 64);
+        item("ultradense_pump_housing_blank", 64);
+        item("quantum_coherence_logic_chiplet", 64);
+        item("quantum_coherence_io_chiplet", 64);
+        item("quantum_coherence_interposer", 64);
+        item("imaginary_topology_logic_chiplet", 64);
+        item("imaginary_topology_io_chiplet", 64);
+        item("imaginary_topology_interposer", 64);
+        item("civilization_endurance_logic_chiplet", 64);
+        item("civilization_endurance_io_chiplet", 64);
+        item("civilization_endurance_interposer", 64);
+        item("acousto_optic_tuning_array", 64);
+        item("active_quiet_bearing_cartridge", 64);
+        item("anchor_gap_positioner", 64);
+        item("anchored_hermetic_feedthrough", 64);
+        item("axial_magnetic_thrust_assembly", 64);
+        item("balanced_coherent_readout_tile", 64);
+        item("bounded_nano_control_core", 64);
+        item("carbon_nanotube_anchoring_mesh", 64);
+        item("causal_order_dispatch_core", 64);
+        item("ceramic_bellows_seal", 64);
+        item("ceramic_drilled_interposer", 64);
+        item("ceramic_feedthrough_array", 64);
+        item("ceramic_interface_reinforced_fiber_sheet", 64);
+        item("ceramic_magnetic_bearing", 64);
+        item("civilization_state_checkpoint_core", 64);
+        item("clock_phase_recovery_module", 64);
+        item("coherence_isolation_interposer", 64);
+        item("collapsed_hip_capsule", 64);
+        item("compliant_soulium_contact_array", 64);
+        item("confinement_boundary_bus", 64);
+        item("conjugate_seed_coupling_clamp", 64);
+        item("constraint_ceramic_powder_blend", 64);
+        item("constraint_compensated_clock_module", 64);
+        item("counterflow_isolation_coldplate", 64);
+        item("crack_arrest_isolation_interleaf", 64);
+        item("cryogenic_pressure_header", 64);
+        item("cryogenic_sampling_chamber", 64);
+        item("dielectric_edge_sealing_strip", 64);
+        item("differential_containment_liner", 64);
+        item("differential_measurement_component", 64);
+        item("differential_resonance_bridge", 64);
+        item("directional_energy_band_interposer", 64);
+        item("domain_interlocked_manipulator_core", 64);
+        item("drainable_service_loop_jacket", 64);
+        item("dual_channel_servo_cartridge", 64);
+        item("electrohydraulic_servo_spool", 64);
+        item("encapsulation_sidewall_insulation_liner", 64);
+        item("energy_isolated_servo_block", 64);
+        item("fault_containment_voter", 64);
+        item("four_domain_consensus_core", 64);
+        item("four_quadrant_servo_drive_module", 64);
+        item("four_system_isolation_backplane", 64);
+        item("gradient_fiber_sizing_sleeve", 64);
+        item("gradient_path_formation_head", 64);
+        item("heralded_pair_interface", 64);
+        item("hermetic_differential_optical_bus", 64);
+        item("hip_pressure_reference_fixture", 64);
+        item("hip_sealing_capsule", 64);
+        item("honkai_spectral_calibration_film", 64);
+        item("imaginary_phase_boundary_die", 64);
+        item("imaginary_reference_resonator", 64);
+        item("impedance_graded_coupling_ribbon", 64);
+        item("independent_failover_manifold", 64);
+        item("indexed_remanufacture_joint", 64);
+        item("interferometric_path_router", 64);
+        item("isolated_service_loop_block", 64);
+        item("laminate_registration_fixture", 64);
+        item("lamination_busbar_carrier", 64);
+        item("lattice_lamination_prepreg", 64);
+        item("maintainable_actuator_cartridge", 64);
+        item("microchannel_circuit_cold_plate", 64);
+        item("multiaxial_worldweave_backplane", 64);
+        item("nano_joint_isolation_membrane", 64);
+        item("nano_swarm_timing_node", 64);
+        item("optical_encoder_drive_pack", 64);
+        item("paired_syndrome_decoder", 64);
+        item("paired_thermal_balance_bridge", 64);
+        item("perennial_handover_checkpoint_core", 64);
+        item("phase_boundary_ceramic_nucleant", 64);
+        item("phase_difference_decoder", 64);
+        item("phase_isolated_actuator_shell", 64);
+        item("phase_matched_mesh_spacer", 64);
+        item("phase_transition_protocol_core", 64);
+        item("phone_duplex_interconnect_module", 64);
+        item("phone_isolated_lv_power_module", 64);
+        item("phone_optical_touch_panel", 64);
+        item("piezoelectric_resonator_blank", 64);
+        item("prospecting_payload_cartridge", 64);
+        item("pulsation_buffer_valve_group", 64);
+        item("quadrature_phase_receiver", 64);
+        item("quadrisystem_interoperability_backplane", 64);
+        item("quadrisystem_state_reconciler", 64);
+        item("quadrisystem_thermal_exchange_hub", 64);
+        item("quench_recovery_coldblock", 64);
+        item("reactor_instrumentation_header", 64);
+        item("reconstruction_composition_charge", 64);
+        item("reconstruction_mapping_tile", 64);
+        item("rectifier_switching_stack", 64);
+        item("redundant_boundary_servo", 64);
+        item("reference_frame_anchor_decoder", 64);
+        item("replaceable_service_bay", 64);
+        item("replaceable_service_interface_tile", 64);
+        item("replaceable_service_interposer", 64);
+        item("resonance_damping_interlayer", 64);
+        item("resonance_texture_seed", 64);
+        item("resonant_load_feedback_unit", 64);
+        item("reusable_honkai_optical_ampoule", 64);
+        item("reversible_topology_scheduler", 64);
+        item("seeded_world_lattice_cartridge", 64);
+        item("segmented_repair_coolant_jacket", 64);
+        item("segmented_thermal_barrier", 64);
+        item("segregated_media_exchange_block", 64);
+        item("separated_phase_manifold", 64);
+        item("soulium_diffusion_bonding_interlayer", 64);
+        item("soulium_gradient_foil_pack", 64);
+        item("soulium_grain_boundary_inoculant", 64);
+        item("soulium_microchannel_manifold", 64);
+        item("soulium_nano_actuator_blank", 64);
+        item("soulium_nano_actuator_joint", 64);
+        item("soulium_nano_deposition_scaffold", 64);
+        item("soulium_nucleation_granule", 64);
+        item("soulium_porous_carrier", 64);
+        item("soulium_structural_preform", 64);
+        item("staged_leak_isolation_valve", 64);
+        item("stitched_multiaxial_z_binder", 64);
+        item("stripped_lamination_busbar", 64);
+        item("structural_load_transfer_node", 64);
+        item("symmetric_multichip_interconnect_bridge", 64);
+        item("tendon_balance_actuator", 64);
+        item("torsion_decoupling_flexure_coupling", 64);
+        item("triaxial_anchor_interposer", 64);
+        item("triaxial_anchor_tendon", 64);
+        item("vacuum_return_flow_manifold", 64);
+        item("vacuum_screened_quantum_socket", 64);
+        item("world_topology_routing_tile", 64);
+        item("continuity_fuel_confinement_fixture", 64);
+        item("imaginary_fuel_coupling_fixture", 64);
+        item("resonant_fuel_activation_fixture", 64);
+        item("supercritical_fuel_pressure_fixture", 64);
     }
 
-    /** 中文说明：该处备注已按当前代码行为整理，不使用问号占位。*/
     public static void registerBlocks() {
         block("voltage_machine_casing_hbv");
         block("voltage_machine_casing_hcv");
@@ -204,99 +306,6 @@ public final class Hk3IndustrialContent {
         block("voltage_machine_casing_cev");
 
         block("industrial_port_casing"); // 空余接口填充件，不具备仓室能力。
-        block("honkai_collection_casing"); // 崩坏能采集机壳 / Honkai Collection Casing; I01–I53/S01–S05
-        block("honkai_separation_casing"); // 崩坏能分离机壳 / Honkai Separation Casing; I01–I53/S01–S05
-        block("honkai_stabilization_casing"); // 崩坏能稳定机壳 / Honkai Stabilization Casing; I01–I53/S01–S05
-        block("soulium_chemical_casing"); // 魂钢化工机壳 / Soulium Chemical Casing; I01–I53/S01–S05
-        block("nano_assembly_casing"); // 纳米装配机壳 / Nano Assembly Casing; I01–I53/S01–S05
-        block("honkai_fuel_processing_casing"); // 崩坏燃料处理机壳 / Honkai Fuel Processing Casing; I01–I53/S01–S05
-        block("small_honkai_reactor_vessel"); // 小型崩坏反应堆压力壳 / Small Honkai Reactor Vessel; I01–I53/S01–S05
-        block("medium_honkai_reactor_vessel"); // 中型崩坏反应堆压力壳 / Medium Honkai Reactor Vessel; I01–I53/S01–S05
-        block("large_honkai_reactor_vessel"); // 大型崩坏反应堆压力壳 / Large Honkai Reactor Vessel; I01–I53/S01–S05
-        block("ultimate_honkai_reactor_vessel"); // 终极崩坏反应堆压力壳 / Ultimate Honkai Reactor Vessel; I01–I53/S01–S05
-        block("quantum_observation_casing"); // 量子观测机壳 / Quantum Observation Casing; I01–I53/S01–S05
-        block("world_bubble_containment_casing"); // 中文备注：该处说明已按当前代码行为整理。
-        block("world_simulation_casing"); // 中文备注：该处说明已按当前代码行为整理。
-        block("imaginary_anchor_casing"); // 虚数锚定机壳 / Imaginary Anchor Casing; I01–I53/S01–S05
-        block("high_dimensional_assembly_casing"); // 高维装配机壳 / High Dimensional Assembly Casing; I01–I53/S01–S05
-        block("precision_circuit_casing"); // 精密电路机壳 / Precision Circuit Casing; I01–I53/S01–S05
-        block("research_institute_casing"); // 中文备注：该处说明已按当前代码行为整理。
-        block("advanced_research_casing"); // 中文备注：该处说明已按当前代码行为整理。
-        block("quantum_research_casing"); // 中文备注：该处说明已按当前代码行为整理。
-        block("imaginary_research_casing"); // 中文备注：该处说明已按当前代码行为整理。
-        block("civilization_cognition_casing"); // 文明认知穹顶机壳 / Civilization Cognition Casing; I01–I53/S01–S05
-        block("honkai_collection_antenna"); // 崩坏能采集天线组件 / Honkai Collection Antenna; I01–I53/H01
-        block("spectral_analysis_lens"); // 频谱分析透镜组件 / Spectral Analysis Lens; I01–I53/H01
-        block("nano_reconstruction_chamber"); // 纳米重构腔体 / Nano Reconstruction Chamber; I01–I53/H01
-        block("honkai_heat_exchanger"); // 崩坏工业换热组件 / Honkai Heat Exchanger; I01–I53/H01
-        block("quantum_confinement_coil"); // 量子约束线圈 / Quantum Confinement Coil; I01–I53/H01
-        block("imaginary_anchor_ring"); // 虚数锚定环组件 / Imaginary Anchor Ring; I01–I53/H01
-        block("high_dimensional_energy_conduit"); // 高维导能构件 / High Dimensional Energy Conduit; I01–I53/H01
-        block("civilization_computing_array"); // 文明计算阵列 / Civilization Computing Array; I01–I53/H01
-        block("hyperion_armored_hull"); // 仿制休伯利安装甲舰壳 / Hyperion Armored Hull; I01–I53/H01
-        block("hyperion_structural_frame"); // 仿制休伯利安结构框架 / Hyperion Structural Frame; I01–I53/H01
-        block("hyperion_engine_nozzle"); // 仿制休伯利安引擎喷口 / Hyperion Engine Nozzle; I01–I53/H01
-        block("hyperion_bridge_panel"); // 仿制休伯利安舰桥面板 / Hyperion Bridge Panel; I01–I53/H01
-        block("wonder_origin_casing"); // 始源·奇观外壳 / Wonder Origin Casing; W01/I42
-        block("wonder_origin_support"); // 始源·奇观支撑 / Wonder Origin Support; W01/I42
-        block("wonder_origin_interface"); // 始源·奇观接口 / Wonder Origin Interface; W01/I42
-        block("wonder_origin_core_mount"); // 始源·奇观核心座 / Wonder Origin Core Mount; W01/I42
-        block("wonder_reason_casing"); // 理·奇观外壳 / Wonder Reason Casing; W02/I42
-        block("wonder_reason_support"); // 理·奇观支撑 / Wonder Reason Support; W02/I42
-        block("wonder_reason_interface"); // 理·奇观接口 / Wonder Reason Interface; W02/I42
-        block("wonder_reason_core_mount"); // 理·奇观核心座 / Wonder Reason Core Mount; W02/I42
-        block("wonder_void_casing"); // 空·奇观外壳 / Wonder Void Casing; W03/I42
-        block("wonder_void_support"); // 空·奇观支撑 / Wonder Void Support; W03/I42
-        block("wonder_void_interface"); // 空·奇观接口 / Wonder Void Interface; W03/I42
-        block("wonder_void_core_mount"); // 空·奇观核心座 / Wonder Void Core Mount; W03/I42
-        block("wonder_thunder_casing"); // 雷·奇观外壳 / Wonder Thunder Casing; W04/I42
-        block("wonder_thunder_support"); // 雷·奇观支撑 / Wonder Thunder Support; W04/I42
-        block("wonder_thunder_interface"); // 雷·奇观接口 / Wonder Thunder Interface; W04/I42
-        block("wonder_thunder_core_mount"); // 雷·奇观核心座 / Wonder Thunder Core Mount; W04/I42
-        block("wonder_wind_casing"); // 风·奇观外壳 / Wonder Wind Casing; W05/I42
-        block("wonder_wind_support"); // 风·奇观支撑 / Wonder Wind Support; W05/I42
-        block("wonder_wind_interface"); // 风·奇观接口 / Wonder Wind Interface; W05/I42
-        block("wonder_wind_core_mount"); // 风·奇观核心座 / Wonder Wind Core Mount; W05/I42
-        block("wonder_ice_casing"); // 冰·奇观外壳 / Wonder Ice Casing; W06/I42
-        block("wonder_ice_support"); // 冰·奇观支撑 / Wonder Ice Support; W06/I42
-        block("wonder_ice_interface"); // 冰·奇观接口 / Wonder Ice Interface; W06/I42
-        block("wonder_ice_core_mount"); // 冰·奇观核心座 / Wonder Ice Core Mount; W06/I42
-        block("wonder_death_casing"); // 死·奇观外壳 / Wonder Death Casing; W07/I42
-        block("wonder_death_support"); // 死·奇观支撑 / Wonder Death Support; W07/I42
-        block("wonder_death_interface"); // 死·奇观接口 / Wonder Death Interface; W07/I42
-        block("wonder_death_core_mount"); // 死·奇观核心座 / Wonder Death Core Mount; W07/I42
-        block("wonder_flame_casing"); // 炎·奇观外壳 / Wonder Flame Casing; W08/I42
-        block("wonder_flame_support"); // 炎·奇观支撑 / Wonder Flame Support; W08/I42
-        block("wonder_flame_interface"); // 炎·奇观接口 / Wonder Flame Interface; W08/I42
-        block("wonder_flame_core_mount"); // 炎·奇观核心座 / Wonder Flame Core Mount; W08/I42
-        block("wonder_sentience_casing"); // 识·奇观外壳 / Wonder Sentience Casing; W09/I42
-        block("wonder_sentience_support"); // 识·奇观支撑 / Wonder Sentience Support; W09/I42
-        block("wonder_sentience_interface"); // 识·奇观接口 / Wonder Sentience Interface; W09/I42
-        block("wonder_sentience_core_mount"); // 识·奇观核心座 / Wonder Sentience Core Mount; W09/I42
-        block("wonder_rock_casing"); // 岩·奇观外壳 / Wonder Rock Casing; W10/I42
-        block("wonder_rock_support"); // 岩·奇观支撑 / Wonder Rock Support; W10/I42
-        block("wonder_rock_interface"); // 岩·奇观接口 / Wonder Rock Interface; W10/I42
-        block("wonder_rock_core_mount"); // 岩·奇观核心座 / Wonder Rock Core Mount; W10/I42
-        block("wonder_domination_casing"); // 支配·奇观外壳 / Wonder Domination Casing; W11/I42
-        block("wonder_domination_support"); // 支配·奇观支撑 / Wonder Domination Support; W11/I42
-        block("wonder_domination_interface"); // 支配·奇观接口 / Wonder Domination Interface; W11/I42
-        block("wonder_domination_core_mount"); // 支配·奇观核心座 / Wonder Domination Core Mount; W11/I42
-        block("wonder_binding_casing"); // 约束·奇观外壳 / Wonder Binding Casing; W12/I42
-        block("wonder_binding_support"); // 约束·奇观支撑 / Wonder Binding Support; W12/I42
-        block("wonder_binding_interface"); // 约束·奇观接口 / Wonder Binding Interface; W12/I42
-        block("wonder_binding_core_mount"); // 约束·奇观核心座 / Wonder Binding Core Mount; W12/I42
-        block("wonder_corruption_casing"); // 侵蚀·奇观外壳 / Wonder Corruption Casing; W13/I42
-        block("wonder_corruption_support"); // 侵蚀·奇观支撑 / Wonder Corruption Support; W13/I42
-        block("wonder_corruption_interface"); // 侵蚀·奇观接口 / Wonder Corruption Interface; W13/I42
-        block("wonder_corruption_core_mount"); // 侵蚀·奇观核心座 / Wonder Corruption Core Mount; W13/I42
-        block("wonder_finality_casing"); // 终焉·奇观外壳 / Wonder Finality Casing; W14/I42
-        block("wonder_finality_support"); // 终焉·奇观支撑 / Wonder Finality Support; W14/I42
-        block("wonder_finality_interface"); // 终焉·奇观接口 / Wonder Finality Interface; W14/I42
-        block("wonder_finality_core_mount"); // 终焉·奇观核心座 / Wonder Finality Core Mount; W14/I42
-        block("wonder_tree_sea_casing"); // 树海·奇观外壳 / Wonder Tree Sea Casing; W15/I42
-        block("wonder_tree_sea_support"); // 树海·奇观支撑 / Wonder Tree Sea Support; W15/I42
-        block("wonder_tree_sea_interface"); // 树海·奇观接口 / Wonder Tree Sea Interface; W15/I42
-        block("wonder_tree_sea_core_mount"); // 树海·奇观核心座 / Wonder Tree Sea Core Mount; W15/I42
     }
 
     /** @param id 稳定路径 / stable registry path; @param stack 最大件数 / maximum stack count. */
@@ -310,10 +319,8 @@ public final class Hk3IndustrialContent {
         BLOCKS.put(id, Hk3Blocks.registerBlock(id, () -> new Block(BlockBehaviour.Properties.of()
                 .strength(5.0F, 10.0F).sound(SoundType.METAL).requiresCorrectToolForDrops())));
     }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Map<String, RegistryObject<Item>> items() { return Collections.unmodifiableMap(ITEMS); }
-    /** 中文说明：该处说明已按当前代码行为整理。*/
     public static Map<String, RegistryObject<Block>> blocks() { return Collections.unmodifiableMap(BLOCKS); }
 }
 
-// 【变更记录 · 修订161】2026-10-17 14:11:55：本轮仅将活动类名、资源与工业配方引用迁移为长期业务命名；历史备注保留，不代表旧逻辑已全部按现行设计重写。
+ 

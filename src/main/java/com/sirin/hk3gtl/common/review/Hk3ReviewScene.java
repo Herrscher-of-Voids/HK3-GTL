@@ -21,15 +21,15 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/** 【变更记录 #1】2026-10-01 18:42:57（修订140）：删除无；新增隔离召入、原点安全返程和二审粒子投影；修改借用原版不可见交互体，不冒充琪亚娜模型；用途：场景不改玩家建筑，返程失败保留账本，攻击投影只暂停本人会面。 */
+ 
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #2】2026-10-01 18:51:55（修订140）：删除重载旧投影的可能；新增只读陪同及投射物中止；修改传送须确认实际落点、飞行返程允许空中安全位置；用途：返回失败不清票据，陪同不增加审查次数。 */
-/** 【变更记录 #3】2026-10-01 19:03:37（修订141）：删除：无；新增／修改：不可见盔甲架替换为有皮肤和配件的琪亚娜，会面归属及中断清理保持原入口；用途：琪亚娜二审形象和终审统一称谓，保留其他会话行为。 */
-/** 【变更记录 #4】2026-10-01 19:08:10（修订141）：删除：无；新增／修改：二审投影上浮0.95格，静态剑尖离地约0.106格，保留原归属和清理事件；用途：完整呈现二审人物及配件。 */
-/** 【变更记录 #5】2026-10-01 19:10:52（修订142）：删除：二审武器展示；新增：无；修改：撤下武器后取消0.95格避让悬浮，琪亚娜恢复平静站立会面；用途：遵循负责人只保留琪亚娜和翅膀的最新决定。 */
-/** 【变更记录 #6】2026-10-01 20:04:51（修订146）：删除：无；新增：一审入场面向200格球体的仰视角；修改：首次召入与陪同共用朝向计算，保留进入前姿态用于返程；用途：让菱形核心位于入场视野，不改变三问及结算。 */
-/** 【变更记录 #7】2026-10-01 20:19:52（修订147）：删除：一审64格自由移动边界；新增：每玩家每tick固定观礼位置并面向茧；修改：入场角度抽取共用计算，约束仅在一审活动会话生效，异常时暂停并尝试返程；用途：防止绕到背面，退出保持既有原位返程。 */
-/** 【变更记录 #8】2026-11-04 18:48:13（修订199）：删除：一审丢失锚点或维度时静默等待；新增：选择及轮询共用场景有效性校验、退出释放临时场景；修改：二审投影失效立即拒绝选择，一审失效暂停并尝试返程；用途：关闭跨场景结算窗口及离线锚点泄漏，不删除持久返程记录。 */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 public final class Hk3ReviewScene {
     public static final ResourceKey<Level> COCOON=ResourceKey.create(Registries.DIMENSION,new ResourceLocation("hk3gtl","cocoon_review"));
     private static final String OWNER="hk3_review_projection_owner";
@@ -94,7 +94,10 @@ public final class Hk3ReviewScene {
         if(at==null){p.sendSystemMessage(Component.translatable("hk3gtl.review.return_blocked"));return false;}
         try{move(p,dest,at,r.yaw(),r.pitch());}
         catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().warn("[HK3GTL] 审查返程暂时失败，保留票据",failure);p.sendSystemMessage(Component.translatable("hk3gtl.review.return_blocked"));return false;}
-        data.returned(p.getUUID());ANCHORS.remove(p.getUUID());return true;
+        data.returned(p.getUUID());ANCHORS.remove(p.getUUID());
+        if(Hk3ReviewData.get(p.server).snapshot().experienced(p.getUUID(),Hk3ReviewLedger.Kind.FIRST))
+            com.sirin.hk3gtl.common.narrative.story.Hk3StoryService.fact(p,"first_review_completed");
+        return true;
     }
     private static boolean safe(ServerPlayer p,ServerLevel level,Vec3 at){
         var feet=BlockPos.containing(at);if(at.y<level.getMinBuildHeight()+1||at.y+2>=level.getMaxBuildHeight()||!level.getWorldBorder().isWithinBounds(feet))return false;

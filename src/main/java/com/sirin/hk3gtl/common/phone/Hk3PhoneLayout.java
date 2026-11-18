@@ -1,10 +1,10 @@
 package com.sirin.hk3gtl.common.phone;
 
-/**
- * 【变更记录 #1】2026-09-30 18:18:05（内测5修订112）
- * 删除：无；新增：整页索引与归一化通知布局计算。
- * 修改：无；用途：实际阅读/拖动预览/浮层共用边界，纯逻辑可回归。
- */
+ 
+
+
+
+
 public final class Hk3PhoneLayout {
     private Hk3PhoneLayout(){}
     public static int pages(int lines,int perPage){return Math.max(1,(int)(((long)Math.max(0,lines)+Math.max(1,perPage)-1)/Math.max(1,perPage)));}

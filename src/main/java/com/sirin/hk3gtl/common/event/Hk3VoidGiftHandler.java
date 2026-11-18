@@ -15,12 +15,12 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.wrapper.PlayerMainInvWrapper;
 import java.util.*;
 
-/**
- * 【变更记录 #1】2026-10-01 01:36:39（修订126）
- * 删除：无；新增：指定名字登录触发及待领取礼物每100刻重试。
- * 修改：运行时解析sov物品，模拟背包插入后才实际插入，避免创造模式满背包吞物品。
- * 用途：只发本人的三件礼物；背包满不丢地上，缺物品不崩溃、不虚报领取，损坏账本停止本次会话发奖。
- */
+ 
+
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3VoidGiftHandler {
     private static final org.slf4j.Logger LOGGER=LogUtils.getLogger();

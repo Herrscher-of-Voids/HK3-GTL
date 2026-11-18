@@ -5,9 +5,9 @@ import net.minecraft.nbt.CompoundTag;
 import java.util.*;
 import java.util.function.Function;
 
-/** 【变更记录 #1】2026-10-01 01:54:14（修订127）：删除无；新增收藏记录、正文组装与持久投递共用服务；修改无；用途：手机、卷轴、通知同源，按本人状态判定且阅读不解锁、不发奖；无玩家实体依赖便于真实存档回归。 */
-/** 【变更记录 #2】2026-10-01 22:50:14（第2次备注 · 内测5修订155）：删除玩家展示中的旧电压及开发说明；新增现行正文投影或对应回归；修改仅限呈现与检索，不改变进度、回执、触发条件或权限；用途：统一发布版玩家文案，历史备注保留。 */
-/** 【变更记录 #3】2026-11-04 06:08:10（第3次备注 · 内测5修订196）：删除64正式收藏的旧正文投影；新增现行迁移标题与全文共享入口；修改只影响当前呈现，已投递历史原文不覆盖；用途：让手机与卷轴引用同一获准正文，不授予资格。 */
+ 
+ 
+ 
 public final class Hk3CollectionRecords {
     public record Receipt(boolean unlocked,boolean delivered,String title,String body,String kind){}
     private Hk3CollectionRecords(){}

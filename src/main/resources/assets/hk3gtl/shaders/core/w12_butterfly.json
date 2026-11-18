@@ -1,0 +1,10 @@
+{
+  "blend":{"func":"add","srcrgb":"srcalpha","dstrgb":"one"},
+  "vertex":"hk3gtl:w12_butterfly","fragment":"hk3gtl:w12_butterfly",
+  "attributes":["Position","Color","UV0"],
+  "samplers":[],
+  "uniforms":[
+    {"name":"ModelViewMat","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name":"ProjMat","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]}
+  ]
+}

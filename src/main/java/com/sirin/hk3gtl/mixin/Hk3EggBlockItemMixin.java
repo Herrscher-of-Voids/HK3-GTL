@@ -8,9 +8,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-/** 【变更记录 #1】2026-10-01 04:15:05（修订128）：删除无；新增放置实际成功后的只读事实；修改无；用途：取消放置不计数，使用位置方块而不是放置后手持物。 */
+ 
 @Mixin(BlockItem.class)
-/** 【变更记录 #2】2026-10-01 04:21:47（修订128）：删除：旧固定上限或被替代的分支；新增/修改：将放置观察排到Forge放置取消/回滚处理之后；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
 public abstract class Hk3EggBlockItemMixin {
     @Unique private final ThreadLocal<BlockState> hk3gtl$before= new ThreadLocal<>();
     @Inject(method="place",at=@At("HEAD"))

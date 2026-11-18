@@ -8,10 +8,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
-/** 【变更记录 #1】2026-10-01 12:13:33（修订128）：删除：无；新增/修改：客户端只回报实际显示页，服务端核对已注册物品、真实生产/生存取得与标签成员，不接受任意彩蛋编号；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #2】2026-10-01 12:14:23（修订128）：删除：无；新增/修改：修复标签分隔转义，限流改为每tick16次避免同屏多配方丢回执，删除无用读取；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #3】2026-10-01 12:14:48（修订128）：删除：无；新增/修改：标签分隔使用字符类避免Java字符串与正则双层转义歧义；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
-/** 【变更记录 #4】2026-10-01 13:26:03（修订128）：删除：无；新增/修改：坐标阅读需本人由维度传送器成功传送后的维度一致凭据；预览回执只交AE现有菜单核验；用途：已审核彩蛋独立执行，不授研究或审查资格。 */
+ 
+ 
+ 
+ 
 public final class Hk3EggUiReceipts {
     private Hk3EggUiReceipts(){}
     public static void acquired(ServerPlayer p,net.minecraft.world.item.ItemStack item){
