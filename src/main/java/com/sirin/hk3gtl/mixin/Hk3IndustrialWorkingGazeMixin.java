@@ -22,7 +22,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
         "com.gtladd.gtladditions.common.machine.multiblock.controller.df.HyperdimensionalEnergyConcentrator$HECRecipeLogic",
         "com.gtladd.gtladditions.common.machine.multiblock.controller.df.RecursiveReverseForge$RRFRecipeLogic",
         "com.gtladd.gtladditions.common.machine.multiblock.controller.fl.FloatingLightController$FLRecipeLogic",
-        "com.gtlsupb.gtlsupb.api.machine.logic.MutableRecipesLogic",
         "com.gtlsupb.gtlsupb.common.machine.multiblock.GTLSupbMolecularAssemblerLogic"
 }, remap = false)
 public abstract class Hk3IndustrialWorkingGazeMixin {

@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.common.phone;
 
- 
 
- 
 
- 
- 
+
+
+
+
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -24,37 +24,37 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import java.util.UUID;
 
- 
 
 
 
 
 
- 
 
 
 
 
- 
 
 
 
 
- 
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
 
 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
 public final class Hk3PhoneService {
     private Hk3PhoneService(){}
     @SubscribeEvent public static void commands(RegisterCommandsEvent e){
@@ -201,4 +201,4 @@ public final class Hk3PhoneService {
     }
 }
 
- 
+

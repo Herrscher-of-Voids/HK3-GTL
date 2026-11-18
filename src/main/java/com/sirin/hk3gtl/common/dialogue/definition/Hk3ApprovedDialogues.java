@@ -1,18 +1,18 @@
 package com.sirin.hk3gtl.common.dialogue.definition;
 
- 
+
 import com.sirin.hk3gtl.common.dialogue.*;
 import com.sirin.hk3gtl.common.narrative.Hk3ApprovedProse;
 import java.util.*;
 
- 
 
 
 
 
 
- 
- 
+
+
+
 public final class Hk3ApprovedDialogues {
     public static final String LIBRARY = "hk3_approved_library";
     public static final String REVIEW_PREVIEW = "hk3_second_review_preview";

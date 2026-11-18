@@ -30,7 +30,7 @@ import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection
  * <h3>子类分布</h3>
  * {@link Hk3RecipeTypesImaginary}(10) → {@link Hk3RecipeTypesQuantum}(12) → {@link Hk3RecipeTypesFinality}(13) → {@link Hk3RecipeTypesWonder}(12)
  */
- 
+
 
 
 
@@ -149,6 +149,6 @@ public class Hk3RecipeTypesImpl {
     }
 }
 
- 
 
- 
+
+

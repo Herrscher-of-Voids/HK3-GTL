@@ -7,9 +7,9 @@ import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
- 
- 
+
+
+
 public final class Hk3EggTools {
     private record Terminal(net.minecraft.world.inventory.AbstractContainerMenu menu,ItemStack stack,net.minecraft.nbt.CompoundTag before){}
     private static final java.util.Map<java.util.UUID,Terminal> TERMINALS=new java.util.concurrent.ConcurrentHashMap<>();

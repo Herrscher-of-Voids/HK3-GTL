@@ -65,8 +65,8 @@ public final class Hk3W11BuildPlan implements Hk3BuildPlan {
         return new Header(width,height,depth,cx,cy,cz,count,runs,List.copyOf(palette));
     }
     private static Header loadHeader() {
-        try(var input=new DataInputStream(new BufferedInputStream(Hk3PackedResources.open(Hk3W11BuildPlan.class
-                .getResourceAsStream("/data/hk3gtl/structures/w11_candidate.bin.gz")),65536))) {
+        try(var input=new DataInputStream(new BufferedInputStream(Hk3PackedResources.open(Hk3PackedResources.resource(Hk3W11BuildPlan.class,
+                "/data/hk3gtl/structures/w11_candidate.bin.gz")),65536))) {
             return readHeader(input);
         }catch(IOException failure){throw new IllegalStateException("读取W11蓝图元数据失败",failure);}
     }

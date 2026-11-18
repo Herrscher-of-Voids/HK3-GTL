@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.recipe.honkai;
 
- 
+
 
 
 
@@ -33,7 +33,6 @@ import net.minecraft.world.item.Items;
 import org.gtlcore.gtlcore.common.data.GTLMaterials;
 import java.util.function.Consumer;
 
- 
 
 
 
@@ -41,7 +40,8 @@ import java.util.function.Consumer;
 
 
 
- 
+
+
 
 
 
@@ -178,4 +178,4 @@ public final class Hk3LiquidLineRecipes {
     }
 }
 
- 
+

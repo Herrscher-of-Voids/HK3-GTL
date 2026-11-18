@@ -20,19 +20,19 @@ import net.minecraft.world.item.ItemStack;
 import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
 import java.util.function.Consumer;
 
- 
-
-
-
-
- 
 
 
 
 
 
 
- 
+
+
+
+
+
+
+
 
 
 
@@ -86,4 +86,4 @@ public final class HonkaiRecipes {
     }
 }
 
- 
+

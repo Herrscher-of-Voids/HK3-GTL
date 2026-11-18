@@ -9,7 +9,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.*;
 
- 
+
 
 
 
@@ -55,4 +55,4 @@ public final class Hk3LiquidLoopRecipes {
     }
 }
 
- 
+

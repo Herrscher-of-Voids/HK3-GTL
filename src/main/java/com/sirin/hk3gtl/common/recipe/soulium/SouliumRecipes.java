@@ -32,7 +32,7 @@ import java.util.function.Consumer;
  *   <li>所有魂钢配方 EU/t 必须高于 MAX（Tier 14），避免 int 溢出</li>
  * </ul>
  */
- 
+
 
 
 
@@ -43,7 +43,7 @@ import java.util.function.Consumer;
  * 【历史退役记录 · 修订160】2026-10-17 13:52:26：三类旧执行器已退役，
  * 总入口停止调用；现行L3使用I09–I16八步。旧私有实现于修订162完整移出活动源码。
  */
- 
+
 
 
 

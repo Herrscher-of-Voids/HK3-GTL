@@ -2,22 +2,22 @@ package com.sirin.hk3gtl.common.phone;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
- 
 
 
 
 
 
- 
 
 
 
 
- 
 
 
 
- 
+
+
+
+
 public final class Hk3PhoneConfig {
     public static final ForgeConfigSpec SPEC;
     public static final ForgeConfigSpec.ConfigValue<java.util.List<? extends String>> APP_ORDER;

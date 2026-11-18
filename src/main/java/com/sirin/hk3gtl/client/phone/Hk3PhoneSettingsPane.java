@@ -7,14 +7,14 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.network.chat.Component;
 
- 
 
 
 
 
- 
- 
- 
+
+
+
+
 final class Hk3PhoneSettingsPane {
     private int x,y,w,h;private double ratio,grabX,grabY;private boolean dragging;private int originalX,originalY;
     private int sw,sh;

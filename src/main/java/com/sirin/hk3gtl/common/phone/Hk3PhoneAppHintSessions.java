@@ -3,7 +3,7 @@ package com.sirin.hk3gtl.common.phone;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
- 
+
 public final class Hk3PhoneAppHintSessions {
     public static final long READ_TICKS=20, EXPIRE_TICKS=6000, LAUNCH_TICKS=40;
     private final Map<UUID,Session> sessions=new ConcurrentHashMap<>();

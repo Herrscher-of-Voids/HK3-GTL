@@ -16,30 +16,30 @@ import com.sirin.hk3gtl.common.recipe.Hk3RecipeTypes;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
- 
+
+
+
+
 public class Hk3MachinesAbyssStage {
 
-     
+
 
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final ResourceLocation OVERLAY = new ResourceLocation(Hk3Constants.MOD_ID, "block/overlay/default_set");
@@ -85,4 +85,4 @@ public class Hk3MachinesAbyssStage {
     }
 }
 
- 
+

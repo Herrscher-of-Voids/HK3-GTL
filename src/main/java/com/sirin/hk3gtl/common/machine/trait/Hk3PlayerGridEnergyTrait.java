@@ -1,12 +1,12 @@
 package com.sirin.hk3gtl.common.machine.trait;
 
- 
 
 
 
 
 
- 
+
+
 
 
 
@@ -61,15 +61,15 @@ import java.math.BigInteger;
  * 玩家电网 EU 特征：把控制器本体变成一个"电压极高、容量无限"的 EU 输入代理，
  * 背后的存量是 GTMThings 无线电网中绑定玩家（或其 FTB 队伍）的余额。
  */
- 
- 
 
 
 
 
 
 
- 
+
+
+
 
 
 

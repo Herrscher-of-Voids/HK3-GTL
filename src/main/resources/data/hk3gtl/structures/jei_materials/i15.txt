@@ -1,0 +1,12 @@
+gtceu:computer_heat_vent
+gtceu:corrosion_proof_casing
+gtceu:filter_casing
+gtceu:high_temperature_smelting_casing
+gtceu:kanthal_coil_block[active=false]
+gtceu:stainless_steel_gearbox
+gtceu:stainless_steel_turbine_casing
+gtceu:steel_brick_casing
+gtceu:tempered_glass
+gtlcore:cold_ice_casing
+gtlcore:oxidation_resistant_hastelloy_n_mechanical_casing
+hk3gtl:soulium_reconstruction_annealing_furnace[facing=north]

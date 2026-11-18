@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
- 
+
 @Mixin(value=ChargerBlockEntity.class,remap=false)
 public abstract class Hk3EggChargerMixin {
     @Unique private ItemStack hk3gtl$input=ItemStack.EMPTY;

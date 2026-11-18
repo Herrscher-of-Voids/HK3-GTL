@@ -31,4 +31,4 @@ public final class Hk3ResearchStory {
     }
 }
 
- 
+

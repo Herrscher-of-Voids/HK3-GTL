@@ -1,6 +1,7 @@
 package com.sirin.hk3gtl.common.multiblock.build;
 
 import com.google.gson.JsonParser;
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiController;
 import com.lowdragmc.lowdraglib.utils.BlockInfo;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3ApprovedArchitecture;
@@ -60,7 +61,7 @@ public final class Hk3BuildPlans {
         if (controller instanceof com.sirin.hk3gtl.common.machine.wonder.Hk3WonderMachine wonder) {
             if(!com.sirin.hk3gtl.common.machine.wonder.Hk3WonderCatalog.hasBlueprint(wonder.researchRole()))
                 throw new IllegalStateException(wonder.researchRole()+"完整蓝图尚未完成，不能搭建或成型");
-            InputStream input=Hk3BuildPlans.class.getResourceAsStream(ROOT+wonder.researchRole().toLowerCase(java.util.Locale.ROOT)+"_candidate.bin.gz");
+            InputStream input=Hk3PackedResources.resource(Hk3BuildPlans.class,ROOT+wonder.researchRole().toLowerCase(java.util.Locale.ROOT)+"_candidate.bin.gz");
             if(wonder.researchRole().equals("W11"))return new Hk3W11BuildPlan(input,controller.self().getBlockState().getBlock());
             return new PackedPlan(input,controller.self().getBlockState().getBlock());
         }

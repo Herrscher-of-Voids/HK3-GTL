@@ -1,0 +1,12 @@
+gtceu:steel_machine_casing
+gtceu:stainless_steel_turbine_casing
+gtceu:clean_machine_casing
+hk3gtl:voltage_machine_casing_hbv
+gtceu:advanced_computer_casing
+gtceu:laminated_glass
+minecraft:diamond_block
+gtceu:titanium_pipe_casing
+gtceu:assembly_line_grating
+gtceu:computer_heat_vent
+gtceu:titanium_gearbox
+hk3gtl:i19_small_honkai_reactor[facing=north]

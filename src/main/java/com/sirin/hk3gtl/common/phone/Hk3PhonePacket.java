@@ -1,18 +1,18 @@
 package com.sirin.hk3gtl.common.phone;
 
- 
+
 import java.util.function.Supplier;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 
- 
 
 
 
 
 
- 
+
+
 public record Hk3PhonePacket(CompoundTag view) {
     public static void encode(Hk3PhonePacket p,FriendlyByteBuf b){b.writeNbt(p.view);}
     public static Hk3PhonePacket decode(FriendlyByteBuf b){var n=b.readNbt();return new Hk3PhonePacket(n==null?new CompoundTag():n);}

@@ -6,7 +6,7 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
- 
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggGames {
     private static final class Session {Hk3PhoneGames.Tiles tiles;Hk3PhoneGames.Snake snake;long tick=-1;int requests;}

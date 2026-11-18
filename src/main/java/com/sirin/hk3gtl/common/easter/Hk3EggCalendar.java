@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.easter;
 import net.minecraftforge.common.ForgeConfigSpec;
 import java.time.*;
 import java.util.*;
- 
+
 public final class Hk3EggCalendar {
     public static final ForgeConfigSpec SPEC;
     public static final ForgeConfigSpec.ConfigValue<String> TIME_ZONE;
@@ -13,8 +13,8 @@ public final class Hk3EggCalendar {
         SPEC=b.build();
     }
     private Hk3EggCalendar(){}
-     
-     
+
+
     public static ZoneId zone(){return ZoneId.of(TIME_ZONE.get());}
     public static LocalDateTime now(){return LocalDateTime.now(zone());}
     public static Map<String,String> facts(LocalDateTime t,long gameTime){

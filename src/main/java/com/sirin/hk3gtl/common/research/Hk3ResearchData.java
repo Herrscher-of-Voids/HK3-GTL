@@ -1,12 +1,12 @@
 package com.sirin.hk3gtl.common.research;
 
- 
-
- 
 
 
 
- 
+
+
+
+
 
 
 
@@ -26,40 +26,40 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
- 
-
-
-
-
-
- 
-
-
-
-
- 
 
 
 
 
 
 
- 
- 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3ResearchData extends SavedData {
     private CompoundTag accounts = new CompoundTag();
     private Hk3ResearchWorkQueue jobs = new Hk3ResearchWorkQueue();
@@ -641,4 +641,4 @@ public final class Hk3ResearchData extends SavedData {
     }
 }
 
- 
+

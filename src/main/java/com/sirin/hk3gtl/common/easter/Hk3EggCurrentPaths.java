@@ -12,13 +12,13 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
- 
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
- 
- 
- 
- 
+
+
+
+
+
 public final class Hk3EggCurrentPaths {
     private Hk3EggCurrentPaths(){}
     public static void crafted(ServerPlayer p,String id){

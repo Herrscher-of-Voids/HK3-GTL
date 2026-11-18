@@ -15,7 +15,6 @@ import com.gregtechceu.gtceu.api.GTValues;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
- 
 
 
 
@@ -23,7 +22,8 @@ import org.slf4j.Logger;
 
 
 
- 
+
+
 
 
 
@@ -75,4 +75,4 @@ public class Hk3MachinesMaxStage {
     }
 }
 
- 
+

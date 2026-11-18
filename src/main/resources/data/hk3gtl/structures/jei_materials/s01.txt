@@ -1,0 +1,10 @@
+gtceu:advanced_computer_casing
+gtceu:assembly_line_grating
+gtceu:clean_machine_casing
+gtceu:computer_casing
+gtceu:computer_heat_vent
+gtceu:laminated_glass
+gtceu:max_machine_casing
+gtceu:solid_machine_casing
+gtceu:steel_pipe_casing
+hk3gtl:abyss_research_analysis_matrix[facing=north]

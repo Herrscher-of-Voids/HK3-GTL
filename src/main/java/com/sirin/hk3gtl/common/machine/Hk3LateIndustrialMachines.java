@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.machine;
 
 /** 2026-10-30（修订182）：接入I40–I45六台批准控制器、各自额定电压与独立三态面板；完整预览和工艺守卫沿用既有架构，不开放生存获取。 */
 
-/** 【控制器材质变更 · 修订178】2026-10-26 22:02:44：按负责人“采用32套候选，保留4套原材质”接入独立三态面板；保留既有四套像素，不改建筑、控制器ID或工艺。 */
+
 
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
@@ -23,7 +23,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 
- 
 
 
 
@@ -40,7 +39,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 
- 
+
+
 
 
 

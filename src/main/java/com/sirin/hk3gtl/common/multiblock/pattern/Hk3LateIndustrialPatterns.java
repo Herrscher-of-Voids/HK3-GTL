@@ -14,7 +14,7 @@ import java.util.Set;
 
 
 
- 
+
 
 
 
@@ -22,8 +22,8 @@ import java.util.Set;
 
 
 public final class Hk3LateIndustrialPatterns {
-     
- 
+
+
 
 
 

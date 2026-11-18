@@ -22,7 +22,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 
- 
+
 public final class Hk3AdvancedTerminalPreviewWidget extends WidgetGroup {
     public static final String ARMED="hk3gtlPreviewArmed", TARGET="hk3gtlPreviewTarget", DIMENSION="hk3gtlPreviewDimension";
     private final HeldItemHolder holder;

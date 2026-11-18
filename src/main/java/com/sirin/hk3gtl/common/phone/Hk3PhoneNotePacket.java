@@ -2,12 +2,12 @@ package com.sirin.hk3gtl.common.phone;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 import java.util.function.Supplier;
- 
 
 
 
 
- 
+
+
 public record Hk3PhoneNotePacket(boolean delete,String id,int version,String title,String body,int colors,boolean task) {
     public Hk3PhoneNotePacket(boolean delete,String id,int version,String title,String body){this(delete,id,version,title,body,0,false);}
     public static void encode(Hk3PhoneNotePacket p,FriendlyByteBuf b){b.writeBoolean(p.delete);b.writeUtf(p.id,36);b.writeVarInt(p.version);b.writeUtf(p.title,64);b.writeUtf(p.body,4096);b.writeVarInt(p.colors);b.writeBoolean(p.task);}

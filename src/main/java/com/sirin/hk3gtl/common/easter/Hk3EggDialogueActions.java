@@ -7,7 +7,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
- 
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggDialogueActions {
     private static final class Page {

@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
- 
+
 @Mixin(value=InscriberBlockEntity.class,remap=false)
 public abstract class Hk3EggInscriberMixin {
     @Shadow private int finalStep;

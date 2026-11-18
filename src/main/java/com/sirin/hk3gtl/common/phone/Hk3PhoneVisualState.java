@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.phone;
 
 import net.minecraft.nbt.CompoundTag;
 
- 
+
 public final class Hk3PhoneVisualState {
     private Hk3PhoneVisualState() {}
     public static boolean changed(CompoundTag before,CompoundTag after){

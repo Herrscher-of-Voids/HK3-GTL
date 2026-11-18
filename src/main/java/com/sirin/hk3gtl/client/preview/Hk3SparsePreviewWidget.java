@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /** 首次显示才解码；百万方块不在JEI注册时展开或申请显存。 */
- 
+
 @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3SparsePreviewWidget extends WidgetGroup {
     private static final ExecutorService LOADER=new ThreadPoolExecutor(1,1,30,TimeUnit.SECONDS,new ArrayBlockingQueue<>(2),task->{

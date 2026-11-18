@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value=PatternAccessTermMenu.class,remap=false)
- 
+
 public abstract class Hk3EggPatternAccessMixin {
     @Unique private long hk3gtl$patterns;
     @Inject(method="doAction",at=@At("HEAD"))

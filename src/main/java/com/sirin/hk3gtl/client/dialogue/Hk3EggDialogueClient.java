@@ -1,7 +1,7 @@
 package com.sirin.hk3gtl.client.dialogue;
 import com.sirin.hk3gtl.common.easter.*;
 import com.sirin.hk3gtl.common.network.Hk3Network;
- 
+
 public final class Hk3EggDialogueClient {
     private static Hk3EggDialoguePacket current;private static int next,offset;
     private Hk3EggDialogueClient(){}

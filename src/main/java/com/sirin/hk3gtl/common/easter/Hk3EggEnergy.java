@@ -3,7 +3,7 @@ import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import java.util.UUID;
- 
+
 public final class Hk3EggEnergy {
     private Hk3EggEnergy(){}
     public static void worked(MetaMachine machine){

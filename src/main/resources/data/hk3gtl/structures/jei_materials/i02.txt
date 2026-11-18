@@ -1,0 +1,10 @@
+gtceu:assembly_line_grating
+gtceu:clean_machine_casing
+gtceu:computer_casing
+gtceu:computer_heat_vent
+gtceu:max_machine_casing
+gtceu:ptfe_pipe_casing
+gtceu:solid_machine_casing
+gtceu:steel_gearbox
+gtceu:tempered_glass
+hk3gtl:i02_spectrum_analysis_array[facing=north]

@@ -16,8 +16,8 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.*;
 @Mixin(value=PatternModifier.class,remap=false)
- 
- 
+
+
 public abstract class Hk3EggModifierMixin {
     @Unique private final ThreadLocal<List<ItemStack>> hk3gtl$before=new ThreadLocal<>();
     @Unique private final ThreadLocal<InternalInventory> hk3gtl$inventory=new ThreadLocal<>();

@@ -8,9 +8,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import java.util.*;
 
- 
- 
- 
+
+
+
 public final class Hk3PhoneCollectionService {
     private record Open(String id,String action,Hk3PhoneNotes.Note note,int page) {}
     private static final Map<UUID,Open> OPEN=new java.util.concurrent.ConcurrentHashMap<>();

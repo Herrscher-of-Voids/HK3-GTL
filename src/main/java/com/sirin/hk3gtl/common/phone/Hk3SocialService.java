@@ -9,12 +9,12 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
- 
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
- 
- 
- 
+
+
+
+
 public final class Hk3SocialService {
     private Hk3SocialService(){}
     public static LiteralArgumentBuilder<CommandSourceStack> commands(){return Commands.literal("social").executes(c->open(c.getSource().getPlayerOrException(),false))

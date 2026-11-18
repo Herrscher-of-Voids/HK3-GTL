@@ -12,9 +12,9 @@ import com.mojang.logging.LogUtils;
 /**
  * 西琳终局对话结束处理器 —— 标记毕业、传送回主世界。
  */
- 
- 
- 
+
+
+
 public class SirinDialogueEndHandler implements IDialogueEndHandler {
 
     private static final Logger LOGGER = LogUtils.getLogger();

@@ -1,9 +1,9 @@
 package com.sirin.hk3gtl.common.communication;
 
- 
+
 import java.util.*;
 
- 
+
 public final class Hk3ContactSessions {
     public record Preview(UUID token,UUID team,UUID event,String action,int step,long expires){}
     private final Map<UUID,Preview> pending=new HashMap<>();

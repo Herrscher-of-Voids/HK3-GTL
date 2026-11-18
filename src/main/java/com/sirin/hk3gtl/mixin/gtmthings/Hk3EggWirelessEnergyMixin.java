@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.sirin.hk3gtl.common.easter.Hk3EggCovers;
 @Mixin(value=WirelessEnergyReceiveCover.class,priority=1100,remap=false)
- 
- 
+
+
 public abstract class Hk3EggWirelessEnergyMixin {
     @Shadow @Final private int tier;
     @Inject(method="onAttached",at=@At("RETURN"))private void hk3gtl$attached(ItemStack stack,ServerPlayer p,CallbackInfo ci){Hk3EggCovers.attached((CoverBehavior)(Object)this,p);}

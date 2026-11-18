@@ -1,10 +1,10 @@
 package com.sirin.hk3gtl.common.communication;
 
- 
 
- 
 
- 
+
+
+
 
 import com.sirin.hk3gtl.common.phone.*;
 import com.sirin.hk3gtl.common.research.*;
@@ -17,13 +17,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
- 
 
 
 
 
 
- 
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3PersonalCommunicationService {
     private record Preview(UUID token, UUID team, String topic, UUID attempt, int version, int step, long expires) {}
@@ -91,4 +91,4 @@ public final class Hk3PersonalCommunicationService {
     @SubscribeEvent public static void stop(ServerStoppedEvent event) { PREVIEWS.clear(); }
 }
 
- 
+

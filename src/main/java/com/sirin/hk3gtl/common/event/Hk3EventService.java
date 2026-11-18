@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.event;
 
- 
+
 
 
 
@@ -35,23 +35,23 @@ import javax.annotation.Nullable;
  * 从 {@link Hk3EventManagerImpl} / {@link Hk3FactionEventChecker} 抽离，供研究失败彩蛋等任意系统复用，
  * 避免重复维护 TAG 前缀与桥接顺序。
  */
- 
 
 
 
 
 
- 
 
 
 
 
 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
 public final class Hk3EventService {
 
     private static final Logger LOGGER = LogUtils.getLogger();

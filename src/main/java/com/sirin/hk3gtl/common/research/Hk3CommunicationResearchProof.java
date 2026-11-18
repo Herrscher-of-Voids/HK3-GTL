@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.research;
 
- 
+
 
 
 
@@ -9,11 +9,11 @@ import net.minecraft.server.level.ServerPlayer;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
-/**
- * 【文件职责】将服务端实际提交的首次回信记入当前团队的交流来源。
- * 不读背包或静态任务标记；已回复档案只投影交流前置，不代替HCCO实验和付款。
- */
- 
+
+
+
+
+
 
 
 
@@ -47,4 +47,4 @@ public final class Hk3CommunicationResearchProof {
     }
 }
 
- 
+

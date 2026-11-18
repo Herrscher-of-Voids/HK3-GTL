@@ -5,7 +5,7 @@ import appeng.menu.implementations.UpgradeableMenu;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import java.util.*;
- 
+
 public final class Hk3EggAeUpgrades {
     private Hk3EggAeUpgrades(){}
     public static List<Integer> snapshot(AbstractContainerMenu menu){

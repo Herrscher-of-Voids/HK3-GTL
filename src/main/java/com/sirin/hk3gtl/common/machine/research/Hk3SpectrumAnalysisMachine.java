@@ -1,8 +1,8 @@
 package com.sirin.hk3gtl.common.machine.research;
 
- 
 
- 
+
+
 
 
 
@@ -33,7 +33,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper;
 
- 
+
 
 
 
@@ -114,4 +114,4 @@ public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
     @Override protected void onProcessOutput(GTRecipe recipe) { super.onProcessOutput(recipe); }
 }
 
- 
+

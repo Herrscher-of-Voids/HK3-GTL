@@ -7,7 +7,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
- 
+
 
 
 
@@ -33,7 +33,7 @@ import net.minecraftforge.fml.common.Mod;
 
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
- 
+
 public final class Hk3PlayerDataCloneHandler {
 
     /** 需要跨实体重建迁移的本模组 persistentData 键前缀。 */

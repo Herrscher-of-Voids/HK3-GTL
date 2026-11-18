@@ -18,9 +18,9 @@ import com.mojang.logging.LogUtils;
  *
  * <p>与 Hk3GraduationData 一样存储在主世界 data 目录（hk3gtl_bad_ending.dat）。</p>
  */
- 
- 
- 
+
+
+
 public class Hk3BadEndingData extends SavedData {
 
     private static final Logger LOGGER = LogUtils.getLogger();

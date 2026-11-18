@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.research;
 
 
 
- 
+
 
 
 
@@ -24,14 +24,14 @@ import java.util.*;
 import static com.sirin.hk3gtl.common.research.Hk3ResearchMaterialPayment.Requirement;
 
 /** 修订100 · 2026-09-29：仅注册审核过的固定实验；不把样件持有当成功证据。 */
- 
 
 
 
 
 
 
- 
+
+
 
 
 
@@ -85,4 +85,4 @@ public final class Hk3LabExperimentService {
     }
 }
 
- 
+

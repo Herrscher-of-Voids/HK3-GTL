@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.GZIPInputStream;
+import org.tukaani.xz.XZInputStream;
 
 public final class Hk3PackedResources extends InputStream {
     private final DataInputStream input;
@@ -23,8 +24,25 @@ public final class Hk3PackedResources extends InputStream {
         decoded = new byte[packed.length];
     }
 
+    public static String xzPath(String gzipPath) {
+        return gzipPath.substring(0, gzipPath.length() - 3) + ".xz";
+    }
+
+    public static InputStream resource(Class<?> owner, String gzipPath) {
+        var gzip = owner.getResourceAsStream(gzipPath);
+        return gzip != null ? gzip : owner.getResourceAsStream(xzPath(gzipPath));
+    }
+
+    public static BufferedInputStream decompress(InputStream compressed) throws IOException {
+        var source = new BufferedInputStream(compressed, 65536);
+        source.mark(1);
+        boolean xz = source.read() == 0xfd;
+        source.reset();
+        return new BufferedInputStream(xz ? new XZInputStream(source) : new GZIPInputStream(source, 65536), 65536);
+    }
+
     public static InputStream open(InputStream compressed) throws IOException {
-        var input = new BufferedInputStream(new GZIPInputStream(compressed, 65536), 65536);
+        var input = decompress(compressed);
         input.mark(4);
         if (new DataInputStream(input).readInt() == 0x484B335A) return new Hk3PackedResources(input);
         input.reset();

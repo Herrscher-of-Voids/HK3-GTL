@@ -8,8 +8,8 @@ import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-@Mixin(value=AEWirelessFilterTool.class,remap=false)
- 
+@Pseudo
+@Mixin(targets="com.gtlsupb.gtlsupb.common.item.AEWirelessFilterTool",remap=false)
 public abstract class Hk3EggFilterMixin {
     @Unique private final ThreadLocal<GlobalPos> hk3gtl$bound=new ThreadLocal<>();
     @Unique private final ThreadLocal<Boolean> hk3gtl$blacklisted=new ThreadLocal<>();

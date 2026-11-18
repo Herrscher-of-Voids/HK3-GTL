@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.gui;
 
- 
+
 
 
 
@@ -26,27 +26,27 @@ import java.util.Locale;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
- 
+
+
+
+
 public final class Hk3ResearchTerminalWidget extends Widget {
     /** 修订100 · 2026-09-29：增加原付款人取消与待领取材料入口，原有布局保留。 */
     public static final int WIDTH = 520, HEIGHT = 350;

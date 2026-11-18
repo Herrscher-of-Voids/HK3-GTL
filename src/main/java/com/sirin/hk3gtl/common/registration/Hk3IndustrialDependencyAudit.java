@@ -27,7 +27,7 @@ import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.material.FlowingFluid;
 import java.util.*;
 
- 
+
 
 
 
@@ -323,6 +323,6 @@ public final class Hk3IndustrialDependencyAudit {
     }
 }
 
- 
 
- 
+
+

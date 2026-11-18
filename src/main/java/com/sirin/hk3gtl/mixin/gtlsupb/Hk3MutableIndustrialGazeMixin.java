@@ -12,13 +12,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Pseudo
 @Mixin(targets = "com.gtlsupb.gtlsupb.api.machine.logic.MutableRecipesLogic", remap = false)
 public abstract class Hk3MutableIndustrialGazeMixin {
-    @Inject(method = "handleMultipleRecipeWorking", at = @At("HEAD"), cancellable = true, require = 1)
+    // 旧版覆盖工作循环；4.8.1 继承 GTCEu 的工作循环。
+    @Inject(method = {"handleRecipeWorking", "handleMultipleRecipeWorking"}, at = @At("HEAD"), cancellable = true, require = 0)
     private void hk3gtl$multipleWorking(CallbackInfo callback) {
         if (Hk3RecipeEnvironment.throttlesByGaze(((RecipeLogic) (Object) this).getMachine()))
             callback.cancel();
     }
 
-    @Inject(method = "tickConcurrentBatch", at = @At("HEAD"), cancellable = true, require = 1)
+    @Inject(method = "tickConcurrentBatch", at = @At("HEAD"), cancellable = true, require = 0)
     private void hk3gtl$concurrentWorking(CallbackInfoReturnable<Boolean> callback) {
         if (Hk3RecipeEnvironment.throttlesByGaze(((RecipeLogic) (Object) this).getMachine()))
             callback.setReturnValue(false);

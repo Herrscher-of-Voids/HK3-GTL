@@ -7,7 +7,6 @@ import net.minecraft.world.item.ItemStack;
 import java.math.BigInteger;
 import java.util.Map;
 
- 
 
 
 
@@ -23,13 +22,14 @@ import java.util.Map;
 
 
 
- 
 
 
 
 
 
- 
+
+
+
 
 
 
@@ -39,7 +39,7 @@ import java.util.Map;
 public final class Hk3WmpCircuitCompat {
 
     private static final BigInteger FOUR = BigInteger.valueOf(4L);
-    
+
 
     private Hk3WmpCircuitCompat() {}
 

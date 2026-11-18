@@ -4,7 +4,6 @@ import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 
- 
 
 
 
@@ -22,14 +21,15 @@ import net.minecraft.world.entity.player.Player;
 
 
 
- 
 
 
 
 
 
- 
- 
+
+
+
+
 public final class Hk3GazeManager {
 
     public static final String TAG_GAZE_LEVEL = "hk3gtl_gaze_level";

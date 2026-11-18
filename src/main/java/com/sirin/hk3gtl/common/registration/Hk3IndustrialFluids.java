@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
- 
+
 
 
 
@@ -120,4 +120,4 @@ public final class Hk3IndustrialFluids {
     public static Map<String, Material> materials() { return Collections.unmodifiableMap(MATERIALS); }
 }
 
- 
+

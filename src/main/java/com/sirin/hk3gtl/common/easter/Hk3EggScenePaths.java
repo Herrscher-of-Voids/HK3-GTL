@@ -13,8 +13,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
- 
+
+
 public final class Hk3EggScenePaths {
     private Hk3EggScenePaths(){}
     private static boolean lamp(ServerPlayer p,BlockPos pos){if(!p.level().hasChunkAt(pos)||!Hk3EggBuildMemory.get(p.serverLevel()).owns(p,pos))return false;return p.level().getBlockState(pos).getLightEmission(p.level(),pos)>0;}

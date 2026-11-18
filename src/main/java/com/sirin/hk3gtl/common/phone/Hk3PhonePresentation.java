@@ -6,8 +6,8 @@ import java.util.function.Function;
 import java.util.regex.Pattern;
 
 /** 仅投影系统消息的当前正文，不写回账本，也不处理玩家笔记或微讯息聊天。 */
- 
- 
+
+
 public final class Hk3PhonePresentation {
     private static final String[] GROUPS={"海渊","虚数","量子","终焉"};
     private static final String[] NAMES={"崩能压","约束压","谐振压","致密压","叠态压","相干压","纠缠压","锚定压","虚数压","耦合压","重构压","织界压","构界压","稳界压","统合压","恒续压"};

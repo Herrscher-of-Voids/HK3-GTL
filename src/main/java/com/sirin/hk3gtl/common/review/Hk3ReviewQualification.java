@@ -4,7 +4,7 @@ import com.sirin.hk3gtl.common.research.Hk3ResearchData;
 import net.minecraft.server.MinecraftServer;
 import java.util.UUID;
 
- 
+
 public final class Hk3ReviewQualification {
     private Hk3ReviewQualification() {}
     public static Hk3ReviewRequirements.Evaluation inspect(MinecraftServer server,UUID team,Hk3ReviewLedger.Kind kind){
@@ -23,4 +23,4 @@ public final class Hk3ReviewQualification {
     }
 }
 
- 
+

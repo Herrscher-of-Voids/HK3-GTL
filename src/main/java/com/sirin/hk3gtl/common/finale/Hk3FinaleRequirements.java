@@ -3,13 +3,13 @@ package com.sirin.hk3gtl.common.finale;
 import net.minecraft.nbt.*;
 import java.util.*;
 
- 
 
 
 
 
 
- 
+
+
 public final class Hk3FinaleRequirements {
     public enum State { COMPLETE, MISSING, WAITING }
     public record Requirement(String key,String label) {}

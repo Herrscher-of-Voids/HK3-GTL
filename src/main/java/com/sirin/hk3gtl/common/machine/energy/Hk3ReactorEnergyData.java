@@ -12,15 +12,15 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
- 
-
-
-
-
-
-
-
-
+/**
+ * I19-I22 批次游标的世界级持久账本。
+ * 变更记录 #1 · 2026-10-18 21:46:33 · 修订167：新增严格批次读写、重复ID拒绝及dirty状态更新。
+ * 变更记录 #2 · 2026-10-18 22:44:26 · 修订169
+ * - 删除：无；保留原批次清理入口。
+ * - 新增：清理前读取批次状态；缺失ID不处理，未完成批次拒绝清理，成功删除已完成批次后标记SavedData为dirty。
+ * - 修改：原remove可删除任意批次，现只允许删除已完成批次，避免后续控制器误清理活动进度。
+ * - 用途：为未来反应堆控制器提供受限的完成批次清理原语；自动保留周期仍需结合控制器和4096条上限设计。
+ */
 public final class Hk3ReactorEnergyData extends SavedData {
     public static final String DATA_NAME = "hk3gtl_reactor_energy";
     private static final int SCHEMA = 1;

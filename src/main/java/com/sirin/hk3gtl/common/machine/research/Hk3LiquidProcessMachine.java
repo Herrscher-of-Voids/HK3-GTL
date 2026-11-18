@@ -1,13 +1,13 @@
 package com.sirin.hk3gtl.common.machine.research;
 
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport;
- 
-
- 
 
 
 
- 
+
+
+
+
 
 
 
@@ -46,7 +46,6 @@ import java.math.BigInteger;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
- 
 
 
 
@@ -64,7 +63,8 @@ import java.util.Set;
 
 
 
- 
+
+
 
 
 
@@ -253,4 +253,4 @@ public class Hk3LiquidProcessMachine extends Hk3WorkableMultiblockMachine {
     }
 }
 
- 
+

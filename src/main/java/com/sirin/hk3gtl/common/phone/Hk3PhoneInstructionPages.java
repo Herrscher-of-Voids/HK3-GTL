@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
- 
+
 public final class Hk3PhoneInstructionPages {
     public static final String COST="instruction_research_cost", DIFFICULTY="instruction_game_difficulty", REACTOR="instruction_reactor_safety";
     private static final String PREFIX="hk3gtl.phone.instructions.";

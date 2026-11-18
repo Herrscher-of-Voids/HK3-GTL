@@ -1,10 +1,10 @@
 package com.sirin.hk3gtl.common.machine.research;
 
- 
 
 
 
- 
+
+
 
 
 
@@ -31,14 +31,14 @@ import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.sirin.hk3gtl.common.communication.Hk3CommunicationData;
 import net.minecraft.resources.ResourceLocation;
 
- 
 
 
 
 
 
 
- 
+
+
 public final class Hk3HonkaiAbsorptionMachine extends Hk3LiquidProcessMachine
         implements com.sirin.hk3gtl.common.machine.IMultiTypeRecipeMachine {
     /** 内测5采集类型下的首次液态采样完整配方ID。 */
@@ -126,4 +126,4 @@ public final class Hk3HonkaiAbsorptionMachine extends Hk3LiquidProcessMachine
     }
 }
 
- 
+

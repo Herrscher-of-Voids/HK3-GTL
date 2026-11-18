@@ -5,8 +5,8 @@ import net.minecraft.server.MinecraftServer;
 import java.util.*;
 import java.util.function.Predicate;
 
- 
- 
+
+
 public final class Hk3CivilizationData extends SavedData {
     private final Map<UUID,Integer> highest=new HashMap<>();
     public static Hk3CivilizationData get(MinecraftServer server){return com.sirin.hk3gtl.common.util.Hk3SavedDataGuard.get(server,"hk3gtl_civilization_v5",Hk3CivilizationData::load,Hk3CivilizationData::new);}

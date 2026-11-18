@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.regex.Pattern;
 
- 
+
 public final class Hk3SocialPersonas {
     public record Example(String question,String answer){}
     public record Persona(String id,String name,String selfReference,List<String> aliases,String identity,

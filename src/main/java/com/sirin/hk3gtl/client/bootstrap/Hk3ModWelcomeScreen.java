@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.client.bootstrap;
 
- 
+
 
 
 
@@ -15,7 +15,6 @@ import net.minecraft.network.chat.Component;
 import java.util.ArrayList;
 import java.util.List;
 
- 
 
 
 
@@ -26,8 +25,9 @@ import java.util.List;
 
 
 
- 
- 
+
+
+
 public class Hk3ModWelcomeScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
     private static final int PANEL_W = 420, PANEL_H = 310;
     private static final String[] TABS = {"current", "compatibility", "health", "history", "feedback"};

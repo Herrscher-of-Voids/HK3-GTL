@@ -26,7 +26,6 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
- 
 
 
 
@@ -34,34 +33,35 @@ import java.util.*;
 
 
 
- 
 
 
 
 
- 
+
+
+
 
 
 
 
 @Mod.EventBusSubscriber(modid = "hk3gtl")
- 
 
 
 
 
 
 
- 
+
+
 
 
 
 
 
 public final class Hk3ResearchRuntimeAudit {
-     
-     
-     
+
+
+
 
 
 
@@ -323,7 +323,7 @@ public final class Hk3ResearchRuntimeAudit {
     }
 }
 
- 
 
- 
- 
+
+
+

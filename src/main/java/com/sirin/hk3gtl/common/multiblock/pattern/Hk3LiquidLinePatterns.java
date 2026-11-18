@@ -14,7 +14,6 @@ import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.RIGHT;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.UP;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.BACK;
 
- 
 
 
 
@@ -27,28 +26,29 @@ import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.BACK;
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
+
+
+
+
+
 
 
 

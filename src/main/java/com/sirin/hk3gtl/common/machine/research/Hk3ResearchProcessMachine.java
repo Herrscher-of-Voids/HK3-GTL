@@ -1,23 +1,23 @@
 package com.sirin.hk3gtl.common.machine.research;
 
- 
+
 
 
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 
- 
-
-
-
-
- 
 
 
 
 
 
 
- 
+
+
+
+
+
+
+
 public class Hk3ResearchProcessMachine extends Hk3LiquidProcessMachine
         implements com.sirin.hk3gtl.common.machine.IMultiTypeRecipeMachine {
     private final String researchRole;

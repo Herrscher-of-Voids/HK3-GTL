@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.research;
 
- 
+
 
 
 
@@ -12,7 +12,7 @@ package com.sirin.hk3gtl.common.research;
 
 /** 修订100 · 2026-09-29：接通团队研究归属、个人付款及真实实验来源。 */
 
- 
+
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
@@ -20,14 +20,14 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import java.util.List;
 
- 
 
 
 
 
 
- 
- 
+
+
+
 
 
 
@@ -97,4 +97,4 @@ public final class Hk3ResearchStartService {
     }
 }
 
- 
+

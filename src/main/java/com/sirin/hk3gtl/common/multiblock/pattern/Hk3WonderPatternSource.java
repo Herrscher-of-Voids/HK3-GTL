@@ -31,7 +31,7 @@ public final class Hk3WonderPatternSource implements AutoCloseable {
             case "W03" -> "w03_c9";
             default -> role.toLowerCase(Locale.ROOT)+"_candidate";
         };
-        InputStream compressed=Hk3WonderPatternSource.class.getResourceAsStream("/data/hk3gtl/structures/"+file+".bin.gz");
+        InputStream compressed=Hk3PackedResources.resource(Hk3WonderPatternSource.class,"/data/hk3gtl/structures/"+file+".bin.gz");
         if(compressed==null)throw new IllegalStateException("缺少奇观正式蓝图："+role);
         try {
             return new Hk3WonderPatternSource(role,compressed);

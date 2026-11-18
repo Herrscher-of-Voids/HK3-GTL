@@ -1,12 +1,12 @@
 package com.sirin.hk3gtl.common.communication;
 
- 
+
 import com.google.gson.Gson;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
- 
+
 public final class Hk3FactionLetters {
     public record Entry(String id,String title,String speaker,List<String> lines){}
     private record Catalog(int schema,List<Entry> entries){}

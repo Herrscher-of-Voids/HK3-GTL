@@ -12,13 +12,13 @@ import java.io.*;
 import java.time.*;
 import java.util.*;
 
- 
 
 
 
 
 
- 
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3SolarCalendar {
     private static final ResourceLocation RESOURCE = new ResourceLocation("hk3gtl", "calendar/solar_terms.json");

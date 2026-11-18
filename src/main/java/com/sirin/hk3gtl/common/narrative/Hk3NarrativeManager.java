@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.narrative;
 
- 
+
 
 
 
@@ -44,13 +44,13 @@ import com.mojang.logging.LogUtils;
  * 使用"文明档案卷轴"可以查看（/give 或在崩坏三-GTL 创造栏可获取）
  * </pre>
  */
- 
 
 
 
 
 
- 
+
+
 public final class Hk3NarrativeManager {
 
     private static final Logger LOGGER = LogUtils.getLogger();

@@ -1,0 +1,11 @@
+gtceu:advanced_computer_casing
+gtceu:assembly_line_grating
+gtceu:clean_machine_casing
+gtceu:computer_casing
+gtceu:computer_heat_vent
+gtceu:laminated_glass
+gtceu:max_machine_casing
+gtceu:solid_machine_casing
+gtceu:steel_pipe_casing
+hk3gtl:voltage_machine_casing_hdv
+hk3gtl:s02_matter_reconstruction_institute[facing=north]

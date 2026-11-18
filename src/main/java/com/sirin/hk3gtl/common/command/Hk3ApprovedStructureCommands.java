@@ -18,28 +18,28 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
+
+
+
+
 
 
 
@@ -47,7 +47,7 @@ import net.minecraftforge.fml.common.Mod;
 
 
 @Mod.EventBusSubscriber(modid="hk3gtl", bus=Mod.EventBusSubscriber.Bus.FORGE)
- 
+
 
 
 

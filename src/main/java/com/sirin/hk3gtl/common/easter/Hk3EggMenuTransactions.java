@@ -4,9 +4,9 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.registries.BuiltInRegistries;
 import java.util.*;
- 
- 
- 
+
+
+
 public final class Hk3EggMenuTransactions {
     public record Snapshot(List<ItemStack> inventory,ItemStack carried,ItemStack input,ItemStack result){}
     public static final class Sorting {

@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import java.util.UUID;
 @Mixin(value=WirelessNetworkBindingToolItem.class,remap=false)
- 
+
 public abstract class Hk3EggBindingMixin {
     @Redirect(method="bindTo",at=@At(value="INVOKE",target="Lorg/gtlcore/gtlcore/integration/ae2/wireless/WirelessAeSavedData;addMember(Ljava/util/UUID;Lorg/gtlcore/gtlcore/integration/ae2/wireless/WirelessAeSavedData$MemberKey;)Z"))
     private static boolean hk3gtl$bound(WirelessAeSavedData data,UUID network,WirelessAeSavedData.MemberKey target,ServerPlayer player,WirelessAeSavedData.MemberKey bindingTarget,UUID bindingNetwork,boolean rebind){

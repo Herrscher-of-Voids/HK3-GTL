@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.multiblock.pattern;
 
- 
+
 
 
 
@@ -20,12 +20,12 @@ import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.sirin.hk3gtl.common.block.CasingBlocks;
 import com.sirin.hk3gtl.common.machine.multiblock.part.Hk3PartAbility;
 
- 
 
 
 
 
- 
+
+
 
 
 

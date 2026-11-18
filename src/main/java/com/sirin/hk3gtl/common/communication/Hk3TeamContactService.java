@@ -1,14 +1,14 @@
 package com.sirin.hk3gtl.common.communication;
 
- 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
+
 import com.mojang.brigadier.arguments.*;
 import com.sirin.hk3gtl.common.research.*;
 import com.sirin.hk3gtl.common.phone.*;
@@ -26,13 +26,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import java.util.*;
 
- 
- 
- 
- 
+
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
- 
+
+
 public final class Hk3TeamContactService {
     private static final Hk3ContactSessions SESSIONS=new Hk3ContactSessions();
     private Hk3TeamContactService(){}
@@ -143,4 +143,4 @@ public final class Hk3TeamContactService {
     @SubscribeEvent public static void stopped(ServerStoppedEvent e){SESSIONS.clear();}
 }
 
- 
+

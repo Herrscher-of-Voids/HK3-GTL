@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.client.dialogue;
 
- 
 
 
 
@@ -11,7 +10,8 @@ package com.sirin.hk3gtl.client.dialogue;
 
 
 
- 
+
+
 
 
 
@@ -42,12 +42,12 @@ import java.util.List;
  * 布局：全屏暗幕 + 底部面板(文本) + 角色名牌 + 选项按钮。
  * 支持逐字显示、多 segment 跳转、动态选项过滤。
  */
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
 public class Hk3DialogueScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int CHARS_PER_TICK = 2;

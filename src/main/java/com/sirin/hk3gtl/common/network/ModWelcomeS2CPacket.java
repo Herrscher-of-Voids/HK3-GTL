@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
- 
 
 
 
 
 
 
- 
- 
+
+
+
 public record ModWelcomeS2CPacket(String modVersion, List<String> statusLines) {
     public ModWelcomeS2CPacket {
         if (modVersion.length() > 128 || statusLines.size() > 64 || statusLines.stream().anyMatch(s -> s.length() > 1024))

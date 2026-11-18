@@ -14,29 +14,29 @@ import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
- 
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3EggVanilla {
     private record Placement(java.util.UUID player,net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> dimension,BlockPos pos,BlockState before,BlockState after){}
     private static final Map<net.minecraft.server.MinecraftServer,ArrayDeque<Placement>> PENDING=new java.util.concurrent.ConcurrentHashMap<>();

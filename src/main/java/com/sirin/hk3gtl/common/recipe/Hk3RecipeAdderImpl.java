@@ -32,7 +32,35 @@ import com.sirin.hk3gtl.common.recipe.validate.RecipeCycleDetector;
 
 import java.util.function.Consumer;
 
- 
+/**
+ * HK3GTL 配方注册总入口 — 所有 GT 配方的统一注册起点。
+ *
+ * <h3>职责</h3>
+ * <ul>
+ *   <li>被 {@link com.sirin.hk3gtl.Hk3GtAddon#addRecipes} 调用，在 GT 配方注册阶段一次性挂入全部配方</li>
+ *   <li>本类保留 P1 核心配方（控制器/机壳/八大件/电路），按 Layer 分层注册</li>
+ *   <li>其他领域配方下沉到子包中的专用类（recipe/abyss/, recipe/honkai/, recipe/max/ 等）</li>
+ * </ul>
+ *
+ * <h3>修改指南 (Where to modify recipes)</h3>
+ * <ul>
+ *   <li>新增机器配方 → 按已批准工业职责选择专用配方类，再在 {@link #addRecipes} 中追加调用。</li>
+ *   <li>修改配方材料/时间/耗电 → 调整 {@code .inputItems}, {@code .duration}, {@code .EUt} 的数值。使用 {@code Hk3Values.VA_LONG[tier]} 获取高阶电压，禁止硬编码 {@code GTValues.V[15]}（会溢出）。</li>
+ *   <li>绑定研究门槛 → 注册配方后调用 {@code Hk3RecipeResearchGate.bind("recipeType", "recipeId", "R-AB-xxx")}</li>
+ * </ul>
+ *
+ * <h3>注册 Layer 顺序</h3>
+ * Layer 0: P1 基础产线 → Layer 1: Max 阶段 → Layer 2: 材料链 → Layer 3: 海渊中间件
+ * → Layer 4: 八大件 II~IV → Layer 5: 海渊 23 台机器配方 → Layer 6: 控制器组装 → Layer 7: 研究凭证
+ *
+ * <h3>变更记录（2026-05-19）</h3>
+ * <ul>
+ *   <li>删除：后期阶段“只注册机器不注册配方”的残余状态</li>
+ *   <li>新增：量子/终焉/奇观机器配方、量子/终焉电路配方、后期控制器组装配方</li>
+ *   <li>修改：把后期阶段配方注册纳入统一入口，避免漏注册导致软锁</li>
+ *   <li>用途：打通 R-QT / R-FN 研究节点所需物料来源与控制器建造链</li>
+ * </ul>
+ */
 
 
 
@@ -61,66 +89,38 @@ import java.util.function.Consumer;
 
 
 
- 
 
 
 
 
 
- 
 
 
 
 
 
- 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
-
- 
- 
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-
-
- 
 public class Hk3RecipeAdderImpl {
 
     private static final Logger LOGGER = LogUtils.getLogger();

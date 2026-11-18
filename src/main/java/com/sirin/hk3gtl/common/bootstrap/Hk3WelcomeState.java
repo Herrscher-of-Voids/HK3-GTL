@@ -3,15 +3,15 @@ package com.sirin.hk3gtl.common.bootstrap;
 import net.minecraft.nbt.CompoundTag;
 import java.util.List;
 
- 
 
 
 
 
 
 
- 
- 
+
+
+
 public final class Hk3WelcomeState {
     public static final String SEEN_TAG = "hk3gtl_seen_welcome_version";
     public static final String CONTENT_REVISION = "release-notes-r188";

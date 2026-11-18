@@ -9,7 +9,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import com.sirin.hk3gtl.common.network.Hk3Network;
 import com.sirin.hk3gtl.common.easter.Hk3EggUiPacket;
 @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT)
- 
+
 public final class Hk3EggTooltipClient {
     private static String seen="";private static long start=-1,last=-1;
     private Hk3EggTooltipClient(){}

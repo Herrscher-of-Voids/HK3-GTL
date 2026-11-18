@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.dialogue;
 
- 
 
 
 
@@ -9,7 +8,8 @@ package com.sirin.hk3gtl.common.dialogue;
 
 
 
- 
+
+
 
 
 
@@ -36,12 +36,12 @@ import java.util.concurrent.ConcurrentHashMap;
  * <p>
  * 线程安全：内部使用 ConcurrentHashMap，网络包回调通过 enqueueWork 在主线程执行。
  */
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
 public final class DialogueSessionManager {
 
     private static final Logger LOGGER = LogUtils.getLogger();

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ButtonBlock.class)
- 
+
 public abstract class Hk3EggButtonMixin {
     @Inject(method="use",at=@At("RETURN"))private void hk3gtl$press(BlockState state,Level level,BlockPos pos,Player player,InteractionHand hand,BlockHitResult hit,CallbackInfoReturnable<InteractionResult> ci){if(player instanceof ServerPlayer p&&ci.getReturnValue().consumesAction()&&!state.getValue(ButtonBlock.POWERED)&&level.getBlockState(pos).getBlock() instanceof ButtonBlock&&level.getBlockState(pos).getValue(ButtonBlock.POWERED))com.sirin.hk3gtl.common.easter.Hk3EggDispenser.button(p,pos);}
 }

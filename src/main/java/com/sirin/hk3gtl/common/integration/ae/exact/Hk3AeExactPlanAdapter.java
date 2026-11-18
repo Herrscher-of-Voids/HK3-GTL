@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /** 精确诊断只有在全部执行计数可容纳于原生long时才生成可提交计划。 */
- 
+
 public final class Hk3AeExactPlanAdapter {
     private static final BigInteger EIGHT = BigInteger.valueOf(8);
 

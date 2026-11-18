@@ -3,12 +3,12 @@ package com.sirin.hk3gtl.common.review;
 import java.util.*;
 import net.minecraft.nbt.*;
 
- 
 
 
 
 
- 
+
+
 public final class Hk3ReviewLedger {
     public enum Kind { FIRST, SECOND }
     public enum Phase { OPENING, MENU, ANSWER, CLOSING, PAUSED, COMPLETE, ABANDONED }

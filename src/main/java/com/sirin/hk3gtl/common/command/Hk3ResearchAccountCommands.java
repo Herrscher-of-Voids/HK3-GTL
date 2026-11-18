@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.command;
 
- 
+
 
 
 
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.Mod;
 
 /** 修订100 · 2026-09-29：离队后仍能取消本人付款任务、领取原样退款，不要求管理员权限。 */
 @Mod.EventBusSubscriber(modid=Hk3Constants.MOD_ID)
- 
+
 
 
 
@@ -66,4 +66,4 @@ public final class Hk3ResearchAccountCommands {
     }
 }
 
- 
+

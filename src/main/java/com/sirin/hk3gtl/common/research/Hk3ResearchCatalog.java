@@ -80,4 +80,4 @@ public final class Hk3ResearchCatalog {
     }
 }
 
- 
+

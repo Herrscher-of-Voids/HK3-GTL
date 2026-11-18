@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.communication;
 
 import java.util.*;
 
- 
+
 public final class Hk3CommunicationCompletion {
     public record Status(int completed,List<String> missing) {
         public Status { missing=List.copyOf(missing); }

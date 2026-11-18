@@ -28,29 +28,29 @@ import org.gtlcore.gtlcore.common.data.GTLMaterials;
 
 import java.util.function.Consumer;
 
- 
-
-
-
- 
-
-
-
-
- 
-
-
-
-
-
- 
 
 
 
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -250,4 +250,4 @@ public class HonkaiMaterialRecipes {
     }
 }
 
- 
+

@@ -4,7 +4,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
- 
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggPhoneWeather {
     private Hk3EggPhoneWeather(){}

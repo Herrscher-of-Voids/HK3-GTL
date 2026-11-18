@@ -21,7 +21,7 @@ import net.minecraft.world.item.Items;
 import java.util.function.Consumer;
 
 public final class Hk3SpectrumBootstrapRecipes {
-     
+
     private Hk3SpectrumBootstrapRecipes() {}
 
     public static ItemStack item(String id) { return new ItemStack(Hk3IndustrialContent.items().get(id).get()); }
@@ -102,4 +102,4 @@ public final class Hk3SpectrumBootstrapRecipes {
     }
 }
 
- 
+

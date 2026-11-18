@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.common.research;
 
- 
- 
 
 
 
- 
+
+
+
 
 
 
@@ -27,16 +27,16 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.UUID;
 
 /** 修订100 · 2026-09-29：FTB可选桥接；事件变更才重新对账，不在机器tick扫描所有团队。 */
- 
+
 @Mod.EventBusSubscriber(modid=Hk3Constants.MOD_ID)
- 
 
 
 
 
 
 
- 
+
+
 public final class Hk3ResearchTeams {
     private static boolean dirty = true;
     private static boolean refreshing;
@@ -133,4 +133,4 @@ public final class Hk3ResearchTeams {
     }
 }
 
- 
+

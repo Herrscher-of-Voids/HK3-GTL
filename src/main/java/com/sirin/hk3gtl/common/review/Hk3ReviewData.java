@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.review;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
- 
+
 public final class Hk3ReviewData extends SavedData {
     private Hk3ReviewLedger ledger=new Hk3ReviewLedger();
     private boolean changing;

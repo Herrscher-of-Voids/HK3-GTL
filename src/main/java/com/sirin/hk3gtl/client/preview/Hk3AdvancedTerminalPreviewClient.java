@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
- 
+
 @OnlyIn(Dist.CLIENT)
 public final class Hk3AdvancedTerminalPreviewClient {
     private Hk3AdvancedTerminalPreviewClient(){}

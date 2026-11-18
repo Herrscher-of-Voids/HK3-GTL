@@ -21,7 +21,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
- 
 
 
 
@@ -29,13 +28,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
 
- 
 
 
 
 
 
- 
+
+
+
 @Mixin(value = RecipeLogic.class, remap = false)
 public abstract class Hk3PowerLogicMixin implements Hk3PowerWork {
     @Shadow protected GTRecipe lastRecipe;

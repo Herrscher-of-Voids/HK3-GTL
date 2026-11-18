@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialProductionLower.quality;
 import static com.sirin.hk3gtl.common.recipe.main.Hk3MainMaterialRecipes.*;
 
- 
+
 
 
 

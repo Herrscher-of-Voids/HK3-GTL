@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
- 
+
 
 
 
@@ -33,7 +33,7 @@ public class Hk3LateIndustrialMachine extends Hk3ResearchProcessMachine {
     // 2026-10-30（修订182）：I40–I45复用同角色、非暂定与额定电压校验，界面公开未接线能力。
     private static final Map<String, Hk3ResearchProcessPlans.Plan> PLANS = Hk3ResearchProcessPlans.all().stream()
             .collect(Collectors.toUnmodifiableMap(Hk3ResearchProcessPlans.Plan::id, p -> p));
-     
+
     private static final Map<String, Integer> PROCESS_TIERS = PLANS.values().stream().filter(p -> !p.provisional())
             .collect(Collectors.toUnmodifiableMap(Hk3ResearchProcessPlans.Plan::role, Hk3ResearchProcessPlans.Plan::energyTier, Math::max));
     private static final Set<String> WORLD_TASKS = Set.of("I26", "I27", "I28", "I29", "I30", "I31");

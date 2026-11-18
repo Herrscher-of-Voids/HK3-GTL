@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl;
 
- 
 
 
 
@@ -12,20 +11,21 @@ package com.sirin.hk3gtl;
 
 
 
- 
-
-
-
-
-
- 
 
 
 
 
 
 
- 
+
+
+
+
+
+
+
+
+
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
@@ -79,15 +79,15 @@ import com.mojang.logging.LogUtils;
  * </ul>
  */
 @Mod(Hk3Constants.MOD_ID)
- 
 
 
 
 
 
- 
- 
- 
+
+
+
+
 public class Hk3Gtl {
 
     private static final Logger LOGGER = LogUtils.getLogger();

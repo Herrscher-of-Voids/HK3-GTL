@@ -10,19 +10,19 @@ import com.sirin.hk3gtl.common.machine.Hk3MachinesImpl;
 import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
- 
-
-
-
-
- 
 
 
 
 
 
 
- 
+
+
+
+
+
+
+
 
 
 
@@ -94,4 +94,4 @@ public final class Hk3LiquidLineControllerRecipes {
     }
 }
 
- 
+

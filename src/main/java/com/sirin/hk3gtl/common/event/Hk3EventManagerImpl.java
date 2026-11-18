@@ -52,39 +52,39 @@ import java.util.Locale;
  * - 多方块首次建成
  * - P2 第一版研究事件桥接
  */
- 
 
 
 
 
 
- 
+
+
 
 
 
 
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
 public class Hk3EventManagerImpl {
 
     private static final Logger LOGGER = LogUtils.getLogger();

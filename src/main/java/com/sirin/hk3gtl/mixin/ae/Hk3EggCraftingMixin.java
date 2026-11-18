@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value=CraftingTermSlot.class,remap=false)
- 
+
 public abstract class Hk3EggCraftingMixin {
     @Inject(method="craftItem",at=@At("RETURN"))
     private void hk3gtl$crafted(Player player,MEStorage storage,KeyCounter keys,CallbackInfoReturnable<ItemStack> cir){

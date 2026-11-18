@@ -124,7 +124,7 @@ public final class Hk3CampusCatalog {
             var h = Hk3W11BuildPlan.header();
             return new Entry(id, key, definition.getTier(), h.width(), h.height(), h.depth(), h.cx(), h.cy(), h.cz(), source.front(), definition);
         }
-        try (var input = new Hk3StructureStream(Hk3CampusCatalog.class.getResourceAsStream("/data/hk3gtl/structures/" + key + ".bin.gz"))) {
+        try (var input = new Hk3StructureStream(Hk3PackedResources.resource(Hk3CampusCatalog.class, "/data/hk3gtl/structures/" + key + ".bin.gz"))) {
             var h = input.header();
             int tier = key.equals("w03_c9") ? Hk3Tiers.WSV : definition.getTier();
             return new Entry(id, key, tier, h.width(), h.height(), h.depth(), h.cx(), h.cy(), h.cz(), source.front(), definition);

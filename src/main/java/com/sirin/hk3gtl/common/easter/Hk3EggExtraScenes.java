@@ -6,8 +6,8 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.tags.*;
 import java.util.*;
- 
- 
+
+
 public final class Hk3EggExtraScenes {
     private Hk3EggExtraScenes(){}
     public static void placed(ServerPlayer p,BlockPos pos,net.minecraft.world.level.block.state.BlockState block){

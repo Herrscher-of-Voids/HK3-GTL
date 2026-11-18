@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.client.narrative;
 
- 
+
 
 
 
@@ -41,11 +41,11 @@ import java.util.List;
  * <p>2026-05-19 变更：
  * 新增彩蛋条件展示与可视化滚动条，便于 100 条彩蛋档案快速浏览。</p>
  */
- 
- 
- 
- 
- 
+
+
+
+
+
 public class Hk3NarrativeCodexScreen extends com.sirin.hk3gtl.client.gui.Hk3FittedScreen {
 
     private static final int GUI_WIDTH = 420;

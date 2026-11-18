@@ -26,7 +26,6 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.UUID;
 
- 
 
 
 
@@ -34,21 +33,22 @@ import java.util.UUID;
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
+
+
+
+
 public final class Hk3RecipePower {
     public static final String TIER_KEY = "hk3_required_voltage_tier";
     public static final String MATERIAL_TIER_KEY = "hk3_main_material_tier";

@@ -47,7 +47,7 @@ import java.util.Map;
 
 /** 仅接管带证明的 HK3 程序；普通 AE／GTL 任务保留原执行器。 */
 @Mixin(value = CraftingCpuLogic.class, remap = false, priority = 900)
- 
+
 public abstract class Hk3ExactCpuProgramMixin implements Hk3ExactProgramHost, Hk3ExactCpuTracker.ProgramAccess {
     @Shadow @Final private CraftingCPUCluster cluster;
     @Shadow @Final private ListCraftingInventory inventory;

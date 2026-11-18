@@ -4,7 +4,7 @@ import com.sirin.hk3gtl.common.easter.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 
- 
+
 public final class Hk3PhoneCivilizationReading {
     public static final String ID="civilization_overview_read";
     private Hk3PhoneCivilizationReading(){}

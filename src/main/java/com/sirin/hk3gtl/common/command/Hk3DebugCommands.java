@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.command;
 
- 
+
 
 
 
@@ -36,8 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
- 
- 
+
+
 public class Hk3DebugCommands {
 
     private static final String TAG = "§a[HK3DEBUG] §f";

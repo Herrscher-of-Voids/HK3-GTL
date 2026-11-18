@@ -3,18 +3,18 @@ import net.minecraft.server.level.ServerPlayer;
 import java.util.*;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3EggNotes {
     private Hk3EggNotes(){}
     public static String digest(String text){

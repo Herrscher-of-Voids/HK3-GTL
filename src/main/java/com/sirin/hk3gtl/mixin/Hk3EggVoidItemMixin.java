@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Entity.class)
- 
+
 public abstract class Hk3EggVoidItemMixin {
     @Inject(method="onBelowWorld",at=@At("RETURN"))private void hk3gtl$voided(CallbackInfo ci){
         if((Object)this instanceof ItemEntity item&&item.isRemoved()&&item.level() instanceof ServerLevel level&&item.getY()<level.getMinBuildHeight()-64&&net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item.getItem().getItem()).toString().equals("hk3gtl:honkai_energy_crystal")){

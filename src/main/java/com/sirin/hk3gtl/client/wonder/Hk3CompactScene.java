@@ -4,13 +4,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.zip.GZIPInputStream;
 
 final class Hk3CompactScene {
     private final DataInputStream input;
@@ -18,9 +17,11 @@ final class Hk3CompactScene {
     private Hk3CompactScene(DataInputStream input){this.input=input;}
 
     static <T> T load(String resource,Class<T> type){
-        try(var input=new DataInputStream(new BufferedInputStream(new GZIPInputStream(
-                Minecraft.getInstance().getResourceManager().open(new ResourceLocation(
-                        "hk3gtl","models/scene/"+resource+".scene.bin.gz"))),65536))){
+        var resources=Minecraft.getInstance().getResourceManager();
+        String path="models/scene/"+resource+".scene.bin.gz";
+        var gzip=resources.getResource(new ResourceLocation("hk3gtl",path));
+        try(var raw=gzip.isPresent()?gzip.get().open():resources.open(new ResourceLocation("hk3gtl",Hk3PackedResources.xzPath(path)));
+            var input=new DataInputStream(Hk3PackedResources.decompress(raw))){
             if(input.readInt()!=0x484B5343||input.readInt()!=1)throw new IOException("场景数据格式错误");
             String header=new String(input.readNBytes(input.readInt()),StandardCharsets.UTF_8);
             var scene=new Hk3CompactScene(input);

@@ -2,13 +2,12 @@ package com.sirin.hk3gtl.common.research;
 
 /** 2026-10-30（修订182）：I40–I45沿用暂定工艺拒绝策略，建筑获批不改变研究、工艺或旅行许可。 */
 
- 
- 
+
+
 import java.util.Set;
 
 
 
- 
 
 
 
@@ -16,7 +15,8 @@ import java.util.Set;
 
 
 
- 
+
+
 
 
 

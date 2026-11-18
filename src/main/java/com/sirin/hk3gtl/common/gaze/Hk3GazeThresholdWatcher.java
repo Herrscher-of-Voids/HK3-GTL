@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerPlayer;
 /**
  * 注视阈值观察器：当注视跨越关键阈值时推送提醒，并触发与阈值绑定的核心事件。
  */
- 
+
 
 
 

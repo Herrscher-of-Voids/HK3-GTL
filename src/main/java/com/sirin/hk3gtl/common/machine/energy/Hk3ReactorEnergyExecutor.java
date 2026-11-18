@@ -8,11 +8,11 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
- 
+/**
+ * I19-I22 可保存的纯计算批次游标；不直接写机器仓、账户或世界状态。
+ * 变更记录 #1 · 2026-10-18 21:46:33 · 修订167：新增合同校验、BigInteger累计、输出接受回执及严格NBT读写。
+ */
 
-
-
- 
 
 
 

@@ -9,7 +9,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
  * <p>纯客户端状态，不参与任何业务计算；所有权威数据以服务端 {@code Hk3GazeManager} 为准。
  * 字段用 volatile 保证网络线程写入、渲染线程读取的可见性。</p>
  */
- 
+
 
 
 

@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LevelChunk.class)
- 
- 
+
+
 public abstract class Hk3EggChunkMixin {
     @Inject(method="setBlockState",at=@At("RETURN"))
     private void hk3gtl$changed(BlockPos pos,BlockState state,boolean moved,CallbackInfoReturnable<BlockState> cir){

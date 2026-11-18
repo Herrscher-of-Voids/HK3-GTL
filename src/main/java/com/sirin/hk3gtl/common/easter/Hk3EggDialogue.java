@@ -6,7 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.network.PacketDistributor;
- 
+
 public final class Hk3EggDialogue {
     private Hk3EggDialogue(){}
     public static void opened(ServerPlayer p,String dialogue,String segment){

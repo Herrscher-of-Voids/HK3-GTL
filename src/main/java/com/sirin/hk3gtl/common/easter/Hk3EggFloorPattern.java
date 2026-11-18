@@ -1,5 +1,5 @@
 package com.sirin.hk3gtl.common.easter;
- 
+
 public final class Hk3EggFloorPattern {
     private Hk3EggFloorPattern(){}
     public static boolean contains(boolean[][] cells,int width,int height){

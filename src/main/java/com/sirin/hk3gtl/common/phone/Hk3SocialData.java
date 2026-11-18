@@ -5,8 +5,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
- 
- 
+
+
 public final class Hk3SocialData extends SavedData {
     private CompoundTag users=new CompoundTag();
     public static Hk3SocialData get(ServerPlayer p){return com.sirin.hk3gtl.common.util.Hk3SavedDataGuard.get(p.server,"hk3gtl_social",Hk3SocialData::load,Hk3SocialData::new);}

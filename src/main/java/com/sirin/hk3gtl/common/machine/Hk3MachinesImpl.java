@@ -1,8 +1,8 @@
 package com.sirin.hk3gtl.common.machine;
 
-/** 【控制器材质变更 · 修订178】2026-10-26 22:02:44：按负责人“采用32套候选，保留4套原材质”接入独立三态面板；保留既有四套像素，不改建筑、控制器ID或工艺。 */
 
- 
+
+
 import com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes;
 
 
@@ -26,7 +26,6 @@ import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
- 
 
 
 
@@ -39,47 +38,48 @@ import com.mojang.logging.LogUtils;
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
-
-
-
-
-
- 
-
-
-
-
-
- 
 
 
 
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -223,7 +223,7 @@ public class Hk3MachinesImpl {
         HONKAI_FUEL_CONCENTRATION_PLANT = Hk3IndustrialExtensionMachines.registerConcentration();
         Hk3IndustrialExtensionMachines.init();
         Hk3LateIndustrialMachines.init();
-         
+
         Hk3W01Machines.init();
         com.sirin.hk3gtl.common.machine.w02.Hk3W02Machines.init();
         com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionMachines.init();
@@ -309,4 +309,4 @@ public class Hk3MachinesImpl {
 
 }
 
- 
+

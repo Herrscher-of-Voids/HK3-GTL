@@ -59,6 +59,6 @@ public final class Hk3StructureStream implements AutoCloseable {
     }
     @Override public void close() throws IOException {input.close();}
     public static InputStream open(String key) {
-        return Hk3StructureStream.class.getResourceAsStream("/data/hk3gtl/structures/compact/"+key+".bin.gz");
+        return Hk3PackedResources.resource(Hk3StructureStream.class,"/data/hk3gtl/structures/compact/"+key+".bin.gz");
     }
 }

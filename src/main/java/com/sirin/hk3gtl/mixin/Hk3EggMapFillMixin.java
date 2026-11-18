@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(MapItem.class)
- 
+
 public abstract class Hk3EggMapFillMixin {
     @Unique private boolean hk3gtl$wasIncomplete;
     @Inject(method="update",at=@At("HEAD"))private void hk3gtl$before(Level level,Entity viewer,MapItemSavedData map,CallbackInfo ci){hk3gtl$wasIncomplete=false;if(viewer instanceof ServerPlayer&&!map.locked)for(byte color:map.colors)if(color==0){hk3gtl$wasIncomplete=true;break;}}

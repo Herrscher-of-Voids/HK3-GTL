@@ -20,13 +20,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.HashSet;
 import java.util.List;
 
- 
 
 
 
 
 
- 
+
+
 @Mixin(value = PatternPreviewWidget.class, remap = false)
 public abstract class Hk3W01PreviewMixin {
     @Shadow @Final public MultiblockMachineDefinition controllerDefinition;

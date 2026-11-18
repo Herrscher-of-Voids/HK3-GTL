@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.constants;
 
- 
+
 
 
 
@@ -26,7 +26,7 @@ package com.sirin.hk3gtl.common.constants;
 import com.gregtechceu.gtceu.api.GTValues;
 
 /** 新增tier为15~30；不扩展GT自动注册使用的ALL_TIERS。 */
- 
+
 
 
 

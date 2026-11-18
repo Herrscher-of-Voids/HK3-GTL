@@ -13,7 +13,7 @@ import java.util.List;
  * HK3GTL 的 60 台机器在 v0.3 设计中仍采用“一机一配方类型”，
  * 现阶段没有硬性要求切换为运行时多模式；本表用于后续扩展附属模组时快速识别候选机型。</p>
  */
- 
+
 public final class Hk3MachineModeRequirements {
 
     private static final List<ModeCandidate> CANDIDATES = List.of(

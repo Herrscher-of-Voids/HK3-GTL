@@ -7,15 +7,15 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.*;
- 
+
 @Mixin(AbstractContainerMenu.class)
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
 public abstract class Hk3EggContainerMixin {
     @Unique private List<Hk3EggStorageFacts.Stack> hk3gtl$before=List.of(),hk3gtl$original=List.of(),hk3gtl$last=List.of();
     @Unique private boolean hk3gtl$changed,hk3gtl$filled64;

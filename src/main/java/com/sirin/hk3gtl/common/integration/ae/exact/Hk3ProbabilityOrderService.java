@@ -16,7 +16,6 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeSerializer;
 import com.gregtechceu.gtceu.api.recipe.chance.logic.ChanceLogic;
 import com.gregtechceu.gtceu.api.recipe.ingredient.FluidIngredient;
 import com.gregtechceu.gtceu.api.recipe.ingredient.SizedIngredient;
-import com.gtlsupb.gtlsupb.common.machine.hatch.PatternAssemblyPartMachine;
 import com.mojang.logging.LogUtils;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.machine.Hk3RecipeLogic;
@@ -39,6 +38,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import org.gtlcore.gtlcore.common.machine.multiblock.part.ae.MEPatternBufferPartMachine;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -48,7 +48,7 @@ import static com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilityOrderDa
 
 public final class Hk3ProbabilityOrderService {
     private static final String TOKEN = "hk3ProbabilityToken";
-    private static PatternAssemblyPartMachine authorizedPush;
+    private static MEPatternBufferPartMachine authorizedPush;
 
     private Hk3ProbabilityOrderService() {}
 
@@ -57,15 +57,25 @@ public final class Hk3ProbabilityOrderService {
     private record Inputs(Map<AEKey, Long> costs, Map<AEKey, Long> machine,
                           Map<AEItemKey, Long> containers, Map<AEKey, Long> returned) {}
     private record Drain(AEFluidKey fluid, long amount, Map<AEKey, Long> returned) {}
-    private record Selection(Hk3WorkableMultiblockMachine machine, PatternAssemblyPartMachine provider,
+    private record Selection(Hk3WorkableMultiblockMachine machine, MEPatternBufferPartMachine provider,
                              GTRecipe recipe, Inputs inputs, AEKey target, int chance, int scale, long successYield) {}
+
+    private static MEPatternBufferPartMachine assembly(Object candidate) {
+        return candidate instanceof MEPatternBufferPartMachine provider && provider instanceof Hk3ProbabilityAssemblyAccess
+                ? provider : null;
+    }
+
+    private static Hk3ProbabilityAssemblyAccess access(MEPatternBufferPartMachine provider) {
+        return (Hk3ProbabilityAssemblyAccess) provider;
+    }
 
     public static List<Candidate> candidates(ServerPlayer player, IGrid grid, AEKey target) {
         if (!(target instanceof AEItemKey || target instanceof AEFluidKey)) return List.of();
-        Set<PatternAssemblyPartMachine> seen = new HashSet<>();
+        Set<MEPatternBufferPartMachine> seen = new HashSet<>();
         List<Candidate> result = new ArrayList<>();
         for (var node : grid.getNodes()) {
-            if (!(node.getService(ICraftingProvider.class) instanceof PatternAssemblyPartMachine provider)
+            var provider = assembly(node.getService(ICraftingProvider.class));
+            if (provider == null
                     || !seen.add(provider) || !node.isActive() || provider.getLevel() != player.level()
                     || provider.getControllers().size() != 1) continue;
             var controller = provider.getControllers().iterator().next();
@@ -74,7 +84,7 @@ public final class Hk3ProbabilityOrderService {
                     || !machine.isFormed() || player.distanceToSqr(machine.getPos().getCenter()) > 4096
                     || !(player.getUUID().equals(machine.getOwnerUUID())
                         || Hk3ResearchTeams.scope(player.server, player.getUUID()).equals(machine.getResearchTeamUUID()))) continue;
-            for (var slot : provider.getSlotBoundRecipes().int2ObjectEntrySet()) {
+            for (var slot : access(provider).getSlotBoundRecipes().int2ObjectEntrySet()) {
                 var recipe = slot.getValue();
                 if (!Arrays.asList(machine.getRecipeTypes()).contains(recipe.recipeType)) continue;
                 var matching = targets(recipe).stream().filter(output -> target.equals(output.key)).toList();
@@ -303,8 +313,9 @@ public final class Hk3ProbabilityOrderService {
     private static Selection inspect(ServerPlayer player, BlockPos controllerPos, BlockPos assemblyPos, int slot, AEKey key) {
         var level = player.serverLevel();
         require(level.hasChunkAt(controllerPos) && level.hasChunkAt(assemblyPos), "控制器与总成须处于已加载区块");
+        var provider = assembly(MetaMachine.getMachine(level, assemblyPos));
         if (!(MetaMachine.getMachine(level, controllerPos) instanceof Hk3WorkableMultiblockMachine machine)
-                || !(MetaMachine.getMachine(level, assemblyPos) instanceof PatternAssemblyPartMachine provider))
+                || provider == null)
             throw new IllegalArgumentException("需指定HK自有控制器与终极样板总成");
         require(player.distanceToSqr(controllerPos.getCenter()) <= 4096, "请在控制器64格内下单");
         require(supports(machine), "概率托管支持标准HK工作机器与使用HK配方执行器的采样、光谱、液态及研究工艺宿主");
@@ -315,14 +326,14 @@ public final class Hk3ProbabilityOrderService {
         require(provider.getMainNode().isActive() && provider.getGrid() != null, "总成没有有效AE连接");
         require(provider.getControllers().size() == 1 && provider.getControllers().contains(machine), "总成须独占绑定这一台控制器");
         require(provider.getProxies().isEmpty() && provider.getBoundProxyPositions().isEmpty(), "首版独占订单不接总成代理");
-        require(provider.patternScale == 1 && provider.patternDivScale == 1, "请将总成样板倍率设为1:1");
+        require(access(provider).hk3gtl$hasUnitScale(), "请将总成样板倍率设为1:1");
         require(slot >= 0 && slot < provider.getPatternInventory().getSlots(), "样板槽位越界");
         int patterns = 0;
         for (int i = 0; i < provider.getPatternInventory().getSlots(); i++)
             if (!provider.getPatternInventory().getStackInSlot(i).isEmpty()) patterns++;
         require(patterns == 1 && !provider.getPatternInventory().getStackInSlot(slot).isEmpty(), "专属总成只保留指定槽的一张绑定样板");
         require(empty(provider) && provider.getBuffer().isEmpty(), "总成槽位及返还缓冲须为空");
-        GTRecipe recipe = provider.getSlotBoundRecipes().get(slot);
+        GTRecipe recipe = access(provider).getSlotBoundRecipes().get(slot);
         require(recipe != null && Arrays.asList(machine.getRecipeTypes()).contains(recipe.recipeType), "槽位未绑定本机可执行GT配方");
         validateRecipe(recipe);
         var patternsAvailable = provider.getAvailablePatterns();
@@ -599,7 +610,7 @@ public final class Hk3ProbabilityOrderService {
             if (entry.released || entry.paused) continue;
             var binding = binding(server, entry);
             if (binding == null || !empty(binding.provider)) continue;
-            var recipe = binding.provider.getSlotBoundRecipes().get(entry.slot);
+            var recipe = access(binding.provider).getSlotBoundRecipes().get(entry.slot);
             Score score = contribution(group.goals, actual, targets(recipe, entry.returnedContainers));
             if (affordable(binding, entry)) {
                 if (score.compareTo(best) > 0) { selected = entry; selectedBinding = binding; best = score; }
@@ -683,7 +694,7 @@ public final class Hk3ProbabilityOrderService {
             logic.setStatus(RecipeLogic.Status.IDLE);
             return true;
         }
-        GTRecipe original = binding.provider.getSlotBoundRecipes().get(entry.slot);
+        GTRecipe original = access(binding.provider).getSlotBoundRecipes().get(entry.slot);
         GTRecipe recipe = binding.machine.fullModifyRecipe(original.copy(),
                 new com.gregtechceu.gtceu.api.recipe.logic.OCParams(), new com.gregtechceu.gtceu.api.recipe.logic.OCResult());
         if (recipe == null) return true;
@@ -739,7 +750,7 @@ public final class Hk3ProbabilityOrderService {
         if (!persist(server, entry)) return false;
         var selected = new it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap<GTRecipe>();
         selected.put(entry.slot, recipe);
-        boolean consumed = binding.provider.commitSlotBoundRecipes(selected);
+        boolean consumed = access(binding.provider).commitSlotBoundRecipes(selected);
         entry.phase = consumed ? Phase.RUNNING : Phase.UNKNOWN;
         entry.note = consumed ? "原生配方已消费专属槽位；EU/HW及研究守卫照常执行" : "实际投料提交未完成，保留原令牌";
         persist(server, entry);
@@ -785,7 +796,8 @@ public final class Hk3ProbabilityOrderService {
     }
 
     public static boolean blocksPush(Object candidate) {
-        if (!(candidate instanceof PatternAssemblyPartMachine provider) || provider == authorizedPush || provider.isRemote()) return false;
+        var provider = assembly(candidate);
+        if (provider == null || provider == authorizedPush || provider.isRemote()) return false;
         var level = (ServerLevel) provider.getLevel();
         return Hk3ProbabilityOrderData.get(level.getServer()).assemblies.containsKey(
                 new Hk3ProbabilityOrderData.Location(level.dimension().location().toString(), provider.getPos().asLong()));
@@ -938,27 +950,28 @@ public final class Hk3ProbabilityOrderService {
         return new Inputs(entry.inputs, machine, entry.containerInputs, returned);
     }
 
-    private record Binding(Hk3WorkableMultiblockMachine machine, PatternAssemblyPartMachine provider, ServerPlayer player) {}
+    private record Binding(Hk3WorkableMultiblockMachine machine, MEPatternBufferPartMachine provider, ServerPlayer player) {}
 
     private static Binding binding(MinecraftServer server, Hk3ProbabilityOrderData.Entry entry) {
         ServerPlayer player = server.getPlayerList().getPlayer(entry.owner);
         ServerLevel level = server.getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(entry.dimension)));
         if (player == null || level == null || !level.hasChunkAt(BlockPos.of(entry.controller)) || !level.hasChunkAt(BlockPos.of(entry.assembly))) return null;
+        var provider = assembly(MetaMachine.getMachine(level, BlockPos.of(entry.assembly)));
         if (!(MetaMachine.getMachine(level, BlockPos.of(entry.controller)) instanceof Hk3WorkableMultiblockMachine machine)
-                || !(MetaMachine.getMachine(level, BlockPos.of(entry.assembly)) instanceof PatternAssemblyPartMachine provider)) return null;
+                || provider == null) return null;
         if (!entry.machineIdentity.equals(machine.getProbabilityIdentity())
                 || !entry.assemblyIdentity.equals(((Hk3ProbabilityAssemblyIdentity) provider).hk3gtl$probabilityIdentity())
                 || !entry.team.equals(machine.getResearchTeamUUID()) || !entry.team.equals(Hk3ResearchTeams.scope(server, entry.owner))
                 || !machine.isFormed() || !provider.getMainNode().isActive() || provider.getGrid() == null
                 || provider.getControllers().size() != 1 || !provider.getControllers().contains(machine)
                 || !provider.getProxies().isEmpty() || !provider.getBoundProxyPositions().isEmpty()
-                || provider.patternScale != 1 || provider.patternDivScale != 1) return null;
+                || !access(provider).hk3gtl$hasUnitScale()) return null;
         if (entry.slot >= provider.getPatternInventory().getSlots()
                 || !entry.pattern.equals(provider.getPatternInventory().getStackInSlot(entry.slot).save(new CompoundTag()))) return null;
         int patterns = 0;
         for (int i = 0; i < provider.getPatternInventory().getSlots(); i++)
             if (!provider.getPatternInventory().getStackInSlot(i).isEmpty()) patterns++;
-        GTRecipe recipe = provider.getSlotBoundRecipes().get(entry.slot);
+        GTRecipe recipe = access(provider).getSlotBoundRecipes().get(entry.slot);
         if (patterns != 1 || recipe == null || !entry.recipeId.equals(recipe.id.toString()) || !entry.recipe.equals(encode(recipe))) return null;
         for (Object raw : (Object[]) provider.getInternalInventory()) {
             var inventory = (Hk3ProbabilitySlotAccess) raw;
@@ -991,13 +1004,13 @@ public final class Hk3ProbabilityOrderService {
                 && recipe.id.toString().equals(entry.recipeId) && recipe.parallels == 1;
     }
 
-    private static boolean empty(PatternAssemblyPartMachine provider) {
+    private static boolean empty(MEPatternBufferPartMachine provider) {
         return Arrays.stream((Object[]) provider.getInternalInventory()).map(Hk3ProbabilitySlotAccess.class::cast)
                 .allMatch(inventory -> inventory.hk3gtl$items().isEmpty() && inventory.hk3gtl$fluids().isEmpty()
                         && inventory.hk3gtl$virtualItems().isEmpty() && inventory.hk3gtl$virtualFluids().isEmpty());
     }
 
-    private static boolean slotMatches(PatternAssemblyPartMachine provider, Hk3ProbabilityOrderData.Entry entry) {
+    private static boolean slotMatches(MEPatternBufferPartMachine provider, Hk3ProbabilityOrderData.Entry entry) {
         Map<AEKey, Long> actual = new LinkedHashMap<>();
         var inventory = slot(provider, entry.slot);
         inventory.hk3gtl$items().forEach((key, amount) -> actual.put(key, amount));
@@ -1005,7 +1018,7 @@ public final class Hk3ProbabilityOrderService {
         return actual.equals(entry.machineInputs);
     }
 
-    private static Hk3ProbabilitySlotAccess slot(PatternAssemblyPartMachine provider, int index) {
+    private static Hk3ProbabilitySlotAccess slot(MEPatternBufferPartMachine provider, int index) {
         Object[] slots = provider.getInternalInventory();
         return (Hk3ProbabilitySlotAccess) slots[index];
     }

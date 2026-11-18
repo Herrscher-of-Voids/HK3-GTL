@@ -5,7 +5,7 @@ import net.minecraft.server.level.ServerPlayer;
 /**
  * 注视增长修正器：统一处理增长侧的抑制规则，避免在事件/研究代码里重复乘法逻辑。
  */
- 
+
 
 
 

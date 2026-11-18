@@ -3,19 +3,19 @@ package com.sirin.hk3gtl.common.research;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import net.minecraft.server.level.ServerPlayer;
 
- 
 
 
 
 
 
- 
 
 
 
 
 
- 
+
+
+
 
 
 

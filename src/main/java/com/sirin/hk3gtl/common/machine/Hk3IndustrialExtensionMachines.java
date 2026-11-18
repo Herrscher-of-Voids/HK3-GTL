@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.machine;
 
-/** 【控制器材质变更 · 修订178】2026-10-26 22:02:44：按负责人“采用32套候选，保留4套原材质”接入独立三态面板；保留既有四套像素，不改建筑、控制器ID或工艺。 */
+
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
@@ -16,7 +16,7 @@ import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
- 
+
 
 
 

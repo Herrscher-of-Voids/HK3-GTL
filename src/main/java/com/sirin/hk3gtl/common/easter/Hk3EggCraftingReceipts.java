@@ -4,8 +4,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import java.util.UUID;
- 
- 
+
+
 public final class Hk3EggCraftingReceipts {
     public record TransformInput(net.minecraft.world.entity.item.ItemEntity entity,int count,UUID owner){}
     private Hk3EggCraftingReceipts(){}

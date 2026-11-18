@@ -23,7 +23,7 @@ import java.util.function.Supplier;
  * <h3>修改指南</h3>
  * 如需携带额外参数（如筛选条件），在此类中添加字段并更新 encode/decode。
  */
- 
+
 public class ResearchStateSyncRequestC2SPacket {
 
     private static final int REQUEST_COOLDOWN_TICKS = 10;

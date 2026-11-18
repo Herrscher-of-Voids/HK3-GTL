@@ -1,9 +1,9 @@
 package com.sirin.hk3gtl.common.phone;
 
- 
 
- 
- 
+
+
+
 
 import java.util.*;
 import net.minecraft.nbt.*;
@@ -12,26 +12,26 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.saveddata.SavedData;
 import static com.sirin.hk3gtl.common.util.Hk3LedgerValidation.*;
 
- 
 
 
 
 
 
- 
 
 
 
 
- 
 
 
 
 
- 
- 
- 
- 
+
+
+
+
+
+
+
 public final class Hk3PhoneData extends SavedData {
     private static final String NAME="hk3gtl_phone_v5";
     private final Map<UUID,LinkedHashMap<String,Entry>> users=new HashMap<>();

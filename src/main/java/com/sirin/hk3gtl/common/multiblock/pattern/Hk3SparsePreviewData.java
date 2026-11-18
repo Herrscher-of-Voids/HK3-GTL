@@ -1,6 +1,7 @@
 package com.sirin.hk3gtl.common.multiblock.pattern;
 
 import com.google.gson.JsonParser;
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import java.io.*;
@@ -49,7 +50,7 @@ public final class Hk3SparsePreviewData {
         if(source==null)throw new IllegalArgumentException("没有正式预览源："+id);
         if(source.key.equals("w01"))return new Data(Hk3W01HallPattern.layout(),Map.of(),source.front);
         InputStream stream=Hk3ApprovedArchitecture.IDS.contains(source.key)?Hk3StructureStream.open(source.key)
-                :Hk3SparsePreviewData.class.getResourceAsStream("/data/hk3gtl/structures/"+source.key+".bin.gz");
+                :Hk3PackedResources.resource(Hk3SparsePreviewData.class,"/data/hk3gtl/structures/"+source.key+".bin.gz");
         if(stream==null)throw new IllegalStateException("缺少完整预览源："+source.key);
         class Read {
             Hk3LargeArchitectureShapes.Header header;

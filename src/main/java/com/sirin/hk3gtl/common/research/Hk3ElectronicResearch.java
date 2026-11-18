@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.research;
 
 import java.util.List;
 
- 
+
 public final class Hk3ElectronicResearch {
     private Hk3ElectronicResearch() {}
     public static List<String> requirements(int platform) {

@@ -1,8 +1,8 @@
 package com.sirin.hk3gtl.common.easter;
 import com.gregtechceu.gtceu.api.cover.CoverBehavior;
- 
- 
- 
+
+
+
 public final class Hk3EggFluidCapture {
     private record Context(CoverBehavior cover,int id,java.util.ArrayDeque<Boolean> transfers){}
     private static final ThreadLocal<java.util.ArrayDeque<Context>> ACTIVE=ThreadLocal.withInitial(java.util.ArrayDeque::new);

@@ -5,9 +5,9 @@ import net.minecraft.nbt.CompoundTag;
 import java.util.*;
 import java.util.function.Function;
 
- 
- 
- 
+
+
+
 public final class Hk3CollectionRecords {
     public record Receipt(boolean unlocked,boolean delivered,String title,String body,String kind){}
     private Hk3CollectionRecords(){}

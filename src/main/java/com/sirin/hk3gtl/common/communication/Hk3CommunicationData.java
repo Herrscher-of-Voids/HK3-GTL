@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.communication;
 
- 
+
 
 
 
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
 
- 
+
 public final class Hk3CommunicationData extends SavedData {
     private static final String NAME = "hk3gtl_communication_v5";
     private final Map<UUID, Hk3FirstContactState> contacts = new LinkedHashMap<>();

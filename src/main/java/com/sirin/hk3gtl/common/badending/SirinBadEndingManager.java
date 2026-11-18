@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.badending;
 
- 
+
 
 
 
@@ -59,8 +59,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 阶段仍为 ERASED，直接走收尾流程，不会延续 Boss 战。</p>
  */
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID)
- 
- 
+
+
 public final class SirinBadEndingManager {
 
     private static final Logger LOGGER = LogUtils.getLogger();

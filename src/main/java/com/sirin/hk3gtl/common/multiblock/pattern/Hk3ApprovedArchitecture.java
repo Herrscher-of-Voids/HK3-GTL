@@ -9,41 +9,41 @@ import java.util.List;
 
 
 
- 
-
-
-
-
-
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -63,8 +63,8 @@ public final class Hk3ApprovedArchitecture {
     private static final Hk3WeightedCache<String,Layout> CACHE =
             new Hk3WeightedCache<>(8L * 1024 * 1024, Hk3PackedArchitectureReader::estimatedBytes);
     /** 已确认并接入的结构资源键；S01–S05 为研究院区五阶，I13 为工业线 V6。 */
-     
- 
+
+
 
 
 

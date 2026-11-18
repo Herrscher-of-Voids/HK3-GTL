@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.easter;
 import java.util.*;
- 
+
 public final class Hk3EggDoorPattern {
     public record Door(int x,int y,int z,int direction){}
     private static final int N=34;

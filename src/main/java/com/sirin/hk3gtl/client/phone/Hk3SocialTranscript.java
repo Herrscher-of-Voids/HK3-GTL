@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.client.phone;
 import java.util.*;
- 
+
 public final class Hk3SocialTranscript {
     public record Entry(String speaker,String text,boolean user,boolean ai,long tick){}
     private Hk3SocialTranscript(){}

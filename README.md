@@ -1,8 +1,8 @@
-# HK3GTL 1.1.0
+# HK3GTL 1.2.0
 
 面向 Minecraft 1.20.1、Forge 和 GregTech Leisure 增强版 3.9 的工业与剧情扩展。
 
-更新内容见 [CHANGELOG.md](CHANGELOG.md)。安装时使用 GitHub Release 提供的 `HK3GTL-1.1.0.jar`。
+更新内容见 [CHANGELOG.md](CHANGELOG.md)。安装时使用 GitHub Release 提供的 `HK3GTL-1.2.0.jar`。
 
 ## 从源码构建
 

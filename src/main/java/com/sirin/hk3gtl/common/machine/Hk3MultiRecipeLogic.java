@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.machine;
 
- 
+
 
 
 
@@ -134,14 +134,14 @@ import java.util.function.Supplier;
  * 本类把当前库存能匹配的所有配方各自并行后合并成一个合成配方，
  * 让机器同 tick 同时产出多种配方的产物。
  */
- 
 
 
 
 
 
 
- 
+
+
 
 
 

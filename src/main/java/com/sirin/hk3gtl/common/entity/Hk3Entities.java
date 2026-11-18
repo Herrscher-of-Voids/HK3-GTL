@@ -22,7 +22,7 @@ import net.minecraftforge.registries.RegistryObject;
  *   <li>clientTrackingRange 控制客户端接收实体更新的最大距离（chunk 为单位）</li>
  * </ul>
  */
- 
+
 public class Hk3Entities {
 
     /** 实体类型延迟注册器，命名空间为 hk3gtl */

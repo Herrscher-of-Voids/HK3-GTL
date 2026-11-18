@@ -1,6 +1,7 @@
 import gzip
 from io import BytesIO
 import json
+import lzma
 from pathlib import Path
 import re
 import struct
@@ -15,15 +16,15 @@ RUNTIME = re.compile(
     r'ftbquests/chapters/hk3_(?:stargate|voltage_(?:0[1-9]|1[0-6]))\.snbt|changelog\.json|'
     r'narrative/(?:approved|easter_eggs|easter_rules|faction_first_contacts|progress_correspondence|'
     r'social_dialogues|social_personas|story)\.json|'
-    r'(?:models|blockstates)/.+\.json|models/scene/.+\.bin\.gz|'
+    r'(?:models|blockstates)/.+\.json|models/scene/.+\.bin\.(?:gz|xz)|'
     r'textures/.+\.png(?:\.mcmeta)?|shaders/.+\.(?:json|fsh|vsh)|(?:effects|wonder)/.+\.bin\.gz)|'
-    r'data/hk3gtl/(?:structures/(?:approved/[^/]+\.json|.+\.bin\.gz|ae_nexus_a1\.nbt)|'
+    r'data/hk3gtl/(?:structures/(?:approved/[^/]+\.json|.+\.bin\.(?:gz|xz)|ae_nexus_a1\.nbt|jei_materials/(?:i\d+(?:_\d+)?|s\d+)\.txt)|'
     r'catalog/(?:industrial_content|natural_supply_sources|world_bubble_resources)\.json|'
     r'(?:advancements|calendar|compact_architecture|dimension|dimension_type|guide|loot_tables|'
     r'narrative|recipes|research|sgjourney|worldgen)/.+\.json)|'
     r'data/(?:forge|gtceu)/tags/items/.+\.json|data/minecraft/tags/blocks/.+\.json|'
     r'pack\.mcmeta|hk3gtl\.mixins\.json|[^/]+-refmap\.json|'
-    r'META-INF/(?:MANIFEST\.MF|mods\.toml|jarjar/metadata\.json|jars/mixinextras-forge-[^/]+\.jar)'
+    r'META-INF/(?:MANIFEST\.MF|mods\.toml|jarjar/metadata\.json|jars/(?:mixinextras-forge-[^/]+|xz-1\.10)\.jar)'
 )
 PRIVATE = re.compile(
     rb'"(?:[a-z_]*_quote|conversation_id|approval_basis|approval_manifest|authorization|'
@@ -74,7 +75,8 @@ def png_metadata(raw):
 
 
 def compressed_metadata(archive, name):
-    with archive.open(name) as stream, gzip.GzipFile(fileobj=stream) as decoded:
+    codec = lzma.open if name.endswith('.xz') else gzip.open
+    with archive.open(name) as stream, codec(stream, 'rb') as decoded:
         tail = b''
         while chunk := decoded.read(1024 * 1024):
             yield tail + chunk
@@ -97,7 +99,7 @@ def audit(path, quotes=()):
                     if any(contains_private(dependency.read(entry), quotes) for entry in dependency.infolist() if not entry.is_dir()):
                         problems.append((name, '内嵌依赖包含内部记录或开发路径'))
                 continue
-            if name.endswith(('.gz', '.nbt')):
+            if name.endswith(('.gz', '.xz', '.nbt')):
                 content = compressed_metadata(archive, name)
             elif name.endswith('.png'):
                 content = png_metadata(archive.read(item))

@@ -27,49 +27,49 @@ import org.gtlcore.gtlcore.common.data.GTLMaterials;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.item;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.fluid;
 
- 
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-
- 
 
 
 
 
 
 
- 
 
 
 
 
 
 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3ElectronicRecipes {
     private static final int[] PREDECESSOR_TIERS = {
             GTValues.MAX, Hk3Tiers.HDV, Hk3Tiers.QAV, Hk3Tiers.IWV};
@@ -236,4 +236,4 @@ public final class Hk3ElectronicRecipes {
     }
 }
 
- 
+

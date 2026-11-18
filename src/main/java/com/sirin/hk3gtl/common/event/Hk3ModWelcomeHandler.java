@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.event;
 
- 
+
 
 
 
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 
- 
+
 
 
 
@@ -27,7 +27,7 @@ import net.minecraftforge.network.PacketDistributor;
 
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
- 
+
 public final class Hk3ModWelcomeHandler {
 
     private static final java.util.Map<java.util.UUID, String> OFFERED = new java.util.concurrent.ConcurrentHashMap<>();

@@ -8,10 +8,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
- 
- 
- 
+
+
+
+
 public final class Hk3EggUiReceipts {
     private Hk3EggUiReceipts(){}
     public static void acquired(ServerPlayer p,net.minecraft.world.item.ItemStack item){

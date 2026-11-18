@@ -2,8 +2,8 @@ package com.sirin.hk3gtl.common.narrative;
 
 import java.util.*;
 
- 
- 
+
+
 public final class Hk3CollectionCatalog {
     public enum Kind {
         OPTIONAL("optional"), FORMAL("formal"), MILESTONE("milestone"), UNCLASSIFIED("unclassified");

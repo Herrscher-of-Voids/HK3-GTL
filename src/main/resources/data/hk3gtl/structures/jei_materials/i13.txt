@@ -1,0 +1,13 @@
+gtceu:advanced_computer_casing
+gtceu:assembly_line_grating
+gtceu:clean_machine_casing
+gtceu:computer_heat_vent
+gtceu:corrosion_proof_casing
+gtceu:fusion_glass
+gtceu:high_power_casing
+gtceu:solid_machine_casing
+gtceu:tungstensteel_gearbox
+gtceu:tungstensteel_pipe_casing
+gtlcore:multi_functional_casing
+hk3gtl:voltage_machine_casing_hdv
+hk3gtl:i13_honkai_resistant_coating_array[facing=north]

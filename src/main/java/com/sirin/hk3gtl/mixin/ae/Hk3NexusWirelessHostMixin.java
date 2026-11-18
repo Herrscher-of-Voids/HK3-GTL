@@ -39,7 +39,7 @@ public abstract class Hk3NexusWirelessHostMixin {
         for (var nexus : targetGrid.getMachines(Hk3NexusGrid.class)) {
             if (!nexus.isActive()) continue;
             myWap = nexus;
-            currentDistanceFromGrid = 0;
+            currentDistanceFromGrid = 1; // 按一格距离计费，避免零扣费被判为断电。
             cir.setReturnValue(true);
             return;
         }

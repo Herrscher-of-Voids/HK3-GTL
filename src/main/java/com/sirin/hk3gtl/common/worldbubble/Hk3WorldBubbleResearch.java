@@ -6,13 +6,13 @@ import com.sirin.hk3gtl.common.research.*;
 import net.minecraft.nbt.*;
 import java.util.*;
 
- 
 
 
 
 
 
- 
+
+
 
 
 
@@ -71,4 +71,4 @@ public final class Hk3WorldBubbleResearch {
     private static String source(CompoundTag r){return r.getString("Facility")+"/"+r.getString("Recipe")+"/"+r.getUUID("Batch");}
 }
 
- 
+

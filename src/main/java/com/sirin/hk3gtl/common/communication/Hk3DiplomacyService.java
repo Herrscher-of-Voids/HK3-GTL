@@ -1,16 +1,16 @@
 package com.sirin.hk3gtl.common.communication;
 
- 
 
- 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
+
+
 import com.sirin.hk3gtl.common.research.*;
 import com.sirin.hk3gtl.common.narrative.Hk3ApprovedProse;
 import com.sirin.hk3gtl.common.narrative.Hk3ApprovedText;
@@ -30,12 +30,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import java.util.*;
 
- 
- 
- 
+
+
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
- 
+
+
 public final class Hk3DiplomacyService {
     private record Draft(UUID token,UUID team,String topic,String action,int version,CompoundTag evidence,long until){}
     private static final Map<UUID,Draft> DRAFTS=new HashMap<>();
@@ -47,7 +47,7 @@ public final class Hk3DiplomacyService {
     private static boolean active(ServerPlayer p,String topic){return !topic.equals("schicksal")||Hk3TeamContactData.get(p.server).cooperationActive(team(p));}
     static String prose(String id){if(!Hk3FactionLetters.body(id).isBlank())return Hk3FactionLetters.speaker(id)+"\n\n"+Hk3FactionLetters.body(id);var e=Hk3ApprovedProse.get("communication."+id);if(e==null)throw new IllegalArgumentException("五方正文不存在："+id);return e.speaker()+"\n\n"+Hk3ApprovedText.body(e);}
     static String title(String id){if(!Hk3FactionLetters.body(id).isBlank())return Hk3FactionLetters.speaker(id)+"｜"+Hk3FactionLetters.title(id);var e=Hk3ApprovedProse.get("communication."+id);if(e==null)throw new IllegalArgumentException("五方正文不存在："+id);return e.speaker()+"｜"+Hk3ApprovedText.title(e);}
-     
+
     static void send(ServerPlayer p,CompoundTag v){com.sirin.hk3gtl.common.phone.Hk3PhoneAppHints.opened(p,v.getString("Mode"));com.sirin.hk3gtl.common.easter.Hk3EggReading.attach(p,v);v.put("Runtime",Hk3PhoneRuntime.status(p));Hk3Network.CHANNEL.send(PacketDistributor.PLAYER.with(()->p),new Hk3PhonePacket(v));}
     static CompoundTag view(String mode){var v=new CompoundTag();v.putString("Mode",mode);return v;}
     static void button(CompoundTag v,String label,String command){var rows=v.getList("Actions",Tag.TAG_COMPOUND);var b=new CompoundTag();b.putString("Title",label);b.putString("Command",command);rows.add(b);v.put("Actions",rows);}
@@ -153,4 +153,4 @@ public final class Hk3DiplomacyService {
     @SubscribeEvent public static void stop(ServerStoppedEvent e){DRAFTS.clear();}
 }
 
- 
+

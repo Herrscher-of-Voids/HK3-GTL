@@ -9,39 +9,39 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
- 
+/**
+ * 世界文本叙事系统首批叙事节点注册表（22 个节点，对齐设计文档 v0.2）。
+ *
+ * <h3>节点来源</h3>
+ * <ul>
+ *   <li>阶段里程碑 E-MS-001~004 → 5 个节点（玩家的"我做到了"视角）</li>
+ *   <li>空之律者 E-HQ-001~005 → 5 个节点（终局叙事主线）</li>
+ *   <li>奥托/天命 E-OT-001~003 → 3 个</li>
+ *   <li>瓦尔特 E-WL-001~002 → 2 个</li>
+ *   <li>符华 E-FH-001 → 1 个</li>
+ *   <li>爱莉希雅 E-EL-001~002 → 2 个</li>
+ *   <li>世界蛇 E-WS-001 → 1 个</li>
+ *   <li>逆熵 E-AE-001 → 1 个</li>
+ *   <li>彩蛋 E-EG-001~002 → 2 个</li>
+ * </ul>
+ *
+ * <h3>修改指南</h3>
+ * <ul>
+ *   <li>新增节点 → 使用 {@link #reg} 工厂方法，同时在 lang 文件补 title/body/author 翻译键</li>
+ *   <li>修改节点内容 → 只改语言文件即可，本类的结构不应变动</li>
+ *   <li>绝对不要修改节点 id —— 已写入玩家存档，改 id 等于让所有玩家档案清零</li>
+ *   <li>eventId 映射变化 → 同步检查 Hk3EventManagerImpl，确认该 eventId 仍在被触发</li>
+ * </ul>
+ *
+ * <h3>变更记录（2026-05-19）</h3>
+ * <ul>
+ *   <li>删除：彩蛋叙事仅覆盖 E-EG-001~030 的上限</li>
+ *   <li>新增：E-EG-001~100 全量叙事节点注册，并为彩蛋节点挂 conditionKey</li>
+ *   <li>修改：regEvent 支持自动派生 hk3gtl.event.egxxx.condition</li>
+ *   <li>用途：让文明档案卷轴可完整展示 100 彩蛋条目与触发条件</li>
+ * </ul>
+ */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 public final class Hk3NarrativeNodes {
 
     /** 节点顺序表；LinkedHashMap 保证 GUI 显示顺序稳定 */

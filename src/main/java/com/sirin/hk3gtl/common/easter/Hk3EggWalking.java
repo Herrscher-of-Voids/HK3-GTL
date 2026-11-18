@@ -7,7 +7,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
- 
+
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggWalking {
     private Hk3EggWalking(){}

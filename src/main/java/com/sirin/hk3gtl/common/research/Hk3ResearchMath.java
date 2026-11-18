@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.research;
 
- 
 
 
 
@@ -10,7 +9,8 @@ package com.sirin.hk3gtl.common.research;
 
 
 
- 
+
+
 
 public final class Hk3ResearchMath {
     private Hk3ResearchMath() {}

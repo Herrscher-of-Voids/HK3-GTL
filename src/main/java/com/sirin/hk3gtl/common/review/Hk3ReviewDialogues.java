@@ -5,7 +5,7 @@ import com.sirin.hk3gtl.common.dialogue.definition.Hk3ApprovedDialogues;
 import com.sirin.hk3gtl.common.narrative.Hk3ApprovedProse;
 import java.util.*;
 
- 
+
 public final class Hk3ReviewDialogues {
     public static final String FIRST="hk3_review_first", SECOND="hk3_review_second", NOTICE="hk3_review_notice";
     private Hk3ReviewDialogues(){}

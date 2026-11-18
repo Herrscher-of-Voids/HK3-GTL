@@ -7,6 +7,7 @@ import appeng.api.networking.security.IActionSource;
 import appeng.api.stacks.AEItemKey;
 import appeng.api.storage.MEStorage;
 import com.gregtechceu.gtceu.api.block.MetaMachineBlock;
+import com.gregtechceu.gtceu.common.block.LampBlock;
 import com.lowdragmc.lowdraglib.utils.BlockInfo;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
@@ -40,7 +41,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
- 
+
 
 
 
@@ -96,6 +97,11 @@ public final class Hk3BuildMaterials {
 
     private Material resolveMaterial(BlockState state) {
         if (state.isAir() || !supportedState(state)) return new Material(ItemStack.EMPTY, 0);
+        if (state.getBlock() instanceof LampBlock lamp) {
+            ItemStack wanted = new ItemStack(lamp);
+            wanted.setTag(lamp.getTagFromState(state));
+            return new Material(wanted, 1);
+        }
         BlockInfo info = new BlockInfo(state);
         ItemStack wanted = info.getItemStackForm();
         // 同一状态只解析一次；两个候选仍验证终端没有隐含电压替换。

@@ -3,7 +3,7 @@ import com.gregtechceu.gtceu.api.capability.IElectricItem;
 import net.minecraft.nbt.CompoundTag;
 import java.util.function.Supplier;
 import java.util.function.IntSupplier;
- 
+
 
 
 

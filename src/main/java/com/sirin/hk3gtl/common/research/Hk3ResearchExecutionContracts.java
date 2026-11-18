@@ -7,13 +7,13 @@ import java.nio.charset.StandardCharsets;
 import java.io.InputStreamReader;
 import java.util.*;
 
- 
 
 
 
 
 
- 
+
+
 
 
 
@@ -86,4 +86,4 @@ public final class Hk3ResearchExecutionContracts {
     }
 }
 
- 
+

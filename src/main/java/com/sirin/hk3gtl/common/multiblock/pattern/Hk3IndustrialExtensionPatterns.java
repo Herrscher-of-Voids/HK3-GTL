@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
- 
+
 
 
 

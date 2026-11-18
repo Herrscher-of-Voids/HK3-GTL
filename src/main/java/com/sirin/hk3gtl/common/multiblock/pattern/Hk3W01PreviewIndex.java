@@ -1,12 +1,12 @@
 package com.sirin.hk3gtl.common.multiblock.pattern;
 
- 
 
 
 
 
 
- 
+
+
 public final class Hk3W01PreviewIndex {
     private final Hk3W01HallLayout layout;
     private final int[] layers;

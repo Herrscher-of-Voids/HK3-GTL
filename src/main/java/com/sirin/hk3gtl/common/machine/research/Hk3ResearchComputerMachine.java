@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.machine.research;
 
- 
 
 
 
@@ -10,7 +9,8 @@ package com.sirin.hk3gtl.common.machine.research;
 
 
 
- 
+
+
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
@@ -45,7 +45,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.UUID;
 
- 
+
 
 
 
@@ -149,4 +149,4 @@ public final class Hk3ResearchComputerMachine extends TieredEnergyMachine implem
     }
 }
 
- 
+

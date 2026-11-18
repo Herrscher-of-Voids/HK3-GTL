@@ -5,7 +5,7 @@ import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
- 
+
 @Mixin(FoodData.class)
 public abstract class Hk3EggFoodMixin {
     @Unique private float hk3gtl$health;

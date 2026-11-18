@@ -8,12 +8,12 @@ import com.gregtechceu.gtceu.common.data.GTSoundEntries;
 
 import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection.LEFT_TO_RIGHT;
 
- 
 
 
 
 
- 
+
+
 
 
 
@@ -75,4 +75,4 @@ public final class Hk3IndustrialRecipeTypes {
     }
 }
 
- 
+

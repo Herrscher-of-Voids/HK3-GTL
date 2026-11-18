@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.research;
 
- 
 
 
 
@@ -10,7 +9,8 @@ package com.sirin.hk3gtl.common.research;
 
 
 
- 
+
+
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -22,7 +22,7 @@ import java.util.UUID;
 import java.util.function.BooleanSupplier;
 import java.util.function.Predicate;
 
- 
+
 
 
 
@@ -205,4 +205,4 @@ public final class Hk3ResearchWorkQueue {
     }
 }
 
- 
+

@@ -27,6 +27,9 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.endsWith(".Hk3ConflictingRecipeTypesMixin")) {
+            return hasVersion("gtlultimate", "1.5.9") && hasVersion("gtlsupb", "4.8.1");
+        }
         if (mixinClassName.startsWith("com.sirin.hk3gtl.mixin.enhanced.")) {
             var file = LoadingModList.get().getModFileById("gtl_enhancedcore");
             if (file == null) return false;
@@ -39,7 +42,8 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
             return compatible;
         }
         if (mixinClassName.endsWith(".Hk3ProbabilityAssemblyMixin") || mixinClassName.endsWith(".Hk3ProbabilityOutputMixin")
-                || mixinClassName.endsWith(".Hk3RecipeRunnerInvoker") || mixinClassName.endsWith(".Hk3ProbabilitySlotAccess"))
+                || mixinClassName.endsWith(".Hk3RecipeRunnerInvoker") || mixinClassName.endsWith(".Hk3ProbabilitySlotAccess")
+                || mixinClassName.endsWith(".Hk3ProbabilityPushMixin"))
             return Hk3ProbabilitySupport.AVAILABLE;
         if(mixinClassName.endsWith(".Hk3FarNativeRenderMixin"))return LoadingModList.get().getModFileById("embeddium")==null;
         if(mixinClassName.contains(".Hk3W03Embeddium")||mixinClassName.contains(".Hk3FarEmbeddium"))return LoadingModList.get().getModFileById("embeddium")!=null;
@@ -67,6 +71,12 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
         if (mixinClassName.endsWith(".SkyTearsAndGregHeartMixin") && enhanced) return false;
         return !mixinClassName.startsWith(WMP_MIXIN_PACKAGE)
                 || LoadingModList.get().getModFileById("wmp") != null;
+    }
+
+    private static boolean hasVersion(String id, String version) {
+        var file = LoadingModList.get().getModFileById(id);
+        return file != null && file.getMods().stream().anyMatch(mod ->
+                mod.getModId().equals(id) && mod.getVersion().toString().equals(version));
     }
 
     @Override

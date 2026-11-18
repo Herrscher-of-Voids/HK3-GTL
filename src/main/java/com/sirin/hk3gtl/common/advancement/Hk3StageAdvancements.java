@@ -13,7 +13,6 @@ import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
- 
 
 
 
@@ -40,7 +39,8 @@ import java.util.Map;
 
 
 
- 
+
+
 public final class Hk3StageAdvancements {
 
     private Hk3StageAdvancements() {}

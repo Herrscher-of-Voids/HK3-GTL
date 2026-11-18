@@ -32,15 +32,15 @@ import com.mojang.logging.LogUtils;
  * @see Hk3CircuitItems 电路统一注册（15种低阶崩坏能电路 + 52种正式系列电路）
  * @see HonkaiMaterialItems 崩坏能体系材料
  */
- 
- 
 
 
 
 
 
 
- 
+
+
+
 public class Hk3Items {
 
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -113,4 +113,4 @@ public class Hk3Items {
     public static RegistryObject<Item> PERSONAL_PHONE;
 }
 
- 
+

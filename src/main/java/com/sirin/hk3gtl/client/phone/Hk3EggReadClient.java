@@ -1,15 +1,15 @@
 package com.sirin.hk3gtl.client.phone;
 
- 
 
- 
+
+
 import com.sirin.hk3gtl.common.easter.*;
 import com.sirin.hk3gtl.common.network.Hk3Network;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.FormattedCharSequence;
 import java.util.*;
- 
- 
+
+
 public final class Hk3EggReadClient {
     private UUID token;private int observed=-1,nextOffset;private int[] dwell=new int[0];private boolean confirmed;private final Set<Integer> sent=new HashSet<>();
     public void tick(CompoundTag view,List<FormattedCharSequence> lines,int page,int size,int firstVisible,int lastVisible){
@@ -30,7 +30,7 @@ public final class Hk3EggReadClient {
     public void confirm(UUID readToken){if(readToken.equals(token))confirmed=true;}
     public boolean complete(CompoundTag view){return confirmed&&token!=null&&view.hasUUID("ReadToken")&&token.equals(view.getUUID("ReadToken"))
         &&nextOffset==Hk3EggReadingCursor.normalize(view.getString("Body")).length();}
-     
+
     public void leaveInstruction(CompoundTag view){if(view.getBoolean("InstructionPage")&&view.hasUUID("ReadToken"))Hk3Network.CHANNEL.sendToServer(new Hk3EggReadPacket(view.getUUID("ReadToken"),-2,""));close();}
     public void close(){if(token!=null)Hk3Network.CHANNEL.sendToServer(new Hk3EggReadPacket(token,-1,""));token=null;observed=-1;dwell=new int[0];nextOffset=0;confirmed=false;sent.clear();}
 }

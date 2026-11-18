@@ -18,13 +18,13 @@ import net.minecraft.world.item.ItemStack;
 import java.util.Locale;
 import java.util.function.Consumer;
 
- 
 
 
 
 
 
- 
+
+
 
 
 
@@ -61,4 +61,4 @@ public final class Hk3VoltageCasingRecipes {
     }
 }
 
- 
+

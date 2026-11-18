@@ -11,9 +11,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
- 
+
 @Mixin(NoteBlock.class)
- 
+
 public abstract class Hk3EggNoteBlockMixin {
     @org.spongepowered.asm.mixin.Unique private static final ThreadLocal<Integer> hk3gtl$noteBefore=new ThreadLocal<>();
     @Inject(method="use",at=@At("HEAD"))private void hk3gtl$tuneBefore(BlockState state,Level level,BlockPos pos,Player p,InteractionHand hand,BlockHitResult hit,CallbackInfoReturnable<InteractionResult> ci){hk3gtl$noteBefore.set(state.getValue(NoteBlock.NOTE));}

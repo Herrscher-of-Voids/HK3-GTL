@@ -56,6 +56,7 @@
     "gtceu.Hk3StableRecyclingMixin",
     "GTValuesMixin",
     "GTRecipeTypesMixin",
+    "gtlultimate.Hk3ConflictingRecipeTypesMixin",
     "GTMachinesMixin",
     "gtceu.Hk3MultiblockStateAccess",
     "gtceu.Hk3NativeWonderPatternMixin",
@@ -95,6 +96,7 @@
     "adastra.Hk3HeightLandingMixin",
     "Hk3ResearchOutputMixin",
     "gtlcore.Hk3ProbabilityAssemblyMixin",
+    "gtlsupb.Hk3ProbabilityPushMixin",
     "gtlcore.Hk3ProbabilityOutputMixin",
     "gtlcore.Hk3RecipeRunnerInvoker",
     "gtlcore.Hk3ProbabilitySlotAccess",
@@ -202,6 +204,7 @@
     "client.Hk3FarEmbeddiumVisibilityMixin",
     "gtceu.Hk3W01PreviewMixin",
     "gtceu.Hk3JeiPreviewWidgetMixin",
+    "enhanced.client.Hk3JeiMaterialIndexMixin",
     "gtceu.Hk3W01PreviewCullingMixin",
     "gtceu.Hk3PreviewCacheAccessor",
     "gtceu.Hk3PreviewVertexBufferAccessor",
@@ -227,6 +230,5 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "refmap": "HK3GTL-refmap.json"
+  }
 }

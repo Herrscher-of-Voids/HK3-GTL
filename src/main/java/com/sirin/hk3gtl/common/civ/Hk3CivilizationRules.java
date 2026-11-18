@@ -2,7 +2,7 @@ package com.sirin.hk3gtl.common.civ;
 import java.util.*;
 import java.util.function.Predicate;
 
- 
+
 public final class Hk3CivilizationRules {
     public record Requirement(String key,String label){}
     public record Level(int index,String name,List<Requirement> requirements){public Level{requirements=List.copyOf(requirements);}}

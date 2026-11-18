@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
- 
+
 public final class Hk3EggObsidian {
     private record Candidate(ServerLevel level,BlockPos pos){}
     private static final Map<net.minecraft.server.MinecraftServer,ArrayDeque<Candidate>> PENDING=new java.util.concurrent.ConcurrentHashMap<>();

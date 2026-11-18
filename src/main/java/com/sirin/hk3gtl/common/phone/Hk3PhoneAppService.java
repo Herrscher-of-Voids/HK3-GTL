@@ -6,28 +6,28 @@ import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import com.mojang.brigadier.arguments.*;
- 
 
 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public final class Hk3PhoneAppService {
-     
-     
-     
+
+
+
     private Hk3PhoneAppService(){}
     public static com.mojang.brigadier.builder.LiteralArgumentBuilder<net.minecraft.commands.CommandSourceStack> commands(){
         return Commands.literal("apps")
@@ -207,4 +207,4 @@ public final class Hk3PhoneAppService {
     }
 }
 
- 
+

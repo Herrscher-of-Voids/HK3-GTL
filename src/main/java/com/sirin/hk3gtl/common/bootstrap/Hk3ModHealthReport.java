@@ -16,7 +16,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.ArrayList;
 import java.util.List;
 
- 
 
 
 
@@ -39,8 +38,9 @@ import java.util.List;
 
 
 
- 
- 
+
+
+
 
 
 
@@ -163,6 +163,6 @@ public final class Hk3ModHealthReport {
     }
 }
 
- 
 
- 
+
+

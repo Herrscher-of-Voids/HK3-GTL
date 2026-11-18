@@ -17,7 +17,7 @@ import net.minecraftforge.fml.DistExecutor;
 import javax.annotation.Nullable;
 import java.util.List;
 
- 
+
 public class NarrativeCodexItem extends Item {
 
     public NarrativeCodexItem(Properties properties) {

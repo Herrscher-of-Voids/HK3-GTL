@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(IronGolem.class)
- 
+
 public abstract class Hk3EggGolemMixin {
     @Unique private float hk3gtl$health;
     @Inject(method="mobInteract",at=@At("HEAD"))

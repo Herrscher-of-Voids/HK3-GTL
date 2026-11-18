@@ -8,13 +8,13 @@ import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
- 
 
 
 
 
 
- 
+
+
 
 
 

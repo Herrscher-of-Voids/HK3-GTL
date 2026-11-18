@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.common.capability;
 
- 
+
 
 
 
@@ -30,7 +30,7 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 import java.math.BigInteger;
 import java.util.UUID;
 
- 
+
 
 
 
@@ -38,7 +38,7 @@ import java.util.UUID;
 
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
- 
+
 
 
 

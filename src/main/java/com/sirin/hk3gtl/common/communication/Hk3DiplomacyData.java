@@ -1,18 +1,18 @@
 package com.sirin.hk3gtl.common.communication;
 
- 
 
- 
+
+
 import net.minecraft.nbt.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import java.util.*;
 
- 
- 
- 
- 
- 
+
+
+
+
+
 public final class Hk3DiplomacyData extends SavedData {
     public record Topic(String id,String name,String first,String yes,String no,String agreed,String refused,String submit,String feedback,String retry,String resumed){}
     public static final List<Topic> TOPICS=List.of(new Topic("schicksal","天命","A05","N01","N02","A05","N04","N03","A07","N05","N06"),new Topic("anti_entropy","逆熵","A08","N07","N08","N09","N10","N11","N12","N23","N24"),new Topic("world_serpent","世界蛇","A09","N13","N14","N15","N16","N17","N18","N25","N26"),new Topic("elysian_realm","往世乐土","ER01","ER02","ER03","ER04","ER05","","ER04","ER06","ER04"),new Topic("st_freya","圣芙蕾雅学园","SF01","SF02","SF03","SF04","SF05","","SF04","SF06","SF04"));

@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
- 
+
 @Pseudo
 @Mixin(value = CampusTeleportNetwork.class, remap = false)
 public abstract class Hk3CampusTeleportNetworkMixin {

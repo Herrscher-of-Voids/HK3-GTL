@@ -1,6 +1,6 @@
 package com.sirin.hk3gtl.mixin;
 
- 
+
 
 
 
@@ -34,20 +34,20 @@ import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(value = GTValues.class, remap = false)
- 
-
-
-
-
-
- 
 
 
 
 
 
 
- 
+
+
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.entity;
 
- 
 
 
 
@@ -45,7 +44,8 @@ package com.sirin.hk3gtl.common.entity;
 
 
 
- 
+
+
 
 
 
@@ -114,7 +114,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *   <li>禁止移除无敌相关重写方法，会破坏终局安全性</li>
  * </ul>
  */
- 
+
 public class VoidQueenSirinEntity extends Mob {
 
     private static final Logger LOGGER = LogUtils.getLogger();

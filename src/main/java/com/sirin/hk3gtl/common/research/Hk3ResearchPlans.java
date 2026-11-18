@@ -1,6 +1,5 @@
 package com.sirin.hk3gtl.common.research;
 
- 
 
 
 
@@ -10,7 +9,8 @@ package com.sirin.hk3gtl.common.research;
 
 
 
- 
+
+
 
 import com.google.gson.JsonParser;
 import java.io.InputStreamReader;
@@ -64,4 +64,4 @@ public final class Hk3ResearchPlans {
     }
 }
 
- 
+
