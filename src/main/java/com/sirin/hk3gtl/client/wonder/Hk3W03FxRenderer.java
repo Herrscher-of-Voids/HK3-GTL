@@ -107,6 +107,11 @@ public final class Hk3W03FxRenderer {
             try {for(var batch:BUFFERS){batch.buffer.bind();batch.buffer.drawWithShader(matrices[batch.group],projection,shader);}}
             finally{VertexBuffer.unbind();RenderSystem.enableCull();}
     }
+    private static final int[][][] QUAD_CORNERS={
+            {{1,0,1},{1,0,0},{1,1,0},{1,1,1}},{{0,0,0},{0,0,1},{0,1,1},{0,1,0}},
+            {{0,0,1},{1,0,1},{1,1,1},{0,1,1}},{{1,0,0},{0,0,0},{0,1,0},{1,1,0}},
+            {{0,0,0},{1,0,0},{1,0,1},{0,0,1}},{{0,1,1},{1,1,1},{1,1,0},{0,1,0}}
+    };
     private static int u16(byte[] data,int offset){return (data[offset]&255)<<8|data[offset+1]&255;}
     private static void upload() {
         byte[] data=model.groups()[uploadGroup];int count=Math.min(8192,data.length/10-uploadFace);
@@ -114,20 +119,16 @@ public final class Hk3W03FxRenderer {
         for(int i=uploadFace;i<uploadFace+count;i++) {
             int at=i*10,x=u16(data,at),y=u16(data,at+2),z=u16(data,at+4),n=u16(data,at+6),slot=data[at+8]&255,face=data[at+9]&255;
             int color=face==5?255:face==4?155:face<2?205:230;
-            float[][] points=switch(face) {
-                case 0->new float[][]{{x+1,y,z+n},{x+1,y,z},{x+1,y+1,z},{x+1,y+1,z+n}};
-                case 1->new float[][]{{x,y,z},{x,y,z+n},{x,y+1,z+n},{x,y+1,z}};
-                case 2->new float[][]{{x,y,z+1},{x+n,y,z+1},{x+n,y+1,z+1},{x,y+1,z+1}};
-                case 3->new float[][]{{x+n,y,z},{x,y,z},{x,y+1,z},{x+n,y+1,z}};
-                case 4->new float[][]{{x,y,z},{x+n,y,z},{x+n,y,z+1},{x,y,z+1}};
-                default->new float[][]{{x,y+1,z+1},{x+n,y+1,z+1},{x+n,y+1,z},{x,y+1,z}};
-            };
-            for(int v=0;v<4;v++)BUILDER.vertex(points[v][0],points[v][1],points[v][2]).color(color,color,color,255)
-                .uv(slot*2048f+(v==1||v==2?n:0),v>=2?1:0).endVertex();
+            int dx=face<2?1:n,dz=face<2?n:1;
+            for(int v=0;v<4;v++){
+                int[] corner=QUAD_CORNERS[Math.min(face,5)][v];
+                BUILDER.vertex(x+corner[0]*dx,y+corner[1],z+corner[2]*dz).color(color,color,color,255)
+                        .uv(slot*2048f+(v==1||v==2?n:0),v>=2?1:0).endVertex();
+            }
         }
         var buffer=new VertexBuffer(VertexBuffer.Usage.STATIC);buffer.bind();buffer.upload(BUILDER.end());VertexBuffer.unbind();
         BUFFERS.add(new Batch(uploadGroup,buffer));uploaded+=count;uploadFace+=count;
-        if(uploadFace*10==data.length){uploadFace=0;uploadGroup++;}
+        if(uploadFace*10==data.length){model.groups()[uploadGroup]=null;uploadFace=0;uploadGroup++;}
     }
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
     public static final class Resources {

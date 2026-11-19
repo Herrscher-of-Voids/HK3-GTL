@@ -16,7 +16,7 @@ public record Hk3W11FxModel(Data data,Material[] materials,Part[] parts,Layer[] 
     public record Metadata(String actor,String bone,String parent,float[] pivot,float[] base_rotation,
                            float[] rest_matrix,boolean dynamic){}
     public record Part(String id,int[] origin,int[] size,int[][][] starts,int[][][] lengths,int[][][] spans,Metadata metadata){}
-    public record Layer(int y,int[][] rectangles){}
+    public record Layer(int y,Hk3CompactScene.Rectangles rectangles){}
     public static Hk3W11FxModel load(){
         return Hk3CompactScene.load("w11_f5",Hk3W11FxModel.class);
     }

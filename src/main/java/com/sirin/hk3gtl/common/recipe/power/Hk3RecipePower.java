@@ -121,6 +121,7 @@ public final class Hk3RecipePower {
     }
 
     public static boolean supported(RecipeLogic logic) {
+        if (logic instanceof Hk3PowerWork.Suprachronal supra && supra.hk3gtl$usesFixedSuprachronalPower()) return true;
         try {
             return logic instanceof Hk3PowerWork
                     && logic.getClass().getMethod("handleRecipeWorking").getDeclaringClass() == RecipeLogic.class

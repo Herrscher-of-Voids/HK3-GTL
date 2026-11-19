@@ -109,12 +109,13 @@ public final class Hk3W07SceneRenderer{
     private static void uploadLayer(int layer){
         LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=layer;layerBytes=0;
         int y=layer-model.data().blueprint_to_export_offset_xyz()[1];
-        var rectangles=layerModel.layers()[layer].rectangles();
+        var rectangles=layerModel.layers()[layer].rectangles().cells();
         for(int m=0;m<model.materials().length;m++){
             int count=0;BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
-            for(int[] r:rectangles)if(r[0]==m){
-                for(int[] c:CORNERS[5])BUILDER.vertex(r[1]+c[0]*r[3],y+1,r[2]+c[2]*r[4]).color(255,255,255,model.materials()[m].transparent()?148:255)
-                        .uv((m*6+5)*2048f+c[0]*r[3],c[2]*r[4]).endVertex();
+            for(int at=0;at<rectangles.length;at+=Hk3CompactScene.Rectangles.STRIDE)if(rectangles[at]==m){
+                int x=rectangles[at+1],z=rectangles[at+2],width=rectangles[at+3],depth=rectangles[at+4];
+                for(int[] c:CORNERS[5])BUILDER.vertex(x+c[0]*width,y+1,z+c[2]*depth).color(255,255,255,model.materials()[m].transparent()?148:255)
+                        .uv((m*6+5)*2048f+c[0]*width,c[2]*depth).endVertex();
                 count++;
             }
             layerBytes+=finishBatch(LAYER_BUFFERS,m,count);
@@ -131,7 +132,12 @@ public final class Hk3W07SceneRenderer{
         BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
         while(face<6&&count<8192){
             int[] starts=source.starts()[material][face];
-            if(quad==starts.length){quad=0;face++;continue;}
+            if(quad==starts.length){
+                source.starts()[material][face]=null;
+                source.lengths()[material][face]=null;
+                source.spans()[material][face]=null;
+                quad=0;face++;continue;
+            }
             int at=starts[quad],repeat=source.lengths()[material][face][quad],span=source.spans()[material][face][quad];
             int x=at%size[0]+origin[0],y=at/(size[0]*size[2])+origin[1],z=at/size[0]%size[2]+origin[2];
             int axis=face<2?2:0,cross=face<4?1:2,slot=material*6+face,color=info.emissive()?255:face==5?255:face==4?155:face<2?205:230;

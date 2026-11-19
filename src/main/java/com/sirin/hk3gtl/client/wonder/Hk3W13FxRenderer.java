@@ -10,12 +10,14 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.RegisterShadersEvent;
 import net.minecraftforge.client.event.RenderLevelStageEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.joml.Matrix4f;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
 
 @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT)
 public final class Hk3W13FxRenderer{
@@ -32,7 +34,7 @@ public final class Hk3W13FxRenderer{
     private static Hk3W13Puppetry puppetry;
     private static Hk3W11Ports previewPorts;
     private static int part,material,face,quad,uploadedLayer=-10000;
-    private static long vertexBytes,layerBytes;
+    private static long vertexBytes,layerBytes,lastLayerPreview;
     private static volatile boolean prepared;
     private static boolean failed,preview,layersFailed;
     private Hk3W13FxRenderer(){}
@@ -62,15 +64,18 @@ public final class Hk3W13FxRenderer{
         return prepared;
     }
     private static boolean prepareLayers(){
+        lastLayerPreview=System.nanoTime();
         if(layerModel!=null)return true;
         if(layersFailed)return false;
-        if(loadingLayers==null)loadingLayers=CompletableFuture.supplyAsync(Hk3W13FxModel::loadLayers).exceptionally(failure->{
-            layersFailed=true;LogUtils.getLogger().error("W13剖面资源加载失败",failure);return null;
-        });
+        if(loadingLayers==null)loadingLayers=CompletableFuture.supplyAsync(Hk3W13FxModel::loadLayers);
         if(!loadingLayers.isDone())return false;
-        layerModel=loadingLayers.join();loadingLayers=null;return !layersFailed;
+        try{layerModel=loadingLayers.join();}
+        catch(CompletionException failure){layersFailed=true;LogUtils.getLogger().error("W13剖面资源加载失败",failure);}
+        finally{loadingLayers=null;}
+        return !layersFailed;
     }
     public static void drawPreview(double seconds,boolean animate,int layer){
+        if(!previewReady(layer))return;
         int[] offset=model.data().blueprint_to_export_offset_xyz();
         var origin=new Matrix4f(RenderSystem.getModelViewMatrix()).translate(offset[0],offset[1],offset[2]);
         if(previewPorts==null)previewPorts=new Hk3W11Ports(new int[0]);
@@ -96,12 +101,13 @@ public final class Hk3W13FxRenderer{
     }
     private static boolean visible(int mode,boolean animate,boolean full){return full?mode==0||(animate?mode>=2:mode==1):animate&&mode>=2;}
     private static void draw(Matrix4f origin,Matrix4f projection,double seconds,boolean animate,boolean full,int layer){
-        var transforms=puppetry.frame(animate?seconds:0);int[] offset=model.data().blueprint_to_export_offset_xyz(),grid=model.data().atlas_grid();
+        int[] offset=model.data().blueprint_to_export_offset_xyz(),grid=model.data().atlas_grid();
         shader.getUniform("ExportOffset").set((float)offset[0],(float)offset[1],(float)offset[2]);
         shader.getUniform("AtlasGrid").set((float)grid[0],(float)grid[1]);shader.getUniform("LayerY").set((float)layer);
         RenderSystem.setShaderTexture(0,ATLAS);RenderSystem.setShaderColor(1,1,1,1);
         RenderSystem.enableDepthTest();RenderSystem.disableCull();RenderSystem.enableBlend();RenderSystem.defaultBlendFunc();RenderSystem.depthMask(true);
         if(layer>-9999){drawLayer(origin,projection,layer);RenderSystem.depthMask(true);RenderSystem.disableBlend();RenderSystem.enableCull();return;}
+        var transforms=puppetry.frame(animate?seconds:0);
         for(var batch:BUFFERS)if(!model.materials()[batch.material].transparent()&&visible(model.parts()[batch.part].metadata().mode(),animate,full))drawBatch(batch,transforms,origin,projection);
         RenderSystem.depthMask(false);
         for(var batch:BUFFERS)if(model.materials()[batch.material].transparent()&&visible(model.parts()[batch.part].metadata().mode(),animate,full))drawBatch(batch,transforms,origin,projection);
@@ -116,12 +122,13 @@ public final class Hk3W13FxRenderer{
     private static void drawLayer(Matrix4f origin,Matrix4f projection,int layer){
         if(uploadedLayer!=layer){
             LAYER_BUFFERS.forEach(b->b.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=layer;layerBytes=0;
-            var rectangles=layerModel.layers()[layer+model.data().blueprint_to_export_offset_xyz()[1]].rectangles();
+            var rectangles=layerModel.layers()[layer+model.data().blueprint_to_export_offset_xyz()[1]].rectangles().cells();
             for(int m=0;m<model.materials().length;m++){
                 int count=0;BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
-                for(int[] r:rectangles)if(r[0]==m){
-                    for(int[] c:CORNERS[5])BUILDER.vertex(r[1]+c[0]*r[3],layer+1,r[2]+c[2]*r[4]).color(255,255,255,255)
-                            .uv((m*6+5)*2048f+c[0]*r[3],c[2]*r[4]).endVertex();
+                for(int at=0;at<rectangles.length;at+=Hk3CompactScene.Rectangles.STRIDE)if(rectangles[at]==m){
+                    int x=rectangles[at+1],z=rectangles[at+2],width=rectangles[at+3],depth=rectangles[at+4];
+                    for(int[] c:CORNERS[5])BUILDER.vertex(x+c[0]*width,layer+1,z+c[2]*depth).color(255,255,255,255)
+                            .uv((m*6+5)*2048f+c[0]*width,c[2]*depth).endVertex();
                     count++;
                 }
                 var rendered=BUILDER.end();
@@ -137,7 +144,12 @@ public final class Hk3W13FxRenderer{
         BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
         while(face<6&&count<8192){
             int[] starts=source.starts()[material][face];
-            if(quad==starts.length){quad=0;face++;continue;}
+            if(quad==starts.length){
+                source.starts()[material][face]=null;
+                source.lengths()[material][face]=null;
+                source.spans()[material][face]=null;
+                quad=0;face++;continue;
+            }
             int at=starts[quad],repeat=source.lengths()[material][face][quad],span=source.spans()[material][face][quad];
             float x=at%size[0]+origin[0],y=at/(size[0]*size[2])+origin[1],z=at/size[0]%size[2]+origin[2];
             int axis=face<2?2:0,cross=face<4?1:2,slot=material*6+face,color=info.emissive()?255:face==5?255:face==4?155:face<2?205:230;
@@ -149,13 +161,22 @@ public final class Hk3W13FxRenderer{
         if(count>0){var buffer=new VertexBuffer(VertexBuffer.Usage.STATIC);buffer.bind();buffer.upload(rendered);VertexBuffer.unbind();BUFFERS.add(new Batch(batchPart,batchMaterial,buffer));vertexBytes+=count*4L*24;}else rendered.release();
         if(face==6){face=0;material++;if(material==model.materials().length){material=0;part++;}}
     }
+    private static void clearLayers(){
+        if(loadingLayers!=null)loadingLayers.cancel(true);
+        loadingLayers=null;layerModel=null;layersFailed=false;
+        LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();
+        uploadedLayer=-10000;layerBytes=lastLayerPreview=0;
+    }
     private static void clear(boolean refresh){
-        prepared=false;BUFFERS.forEach(batch->batch.buffer.close());BUFFERS.clear();LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=-10000;vertexBytes=layerBytes=0;
+        prepared=false;BUFFERS.forEach(batch->batch.buffer.close());BUFFERS.clear();vertexBytes=0;
+        clearLayers();
         if(previewPorts!=null){previewPorts.close();previewPorts=null;}
         if(loading!=null)loading.cancel(true);
-        if(loadingLayers!=null)loadingLayers.cancel(true);
-        loading=loadingLayers=null;model=layerModel=null;puppetry=null;part=material=face=quad=0;failed=preview=layersFailed=false;Hk3W13FxModel.clearMetadata();
+        loading=null;model=null;puppetry=null;part=material=face=quad=0;failed=preview=false;Hk3W13FxModel.clearMetadata();
         var mc=Minecraft.getInstance();if(refresh&&mc.level!=null)mc.levelRenderer.allChanged();
+    }
+    @SubscribeEvent public static void expireLayers(TickEvent.ClientTickEvent event){
+        if(event.phase==TickEvent.Phase.END&&lastLayerPreview!=0&&System.nanoTime()-lastLayerPreview>=10_000_000_000L)clearLayers();
     }
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3W13FieldScenes.clear();clear(false);}
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)

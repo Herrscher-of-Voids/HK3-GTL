@@ -13,7 +13,7 @@ public record Hk3W15SceneModel(Data data,Material[] materials,Part[] parts,Layer
                        int[] atlas_grid,String[] palette,long[] material_counts){}
     public record Material(boolean transparent,boolean emissive){}
     public record Part(int[] origin,int[] size,int[][][] starts,int[][][] lengths,int[][][] spans){}
-    public record Layer(int y,int[][] rectangles){}
+    public record Layer(int y,Hk3CompactScene.Rectangles rectangles){}
     public static Hk3W15SceneModel load(){
         return Hk3CompactScene.load("w15_b1",Hk3W15SceneModel.class);
     }

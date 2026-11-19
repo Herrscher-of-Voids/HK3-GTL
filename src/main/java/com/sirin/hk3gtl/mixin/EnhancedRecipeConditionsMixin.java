@@ -23,7 +23,12 @@ public abstract class EnhancedRecipeConditionsMixin {
                 result.setReturnValue(power);
                 return;
             }
-            if (Hk3RecipeAccess.blocks((GTRecipe) (Object) this, logic.getMachine())) result.setReturnValue(HK3GTL$LOCKED);
+            var recipe = (GTRecipe) (Object) this;
+            var machine = logic.getMachine();
+            if (Hk3RecipeAccess.blocks(recipe, machine)) {
+                var reason = Hk3RecipeAccess.blockedReason(recipe, machine);
+                result.setReturnValue(GTRecipe.ActionResult.fail(() -> reason));
+            }
         } catch (RuntimeException exception) {
             result.setReturnValue(HK3GTL$LOCKED);
         }

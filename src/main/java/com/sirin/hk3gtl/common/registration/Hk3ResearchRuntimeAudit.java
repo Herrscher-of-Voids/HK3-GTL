@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.server.*;
+import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -36,7 +36,6 @@ public final class Hk3ResearchRuntimeAudit {
     private static String lastStatus = "尚未运行实例配方核验";
     private Hk3ResearchRuntimeAudit() {}
 
-    @SubscribeEvent public static void started(ServerStartedEvent event) { start(event.getServer()); }
     @SubscribeEvent public static void tick(TickEvent.ServerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || active == null || active.server != event.getServer()) return;
         try { if (active.step()) active = null; }

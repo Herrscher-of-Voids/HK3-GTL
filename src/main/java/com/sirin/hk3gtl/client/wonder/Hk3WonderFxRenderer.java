@@ -131,7 +131,12 @@ public final class Hk3WonderFxRenderer {
         BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
         while(g.face<6&&count<8192){
             int[] starts=part.starts()[g.material][g.face];
-            if(g.quad==starts.length){g.quad=0;g.face++;continue;}
+            if(g.quad==starts.length){
+                part.starts()[g.material][g.face]=null;
+                part.lengths()[g.material][g.face]=null;
+                part.spans()[g.material][g.face]=null;
+                g.quad=0;g.face++;continue;
+            }
             int index=starts[g.quad],repeat=part.lengths()[g.material][g.face][g.quad],span=part.spans()[g.material][g.face][g.quad];
             int x=index%size[0]+origin[0],y=index/(size[0]*size[2])+origin[1],z=index/size[0]%size[2]+origin[2];
             int axis=g.face<2?2:0,cross=g.face<4?1:2,slot=g.material*6+g.face,color=material.emissive()?255:g.face==5?255:g.face==4?155:g.face<2?205:230;

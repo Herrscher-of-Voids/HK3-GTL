@@ -215,9 +215,12 @@ public final class Hk3WorldFarTerrain {
                     if(group.detail!=detail||group.targetStride!=target||group.maxStride!=maxStride){group.limited=false;group.detail=detail;group.targetStride=target;group.maxStride=maxStride;}
                 }
             }
-            if(!group.inRange){group.close();group.built=-1;group.visible=false;continue;}
+            if(!group.inRange){
+                if(replan){group.close();group.built=-1;group.visible=false;}
+                continue;
+            }
             group.visible=frustum.isVisible(group.bounds);
-            weight+=weight(group.targetStride);
+            if(replan)weight+=weight(group.targetStride);
             if(group.visible)visible.add(entry);
         }
         if(replan)for(var entry:sorted){
@@ -232,11 +235,11 @@ public final class Hk3WorldFarTerrain {
         }
         materials.priority(true);
         long committed=0;
-        for(var entry:sorted){
+        for(var entry:visible){
             var group=entry.getValue();
             group.capacity=limit-committed;
-            if(group.visible&&group.mesh!=null)committed+=group.mesh.bytes;
-            if(group.visible&&group.limited&&group.waitingBytes>0&&group.capacity>=group.waitingBytes){group.limited=false;group.waitingBytes=0;}
+            if(group.mesh!=null)committed+=group.mesh.bytes;
+            if(group.limited&&group.waitingBytes>0&&group.capacity>=group.waitingBytes){group.limited=false;group.waitingBytes=0;}
         }
         discardInvalid(works);discardInvalid(completed);
         long now=System.nanoTime(),deadline=now+500_000L;

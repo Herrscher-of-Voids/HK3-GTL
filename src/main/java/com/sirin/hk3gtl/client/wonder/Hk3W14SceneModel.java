@@ -14,7 +14,7 @@ public record Hk3W14SceneModel(Data data,Material[] materials,Part[] parts,Layer
     public record NativeBlock(int[] pos,int state){}
     public record Material(boolean transparent,boolean emissive){}
     public record Part(int[] origin,int[] size,int[][][] starts,int[][][] lengths,int[][][] spans){}
-    public record Layer(int y,int[][] rectangles){}
+    public record Layer(int y,Hk3CompactScene.Rectangles rectangles){}
     public static Hk3W14SceneModel load(){
         return Hk3CompactScene.load("w14_e3",Hk3W14SceneModel.class);
     }

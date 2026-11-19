@@ -1,15 +1,15 @@
 package com.sirin.hk3gtl.client.tree;
 
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.zip.GZIPInputStream;
 
 /** 读取已确认树影的有限曲线与采样；不构造世界方块或浏览器运行环境。 */
 public record Hk3TreeProjectionModel(float[] positions,float[] colors,float[] points,Flow[] flows){
     public record Flow(float offset,float speed,float size,float seed,float[] samples){}
     public static Hk3TreeProjectionModel read(InputStream raw)throws IOException{
-        try(var in=new DataInputStream(new GZIPInputStream(raw))){
+        try(var in=new DataInputStream(Hk3PackedResources.decompress(raw))){
             if(in.readInt()!=0x49333454||in.readInt()!=1)throw new IOException("I34树影格式错误");
             int vertices=count(in,71948),pointCount;
             float[] positions=floats(in,vertices*3),colors=floats(in,vertices*3);

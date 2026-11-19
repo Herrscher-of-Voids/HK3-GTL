@@ -1,9 +1,9 @@
 package com.sirin.hk3gtl.client.wonder;
 
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.UncheckedIOException;
-import java.util.zip.GZIPInputStream;
 
 final class Hk3W15FxGeometry {
     record Lines(float[] positions,int[] colors) {}
@@ -33,7 +33,8 @@ final class Hk3W15FxGeometry {
         for(int i=0;i<glyphs.length;i++)glyphs[i]=new Glyph(input.readFloat(),input.readFloat(),input.readFloat(),input.readFloat(),input.readFloat(),input.readFloat());
     }
     static Hk3W15FxGeometry load() {
-        try(var input=new DataInputStream(new GZIPInputStream(Hk3W15FxGeometry.class.getResourceAsStream("/assets/hk3gtl/wonder/w15_book_fx.bin.gz")))) {
+        try(var raw=Hk3PackedResources.resource(Hk3W15FxGeometry.class,"/assets/hk3gtl/wonder/w15_book_fx.bin.gz");
+            var input=new DataInputStream(Hk3PackedResources.decompress(raw))) {
             return new Hk3W15FxGeometry(input);
         } catch(IOException failure) {
             throw new UncheckedIOException("W15树海特效加载失败",failure);

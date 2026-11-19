@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.client.wonder;
 
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 import com.sirin.hk3gtl.common.machine.w10.Hk3W10FieldPacket;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3InterfacePredicates;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
@@ -12,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
-import java.util.zip.GZIPInputStream;
 
 public final class Hk3W10FieldScenes {
     public record Scene(Hk3W10FieldPacket state,long received,Hk3W08Ports ports) {}
@@ -80,8 +80,8 @@ public final class Hk3W10FieldScenes {
         }
     }
     private static void loadMask(){
-        try(var raw=Hk3W10FieldScenes.class.getResourceAsStream("/data/hk3gtl/structures/w10_a3_mask.bin.gz");
-            var input=new DataInputStream(new GZIPInputStream(raw))){
+        try(var raw=Hk3PackedResources.resource(Hk3W10FieldScenes.class,"/data/hk3gtl/structures/w10_a3_mask.bin.gz");
+            var input=new DataInputStream(Hk3PackedResources.decompress(raw))){
             if(input.readInt()!=0x5731304d)throw new IOException("W10遮罩格式不符");
             int count=input.readInt();var result=new Long2ObjectOpenHashMap<long[]>(count);
             for(int i=0;i<count;i++){long key=input.readLong();long[] bits=new long[64];for(int n=0;n<64;n++)bits[n]=input.readLong();result.put(key,bits);}

@@ -1,6 +1,10 @@
 package com.sirin.hk3gtl.common.recipe.power;
 
 import com.gregtechceu.gtceu.api.capability.IEnergyContainer;
+import com.gregtechceu.gtceu.api.machine.trait.MachineTrait;
+import com.gtl.enhancedcore.common.recipe.GridEnergyRecipeInput;
+import com.hepdd.gtmthings.api.capability.IBindable;
+import com.hepdd.gtmthings.utils.TeamUtil;
 import com.gregtechceu.gtceu.api.capability.recipe.EURecipeCapability;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.trait.NotifiableEnergyContainer;
@@ -14,9 +18,11 @@ import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.machine.trait.Hk3PlayerGridEnergyTrait;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.fml.ModList;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.UUID;
@@ -31,6 +37,9 @@ public final class Hk3PowerPorts {
     public static List<Hk3PortPayment.Port> of(RecipeLogic logic) {
         var result = new ArrayList<Hk3PortPayment.Port>();
         var seen = Collections.newSetFromMap(new IdentityHashMap<IEnergyContainer, Boolean>());
+        boolean addonGrid = logic instanceof Hk3PowerWork.Suprachronal supra
+                && supra.hk3gtl$usesFixedSuprachronalPower() && ModList.get().isLoaded("gtl_enhancedcore");
+        var gridAccounts = new HashSet<UUID>();
         for (IO io : List.of(IO.IN, IO.BOTH)) {
             var handlers = logic.machine.getCapabilitiesProxy().get(io, EURecipeCapability.CAP);
             if (handlers == null) continue;
@@ -40,6 +49,10 @@ public final class Hk3PowerPorts {
                         && grid.getMachine() instanceof Hk3WorkableMultiblockMachine machine && machine.getOwnerUUID() != null)
                     result.add(new PlayerGrid(grid, machine.getOwnerUUID()));
                 else if (standard(energy)) result.add(new Buffer((NotifiableEnergyContainer) energy));
+                else if (addonGrid) {
+                    var grid = AddonGrid.from(energy);
+                    if (grid != null && gridAccounts.add(TeamUtil.getTeamUUID(grid.owner))) result.add(0, grid);
+                }
             }
         }
         return result;
@@ -61,6 +74,38 @@ public final class Hk3PowerPorts {
         }
         @Override public Hk3RefundJournal.Action refund(BigInteger applied) { return Hk3RefundActions.grid(source, applied); }
     }
+
+    private static final class AddonGrid implements Hk3PortPayment.Port {
+        private final GridEnergyRecipeInput input;
+        private final MinecraftServer server;
+        private final UUID owner;
+        private Hk3GridEnergyRefund source;
+
+        private AddonGrid(GridEnergyRecipeInput input, MinecraftServer server, UUID owner) {
+            this.input = input;
+            this.server = server;
+            this.owner = owner;
+        }
+        private static AddonGrid from(IEnergyContainer energy) {
+            if (energy instanceof GridEnergyRecipeInput input && input.gridEnergyUnboundedPower()
+                    && input.gridEnergyConnected() && energy instanceof MachineTrait trait
+                    && trait.getMachine() instanceof IBindable terminal) {
+                return new AddonGrid(input, trait.getMachine().getLevel().getServer(), terminal.getUUID());
+            }
+            return null;
+        }
+
+        @Override public BigInteger available() { return input.gridEnergyAvailable(); }
+        @Override public BigInteger power() { return BigInteger.valueOf(Long.MAX_VALUE); }
+        @Override public BigInteger change(BigInteger delta) {
+            source = Hk3GridEnergyRefund.capture(server, owner);
+            return input.gridEnergyTransfer(delta) ? delta : BigInteger.ZERO;
+        }
+        @Override public Hk3RefundJournal.Action refund(BigInteger applied) {
+            return Hk3RefundActions.grid(source, applied);
+        }
+    }
+
     private static boolean standard(IEnergyContainer energy) {
         try {
             return energy.getInputVoltage() > 0 && energy.getInputAmperage() > 0

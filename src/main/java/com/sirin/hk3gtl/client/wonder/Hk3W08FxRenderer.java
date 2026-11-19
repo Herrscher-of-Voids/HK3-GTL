@@ -131,7 +131,12 @@ public final class Hk3W08FxRenderer {
         BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
         while(faceIndex<6&&count<8192){
             int[] starts=part.starts()[materialIndex][faceIndex];
-            if(quadIndex==starts.length){quadIndex=0;faceIndex++;continue;}
+            if(quadIndex==starts.length){
+                part.starts()[materialIndex][faceIndex]=null;
+                part.lengths()[materialIndex][faceIndex]=null;
+                part.spans()[materialIndex][faceIndex]=null;
+                quadIndex=0;faceIndex++;continue;
+            }
             int index=starts[quadIndex],repeat=part.lengths()[materialIndex][faceIndex][quadIndex],span=part.spans()[materialIndex][faceIndex][quadIndex];
             int x=index%size[0]+origin[0],y=index/(size[0]*size[2])+origin[1],z=index/size[0]%size[2]+origin[2];
             int axis=faceIndex<2?2:0,cross=faceIndex<4?1:2,slot=materialIndex*6+faceIndex;

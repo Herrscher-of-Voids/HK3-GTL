@@ -62,6 +62,8 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
         if(mixinClassName.startsWith("com.sirin.hk3gtl.mixin.adastra."))return LoadingModList.get().getModFileById("ad_astra")!=null;
         if(mixinClassName.startsWith("com.sirin.hk3gtl.mixin.gtmthings."))return LoadingModList.get().getModFileById("gtmthings")!=null;
         if(mixinClassName.startsWith("com.sirin.hk3gtl.mixin.ae."))return LoadingModList.get().getModFileById("ae2")!=null;
+        if (mixinClassName.startsWith("com.sirin.hk3gtl.mixin.gtladd."))
+            return hasVersion("gtladditions", "3.3.1Custom");
         if(mixinClassName.startsWith("com.sirin.hk3gtl.mixin.gtlcore."))return LoadingModList.get().getModFileById("gtlcore")!=null;
         if(mixinClassName.startsWith("com.sirin.hk3gtl.mixin.gtlsupb."))return LoadingModList.get().getModFileById("gtlsupb")!=null;
         if(mixinClassName.startsWith("com.sirin.hk3gtl.mixin.jei."))return LoadingModList.get().getModFileById("jei")!=null;

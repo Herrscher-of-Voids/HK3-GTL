@@ -15,7 +15,7 @@ public record Hk3W13FxModel(Data data,Material[] materials,Part[] parts,Layer[] 
     public record Material(boolean transparent,boolean emissive){}
     public record Metadata(int mode,int cable,int segment,float[] rest_matrix){}
     public record Part(String id,float[] origin,int[] size,int[][][] starts,int[][][] lengths,int[][][] spans,Metadata metadata){}
-    public record Layer(int y,int[][] rectangles){}
+    public record Layer(int y,Hk3CompactScene.Rectangles rectangles){}
     public static Hk3W13FxModel load(){
         return Hk3CompactScene.load("w13_t2_m1",Hk3W13FxModel.class);
     }

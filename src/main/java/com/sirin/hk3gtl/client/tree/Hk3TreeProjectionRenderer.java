@@ -3,6 +3,7 @@ package com.sirin.hk3gtl.client.tree;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.logging.LogUtils;
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
@@ -34,7 +35,7 @@ public final class Hk3TreeProjectionRenderer {
         if(pointShader==null||lineShader==null||failed)return false;
         if(ready())return true;
         if(model==null){
-            if(loading==null)loading=CompletableFuture.supplyAsync(()->{try{return Hk3TreeProjectionModel.read(Hk3TreeProjectionRenderer.class.getResourceAsStream("/assets/hk3gtl/effects/i34_tree.bin.gz"));}catch(java.io.IOException e){throw new IllegalStateException("I34树影读取失败",e);}});
+            if(loading==null)loading=CompletableFuture.supplyAsync(()->{try{return Hk3TreeProjectionModel.read(Hk3PackedResources.resource(Hk3TreeProjectionRenderer.class,"/assets/hk3gtl/effects/i34_tree.bin.gz"));}catch(java.io.IOException e){throw new IllegalStateException("I34树影读取失败",e);}});
             if(!loading.isDone())return false;model=loading.join();loading=null;
         }
         long until=System.nanoTime()+2_000_000;

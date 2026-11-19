@@ -38,6 +38,11 @@ public class Hk3ResearchManager {
     }
 
     @SubscribeEvent
+    public static void onPlayerRespawned(PlayerEvent.PlayerRespawnEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) syncClientResearchState(player);
+    }
+
+    @SubscribeEvent
     public static void onResearchMatrixInteract(PlayerInteractEvent.RightClickBlock event) {
         if (event.getHand() != InteractionHand.MAIN_HAND || event.getLevel().isClientSide()
                 || !(event.getEntity() instanceof ServerPlayer player) || player.isShiftKeyDown()) return;

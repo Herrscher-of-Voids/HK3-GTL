@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.RegisterShadersEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.joml.Matrix4f;
@@ -29,13 +30,14 @@ public final class Hk3W15SceneRenderer{
     private static CompletableFuture<Hk3W15SceneModel> loading;
     private static Hk3W15SceneModel model;
     private static int part,material,face,quad,uploadedLayer=-1;
-    private static long vertexBytes,layerBytes;
+    private static long vertexBytes,layerBytes,lastPreview;
     private static boolean prepared,failed;
     private Hk3W15SceneRenderer(){}
     public static boolean ready(){return prepared;}
     public static long vertexBytes(){return vertexBytes+layerBytes;}
     public static boolean preparePreview(){
         if(shader==null||failed)return false;
+        lastPreview=System.nanoTime();
         if(prepared)return true;
         if(model==null){
             if(loading==null)loading=CompletableFuture.supplyAsync(Hk3W15SceneModel::load);
@@ -49,6 +51,7 @@ public final class Hk3W15SceneRenderer{
         prepared=part==model.parts().length;return prepared;
     }
     public static void drawPreview(int layer){
+        if(!prepared)return;
         int[] offset=model.data().blueprint_to_export_offset_xyz(),grid=model.data().atlas_grid();
         var origin=new Matrix4f(RenderSystem.getModelViewMatrix()).translate(offset[0],offset[1],offset[2]);
         var projection=new Matrix4f(RenderSystem.getProjectionMatrix());
@@ -70,12 +73,13 @@ public final class Hk3W15SceneRenderer{
     private static void uploadLayer(int layer){
         LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=layer;layerBytes=0;
         int y=layer-model.data().blueprint_to_export_offset_xyz()[1];
-        var rectangles=model.layers()[layer].rectangles();
+        var rectangles=model.layers()[layer].rectangles().cells();
         for(int m=0;m<model.materials().length;m++){
             int count=0;BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
-            for(int[] r:rectangles)if(r[0]==m){
-                for(int[] c:CORNERS[5])BUILDER.vertex(r[1]+c[0]*r[3],y+1,r[2]+c[2]*r[4]).color(255,255,255,model.materials()[m].transparent()?148:255)
-                        .uv((m*6+5)*2048f+c[0]*r[3],c[2]*r[4]).endVertex();
+            for(int at=0;at<rectangles.length;at+=Hk3CompactScene.Rectangles.STRIDE)if(rectangles[at]==m){
+                int x=rectangles[at+1],z=rectangles[at+2],width=rectangles[at+3],depth=rectangles[at+4];
+                for(int[] c:CORNERS[5])BUILDER.vertex(x+c[0]*width,y+1,z+c[2]*depth).color(255,255,255,model.materials()[m].transparent()?148:255)
+                        .uv((m*6+5)*2048f+c[0]*width,c[2]*depth).endVertex();
                 count++;
             }
             layerBytes+=finishBatch(LAYER_BUFFERS,m,count);
@@ -92,7 +96,12 @@ public final class Hk3W15SceneRenderer{
         BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
         while(face<6&&count<8192){
             int[] starts=source.starts()[material][face];
-            if(quad==starts.length){quad=0;face++;continue;}
+            if(quad==starts.length){
+                source.starts()[material][face]=null;
+                source.lengths()[material][face]=null;
+                source.spans()[material][face]=null;
+                quad=0;face++;continue;
+            }
             int at=starts[quad],repeat=source.lengths()[material][face][quad],span=source.spans()[material][face][quad];
             int x=at%size[0]+origin[0],y=at/(size[0]*size[2])+origin[1],z=at/size[0]%size[2]+origin[2];
             int axis=face<2?2:0,cross=face<4?1:2,slot=material*6+face,color=info.emissive()?255:face==5?255:face==4?155:face<2?205:230;
@@ -105,9 +114,12 @@ public final class Hk3W15SceneRenderer{
     }
     private static void clear(){
         prepared=false;BUFFERS.forEach(batch->batch.buffer.close());BUFFERS.clear();LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();
-        uploadedLayer=-1;vertexBytes=layerBytes=0;
+        uploadedLayer=-1;vertexBytes=layerBytes=lastPreview=0;
         if(loading!=null)loading.cancel(true);
         loading=null;model=null;part=material=face=quad=0;failed=false;Hk3W15SceneModel.clearMetadata();
+    }
+    @SubscribeEvent public static void expire(TickEvent.ClientTickEvent event){
+        if(event.phase==TickEvent.Phase.END&&lastPreview!=0&&System.nanoTime()-lastPreview>=10_000_000_000L)clear();
     }
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){clear();}
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)

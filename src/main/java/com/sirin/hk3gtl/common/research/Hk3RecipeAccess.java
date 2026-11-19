@@ -2,10 +2,15 @@ package com.sirin.hk3gtl.common.research;
 
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
+import com.sirin.hk3gtl.common.easter.Hk3EggProduction;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import org.gtlcore.gtlcore.common.machine.multiblock.electric.SuprachronalAssemblyLineMachine;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +51,23 @@ public final class Hk3RecipeAccess {
         return !Hk3ResearchRequirementPolicy.evaluate(requirements,
                 research -> !blocksResearch(research, machine, recipe)).allowed();
     }
+    public static Component blockedReason(GTRecipe recipe, MetaMachine machine) {
+        if (recipe.data.contains(Hk3ResearchRecipeRuntime.PLAN)
+                && machine instanceof SuprachronalAssemblyLineMachine
+                && machine.getLevel() instanceof ServerLevel) {
+            var requirements = effectiveRequirements(recipe);
+            if (requirements.valid() && !requirements.requirements().isEmpty()) {
+                if (!((BlockEntity) machine.getHolder()).getPersistentData()
+                        .hasUUID(Hk3EggProduction.OWNER))
+                    return Component.translatable("hk3gtl.compat.research_owner_missing");
+                var missing = Hk3ResearchRequirementPolicy.evaluate(requirements, id -> !blocksResearch(id, machine, recipe)).missing();
+                if (!missing.isEmpty()) return Component.translatable("hk3gtl.compat.research_team_missing", String.join(", ", missing));
+            }
+            return Component.translatable("hk3gtl.compat.execution_plan_blocked");
+        }
+        return Component.translatable("hk3gtl.compat.research_locked");
+    }
+
     private static boolean blocksResearch(String research, MetaMachine machine, GTRecipe recipe) {
         if (!Hk3RecipeResearchGate.isCurrentResearchId(research)) return true;
         var level = machine.getLevel();
@@ -57,9 +79,9 @@ public final class Hk3RecipeAccess {
             var scope=owned.getResearchTeamUUID();
             return scope==null || !Hk3ResearchData.get(level.getServer()).permits(scope,research);
         } else if (recipe.data.contains(Hk3ResearchRecipeRuntime.PLAN)) {
-            if (!(machine.getHolder() instanceof net.minecraft.world.level.block.entity.BlockEntity holder)
-                    || !holder.getPersistentData().hasUUID(com.sirin.hk3gtl.common.easter.Hk3EggProduction.OWNER)) return true;
-            var owner = holder.getPersistentData().getUUID(com.sirin.hk3gtl.common.easter.Hk3EggProduction.OWNER);
+            if (!(machine.getHolder() instanceof BlockEntity holder)
+                    || !holder.getPersistentData().hasUUID(Hk3EggProduction.OWNER)) return true;
+            var owner = holder.getPersistentData().getUUID(Hk3EggProduction.OWNER);
             var scope = Hk3ResearchTeams.scope(level.getServer(), owner);
             return !Hk3ResearchData.get(level.getServer()).permits(scope, research);
         } else {

@@ -9,7 +9,6 @@ import appeng.api.networking.security.IActionSource;
 import appeng.api.stacks.AEKey;
 import appeng.api.storage.ISubMenuHost;
 import appeng.core.sync.packets.CraftConfirmPlanPacket;
-import appeng.crafting.execution.CraftingSubmitResult;
 import appeng.helpers.IMenuCraftingPacket;
 import appeng.me.helpers.PlayerSource;
 import appeng.me.cluster.implementations.CraftingCPUCluster;
@@ -25,6 +24,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
+import org.gtlcore.gtlcore.integration.ae2.common.ILongCraftConfirmMenu;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -60,6 +60,11 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
     }
 
     @Override public void hk3gtl$planNexus(AEKey target, BigInteger requested) {
+        hk3gtl$planWithNexus(target, requested, CalculationStrategy.REPORT_MISSING_ITEMS);
+    }
+
+    @Unique
+    private boolean hk3gtl$planWithNexus(AEKey target, BigInteger requested, CalculationStrategy strategy) {
         if (hk3gtl$parentPlan != null) hk3gtl$parentPlan.cancel();
         hk3gtl$parentPlan = null;
         if (job != null) job.cancel(true);
@@ -69,12 +74,18 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
         whatToCraft = target;
         amount = requested.min(BigInteger.valueOf(Integer.MAX_VALUE)).intValue();
         var runtimes = Hk3NexusCrafting.forGrid(getActionHost().getActionableNode().getGrid());
-        hk3gtl$exactPlan = runtimes.get(0).preview(target, requested, getPlayer().getUUID());
+        var preview = runtimes.get(0).preview(target, requested, getPlayer().getUUID());
+        if (preview.simulation() && requested.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) <= 0) {
+            hk3gtl$exactPlan = null;
+            return ((ILongCraftConfirmMenu) (Object) this).gtlcore$planLongAmountJob(target, requested.longValueExact(), strategy);
+        }
+        hk3gtl$exactPlan = preview;
         result = hk3gtl$exactPlan;
         plan = hk3gtl$exactPlan.summary();
         sendPacketToClient(new CraftConfirmPlanPacket(plan));
         broadcastChanges();
         if (autoStart && !plan.isSimulation()) ((CraftConfirmMenu) (Object) this).startJob();
+        return true;
     }
 
     @Override public void hk3gtl$planParent(AEKey target, BigInteger requested) {
@@ -111,8 +122,7 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
     private void hk3gtl$planNative(AEKey target, int requested, CalculationStrategy strategy, CallbackInfoReturnable<Boolean> ci) {
         if (isClientSide()) return;
         if (!Hk3NexusCrafting.forGrid(getActionHost().getActionableNode().getGrid()).isEmpty()) {
-            hk3gtl$planNexus(target, BigInteger.valueOf(requested));
-            ci.setReturnValue(true);
+            ci.setReturnValue(hk3gtl$planWithNexus(target, BigInteger.valueOf(requested), strategy));
         }
     }
 
@@ -121,6 +131,7 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
         if (hk3gtl$exactPlan != null) ci.setReturnValue(cpu instanceof Hk3NexusCrafting.NexusCpu && !cpu.isBusy());
         else if (hk3gtl$parentPlan != null) ci.setReturnValue(cpu instanceof CraftingCPUCluster && !cpu.isBusy()
                 && cpu.getSelectionMode() != CpuSelectionMode.MACHINE_ONLY);
+        else if (cpu instanceof Hk3NexusCrafting.NexusCpu) ci.setReturnValue(false);
     }
 
     @Inject(method = "startJob", at = @At("HEAD"), cancellable = true)

@@ -17,6 +17,7 @@ import com.google.common.collect.ImmutableSet;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusCrafting;
+import org.gtlcore.gtlcore.integration.ae2.graph.AeGraphPlan;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -69,7 +70,10 @@ public abstract class Hk3NexusCraftingServiceMixin {
         if (cpu instanceof Hk3NexusCrafting.NexusCpu selected) {
             ci.setReturnValue(!runtimes.contains(selected.host()) ? CraftingSubmitResult.CPU_OFFLINE
                     : selected.isBusy() ? CraftingSubmitResult.CPU_BUSY : selected.host().submitNative(plan, requester, source));
-        } else if (cpu == null && !runtimes.isEmpty()) ci.setReturnValue(runtimes.get(0).submitNative(plan, requester, source));
+        } else if (cpu == null && !runtimes.isEmpty() && !(plan instanceof AeGraphPlan)) {
+            var submitted = runtimes.get(0).submitNative(plan, requester, source);
+            if (submitted != CraftingSubmitResult.INCOMPLETE_PLAN) ci.setReturnValue(submitted);
+        }
     }
 
     @ModifyVariable(method = "insertIntoCpus", at = @At(value = "STORE", ordinal = 0), ordinal = 1)

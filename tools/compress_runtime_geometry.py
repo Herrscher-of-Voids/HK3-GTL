@@ -7,6 +7,9 @@ import sys
 
 root = Path(sys.argv[1])
 for pattern in ('assets/hk3gtl/models/scene/*.scene.bin.gz',
+                'assets/hk3gtl/models/scene/w03_c9.bin.gz',
+                'data/hk3gtl/structures/w10_a3_mask.bin.gz',
+                'data/hk3gtl/structures/w12_a3_mask.bin.gz',
                 'data/hk3gtl/structures/w*_candidate.bin.gz',
                 'data/hk3gtl/structures/compact/*.bin.gz'):
     for path in sorted(root.glob(pattern)):

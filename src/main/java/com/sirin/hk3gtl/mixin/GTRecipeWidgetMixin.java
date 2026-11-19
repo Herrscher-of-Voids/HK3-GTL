@@ -12,8 +12,7 @@ import com.lowdragmc.lowdraglib.utils.Size;
 import com.mojang.logging.LogUtils;
 import com.sirin.hk3gtl.client.compat.Hk3WorldMiningJei;
 import com.sirin.hk3gtl.common.research.Hk3RecipeAccess;
-import com.sirin.hk3gtl.common.research.Hk3ResearchRequirementPolicy;
-import com.sirin.hk3gtl.common.research.Hk3ResearchManager;
+import com.sirin.hk3gtl.client.compat.Hk3JeiResearchWidget;
 import com.sirin.hk3gtl.common.research.Hk3ResearchData;
 import com.sirin.hk3gtl.common.research.Hk3ResearchCatalog;
 import com.sirin.hk3gtl.common.research.Hk3ResearchPlans;
@@ -22,7 +21,6 @@ import com.sirin.hk3gtl.common.recipe.power.Hk3RecipeVoltageDisplay;
 import com.sirin.hk3gtl.common.machine.research.Hk3LiquidProcessMachine;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.I18n;
-import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -84,34 +82,12 @@ public abstract class GTRecipeWidgetMixin {
 
         if (recipe != null) {
             var requirements = Hk3RecipeAccess.effectiveRequirements(recipe);
-            var player = Minecraft.getInstance().player;
-            var state = Hk3ResearchRequirementPolicy.evaluate(requirements,
-                    id -> player != null && Hk3ResearchManager.isCompleted(player, id));
             if (!requirements.requirements().isEmpty() || !requirements.valid()) {
-                var details = new ArrayList<Component>();
-                var names = new ArrayList<String>();
-                for (String researchId : hk3gtl$directResearch(requirements.requirements())) {
-                    String nodeName = hk3gtl$researchName(researchId);
-                    boolean done = !state.missing().contains(researchId);
-                    names.add((done ? "\u00a7a" : "\u00a7c") + nodeName);
-                    details.add(Component.literal((done ? "\u00a7a" : "\u00a7c") + researchId + " · " + nodeName
-                            + " [" + I18n.get(done ? "hk3gtl.jei.research_status_done"
-                            : "hk3gtl.jei.research_status_locked") + "]"));
-                }
-                for (String invalid : requirements.invalid()) {
-                    if (!requirements.requirements().contains(invalid)) {
-                        names.add("\u00a7c" + I18n.get("hk3gtl.jei.research_invalid"));
-                        details.add(Component.literal("\u00a7c"
-                                + I18n.get("hk3gtl.jei.research_status_locked") + ": " + invalid));
-                    }
-                }
                 int textX = 3 - xOffset;
                 int textWidth = Math.max(40, self.getSize().width - Math.max(0, textX) - 3);
-                String researchText = "\u00a78" + I18n.get("hk3gtl.jei.research_summary",
-                        String.join("\u00a78" + I18n.get("hk3gtl.jei.research_separator"), names));
-                var researchNames = new TextBoxWidget(textX, nextY, textWidth, List.of(researchText))
-                        .setShadow(true);
-                researchNames.setHoverTooltips(details);
+                var topics = new java.util.LinkedHashMap<String, String>();
+                for (String id : hk3gtl$directResearch(requirements.requirements())) topics.put(id, hk3gtl$researchName(id));
+                var researchNames = new Hk3JeiResearchWidget(textX, nextY, textWidth, requirements, topics);
                 self.addWidget(researchNames);
                 nextY += researchNames.getSize().height + 2;
             }

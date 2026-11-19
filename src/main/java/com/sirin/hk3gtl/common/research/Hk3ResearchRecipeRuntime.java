@@ -101,7 +101,9 @@ public final class Hk3ResearchRecipeRuntime {
         receipt.putUUID("Team",scope);receipt.putString("MachineRole",p.role());
         receipt.putString("Controller",machine.getDefinition().getId().toString());
         Hk3ResearchEvidenceAnalysis.settled(data,scope,p.id(),receipt);
-        if(p.id().startsWith(CIRCUIT_ANALYSIS))data.recordCircuitAnalysis(scope,p.id().substring(CIRCUIT_ANALYSIS.length()));
+        if (p.id().startsWith(CIRCUIT_ANALYSIS) && data.recordCircuitAnalysis(scope, p.id().substring(CIRCUIT_ANALYSIS.length()))) {
+            Hk3ResearchTeams.online(level.getServer(), scope).forEach(Hk3ResearchManager::syncClientResearchState);
+        }
         boolean accepted=false;
         for(String fact:p.facts()){
             boolean engineering=fact.startsWith("wonder_W")||fact.equals("hyperion_engineering")||fact.equals("wonder_application");

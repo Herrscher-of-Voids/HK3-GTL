@@ -1,11 +1,11 @@
 package com.sirin.hk3gtl.client.wonder;
 
 import com.google.gson.Gson;
+import com.sirin.hk3gtl.common.util.Hk3PackedResources;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.zip.GZIPInputStream;
 
 /** C9只保存外露合并面，不展开441百万格空气；数据缺失时拒绝显示替代模型。 */
 public record Hk3W03FxModel(Metadata metadata,byte[][] groups) {
@@ -16,7 +16,8 @@ public record Hk3W03FxModel(Metadata metadata,byte[][] groups) {
         var resources=Minecraft.getInstance().getResourceManager();
         try(var text=resources.open(new ResourceLocation("hk3gtl","models/scene/w03_c9.json"));
             var reader=new InputStreamReader(text,StandardCharsets.UTF_8);
-            var input=new DataInputStream(new GZIPInputStream(resources.open(new ResourceLocation("hk3gtl","models/scene/w03_c9.bin.gz"))))) {
+            var raw=Hk3CompactScene.open(resources,"models/scene/w03_c9.bin.gz");
+            var input=new DataInputStream(Hk3PackedResources.decompress(raw))) {
             var meta=new Gson().fromJson(reader,Metadata.class);
             if(meta.version!=1||meta.components.length!=33||meta.quads!=517262||meta.blocks!=6642464
                     ||meta.cycle_seconds!=360||meta.controller.length!=3)throw new IOException("C9身份或运动组不符");
