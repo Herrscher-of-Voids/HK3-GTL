@@ -46,13 +46,13 @@ public final class Hk3WonderFxScenes {
         }else if(previous!=null)previous.ports.close();
         scenes=List.copyOf(next);
         prepareMask(packet.role());
-        if((previous!=null)!=packet.formed()&&Hk3WonderFxRenderer.ready(packet.role()))mc.levelRenderer.allChanged();
+        if((previous!=null)!=packet.formed()&&Hk3WonderFxRenderer.ready(packet.role()))Hk3WonderSectionRefresh.request(packet.role());
     }
     public static void maintain(){
-        var mc=Minecraft.getInstance();if(level!=mc.level){if(!scenes.isEmpty())clear();return;}
+        var mc=Minecraft.getInstance();if(level!=mc.level){clear();return;}
         if(mc.level!=null&&scenes.stream().anyMatch(s->mc.level.getGameTime()-s.received>120)){
             scenes.stream().filter(s->mc.level.getGameTime()-s.received>120).forEach(s->s.ports.close());
-            scenes=scenes.stream().filter(s->mc.level.getGameTime()-s.received<=120).toList();mc.levelRenderer.allChanged();
+            scenes=scenes.stream().filter(s->mc.level.getGameTime()-s.received<=120).toList();Hk3WonderSectionRefresh.request("W05","W06");
         }
     }
     public static void clear(){scenes.forEach(s->s.ports.close());scenes=List.of();level=null;}
@@ -94,7 +94,7 @@ public final class Hk3WonderFxScenes {
             if(input.readInt()!=0x5746584d)throw new IOException(role+"遮罩格式不符");
             int count=input.readInt();var result=new Long2ObjectOpenHashMap<long[]>(count);
             for(int i=0;i<count;i++){long key=input.readLong();long[] bits=new long[64];for(int n=0;n<64;n++)bits[n]=input.readLong();result.put(key,bits);}
-            MASKS.put(role,result);Minecraft.getInstance().execute(()->Minecraft.getInstance().levelRenderer.allChanged());
+            MASKS.put(role,result);Minecraft.getInstance().execute(()->Hk3WonderSectionRefresh.request(role));
         }catch(IOException failure){com.mojang.logging.LogUtils.getLogger().error("{}实体遮罩读取失败",role,failure);}
     }
 }

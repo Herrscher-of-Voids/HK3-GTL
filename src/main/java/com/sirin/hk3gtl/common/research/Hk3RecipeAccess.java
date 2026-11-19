@@ -56,9 +56,9 @@ public final class Hk3RecipeAccess {
             if (owned.getOwnerUUID() == null || level.getServer() == null) return true;
             var scope=owned.getResearchTeamUUID();
             return scope==null || !Hk3ResearchData.get(level.getServer()).permits(scope,research);
-        } else if (recipe.data.contains(Hk3ResearchRecipeRuntime.PLAN)
-                && machine.getHolder() instanceof net.minecraft.world.level.block.entity.BlockEntity holder
-                && holder.getPersistentData().hasUUID(com.sirin.hk3gtl.common.easter.Hk3EggProduction.OWNER)) {
+        } else if (recipe.data.contains(Hk3ResearchRecipeRuntime.PLAN)) {
+            if (!(machine.getHolder() instanceof net.minecraft.world.level.block.entity.BlockEntity holder)
+                    || !holder.getPersistentData().hasUUID(com.sirin.hk3gtl.common.easter.Hk3EggProduction.OWNER)) return true;
             var owner = holder.getPersistentData().getUUID(com.sirin.hk3gtl.common.easter.Hk3EggProduction.OWNER);
             var scope = Hk3ResearchTeams.scope(level.getServer(), owner);
             return !Hk3ResearchData.get(level.getServer()).permits(scope, research);

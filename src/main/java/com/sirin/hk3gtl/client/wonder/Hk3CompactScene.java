@@ -16,7 +16,7 @@ final class Hk3CompactScene {
 
     private Hk3CompactScene(DataInputStream input){this.input=input;}
 
-    static <T> T load(String resource,Class<T> type){
+    static synchronized <T> T load(String resource,Class<T> type){
         var resources=Minecraft.getInstance().getResourceManager();
         String path="models/scene/"+resource+".scene.bin.gz";
         var gzip=resources.getResource(new ResourceLocation("hk3gtl",path));

@@ -64,17 +64,17 @@ public final class Hk3W08FxRenderer {
         }
         long deadline=System.nanoTime()+2_000_000;
         do{if(partIndex==model.parts().length)break;upload();}while(System.nanoTime()<deadline);
-        if(partIndex==model.parts().length){prepared=true;Minecraft.getInstance().levelRenderer.allChanged();}
+        if(partIndex==model.parts().length){prepared=true;Hk3WonderSectionRefresh.request("W08");}
         return prepared;
     }
-    private static void clearGeometry(){
+    private static void clearGeometry(boolean refresh){
         prepared=false;BUFFERS.forEach(batch->batch.buffer.close());BUFFERS.clear();
         if(previewPorts!=null){previewPorts.close();previewPorts=null;}
         model=null;loading=null;partIndex=materialIndex=faceIndex=quadIndex=0;Hk3W08Prominences.clear();
-        var mc=Minecraft.getInstance();if(mc.level!=null)mc.levelRenderer.allChanged();
+        var mc=Minecraft.getInstance();if(refresh&&mc.level!=null)mc.levelRenderer.allChanged();
     }
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){
-        Hk3W08FieldScenes.clear();clearGeometry();failed=false;
+        Hk3W08FieldScenes.clear();clearGeometry(false);failed=false;
     }
     @SubscribeEvent public static void render(RenderLevelStageEvent event){
         if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS)return;
@@ -156,7 +156,7 @@ public final class Hk3W08FxRenderer {
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
     public static final class Resources {
         @SubscribeEvent public static void shaders(RegisterShadersEvent event)throws java.io.IOException{
-            clearGeometry();failed=false;
+            clearGeometry(true);failed=false;
             event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w08_a5"),DefaultVertexFormat.POSITION_COLOR_TEX),value->shader=value);
             event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w08_corona"),DefaultVertexFormat.POSITION_COLOR),Hk3W08Prominences::shader);
         }

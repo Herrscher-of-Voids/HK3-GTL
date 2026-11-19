@@ -24,7 +24,7 @@ public final class Hk3LateIndustrialPatterns {
 
     public static BlockPattern create(MultiblockMachineDefinition definition, String id) {
         if (!IDS.contains(id)) throw new IllegalArgumentException("未批准高阶工业结构：" + id);
-        var data = Hk3ApprovedArchitecture.get(id);
+        var data = Hk3PackedArchitectureReader.readPattern(id);
         var required = requiredGroups(id.toUpperCase(Locale.ROOT));
         var itemIn = ability(PartAbility.IMPORT_ITEMS, required.contains("item_input"));
         var itemOut = ability(PartAbility.EXPORT_ITEMS, required.contains("item_output"));

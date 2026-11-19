@@ -133,6 +133,9 @@ def main():
     count = len(packed)
     del packed
     temporary.unlink()
+    material_counts = dict.fromkeys(palette, 0)
+    for state, amount in zip(palette, counts):
+        material_counts[state] += int(amount)
     metadata = dict(id='W14', version='0005-W14-E3', controller=MACHINE,
         recorded_at=now.isoformat(timespec='seconds'), conversation='0005',
         conversation_id='01a1e02a-4d20-7d81-bdab-70404f66086d', appearance_approved=True,
@@ -156,9 +159,10 @@ def main():
         merge_priority='沿用E3完整NPZ已完成的去重结果，每个实体坐标输出一次。',
         fixed_interface_positions=[], interface_policy='除主控外，全部实体格均可替换合法通用接口，朝向自选。',
         target_voltage='CEV', research='RN-WCE', product='hk3gtl:civilization_cycle_model',
-        palette=palette, palette_count=len(palette), used_palette_count=int(np.count_nonzero(counts)),
+        palette=palette, palette_count=len(palette), used_palette_count=sum(amount > 0 for amount in material_counts.values()),
+        used_palette_slots=int(np.count_nonzero(counts)),
         unique_block_types=len({state.split('[', 1)[0] for state, amount in zip(palette, counts) if amount}),
-        material_counts={state:int(amount) for state, amount in zip(palette, counts)},
+        material_counts=material_counts,
         material_count_exception=dict(approved=True, scope='仅W14 E3', unique_block_types=56,
             required_unique_block_types=59, approval_quote=MATERIAL_EXCEPTION_QUOTE,
             basis='负责人明确批准E3原样实装，保留完整尺寸、配色与现有56种方块。'),

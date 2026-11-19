@@ -11,6 +11,51 @@ public final class Hk3PackedArchitectureReader {
     private static final Gson GSON = new Gson();
     private Hk3PackedArchitectureReader() {}
 
+    public record PatternData(String key, int[] size, int[] controller, long[] cells, String[] palette) {}
+
+    public static PatternData readPattern(String key) {
+        try (var input = Hk3StructureStream.open(key);
+             var metadata = Hk3ApprovedArchitecture.class.getResourceAsStream("/data/hk3gtl/compact_architecture/" + key + ".json");
+             var stream = new Hk3StructureStream(input)) {
+            var json = com.google.gson.JsonParser.parseReader(new java.io.InputStreamReader(metadata, java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();
+            var h = stream.header();
+            int[] size = {h.width(), h.height(), h.depth()}, center = {h.cx(), h.cy(), h.cz()};
+            if (!key.equals(json.get("key").getAsString())
+                    || !Arrays.equals(size, GSON.fromJson(json.get("size"), int[].class))
+                    || !Arrays.equals(center, GSON.fromJson(json.get("controller"), int[].class)))
+                throw invalid("紧凑建筑身份或坐标不符");
+            var palette = new ArrayList<>(h.palette());
+            var overrides = new it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap();
+            overrides.defaultReturnValue(-1);
+            var stateOverrides = json.getAsJsonObject("layout_state_overrides");
+            if (stateOverrides != null) for (var entry : stateOverrides.entrySet()) {
+                int position = Integer.parseInt(entry.getKey());
+                if (position < 0 || position >= h.volume()) throw invalid("接口修正越界");
+                String state = entry.getValue().getAsString();
+                int index = palette.indexOf(state);
+                if (index < 0) { index = palette.size(); palette.add(state); }
+                if (index > 65535 || state.isBlank()) throw invalid("接口修正材料错误");
+                overrides.put(position, index);
+            }
+            long[] cells = new long[h.count()];
+            for (int i = 0; i < cells.length; i++) {
+                var cell = stream.next();
+                int p = cell.linear(), x = p / h.depth() / h.height(), y = p / h.depth() % h.height(), z = p % h.depth();
+                int state = overrides.get(p);
+                long chunk = (long) (x >> 4) * ((h.depth() + 15) >> 4) + (z >> 4);
+                long position = ((chunk * h.height() + y) << 8) | ((z & 15) << 4) | (x & 15);
+                cells[i] = (position << 16) | (state < 0 ? cell.state() : state);
+            }
+            stream.finish();
+            Arrays.sort(cells);
+            for (int i = 1; i < cells.length; i++)
+                if (cells[i] >>> 16 == cells[i - 1] >>> 16) throw invalid("重复坐标");
+            return new PatternData(key, size, center, cells, palette.toArray(String[]::new));
+        } catch (IOException error) {
+            throw new java.io.UncheckedIOException("读取巨构判定蓝图失败：" + key, error);
+        }
+    }
+
     public static Hk3ApprovedArchitecture.Layout readCompact(java.io.InputStream input, Reader metadata, String key) throws IOException {
         var json=com.google.gson.JsonParser.parseReader(metadata).getAsJsonObject();
         if(!key.equals(json.get("key").getAsString()))throw invalid("紧凑建筑身份不符");

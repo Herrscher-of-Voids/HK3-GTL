@@ -27,24 +27,30 @@ public final class Hk3W13FxRenderer{
     private static final List<Batch> BUFFERS=new ArrayList<>(),LAYER_BUFFERS=new ArrayList<>();
     private static final BufferBuilder BUILDER=new BufferBuilder(8192*4*24);
     private static ShaderInstance shader;
-    private static CompletableFuture<Hk3W13FxModel> loading;
-    private static Hk3W13FxModel model;
+    private static CompletableFuture<Hk3W13FxModel> loading,loadingLayers;
+    private static Hk3W13FxModel model,layerModel;
     private static Hk3W13Puppetry puppetry;
     private static Hk3W11Ports previewPorts;
     private static int part,material,face,quad,uploadedLayer=-10000;
     private static long vertexBytes,layerBytes;
     private static volatile boolean prepared;
-    private static boolean failed;
+    private static boolean failed,preview,layersFailed;
     private Hk3W13FxRenderer(){}
     public static boolean ready(){return prepared;}
+    public static boolean previewReady(int layer){return prepared&&(layer<0?preview:layerModel!=null);}
     public static Hk3W13FxModel.Data data(){return model.data();}
     public static long vertexBytes(){return vertexBytes+layerBytes;}
-    public static boolean preparePreview(){return shader!=null&&prepare();}
+    public static boolean preparePreview(){return preparePreview(-1);}
+    public static boolean preparePreview(int layer){
+        if(shader==null)return false;
+        if(layer<0&&!preview){clear(false);preview=true;Hk3WonderSectionRefresh.request("W13");}
+        return prepare()&&(layer<0||prepareLayers());
+    }
     private static boolean prepare(){
         if(prepared)return true;
         if(failed)return false;
         if(model==null){
-            if(loading==null)loading=CompletableFuture.supplyAsync(Hk3W13FxModel::load).exceptionally(failure->{
+            if(loading==null)loading=CompletableFuture.supplyAsync(preview?Hk3W13FxModel::loadPreview:Hk3W13FxModel::load).exceptionally(failure->{
                 failed=true;LogUtils.getLogger().error("W13动画资源加载失败",failure);return null;
             });
             if(!loading.isDone())return false;
@@ -52,8 +58,17 @@ public final class Hk3W13FxRenderer{
         }
         long deadline=System.nanoTime()+2_000_000;
         do{if(part==model.parts().length)break;upload();}while(System.nanoTime()<deadline);
-        if(part==model.parts().length){prepared=true;var mc=Minecraft.getInstance();if(mc.level!=null)mc.levelRenderer.allChanged();}
+        if(part==model.parts().length){prepared=true;var mc=Minecraft.getInstance();if(mc.level!=null)Hk3WonderSectionRefresh.request("W13");}
         return prepared;
+    }
+    private static boolean prepareLayers(){
+        if(layerModel!=null)return true;
+        if(layersFailed)return false;
+        if(loadingLayers==null)loadingLayers=CompletableFuture.supplyAsync(Hk3W13FxModel::loadLayers).exceptionally(failure->{
+            layersFailed=true;LogUtils.getLogger().error("W13剖面资源加载失败",failure);return null;
+        });
+        if(!loadingLayers.isDone())return false;
+        layerModel=loadingLayers.join();loadingLayers=null;return !layersFailed;
     }
     public static void drawPreview(double seconds,boolean animate,int layer){
         int[] offset=model.data().blueprint_to_export_offset_xyz();
@@ -101,7 +116,7 @@ public final class Hk3W13FxRenderer{
     private static void drawLayer(Matrix4f origin,Matrix4f projection,int layer){
         if(uploadedLayer!=layer){
             LAYER_BUFFERS.forEach(b->b.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=layer;layerBytes=0;
-            var rectangles=model.layers()[layer+model.data().blueprint_to_export_offset_xyz()[1]].rectangles();
+            var rectangles=layerModel.layers()[layer+model.data().blueprint_to_export_offset_xyz()[1]].rectangles();
             for(int m=0;m<model.materials().length;m++){
                 int count=0;BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
                 for(int[] r:rectangles)if(r[0]==m){
@@ -134,18 +149,19 @@ public final class Hk3W13FxRenderer{
         if(count>0){var buffer=new VertexBuffer(VertexBuffer.Usage.STATIC);buffer.bind();buffer.upload(rendered);VertexBuffer.unbind();BUFFERS.add(new Batch(batchPart,batchMaterial,buffer));vertexBytes+=count*4L*24;}else rendered.release();
         if(face==6){face=0;material++;if(material==model.materials().length){material=0;part++;}}
     }
-    private static void clear(){
+    private static void clear(boolean refresh){
         prepared=false;BUFFERS.forEach(batch->batch.buffer.close());BUFFERS.clear();LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=-10000;vertexBytes=layerBytes=0;
         if(previewPorts!=null){previewPorts.close();previewPorts=null;}
         if(loading!=null)loading.cancel(true);
-        loading=null;model=null;puppetry=null;part=material=face=quad=0;failed=false;Hk3W13FxModel.clearMetadata();
-        var mc=Minecraft.getInstance();if(mc.level!=null)mc.levelRenderer.allChanged();
+        if(loadingLayers!=null)loadingLayers.cancel(true);
+        loading=loadingLayers=null;model=layerModel=null;puppetry=null;part=material=face=quad=0;failed=preview=layersFailed=false;Hk3W13FxModel.clearMetadata();
+        var mc=Minecraft.getInstance();if(refresh&&mc.level!=null)mc.levelRenderer.allChanged();
     }
-    @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3W13FieldScenes.clear();clear();}
+    @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3W13FieldScenes.clear();clear(false);}
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
     public static final class Resources{
         @SubscribeEvent public static void shaders(RegisterShadersEvent event)throws java.io.IOException{
-            clear();event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w13_t2_m1"),DefaultVertexFormat.POSITION_COLOR_TEX),value->shader=value);
+            clear(true);event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w13_t2_m1"),DefaultVertexFormat.POSITION_COLOR_TEX),value->shader=value);
         }
     }
 }

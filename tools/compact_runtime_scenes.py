@@ -188,10 +188,10 @@ def encode(directory, name, scene, source, original, resources):
         header_bytes=len(header), geometry_bytes=len(geometry.data))
 
 
-def compact(resources, report):
+def compact(resources, report, names=SCENES):
     directory = resources / 'assets/hk3gtl/models/scene'
     records = []
-    for name in SCENES:
+    for name in names:
         source = directory / f'{name}.json.gz'
         original = source.read_bytes()
         scene = json.loads(gzip.decompress(original))
@@ -206,6 +206,22 @@ def compact(resources, report):
             records.append(encode(directory, name + '_layers', layers, source, original, resources))
             records.append(dict(encode(directory, name, scene, source, original, resources),
                 original_faces=original_faces, overview_faces=overview_faces, moving_faces=moving_faces, overview_step=int(16 * scene['data']['rig'].get('voxel_scale', 1))))
+        elif name in ('w07_n2', 'w13_t2_m1'):
+            layers = dict(scene, parts=[])
+            overview = dict(scene, parts=[dict(part) for part in scene['parts']], layers=[])
+            if name == 'w07_n2':
+                moving = dict(scene, parts=[dict(part, **{
+                    field: [faces if scene['materials'][material]['emissive'] else [[] for _ in faces]
+                            for material, faces in enumerate(part[field])]
+                    for field in ('starts', 'lengths', 'spans')}) for part in scene['parts']], layers=[])
+                records.append(encode(directory, name + '_lights', moving, source, original, resources))
+                records.append(encode(directory, name, overview, source, original, resources))
+            else:
+                moving = dict(scene, parts=[dict(part) for part in scene['parts']
+                                           if part['metadata']['mode'] >= 2], layers=[])
+                records.append(encode(directory, name, moving, source, original, resources))
+                records.append(encode(directory, name + '_preview', overview, source, original, resources))
+            records.append(encode(directory, name + '_layers', layers, source, original, resources))
         else:
             records.append(encode(directory, name, scene, source, original, resources))
         source.unlink()
@@ -219,4 +235,4 @@ def compact(resources, report):
 
 if __name__ == '__main__':
     sys.stdout.reconfigure(encoding='utf8')
-    compact(Path(sys.argv[1]), Path(sys.argv[2]))
+    compact(Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3:] or SCENES)

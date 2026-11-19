@@ -448,7 +448,7 @@ public final class Hk3UniversalTerminalBuilder {
                     }
                     Hk3BuildMaterials.Reservation material = plan.creativeOnly()
                             ? materials.reserveCreativeBlueprint() : materials.reserve(expected, plan.tag(index));
-                    if (material == null) { pause("缺少精确蓝图材料或当前终端材料选项不兼容；停在 " + pos.toShortString() + "。"); return; }
+                    if (material == null) { pause("缺少精确蓝图材料或当前终端材料选项不兼容：" + expected + "；停在 " + pos.toShortString() + "。"); return; }
                     if (access != null && !access.debit()) {
                         material.close();
                         pause("重构介质或构建EU不足；停在 " + pos.toShortString() + "。"); return;
@@ -475,7 +475,7 @@ public final class Hk3UniversalTerminalBuilder {
                                 stop = true;
                             } else if (!Hk3BuildState.matches(level.getBlockState(pos),expected))
                                 rollbackMessage = "放置后方块状态不符，已退还该格材料。";
-                            else if (plan.creativeOnly() && plan.tag(index) != null) {
+                            else if (ownerPlayer.isCreative() && plan.tag(index) != null) {
                                 var entity = level.getBlockEntity(pos);
                                 if (entity == null) throw new IllegalStateException("原稿实体未创建：" + pos);
                                 var tag = plan.tag(index).copy();

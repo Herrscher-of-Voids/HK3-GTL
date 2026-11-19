@@ -295,6 +295,8 @@ processResources {
     inputs.properties(hk3ModsTomlProps)
     inputs.files("tools/optimize_runtime_textures.py", "tools/sanitize_release_resources.py")
     inputs.files("tools/compact_runtime_blueprints.py", "tools/compact_runtime_scenes.py", "tools/compress_runtime_geometry.py")
+    inputs.files("tools/hollow_runtime_structures.py", "tools/structure_delivery/hollow_blueprint.py",
+            "tools/structure_delivery/hollow_scene_resources.py")
     inputs.files("tools/generate_multiblock_pattern_library.py",
             "src/main/java/com/sirin/hk3gtl/common/machine/wonder/Hk3WonderCatalog.java")
     filteringCharset = "UTF-8"
@@ -305,6 +307,10 @@ processResources {
 
     exclude("META-INF/mods.toml")
     doLast {
+        exec {
+            commandLine("python", "tools/hollow_runtime_structures.py", destinationDir.absolutePath,
+                    layout.buildDirectory.file("reports/runtime-hollow-structures.json").get().asFile.absolutePath)
+        }
         exec {
             commandLine("python", "tools/generate_multiblock_pattern_library.py", destinationDir.absolutePath)
         }

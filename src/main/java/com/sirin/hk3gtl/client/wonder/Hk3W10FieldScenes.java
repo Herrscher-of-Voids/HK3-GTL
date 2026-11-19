@@ -36,13 +36,13 @@ public final class Hk3W10FieldScenes {
         }else if(previous!=null)previous.ports.close();
         scenes=List.copyOf(next);
         if(mask==null&&loading==null)loading=CompletableFuture.runAsync(Hk3W10FieldScenes::loadMask);
-        if(existed!=packet.formed()&&Hk3W10FxRenderer.ready())mc.levelRenderer.allChanged();
+        if(existed!=packet.formed()&&Hk3W10FxRenderer.ready())Hk3WonderSectionRefresh.request("W10");
     }
     public static void maintain(){
-        var mc=Minecraft.getInstance();if(level!=mc.level){if(!scenes.isEmpty())clear();return;}
+        var mc=Minecraft.getInstance();if(level!=mc.level){clear();return;}
         if(mc.level!=null&&scenes.stream().anyMatch(s->mc.level.getGameTime()-s.received>120)){
             scenes.stream().filter(s->mc.level.getGameTime()-s.received>120).forEach(s->s.ports.close());
-            scenes=scenes.stream().filter(s->mc.level.getGameTime()-s.received<=120).toList();mc.levelRenderer.allChanged();
+            scenes=scenes.stream().filter(s->mc.level.getGameTime()-s.received<=120).toList();Hk3WonderSectionRefresh.request("W10");
         }
     }
     public static void clear(){scenes.forEach(s->s.ports.close());scenes=List.of();level=null;}
@@ -85,7 +85,7 @@ public final class Hk3W10FieldScenes {
             if(input.readInt()!=0x5731304d)throw new IOException("W10遮罩格式不符");
             int count=input.readInt();var result=new Long2ObjectOpenHashMap<long[]>(count);
             for(int i=0;i<count;i++){long key=input.readLong();long[] bits=new long[64];for(int n=0;n<64;n++)bits[n]=input.readLong();result.put(key,bits);}
-            mask=result;Minecraft.getInstance().execute(()->Minecraft.getInstance().levelRenderer.allChanged());
+            mask=result;Minecraft.getInstance().execute(()->Hk3WonderSectionRefresh.request("W10"));
         }catch(IOException failure){com.mojang.logging.LogUtils.getLogger().error("W10实体遮罩读取失败",failure);}
     }
 }

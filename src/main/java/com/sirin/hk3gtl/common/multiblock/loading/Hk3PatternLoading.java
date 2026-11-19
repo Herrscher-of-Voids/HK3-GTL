@@ -9,6 +9,7 @@ import com.gregtechceu.gtceu.common.machine.multiblock.electric.CleanroomMachine
 import com.sirin.hk3gtl.common.multiblock.build.Hk3BuildChunkWindow;
 import com.sirin.hk3gtl.common.multiblock.build.Hk3InterfaceChunks;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3NativeWonderPattern;
+import com.sirin.hk3gtl.common.multiblock.pattern.Hk3LargeStructurePattern;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.longs.LongArrayList;
@@ -35,7 +36,7 @@ public final class Hk3PatternLoading implements AutoCloseable {
     }
     final MultiblockControllerMachine controller;
     final ServerLevel level;
-    private boolean forming;
+    private boolean forming,rollingBack;
     private final Direction facing,up;
     private final Hk3BuildChunkWindow window;
     private final Hk3InterfaceChunks candidates;
@@ -48,23 +49,33 @@ public final class Hk3PatternLoading implements AutoCloseable {
     private long revision;
     private boolean transferred;
     private final Hk3NativeWonderCheck nativeCheck;
+    private final Hk3LargeStructurePattern.Check largeCheck;
 
     Hk3PatternLoading(MultiblockControllerMachine controller){
         this.controller=controller;level=(ServerLevel)controller.getLevel();
         facing=controller.getFrontFacing();up=controller.getUpwardsFacing();
         window=new Hk3BuildChunkWindow(level,controller.getPos().asLong());
         candidates=new Hk3InterfaceChunks(level,controller.getPos());candidates.retain(controller.getPos());
-        nativeCheck=controller.getPattern() instanceof Hk3NativeWonderPattern pattern?new Hk3NativeWonderCheck(this,pattern):null;
+        var pattern=controller.getPattern();
+        nativeCheck=pattern instanceof Hk3NativeWonderPattern wonder?new Hk3NativeWonderCheck(this,wonder):null;
+        largeCheck=pattern instanceof Hk3LargeStructurePattern large?large.newCheck(this):null;
         request(ChunkPos.asLong(controller.getPos().getX()>>4,controller.getPos().getZ()>>4));
     }
 
     public static Hk3PatternLoading current(Level level){
-        var loading=CURRENT.get();return loading!=null&&loading.level==level?loading:null;
+        var loading=CURRENT.get();return loading!=null&&loading.level==level&&!loading.rollingBack?loading:null;
     }
     static Hk3NativeWonderCheck currentNative(){
-        var loading=CURRENT.get();return loading!=null&&!loading.forming?loading.nativeCheck:null;
+        var loading=CURRENT.get();return loading!=null&&!loading.forming&&!loading.rollingBack?loading.nativeCheck:null;
     }
+    boolean running(){return CURRENT.get()==this;}
     boolean nativeChunkReady(long chunk){return window.ready(0,1,index->chunk,index->index+1);}
+    public Hk3LargeStructurePattern.Check largeCheck(){return largeCheck;}
+    public void checkpoint(BlockPos pos,long[] chunks,long deadline){
+        if(System.nanoTime()>=deadline||!window.ready(0,chunks.length,index->chunks[index],index->index+1)
+                ||level.getChunkSource().getChunkNow(pos.getX()>>4,pos.getZ()>>4)==null)throw PENDING;
+    }
+    private boolean streaming(){return nativeCheck!=null||largeCheck!=null;}
     boolean valid(){
         return !controller.isInValid()&&controller.getLevel()==level
                 &&controller.getFrontFacing()==facing&&controller.getUpwardsFacing()==up;
@@ -76,7 +87,7 @@ public final class Hk3PatternLoading implements AutoCloseable {
         return data;
     }
     boolean capture(long deadline){
-        if(nativeCheck!=null)return true;
+        if(streaming())return true;
         int copied=0;
         while(cursor<order.size()&&copied<8&&System.nanoTime()<deadline){
             if(!window.ready(cursor,order.size(),order::getLong,i->i+1))return false;
@@ -95,25 +106,30 @@ public final class Hk3PatternLoading implements AutoCloseable {
     }
     public BlockState blockState(BlockPos pos){
         if(level.isOutsideBuildHeight(pos))return Blocks.VOID_AIR.defaultBlockState();
-        if(nativeCheck!=null){
+        if(streaming()){
             var chunk=level.getChunkSource().getChunkNow(pos.getX()>>4,pos.getZ()>>4);
-            if(chunk==null){nativeCheck.missingChunk();throw PENDING;}
+            if(chunk==null){
+                if(nativeCheck!=null)nativeCheck.missingChunk();
+                if(largeCheck!=null)largeCheck.missingChunk();
+                throw PENDING;
+            }
             return chunk.getBlockState(pos);
         }
         long key=ChunkPos.asLong(pos.getX()>>4,pos.getZ()>>4);
-        var data=snapshot(key);
         LevelChunk live=level.getChunkSource().getChunkNow(pos.getX()>>4,pos.getZ()>>4);
+        if(forming&&live!=null)return live.getBlockState(pos);
+        var data=snapshot(key);
         if(live!=null)return live.getBlockState(pos);
         var section=data.get(pos.getY()>>4);
         return section==null?Blocks.AIR.defaultBlockState():section.get(pos.getX()&15,pos.getY()&15,pos.getZ()&15);
     }
     public BlockEntity blockEntity(BlockPos pos){
         if(!blockState(pos).hasBlockEntity())return null;
-        if(nativeCheck==null)candidates.retain(pos);
+        if(!streaming())candidates.retain(pos);
         var chunk=level.getChunkSource().getChunkNow(pos.getX()>>4,pos.getZ()>>4);
         if(chunk==null)throw PENDING;
         var entity=chunk.getBlockEntity(pos);
-        if(nativeCheck!=null&&entity instanceof IMachineBlockEntity holder&&holder.getMetaMachine() instanceof IMultiPart)
+        if(streaming()&&entity instanceof IMachineBlockEntity holder&&holder.getMetaMachine() instanceof IMultiPart)
             candidates.retain(pos);
         if(forming&&entity!=null)retainedPositions.add(pos.asLong());
         if(!forming&&entity!=null&&controller instanceof CleanroomMachine)
@@ -122,11 +138,12 @@ public final class Hk3PatternLoading implements AutoCloseable {
     }
     public boolean loaded(BlockPos pos){
         if(level.isOutsideBuildHeight(pos))return false;
-        if(nativeCheck!=null)return level.getChunkSource().getChunkNow(pos.getX()>>4,pos.getZ()>>4)!=null;
+        if(forming||streaming())return level.getChunkSource().getChunkNow(pos.getX()>>4,pos.getZ()>>4)!=null;
         snapshot(ChunkPos.asLong(pos.getX()>>4,pos.getZ()>>4));return true;
     }
     void changed(BlockPos pos,BlockState state){
         if(nativeCheck!=null){nativeCheck.changed(pos);return;}
+        if(largeCheck!=null){if(largeCheck.changed(pos))revision++;return;}
         var data=snapshots.get(ChunkPos.asLong(pos.getX()>>4,pos.getZ()>>4));
         if(data==null)return;
         var section=data.get(pos.getY()>>4);
@@ -138,9 +155,10 @@ public final class Hk3PatternLoading implements AutoCloseable {
     }
     int check(long deadline){
         if(nativeCheck!=null){if(nativeCheck.dirty())return -1;nativeCheck.deadline(deadline);}
+        if(largeCheck!=null){if(largeCheck.dirty())return -1;largeCheck.deadline(deadline);}
         if(!controller.getPatternLock().tryLock())return 0;
         long before=revision;
-        if(nativeCheck==null){retainedPositions.clear();cleanroomReceivers.clear();}
+        if(!streaming()){retainedPositions.clear();cleanroomReceivers.clear();}
         CURRENT.set(this);
         try{
             if(!controller.checkPattern())return -1;
@@ -152,12 +170,16 @@ public final class Hk3PatternLoading implements AutoCloseable {
             controller.onStructureFormed();
             if(!controller.isFormed())return -1;
             Hk3WorkingChunks.collect(controller,pos->retainedPositions.add(pos.asLong()));
-            if(revision!=before){controller.onStructureInvalid();return 0;}
+            if(revision!=before){rollbackFormation();return 0;}
             return 1;
         }catch(Pending pending){
-            if(controller.isFormed())controller.onStructureInvalid();
+            if(controller.isFormed())rollbackFormation();
             return 0;
-        }finally{forming=false;CURRENT.remove();controller.getPatternLock().unlock();}
+        }finally{forming=false;rollingBack=false;CURRENT.remove();controller.getPatternLock().unlock();}
+    }
+    private void rollbackFormation(){
+        rollingBack=true;
+        controller.onStructureInvalid();
     }
     Hk3InterfaceChunks retainUsed(){
         var required=new LongOpenHashSet();
@@ -172,5 +194,5 @@ public final class Hk3PatternLoading implements AutoCloseable {
         }
         candidates.keepOnly(required);transferred=true;return candidates;
     }
-    @Override public void close(){window.close();if(!transferred)candidates.close();snapshots.clear();if(nativeCheck!=null)nativeCheck.close();}
+    @Override public void close(){window.close();if(!transferred)candidates.close();snapshots.clear();if(nativeCheck!=null)nativeCheck.close();if(largeCheck!=null)largeCheck.close(transferred);}
 }

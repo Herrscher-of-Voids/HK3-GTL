@@ -67,14 +67,14 @@ public final class Hk3W03FxRenderer {
     private static void clearGeometry(){prepared=false;worldPrepared=false;BUFFERS.forEach(b->b.buffer.close());BUFFERS.clear();model=null;loading=null;uploadGroup=uploadFace=uploaded=0;}
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3W03FieldScenes.clear();hide();}
     @SubscribeEvent public static void render(RenderLevelStageEvent event) {
-        if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS||shader==null||failed)return;
+        if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS)return;
         var mc=Minecraft.getInstance();Hk3W03FieldScenes.maintain();
-        if(mc.level==null)return;
         if(anchor!=null&&mc.level!=level)hide();
+        if(mc.level==null||shader==null||failed)return;
         if(anchor==null&&Hk3W03FieldScenes.scenes().isEmpty())return;
         try {
             if(!preparePreview())return;
-            if(!worldPrepared){worldPrepared=true;mc.levelRenderer.allChanged();if(started==0)started=System.nanoTime();}
+            if(!worldPrepared){worldPrepared=true;Hk3WonderSectionRefresh.request("W03");if(started==0)started=System.nanoTime();}
             if(anchor!=null){double seconds=fixedTime>=0?fixedTime:((mc.level.getGameTime()-epoch)%7200+event.getPartialTick())/20.;draw(event,anchor,0,seconds);}
             if(prepared&&Hk3W03FieldScenes.maskReady())for(var scene:Hk3W03FieldScenes.scenes()){
                 var state=scene.state();double ticks=state.elapsed()+(state.running()?mc.level.getGameTime()-state.epoch()+event.getPartialTick():0);
@@ -83,7 +83,7 @@ public final class Hk3W03FxRenderer {
             }
             frames++;
         }catch(RuntimeException failure) {
-            failed=true;clearGeometry();mc.levelRenderer.allChanged();LogUtils.getLogger().error("W03 C9特效显示失败",failure);
+            failed=true;clearGeometry();Hk3WonderSectionRefresh.request("W03");LogUtils.getLogger().error("W03 C9特效显示失败",failure);
             if(mc.player!=null)mc.player.displayClientMessage(Component.literal("W03 C9特效加载失败，详见日志；未更改世界方块。"),false);
         }
     }

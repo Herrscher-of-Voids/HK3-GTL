@@ -70,10 +70,11 @@ public final class Hk3BuildMaterials {
     /** 预扣一个目标方块的物品；不支持或材料不足时返回null，来源异常则中止任务。 */
     public Reservation reserve(BlockState expected, CompoundTag templateTag) {
         requireServerThread(player);
-        if (!isSupported() || !supportedTag(expected, templateTag)) return null;
+        if (!isSupported()) return null;
+        if (player.isCreative()) return new Reservation(player);
+        if (!supportedTag(expected, templateTag)) return null;
         Material material = materialTypes.computeIfAbsent(expected, this::resolveMaterial);
         if (material.stack.isEmpty()) return null;
-        if (player.isCreative()) return new Reservation(player);
 
         int count = material.count;
         if (count < 1) return null;
@@ -223,7 +224,6 @@ public final class Hk3BuildMaterials {
         if (defaults.isEmpty() || tag.contains("id") && !Objects.equals(tag.get("id"), defaults.get("id"))) return false;
         for (String key : tag.getAllKeys()) {
             if (POSITION_ONLY_TAGS.contains(key)) continue;
-            // 建造器只setBlock，不加载蓝图NBT；仅接受新建空GT机器原生默认值，不能免费重建容器内容。
             if (!(state.getBlock() instanceof MetaMachineBlock) || !Objects.equals(tag.get(key), defaults.get(key))) return false;
         }
         return true;

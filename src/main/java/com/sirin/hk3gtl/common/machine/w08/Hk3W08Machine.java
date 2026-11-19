@@ -16,6 +16,12 @@ public final class Hk3W08Machine extends Hk3WonderMachine {
     private int[] ports=new int[0];
     public Hk3W08Machine(IMachineBlockEntity holder){super(holder,"W08");}
     @Override public void onLoad(){super.onLoad();if(getLevel() instanceof ServerLevel)subscribeServerTick(this::tickField);}
+    @Override public void onUnload(){
+        if(getLevel() instanceof ServerLevel level&&ticket){
+            ticket=false;level.getChunkSource().removeRegionTicket(FIELD,new ChunkPos(getPos()),1,getPos().asLong());
+        }
+        super.onUnload();
+    }
     @Override public void onStructureFormed(){
         super.onStructureFormed();
         ports=getParts().stream().map(part->part.self().getPos()).mapToInt(pos->{

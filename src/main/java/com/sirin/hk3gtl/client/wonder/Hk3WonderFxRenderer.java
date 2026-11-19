@@ -48,7 +48,7 @@ public final class Hk3WonderFxRenderer {
             }
             long deadline=System.nanoTime()+2_000_000;
             do{if(part==model.parts().length)break;upload(this);}while(System.nanoTime()<deadline);
-            if(part==model.parts().length){prepared=true;var mc=Minecraft.getInstance();if(mc.level!=null)mc.levelRenderer.allChanged();}
+            if(part==model.parts().length){prepared=true;var mc=Minecraft.getInstance();if(mc.level!=null)Hk3WonderSectionRefresh.request(role);}
             return prepared;
         }
         void close(){prepared=false;buffers.forEach(b->b.buffer.close());buffers.clear();}
@@ -71,11 +71,11 @@ public final class Hk3WonderFxRenderer {
         var right=inverse.transformDirection(new Vector3f(1,0,0)).normalize();var up=inverse.transformDirection(new Vector3f(0,1,0)).normalize();
         draw(g,origin,projection,0,seconds,seconds,true,right,up,0);
     }
-    @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3WonderFxScenes.clear();clearGeometry();}
-    private static void clearGeometry(){
+    @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3WonderFxScenes.clear();clearGeometry(false);}
+    private static void clearGeometry(boolean refresh){
         GEOMETRIES.values().forEach(Geometry::close);GEOMETRIES.clear();Hk3WindFrostEffects.clear();
         if(previewPorts!=null){previewPorts.close();previewPorts=null;}
-        var mc=Minecraft.getInstance();if(mc.level!=null)mc.levelRenderer.allChanged();
+        var mc=Minecraft.getInstance();if(refresh&&mc.level!=null)mc.levelRenderer.allChanged();
     }
     @SubscribeEvent public static void render(RenderLevelStageEvent event){
         if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS)return;
@@ -146,7 +146,7 @@ public final class Hk3WonderFxRenderer {
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
     public static final class Resources {
         @SubscribeEvent public static void shaders(RegisterShadersEvent event)throws java.io.IOException{
-            clearGeometry();event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","wonder_fx"),DefaultVertexFormat.POSITION_COLOR_TEX),value->shader=value);
+            clearGeometry(true);event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","wonder_fx"),DefaultVertexFormat.POSITION_COLOR_TEX),value->shader=value);
         }
     }
 }

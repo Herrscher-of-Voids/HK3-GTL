@@ -203,7 +203,7 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
     }
 
     public boolean testReady() {
-        if(hasSceneModel())return scene!=null&&(isW07()?Hk3W07SceneRenderer.ready():isW14()?Hk3W14SceneRenderer.ready():isW15()?Hk3W15SceneRenderer.ready():isW13()?Hk3W13FxRenderer.ready():Hk3W11FxRenderer.previewReady(layer))&&Hk3PreviewCacheBridge.isReady(scene.getRenderer());
+        if(hasSceneModel())return scene!=null&&(isW07()?Hk3W07SceneRenderer.previewReady(layer):isW14()?Hk3W14SceneRenderer.ready():isW15()?Hk3W15SceneRenderer.ready():isW13()?Hk3W13FxRenderer.previewReady(layer):Hk3W11FxRenderer.previewReady(layer))&&Hk3PreviewCacheBridge.isReady(scene.getRenderer());
         var visible = movingScene != null && movingScene.isVisible() ? movingScene : scene;
         return visible != null && Hk3PreviewCacheBridge.isReady(visible.getRenderer())
                 && (visible == movingScene ? !partialMovingModel() || animationMesh != null && animationMesh.ready()
@@ -323,7 +323,7 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
 
     @Override public void drawInBackground(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
         if(hasSceneModel()){
-            if((isW07()?Hk3W07SceneRenderer.preparePreview():isW14()?Hk3W14SceneRenderer.preparePreview():isW15()?Hk3W15SceneRenderer.preparePreview():isW13()?Hk3W13FxRenderer.preparePreview():Hk3W11FxRenderer.preparePreview(layer))&&scene==null){
+            if((isW07()?Hk3W07SceneRenderer.preparePreview(layer):isW14()?Hk3W14SceneRenderer.preparePreview():isW15()?Hk3W15SceneRenderer.preparePreview():isW13()?Hk3W13FxRenderer.preparePreview(layer):Hk3W11FxRenderer.preparePreview(layer))&&scene==null){
                 scene=new SparseScene(layer<0?fullWorld:new Hk3W01PreviewWorld(definition,layout,index,states,layer,fullWorld.front,fullWorld.entities),false);
                 scene.resize(getSizeWidth(),getSizeHeight());addWidget(0,scene);
             }

@@ -15,6 +15,12 @@ public class Hk3AnimatedWonderMachine extends Hk3WonderMachine {
     private int[] ports=new int[0];
     public Hk3AnimatedWonderMachine(IMachineBlockEntity holder,String role){super(holder,role);}
     @Override public void onLoad(){super.onLoad();if(getLevel() instanceof ServerLevel)subscribeServerTick(this::tickField);}
+    @Override public void onUnload(){
+        if(getLevel() instanceof ServerLevel level&&ticket){
+            ticket=false;level.getChunkSource().removeRegionTicket(FIELD,new ChunkPos(getPos()),1,getPos().asLong());
+        }
+        super.onUnload();
+    }
     @Override public void onStructureFormed(){
         super.onStructureFormed();
         var positions=getParts().stream().map(part->part.self().getPos()).toList();

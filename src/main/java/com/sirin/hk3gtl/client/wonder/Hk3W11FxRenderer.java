@@ -73,7 +73,7 @@ public final class Hk3W11FxRenderer{
         }
         long deadline=System.nanoTime()+2_000_000;
         do{if(part==model.parts().length)break;upload();}while(System.nanoTime()<deadline);
-        if(part==model.parts().length){prepared=true;var mc=Minecraft.getInstance();if(mc.level!=null&&!Hk3W11FieldScenes.scenes().isEmpty())mc.levelRenderer.allChanged();}
+        if(part==model.parts().length){prepared=true;var mc=Minecraft.getInstance();if(mc.level!=null&&!Hk3W11FieldScenes.scenes().isEmpty())Hk3WonderSectionRefresh.request("W11");}
         return prepared;
     }
     public static void drawPreview(double seconds,boolean animate,int layer){
@@ -180,7 +180,7 @@ public final class Hk3W11FxRenderer{
     private static void nextMaterial(){
         face=0;if(++material==model.materials().length){material=0;part++;}
     }
-    private static void clear(){
+    private static void clear(boolean refresh){
         prepared=false;BUFFERS.forEach(batch->batch.buffer.close());BUFFERS.clear();
         LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=-10000;vertexBytes=layerBytes=0;
         if(strings!=null){strings.close();strings=null;}
@@ -188,13 +188,13 @@ public final class Hk3W11FxRenderer{
         if(loading!=null)loading.cancel(true);
         if(loadingLayers!=null)loadingLayers.cancel(true);
         loading=loadingLayers=null;model=layerModel=null;puppetry=null;part=material=face=quad=0;failed=layersFailed=false;Hk3W11FxModel.clearMetadata();
-        var mc=Minecraft.getInstance();if(mc.level!=null)mc.levelRenderer.allChanged();
+        var mc=Minecraft.getInstance();if(refresh&&mc.level!=null)mc.levelRenderer.allChanged();
     }
-    @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3W11FieldScenes.clear();clear();}
+    @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){Hk3W11FieldScenes.clear();clear(false);}
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
     public static final class Resources{
         @SubscribeEvent public static void shaders(RegisterShadersEvent event)throws java.io.IOException{
-            clear();event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w11_f5"),DefaultVertexFormat.POSITION_COLOR_TEX),value->shader=value);
+            clear(true);event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w11_f5"),DefaultVertexFormat.POSITION_COLOR_TEX),value->shader=value);
         }
     }
 }

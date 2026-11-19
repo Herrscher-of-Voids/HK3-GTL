@@ -19,6 +19,12 @@ public record Hk3W13FxModel(Data data,Material[] materials,Part[] parts,Layer[] 
     public static Hk3W13FxModel load(){
         return Hk3CompactScene.load("w13_t2_m1",Hk3W13FxModel.class);
     }
+    public static Hk3W13FxModel loadPreview(){
+        return Hk3CompactScene.load("w13_t2_m1_preview",Hk3W13FxModel.class);
+    }
+    public static Hk3W13FxModel loadLayers(){
+        return Hk3CompactScene.load("w13_t2_m1_layers",Hk3W13FxModel.class);
+    }
     public static Data loadMetadata(){
         if(metadata!=null)return metadata;
         try(var stream=Minecraft.getInstance().getResourceManager().open(new ResourceLocation("hk3gtl","models/scene/w13_t2_m1_meta.json"));

@@ -26,20 +26,27 @@ public final class Hk3W07SceneRenderer{
     private static final List<Batch> BUFFERS=new ArrayList<>(),LAYER_BUFFERS=new ArrayList<>();
     private static final BufferBuilder BUILDER=new BufferBuilder(8192*4*24);
     private static ShaderInstance shader;
-    private static CompletableFuture<Hk3W07SceneModel> loading;
-    private static Hk3W07SceneModel model;
+    private static CompletableFuture<Hk3W07SceneModel> loading,loadingLayers;
+    private static Hk3W07SceneModel model,layerModel;
     private static int part,material,face,quad,uploadedLayer=-1;
     private static long vertexBytes,layerBytes;
-    private static boolean prepared,failed;
+    private static boolean prepared,failed,preview,layersFailed;
     private static float lightPulse=1;
     private Hk3W07SceneRenderer(){}
     public static boolean ready(){return prepared;}
+    public static boolean previewReady(int layer){return prepared&&(layer<0?preview:layerModel!=null);}
     public static long vertexBytes(){return vertexBytes+layerBytes;}
-    public static boolean preparePreview(){
+    public static boolean preparePreview(){return preparePreview(-1);}
+    public static boolean preparePreview(int layer){
+        if(shader==null||failed)return false;
+        if(layer<0&&!preview){clear();preview=true;}
+        return prepare()&&(layer<0||prepareLayers());
+    }
+    private static boolean prepare(){
         if(shader==null||failed)return false;
         if(prepared)return true;
         if(model==null){
-            if(loading==null)loading=CompletableFuture.supplyAsync(Hk3W07SceneModel::load);
+            if(loading==null)loading=CompletableFuture.supplyAsync(preview?Hk3W07SceneModel::load:Hk3W07SceneModel::loadLights);
             if(!loading.isDone())return false;
             try{model=loading.join();}
             catch(CompletionException failure){failed=true;LogUtils.getLogger().error("W07完整场景加载失败",failure);return false;}
@@ -48,6 +55,15 @@ public final class Hk3W07SceneRenderer{
         long deadline=System.nanoTime()+2_000_000;
         do{if(part==model.parts().length)break;upload();}while(System.nanoTime()<deadline);
         prepared=part==model.parts().length;return prepared;
+    }
+    private static boolean prepareLayers(){
+        if(layerModel!=null)return true;
+        if(layersFailed)return false;
+        if(loadingLayers==null)loadingLayers=CompletableFuture.supplyAsync(Hk3W07SceneModel::loadLayers).exceptionally(failure->{
+            layersFailed=true;LogUtils.getLogger().error("W07剖面资源加载失败",failure);return null;
+        });
+        if(!loadingLayers.isDone())return false;
+        layerModel=loadingLayers.join();loadingLayers=null;return !layersFailed;
     }
     public static void drawPreview(int layer,double seconds,boolean effects){
         lightPulse=effects?1.04f+.035f*(float)Math.sin(seconds*1.2):1;
@@ -69,7 +85,7 @@ public final class Hk3W07SceneRenderer{
         VertexBuffer.unbind();RenderSystem.depthMask(true);RenderSystem.disableBlend();RenderSystem.enableCull();
     }
     static void drawLights(Matrix4f origin,Matrix4f projection,double seconds,Hk3W11Ports ports){
-        if(!preparePreview())return;
+        if(!prepare())return;
         int[] grid=model.data().atlas_grid(),offset=model.data().blueprint_to_export_offset_xyz();
         shader.getUniform("AtlasGrid").set((float)grid[0],(float)grid[1]);
         shader.getUniform("ExportOffset").set((float)offset[0],(float)offset[1],(float)offset[2]);
@@ -93,7 +109,7 @@ public final class Hk3W07SceneRenderer{
     private static void uploadLayer(int layer){
         LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=layer;layerBytes=0;
         int y=layer-model.data().blueprint_to_export_offset_xyz()[1];
-        var rectangles=model.layers()[layer].rectangles();
+        var rectangles=layerModel.layers()[layer].rectangles();
         for(int m=0;m<model.materials().length;m++){
             int count=0;BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
             for(int[] r:rectangles)if(r[0]==m){
@@ -130,7 +146,8 @@ public final class Hk3W07SceneRenderer{
         prepared=false;BUFFERS.forEach(batch->batch.buffer.close());BUFFERS.clear();LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();
         uploadedLayer=-1;vertexBytes=layerBytes=0;
         if(loading!=null)loading.cancel(true);
-        loading=null;model=null;part=material=face=quad=0;failed=false;Hk3W07SceneModel.clearMetadata();
+        if(loadingLayers!=null)loadingLayers.cancel(true);
+        loading=loadingLayers=null;model=layerModel=null;part=material=face=quad=0;failed=preview=layersFailed=false;Hk3W07SceneModel.clearMetadata();
     }
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event){clear();}
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)

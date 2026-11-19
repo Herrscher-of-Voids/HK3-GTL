@@ -9,12 +9,15 @@ import com.gregtechceu.gtceu.api.pattern.error.PatternStringError;
 import com.gregtechceu.gtceu.api.pattern.predicates.SimplePredicate;
 import com.gregtechceu.gtceu.api.pattern.util.RelativeDirection;
 import com.lowdragmc.lowdraglib.utils.BlockInfo;
+import com.sirin.hk3gtl.common.multiblock.loading.Hk3PatternLoading;
 import com.sirin.hk3gtl.mixin.gtceu.Hk3MultiblockStateAccess;
+import it.unimi.dsi.fastutil.longs.AbstractLongSet;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
-import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
+import it.unimi.dsi.fastutil.longs.LongIterator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
@@ -45,7 +48,7 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
         }
     }
 
-    public Hk3LargeStructurePattern(MultiblockMachineDefinition definition, Hk3ApprovedArchitecture.Layout data,
+    public Hk3LargeStructurePattern(MultiblockMachineDefinition definition, Hk3PackedArchitectureReader.PatternData data,
                                    TraceabilityPredicate universal) {
         super(new TraceabilityPredicate[][][]{{{Predicates.controller(Predicates.blocks(definition.getBlock()))}}},
                 new RelativeDirection[]{RelativeDirection.RIGHT, RelativeDirection.UP, RelativeDirection.BACK},
@@ -56,23 +59,15 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
         size = data.size(); controller = data.controller();
         Math.multiplyExact(Math.multiplyExact(size[0], size[1]), size[2]);
         control = Predicates.controller(Predicates.blocks(definition.getBlock()));
-        Map<String, Integer> palette = new LinkedHashMap<>();
-        cells = new long[data.blocks().size()];
-        int i = 0;
-        for (var cell : data.blocks()) {
-            int state = palette.computeIfAbsent(cell.state(), ignored -> palette.size());
-            if (state > 65535) throw new IllegalStateException("巨构材料数量越界：" + data.key());
-            cells[i++] = ((long) linear(cell.pos()) << 16) | state;
-        }
-        Arrays.sort(cells);
-        states = new BlockState[4][palette.size()];
-        activeStates = new BlockState[4][palette.size()];
-        for (var entry : palette.entrySet()) {
-            BlockState state = state(entry.getKey());
+        cells = data.cells();
+        states = new BlockState[4][data.palette().length];
+        activeStates = new BlockState[4][data.palette().length];
+        for (int i = 0; i < data.palette().length; i++) {
+            BlockState state = state(data.palette()[i]);
             for (int turn = 0; turn < 4; turn++) {
                 BlockState rotated = state.rotate(rotation(turn));
-                states[turn][entry.getValue()] = rotated;
-                activeStates[turn][entry.getValue()] = rotated.getBlock() instanceof ActiveBlock active
+                states[turn][i] = rotated;
+                activeStates[turn][i] = rotated.getBlock() instanceof ActiveBlock active
                         ? active.changeActive(rotated, !active.isActive(rotated)) : rotated;
             }
         }
@@ -85,50 +80,141 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
 
     @Override public boolean checkPatternAt(MultiblockState world, BlockPos center, Direction front,
                                            Direction up, boolean flipped, boolean savePredicate) {
-        var access = (Hk3MultiblockStateAccess) (Object) world;
-        access.hk3gtl$clean();
-        if (front.getAxis().isVertical() || up != Direction.NORTH || flipped)
-            return fail(world, "该巨构仅支持水平四向且不可镜像");
-        int turn = switch (front) { case NORTH -> 0; case EAST -> 1; case SOUTH -> 2; default -> 3; };
-        Bounds bounds = bounds(center, turn);
-        if (world.world.isOutsideBuildHeight(bounds.min()) || world.world.isOutsideBuildHeight(bounds.max()))
-            return fail(world, "批准巨构超出当前世界高度");
-        if (com.sirin.hk3gtl.common.multiblock.loading.Hk3PatternLoading.current(world.world) == null)
-            for (var chunk : bounds.chunkRepresentatives())
-                if (!world.world.isLoaded(chunk)) { world.setError(MultiblockState.UNLOAD_ERROR); return false; }
-        for (var limit : limits) world.getGlobalCount().put(limit, 0);
-        if (!matchPart(world, access, center, control, savePredicate)) return false;
+        var loading = Hk3PatternLoading.current(world.world);
+        return (loading == null ? new Check(null) : loading.largeCheck()).match(world, center, front, up, flipped, savePredicate);
+    }
 
-        int controlAt = linear(controller);
-        var pos = new BlockPos.MutableBlockPos();
-        for (long cell : cells) {
-            int at = (int) (cell >>> 16), state = (int) (cell & 65535);
-            if (at == controlAt) continue;
-            int x = at % size[0], y = at / size[0] % size[1], z = at / size[0] / size[1];
-            setPosition(pos, center, x - controller[0], y - controller[1], z - controller[2], turn);
-            BlockState actual = world.world.getBlockState(pos);
-            if (Hk3InterfacePredicates.isInterface(actual)) {
-                if (!matchPart(world, access, pos.immutable(), universal, savePredicate)) return false;
-                continue;
-            }
-            if (actual != states[turn][state] && actual != activeStates[turn][state]) {
-                access.hk3gtl$update(pos.immutable(), Predicates.states(states[turn][state]));
-                return fail(world, "批准巨构建材或状态不符");
-            }
-            if (actual.getBlock() instanceof ActiveBlock)
-                world.getMatchContext().getOrCreate("vaBlocks", LongOpenHashSet::new).add(pos.asLong());
+    public Check newCheck(Hk3PatternLoading loading) { return new Check(loading); }
+
+    public final class Check {
+        private final Hk3PatternLoading loading;
+        private MultiblockState world;
+        private BlockPos center;
+        private Bounds bounds;
+        private ActivePositions active;
+        private int turn, cursor = -1;
+        private long sourceChunk = -1;
+        private long[] chunks;
+        private long deadline = Long.MAX_VALUE;
+        private boolean started, dirty;
+
+        private Check(Hk3PatternLoading loading) { this.loading = loading; }
+        public void deadline(long value) { deadline = value; }
+        public boolean dirty() { return dirty; }
+        public void missingChunk() { dirty = true; }
+        public boolean changed(BlockPos pos) {
+            if (!started) return false;
+            int index = active.index(pos);
+            if (center.equals(pos) || index >= 0 && index < cursor) dirty = true;
+            return dirty;
         }
-        for (var limit : limits) {
-            int count = world.getGlobalCount().getOrDefault(limit, 0);
-            if (count < limit.minCount)
-                return fail(world, "缺少整机所需的真实工作仓");
-            if (limit.maxCount >= 0 && count > limit.maxCount)
-                return fail(world, "接口仓数量超过整机上限");
+        private boolean match(MultiblockState world, BlockPos center, Direction front, Direction up,
+                              boolean flipped, boolean savePredicate) {
+            var access = (Hk3MultiblockStateAccess) (Object) world;
+            if (front.getAxis().isVertical() || up != Direction.NORTH || flipped)
+                return fail(world, "该巨构仅支持水平四向且不可镜像");
+            if (!started) {
+                access.hk3gtl$clean();
+                this.world = world; this.center = center;
+                turn = switch (front) { case NORTH -> 0; case EAST -> 1; case SOUTH -> 2; default -> 3; };
+                bounds = bounds(center, turn);
+                if (world.world.isOutsideBuildHeight(bounds.min()) || world.world.isOutsideBuildHeight(bounds.max()))
+                    return fail(world, "批准巨构超出当前世界高度");
+                if (loading == null) for (var chunk : bounds.chunkRepresentatives())
+                    if (!world.world.isLoaded(chunk)) { world.setError(MultiblockState.UNLOAD_ERROR); return false; }
+                for (var limit : limits) world.getGlobalCount().put(limit, 0);
+                active = new ActivePositions(center, turn);
+                world.getMatchContext().set("vaBlocks", active);
+                started = true;
+            }
+            if (cursor < 0) {
+                if (!matchPart(world, access, center, control, savePredicate)) return false;
+                cursor = 0;
+            }
+            long controlAt = positionKey(controller[0], controller[1], controller[2]);
+            var pos = new BlockPos.MutableBlockPos();
+            while (cursor < cells.length) {
+                long at = cells[cursor] >>> 16;
+                int state = (int) (cells[cursor] & 65535);
+                if (at == controlAt) { cursor++; continue; }
+                setPosition(pos, center, cellX(at) - controller[0], cellY(at) - controller[1], cellZ(at) - controller[2], turn);
+                if (loading != null) {
+                    long group = (at >>> 8) / size[1];
+                    if (sourceChunk != group) {
+                        sourceChunk = group;
+                        int x = cellX(at) & ~15, z = cellZ(at) & ~15;
+                        var a = worldPosition(center, new int[]{x, 0, z}, turn);
+                        var b = worldPosition(center, new int[]{Math.min(x + 15, size[0] - 1), 0, Math.min(z + 15, size[2] - 1)}, turn);
+                        int minX = Math.min(a.getX(), b.getX()) >> 4, maxX = Math.max(a.getX(), b.getX()) >> 4;
+                        int minZ = Math.min(a.getZ(), b.getZ()) >> 4, maxZ = Math.max(a.getZ(), b.getZ()) >> 4;
+                        chunks = new long[(maxX - minX + 1) * (maxZ - minZ + 1)];
+                        int i = 0;
+                        for (int cx = minX; cx <= maxX; cx++) for (int cz = minZ; cz <= maxZ; cz++) chunks[i++] = ChunkPos.asLong(cx, cz);
+                    }
+                    loading.checkpoint(pos, chunks, deadline);
+                }
+                BlockState actual = world.world.getBlockState(pos);
+                if (Hk3InterfacePredicates.isInterface(actual)) {
+                    if (!matchPart(world, access, pos.immutable(), universal, savePredicate)) return false;
+                } else {
+                    if (actual != states[turn][state] && actual != activeStates[turn][state]) {
+                        access.hk3gtl$update(pos.immutable(), Predicates.states(states[turn][state]));
+                        return fail(world, "批准巨构建材或状态不符");
+                    }
+                    if (actual.getBlock() instanceof ActiveBlock) active.addIndex(cursor);
+                }
+                cursor++;
+            }
+            for (var limit : limits) {
+                int count = world.getGlobalCount().getOrDefault(limit, 0);
+                if (count < limit.minCount) return fail(world, "缺少整机所需的真实工作仓");
+                if (limit.maxCount >= 0 && count > limit.maxCount) return fail(world, "接口仓数量超过整机上限");
+            }
+            world.getMatchContext().set(BOUNDS_KEY, bounds);
+            for (var chunk : bounds.chunkRepresentatives()) world.addPosCache(chunk);
+            world.setError(null); world.setNeededFlip(false);
+            return true;
         }
-        world.getMatchContext().set(BOUNDS_KEY, bounds);
-        for (var chunk : bounds.chunkRepresentatives()) world.addPosCache(chunk);
-        world.setError(null); world.setNeededFlip(false);
-        return true;
+        public void close(boolean formed) {
+            if (started && !formed) ((Hk3MultiblockStateAccess) (Object) world).hk3gtl$clean();
+        }
+    }
+
+    private final class ActivePositions extends AbstractLongSet {
+        private final BlockPos center;
+        private final int turn;
+        private final BitSet selected = new BitSet();
+        private int count;
+        private ActivePositions(BlockPos center, int turn) { this.center = center; this.turn = turn; }
+        private int index(BlockPos pos) {
+            int rx = pos.getX() - center.getX(), rz = pos.getZ() - center.getZ();
+            int x = (switch (turn) { case 1 -> rz; case 2 -> -rx; case 3 -> -rz; default -> rx; }) + controller[0];
+            int y = pos.getY() - center.getY() + controller[1];
+            int z = (switch (turn) { case 1 -> -rx; case 2 -> -rz; case 3 -> rx; default -> rz; }) + controller[2];
+            if (x < 0 || x >= size[0] || y < 0 || y >= size[1] || z < 0 || z >= size[2]) return -1;
+            return cellIndex(positionKey(x, y, z));
+        }
+        private boolean addIndex(int index) {
+            if (selected.get(index)) return false;
+            selected.set(index); count++; return true;
+        }
+        @Override public boolean add(long pos) { return addIndex(index(BlockPos.of(pos))); }
+        @Override public boolean contains(long pos) { int index = index(BlockPos.of(pos)); return index >= 0 && selected.get(index); }
+        @Override public int size() { return count; }
+        @Override public void clear() { selected.clear(); count = 0; }
+        @Override public LongIterator iterator() {
+            return new LongIterator() {
+                int next = selected.nextSetBit(0);
+                final BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+                @Override public boolean hasNext() { return next >= 0; }
+                @Override public long nextLong() {
+                    long at = cells[next] >>> 16;
+                    next = selected.nextSetBit(next + 1);
+                    setPosition(pos, center, cellX(at) - controller[0], cellY(at) - controller[1], cellZ(at) - controller[2], turn);
+                    return pos.asLong();
+                }
+            };
+        }
     }
 
     /** 除雪只枚举批准实体的暴露顶面，不扫描整个空气包围盒。 */
@@ -139,32 +225,31 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
 
     public void farViewCellPosition(int index, BlockPos center, Direction front, BlockPos.MutableBlockPos out) {
         Objects.checkIndex(index, cells.length);
-        int at = (int) (cells[index] >>> 16);
+        long at = cells[index] >>> 16;
         int turn = switch (front) { case NORTH -> 0; case EAST -> 1; case SOUTH -> 2; case WEST -> 3;
             default -> throw new IllegalArgumentException("巨构远景只支持水平控制器"); };
-        setPosition(out, center, at % size[0] - controller[0], at / size[0] % size[1] - controller[1],
-                at / size[0] / size[1] - controller[2], turn);
+        setPosition(out, center, cellX(at) - controller[0], cellY(at) - controller[1], cellZ(at) - controller[2], turn);
     }
 
     public record SnowSurface(BlockPos support, BlockState expected, BlockState active) {}
 
     public SnowSurface snowSurface(int index, BlockPos center, Direction front) {
-        if (!Hk3SnowSurfaceIndex.exposed(cells, index, size[0], size[1])) return null;
-        int at = (int) (cells[index] >>> 16), state = (int) (cells[index] & 65535);
-        if (at == linear(controller)) return null;
+        long at = cells[index] >>> 16;
+        int state = (int) (cells[index] & 65535), x = cellX(at), y = cellY(at), z = cellZ(at);
+        if (y < size[1] - 1 && cellIndex(positionKey(x, y + 1, z)) >= 0) return null;
+        if (at == positionKey(controller[0], controller[1], controller[2])) return null;
         int turn = switch (front) { case NORTH -> 0; case EAST -> 1; case SOUTH -> 2; case WEST -> 3;
             default -> throw new IllegalArgumentException("除雪只支持水平控制器"); };
-        int x = at % size[0], y = at / size[0] % size[1], z = at / size[0] / size[1];
         return new SnowSurface(worldPosition(center, new int[]{x, y, z}, turn), states[turn][state], activeStates[turn][state]);
     }
 
     /** 任意实体位置可容纳接口，主控与空气不进入拆除接口范围。 */
     public TraceabilityPredicate dismantlePort(int x, int y, int z) {
-        int at = ((z + controller[2]) * size[1] + y + controller[1]) * size[0] + x + controller[0];
-        if (at == linear(controller)) return null;
-        int index = Arrays.binarySearch(cells, (long) at << 16);
-        if (index < 0) index = -index - 1;
-        return index < cells.length && cells[index] >>> 16 == at ? universal : null;
+        x += controller[0]; y += controller[1]; z += controller[2];
+        if (x < 0 || x >= size[0] || y < 0 || y >= size[1] || z < 0 || z >= size[2]) return null;
+        long at = positionKey(x, y, z);
+        if (at == positionKey(controller[0], controller[1], controller[2])) return null;
+        return cellIndex(at) >= 0 ? universal : null;
     }
 
     private static boolean matchPart(MultiblockState world, Hk3MultiblockStateAccess access, BlockPos pos,
@@ -184,7 +269,18 @@ public final class Hk3LargeStructurePattern extends BlockPattern {
     private static boolean fail(MultiblockState world, String message) {
         world.setError(new PatternStringError(message)); return false;
     }
-    private int linear(int[] p) { return (p[2] * size[1] + p[1]) * size[0] + p[0]; }
+    private long positionKey(int x, int y, int z) {
+        long chunk = (long) (x >> 4) * ((size[2] + 15) >> 4) + (z >> 4);
+        return ((chunk * size[1] + y) << 8) | ((z & 15) << 4) | (x & 15);
+    }
+    private int cellX(long at) { return (int) ((at >>> 8) / size[1] / ((size[2] + 15) >> 4)) * 16 + ((int) at & 15); }
+    private int cellY(long at) { return (int) ((at >>> 8) % size[1]); }
+    private int cellZ(long at) { return (int) ((at >>> 8) / size[1] % ((size[2] + 15) >> 4)) * 16 + ((int) (at >>> 4) & 15); }
+    private int cellIndex(long at) {
+        int index = Arrays.binarySearch(cells, at << 16);
+        if (index < 0) index = -index - 1;
+        return index < cells.length && cells[index] >>> 16 == at ? index : -1;
+    }
     private static Rotation rotation(int turn) { return Rotation.values()[turn]; }
     private BlockPos worldPosition(BlockPos center, int[] p, int turn) {
         var pos = new BlockPos.MutableBlockPos();

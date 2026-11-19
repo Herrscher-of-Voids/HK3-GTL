@@ -60,9 +60,12 @@ public final class Hk3ResearchRecipeRuntime {
     private static boolean allowed(MetaMachine machine,String id){
         var p=PLANS.get(id);if(p==null||!Hk3IndustrialExtensionPolicy.permits(p.role(),p.provisional())
                 ||machine.getLevel()==null||machine.getLevel().getServer()==null)return false;
-        var source=source(machine);if(source==null||source.owner()==null||source.team()==null)return false;
         // 必须实际注册对应类型；切换界面当前模式不能改变固定工艺身份。
         if(!Arrays.asList(machine.getDefinition().getRecipeTypes()).contains(Hk3ResearchProcessTypes.of(p)))return false;
+        if (p.role().equals("GTL_SUPRACHRONAL_ASSEMBLY_LINE") && p.id().startsWith("approved_")
+                && p.requirements().isEmpty() && p.requiredFacts().isEmpty() && p.facts().isEmpty()
+                && p.experiment().isBlank() && p.inputHw() == 0) return true;
+        var source=source(machine);if(source==null||source.owner()==null||source.team()==null)return false;
         var data=Hk3ResearchData.get(machine.getLevel().getServer());var scope=source.team();
         if(machine instanceof Hk3LiquidProcessMachine){
             if(machine instanceof Hk3HonkaiAbsorptionMachine){
@@ -90,7 +93,9 @@ public final class Hk3ResearchRecipeRuntime {
     }
     private static void settled(MetaMachine machine,CompoundTag snapshot){
         var p=PLANS.get(snapshot.getString(PLAN));if(p==null)return;
-        var level=machine.getLevel();var data=Hk3ResearchData.get(level.getServer());var source=source(machine);var scope=source.team();
+        var source = source(machine);
+        if (source == null) return;
+        var level=machine.getLevel();var data=Hk3ResearchData.get(level.getServer());var scope=source.team();
         var receipt=Hk3ProcessReceipts.settle(snapshot,level.dimension().location()+"@"+machine.getPos(),level.getGameTime());
         if(!Hk3ResearchBatchProofs.valid(receipt))return;
         receipt.putUUID("Team",scope);receipt.putString("MachineRole",p.role());

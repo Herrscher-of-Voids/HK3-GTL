@@ -61,10 +61,8 @@ public final class Hk3MultiblockLoading {
     public static void invalidated(MultiblockControllerMachine controller){
         var retained=FORMED.remove(controller);if(retained!=null)retained.close();
         Hk3ActiveShells.remove(controller);
-        if(controller.getLevel() instanceof ServerLevel level){
-            var current=Hk3PatternLoading.current(level);if(current!=null&&current.controller==controller)return;
-        }
-        var check=CHECKS.remove(controller);if(check!=null)check.close();
+        var check=CHECKS.get(controller);
+        if(check!=null&&!check.running()){CHECKS.remove(controller);check.close();}
     }
     public static void unloaded(MultiblockControllerMachine controller){QUEUED.remove(controller);invalidated(controller);}
 
@@ -74,7 +72,7 @@ public final class Hk3MultiblockLoading {
         if(old.getBlock()==state.getBlock()&&state.getBlock() instanceof ActiveBlock block
                 &&block.changeActive(old,block.isActive(state))==state)return;
         for(var check:CHECKS.values())if(check.level==level
-                &&!(Hk3PatternLoading.current(level)==check&&check.controller.getPos().equals(pos)&&old.is(state.getBlock())))
+                &&!(check.running()&&check.controller.getPos().equals(pos)&&old.is(state.getBlock())))
             check.changed(pos,state);
         if(!old.is(state.getBlock())){
             for(var controller:new ArrayList<>(FORMED.keySet()))

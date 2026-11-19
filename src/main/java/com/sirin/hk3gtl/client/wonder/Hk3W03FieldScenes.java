@@ -28,12 +28,12 @@ public final class Hk3W03FieldScenes {
         var next=new ArrayList<>(scenes);next.removeIf(s->s.state.pos().equals(state.pos()));
         if(state.formed())next.add(new Scene(state,mc.level.getGameTime()));scenes=List.copyOf(next);
         if(mask==null&&loading==null)loading=CompletableFuture.runAsync(Hk3W03FieldScenes::loadMask);
-        if(existed!=state.formed()&&Hk3W03FxRenderer.ready())mc.levelRenderer.allChanged();
+        if(existed!=state.formed()&&Hk3W03FxRenderer.ready())Hk3WonderSectionRefresh.request("W03");
     }
     public static void maintain(){
-        var mc=Minecraft.getInstance();if(level!=mc.level){if(!scenes.isEmpty())clear();return;}
+        var mc=Minecraft.getInstance();if(level!=mc.level){clear();return;}
         if(mc.level!=null&&scenes.stream().anyMatch(s->mc.level.getGameTime()-s.received>120)){
-            scenes=scenes.stream().filter(s->mc.level.getGameTime()-s.received<=120).toList();mc.levelRenderer.allChanged();
+            scenes=scenes.stream().filter(s->mc.level.getGameTime()-s.received<=120).toList();Hk3WonderSectionRefresh.request("W03");
         }
     }
     public static void clear(){scenes=List.of();level=null;}
@@ -63,7 +63,7 @@ public final class Hk3W03FieldScenes {
             var result=new Long2ObjectOpenHashMap<long[]>(count);
             for(int i=0;i<count;i++){long key=input.readLong();long[] bits=new long[64];for(int n=0;n<64;n++)bits[n]=input.readLong();if(result.put(key,bits)!=null)throw new java.io.IOException("C9遮罩重复");}
             if(input.read()!=-1)throw new java.io.IOException("C9遮罩尾随数据");mask=result;
-            Minecraft.getInstance().execute(()->Minecraft.getInstance().levelRenderer.allChanged());
+            Minecraft.getInstance().execute(()->Hk3WonderSectionRefresh.request("W03"));
         }catch(Exception failure){com.mojang.logging.LogUtils.getLogger().error("C9实体画面替换遮罩加载失败，保留原方块画面",failure);}
     }
 }

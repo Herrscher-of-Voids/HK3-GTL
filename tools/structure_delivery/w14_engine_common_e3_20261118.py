@@ -92,12 +92,12 @@ def materials():
         result.append(native_material(archive, mc, 'minecraft', 'minecraft:bone_block[axis=y]', '灵魂沙峡谷骨块', column('bone_block_side', 'bone_block_top')))
         result.append(native_material(archive, mc, 'minecraft', 'minecraft:bedrock', '龙池与柱顶基岩', uniform('bedrock')))
         result.append(native_material(archive, mc, 'minecraft', 'minecraft:iron_bars[east=true,north=true,south=true,waterlogged=false,west=true]', '末影水晶铁栏杆笼', uniform('iron_bars'), transparent=True))
-        result.append(native_material(archive, mc, 'minecraft', 'minecraft:end_portal', '原版龙池传送门', {face: 'entity/end_portal' for face in FACES}, emissive=True))
+        result.append(native_material(archive, mc, 'minecraft', 'minecraft:obsidian', '龙池黑曜石池面', uniform('obsidian')))
         for block, label in [('white_stained_glass', '方块水晶浅色透明外框'), ('magenta_stained_glass', '方块水晶品红核心')]:
             result.append(native_material(archive, mc, 'minecraft', 'minecraft:' + block, label, uniform(block), transparent=True))
         for direction, label in [('east', '东向龙池火把'), ('west', '西向龙池火把'), ('south', '南向龙池火把'), ('north', '北向龙池火把')]:
             result.append(native_material(archive, mc, 'minecraft', f'minecraft:wall_torch[facing={direction}]', label, uniform('torch'), transparent=True, emissive=True))
-        result.append(native_material(archive, mc, 'minecraft', 'minecraft:lava[level=0]', '原版熔岩', uniform('lava_still'), emissive=True))
+        result.append(native_material(archive, mc, 'minecraft', 'minecraft:magma_block', '下界地貌岩浆块', uniform('magma'), emissive=True))
         result[LOG_BLOCK - 1] = native_material(archive, mc, 'minecraft', 'minecraft:oak_log[axis=y]', '原版橡木原木', column('oak_log', 'oak_log_top'))
         result[BASALT - 1] = native_material(archive, mc, 'minecraft', 'minecraft:basalt[axis=y]', '原版玄武岩', column('basalt_side', 'basalt_top'))
     gt = Path(result[0]['source']['archive'])

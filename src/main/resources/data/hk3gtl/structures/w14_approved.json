@@ -12,14 +12,14 @@
   "source_approval_fields_preserved": true,
   "blueprint": "hk3gtl:structures/w14_candidate.bin.gz",
   "source": "deliveries/0005_W14_原生维度地貌_E3_20261118",
-  "source_manifest_sha256": "4d16f6e4b36d9accdda686fa85f220af58231ba6fa59b88c562e6c79cd4350da",
+  "source_manifest_sha256": "d9316d8caa23feb7bcc32a3d1e956de9e1f4ff5afedd34a7caab691e7e9fed0e",
   "source_geometry_sha256": "b33a38016bd350a73f37fb68868b85e2d9651662328059c46ef048a3bbe89c90",
-  "source_materials_sha256": "eb4e57d7d9f91530cf5681c4c8b2be3f4a938271481796f0988a7a1c5d832044",
+  "source_materials_sha256": "c82aa92cc57e87fc5c104156b4f2e575d8c9fc1d6dab9d7d31d9d358852ab754",
   "source_npz_sha256": "14235997a5ce094302e79eb276fec7bb28fed07e49e6131fbb3e8a4f26a21d97",
   "source_nbt": {
     "file": "W14-原生维度地貌-E3.nbt",
-    "bytes": 197205728,
-    "sha256": "bc8194f1c206373bb642d96bd7631615e066e6f9a990962e1a021a938d56bb5b"
+    "bytes": 197205717,
+    "sha256": "ebfea83cff9757ca2366459136cde456ac9e14295bfa07e5a6d418f33e6cd77d"
   },
   "size_xyz": [
     1761,
@@ -181,19 +181,19 @@
     "minecraft:bone_block[axis=y]",
     "minecraft:bedrock",
     "minecraft:iron_bars[east=true,north=true,south=true,waterlogged=false,west=true]",
-    "minecraft:end_portal",
+    "minecraft:obsidian",
     "minecraft:white_stained_glass",
     "gtceu:magenta_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]",
     "minecraft:wall_torch[facing=east]",
     "minecraft:wall_torch[facing=west]",
     "minecraft:wall_torch[facing=south]",
     "minecraft:wall_torch[facing=north]",
-    "minecraft:lava[level=0]",
+    "minecraft:magma_block",
     "hk3gtl:w14_world_bubble_recurrence_engine[facing=south]"
   ],
   "palette_count": 73,
-  "used_palette_count": 56,
-  "unique_block_types": 53,
+  "used_palette_count": 54,
+  "unique_block_types": 51,
   "material_counts": {
     "gtceu:black_metal_sheet": 48137393,
     "gtceu:black_studs": 2096958,
@@ -221,8 +221,8 @@
     "minecraft:sand": 0,
     "minecraft:packed_ice": 0,
     "minecraft:snow_block": 0,
-    "minecraft:magma_block": 16009,
-    "minecraft:obsidian": 48810,
+    "minecraft:magma_block": 24015,
+    "minecraft:obsidian": 48850,
     "minecraft:blue_stained_glass": 0,
     "minecraft:sea_lantern": 0,
     "minecraft:amethyst_block": 0,
@@ -259,14 +259,12 @@
     "minecraft:bone_block[axis=y]": 242,
     "minecraft:bedrock": 102,
     "minecraft:iron_bars[east=true,north=true,south=true,waterlogged=false,west=true]": 1476,
-    "minecraft:end_portal": 40,
     "minecraft:white_stained_glass": 680,
     "gtceu:magenta_borderless_lamp[bloom=true,inverted=true,lit=true,powered=false]": 140,
     "minecraft:wall_torch[facing=east]": 2,
     "minecraft:wall_torch[facing=west]": 2,
     "minecraft:wall_torch[facing=south]": 2,
     "minecraft:wall_torch[facing=north]": 2,
-    "minecraft:lava[level=0]": 8006,
     "hk3gtl:w14_world_bubble_recurrence_engine[facing=south]": 1
   },
   "material_count_exception": {
@@ -280,8 +278,8 @@
   "runtime_format": "HK3P/2；XYZ全局升序、Z连续游程；唯一主控附原生方块实体NBT。",
   "blueprint_linear_index": "(x*sizeY+y)*sizeZ+z",
   "rle_record_count": 2533741,
-  "blueprint_sha256": "904def3f0d52235ef1cc119540fbee4ddf0f2b251b24762f40a4449cfd2d9b51",
-  "blueprint_bytes": 10650384,
+  "blueprint_sha256": "73546a74faf961b295b0ee73c5ae238c770b9b19b640becc0525ee552ef958bd",
+  "blueprint_bytes": 11887454,
   "entity_count": 0,
   "block_crystals": {
     "count": 20,
@@ -308,5 +306,26 @@
   "game_verified": false,
   "jar_built": false,
   "installed": false,
-  "game_started": false
+  "game_started": false,
+  "used_palette_slots": 56,
+  "material_revisions": [
+    {
+      "recorded_at": "2026-11-19T12:51:47+08:00",
+      "approval_quote": "你用真的液体岩浆/你将岩浆的位置全换成岩浆块\n然后末地传送门是回来的那个吗？也就是龙池里面的那个，那个的话换成黑曜石",
+      "replacements": [
+        {
+          "old_state": "minecraft:end_portal",
+          "new_state": "minecraft:obsidian",
+          "blocks": 40,
+          "palette_slot": 64
+        },
+        {
+          "old_state": "minecraft:lava[level=0]",
+          "new_state": "minecraft:magma_block",
+          "blocks": 8006,
+          "palette_slot": 71
+        }
+      ]
+    }
+  ]
 }

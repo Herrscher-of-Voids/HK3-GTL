@@ -17,6 +17,12 @@ public record Hk3W07SceneModel(Data data,Material[] materials,Part[] parts,Layer
     public static Hk3W07SceneModel load(){
         return Hk3CompactScene.load("w07_n2",Hk3W07SceneModel.class);
     }
+    public static Hk3W07SceneModel loadLights(){
+        return Hk3CompactScene.load("w07_n2_lights",Hk3W07SceneModel.class);
+    }
+    public static Hk3W07SceneModel loadLayers(){
+        return Hk3CompactScene.load("w07_n2_layers",Hk3W07SceneModel.class);
+    }
     public static Data loadMetadata(){
         if(metadata!=null)return metadata;
         try(var stream=Minecraft.getInstance().getResourceManager().open(new ResourceLocation("hk3gtl","models/scene/w07_n2_meta.json"));
