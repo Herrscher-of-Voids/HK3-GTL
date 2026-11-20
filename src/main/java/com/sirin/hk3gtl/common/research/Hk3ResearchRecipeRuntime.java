@@ -8,6 +8,7 @@ import com.sirin.hk3gtl.common.easter.Hk3EggProduction;
 import com.sirin.hk3gtl.common.integration.Hk3QuestEvents;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import net.minecraft.nbt.*;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import java.util.*;
 
@@ -23,6 +24,24 @@ public final class Hk3ResearchRecipeRuntime {
     public static CompoundTag snapshot(GTRecipe recipe){
         var out=Hk3ProcessReceipts.snapshot(recipe);out.putString(PLAN,recipe.data.getString(PLAN));return out;
     }
+    public static Set<String> requiredProcessFacts(GTRecipe recipe) {
+        var plan = PLANS.get(recipe.data.getString(PLAN));
+        if (plan == null) return Set.of();
+        var facts = new LinkedHashSet<>(plan.requiredFacts());
+        var experiment = executionContract(recipe);
+        if (experiment != null) facts.addAll(experiment.facts());
+        return facts;
+    }
+
+    public static Hk3ResearchExecutionContracts.Contract executionContract(GTRecipe recipe) {
+        var plan = PLANS.get(recipe.data.getString(PLAN));
+        return plan == null ? null : Hk3ResearchExecutionContracts.get(plan.experiment());
+    }
+
+    public static Component processFactLabel(String fact) {
+        return Component.translatableWithFallback("hk3gtl.research.process_fact." + fact, fact);
+    }
+
     public static boolean allowed(MetaMachine machine,GTRecipe recipe){
         if(recipe.data.contains(MERGED)){
             if(!recipe.data.contains(MERGED,Tag.TAG_LIST))return false;

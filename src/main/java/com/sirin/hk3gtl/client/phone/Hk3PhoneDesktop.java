@@ -56,7 +56,7 @@ final class Hk3PhoneDesktop {
     }
     private static void icon(GuiGraphics g,String app,int x,int y,float scale){
         g.pose().pushPose();g.pose().translate(x,y,0);g.pose().scale(scale,scale,1);drawIcon(g,app,0,0);g.pose().popPose();
-        String label=switch(app){case "cipher"->net.minecraft.network.chat.Component.translatable("hk3gtl.phone.cipher.title").getString();case "social"->"微讯息";case "notes"->"笔记本";case "trade"->"交易";case "tiles2048"->"2048";case "snake"->"贪吃蛇";case "civilization"->"文明总览";case "inbox"->"讯息";case "letters"->"信件";case "ae"->"AE终端";case "updates"->"更新";case "settings"->"设定";default->"收起提醒";};
+        String label=switch(app){case "cipher"->net.minecraft.network.chat.Component.translatable("hk3gtl.phone.cipher.title").getString();case "social"->"微讯息";case "notes"->"笔记本";case "trade"->"交易";case "tiles2048"->"2048";case "snake"->"贪吃蛇";case "civilization"->"文明总览";case "inbox"->"讯息";case "letters"->"信件";case "ae"->"AE终端";case "updates"->"更新";case "settings"->"设定";default->net.minecraft.network.chat.Component.translatable(Hk3PhoneConfig.DO_NOT_DISTURB.get()?"hk3gtl.phone.app.quiet.on":"hk3gtl.phone.app.quiet.off").getString();};
         g.drawCenteredString(Minecraft.getInstance().font,label,x+(int)(28*scale),y+(int)(65*scale),0xFFF9F5FF);
     }
     private static void round(GuiGraphics g,int x,int y,int w,int h,int color){

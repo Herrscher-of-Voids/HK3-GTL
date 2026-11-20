@@ -66718,9 +66718,6 @@
     }
   ],
   "superseded_ids": [
-    "bootstrap_voltage_machine_casing_civ",
-    "bootstrap_voltage_machine_casing_hdv",
-    "bootstrap_voltage_machine_casing_hrv",
     "hk3gtl_abyss_research_analysis_matrix",
     "hk3gtl_controller_i18",
     "hk3gtl_controller_i19",
@@ -67119,7 +67116,6 @@
     "industrial_honkai_boron_carbide_damaged_recovery",
     "industrial_honkai_carbon_damaged_recovery",
     "industrial_honkai_crystal_seed",
-    "industrial_honkai_detector_calibration_controller",
     "industrial_honkai_diamond_copper_damaged_recovery",
     "industrial_honkai_fuel_blending_controller",
     "industrial_honkai_fuel_rod_16x_pack",

@@ -5,7 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public final class Hk3PhoneConfig {
     public static final ForgeConfigSpec SPEC;
     public static final ForgeConfigSpec.ConfigValue<java.util.List<? extends String>> APP_ORDER;
-    public static final ForgeConfigSpec.BooleanValue RIGHT,SOUND,CHATTER;
+    public static final ForgeConfigSpec.BooleanValue RIGHT,SOUND,CHATTER,DO_NOT_DISTURB;
     public static final ForgeConfigSpec.IntValue MARGIN,TOP,PHONE_SIZE;
     public static final ForgeConfigSpec.DoubleValue SCALE,POSITION_X,POSITION_Y,GAZE_X,GAZE_Y,GAZE_SCALE;
     static {
@@ -17,6 +17,7 @@ public final class Hk3PhoneConfig {
         PHONE_SIZE=b.comment("手机机身占可用窗口的百分比，等比适配宽高。").defineInRange("phoneSize",72,60,86);
         SOUND=b.comment("显示一组新通知时播放轻提示音。").define("sound",true);
         CHATTER=b.comment("非关键闲话是否显示浮层；关闭仍保留收件箱记录。").define("chatter",true);
+        DO_NOT_DISTURB=b.comment("开启后静默所有手机通知，消息仍正常入箱。").define("doNotDisturb",false);
         POSITION_X=b.comment("拖动后的横向位置比例；-1兼容旧边距。").defineInRange("positionX",-1.0,-1.0,1.0);
         POSITION_Y=b.comment("拖动后的纵向位置比例；-1兼容旧高度。").defineInRange("positionY",-1.0,-1.0,1.0);
         APP_ORDER=b.comment("手机桌面应用顺序；拖动图标交换位置。").defineListAllowEmpty("appOrder",java.util.List.of("inbox","letters","ae","updates","settings","quiet"),v->v instanceof String);

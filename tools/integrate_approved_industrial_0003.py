@@ -136,7 +136,7 @@ def main():
         'hk3gtl_industrial_port_casing', 'industrial_liquid_honkai_fractionation_controller',
         'industrial_liquid_honkai_stabilization_tower_controller',
         'industrial_stabilization_medium_regeneration_tower_controller',
-        'industrial_honkai_fuel_blending_controller', 'industrial_honkai_detector_calibration_controller',
+        'industrial_honkai_fuel_blending_controller',
         'industrial_soulium_precursor_mixing_controller', 'industrial_nano_basic_unit_synthesizer_controller',
         'industrial_nanobot_assembly_array_controller', 'industrial_nano_programming_chamber_controller',
         'industrial_honkai_resistant_coating_array_controller', 'industrial_soulium_polymerization_controller',

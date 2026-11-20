@@ -70,7 +70,7 @@ public final class Hk3NexusTerminalOrders {
         else {
             text += "订单：" + order.id() + "\n目标：" + order.target().getDisplayName().getString()
                     + "\n数量：" + order.requested() + "\n剩余：" + order.remaining() + "\n计划字节：" + order.bytes()
-                    + "\n状态：" + order.state() + "\n" + (crafting.confirmed(id) ? "已确认。" : "尚未确认，不会扣料或执行。") + "\n";
+                    + "\n状态：" + order.state() + (order.dispatchNote().isEmpty() ? "" : "\n派单：" + order.dispatchNote()) + "\n" + (crafting.confirmed(id) ? "已确认。" : "尚未确认，不会扣料或执行。") + "\n";
             for (var missing : order.missing().entrySet()) {
                 text += "缺少：" + missing.getKey().getDisplayName().getString() + " × " + missing.getValue() + "\n";
                 if (text.length() > 7000) break;

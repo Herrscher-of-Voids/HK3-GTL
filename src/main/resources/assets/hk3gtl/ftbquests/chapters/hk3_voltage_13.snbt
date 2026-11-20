@@ -23,11 +23,14 @@
       "tasks": [
         {
           "id": "4B54C2D13D82DA40",
-          "type": "custom",
-          "title": "实际完成世界维系原型运行",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_world_maintenance"
-          ]
+          ],
+          "item": "hk3gtl:world_maintenance_specimen",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:world_maintenance_specimen",
@@ -51,11 +54,14 @@
       "tasks": [
         {
           "id": "4B596DD146B3BBAB",
-          "type": "custom",
-          "title": "实际完成奇观构件预制",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_prefabrication"
-          ]
+          ],
+          "item": "hk3gtl:wonder_prefabricated_component",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:wonder_prefabricated_component",
@@ -77,11 +83,14 @@
       "tasks": [
         {
           "id": "4B57DAE19ED3A9DD",
-          "type": "custom",
-          "title": "实际完成高维导能复合材料",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_composite_conducting"
-          ]
+          ],
+          "item": "hk3gtl:conducting_composite",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:conducting_composite",
@@ -102,11 +111,14 @@
       "tasks": [
         {
           "id": "4B525D9D4BC63CF4",
-          "type": "custom",
-          "title": "实际完成高维约束复合材料",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_composite_confining"
-          ]
+          ],
+          "item": "hk3gtl:confining_composite",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:confining_composite",
@@ -128,11 +140,14 @@
       "tasks": [
         {
           "id": "4B51AE64AB9066F1",
-          "type": "custom",
-          "title": "实际完成高维重构复合材料",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_composite_reconstructing"
-          ]
+          ],
+          "item": "hk3gtl:reconstructing_composite",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:reconstructing_composite",
@@ -154,11 +169,14 @@
       "tasks": [
         {
           "id": "4B57CDAAA5272BB3",
-          "type": "custom",
-          "title": "实际完成高维认知复合材料",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_composite_cognitive"
-          ]
+          ],
+          "item": "hk3gtl:cognitive_composite",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:cognitive_composite",
@@ -180,11 +198,14 @@
       "tasks": [
         {
           "id": "4B5AD609E3354A91",
-          "type": "custom",
-          "title": "实际完成能源调度导体制备",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_dispatch_conductor"
-          ]
+          ],
+          "item": "hk3gtl:polarized_electromagnetic_material",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:polarized_electromagnetic_material",
@@ -1340,11 +1361,14 @@
       "tasks": [
         {
           "id": "4B573554D6997260",
-          "type": "custom",
-          "title": "实际完成拆解WFV机械方块",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wfv_n14"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_iwv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_iwv",
@@ -1365,11 +1389,14 @@
       "tasks": [
         {
           "id": "4B57A52F9B381E2C",
-          "type": "custom",
-          "title": "实际完成构界梯度纤维材废料分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wfv_n15"
-          ]
+          ],
+          "item": "hk3gtl:worldforming_gradient_fiber_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:worldforming_gradient_fiber_recovered_fraction",
@@ -1391,11 +1418,14 @@
       "tasks": [
         {
           "id": "4B5E41BBC6DCA326",
-          "type": "custom",
-          "title": "实际完成重建实体增强纤维",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wfv_n16"
-          ]
+          ],
+          "item": "hk3gtl:worldforming_gradient_fiber_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:worldforming_gradient_fiber_stage_1",
@@ -1416,11 +1446,14 @@
       "tasks": [
         {
           "id": "4B584C6D92028B4F",
-          "type": "custom",
-          "title": "实际完成构界梯度纤维材尾料封存",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wfv_n17"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",

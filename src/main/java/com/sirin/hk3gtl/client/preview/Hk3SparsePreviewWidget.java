@@ -138,9 +138,9 @@ public final class Hk3SparsePreviewWidget extends WidgetGroup {
         }else data=Hk3SparsePreviewData.load(definition);
         BlockState[] states=data.layout().palette().stream().map(Hk3LargeArchitectureShapes::state).toArray(BlockState[]::new);
         var result=new Prepared(definition,data,states,Hk3W01PreviewWidget.prepareIndex(data.layout(),states));
-        com.mojang.logging.LogUtils.getLogger().info("自家预览准备：{}，完整{}格，全景烘焙{}格",definition.getId(),data.layout().cells().length,result.index().renderCells().length);
+        com.mojang.logging.LogUtils.getLogger().info("自家预览准备：{}，完整{}格，全景烘焙{}格",definition.getId(),data.layout().count(),result.index().renderCount());
         // CPU只保留最近一份且不超过64MiB；不缓存方块实体或GPU对象。
-        long bytes=8L*data.layout().cells().length+result.index().byteSize()
+        long bytes=data.layout().bytes()+result.index().byteSize()
                 +data.entities().values().stream().mapToLong(net.minecraft.nbt.CompoundTag::sizeInBytes).sum();
         if(bytes<=64L*1024*1024)cached=result;
         return result;

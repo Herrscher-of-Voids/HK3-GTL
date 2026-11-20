@@ -5,15 +5,15 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.povstalec.sgjourney.common.events.custom.StargateEvent;
+import net.povstalec.sgjourney.common.sgjourney.StargateInfo;
 import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,11 +22,9 @@ import net.povstalec.sgjourney.common.block_entities.dhd.AbstractDHDEntity;
 import net.povstalec.sgjourney.common.block_entities.stargate.ClassicStargateEntity;
 import net.povstalec.sgjourney.common.data.StargateNetwork;
 import net.povstalec.sgjourney.common.events.custom.ConnectionEvent;
-import net.povstalec.sgjourney.common.events.custom.StargateEvent;
 import net.povstalec.sgjourney.common.init.StatisticsInit;
 import net.povstalec.sgjourney.common.menu.AbstractDHDMenu;
 import net.povstalec.sgjourney.common.sgjourney.StargateConnection;
-import net.povstalec.sgjourney.common.sgjourney.StargateInfo;
 import net.povstalec.sgjourney.common.sgjourney.stargate.SGJourneyStargate;
 import net.povstalec.sgjourney.common.sgjourney.stargate.Stargate;
 
@@ -35,19 +33,16 @@ public final class Hk3StargateQuestEvents {
     private static final String TRIP = "hk3gtl_quest_stargate_trip";
     private static final ThreadLocal<Press> DHD_OPERATOR = new ThreadLocal<>();
     private static final Map<UUID, Dial> DIALS = new ConcurrentHashMap<>();
+
     private static final Map<UUID, Transit> TRANSITS = new ConcurrentHashMap<>();
+    private record Transit(Stargate from, Stargate to, int travels, int tick) {}
 
     private record Press(ServerPlayer player, AbstractDHDEntity dhd) {}
     private record Dial(UUID player, StargateConnection connection) {}
-    private record Gate(String identity, ResourceKey<Level> dimension, Vec3 position, double radius) {
-        static Gate of(MinecraftServer server, Stargate gate) {
-            var position = gate.getPosition(server);
-            String identity = gate.getDimension().location() + "|" + gate.get9ChevronAddress()
-                    + "|" + BlockPos.containing(position).asLong();
-            return new Gate(identity, gate.getDimension(), position, gate.getInnerRadius());
-        }
+    private static String gateIdentity(MinecraftServer server, Stargate gate) {
+        return gate.getDimension().location() + "|" + gate.get9ChevronAddress()
+                + "|" + BlockPos.containing(gate.getPosition(server)).asLong();
     }
-    private record Transit(Gate from, Gate to, int travels, int tick) {}
 
     private Hk3StargateQuestEvents() {}
 
@@ -90,13 +85,10 @@ public final class Hk3StargateQuestEvents {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void requested(StargateEvent.WormholeTravel event) {
-        if (!(event.getTraveler() instanceof ServerPlayer player) || player.isCreative() || player.isSpectator()
-                || event.getWormholeTravel() != StargateInfo.WormholeTravel.ENABLED) return;
-        var server = event.getServer();
-        var from = Gate.of(server, event.getStargate());
-        var to = Gate.of(server, event.getDestinationStargate());
-        if (from.identity().equals(to.identity())) return;
-        TRANSITS.put(player.getUUID(), new Transit(from, to, travels(player), server.getTickCount()));
+        if (event.getTraveler() instanceof ServerPlayer player && !player.isCreative() && !player.isSpectator()
+                && event.getWormholeTravel() == StargateInfo.WormholeTravel.ENABLED)
+            TRANSITS.put(player.getUUID(), new Transit(event.getStargate(), event.getDestinationStargate(),
+                    travels(player), event.getServer().getTickCount()));
     }
 
     @SubscribeEvent
@@ -115,42 +107,41 @@ public final class Hk3StargateQuestEvents {
             var entry = transits.next();
             var transit = entry.getValue();
             var player = server.getPlayerList().getPlayer(entry.getKey());
-            if (player == null || server.getTickCount() > transit.tick() + 1) {
-                transits.remove();
-                continue;
-            }
-            // 原生统计在传送完成后递增，取消请求与护盾阻挡不构成通行。
+            if (player == null || server.getTickCount() - transit.tick() > 100) { transits.remove(); continue; }
             if (travels(player) <= transit.travels()) continue;
-            transits.remove();
-            double radius = transit.to().radius() + 6;
-            if (player.isCreative() || player.isSpectator() || !player.isAlive()
-                    || !player.level().dimension().equals(transit.to().dimension())
-                    || player.position().distanceToSqr(transit.to().position()) > radius * radius) continue;
-            arrived(player, transit);
+            var destination = transit.to();
+            double radius = destination.getInnerRadius() + 6;
+            if (player.level().dimension().equals(destination.getDimension())
+                    && player.position().distanceToSqr(destination.getPosition(server)) <= radius * radius) {
+                transits.remove();
+                completed(player, transit.from(), destination);
+            }
         }
     }
 
-    private static void arrived(ServerPlayer player, Transit transit) {
+    public static void completed(ServerPlayer player, Stargate origin, Stargate destination) {
+        TRANSITS.remove(player.getUUID());
+        if (player.isCreative() || player.isSpectator() || !player.isAlive()) return;
+        String from = gateIdentity(player.server, origin), to = gateIdentity(player.server, destination);
+        if (from.equals(to)) return;
         var data = player.getPersistentData();
         var persisted = data.getCompound(Player.PERSISTED_NBT_TAG);
         var trip = persisted.getCompound(TRIP);
-        if (!trip.getString("Current").equals(transit.from().identity()))
-            trip.putString("Origin", transit.from().identity());
-        if (trip.getString("Origin").equals(transit.to().identity()))
+        if (!trip.getString("Current").equals(from))
+            trip.putString("Origin", from);
+        if (trip.getString("Origin").equals(to))
             Hk3QuestEvents.recordPlayer(player.server, player.getUUID(), "stargate-round-trip");
-        trip.putString("Current", transit.to().identity());
+        trip.putString("Current", to);
         persisted.put(TRIP, trip);
         data.put(Player.PERSISTED_NBT_TAG, persisted);
     }
 
-    private static int travels(ServerPlayer player) {
+    public static int travels(ServerPlayer player) {
         return player.getStats().getValue(Stats.CUSTOM.get(StatisticsInit.TIMES_USED_WORMHOLE.get()));
     }
 
     @SubscribeEvent
-    public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
-        TRANSITS.remove(event.getEntity().getUUID());
-    }
+    public static void logout(PlayerEvent.PlayerLoggedOutEvent event) { TRANSITS.remove(event.getEntity().getUUID()); }
 
     @SubscribeEvent
     public static void stopped(ServerStoppedEvent event) {

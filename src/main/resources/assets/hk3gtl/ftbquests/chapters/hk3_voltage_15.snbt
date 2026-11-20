@@ -784,11 +784,14 @@
       "tasks": [
         {
           "id": "4B58EFBCC94FC75A",
-          "type": "custom",
-          "title": "实际完成拆解CIV机械方块",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_civ_n16"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_wsv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_wsv",
@@ -809,11 +812,14 @@
       "tasks": [
         {
           "id": "4B5A0EBF97877405",
-          "type": "custom",
-          "title": "实际完成文明四系统统合母材废料分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_civ_n17"
-          ]
+          ],
+          "item": "hk3gtl:civilization_quadrisystem_matrix_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:civilization_quadrisystem_matrix_recovered_fraction",
@@ -835,11 +841,14 @@
       "tasks": [
         {
           "id": "4B5F5A25AFD47B07",
-          "type": "custom",
-          "title": "实际完成重建四种独立系统模块",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_civ_n18"
-          ]
+          ],
+          "item": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:civilization_quadrisystem_matrix_stage_1",
@@ -860,11 +869,14 @@
       "tasks": [
         {
           "id": "4B5A79F8C06F4246",
-          "type": "custom",
-          "title": "实际完成文明四系统统合母材尾料封存",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_civ_n19"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -964,11 +976,14 @@
       "tasks": [
         {
           "id": "4B51496FE452A8F3",
-          "type": "custom",
-          "title": "实际完成炎之律者·劫焰·恒星熔铸炉主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k08"
-          ]
+          ],
+          "item": "hk3gtl:w08_stellar_casting_furnace",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:w08_stellar_casting_furnace",
@@ -990,11 +1005,14 @@
       "tasks": [
         {
           "id": "4B53BB6F3E31259C",
-          "type": "custom",
-          "title": "实际完成岩之律者·坠星·引力奇点铸造井主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k10"
-          ]
+          ],
+          "item": "hk3gtl:w10_gravitational_singularity_forge",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:w10_gravitational_singularity_forge",
@@ -1016,11 +1034,14 @@
       "tasks": [
         {
           "id": "4B5F3A77F762206C",
-          "type": "custom",
-          "title": "实际完成约束之律者·戒律·全域能量约束壁主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k12"
-          ]
+          ],
+          "item": "hk3gtl:w12_global_energy_constraint_wall",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:w12_global_energy_constraint_wall",
@@ -1041,11 +1062,14 @@
       "tasks": [
         {
           "id": "4B54834AF0F0B8EA",
-          "type": "custom",
-          "title": "实际完成矛盾报告复核",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_contradiction_review"
-          ]
+          ],
+          "item": "hk3gtl:analyzed_honkai_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:analyzed_honkai_sample",

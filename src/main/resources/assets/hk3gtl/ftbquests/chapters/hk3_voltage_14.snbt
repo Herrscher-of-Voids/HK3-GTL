@@ -24,11 +24,14 @@
       "tasks": [
         {
           "id": "4B596BDD2C7F5AC9",
-          "type": "custom",
-          "title": "实际完成有限步数结果验算",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_bounded_result_verification"
-          ]
+          ],
+          "item": "hk3gtl:honkai_reference_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:honkai_reference_sample",
@@ -50,11 +53,14 @@
       "tasks": [
         {
           "id": "4B521F4F7FD7240B",
-          "type": "custom",
-          "title": "实际完成矛盾来源采样",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_contradictory_source_sampling"
-          ]
+          ],
+          "item": "hk3gtl:analyzed_honkai_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:analyzed_honkai_sample",
@@ -75,11 +81,14 @@
       "tasks": [
         {
           "id": "4B5C8F0E53DD06F0",
-          "type": "custom",
-          "title": "实际完成矛盾样本独立复验",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_contradiction_sample_retest"
-          ]
+          ],
+          "item": "hk3gtl:honkai_reference_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:honkai_reference_sample",
@@ -101,11 +110,14 @@
       "tasks": [
         {
           "id": "4B5AE31A870EB127",
-          "type": "custom",
-          "title": "实际完成跨机调度顺序验证",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_cross_machine_order_verification"
-          ]
+          ],
+          "item": "hk3gtl:honkai_reference_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:honkai_reference_sample",
@@ -859,11 +871,14 @@
       "tasks": [
         {
           "id": "4B523BD2B5A96942",
-          "type": "custom",
-          "title": "实际完成拆解WSV机械方块",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wsv_n14"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_wfv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_wfv",
@@ -884,11 +899,14 @@
       "tasks": [
         {
           "id": "4B5812F34C1855F1",
-          "type": "custom",
-          "title": "实际完成稳界约束壳材废料分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wsv_n15"
-          ]
+          ],
+          "item": "hk3gtl:worldstabilizing_confinement_shell_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:worldstabilizing_confinement_shell_recovered_fraction",
@@ -910,11 +928,14 @@
       "tasks": [
         {
           "id": "4B5F52EB1B749E55",
-          "type": "custom",
-          "title": "实际完成重建约束封隔前体",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wsv_n16"
-          ]
+          ],
+          "item": "hk3gtl:worldstabilizing_confinement_shell_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:worldstabilizing_confinement_shell_stage_1",
@@ -935,11 +956,14 @@
       "tasks": [
         {
           "id": "4B52ECE391E99CB5",
-          "type": "custom",
-          "title": "实际完成稳界约束壳材尾料封存",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wsv_n17"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -1065,11 +1089,14 @@
       "tasks": [
         {
           "id": "4B5206F02623D861",
-          "type": "custom",
-          "title": "实际完成理之律者·万象·自律工业矩阵主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k02"
-          ]
+          ],
+          "item": "hk3gtl:omnia_autonomous_industrial_matrix",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:omnia_autonomous_industrial_matrix",
@@ -1094,11 +1121,14 @@
       "tasks": [
         {
           "id": "4B570D64AB9F178B",
-          "type": "custom",
-          "title": "实际完成空之律者·穹界·虚数锚定环主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k03"
-          ]
+          ],
+          "item": "hk3gtl:void_anchor_ring",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:void_anchor_ring",
@@ -1120,11 +1150,14 @@
       "tasks": [
         {
           "id": "4B598979266BAAEB",
-          "type": "custom",
-          "title": "实际完成雷之律者·鸣霆·超导电磁天枢主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k04"
-          ]
+          ],
+          "item": "hk3gtl:w04_thunder_superconducting_axis",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:w04_thunder_superconducting_axis",
@@ -1146,11 +1179,14 @@
       "tasks": [
         {
           "id": "4B51A996064A48A1",
-          "type": "custom",
-          "title": "实际完成风之律者·长风·理想流体环流阵主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k05"
-          ]
+          ],
+          "item": "hk3gtl:w05_ideal_fluid_circulation_array",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:w05_ideal_fluid_circulation_array",
@@ -1172,11 +1208,14 @@
       "tasks": [
         {
           "id": "4B5E1EFB87AAB664",
-          "type": "custom",
-          "title": "实际完成冰之律者·永霜·极低温凝态工厂主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k06"
-          ]
+          ],
+          "item": "hk3gtl:w06_cryogenic_condensed_factory",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:w06_cryogenic_condensed_factory",
@@ -1197,11 +1236,14 @@
       "tasks": [
         {
           "id": "4B5997D4FE889CDB",
-          "type": "custom",
-          "title": "实际完成恒续燃料约束工装总装",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_energy_t04"
-          ]
+          ],
+          "item": "hk3gtl:continuity_fuel_confinement_fixture",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:continuity_fuel_confinement_fixture",
@@ -1653,11 +1695,14 @@
       "tasks": [
         {
           "id": "4B59BCB21665FF23",
-          "type": "custom",
-          "title": "实际完成四阶研究所接口联调",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_lab_four_interface_analysis"
-          ]
+          ],
+          "item": "hk3gtl:analyzed_honkai_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:analyzed_honkai_sample",

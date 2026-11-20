@@ -19,11 +19,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.content.Content;
 import com.sirin.hk3gtl.common.capability.Hk3DualEnergyCosts;
-import com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate;
-import com.sirin.hk3gtl.common.research.Hk3ResearchManager;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.level.Level;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper;
@@ -53,6 +49,35 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
 
     private int diagTickCounter = 0;
     private boolean commitFailed;
+    private CandidateScan candidateScan;
+    private Set<GTRecipe> readyCandidates = Set.of();
+    private static final int CANDIDATES_PER_PASS = 128;
+    private static final long LOOKUP_BUDGET_NANOS = 500_000L;
+    private static final java.util.concurrent.atomic.AtomicLong LOOKUP_REVISION = new java.util.concurrent.atomic.AtomicLong();
+
+    private static final class CandidateScan {
+        final List<GTRecipeType> types;
+        final Set<GTRecipe> recipes = new LinkedHashSet<>();
+        final long revision = LOOKUP_REVISION.get();
+        long tick = Long.MIN_VALUE;
+        int typeIndex;
+        Iterator<GTRecipe> iterator = Collections.emptyIterator();
+
+        CandidateScan(List<GTRecipeType> types) { this.types = types; }
+    }
+
+    public static void invalidateLookups() { LOOKUP_REVISION.incrementAndGet(); }
+    protected final boolean pendingLookup() { return candidateScan != null; }
+
+    @Override public void resetRecipeLogic() {
+        candidateScan = null;
+        super.resetRecipeLogic();
+    }
+
+    @Override public void inValid() {
+        candidateScan = null;
+        super.inValid();
+    }
 
     private static final String MERGED_PLAN_KEY = "hk3gtlMergedPlan";
     public static final String PARALLEL_COUNT_KEY = "hk3gtlParallelCount";
@@ -82,11 +107,15 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
         return DEFAULT_MAX_MERGED_RECIPES;
     }
 
+    public boolean hasUnlimitedParallelism() {
+        return getMaxParallel() == Integer.MAX_VALUE && getMaxMergedRecipes() == DEFAULT_MAX_MERGED_RECIPES;
+    }
+
     // ── 主流程 ────────────────────────────────────────────────────────────
 
     @Override
     public void findAndHandleRecipe() {
-        if (dispatchProbabilityOrder()) return;
+        if (dispatchProbabilityOrder()) { candidateScan = null; return; }
         lastFailedMatches = null;
 
         lastRecipe = null;
@@ -94,6 +123,7 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
         commitFailed = false;
 
         GTRecipe merged = getRecipe();
+        if (pendingLookup()) { recipeDirty = true; return; }
         if (merged != null) {
             if (diagTickCounter % 200 == 0) {
                 LOGGER.info("[HK3GTL-diag] findAndHandleRecipe 成功: type={} id={} dur={} eut={}",
@@ -175,15 +205,18 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
             if (diagTickCounter % 200 == 0) {
                 LOGGER.warn("[HK3GTL-diag] checkBeforeWorking() 返回 false，status={}", getStatus());
             }
+            candidateScan = null;
             return null;
         }
 
-        Set<GTRecipe> recipeSet = lookupRecipeSet();
+        if (!advanceCandidateScan()) return null;
+        Set<GTRecipe> recipeSet;
+        try { recipeSet = lookupRecipeSet(); }
+        finally { readyCandidates = Set.of(); }
         if (recipeSet == null || recipeSet.isEmpty()) {
             if (diagTickCounter % 200 == 0) {
                 LOGGER.warn("[HK3GTL-diag] lookupRecipeSet() 返回空，机器类型={}",
                         getMachine().getDefinition().getId());
-                deepDiagnoseEmptyLookup();
             }
             return null;
         }
@@ -215,63 +248,40 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
      *
      * @return 去除研究锁定后的可执行配方集合
      */
-    protected Set<GTRecipe> lookupRecipeSet() {
-        MetaMachine machine = getMachine();
+    protected Set<GTRecipe> lookupRecipeSet() { return readyCandidates; }
 
-        // 多配方类型路径
-        if (machine instanceof IMultiTypeRecipeMachine multi) {
-            List<GTRecipeType> types = multi.getExtendRecipeTypes();
-            if (types == null || types.isEmpty()) {
-                return legacySingleTypeLookup();
-            }
-
-            Set<GTRecipe> all = new LinkedHashSet<>();
-            int max = getMaxMergedRecipes();
-            outer:
-            for (GTRecipeType type : types) {
-                if (type == null) continue;
-                Iterator<GTRecipe> it = type.getLookup().getRecipeIterator(
-                        this.machine,
-                        r -> true
-                );
-                if (it == null) continue;
-                while (it.hasNext()) {
-                    if (all.size() >= max) break outer;
-                    GTRecipe recipe = it.next();
-                    if (recipe != null && !isResearchBlocked(recipe)) {
-                        all.add(recipe);
-                    }
+    private boolean advanceCandidateScan() {
+        MetaMachine holder = getMachine();
+        var extended = holder instanceof IMultiTypeRecipeMachine multi ? multi.getExtendRecipeTypes() : List.<GTRecipeType>of();
+        List<GTRecipeType> types = extended != null && !extended.isEmpty() ? extended
+                : machine.getRecipeType() == null ? List.of() : List.of(machine.getRecipeType());
+        if (candidateScan == null || candidateScan.revision != LOOKUP_REVISION.get() || !candidateScan.types.equals(types))
+            candidateScan = new CandidateScan(new ArrayList<>(types));
+        var scan = candidateScan;
+        long tick = holder.getLevel().getGameTime();
+        if (scan.tick == tick) return false;
+        scan.tick = tick;
+        long deadline = System.nanoTime() + LOOKUP_BUDGET_NANOS;
+        int max = getMaxMergedRecipes(), visited = 0;
+        while (scan.recipes.size() < max) {
+            if (visited > 0 && (visited >= CANDIDATES_PER_PASS || System.nanoTime() >= deadline)) return false;
+            if (!scan.iterator.hasNext()) {
+                if (scan.typeIndex == scan.types.size()) break;
+                var type = scan.types.get(scan.typeIndex++);
+                if (type != null) {
+                    var iterator = type.getLookup().getRecipeIterator(machine, recipe -> true);
+                    if (iterator != null) scan.iterator = iterator;
                 }
+                visited++;
+                continue;
             }
-            return all;
+            var recipe = scan.iterator.next();
+            if (recipe != null && !isResearchBlocked(recipe)) scan.recipes.add(recipe);
+            visited++;
         }
-
-        // 单配方类型路径（回退兼容）
-        return legacySingleTypeLookup();
-    }
-
-    /**
-     * 单配方类型候选收集：使用无匹配过滤的迭代器（r -> true）。
-     * <p>不能用原版 {@code searchRecipe()}，它按普通库存匹配过滤会漏掉 ME 样板配方；
-     * 由后续逐配方 {@link RecipeRunnerHelper} 处理来完成真正的输入匹配与消费。</p>
-     */
-    private Set<GTRecipe> legacySingleTypeLookup() {
-        GTRecipeType type = machine.getRecipeType();
-        if (type == null) return Collections.emptySet();
-        Iterator<GTRecipe> it = type.getLookup().getRecipeIterator(this.machine, r -> true);
-        if (it == null) return Collections.emptySet();
-
-        Set<GTRecipe> set = new LinkedHashSet<>();
-        int max = getMaxMergedRecipes();
-        int count = 0;
-        while (it.hasNext() && count < max) {
-            GTRecipe recipe = it.next();
-            if (recipe != null && !isResearchBlocked(recipe)) {
-                set.add(recipe);
-                count++;
-            }
-        }
-        return set;
+        candidateScan = null;
+        readyCandidates = scan.recipes;
+        return true;
     }
 
     // ── 阶段 2：并行量分配 ────────────────────────────────────────────────
@@ -409,69 +419,13 @@ public class Hk3MultiRecipeLogic extends Hk3RecipeLogic {
 
     // ── 深度诊断 ──────────────────────────────────────────────────────────
 
-    /**
-     * 配方搜索为空时的深度诊断：绕过库存索引树，从 RecipeManager 直接取该类型全部配方，
-     * 逐个输出 matchRecipe / matchTickRecipe 的具体拒绝原因。
-     *
-     * <p>用于区分三类根因：</p>
-     * <ul>
-     *   <li>hasProxies=false → 仓室能力代理没挂上（结构成型问题）</li>
-     *   <li>matchRecipe 失败 → 输入不满足（最常见：编程电路未设置/物料不足）</li>
-     *   <li>matchTickRecipe 失败 → 每 tick 输入不满足（最常见：能源仓供电不足）</li>
-     * </ul>
-     *
-     * <p>仅在空集 + 200 tick 采样命中时执行，正式发布前应随其他诊断日志一并移除。</p>
-     */
-    private void deepDiagnoseEmptyLookup() {
-        Level level = getMachine().getLevel();
-        if (level == null || level.isClientSide()) return;
-
-        GTRecipeType type = machine.getRecipeType();
-        LOGGER.warn("[HK3GTL-diag][deep] type={} hasProxies={}", type.registryName, machine.hasProxies());
-
-        // IN 侧能力代理清单：确认物品总线/能源仓是否真的挂进了 capabilitiesProxy
-        var inRow = machine.getCapabilitiesProxy().row(IO.IN);
-        if (inRow.isEmpty()) {
-            LOGGER.warn("[HK3GTL-diag][deep] IN 侧没有任何能力代理（仓室未挂载）");
-        } else {
-            inRow.forEach((cap, handlers) -> LOGGER.warn("[HK3GTL-diag][deep] IN 能力 {}: {} 个 handler",
-                    cap.name, handlers.size()));
-        }
-
-        List<GTRecipe> all = getRecipeManager().getAllRecipesFor(type);
-        LOGGER.warn("[HK3GTL-diag][deep] 数据包内该类型配方总数={}", all.size());
-        int shown = 0;
-        for (GTRecipe r : all) {
-            if (shown++ >= 5) break;
-            var m = r.matchRecipe(this.machine);
-            var itemCap = com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability.CAP;
-            for (Content required : r.inputs.getOrDefault(itemCap, List.of())) {
-                var ingredient = (net.minecraft.world.item.crafting.Ingredient) required.content;
-                LOGGER.warn("[HK3-INPUT] recipe={} ingredient={} chance={}", r.id,
-                        ingredient.toJson(), required.chance);
-                for (var handler : inRow.getOrDefault(itemCap, List.of())) {
-                    var leftover = handler.handleRecipe(IO.IN, r, List.of(ingredient), required.slotName, true);
-                    LOGGER.warn("[HK3-INPUT] handler={} contents={} accepts={}", handler.getClass().getName(),
-                            handler.getContents(), leftover == null || leftover.isEmpty());
-                }
-            }
-            boolean coreMatch = RecipeRunnerHelper.matchRecipe(this.machine, r);
-            var t = r.matchTickRecipe(this.machine);
-            LOGGER.warn("[HK3GTL-diag][deep] 配方 {}: nativeMatch={}({}) coreMatch={} matchTick={}({})",
-                    r.id,
-                    m.isSuccess(), m.isSuccess() ? "-" : describeFailureReason(m),
-                    coreMatch,
-                    t.isSuccess(), t.isSuccess() ? "-" : describeFailureReason(t));
-        }
-    }
-
     // ── 研究门控 ──────────────────────────────────────────────────────────
 
     /**
      * 判断配方是否被研究门控拦截。
      * 使用机器持久化 owner 判断研究权限；无法确认权威账户时 fail-closed。
      */
-    private boolean isResearchBlocked(GTRecipe recipe) {
+    protected boolean isResearchBlocked(GTRecipe recipe) {
         try {
             return com.sirin.hk3gtl.common.research.Hk3RecipeAccess.blocks(recipe, getMachine());
         } catch (Exception e) {

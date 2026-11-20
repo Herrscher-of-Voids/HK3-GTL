@@ -7,6 +7,7 @@ import com.gregtechceu.gtceu.api.pattern.MultiblockWorldSavedData;
 import com.sirin.hk3gtl.common.multiblock.build.Hk3IntegrityHost;
 import com.sirin.hk3gtl.common.multiblock.build.Hk3InterfaceChunks;
 import com.sirin.hk3gtl.common.multiblock.build.Hk3UniversalTerminalBuilder;
+import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.state.BlockState;
@@ -31,8 +32,10 @@ public final class Hk3MultiblockLoading {
     private static final ConcurrentLinkedQueue<MultiblockControllerMachine> REQUESTS=new ConcurrentLinkedQueue<>();
     private static final Set<MultiblockState> QUEUED_STATES=ConcurrentHashMap.newKeySet();
     private static final ConcurrentLinkedQueue<MultiblockState> STATES=new ConcurrentLinkedQueue<>();
-    private static final Map<MultiblockControllerMachine,Hk3PatternLoading> CHECKS=new LinkedHashMap<>();
-    private static final Map<MultiblockControllerMachine,Hk3InterfaceChunks> FORMED=new IdentityHashMap<>();
+    private static final LinkedHashMap<MultiblockControllerMachine,Hk3PatternLoading> CHECKS=new LinkedHashMap<>();
+    private record Formation(ServerLevel level,Hk3InterfaceChunks tickets) {}
+    private static final Map<MultiblockControllerMachine,Formation> FORMED=new IdentityHashMap<>();
+    private static final Map<ServerLevel,Long2ObjectOpenHashMap<MultiblockControllerMachine>> FORMED_POSITIONS=new IdentityHashMap<>();
     private Hk3MultiblockLoading(){}
 
     public static boolean managed(MultiblockControllerMachine controller){return !(controller instanceof Hk3IntegrityHost);}
@@ -59,7 +62,13 @@ public final class Hk3MultiblockLoading {
         controller.onStructureInvalid();queue(controller);
     }
     public static void invalidated(MultiblockControllerMachine controller){
-        var retained=FORMED.remove(controller);if(retained!=null)retained.close();
+        var formed=FORMED.remove(controller);
+        if(formed!=null){
+            formed.tickets().close();
+            var positions=FORMED_POSITIONS.get(formed.level());
+            positions.remove(controller.getPos().asLong());
+            if(positions.isEmpty())FORMED_POSITIONS.remove(formed.level());
+        }
         Hk3ActiveShells.remove(controller);
         var check=CHECKS.get(controller);
         if(check!=null&&!check.running()){CHECKS.remove(controller);check.close();}
@@ -75,36 +84,49 @@ public final class Hk3MultiblockLoading {
                 &&!(check.running()&&check.controller.getPos().equals(pos)&&old.is(state.getBlock())))
             check.changed(pos,state);
         if(!old.is(state.getBlock())){
-            for(var controller:new ArrayList<>(FORMED.keySet()))
-                if(controller.getLevel()==level&&controller.getPos().equals(pos))unloaded(controller);
+            var positions=FORMED_POSITIONS.get(level);
+            if(positions!=null){
+                var controller=positions.get(pos.asLong());
+                if(controller!=null)unloaded(controller);
+            }
         }
     }
     @SubscribeEvent public static void tick(TickEvent.ServerTickEvent event){
         if(event.phase!=TickEvent.Phase.END)return;
+        long admissionDeadline=System.nanoTime()+500_000L;
         MultiblockState state;
-        while((state=STATES.poll())!=null){
+        while(System.nanoTime()<admissionDeadline&&(state=STATES.poll())!=null){
             QUEUED_STATES.remove(state);
             if(state.getController() instanceof MultiblockControllerMachine controller)queue(controller);
         }
+        int snapshotChecks=(int)CHECKS.values().stream().filter(Hk3PatternLoading::keepsSnapshots).count();
         MultiblockControllerMachine requested;
-        while((requested=REQUESTS.poll())!=null){
-            QUEUED.remove(requested);
+        for(int scanned=0;scanned<32 && CHECKS.size()<32 && System.nanoTime()<admissionDeadline
+                && (requested=REQUESTS.poll())!=null;scanned++){
             if(requested.isInValid()||Hk3UniversalTerminalBuilder.isBuilding(requested)||CHECKS.containsKey(requested)
-                    ||requested.isFormed()&&!requested.getMultiblockState().hasError())continue;
+                    ||requested.isFormed()&&!requested.getMultiblockState().hasError()){
+                QUEUED.remove(requested);
+                continue;
+            }
+            boolean snapshots=Hk3PatternLoading.needsSnapshots(requested);
+            if(snapshots && snapshotChecks>=4){REQUESTS.add(requested);continue;}
+            QUEUED.remove(requested);
             if(requested.isFormed())requested.onStructureInvalid();
             CHECKS.put(requested,new Hk3PatternLoading(requested));
+            if(snapshots)snapshotChecks++;
         }
         long deadline=System.nanoTime()+2_000_000L;
-        for(var check:new ArrayList<>(CHECKS.values())){
-            if(System.nanoTime()>=deadline)break;
+        for(int remaining=CHECKS.size();remaining>0&&!CHECKS.isEmpty()&&System.nanoTime()<deadline;remaining--){
+            var check=CHECKS.values().iterator().next();
             var controller=check.controller;
             if(!check.valid()||Hk3UniversalTerminalBuilder.isBuilding(controller)){unloaded(controller);continue;}
-            if(!check.capture(deadline))continue;
-            int result=check.check(deadline);
-            if(result==0){CHECKS.remove(controller);CHECKS.put(controller,check);continue;}
-            CHECKS.remove(controller);
+            int result=check.capture(deadline)?check.check(deadline):0;
+            if(!CHECKS.remove(controller,check))continue;
+            if(result==0){CHECKS.put(controller,check);continue;}
             if(result>0){
-                FORMED.put(controller,check.retainUsed());
+                FORMED.put(controller,new Formation(check.level,check.retainUsed()));
+                FORMED_POSITIONS.computeIfAbsent(check.level,ignored->new Long2ObjectOpenHashMap<>())
+                        .put(controller.getPos().asLong(),controller);
                 var data=MultiblockWorldSavedData.getOrCreate(check.level);
                 data.addMapping(controller.getMultiblockState());data.removeAsyncLogic(controller);
             }else{
@@ -120,11 +142,12 @@ public final class Hk3MultiblockLoading {
     @SubscribeEvent public static void levelUnload(LevelEvent.Unload event){
         if(!(event.getLevel() instanceof ServerLevel level))return;
         for(var controller:new ArrayList<>(CHECKS.keySet()))if(controller.getLevel()==level)unloaded(controller);
-        for(var controller:new ArrayList<>(FORMED.keySet()))if(controller.getLevel()==level)unloaded(controller);
+        var positions=FORMED_POSITIONS.get(level);
+        if(positions!=null)for(var controller:new ArrayList<>(positions.values()))unloaded(controller);
     }
     @SubscribeEvent public static void stopped(ServerStoppedEvent event){
         CHECKS.values().forEach(Hk3PatternLoading::close);CHECKS.clear();
-        FORMED.values().forEach(Hk3InterfaceChunks::close);FORMED.clear();QUEUED.clear();REQUESTS.clear();
+        FORMED.values().forEach(formation->formation.tickets().close());FORMED.clear();FORMED_POSITIONS.clear();QUEUED.clear();REQUESTS.clear();
         QUEUED_STATES.clear();STATES.clear();
     }
 }

@@ -92,6 +92,7 @@ public final class Hk3WorldFarSurfaceService {
     private static final Map<UUID,Watch> WATCHES=new LinkedHashMap<>();
     private static final LinkedHashMap<Key,Cached> CACHE=new LinkedHashMap<>(16,.75f,true);
     private static final Map<Key,Read> READING=new HashMap<>();
+    private static final Map<Key,Hk3WorldFarSurface.Snapshot> COPYING=new LinkedHashMap<>();
     // 取消派生future不会终止原版磁盘读取；退休任务完成前继续占用并发名额。
     private static final List<CompletableFuture<Optional<Hk3WorldFarSurface>>> DRAINING=new ArrayList<>();
     private static int turn,cacheBytes;
@@ -114,6 +115,7 @@ public final class Hk3WorldFarSurfaceService {
             if(!entry.getKey().dimension.equals(level.dimension()))return false;
             cacheBytes-=entry.getValue().bytes();return true;
         });
+        COPYING.keySet().removeIf(key->key.dimension.equals(level.dimension()));
         var iterator=READING.entrySet().iterator();
         while(iterator.hasNext()){
             var entry=iterator.next();
@@ -121,14 +123,22 @@ public final class Hk3WorldFarSurfaceService {
         }
     }
     public static void clear(){
-        WATCHES.clear();CACHE.clear();READING.values().forEach(read->DRAINING.add(read.future));READING.clear();turn=cacheBytes=0;version=0;failureLogged=false;
+        WATCHES.clear();CACHE.clear();COPYING.clear();READING.values().forEach(read->DRAINING.add(read.future));READING.clear();turn=cacheBytes=0;version=0;failureLogged=false;
     }
     public static void tick(MinecraftServer server){
         long deadline=System.nanoTime()+BUDGET_NANOS;
         long tick=server.getTickCount();
         finishReads(tick);
         WATCHES.entrySet().removeIf(entry->{var player=server.getPlayerList().getPlayer(entry.getKey());return player==null||player.serverLevel()!=entry.getValue().level;});
-        if(WATCHES.isEmpty())return;
+        if(WATCHES.isEmpty()){COPYING.clear();return;}
+        for(var iterator=COPYING.entrySet().iterator();iterator.hasNext()&&System.nanoTime()<deadline;){
+            var entry=iterator.next();
+            var snapshot=entry.getValue();
+            if(!snapshot.copyUntil(deadline,8))continue;
+            READING.put(entry.getKey(),new Read(CompletableFuture.supplyAsync(
+                    ()->Optional.of(snapshot.get()),Util.backgroundExecutor()),200));
+            iterator.remove();
+        }
         var watches=new ArrayList<>(WATCHES.entrySet());int entriesLeft=MAX_ENTRIES,checksLeft=MAX_CHECKS;
         int bytesLeft=Hk3WorldFarSurfacePacket.MAX_PACKET_BYTES;
         for(int n=0;n<watches.size()&&entriesLeft>0&&checksLeft>0&&System.nanoTime()<deadline;n++){
@@ -144,7 +154,7 @@ public final class Hk3WorldFarSurfaceService {
                 if(cached!=null&&cached.expires>tick){
                     offer(watch,key.chunk,cached);budget-=append(watch,updates,budget);iterator.remove();
                 }
-                else if(!READING.containsKey(key))iterator.remove();
+                else if(!READING.containsKey(key)&&!COPYING.containsKey(key))iterator.remove();
             }
             while(watch.sending==null&&updates.size()<entriesLeft&&checksLeft-->0&&watch.pending.size()<MAX_IO&&System.nanoTime()<deadline){
                 Long chunk=watch.next(tick);if(chunk==null)break;
@@ -153,11 +163,11 @@ public final class Hk3WorldFarSurfaceService {
                 if(cached!=null&&cached.expires>tick){
                     offer(watch,chunk,cached);budget-=append(watch,updates,budget);watch.candidate=null;continue;
                 }
-                if(!READING.containsKey(key)){
-                    if(READING.size()+DRAINING.size()>=MAX_IO)break;
+                if(!READING.containsKey(key)&&!COPYING.containsKey(key)){
+                    if(READING.size()+DRAINING.size()+COPYING.size()>=MAX_IO)break;
                     var loaded=watch.level.getChunkSource().getChunkNow(ChunkPos.getX(chunk),ChunkPos.getZ(chunk));
                     if(loaded!=null){
-                        READING.put(key,new Read(Hk3WorldFarSurface.captureAsync(loaded).thenApply(Optional::of),200));
+                        COPYING.put(key,new Hk3WorldFarSurface.Snapshot(loaded));
                     }else{
                         int min=watch.level.getMinBuildHeight(),height=watch.level.getHeight();
                         var storage=(Hk3WorldFarChunkMapAccess)(Object)watch.level.getChunkSource().chunkMap;

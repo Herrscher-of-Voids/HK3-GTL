@@ -1027,11 +1027,14 @@
       "tasks": [
         {
           "id": "4B5F3AC4573B9229",
-          "type": "custom",
-          "title": "实际完成QSV壳体检修拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qsv_m16"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_hdv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_hdv",
@@ -1052,11 +1055,14 @@
       "tasks": [
         {
           "id": "4B53AC758D704792",
-          "type": "custom",
-          "title": "实际完成QSV分类废料分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qsv_m17"
-          ]
+          ],
+          "item": "hk3gtl:superposed_laminate_matrix_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:superposed_laminate_matrix_recovered_fraction",
@@ -1081,11 +1087,14 @@
       "tasks": [
         {
           "id": "4B5F3AA9FBF27593",
-          "type": "custom",
-          "title": "实际完成QSV回收碎层补料重建",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qsv_m18"
-          ]
+          ],
+          "item": "hk3gtl:superposed_laminate_matrix_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:superposed_laminate_matrix_stage_1",
@@ -1107,11 +1116,14 @@
       "tasks": [
         {
           "id": "4B5DF5A0EFEE29F5",
-          "type": "custom",
-          "title": "实际完成剥离导电边框修复",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qsv_m19"
-          ]
+          ],
+          "item": "hk3gtl:lamination_busbar_carrier",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:lamination_busbar_carrier",
@@ -1159,11 +1171,14 @@
       "tasks": [
         {
           "id": "4B5AD6F9A5AD692A",
-          "type": "custom",
-          "title": "实际完成处理旧QSV拒收批",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qsv_m21"
-          ]
+          ],
+          "item": "hk3gtl:superposed_laminate_matrix_classified_scrap",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:superposed_laminate_matrix_classified_scrap",
@@ -1184,11 +1199,14 @@
       "tasks": [
         {
           "id": "4B586904E2E38E10",
-          "type": "custom",
-          "title": "实际完成QSV压合固化一体加工",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qsv_m22"
-          ]
+          ],
+          "item": "hk3gtl:superposed_laminate_matrix_billet",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:superposed_laminate_matrix_billet",
@@ -1209,11 +1227,14 @@
       "tasks": [
         {
           "id": "4B525EC6D912DB76",
-          "type": "custom",
-          "title": "实际完成QSV尾料惰化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qsv_m23"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -2170,11 +2191,14 @@
       "tasks": [
         {
           "id": "4B59A313473024CD",
-          "type": "custom",
-          "title": "实际完成超临界燃料承压工装总装",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_energy_t02"
-          ]
+          ],
+          "item": "hk3gtl:supercritical_fuel_pressure_fixture",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:supercritical_fuel_pressure_fixture",

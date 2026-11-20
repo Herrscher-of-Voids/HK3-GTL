@@ -124,7 +124,7 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
         button(122, "ALL", () -> changeLayer(-1));
         button(140, "+", () -> changeLayer(layer + 1 >= layout.height() ? -1 : layer + 1));
         layerText = new ImageWidget(3, 104, 154, 10, new TextTexture(() -> layer < 0
-                ? Component.translatable("hk3gtl.w01.preview.all",hasSceneModel()?java.util.Arrays.stream(sceneMaterialCounts()).sum():layout.cells().length).getString()
+                ? Component.translatable("hk3gtl.w01.preview.all",hasSceneModel()?java.util.Arrays.stream(sceneMaterialCounts()).sum():layout.count()).getString()
                 : "Y=" + layer + " / " + (layout.height() - 1)).setWidth(154));
         addWidget(layerText);
         animationButton = new ButtonWidget(3, 116, 43, 14, new GuiTextureGroup(ColorPattern.T_GRAY.rectTexture(),
@@ -163,7 +163,7 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
         for (int i = 0; i < states.length; i++) {
             int amount = (hasSceneModel()?Math.toIntExact(sceneMaterialCounts()[i]):index.countMaterial(i)) - (i == controllerPalette ? 1 : 0);
             if (amount == 0) continue;
-            long sample = hasSceneModel()?layout.cells()[0]:index.firstCell(i);
+            long sample = hasSceneModel()?layout.cell(0):index.firstCell(i);
             BlockPos pos = new BlockPos(Hk3W01HallLayout.x(sample), Hk3W01HallLayout.y(sample), Hk3W01HallLayout.z(sample));
             ItemStack stack = states[i].getBlock().getCloneItemStack(fullWorld, pos, states[i]);
             if (stack.isEmpty()) continue;
@@ -203,7 +203,7 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
     }
 
     public boolean testReady() {
-        if(hasSceneModel())return scene!=null&&(isW07()?Hk3W07SceneRenderer.previewReady(layer):isW14()?Hk3W14SceneRenderer.ready():isW15()?Hk3W15SceneRenderer.ready():isW13()?Hk3W13FxRenderer.previewReady(layer):Hk3W11FxRenderer.previewReady(layer))&&Hk3PreviewCacheBridge.isReady(scene.getRenderer());
+        if(hasSceneModel())return scene!=null&&(isW07()?Hk3W07SceneRenderer.previewReady(layer):isW14()?Hk3W14SceneRenderer.ready(layer):isW15()?Hk3W15SceneRenderer.ready():isW13()?Hk3W13FxRenderer.previewReady(layer):Hk3W11FxRenderer.previewReady(layer))&&Hk3PreviewCacheBridge.isReady(scene.getRenderer());
         var visible = movingScene != null && movingScene.isVisible() ? movingScene : scene;
         return visible != null && Hk3PreviewCacheBridge.isReady(visible.getRenderer())
                 && (visible == movingScene ? !partialMovingModel() || animationMesh != null && animationMesh.ready()
@@ -323,7 +323,7 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
 
     @Override public void drawInBackground(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
         if(hasSceneModel()){
-            if((isW07()?Hk3W07SceneRenderer.preparePreview(layer):isW14()?Hk3W14SceneRenderer.preparePreview():isW15()?Hk3W15SceneRenderer.preparePreview():isW13()?Hk3W13FxRenderer.preparePreview(layer):Hk3W11FxRenderer.preparePreview(layer))&&scene==null){
+            if((isW07()?Hk3W07SceneRenderer.preparePreview(layer):isW14()?Hk3W14SceneRenderer.preparePreview(layer):isW15()?Hk3W15SceneRenderer.preparePreview():isW13()?Hk3W13FxRenderer.preparePreview(layer):Hk3W11FxRenderer.preparePreview(layer))&&scene==null){
                 scene=new SparseScene(layer<0?fullWorld:new Hk3W01PreviewWorld(definition,layout,index,states,layer,fullWorld.front,fullWorld.entities),false);
                 scene.resize(getSizeWidth(),getSizeHeight());addWidget(0,scene);
             }

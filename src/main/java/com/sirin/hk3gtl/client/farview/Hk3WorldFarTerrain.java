@@ -14,7 +14,6 @@ import net.minecraft.world.phys.Vec3;
 import java.lang.ref.WeakReference;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 /** 多段剖面按距离和预算生成分级外壳，粗细区域保留逐格边界。 */
 public final class Hk3WorldFarTerrain {
@@ -56,7 +55,9 @@ public final class Hk3WorldFarTerrain {
     private static final LinkedHashMap<Long,Hk3WorldFarSurface> SURFACES=new LinkedHashMap<>(16,.75f,true);
     private static final LinkedHashMap<Long,Assembly> ASSEMBLIES=new LinkedHashMap<>();
     private static final LinkedHashMap<Long,WeakReference<LevelChunk>> PENDING=new LinkedHashMap<>();
-    private static final LinkedHashMap<Long,Supplier<Hk3WorldFarSurface>> RETIRED=new LinkedHashMap<>();
+    private static final LinkedHashMap<Long,LevelChunk> RETIRED=new LinkedHashMap<>();
+    private static Hk3WorldFarSurface.Snapshot copying;
+    private static long copyingKey;
     private static final Map<Long,Region> REGIONS=new HashMap<>();
     private static final List<Map.Entry<Long,Region>> visible=new ArrayList<>();
     private static List<Map.Entry<Long,Region>> sorted=List.of();
@@ -116,14 +117,18 @@ public final class Hk3WorldFarTerrain {
         invalidateNeighbors(key);
     }
     static void received(LevelChunk chunk){
-        PENDING.put(chunk.getPos().toLong(),new WeakReference<>(chunk));
+        long key=chunk.getPos().toLong();
+        RETIRED.remove(key);
+        PENDING.put(key,new WeakReference<>(chunk));
         while(PENDING.size()>1024)PENDING.remove(PENDING.keySet().iterator().next());
     }
     static void unloaded(LevelChunk chunk){
         long key=chunk.getPos().toLong();
-        if(PENDING.remove(key)!=null){
-            RETIRED.put(key,Hk3WorldFarSurface.snapshot(chunk));
-            while(RETIRED.size()>8)RETIRED.remove(RETIRED.keySet().iterator().next());
+        boolean changed=PENDING.remove(key)!=null;
+        boolean inProgress=captures.containsKey(key)||copying!=null&&copyingKey==key;
+        if(changed||!inProgress&&!SURFACES.containsKey(key)){
+            RETIRED.put(key,chunk);
+            while(RETIRED.size()>32)RETIRED.remove(RETIRED.keySet().iterator().next());
         }
     }
     static void tick(long deadline){
@@ -136,24 +141,35 @@ public final class Hk3WorldFarTerrain {
             iterator.remove();
         }
         while(captures.size()<Hk3FarTileMesh.workers()&&Hk3FarTileMesh.availableSlots()>0&&System.nanoTime()<until){
-            boolean scheduled=false;
-            for(var iterator=RETIRED.entrySet().iterator();iterator.hasNext();){
-                var next=iterator.next();if(captures.containsKey(next.getKey()))continue;
-                var future=Hk3FarTileMesh.prepareSurface(next.getValue());
-                if(future!=null){captures.put(next.getKey(),new Capture(next.getKey(),level,future));iterator.remove();scheduled=true;}
-                break;
+            if(copying==null){
+                LevelChunk chunk=null;
+                for(var iterator=RETIRED.entrySet().iterator();iterator.hasNext();){
+                    var entry=iterator.next();
+                    if(captures.containsKey(entry.getKey()))continue;
+                    chunk=entry.getValue();iterator.remove();break;
+                }
+                if(chunk==null)for(var iterator=PENDING.entrySet().iterator();iterator.hasNext()&&System.nanoTime()<until;){
+                    var entry=iterator.next();
+                    if(captures.containsKey(entry.getKey()))continue;
+                    chunk=entry.getValue().get();iterator.remove();
+                    if(chunk!=null)break;
+                }
+                if(chunk==null)break;
+                if(chunk.getLevel()!=level)continue;
+                copyingKey=chunk.getPos().toLong();
+                copying=new Hk3WorldFarSurface.Snapshot(chunk);
             }
-            if(scheduled)continue;
-            for(var iterator=PENDING.entrySet().iterator();iterator.hasNext();){
-                var next=iterator.next();if(captures.containsKey(next.getKey()))continue;
-                var chunk=next.getValue().get();
-                if(chunk!=null&&chunk.getLevel()==level){
-                    var future=Hk3FarTileMesh.prepareSurface(Hk3WorldFarSurface.snapshot(chunk));
-                    if(future!=null){captures.put(next.getKey(),new Capture(next.getKey(),level,future));iterator.remove();scheduled=true;}
-                }else iterator.remove();
-                break;
-            }
-            if(!scheduled)break;
+            if(!copying.copyUntil(until,8))break;
+            var future=Hk3FarTileMesh.prepareSurface(copying);
+            if(future==null)break;
+            captures.put(copyingKey,new Capture(copyingKey,level,future));
+            copying=null;
+        }
+    }
+    static void maskChanged(Set<Long> columns){
+        for(long key:columns){
+            var group=REGIONS.get(key);
+            if(group!=null){group.close();group.dirty();cancel(key);}
         }
     }
     private static void discardAssembly(long key){var old=ASSEMBLIES.remove(key);if(old!=null)partialBytes-=old.bytes;}
@@ -382,5 +398,5 @@ public final class Hk3WorldFarTerrain {
         works.values().forEach(Hk3WorldFarBuild::cancel);completed.values().forEach(Hk3WorldFarBuild::cancel);
         works.clear();completed.clear();uploading=null;visible.clear();layoutDirty=true;
     }
-    static void clear(){reload();captures.values().forEach(capture->capture.future.cancel(false));REGIONS.clear();SURFACES.clear();ASSEMBLIES.clear();PENDING.clear();RETIRED.clear();captures.clear();sorted=List.of();resort=true;bytes=partialBytes=0;lastPriority=Long.MIN_VALUE;lastBudget=-1;lastDistance=lastNear=-1;}
+    static void clear(){reload();captures.values().forEach(capture->capture.future.cancel(false));REGIONS.clear();SURFACES.clear();ASSEMBLIES.clear();PENDING.clear();RETIRED.clear();copying=null;captures.clear();sorted=List.of();resort=true;bytes=partialBytes=0;lastPriority=Long.MIN_VALUE;lastBudget=-1;lastDistance=lastNear=-1;}
 }

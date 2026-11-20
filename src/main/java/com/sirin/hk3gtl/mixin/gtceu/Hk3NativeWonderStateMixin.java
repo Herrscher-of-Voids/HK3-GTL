@@ -3,7 +3,9 @@ package com.sirin.hk3gtl.mixin.gtceu;
 import com.gregtechceu.gtceu.api.pattern.MultiblockState;
 import com.sirin.hk3gtl.common.multiblock.loading.Hk3NativeWonderCheck;
 import com.sirin.hk3gtl.common.multiblock.loading.Hk3WonderPositionSet;
+import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.ChunkPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -38,7 +40,10 @@ public abstract class Hk3NativeWonderStateMixin {
     @Inject(method="getCache",at=@At("HEAD"),cancellable=true)
     private void hk3gtl$chunks(CallbackInfoReturnable<Collection<BlockPos>> callback){
         var state=(MultiblockState)(Object)this;
-        Hk3NativeWonderCheck check=state.getMatchContext().get(Hk3NativeWonderCheck.CHECK);
-        if(check!=null)callback.setReturnValue(check.chunkRepresentatives());
+        LongSet chunks=state.getMatchContext().get(Hk3NativeWonderCheck.CHUNKS);
+        if(chunks!=null){
+            int y=state.controllerPos.getY();
+            callback.setReturnValue(chunks.longStream().mapToObj(key->new BlockPos(ChunkPos.getX(key)<<4,y,ChunkPos.getZ(key)<<4)).toList());
+        }
     }
 }

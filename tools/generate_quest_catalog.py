@@ -153,7 +153,7 @@ for locale, values in translations.items():
 catalog = load('src/main/resources/data/hk3gtl/guide/quest_catalog.json')
 catalog.pop('_comment', None)
 catalog.pop('_changes', None)
-catalog.update(schema=1, revision=282, layout='approved-stargate-and-voltage',
+catalog.update(schema=1, revision=284, layout='approved-stargate-and-voltage',
                chapters=[chapter['filename'] for chapter in chapters], entries=entries)
 save('src/main/resources/data/hk3gtl/guide/quest_catalog.json', catalog)
 print(json.dumps({'chapters': len(chapters), 'quests': sum(len(chapter['quests']) for chapter in chapters),

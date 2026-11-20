@@ -1,5 +1,8 @@
 package com.sirin.hk3gtl.common.multiblock.pattern;
 
+import java.util.BitSet;
+import java.util.concurrent.CancellationException;
+
 /**
  * 共享W01有序实体布局，提供无空气数组的坐标查询与逐层、逐状态计数。
  */
@@ -10,7 +13,8 @@ public final class Hk3W01PreviewIndex {
     private final long[] firstCells;
     private final int[] columns;
     private final long[] blockEntityCells;
-    private final int[] renderCells;
+    private final BitSet renderCells;
+    private final int renderCount;
 
     public Hk3W01PreviewIndex(Hk3W01HallLayout layout) {
         this(layout, new boolean[layout.palette().size()]);
@@ -27,7 +31,9 @@ public final class Hk3W01PreviewIndex {
         firstCells = new long[materials.length];
         columns = new int[layout.width() * layout.height() + 1];
         var entities = new it.unimi.dsi.fastutil.longs.LongArrayList();
-        for (long cell : layout.cells()) {
+        for (int i = 0; i < layout.count(); i++) {
+            checkCancelled(i);
+            long cell = layout.cell(i);
             layers[Hk3W01HallLayout.y(cell)]++;
             columns[Hk3W01HallLayout.x(cell) * layout.height() + Hk3W01HallLayout.y(cell) + 1]++;
             int state = Hk3W01HallLayout.state(cell);
@@ -37,59 +43,64 @@ public final class Hk3W01PreviewIndex {
         for (int i = 1; i < columns.length; i++) columns[i] += columns[i - 1];
         blockEntityCells = entities.toLongArray();
         renderCells = surfaceCells(blockEntityStates, opaqueStates);
+        renderCount = renderCells.cardinality();
     }
 
-    private int[] surfaceCells(boolean[] blockEntityStates, boolean[] opaqueStates) {
-        long[] cells = layout.cells();
-        byte[] hiddenFaces = new byte[cells.length];
-        int[] limits = {layout.depth(), layout.height(), layout.width()};
-        // 正向邻居单调归并，同时登记一对方块各自的反向遮挡。
-        for (int axis = 0; axis < 3; axis++) {
-            int shift = axis * 12, next = 0;
-            long step = 1L << shift;
-            for (int i = 0; i < cells.length; i++) {
-                long coordinate = cells[i] >>> 16;
-                if (((coordinate >>> shift) & 4095) == limits[axis] - 1) continue;
-                long neighbor = coordinate + step;
-                while (next < cells.length && (cells[next] >>> 16) < neighbor) next++;
-                if (next == cells.length) break;
-                if ((cells[next] >>> 16) != neighbor) continue;
-                if (opaqueStates[Hk3W01HallLayout.state(cells[next])]) hiddenFaces[i] |= 1 << (axis * 2);
-                if (opaqueStates[Hk3W01HallLayout.state(cells[i])]) hiddenFaces[next] |= 1 << (axis * 2 + 1);
+    private BitSet surfaceCells(boolean[] blockEntityStates, boolean[] opaqueStates) {
+        int count = layout.count();
+        var exposed = new BitSet(count);
+        int[] limit = {layout.depth(), layout.height(), layout.width()};
+        int[] cursor = new int[6];
+        long[] steps = {layout.positionStep(0), layout.positionStep(1), layout.positionStep(2)};
+        long controller = layout.position(layout.controllerX(), layout.controllerY(), layout.controllerZ());
+        for (int i = 0; i < count; i++) {
+            checkCancelled(i);
+            long cell = layout.cell(i), coordinate = layout.position(i);
+            int state = Hk3W01HallLayout.state(cell);
+            boolean visible = !opaqueStates[state] || blockEntityStates[state] || coordinate == controller;
+            for (int face = 0; face < 6 && !visible; face++) {
+                int axis = face / 2, shift = axis * 12, step = (face & 1) == 0 ? -1 : 1;
+                long adjacent = ((cell >>> (16 + shift)) & 4095) + step;
+                if (adjacent < 0 || adjacent >= limit[axis]) { visible = true; break; }
+                long target = coordinate + step * steps[axis];
+                int next = cursor[face];
+                while (next < count && layout.position(next) < target) next++;
+                cursor[face] = next;
+                if (next == count) { visible = true; break; }
+                visible = layout.position(next) != target || !opaqueStates[layout.state(next)];
             }
+            if (visible) exposed.set(i);
         }
-        long controller = Hk3W01HallLayout.pack(layout.controllerX(), layout.controllerY(), layout.controllerZ(), 0) >>> 16;
-        int count = 0;
-        for (int i = 0; i < cells.length; i++) {
-            int state = Hk3W01HallLayout.state(cells[i]);
-            if (!opaqueStates[state] || blockEntityStates[state] || (cells[i] >>> 16) == controller) hiddenFaces[i] = 0;
-            if (hiddenFaces[i] != 63) count++;
-        }
-        int[] visible = new int[count];
-        for (int i = 0, next = 0; i < cells.length; i++) if (hiddenFaces[i] != 63) visible[next++] = i;
-        return visible;
+        return exposed;
+    }
+
+    private static void checkCancelled(int i) {
+        if ((i & 4095) == 0 && Thread.currentThread().isInterrupted()) throw new CancellationException();
     }
 
     public int stateAt(int x, int y, int z) {
         if (x < 0 || y < 0 || z < 0 || x >= layout.width() || y >= layout.height() || z >= layout.depth()) return -1;
-        long key = Hk3W01HallLayout.pack(x,y,z,0)>>>16;
-        long[] cells = layout.cells();
+        long key = layout.position(x, y, z);
         int column = x * layout.height() + y;
         int low = columns[column], high = columns[column + 1] - 1;
         while (low <= high) {
             int middle = (low + high) >>> 1;
-            long candidate = cells[middle] >>> 16;
+            long candidate = layout.position(middle);
             if (candidate < key) low = middle + 1;
             else if (candidate > key) high = middle - 1;
-            else return Hk3W01HallLayout.state(cells[middle]);
+            else return layout.state(middle);
         }
         return -1;
     }
 
-    public int countLayer(int layer) { return layer < 0 ? layout.cells().length : layers[layer]; }
+    public int countLayer(int layer) { return layer < 0 ? layout.count() : layers[layer]; }
     public int countMaterial(int state) { return materials[state]; }
     public long firstCell(int state) { return firstCells[state]; }
     public long[] blockEntityCells() { return blockEntityCells; }
-    public int[] renderCells() { return renderCells; }
-    public long byteSize() { return 4L * (columns.length + layers.length + materials.length + renderCells.length) + 8L * (firstCells.length + blockEntityCells.length); }
+    public int nextVisibleCell(int from) { return renderCells.nextSetBit(from); }
+    public int renderCount() { return renderCount; }
+    public long byteSize() {
+        return 4L * (columns.length + layers.length + materials.length) + renderCells.size() / 8L
+                + 8L * (firstCells.length + blockEntityCells.length);
+    }
 }

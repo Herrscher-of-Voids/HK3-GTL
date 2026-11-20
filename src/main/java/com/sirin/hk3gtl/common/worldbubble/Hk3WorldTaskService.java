@@ -58,7 +58,7 @@ public final class Hk3WorldTaskService {
             default -> throw new IllegalArgumentException("非目标操作：" + role);
         };
     }
-    private static boolean creates(String role) { return role.equals("I25") || role.equals("I29"); }
+    public static boolean creates(String role) { return role.equals("I25") || role.equals("I29"); }
 
     private static void addBubble(Map<UUID, ItemStack> inputs, Object value) {
         if (value instanceof ItemStack stack && stack.is(Hk3IndustrialContent.items().get(BUBBLE).get())

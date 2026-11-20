@@ -659,7 +659,7 @@
       "title": "小型崩坏能反应堆",
       "subtitle": "让燃料在受控回路中工作",
       "description": [
-        "完成小型反应堆工程研究后，制造反应堆控制器。把燃料、冷却与稳定器接齐，再用实际发电取得负载记录。"
+        "完成小型反应堆工程研究后，用HRV机械方块、HCV电动泵和HCV传感器等部件制造反应堆控制器。把燃料、冷却与稳定器接齐，再用实际发电取得负载记录。"
       ],
       "dependencies": [
         "4B50645A14FB0B24",
@@ -819,11 +819,14 @@
       "tasks": [
         {
           "id": "4B51D12626AF5D26",
-          "type": "custom",
-          "title": "实际完成拆开4连普通燃料棒",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p13"
-          ]
+          ],
+          "item": "hk3gtl:honkai_fuel_rod",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:honkai_fuel_rod",
@@ -844,11 +847,14 @@
       "tasks": [
         {
           "id": "4B5C814E29210D8A",
-          "type": "custom",
-          "title": "实际完成拆开8连普通燃料棒",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p14"
-          ]
+          ],
+          "item": "hk3gtl:honkai_fuel_rod",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:honkai_fuel_rod",
@@ -869,11 +875,14 @@
       "tasks": [
         {
           "id": "4B506DFD8A3EC875",
-          "type": "custom",
-          "title": "实际完成拆开16连普通燃料棒",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p15"
-          ]
+          ],
+          "item": "hk3gtl:honkai_fuel_rod",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:honkai_fuel_rod",
@@ -948,11 +957,14 @@
       "tasks": [
         {
           "id": "4B57A968F885BAE8",
-          "type": "custom",
-          "title": "实际完成拆开4连乏燃料棒",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p22"
-          ]
+          ],
+          "item": "hk3gtl:depleted_honkai_fuel_rod",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:depleted_honkai_fuel_rod",
@@ -973,11 +985,14 @@
       "tasks": [
         {
           "id": "4B509195EECF42AA",
-          "type": "custom",
-          "title": "实际完成拆开8连乏燃料棒",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p23"
-          ]
+          ],
+          "item": "hk3gtl:depleted_honkai_fuel_rod",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:depleted_honkai_fuel_rod",
@@ -998,11 +1013,14 @@
       "tasks": [
         {
           "id": "4B553ADA533F9BEA",
-          "type": "custom",
-          "title": "实际完成拆开16连乏燃料棒",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p24"
-          ]
+          ],
+          "item": "hk3gtl:depleted_honkai_fuel_rod",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:depleted_honkai_fuel_rod",
@@ -1023,11 +1041,14 @@
       "tasks": [
         {
           "id": "4B550E7A43DAF2D0",
-          "type": "custom",
-          "title": "实际完成普通乏燃料有限后处理",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p25"
-          ]
+          ],
+          "item": "hk3gtl:recovered_fuel_casing_material",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:recovered_fuel_casing_material",
@@ -1048,11 +1069,14 @@
       "tasks": [
         {
           "id": "4B5936E6EAF849EE",
-          "type": "custom",
-          "title": "实际完成回收棒壳再制造",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p26"
-          ]
+          ],
+          "item": "hk3gtl:honkai_fuel_rod_casing",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:honkai_fuel_rod_casing",
@@ -1073,11 +1097,14 @@
       "tasks": [
         {
           "id": "4B512CDF50A7D9DE",
-          "type": "custom",
-          "title": "实际完成乏燃料处理废液固化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_p27"
-          ]
+          ],
+          "item": "hk3gtl:inactive_fuel_residue",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:inactive_fuel_residue",
@@ -1221,7 +1248,7 @@
       "title": "均匀化退火坯",
       "subtitle": "热压之后，再整理晶界",
       "description": [
-        "对致密预制坯保温退火，让晶界与残余界面趋于均匀。接着进入受控释载，处理压实后留下的应力。"
+        "在前一章的魂钢重构退火炉中对致密预制坯保温退火，让晶界与残余界面趋于均匀。接着进入受控释载，处理压实后留下的应力。"
       ],
       "dependencies": [
         "4B5C9C6132848E52"
@@ -1271,7 +1298,7 @@
       "title": "超致密承压魂钢标准坯",
       "subtitle": "完成封层，取得定尺主材",
       "description": [
-        "给释压后的承压坯补上表层结合与保护层，完成尺寸加工。这批标准坯供板、棒及其他工程形态继续制造。"
+        "在前一章的魂钢精密加工中心给释压后的承压坯补上表层结合与保护层，完成尺寸加工。这批标准坯供板、棒及其他工程形态继续制造。"
       ],
       "dependencies": [
         "4B586CBF683147A0"
@@ -1436,10 +1463,11 @@
     },
     {
       "id": "4B5FD3C3095F875E",
-      "title": "第一批HDV机械方块",
+      "title": "HDV机械方块常规产线",
       "subtitle": "把完整HRV机壳装进承压结构",
       "description": [
-        "将HRV机械方块与本级板、框和环总装，接上卸荷阀、压差读出和止推支座。第一批HDV机壳从这条分步路线制成。"
+        "完成魂钢精密加工和冷却剂换热回流研究后，按本章的热压、退火、释压、定尺顺序制造超致密承压魂钢标准坯，再加工板、框和环。",
+        "在组装机中投入HRV机械方块、32块超致密承压魂钢板、4个超致密承压魂钢框架组件、32个超致密承压魂钢环及JEI列出的其余材料，以HRV供电制成首批HDV机械方块。"
       ],
       "dependencies": [
         "4B5D1F7A868BD402",
@@ -1473,11 +1501,14 @@
       "tasks": [
         {
           "id": "4B5D81F1740B19F2",
-          "type": "custom",
-          "title": "实际完成HDV壳体检修拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_m16"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_hrv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_hrv",
@@ -1498,11 +1529,14 @@
       "tasks": [
         {
           "id": "4B56D0DB2484B777",
-          "type": "custom",
-          "title": "实际完成HDV分类废料分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_m17"
-          ]
+          ],
+          "item": "hk3gtl:ultradense_loadbearing_soulium_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:ultradense_loadbearing_soulium_recovered_fraction",
@@ -1526,11 +1560,14 @@
       "tasks": [
         {
           "id": "4B5519ECFC545B9B",
-          "type": "custom",
-          "title": "实际完成HDV回收组分再压实",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_m18"
-          ]
+          ],
+          "item": "hk3gtl:ultradense_loadbearing_soulium_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:ultradense_loadbearing_soulium_stage_1",
@@ -1551,11 +1588,14 @@
       "tasks": [
         {
           "id": "4B5D809DC71EB96C",
-          "type": "custom",
-          "title": "实际完成压溃热压包套修复",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_m19"
-          ]
+          ],
+          "item": "hk3gtl:hip_sealing_capsule",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:hip_sealing_capsule",
@@ -1601,11 +1641,14 @@
       "tasks": [
         {
           "id": "4B5E148D34DA04EA",
-          "type": "custom",
-          "title": "实际完成处理旧HDV拒收批",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_m21"
-          ]
+          ],
+          "item": "hk3gtl:ultradense_loadbearing_soulium_classified_scrap",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:ultradense_loadbearing_soulium_classified_scrap",
@@ -1626,11 +1669,14 @@
       "tasks": [
         {
           "id": "4B5D3DC4020637AE",
-          "type": "custom",
-          "title": "实际完成HDV退火精整一体加工",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_m22"
-          ]
+          ],
+          "item": "hk3gtl:ultradense_loadbearing_soulium_billet",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:ultradense_loadbearing_soulium_billet",
@@ -1651,11 +1697,14 @@
       "tasks": [
         {
           "id": "4B5A86D387E5A0EC",
-          "type": "custom",
-          "title": "实际完成HDV尾料惰化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hdv_m23"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -1676,11 +1725,14 @@
       "tasks": [
         {
           "id": "4B51034D1AB446C9",
-          "type": "custom",
-          "title": "实际完成谐振燃料活化工装总装",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_energy_t01"
-          ]
+          ],
+          "item": "hk3gtl:resonant_fuel_activation_fixture",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:resonant_fuel_activation_fixture",

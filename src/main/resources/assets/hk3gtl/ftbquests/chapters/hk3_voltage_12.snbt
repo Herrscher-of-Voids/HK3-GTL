@@ -838,11 +838,14 @@
       "tasks": [
         {
           "id": "4B5EEEF734399F60",
-          "type": "custom",
-          "title": "实际完成IWV机壳分层拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_n16"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_irv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_irv",
@@ -863,11 +866,14 @@
       "tasks": [
         {
           "id": "4B5C3F1FDFA52A63",
-          "type": "custom",
-          "title": "实际完成织界多轴复合材回收组分",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_n17"
-          ]
+          ],
+          "item": "hk3gtl:worldweave_multiaxial_composite_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:worldweave_multiaxial_composite_recovered_fraction",
@@ -890,11 +896,14 @@
       "tasks": [
         {
           "id": "4B51613E0AAA7AE8",
-          "type": "custom",
-          "title": "实际完成IWV回收料重制",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_n18"
-          ]
+          ],
+          "item": "hk3gtl:worldweave_multiaxial_composite_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:worldweave_multiaxial_composite_stage_1",
@@ -915,11 +924,14 @@
       "tasks": [
         {
           "id": "4B5559A7EF8CE1F4",
-          "type": "custom",
-          "title": "实际完成IWV尾料固化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_n19"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -942,11 +954,14 @@
       "tasks": [
         {
           "id": "4B5CB4DE99C27086",
-          "type": "custom",
-          "title": "实际完成分段整流开关堆",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_f01"
-          ]
+          ],
+          "item": "hk3gtl:rectifier_switching_stack",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:rectifier_switching_stack",
@@ -972,11 +987,14 @@
       "tasks": [
         {
           "id": "4B56F32BDD7728AC",
-          "type": "custom",
-          "title": "实际完成虚数能量整流中枢",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_k38"
-          ]
+          ],
+          "item": "hk3gtl:i38_imaginary_energy_rectification_hub",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i38_imaginary_energy_rectification_hub",
@@ -997,11 +1015,14 @@
       "tasks": [
         {
           "id": "4B5D7A68C08A5FA0",
-          "type": "custom",
-          "title": "实际完成文明能源调度中枢",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_k41"
-          ]
+          ],
+          "item": "hk3gtl:i41_civilization_energy_dispatch_hub",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i41_civilization_energy_dispatch_hub",
@@ -1026,11 +1047,14 @@
       "tasks": [
         {
           "id": "4B5E4E5DC2F61A97",
-          "type": "custom",
-          "title": "实际完成四阶能量态崩坏能探测器",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_d01"
-          ]
+          ],
+          "item": "hk3gtl:energy_honkai_detector",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:energy_honkai_detector",
@@ -1055,11 +1079,14 @@
       "tasks": [
         {
           "id": "4B5CD248A39066AA",
-          "type": "custom",
-          "title": "实际完成四阶崩坏能采集塔",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_iwv_d02"
-          ]
+          ],
+          "item": "hk3gtl:i01_4_honkai_collection_tower",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i01_4_honkai_collection_tower",
@@ -1081,11 +1108,14 @@
       "tasks": [
         {
           "id": "4B5178F9EDE2DCB7",
-          "type": "custom",
-          "title": "实际完成气态崩坏能整流",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_energy_rectification_gas"
-          ]
+          ],
+          "item": "hk3gtl:depleted_gas_filter",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:depleted_gas_filter",
@@ -1107,11 +1137,14 @@
       "tasks": [
         {
           "id": "4B59E3456F20CC7B",
-          "type": "custom",
-          "title": "实际完成压缩核心整流",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_energy_rectification_core"
-          ]
+          ],
+          "item": "hk3gtl:inactive_fuel_residue",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:inactive_fuel_residue",

@@ -4,22 +4,27 @@ import appeng.api.config.Actionable;
 import appeng.api.crafting.IPatternDetails;
 import appeng.api.networking.crafting.ICraftingRequester;
 import appeng.api.networking.security.IActionSource;
+import appeng.api.stacks.AEItemKey;
 import appeng.api.stacks.AEKey;
 import appeng.crafting.CraftingLink;
 import appeng.crafting.execution.CraftingCpuHelper;
+import appeng.crafting.pattern.AEProcessingPattern;
 import appeng.me.service.CraftingService;
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactPlanner;
+import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactScaledPattern;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.Level;
+import org.gtlcore.gtlcore.common.item.VirtualIngredientBehavior;
+import org.gtlcore.gtlcore.integration.ae2.AEUtils;
+import org.gtlcore.gtlcore.integration.ae2.crafting.CraftingPatternAutoExpand;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 final class Hk3NexusJob {
@@ -37,13 +42,15 @@ final class Hk3NexusJob {
     final Map<AEKey, BigInteger> missing = new LinkedHashMap<>();
     final Map<Hk3NexusRecipe, BigInteger> tasks = new LinkedHashMap<>();
     final List<Phase> phases = new ArrayList<>();
-    final Set<AEKey> recoverWaiting = new java.util.LinkedHashSet<>();
     BigInteger bytes = BigInteger.ZERO, delivered = BigInteger.ZERO, totalOperations = BigInteger.ZERO;
     BigInteger rounds = BigInteger.ZERO;
     int phase, recipe, priority;
-    long ticks;
+    long ticks, retryAt;
+    Map<AEKey, BigInteger> previousMissingStock = Map.of();
+    Hk3NexusCrafting.PlanningCapture capture;
+    java.util.concurrent.Future<Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails>> planning;
     boolean ordered, planned, canceled, flexible, confirmed = true, paused;
-    String state = "PLANNING";
+    String state = "PLANNING", dispatchNote = "";
 
     Hk3NexusJob(Hk3NexusCrafting host, UUID id, UUID owner, AEKey target, BigInteger requested,
             int priority, boolean standalone) {
@@ -71,37 +78,30 @@ final class Hk3NexusJob {
         host.changed();
     }
 
+    void cancelPlanning() {
+        if (planning != null) planning.cancel(true);
+        planning = null;
+        capture = null;
+    }
+
     void tick(long deadline) {
         ticks++;
         if (link.isCanceled() && !canceled) { canceled = true; host.changed(); }
         if (canceled) {
+            cancelPlanning();
             tasks.clear();
             reservation.clear();
             waiting.clear();
-            recoverWaiting.clear();
             flush(false, deadline);
             state = held.isEmpty() ? "CANCELED" : "CANCELING";
             return;
         }
-        for (AEKey key : Set.copyOf(recoverWaiting)) {
-            BigInteger expected = waiting.getOrDefault(key, BigInteger.ZERO);
-            long requested = Hk3NexusLedger.project(expected);
-            BigInteger recovered = host.extract(key, BigInteger.valueOf(requested));
-            if (recovered.signum() > 0) {
-                Hk3NexusLedger.add(waiting, key, recovered.negate());
-                Hk3NexusLedger.add(held, key, recovered);
-                host.changed();
-            }
-            if (waiting.getOrDefault(key, BigInteger.ZERO).signum() == 0 || recovered.longValue() < requested)
-                recoverWaiting.remove(key);
-            if (System.nanoTime() >= deadline) return;
-        }
         if (paused) { state = "PAUSED"; return; }
         if (!planned) {
-            if (ticks == 1 || ticks % 20 == 0) host.plan(this);
+            host.plan(this, deadline);
             return;
         }
-        if (!confirmed) { state = "PREVIEW"; return; }
+        if (!confirmed) return;
         if (!reservation.isEmpty()) {
             missing.clear();
             for (var entry : List.copyOf(reservation.entrySet())) {
@@ -120,7 +120,7 @@ final class Hk3NexusJob {
         boolean advanced;
         do {
             missing.clear();
-            advanced = ordered ? executeOrdered() : executeUnordered();
+            advanced = ordered ? executeOrdered(deadline) : executeUnordered(deadline);
         } while (advanced && !tasks.isEmpty() && System.nanoTime() < deadline);
         if (tasks.isEmpty() && waiting.isEmpty()) {
             state = "DRAINING";
@@ -132,17 +132,17 @@ final class Hk3NexusJob {
         } else if (!advanced) state = waiting.isEmpty() ? "WAITING_MACHINE" : "WAITING_OUTPUT";
     }
 
-    private boolean executeUnordered() {
+    private boolean executeUnordered(long deadline) {
         for (var entry : List.copyOf(tasks.entrySet())) {
             if (entry.getKey().molecular()) {
                 BigInteger done = executeMolecular(List.of(entry.getKey()), entry.getValue());
                 if (done.signum() > 0) return true;
-            } else if (dispatch(entry.getKey())) return true;
+            } else if (dispatch(entry.getKey(), entry.getValue(), deadline).signum() > 0) return true;
         }
         return false;
     }
 
-    private boolean executeOrdered() {
+    private boolean executeOrdered(long deadline) {
         if (!waiting.isEmpty() || phase == phases.size()) return false;
         Phase step = phases.get(phase);
         if (recipe == 0 && step.recipes().stream().allMatch(Hk3NexusRecipe::molecular)) {
@@ -153,14 +153,16 @@ final class Hk3NexusJob {
             return true;
         }
         Hk3NexusRecipe current = step.recipes().get(recipe);
-        boolean pushed = current.molecular()
-                ? executeMolecular(List.of(current), BigInteger.ONE).signum() > 0 : dispatch(current);
-        if (pushed && ++recipe == step.recipes().size()) {
+        BigInteger limit = step.recipes().size() == 1 ? rounds : BigInteger.ONE;
+        BigInteger pushed = current.molecular()
+                ? executeMolecular(List.of(current), BigInteger.ONE) : dispatch(current, limit, deadline);
+        if (pushed.signum() == 0) return false;
+        if (++recipe == step.recipes().size()) {
             recipe = 0;
-            rounds = rounds.subtract(BigInteger.ONE);
+            rounds = rounds.subtract(pushed);
             if (rounds.signum() == 0) nextPhase();
         }
-        return pushed;
+        return true;
     }
 
     private void nextPhase() {
@@ -198,27 +200,58 @@ final class Hk3NexusJob {
         return completed;
     }
 
-    private boolean dispatch(Hk3NexusRecipe part) {
+    private BigInteger dispatch(Hk3NexusRecipe part, BigInteger limit, long deadline) {
         var effective = flexible ? new Hk3NexusRecipe(part.pattern,
                 key -> held.getOrDefault(key, BigInteger.ZERO)) : part;
-        for (var entry : effective.inputs.entrySet()) {
-            BigInteger available = held.getOrDefault(entry.getKey(), BigInteger.ZERO);
-            if (available.compareTo(entry.getValue()) < 0) {
-                missing.put(entry.getKey(), entry.getValue().subtract(available));
-                return false;
-            }
+        dispatchNote = "";
+        boolean recirculating = effective.inputs.keySet().stream().anyMatch(effective.outputs::containsKey);
+        if (!(effective.pattern instanceof AEProcessingPattern) || !effective.pattern.supportsPushInputsToExternalInventory()) {
+            dispatchNote = "供给器接口不支持批量加工";
+        } else if (recirculating) {
+            dispatchNote = "样板有同键回流，逐批保留周转物资";
+        } else if (effective.inputs.keySet().stream().anyMatch(key -> AEUtils.isIntegratedCircuit(key)
+                || key instanceof AEItemKey item && VirtualIngredientBehavior.isMarked(item.getReadOnlyStack()))) {
+            dispatchNote = "含配置电路或虚拟原料，按供给器原生路径发料";
         }
+        boolean batchable = dispatchNote.isEmpty();
+        BigInteger maxTransfer = BigInteger.valueOf(Long.MAX_VALUE);
+        BigInteger total = BigInteger.ZERO;
         var service = (CraftingService) host.grid().getCraftingService();
         for (var provider : service.getProviders(part.pattern)) {
+            if (System.nanoTime() >= deadline || total.equals(limit)) break;
             if (provider == host || provider.isBusy()) continue;
-            if (!provider.pushPattern(effective.pattern, Hk3NexusRecipe.copy(effective.grouped))) continue;
-            effective.inputs.forEach((key, amount) -> Hk3NexusLedger.add(held, key, amount.negate()));
-            effective.outputs.forEach((key, amount) -> Hk3NexusLedger.add(waiting, key, amount));
-            decrement(part, BigInteger.ONE);
+            BigInteger max = batchable ? limit.subtract(total).min(maxTransfer) : BigInteger.ONE;
+            for (var entry : effective.inputs.entrySet()) {
+                BigInteger available = held.getOrDefault(entry.getKey(), BigInteger.ZERO);
+                if (available.compareTo(entry.getValue()) < 0) {
+                    if (total.signum() == 0) missing.put(entry.getKey(), entry.getValue().subtract(available));
+                    return total;
+                }
+                max = max.min(available.min(maxTransfer).divide(entry.getValue()));
+            }
+            for (BigInteger amount : effective.outputs.values()) max = max.min(maxTransfer.divide(amount));
+            long cap = Math.max(1, max.longValueExact());
+            long operations = cap > 1 ? CraftingPatternAutoExpand.getOperations(true, provider, effective.pattern, cap) : 1;
+            IPatternDetails pattern = effective.pattern;
+            if (operations == 1 && cap > 1) {
+                var scaled = Hk3ExactScaledPattern.forDispatch(pattern, cap);
+                operations = Hk3ExactScaledPattern.operations(scaled);
+                pattern = Hk3ExactScaledPattern.providerPattern(scaled);
+            }
+            if (!provider.pushPattern(pattern, Hk3NexusRecipe.scaledInputs(effective.grouped, operations))) {
+                if (operations == 1 || !provider.pushPattern(effective.pattern, Hk3NexusRecipe.copy(effective.grouped))) continue;
+                dispatchNote = "供给器拒绝批量，已改为单次派单";
+                operations = 1;
+            }
+            BigInteger count = BigInteger.valueOf(operations);
+            effective.inputs.forEach((key, amount) -> Hk3NexusLedger.add(held, key, amount.multiply(count).negate()));
+            effective.outputs.forEach((key, amount) -> Hk3NexusLedger.add(waiting, key, amount.multiply(count)));
+            decrement(part, count);
             host.changed();
-            return true;
+            total = total.add(count);
+            if (recirculating) break;
         }
-        return false;
+        return total;
     }
 
     private void decrement(Hk3NexusRecipe part, BigInteger count) {
@@ -226,7 +259,10 @@ final class Hk3NexusJob {
         if (remaining.signum() == 0) tasks.remove(part); else tasks.put(part, remaining);
     }
 
+    boolean awaitsOutput() { return !waiting.isEmpty() && !canceled && !link.isCanceled(); }
+
     long insert(AEKey key, long amount, Actionable mode) {
+        if (!awaitsOutput()) return 0;
         long accepted = Hk3NexusLedger.project(waiting.getOrDefault(key, BigInteger.ZERO).min(BigInteger.valueOf(amount)));
         if (mode == Actionable.MODULATE && accepted > 0) {
             Hk3NexusLedger.add(waiting, key, BigInteger.valueOf(accepted).negate());

@@ -23,11 +23,14 @@
       "tasks": [
         {
           "id": "4B55F50D8D6C93A8",
-          "type": "custom",
-          "title": "实际完成三领域差异复核",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_three_domain_difference"
-          ]
+          ],
+          "item": "hk3gtl:honkai_reference_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:honkai_reference_sample",
@@ -776,11 +779,14 @@
       "tasks": [
         {
           "id": "4B5AD2275D4A8314",
-          "type": "custom",
-          "title": "实际完成拆解CEV机械方块",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_cev_n16"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_civ",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_civ",
@@ -801,11 +807,14 @@
       "tasks": [
         {
           "id": "4B57D3BDBC23A2B8",
-          "type": "custom",
-          "title": "实际完成恒续服役复合母材废料分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_cev_n17"
-          ]
+          ],
+          "item": "hk3gtl:perennial_service_composite_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:perennial_service_composite_recovered_fraction",
@@ -827,11 +836,14 @@
       "tasks": [
         {
           "id": "4B50D3111C27FB45",
-          "type": "custom",
-          "title": "实际完成重建可维修功能层",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_cev_n18"
-          ]
+          ],
+          "item": "hk3gtl:perennial_service_composite_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:perennial_service_composite_stage_1",
@@ -852,11 +864,14 @@
       "tasks": [
         {
           "id": "4B5EB7051C6C5C71",
-          "type": "custom",
-          "title": "实际完成恒续服役复合母材尾料封存",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_cev_n19"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -982,11 +997,14 @@
       "tasks": [
         {
           "id": "4B5C89C42EFD86E0",
-          "type": "custom",
-          "title": "实际完成终焉之律者·终序·世界泡轮回引擎主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k14"
-          ]
+          ],
+          "item": "hk3gtl:w14_world_bubble_recurrence_engine",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:w14_world_bubble_recurrence_engine",
@@ -1008,11 +1026,14 @@
       "tasks": [
         {
           "id": "4B5ED33AA3218409",
-          "type": "custom",
-          "title": "实际完成■■■·凌霄·树海朝觐圣座主控",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_wonder_k15"
-          ]
+          ],
+          "item": "hk3gtl:w15_tree_sea_audience_throne",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:w15_tree_sea_audience_throne",

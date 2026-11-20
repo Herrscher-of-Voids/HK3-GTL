@@ -2224,21 +2224,19 @@
         },
         {
           "id": "4B5E3E4E7B767798",
-          "type": "custom",
-          "title": "实际完成失活纳米单元材料回收",
-          "tags": [
-            "hk3gtl_quest_hcv_nano_recovery",
-            "hk3gtl_quest_hcv_nano_recovery_task_2"
-          ]
+          "type": "item",
+          "item": "gtceu:gold_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         },
         {
           "id": "4B55E9359A1B1804",
-          "type": "custom",
-          "title": "实际完成纳米装配边角料解体",
-          "tags": [
-            "hk3gtl_quest_hcv_nano_recovery",
-            "hk3gtl_quest_hcv_nano_recovery_task_3"
-          ]
+          "type": "item",
+          "item": "gtceu:soldering_alloy_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         },
         {
           "id": "4B58E4F6F3198858",
@@ -2268,11 +2266,14 @@
       "tasks": [
         {
           "id": "4B52C0A9AC58DDB7",
-          "type": "custom",
-          "title": "实际完成魂钢聚合残渣晶核回收",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hcv_nucleation_recovery"
-          ]
+          ],
+          "item": "hk3gtl:soulium_nucleation_granule",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -2344,21 +2345,23 @@
       "tasks": [
         {
           "id": "4B549E11798DAD1C",
-          "type": "custom",
-          "title": "实际完成复合废料分类回收",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hcv_composite_recovery",
             "hk3gtl_quest_hcv_composite_recovery_task_1"
-          ]
+          ],
+          "item": "hk3gtl:constraint_gradient_composite_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         },
         {
           "id": "4B564C6A7C1A2E84",
-          "type": "custom",
-          "title": "实际完成再生组分补料复合",
-          "tags": [
-            "hk3gtl_quest_hcv_composite_recovery",
-            "hk3gtl_quest_hcv_composite_recovery_task_2"
-          ]
+          "type": "item",
+          "item": "hk3gtl:constraint_gradient_composite_billet",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -2404,11 +2407,14 @@
       "tasks": [
         {
           "id": "4B5E40CB83CD0988",
-          "type": "custom",
-          "title": "实际完成HCV壳体检修拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hcv_casing_service"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_hbv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -2429,11 +2435,14 @@
       "tasks": [
         {
           "id": "4B5B7D11371B22DC",
-          "type": "custom",
-          "title": "实际完成存量拒收批解体分类",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hcv_legacy_reject"
-          ]
+          ],
+          "item": "hk3gtl:constraint_gradient_composite_classified_scrap",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -2454,11 +2463,14 @@
       "tasks": [
         {
           "id": "4B579E1281D8D544",
-          "type": "custom",
-          "title": "实际完成梯度层压与表面封孔一体化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hcv_continuous"
-          ]
+          ],
+          "item": "hk3gtl:constraint_gradient_composite_billet",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [

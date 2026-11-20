@@ -813,11 +813,14 @@
       "tasks": [
         {
           "id": "4B55C61880918D59",
-          "type": "custom",
-          "title": "实际完成QEV机壳分层拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qev_n15"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_qcv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_qcv",
@@ -839,11 +842,14 @@
       "tasks": [
         {
           "id": "4B53B52C3B5D3FA6",
-          "type": "custom",
-          "title": "实际完成QEV分类废料分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qev_n16"
-          ]
+          ],
+          "item": "hk3gtl:paired_entangled_lattice_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:paired_entangled_lattice_recovered_fraction",
@@ -865,11 +871,14 @@
       "tasks": [
         {
           "id": "4B5F69D05D80BF50",
-          "type": "custom",
-          "title": "实际完成QEV回收组分重建双支",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qev_n17"
-          ]
+          ],
+          "item": "hk3gtl:paired_entangled_lattice_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:paired_entangled_lattice_stage_1",
@@ -891,11 +900,14 @@
       "tasks": [
         {
           "id": "4B500CA2DAA7F056",
-          "type": "custom",
-          "title": "实际完成QEV尾料固化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qev_n18"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",

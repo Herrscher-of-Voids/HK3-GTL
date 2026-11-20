@@ -168,6 +168,10 @@ public class Hk3LateIndustrialMachine extends Hk3ResearchProcessMachine {
             @Override protected void doDamping() {
                 if (!process.getDefinition().isGenerator()) super.doDamping();
             }
+            @Override public boolean hasUnlimitedParallelism() {
+                return worldTask(getRecipeType()) ? Hk3WorldTaskService.creates(researchRole())
+                        : super.hasUnlimitedParallelism();
+            }
             @Override protected long getMaxParallel() {
                 // 发电合同按一棒批次结算，避免高阶EU/t倍乘超过long后失真。
                 if (process.getDefinition().isGenerator()) return 1;

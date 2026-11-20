@@ -8,6 +8,8 @@ import tempfile
 
 import numpy as np
 
+from .hollow_blueprint import FALLING_REPLACEMENTS
+
 
 SCENES = {
     'w03': 'w03_c9', 'w05': 'w05_r3', 'w06': 'w06_author', 'w07': 'w07_n2',
@@ -77,12 +79,73 @@ def _write_json(path, value):
         path.write_text(json.dumps(value, ensure_ascii=False, separators=(',', ':')) + '\n', 'utf8')
 
 
-def _layers(scene, removed):
+def _w14_replacements(data, hollow):
+    palette = data['palette']
+    sources = {target: palette.index(source) for source, target in FALLING_REPLACEMENTS.items()
+               if source in palette}
+    ox, oy, oz = data['blueprint_to_export_offset_xyz']
+    replacements = {}
+    for position, state in hollow.replacements.items():
+        x, yz = divmod(position, hollow.height * hollow.depth)
+        y, z = divmod(yz, hollow.depth)
+        target = hollow.palette[state]
+        materials = sources[target], palette.index(target)
+        replacements.setdefault(materials, []).append((x - ox, y - oy, z - oz))
+    return replacements
+
+
+def _replace_surfaces(scene, replacements):
+    replaced = 0
+    for part in scene['parts']:
+        origin = np.array(part['origin'])
+        width, height, depth = part['size']
+        strides = (1, width * depth, width)
+        for (source, target), points in replacements.items():
+            local = np.asarray(points) - origin
+            local = local[((local >= 0) & (local < (width, height, depth))).all(axis=1)]
+            if not len(local):
+                continue
+            for face, (normal, axis, cross) in enumerate(((0, 2, 1), (0, 2, 1), (2, 0, 1),
+                                                          (2, 0, 1), (1, 0, 2), (1, 0, 2))):
+                planes = {}
+                for point in local:
+                    planes.setdefault(point[normal], []).append((point[axis], point[cross]))
+                starts, lengths, spans = (part[key][source][face] for key in ('starts', 'lengths', 'spans'))
+                target_starts, target_lengths, target_spans = (
+                    part[key][target][face] for key in ('starts', 'lengths', 'spans'))
+                retained = []
+                for start, length, span in zip(starts, lengths, spans):
+                    cell = (start % width, start // (width * depth), start // width % depth)
+                    a, b = cell[axis], cell[cross]
+                    hits = [(u - a, v - b) for u, v in planes.get(cell[normal], ())
+                            if a <= u < a + length and b <= v < b + span]
+                    if not hits:
+                        retained.append((start, length, span))
+                        continue
+                    keep = np.ones((span, length), dtype=bool)
+                    for u, v in hits:
+                        keep[v, u] = False
+                        target_starts.append(int(start + u * strides[axis] + v * strides[cross]))
+                        target_lengths.append(1)
+                        target_spans.append(1)
+                    for _, v, u, new_span, new_length in _rectangles(source, 0, 0, keep):
+                        retained.append((start + u * strides[axis] + v * strides[cross], new_length, new_span))
+                    replaced += len(hits)
+                starts[:], lengths[:], spans[:] = map(list, zip(*retained)) if retained else ([], [], [])
+    return replaced
+
+
+def _layers(scene, removed, replacements):
     data = scene['data']
     ox, oy, oz = data['blueprint_to_export_offset_xyz']
     counts = data['material_counts']
     before = sum(len(layer['rectangles']) for layer in scene['layers'])
     discarded = [0] * len(counts)
+    adjusted = [0] * len(counts)
+    placements = {}
+    for (source, target), points in replacements.items():
+        for x, y, z in points:
+            placements.setdefault((y, source), []).append((x, z, target))
     for layer in scene['layers']:
         rectangles = []
         y = layer['y'] + oy
@@ -91,15 +154,24 @@ def _layers(scene, removed):
             mask = removed.rectangle(x + ox, y, z + oz, width, depth)
             count = int(np.count_nonzero(mask))
             discarded[material] += count
+            for sx, sz, target in placements.get((layer['y'], material), ()):
+                if x <= sx < x + width and z <= sz < z + depth:
+                    mask[sx - x, sz - z] = True
+                    rectangles.append([target, sx, sz, 1, 1])
+                    adjusted[material] -= 1
+                    adjusted[target] += 1
+                    count += 1
             if not count:
                 rectangles.append(rectangle)
             elif count < width * depth:
                 rectangles.extend(_rectangles(material, x, z, ~mask))
         layer['rectangles'] = rectangles
-    data['material_counts'] = [count - discarded[index] for index, count in enumerate(counts)]
+    data['material_counts'] = [count - removed_count + change
+                               for count, removed_count, change in zip(counts, discarded, adjusted)]
     return dict(rectangles_before=before,
                 rectangles_after=sum(len(layer['rectangles']) for layer in scene['layers']),
-                removed_by_material=discarded, material_counts_before=counts,
+                removed_by_material=discarded, replaced_blocks=sum(max(0, change) for change in adjusted),
+                material_counts_before=counts,
                 material_counts_after=data['material_counts'])
 
 
@@ -149,7 +221,10 @@ def sync_scene_resources(resources, key, hollow):
         removed = _Removed(hollow, temporary)
         if key in {'w07', 'w11', 'w13', 'w14', 'w15'}:
             scene = json.loads(gzip.decompress(path.read_bytes()))
-            result.update(_layers(scene, removed))
+            replacements = _w14_replacements(scene['data'], hollow) if key == 'w14' else {}
+            result.update(_layers(scene, removed, replacements))
+            if replacements:
+                result['replaced_surface_faces'] = _replace_surfaces(scene, replacements)
             _write_json(path, scene)
             result['paths'].append(path.relative_to(resources).as_posix())
             metadata = directory / (name + '_meta.json')

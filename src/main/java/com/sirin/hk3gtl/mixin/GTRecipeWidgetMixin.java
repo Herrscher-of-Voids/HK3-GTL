@@ -12,6 +12,8 @@ import com.lowdragmc.lowdraglib.utils.Size;
 import com.mojang.logging.LogUtils;
 import com.sirin.hk3gtl.client.compat.Hk3WorldMiningJei;
 import com.sirin.hk3gtl.common.research.Hk3RecipeAccess;
+import com.sirin.hk3gtl.common.research.Hk3ResearchRecipeRuntime;
+import com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes;
 import com.sirin.hk3gtl.client.compat.Hk3JeiResearchWidget;
 import com.sirin.hk3gtl.common.research.Hk3ResearchData;
 import com.sirin.hk3gtl.common.research.Hk3ResearchCatalog;
@@ -90,6 +92,18 @@ public abstract class GTRecipeWidgetMixin {
                 var researchNames = new Hk3JeiResearchWidget(textX, nextY, textWidth, requirements, topics);
                 self.addWidget(researchNames);
                 nextY += researchNames.getSize().height + 2;
+            }
+            if (recipe.recipeType == Hk3IndustrialRecipeTypes.SPECTRUM_ANALYSIS) {
+                var records = Hk3ResearchRecipeRuntime.requiredProcessFacts(recipe);
+                if (!records.isEmpty()) {
+                    int textX = 3 - xOffset;
+                    int textWidth = Math.max(40, self.getSize().width - Math.max(0, textX) - 3);
+                    var lines = records.stream().map(fact -> I18n.get("hk3gtl.jei.required_process_fact",
+                            Hk3ResearchRecipeRuntime.processFactLabel(fact).getString())).toList();
+                    var processFacts = new TextBoxWidget(textX, nextY, textWidth, lines).setShadow(true);
+                    self.addWidget(processFacts);
+                    nextY += processFacts.getSize().height + 2;
+                }
             }
             long networkCredit = recipe.data.getLong(Hk3LiquidProcessMachine.CREDIT);
             if (networkCredit > 0) {

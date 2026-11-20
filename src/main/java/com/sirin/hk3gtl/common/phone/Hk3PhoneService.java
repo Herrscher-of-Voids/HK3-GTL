@@ -35,7 +35,12 @@ public final class Hk3PhoneService {
             .then(Hk3SocialService.commands())
             .then(Commands.literal("search").then(Commands.argument("filter",StringArgumentType.word())
                 .then(Commands.argument("page",IntegerArgumentType.integer(0)).then(Commands.argument("query",StringArgumentType.greedyString())
-                    .executes(c->search(c.getSource().getPlayerOrException(),StringArgumentType.getString(c,"filter"),IntegerArgumentType.getInteger(c,"page"),StringArgumentType.getString(c,"query")))))))
+                    .executes(c->showInbox(c.getSource().getPlayerOrException(),StringArgumentType.getString(c,"filter"),IntegerArgumentType.getInteger(c,"page"),StringArgumentType.getString(c,"query"),false))))))
+            .then(Commands.literal("read_all").then(Commands.argument("filter",StringArgumentType.word())
+                .then(Commands.argument("page",IntegerArgumentType.integer(0))
+                    .executes(c->showInbox(c.getSource().getPlayerOrException(),StringArgumentType.getString(c,"filter"),IntegerArgumentType.getInteger(c,"page"),"",true))
+                    .then(Commands.argument("query",StringArgumentType.greedyString())
+                        .executes(c->showInbox(c.getSource().getPlayerOrException(),StringArgumentType.getString(c,"filter"),IntegerArgumentType.getInteger(c,"page"),StringArgumentType.getString(c,"query"),true))))))
             .then(Commands.literal("status").executes(c->Hk3PhoneRuntime.poll(c.getSource().getPlayerOrException())))
             .then(Commands.literal("ae").executes(c->Hk3PhoneRuntime.openAe(c.getSource().getPlayerOrException()))
                 .then(Commands.argument("slot",IntegerArgumentType.integer(0,40)).executes(c->Hk3PhoneRuntime.openAe(c.getSource().getPlayerOrException(),IntegerArgumentType.getInteger(c,"slot")))))
@@ -74,6 +79,11 @@ public final class Hk3PhoneService {
     public static int open(ServerPlayer player,String mode,int page,String filter){
         if(!installed(player))return 0;
         if(!mode.equals("home")&&!Hk3PhoneRuntime.requirePower(player))return 0;
+        sendPage(player,mode,page,filter);
+        com.sirin.hk3gtl.common.easter.Hk3EggPhone.opened(player,mode);
+        return 1;
+    }
+    private static void sendPage(ServerPlayer player,String mode,int page,String filter){
         var data=Hk3PhoneData.get(player);var view=new CompoundTag();int total=data.count(player.getUUID(),filter);
         page=Math.max(0,Math.min(page,Math.max(0,(total-1)/8)));
         view.putString("Mode",mode);view.putString("Filter",filter);view.putInt("Page",page);view.putInt("Total",total);
@@ -84,11 +94,17 @@ public final class Hk3PhoneService {
             row.putString("Preview",entry.body().replace("\n"," ").substring(0,Math.min(100,entry.body().length())));row.putLong("Time",entry.time());
             row.putBoolean("Read",entry.read());row.putBoolean("Pending",entry.pending());row.putString("Kind",entry.kind());rows.add(row);
         }
-        view.put("Rows",rows);send(player,view);com.sirin.hk3gtl.common.easter.Hk3EggPhone.opened(player,mode);return 1;
+        view.put("Rows",rows);send(player,view);
     }
-    private static int search(ServerPlayer player,String filter,int page,String query){
+    private static int showInbox(ServerPlayer player,String filter,int page,String query,boolean readAll){
         if(!installed(player)||!Hk3PhoneRuntime.requirePower(player)||query.length()>64)return 0;
-        var all=Hk3PhoneData.get(player).search(player.getUUID(),filter,query,e->Hk3PhonePresentation.current(e,k->Component.translatable(k).getString()));page=Math.min(page,Math.max(0,(all.size()-1)/8));
+        var data=Hk3PhoneData.get(player);var user=player.getUUID();
+        if(readAll)data.readAll(user);
+        if(query.isEmpty()){
+            sendPage(player,"notifications",page,filter);
+            return 1;
+        }
+        var all=data.search(user,filter,query,e->Hk3PhonePresentation.current(e,k->Component.translatable(k).getString()));page=Math.min(page,Math.max(0,(all.size()-1)/8));
         var v=new CompoundTag();v.putString("Mode","notifications");v.putString("Filter",filter);v.putString("Query",query);v.putInt("Page",page);v.putInt("Total",all.size());
         var rows=new ListTag();all.stream().skip(page*8L).limit(8).forEach(e->{var r=new CompoundTag();r.putString("Id",e.id());r.putString("Title",e.title());r.putString("Preview",e.body().replace("\n"," ").substring(0,Math.min(100,e.body().length())));r.putBoolean("Read",e.read());r.putBoolean("Pending",e.pending());rows.add(r);});
         v.put("Rows",rows);send(player,v);return 1;

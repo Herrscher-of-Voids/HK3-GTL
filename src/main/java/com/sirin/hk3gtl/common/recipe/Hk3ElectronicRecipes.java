@@ -27,10 +27,28 @@ import org.gtlcore.gtlcore.common.data.GTLMaterials;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.item;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.fluid;
 
+@net.minecraftforge.fml.common.Mod.EventBusSubscriber(modid = "hk3gtl")
 public final class Hk3ElectronicRecipes {
     private static final int[] PREDECESSOR_TIERS = {
             GTValues.MAX, Hk3Tiers.HDV, Hk3Tiers.QAV, Hk3Tiers.IWV};
     private Hk3ElectronicRecipes() {}
+
+    @net.minecraftforge.eventbus.api.SubscribeEvent
+    public static void checkPackInputs(net.minecraftforge.event.server.ServerAboutToStartEvent event) {
+        var missing = new java.util.ArrayList<String>();
+        for (String id : java.util.List.of("supracausal_circuit_board", "supracausal_printed_circuit_board", "supracausal_ram_wafer")) {
+            if (!packHas(id)) missing.add("kubejs:" + id);
+        }
+        if (!packHas("supracausal_mainframe") && !packHas("suprachronal_max")) {
+            missing.add("kubejs:supracausal_mainframe / kubejs:suprachronal_max");
+        }
+        if (!missing.isEmpty()) com.mojang.logging.LogUtils.getLogger().error(
+                "[HK3GTL] 崩坏能电子工业缺少 GTL 增强版 KubeJS startup_scripts 注册的物品：{}。请补齐对应整合包脚本。", missing);
+    }
+
+    private static boolean packHas(String id) {
+        return BuiltInRegistries.ITEM.containsKey(new ResourceLocation("kubejs", id));
+    }
 
     /** 复用仍有现行设备承载的GT标准工艺，不恢复已退役的专用类型。 */
     public static GTRecipeType machine(int platform, GTRecipeType bootstrap) {

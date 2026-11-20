@@ -783,11 +783,14 @@
       "tasks": [
         {
           "id": "4B5B616F12CA2621",
-          "type": "custom",
-          "title": "实际完成ICV机壳分层拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_n14"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_imv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_imv",
@@ -809,11 +812,14 @@
       "tasks": [
         {
           "id": "4B5577D57FB352C6",
-          "type": "custom",
-          "title": "实际完成虚数耦合导能带回收组分",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_n15"
-          ]
+          ],
+          "item": "hk3gtl:imaginary_coupled_energy_band_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imaginary_coupled_energy_band_recovered_fraction",
@@ -834,11 +840,14 @@
       "tasks": [
         {
           "id": "4B54F484AC9B0810",
-          "type": "custom",
-          "title": "实际完成ICV回收料重制",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_n16"
-          ]
+          ],
+          "item": "hk3gtl:imaginary_coupled_energy_band_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imaginary_coupled_energy_band_stage_1",
@@ -860,11 +869,14 @@
       "tasks": [
         {
           "id": "4B5DD5C19387EE51",
-          "type": "custom",
-          "title": "实际完成ICV尾料固化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_n17"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -887,11 +899,14 @@
       "tasks": [
         {
           "id": "4B525BA9A4950E61",
-          "type": "custom",
-          "title": "实际完成种子世界晶格匣",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_f01"
-          ]
+          ],
+          "item": "hk3gtl:seeded_world_lattice_cartridge",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:seeded_world_lattice_cartridge",
@@ -917,11 +932,14 @@
       "tasks": [
         {
           "id": "4B5A89D01D25FEC3",
-          "type": "custom",
-          "title": "实际完成模拟世界泡构筑机",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_k29"
-          ]
+          ],
+          "item": "hk3gtl:i29_simulated_world_bubble_synthesizer",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i29_simulated_world_bubble_synthesizer",
@@ -942,11 +960,14 @@
       "tasks": [
         {
           "id": "4B51073FFE683BA8",
-          "type": "custom",
-          "title": "实际完成模拟世界泡稳定控制器",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_k30"
-          ]
+          ],
+          "item": "hk3gtl:i30_simulated_world_bubble_stabilizer",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i30_simulated_world_bubble_stabilizer",
@@ -967,11 +988,14 @@
       "tasks": [
         {
           "id": "4B52A83D4D67F9A3",
-          "type": "custom",
-          "title": "实际完成模拟世界泡终止回收机",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_k31"
-          ]
+          ],
+          "item": "hk3gtl:i31_simulated_world_bubble_termination_reclaimer",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i31_simulated_world_bubble_termination_reclaimer",
@@ -992,11 +1016,14 @@
       "tasks": [
         {
           "id": "4B57750C74C7822F",
-          "type": "custom",
-          "title": "实际完成无人跨界航路中继站",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_k39"
-          ]
+          ],
+          "item": "hk3gtl:i39_unmanned_cross_boundary_route_relay",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i39_unmanned_cross_boundary_route_relay",
@@ -1021,11 +1048,14 @@
       "tasks": [
         {
           "id": "4B5EFADCD16B2466",
-          "type": "custom",
-          "title": "实际完成世界物质种子",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_icv_g05"
-          ]
+          ],
+          "item": "hk3gtl:world_matter_seed",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:world_matter_seed",
@@ -1047,11 +1077,14 @@
       "tasks": [
         {
           "id": "4B560E7FA8F5596C",
-          "type": "custom",
-          "title": "实际完成有限步数计算",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_bounded_computation"
-          ]
+          ],
+          "item": "hk3gtl:analyzed_honkai_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:analyzed_honkai_sample",

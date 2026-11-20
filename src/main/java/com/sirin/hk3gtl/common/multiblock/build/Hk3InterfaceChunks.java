@@ -18,7 +18,9 @@ public final class Hk3InterfaceChunks implements AutoCloseable {
         this.level=level;owner=controller.asLong();
     }
     public void retain(BlockPos pos) {
-        long chunk=ChunkPos.asLong(pos.getX()>>4,pos.getZ()>>4);
+        retainChunk(ChunkPos.asLong(pos.getX()>>4,pos.getZ()>>4));
+    }
+    public void retainChunk(long chunk) {
         if(held.add(chunk))level.getChunkSource().addRegionTicket(TYPE,new ChunkPos(chunk),1,owner);
     }
     public void keepOnly(LongSet required) {

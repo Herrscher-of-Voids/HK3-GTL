@@ -52,7 +52,7 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         if(view.getString("Mode").equals("status"))return;
         if(view.getString("Mode").equals("toast")){
             installed=view.getBoolean("Installed");
-            if(!view.getString("Kind").equals("chatter")||Hk3PhoneConfig.CHATTER.get())
+            if(!Hk3PhoneConfig.DO_NOT_DISTURB.get()&&(!view.getString("Kind").equals("chatter")||Hk3PhoneConfig.CHATTER.get()))
                 TOASTS.offer(new Hk3NotificationQueue.Notice(view.getString("Id"),view.getString("Title"),view.getString("Body"),view.getString("Kind"),view.getInt("Priority")),now());
             return;
         }
@@ -103,7 +103,12 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
             case "notes"->command("hk3phone apps notes");case "civilization"->command("hk3phone apps civilization");
             case "trade","tiles2048","snake"->local(id);
             case "updates"->command("hk3updates");case "settings"->local("settings");
-            case "quiet"->{TOASTS.clear();previous=List.of();}
+            case "quiet"->{
+                boolean enabled=!Hk3PhoneConfig.DO_NOT_DISTURB.get();
+                Hk3PhoneConfig.DO_NOT_DISTURB.set(enabled);
+                if(enabled){TOASTS.clear();previous=List.of();}
+                Hk3PhoneConfig.SPEC.save();
+            }
         }
     }
     @Override protected double fittedScale(int realWidth,int realHeight){
@@ -207,6 +212,8 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
             int last=Math.max(0,(view.getInt("Total")-1)/8);
             button("上一页",cx+142,y+493,80,()->inbox(lastFilter,lastInboxPage-1)).active=lastInboxPage>0;
             button("下一页",cx+232,y+493,80,()->inbox(lastFilter,lastInboxPage+1)).active=lastInboxPage<last;
+            button(Component.translatable("hk3gtl.phone.inbox.read_all").getString(),cx+194,y+520,118,()->
+                command("hk3phone read_all "+lastFilter+" "+lastInboxPage+(query.isBlank()?"":" "+query)));
         }
         if(mode.equals("gallery"))gallery.init(this,cx,y);
         extras.init(mode,view,cx,y);social.init(mode,view,cx,y);
@@ -239,9 +246,12 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
     }
     private int pageCount(){return com.sirin.hk3gtl.common.phone.Hk3PhoneLayout.pages(lines.size(),PER_PAGE);}
     private void round(GuiGraphics g,int left,int top,int w,int h,int color,int r){
-        for(int row=0;row<h;row++){
-            int edge=Math.min(row,h-1-row),inset=edge>=r?0:(int)Math.ceil(r-Math.sqrt(Math.max(0,r*r-(r-edge)*(r-edge))));
+        int corners=Math.min(r,h/2);
+        if(h>2*corners)g.fill(left,top+corners,left+w,top+h-corners,color);
+        for(int row=0;row<corners;row++){
+            int inset=(int)Math.ceil(r-Math.sqrt(Math.max(0,r*r-(r-row)*(r-row))));
             g.fill(left+inset,top+row,left+w-inset,top+row+1,color);
+            g.fill(left+inset,top+h-row-1,left+w-inset,top+h-row,color);
         }
     }
     private String clock(){long minute=Math.floorMod(runtime.getLong("DayTime")+6000,24000)*1440/24000;return String.format(java.util.Locale.ROOT,"%02d:%02d",minute/60,minute%60);}
@@ -379,7 +389,7 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
     }
     @Override public boolean charTyped(char c,int modifiers){return outOfPower()||extras.pending()||super.charTyped(c,modifiers);}
     public static void renderToast(GuiGraphics g){
-        var mc=Minecraft.getInstance();if(mc.player==null||mc.screen!=null||mc.options.hideGui)return;
+        var mc=Minecraft.getInstance();if(mc.player==null||mc.screen!=null||mc.options.hideGui||Hk3PhoneConfig.DO_NOT_DISTURB.get())return;
         int sw=mc.getWindow().getGuiScaledWidth(),sh=mc.getWindow().getGuiScaledHeight();
         var cards=TOASTS.visible(now(),sw<600||sh<240?1:2);
         if(Hk3PhoneConfig.SOUND.get()&&cards.stream().anyMatch(c->!previous.contains(c)))

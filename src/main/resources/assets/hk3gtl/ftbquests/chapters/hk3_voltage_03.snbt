@@ -467,11 +467,14 @@
       "tasks": [
         {
           "id": "4B58FD1FA7AC60B8",
-          "type": "custom",
-          "title": "实际完成受控纳米模板定向生长适配基板",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_substrate_growth"
-          ]
+          ],
+          "item": "hk3gtl:honkai_adapted_circuit_substrate",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -851,7 +854,8 @@
         }
       ],
       "dependencies": [
-        "4B560A45C8B1AB68"
+        "4B560A45C8B1AB68",
+        "4B5B003300000001"
       ],
       "icon": "hk3gtl:soulium_precision_processing_center",
       "x": 40,
@@ -1309,11 +1313,14 @@
       "tasks": [
         {
           "id": "4B53CB9128DC48BF",
-          "type": "custom",
-          "title": "实际完成魂钢加工屑补料再聚合",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_swarf_recovery"
-          ]
+          ],
+          "item": "hk3gtl:soulium_proto_mass",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1359,11 +1366,14 @@
       "tasks": [
         {
           "id": "4B52B1499313CDC0",
-          "type": "custom",
-          "title": "实际完成魂钢聚合残渣晶核分选",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_inoculant_recovery"
-          ]
+          ],
+          "item": "hk3gtl:soulium_grain_boundary_inoculant",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1384,11 +1394,14 @@
       "tasks": [
         {
           "id": "4B52C4BF4995E953",
-          "type": "custom",
-          "title": "实际完成HRV魂钢退火定尺一体化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_anneal_continuous"
-          ]
+          ],
+          "item": "hk3gtl:soulium_ingot",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1409,11 +1422,14 @@
       "tasks": [
         {
           "id": "4B5D4EEF0A4AD291",
-          "type": "custom",
-          "title": "实际完成HRV壳体检修拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_casing_service"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_hcv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1434,11 +1450,14 @@
       "tasks": [
         {
           "id": "4B5C902644A7FD17",
-          "type": "custom",
-          "title": "实际完成HRV分类废料有损分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_scrap_separation"
-          ]
+          ],
+          "item": "hk3gtl:resonance_oriented_lattice_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1459,11 +1478,14 @@
       "tasks": [
         {
           "id": "4B56B78A1062E670",
-          "type": "custom",
-          "title": "实际完成HRV回收组分复配前体",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_precursor_recovery"
-          ]
+          ],
+          "item": "hk3gtl:resonance_oriented_lattice_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1509,11 +1531,14 @@
       "tasks": [
         {
           "id": "4B5CB83B314795D0",
-          "type": "custom",
-          "title": "实际完成HRV存量拒收料解体",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_legacy_reject"
-          ]
+          ],
+          "item": "hk3gtl:resonance_oriented_lattice_classified_scrap",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1534,11 +1559,14 @@
       "tasks": [
         {
           "id": "4B533DAEC482E681",
-          "type": "custom",
-          "title": "实际完成HRV晶格生长整形一体化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_growth_continuous"
-          ]
+          ],
+          "item": "hk3gtl:resonance_oriented_lattice_billet",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1559,11 +1587,14 @@
       "tasks": [
         {
           "id": "4B5B586091281923",
-          "type": "custom",
-          "title": "实际完成HRV不可回收尾料惰化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hrv_tail"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1598,6 +1629,32 @@
       "icon": "hk3gtl:voltage_machine_casing_hrv",
       "x": 8,
       "y": 36,
+      "optional": false
+    },
+    {
+      "id": "4B5B003300000001",
+      "title": "HDV机壳首建配方",
+      "subtitle": "用MAX装配机备齐加工中心的机壳",
+      "description": [
+        "完成液态崩坏能稳定化研究后，可在MAX装配机先用首建配方取得HRV机壳。",
+        "用两块HRV机壳、原版工业材料和2号编程电路制作一块HDV机壳。完整投入见JEI。魂钢精密加工中心成型后，再转用HDV章的常规配方。"
+      ],
+      "tasks": [
+        {
+          "id": "4B5B003300000002",
+          "type": "item",
+          "item": "hk3gtl:voltage_machine_casing_hdv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
+        }
+      ],
+      "dependencies": [
+        "4B5BE03D48DB244E"
+      ],
+      "icon": "hk3gtl:voltage_machine_casing_hdv",
+      "x": 40,
+      "y": 16,
       "optional": false
     }
   ]

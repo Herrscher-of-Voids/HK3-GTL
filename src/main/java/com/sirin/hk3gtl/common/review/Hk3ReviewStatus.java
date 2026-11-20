@@ -20,5 +20,6 @@ public final class Hk3ReviewStatus {
     }).then(Commands.literal("first").executes(c->Hk3ReviewSessions.begin(c.getSource().getPlayerOrException(),Hk3ReviewLedger.Kind.FIRST)))
       .then(Commands.literal("second").executes(c->Hk3ReviewSessions.begin(c.getSource().getPlayerOrException(),Hk3ReviewLedger.Kind.SECOND)))
       .then(Commands.literal("watch").executes(c->Hk3ReviewSessions.watch(c.getSource().getPlayerOrException())))
-      .then(Commands.literal("return").executes(c->Hk3ReviewSessions.returnNow(c.getSource().getPlayerOrException()))));}
+      .then(Commands.literal("return").executes(c->Hk3ReviewSessions.returnNow(c.getSource().getPlayerOrException()))
+              .then(Commands.literal("spawn").executes(c->Hk3ReviewSessions.returnToSpawn(c.getSource().getPlayerOrException())))));}
 }

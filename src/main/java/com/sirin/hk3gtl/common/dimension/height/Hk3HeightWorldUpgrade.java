@@ -12,6 +12,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.HexFormat;
 import java.util.List;
 import java.util.UUID;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 /**
  * 旧档按文件夹精确选择；创建Level前先校验元数据备份，不修改区块或原始存档。
@@ -37,31 +42,52 @@ public final class Hk3HeightWorldUpgrade {
         Path current = root.resolve("level.dat");
         if (!Files.isRegularFile(current, LinkOption.NOFOLLOW_LINKS))
             throw new IOException("旧档缺少普通level.dat文件，拒绝扩高：" + current);
-        Path directory = root.resolve("hk3gtl-height-backups").resolve(
-            DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss").format(OffsetDateTime.now()) + "-" + UUID.randomUUID());
-        if (Files.isSymbolicLink(directory.getParent()))
-            throw new IOException("高度升级备份目录不可为符号链接：" + directory.getParent());
+        Path directory = root.resolve("hk3gtl-height-backups");
+        if (Files.isSymbolicLink(directory))
+            throw new IOException("高度升级备份目录不可为符号链接：" + directory);
         Files.createDirectories(directory);
-        StringBuilder receipt = new StringBuilder("目标排除上界=").append(topExclusive).append('\n');
-        copyVerified(current, directory.resolve("level.dat"), receipt);
-        Path previous = root.resolve("level.dat_old");
-        if (!Files.notExists(previous, LinkOption.NOFOLLOW_LINKS))
-            copyVerified(previous, directory.resolve("level.dat_old"), receipt);
-        Path receiptFile = directory.resolve("校验记录.txt");
-        Files.writeString(receiptFile, receipt, StandardCharsets.UTF_8);
-        flush(receiptFile);
-        return directory;
-    }
-
-    private static void copyVerified(Path source, Path target, StringBuilder receipt) throws IOException {
-        if (!Files.isRegularFile(source, LinkOption.NOFOLLOW_LINKS))
-            throw new IOException("高度升级备份源不是普通文件：" + source);
-        byte[] original = digest(source);
-        Files.copy(source, target);
-        flush(target);
-        if (!MessageDigest.isEqual(original, digest(target)) || !MessageDigest.isEqual(original, digest(source)))
-            throw new IOException("高度升级备份不一致或源文件变化，拒绝扩高：" + source);
-        receipt.append(source.getFileName()).append(" SHA256=").append(HexFormat.of().formatHex(original)).append('\n');
+        Path archive = directory.resolve(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss").format(OffsetDateTime.now())
+                + "-" + UUID.randomUUID() + ".zip");
+        var files = new LinkedHashMap<String, byte[]>();
+        StringBuilder receipt = new StringBuilder("仅含扩高前的元数据。写入高处区块后，完整回滚需要另行恢复区块。\n目标排除上界=")
+                .append(topExclusive).append('\n');
+        for (String name : List.of("level.dat", "level.dat_old")) {
+            Path source = root.resolve(name);
+            if (name.equals("level.dat_old") && Files.notExists(source, LinkOption.NOFOLLOW_LINKS)) continue;
+            if (!Files.isRegularFile(source, LinkOption.NOFOLLOW_LINKS))
+                throw new IOException("高度升级备份源不是普通文件：" + source);
+            byte[] bytes = Files.readAllBytes(source);
+            files.put(name, bytes);
+            receipt.append(name).append(" SHA256=").append(HexFormat.of().formatHex(digest(bytes))).append('\n');
+        }
+        files.put("校验记录.txt", receipt.toString().getBytes(StandardCharsets.UTF_8));
+        Path temporary = Files.createTempFile(directory, "height-", ".tmp");
+        try {
+            try (var zip = new ZipOutputStream(Files.newOutputStream(temporary))) {
+                for (var entry : files.entrySet()) {
+                    zip.putNextEntry(new ZipEntry(entry.getKey()));
+                    zip.write(entry.getValue());
+                    zip.closeEntry();
+                }
+            }
+            try (var zip = new ZipFile(temporary.toFile())) {
+                for (var entry : files.entrySet()) {
+                    try (var input = zip.getInputStream(zip.getEntry(entry.getKey()))) {
+                        if (!Arrays.equals(entry.getValue(), input.readAllBytes()))
+                            throw new IOException("高度升级备份校验失败：" + entry.getKey());
+                    }
+                }
+            }
+            for (String name : List.of("level.dat", "level.dat_old")) {
+                if (files.containsKey(name) && !Arrays.equals(files.get(name), Files.readAllBytes(root.resolve(name))))
+                    throw new IOException("备份期间存档元数据变化，拒绝扩高：" + name);
+            }
+            flush(temporary);
+            Files.move(temporary, archive);
+            return archive;
+        } finally {
+            Files.deleteIfExists(temporary);
+        }
     }
 
     private static void flush(Path file) throws IOException {
@@ -70,14 +96,11 @@ public final class Hk3HeightWorldUpgrade {
         }
     }
 
-    private static byte[] digest(Path source) throws IOException {
-        try (var input = Files.newInputStream(source)) {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] buffer = new byte[8192];
-            for (int length; (length = input.read(buffer)) >= 0;) digest.update(buffer, 0, length);
-            return digest.digest();
+    private static byte[] digest(byte[] bytes) {
+        try {
+            return MessageDigest.getInstance("SHA-256").digest(bytes);
         } catch (NoSuchAlgorithmException impossible) {
-            throw new IllegalStateException("当前Java缺少SHA-256算法", impossible);
+            throw new IllegalStateException(impossible);
         }
     }
 }

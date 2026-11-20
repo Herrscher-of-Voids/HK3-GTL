@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.common.integration;
 
+import com.google.common.hash.Hashing;
 import com.mojang.logging.LogUtils;
 import com.sirin.hk3gtl.common.constants.Hk3Constants;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
@@ -17,7 +18,8 @@ public class FtbQuestsIntegration {
 
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final String FTB_QUESTS_MOD_ID = "ftbquests";
-    private static final String QUEST_VERSION = "quest-schema-v16-defer-mx-replication-20261119";
+    private static final String QUEST_VERSION = "quest-schema-v19";
+    private static final String PATTERN_CHAPTER = "chapters/hk3_multiblock_patterns.snbt";
     private static final String MARKER_FILE = ".hk3gtl_quest_version";
     private static final String RESOURCE_PREFIX = "/assets/" + Hk3Constants.MOD_ID + "/ftbquests/";
 
@@ -39,7 +41,7 @@ public class FtbQuestsIntegration {
             "chapters/hk3_voltage_14.snbt",
             "chapters/hk3_voltage_15.snbt",
             "chapters/hk3_voltage_16.snbt",
-            "chapters/hk3_multiblock_patterns.snbt"
+            PATTERN_CHAPTER
     );
 
     private static final List<String> LEGACY_FILES = List.of(
@@ -75,13 +77,20 @@ public class FtbQuestsIntegration {
         if (!ModList.get().isLoaded(FTB_QUESTS_MOD_ID)) return;
 
         try {
+            var fingerprint = Hashing.sha256().newHasher();
+            for (String path : CHAPTER_FILES) {
+                try (var chapter = FtbQuestsIntegration.class.getResourceAsStream(RESOURCE_PREFIX + path)) {
+                    fingerprint.putUnencodedChars(path).putBytes(chapter.readAllBytes());
+                }
+            }
+            String version = QUEST_VERSION + "-" + fingerprint.hash();
             Path configDir = net.minecraftforge.fml.loading.FMLPaths.CONFIGDIR.get();
             Path questDir = configDir.resolve("ftbquests").resolve("quests");
-            Path archive = Hk3QuestFileInstaller.install(questDir, MARKER_FILE, QUEST_VERSION,
+            Path archive = Hk3QuestFileInstaller.install(questDir, MARKER_FILE, version,
                     CHAPTER_FILES, LEGACY_FILES,
                     path -> FtbQuestsIntegration.class.getResourceAsStream(RESOURCE_PREFIX + path));
             if (archive != null) {
-                LOGGER.info("[HK3GTL] FTB Quests 同步完成 → {}，旧文件归档于 {}", QUEST_VERSION, archive);
+                LOGGER.info("[HK3GTL] FTB Quests 同步完成 → {}，旧文件归档于 {}", version, archive);
             }
         } catch (IOException e) {
             LOGGER.error("[HK3GTL] FTB Quests 安全同步失败；保留备份并停止启动，请检查迁移日志。", e);

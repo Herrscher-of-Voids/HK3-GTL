@@ -23,6 +23,7 @@ RUNTIME = re.compile(
     r'(?:advancements|calendar|compact_architecture|dimension|dimension_type|guide|loot_tables|'
     r'narrative|recipes|research|sgjourney|worldgen)/.+\.json)|'
     r'data/(?:forge|gtceu)/tags/items/.+\.json|data/minecraft/tags/blocks/.+\.json|'
+    r'hk3gtl/kubejs/circuit_substitution\.js|'
     r'pack\.mcmeta|hk3gtl\.mixins\.json|[^/]+-refmap\.json|'
     r'META-INF/(?:MANIFEST\.MF|mods\.toml|jarjar/metadata\.json|jars/(?:mixinextras-forge-[^/]+|xz-1\.10)\.jar)'
 )

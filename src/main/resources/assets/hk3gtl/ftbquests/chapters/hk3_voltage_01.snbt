@@ -969,11 +969,14 @@
       "tasks": [
         {
           "id": "4B5E2EBAD60BFF93",
-          "type": "custom",
-          "title": "实际完成一次工艺废液固化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hbv_effluent_solidification"
-          ]
+          ],
+          "item": "hk3gtl:inactive_fuel_residue",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -993,11 +996,14 @@
       "tasks": [
         {
           "id": "4B5E74B07F696579",
-          "type": "custom",
-          "title": "实际完成一次惰性残渣分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hbv_residue_separation"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1018,11 +1024,14 @@
       "tasks": [
         {
           "id": "4B5539C80950DB3D",
-          "type": "custom",
-          "title": "实际完成一次HBV连续浸渍与热稳定",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hbv_continuous_soulium"
-          ]
+          ],
+          "item": "hk3gtl:abyss_impregnated_soulium_billet",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [
@@ -1043,11 +1052,14 @@
       "tasks": [
         {
           "id": "4B564986C2441E61",
-          "type": "custom",
-          "title": "实际完成一次HBV复合构件连续成型",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_hbv_continuous_plate"
-          ]
+          ],
+          "item": "hk3gtl:abyss_impregnated_soulium_plate",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "dependencies": [

@@ -200,6 +200,7 @@ dependencies {
 
     // ── Jade（WTHIT 类信息显示模组）──
     // 对应原Jade依赖更新至实例11.13.3；旧配置保留于archive。 / Match the existing Jade dependency to the instance.
+    modCompileOnly(files("libs/Jade-1.20.1-Forge-11.13.3.jar"))
     modRuntimeOnly(files("libs/Jade-1.20.1-Forge-11.13.3.jar"))
 
     // ── WMP（可选联动：电路板驱动西瓜发电机 GT 模式）──

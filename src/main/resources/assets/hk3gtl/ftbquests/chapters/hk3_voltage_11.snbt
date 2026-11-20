@@ -23,11 +23,14 @@
       "tasks": [
         {
           "id": "4B57FBE594BC2BD0",
-          "type": "custom",
-          "title": "实际完成仿制的虚空万藏",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_imitation_void_archives"
-          ]
+          ],
+          "item": "hk3gtl:imitation_void_archives",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imitation_void_archives",
@@ -48,11 +51,14 @@
       "tasks": [
         {
           "id": "4B58D5DE860C1DE1",
-          "type": "custom",
-          "title": "实际完成仿制的犹大的誓约",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_imitation_oath_of_judah"
-          ]
+          ],
+          "item": "hk3gtl:imitation_oath_of_judah",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imitation_oath_of_judah",
@@ -148,11 +154,14 @@
       "tasks": [
         {
           "id": "4B51311EE0549922",
-          "type": "custom",
-          "title": "实际完成真实世界泡终止回收",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_world_bubble_termination"
-          ]
+          ],
+          "item": "hk3gtl:bubble_container_remnant",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:bubble_container_remnant",
@@ -173,11 +182,14 @@
       "tasks": [
         {
           "id": "4B521320D5567951",
-          "type": "custom",
-          "title": "实际完成模拟世界泡构筑",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_simulated_world_construction"
-          ]
+          ],
+          "item": "hk3gtl:unstable_simulated_world_bubble",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:unstable_simulated_world_bubble",
@@ -198,11 +210,14 @@
       "tasks": [
         {
           "id": "4B57B256077AA6C1",
-          "type": "custom",
-          "title": "实际完成模拟世界泡稳定",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_simulated_world_stabilization"
-          ]
+          ],
+          "item": "hk3gtl:stable_simulated_world_bubble",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:stable_simulated_world_bubble",
@@ -223,11 +238,14 @@
       "tasks": [
         {
           "id": "4B59F9B786633760",
-          "type": "custom",
-          "title": "实际完成模拟世界泡终止回收",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_simulated_world_termination"
-          ]
+          ],
+          "item": "hk3gtl:bubble_container_remnant",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:bubble_container_remnant",
@@ -248,11 +266,14 @@
       "tasks": [
         {
           "id": "4B52BD418C6B63BC",
-          "type": "custom",
-          "title": "实际完成航路中继模块工况",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_route_relay_module"
-          ]
+          ],
+          "item": "hk3gtl:spatial_calibration_module",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:spatial_calibration_module",
@@ -273,11 +294,14 @@
       "tasks": [
         {
           "id": "4B5266346FE208F4",
-          "type": "custom",
-          "title": "实际完成三领域来源对照",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_three_domain_analysis"
-          ]
+          ],
+          "item": "hk3gtl:analyzed_honkai_sample",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:analyzed_honkai_sample",
@@ -1058,11 +1082,14 @@
       "tasks": [
         {
           "id": "4B594D3A7CEA18A1",
-          "type": "custom",
-          "title": "实际完成IRV机壳分层拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_irv_n14"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_icv",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_icv",
@@ -1083,11 +1110,14 @@
       "tasks": [
         {
           "id": "4B5FF0FBDFAFF7D3",
-          "type": "custom",
-          "title": "实际完成虚数重构母合金回收组分",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_irv_n15"
-          ]
+          ],
+          "item": "hk3gtl:imaginary_reconstructed_alloy_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imaginary_reconstructed_alloy_recovered_fraction",
@@ -1109,11 +1139,14 @@
       "tasks": [
         {
           "id": "4B5ABE97015B2BB7",
-          "type": "custom",
-          "title": "实际完成IRV回收料重制",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_irv_n16"
-          ]
+          ],
+          "item": "hk3gtl:imaginary_reconstructed_alloy_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imaginary_reconstructed_alloy_stage_1",
@@ -1134,11 +1167,14 @@
       "tasks": [
         {
           "id": "4B5852D24C63ABE5",
-          "type": "custom",
-          "title": "实际完成IRV尾料固化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_irv_n17"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -1161,11 +1197,14 @@
       "tasks": [
         {
           "id": "4B58A74CBCE61C12",
-          "type": "custom",
-          "title": "实际完成虚数基准谐振器",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_irv_f01"
-          ]
+          ],
+          "item": "hk3gtl:imaginary_reference_resonator",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imaginary_reference_resonator",
@@ -1191,11 +1230,14 @@
       "tasks": [
         {
           "id": "4B514F579FE4A825",
-          "type": "custom",
-          "title": "实际完成虚数之树观测阵列",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_irv_k34"
-          ]
+          ],
+          "item": "hk3gtl:i34_imaginary_tree_observation_array",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i34_imaginary_tree_observation_array",
@@ -1216,11 +1258,14 @@
       "tasks": [
         {
           "id": "4B50C78D2F8D9230",
-          "type": "custom",
-          "title": "实际完成虚数空间锚定阵列",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_irv_k35"
-          ]
+          ],
+          "item": "hk3gtl:i35_imaginary_space_anchoring_array",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i35_imaginary_space_anchoring_array",
@@ -1241,11 +1286,14 @@
       "tasks": [
         {
           "id": "4B529B37E7573336",
-          "type": "custom",
-          "title": "实际完成世界维系研究所",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_irv_s04"
-          ]
+          ],
+          "item": "hk3gtl:s04_world_maintenance_institute",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:s04_world_maintenance_institute",

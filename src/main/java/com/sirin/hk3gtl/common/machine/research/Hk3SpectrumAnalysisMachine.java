@@ -15,16 +15,22 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import com.gregtechceu.gtceu.api.recipe.logic.OCParams;
 import com.gregtechceu.gtceu.api.recipe.logic.OCResult;
 import com.sirin.hk3gtl.common.communication.Hk3CommunicationData;
-import com.sirin.hk3gtl.common.machine.Hk3MultiRecipeLogic;
-import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
+import com.sirin.hk3gtl.common.research.Hk3RecipeAccess;
+import com.sirin.hk3gtl.common.research.Hk3ResearchRecipeRuntime;
 import com.sirin.hk3gtl.common.research.Hk3ResearchData;
 import com.sirin.hk3gtl.common.research.Hk3OutputReceiptDispatch;
 import com.sirin.hk3gtl.common.research.Hk3ProcessReceipts;
-import com.sirin.hk3gtl.common.recipe.Hk3RecipeTypesImpl;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper;
+import org.gtlcore.gtlcore.api.recipe.RecipeResult;
+import org.gtlcore.gtlcore.api.machine.trait.IRecipeStatus;
+
+import java.util.LinkedHashSet;
+import java.util.Locale;
 
 public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
     /** 内测5光谱分析类型下的初始实验完整配方ID。 */
@@ -79,16 +85,60 @@ public final class Hk3SpectrumAnalysisMachine extends Hk3LiquidProcessMachine {
         }
     }
 
+    private Component analysisBlockReason(GTRecipe recipe) {
+        if (!hasObservationData()) return Component.translatable("hk3gtl.machine.spectrum.observation");
+        var team = getResearchTeamUUID();
+        var data = Hk3ResearchData.get(getLevel().getServer());
+        var missingResearch = new LinkedHashSet<String>();
+        for (String id : Hk3RecipeAccess.effectiveRequirements(recipe).requirements()) {
+            if (!data.permits(team, id)) missingResearch.add(id);
+        }
+        var experiment = Hk3ResearchRecipeRuntime.executionContract(recipe);
+        if (experiment != null) {
+            for (String id : experiment.prerequisites()) {
+                if (!data.completed(team, id)) missingResearch.add(id);
+            }
+        }
+        var separator = Component.translatable("hk3gtl.jei.research_separator");
+        if (!missingResearch.isEmpty()) {
+            return Component.translatable("hk3gtl.compat.research_team_missing",
+                    ComponentUtils.formatList(missingResearch, separator, id ->
+                            Component.translatable("hk3gtl.research.topic." + id.toLowerCase(Locale.ROOT))));
+        }
+        var missingFacts = Hk3ResearchRecipeRuntime.requiredProcessFacts(recipe).stream()
+                .filter(fact -> !data.hasProcessFact(team, fact)).toList();
+        if (missingFacts.isEmpty()) return Component.translatable("hk3gtl.compat.execution_plan_blocked");
+        return Component.translatable("hk3gtl.machine.spectrum.missing_records",
+                ComponentUtils.formatList(missingFacts, separator, Hk3ResearchRecipeRuntime::processFactLabel));
+    }
+
     @Override protected RecipeLogic createRecipeLogic(Object... args) {
         return new ProcessLogic(this) {
+            private Component blockedReason;
+
+            @Override protected boolean isResearchBlocked(GTRecipe recipe) {
+                if (allowed(recipe)) return false;
+                if (blockedReason == null && RecipeRunnerHelper.matchRecipeInput(process, recipe)) {
+                    blockedReason = analysisBlockReason(recipe);
+                }
+                return true;
+            }
+
             @Override public void findAndHandleRecipe() {
                 if (dispatchProbabilityOrder()) return;
+                blockedReason = null;
+                var status = (IRecipeStatus) this;
+                status.setRecipeStatus(null);
                 if (hasObservationData() && !initialExperimentCompleted()) {
                     var recipe = Hk3IndustrialRecipeTypes.SPECTRUM_ANALYSIS.getRecipe(getLevel().getServer().getRecipeManager(), INITIAL);
                     if (recipe != null && RecipeRunnerHelper.matchRecipe(Hk3SpectrumAnalysisMachine.this, recipe)
                             && checkMatchedRecipeAvailable(recipe)) { recipeDirty = false; return; }
                 }
                 super.findAndHandleRecipe();
+                if (getStatus() == Status.IDLE && blockedReason != null
+                        && (status.getRecipeStatus() == null || status.getRecipeStatus() == RecipeResult.FAIL_FIND)) {
+                    status.setRecipeStatus(RecipeResult.fail(blockedReason.copy().withStyle(ChatFormatting.YELLOW)));
+                }
             }
             @Override protected java.util.Set<GTRecipe> lookupRecipeSet() {
                 var candidates = new java.util.LinkedHashSet<>(super.lookupRecipeSet());

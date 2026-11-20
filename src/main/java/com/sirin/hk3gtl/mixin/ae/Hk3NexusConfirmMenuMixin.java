@@ -54,6 +54,15 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
     @Shadow public abstract void clearError();
     @Unique private Hk3NexusNativePlan hk3gtl$exactPlan;
     @Unique private Hk3ExactOrderService.NativePreview hk3gtl$parentPlan;
+    @Unique private Hk3NexusCrafting hk3gtl$previewHost;
+    @Unique private java.util.UUID hk3gtl$previewId;
+    @Unique private CalculationStrategy hk3gtl$previewStrategy;
+
+    @Unique private void hk3gtl$cancelPendingPreview() {
+        if (hk3gtl$previewHost != null) hk3gtl$previewHost.discardPreview(hk3gtl$previewId);
+        hk3gtl$previewHost = null;
+        hk3gtl$previewId = null;
+    }
 
     protected Hk3NexusConfirmMenuMixin(MenuType<?> type, int id, Inventory inventory, Object host) {
         super(type, id, inventory, host);
@@ -67,6 +76,9 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
     private boolean hk3gtl$planWithNexus(AEKey target, BigInteger requested, CalculationStrategy strategy) {
         if (hk3gtl$parentPlan != null) hk3gtl$parentPlan.cancel();
         hk3gtl$parentPlan = null;
+        hk3gtl$cancelPendingPreview();
+        hk3gtl$exactPlan = null;
+        plan = null;
         if (job != null) job.cancel(true);
         job = null;
         result = null;
@@ -74,21 +86,32 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
         whatToCraft = target;
         amount = requested.min(BigInteger.valueOf(Integer.MAX_VALUE)).intValue();
         var runtimes = Hk3NexusCrafting.forGrid(getActionHost().getActionableNode().getGrid());
-        var preview = runtimes.get(0).preview(target, requested, getPlayer().getUUID());
-        if (preview.simulation() && requested.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) <= 0) {
-            hk3gtl$exactPlan = null;
-            return ((ILongCraftConfirmMenu) (Object) this).gtlcore$planLongAmountJob(target, requested.longValueExact(), strategy);
-        }
-        hk3gtl$exactPlan = preview;
-        result = hk3gtl$exactPlan;
-        plan = hk3gtl$exactPlan.summary();
-        sendPacketToClient(new CraftConfirmPlanPacket(plan));
-        broadcastChanges();
-        if (autoStart && !plan.isSimulation()) ((CraftConfirmMenu) (Object) this).startJob();
+        hk3gtl$previewHost = runtimes.get(0);
+        hk3gtl$previewId = hk3gtl$previewHost.prepare(target, requested, getPlayer().getUUID());
+        hk3gtl$previewStrategy = strategy;
         return true;
     }
 
+    @Inject(method = "broadcastChanges", at = @At("HEAD"), remap = true)
+    private void hk3gtl$finishNexusPlan(CallbackInfo ci) {
+        if (isClientSide() || hk3gtl$previewHost == null) return;
+        var preview = hk3gtl$previewHost.pollPreview(hk3gtl$previewId);
+        if (preview == null) return;
+        hk3gtl$cancelPendingPreview();
+        if (preview.simulation() && preview.amount().compareTo(BigInteger.valueOf(Long.MAX_VALUE)) <= 0) {
+            ((ILongCraftConfirmMenu) (Object) this).gtlcore$planLongAmountJob(
+                    preview.target(), preview.amount().longValueExact(), hk3gtl$previewStrategy);
+            return;
+        }
+        hk3gtl$exactPlan = preview;
+        result = preview;
+        plan = preview.summary();
+        sendPacketToClient(new CraftConfirmPlanPacket(plan));
+        if (autoStart && !plan.isSimulation()) ((CraftConfirmMenu) (Object) this).startJob();
+    }
+
     @Override public void hk3gtl$planParent(AEKey target, BigInteger requested) {
+        hk3gtl$cancelPendingPreview();
         if (job != null) job.cancel(true);
         if (hk3gtl$parentPlan != null) hk3gtl$parentPlan.cancel();
         job = null;
@@ -189,6 +212,7 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
 
     @Inject(method = "removed", at = @At("HEAD"), remap = true)
     private void hk3gtl$closeNativePlan(net.minecraft.world.entity.player.Player player, CallbackInfo ci) {
+        hk3gtl$cancelPendingPreview();
         if (hk3gtl$parentPlan != null) hk3gtl$parentPlan.cancel();
         hk3gtl$parentPlan = null;
         hk3gtl$exactPlan = null;

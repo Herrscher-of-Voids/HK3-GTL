@@ -86,14 +86,13 @@ public final class Hk3W01PreviewWorld extends TrackedDummyWorld {
     }
 
     AbstractSet<BlockPos> positions() {
-        return positions(index.renderCells());
+        return positions(null);
     }
 
     AbstractSet<BlockPos> positions(int[] rendered) {
-        long[] cells = layout.cells();
-        int size = layer < 0 ? rendered.length : cells.length;
+        int size = layer >= 0 || rendered == null ? layout.count() : rendered.length;
         return new AbstractSet<>() {
-            @Override public int size() { return layer < 0 ? rendered.length : index.countLayer(layer); }
+            @Override public int size() { return layer >= 0 ? index.countLayer(layer) : rendered == null ? index.renderCount() : rendered.length; }
             @Override public boolean contains(Object value) {
                 return value instanceof BlockPos pos && (layer < 0 || layer == pos.getY())
                         && index.stateAt(pos.getX(), pos.getY(), pos.getZ()) >= 0;
@@ -102,13 +101,17 @@ public final class Hk3W01PreviewWorld extends TrackedDummyWorld {
                 return new Iterator<>() {
                     int next = advance(0);
                     private int advance(int from) {
-                        while (from < size && layer >= 0 && Hk3W01HallLayout.y(cells[from]) != layer) from++;
+                        if (layer < 0 && rendered == null) {
+                            int cell = index.nextVisibleCell(from);
+                            return cell < 0 ? size : cell;
+                        }
+                        while (from < size && layer >= 0 && Hk3W01HallLayout.y(layout.cell(from)) != layer) from++;
                         return from;
                     }
                     @Override public boolean hasNext() { return next < size && !Thread.currentThread().isInterrupted(); }
                     @Override public BlockPos next() {
                         if (!hasNext()) throw new NoSuchElementException();
-                        long cell = cells[layer < 0 ? rendered[next] : next];
+                        long cell = layout.cell(layer < 0 && rendered != null ? rendered[next] : next);
                         next = advance(next + 1);
                         return new BlockPos(Hk3W01HallLayout.x(cell), Hk3W01HallLayout.y(cell), Hk3W01HallLayout.z(cell));
                     }

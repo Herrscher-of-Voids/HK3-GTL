@@ -13,6 +13,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Arrays;
+import java.util.UUID;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 public final class Hk3QuestFileInstaller {
     private static final String PENDING = "pending.properties";
@@ -61,39 +66,29 @@ public final class Hk3QuestFileInstaller {
             }
         }
         Files.createDirectories(backups);
-        Path snapshot = Files.createTempDirectory(backups, "migration-");
+        Path archive = backups.resolve("migration-" + UUID.randomUUID() + ".zip");
+        Map<String, byte[]> originals = new LinkedHashMap<>();
         Properties manifest = new Properties();
         for (String path : owned) {
             Path current = checked(root, path);
             boolean exists = Files.exists(current, LinkOption.NOFOLLOW_LINKS);
             if (exists && !Files.isRegularFile(current)) throw new IOException("Not a quest file: " + current);
             manifest.setProperty(path, Boolean.toString(exists));
-            if (exists) {
-                Path copy = checked(snapshot.resolve("originals"), path);
-                Files.createDirectories(copy.getParent());
-                Files.copy(current, copy);
-            }
+            if (exists) originals.put("originals/" + path, Files.readAllBytes(current));
         }
-        writeProperties(snapshot.resolve(MANIFEST), manifest);
+        originals.put(MANIFEST, propertyBytes(manifest));
+        writeArchive(archive, originals);
         Properties pending = new Properties();
-        pending.setProperty("snapshot", snapshot.getFileName().toString());
+        pending.setProperty("archive", archive.getFileName().toString());
         writeProperties(backups.resolve(PENDING), pending);
         try {
             for (Map.Entry<String, byte[]> entry : payload.entrySet()) {
                 atomicWrite(checked(root, entry.getKey()), entry.getValue());
             }
-            // 旧章节移出FTB读取目录，实际内容已经归档；不用删除旧文本。
-            for (String path : legacy) {
-                Path current = checked(root, path);
-                if (Files.exists(current)) {
-                    Path archived = checked(snapshot.resolve("retired"), path);
-                    Files.createDirectories(archived.getParent());
-                    Files.move(current, archived);
-                }
-            }
+            for (String path : legacy) Files.deleteIfExists(checked(root, path));
             atomicWrite(markerPath, version.getBytes(StandardCharsets.UTF_8));
             Files.delete(backups.resolve(PENDING));
-            return snapshot;
+            return archive;
         } catch (IOException failure) {
             try {
                 recover(root, backups);
@@ -108,6 +103,29 @@ public final class Hk3QuestFileInstaller {
         Path journal = checked(backups, PENDING);
         if (!Files.exists(journal)) return;
         Properties pending = readProperties(journal);
+        String archive = pending.getProperty("archive");
+        if (archive != null) {
+            try (var zip = new ZipFile(checked(backups, archive).toFile())) {
+                Properties manifest = new Properties();
+                manifest.load(new java.io.ByteArrayInputStream(readEntry(zip, MANIFEST)));
+                if (manifest.isEmpty()) throw new IOException("Empty quest recovery manifest");
+                Map<Path, byte[]> restore = new LinkedHashMap<>();
+                for (String path : manifest.stringPropertyNames()) {
+                    Path target = checked(root, path);
+                    switch (manifest.getProperty(path)) {
+                        case "true" -> restore.put(target, readEntry(zip, "originals/" + path));
+                        case "false" -> restore.put(target, null);
+                        default -> throw new IOException("Invalid manifest flag: " + path);
+                    }
+                }
+                for (var entry : restore.entrySet()) {
+                    if (entry.getValue() == null) Files.deleteIfExists(entry.getKey());
+                    else atomicWrite(entry.getKey(), entry.getValue());
+                }
+            }
+            Files.delete(journal);
+            return;
+        }
         String name = pending.getProperty("snapshot", "");
         if (!name.matches("migration-[a-zA-Z0-9-]+")) throw new IOException("Invalid quest journal");
         Path snapshot = backups.resolve(name);
@@ -164,11 +182,44 @@ public final class Hk3QuestFileInstaller {
         }
     }
 
-    /** 属性写入也采用单文件替换，避免半写日志。 / Replace property files atomically to avoid truncated journals. */
+    private static void writeArchive(Path archive, Map<String, byte[]> contents) throws IOException {
+        Path temporary = Files.createTempFile(archive.getParent(), "migration-", ".tmp");
+        try {
+            try (var zip = new ZipOutputStream(Files.newOutputStream(temporary))) {
+                for (var entry : contents.entrySet()) {
+                    zip.putNextEntry(new ZipEntry(entry.getKey()));
+                    zip.write(entry.getValue());
+                    zip.closeEntry();
+                }
+            }
+            try (var zip = new ZipFile(temporary.toFile())) {
+                for (var entry : contents.entrySet()) {
+                    if (!Arrays.equals(entry.getValue(), readEntry(zip, entry.getKey())))
+                        throw new IOException("Quest archive verification failed: " + entry.getKey());
+                }
+            }
+            Files.move(temporary, archive, StandardCopyOption.ATOMIC_MOVE);
+        } finally {
+            Files.deleteIfExists(temporary);
+        }
+    }
+
+    private static byte[] readEntry(ZipFile zip, String name) throws IOException {
+        var entry = zip.getEntry(name);
+        if (entry == null) throw new IOException("Missing quest archive entry: " + name);
+        try (var input = zip.getInputStream(entry)) {
+            return input.readAllBytes();
+        }
+    }
+
     private static void writeProperties(Path path, Properties properties) throws IOException {
-        java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
-        properties.store(bytes, "HK3GTL quest migration; preserve originals / keep for recovery");
-        atomicWrite(path, bytes.toByteArray());
+        atomicWrite(path, propertyBytes(properties));
+    }
+
+    private static byte[] propertyBytes(Properties properties) throws IOException {
+        var bytes = new java.io.ByteArrayOutputStream();
+        properties.store(bytes, "HK3GTL quest migration");
+        return bytes.toByteArray();
     }
 
     private static Properties readProperties(Path path) throws IOException {

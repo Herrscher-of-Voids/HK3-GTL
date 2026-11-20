@@ -30,7 +30,10 @@ public abstract class Hk3RecipeLookupMixin {
     }
 
     @Inject(method = "removeAllRecipes", at = @At("HEAD"), require = 1)
-    private void hk3gtl$clearRejected(CallbackInfo callback) { hk3gtl$rejected.clear(); }
+    private void hk3gtl$clearRejected(CallbackInfo callback) {
+        hk3gtl$rejected.clear();
+        com.sirin.hk3gtl.common.machine.Hk3MultiRecipeLogic.invalidateLookups();
+    }
 
     @Inject(method = "getRecipeIterator", at = @At("RETURN"), require = 1)
     private void hk3gtl$appendRejected(IRecipeCapabilityHolder holder, Predicate<GTRecipe> canHandle,

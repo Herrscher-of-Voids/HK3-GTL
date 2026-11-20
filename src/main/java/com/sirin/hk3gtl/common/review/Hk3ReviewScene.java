@@ -71,17 +71,14 @@ public final class Hk3ReviewScene {
             p.fallDistance=0;p.setDeltaMovement(Vec3.ZERO);
         }finally{MOVING.remove(p.getUUID());}
     }
-    /** 原位置受阻时仅寻找附近安全地面；没有安全位置则保留返程票据，绝不覆盖建筑或默认为出生点。 */
-    public static boolean returnHome(ServerPlayer p){
+    public static boolean returnHome(ServerPlayer p){return returnHome(p,false);}
+    public static boolean returnHome(ServerPlayer p,boolean spawn){
         var data=Hk3ReviewReturnData.get(p.server);var r=data.point(p.getUUID());if(r==null)return true;if(!p.isAlive())return false;
-        var dest=p.server.getLevel(ResourceKey.create(Registries.DIMENSION,new ResourceLocation(r.dimension())));
-        Vec3 at=null;if(dest!=null){
-            var original=new Vec3(r.x(),r.y(),r.z());if(safe(p,dest,original))at=original;
-            else outer:for(int radius=0;radius<=8;radius++)for(int dy=0;dy<=8;dy++)for(int sign:new int[]{1,-1})for(int dx=-radius;dx<=radius;dx++)for(int dz=-radius;dz<=radius;dz++){
-                if(Math.max(Math.abs(dx),Math.abs(dz))!=radius)continue;
-                var candidate=new Vec3(Math.floor(r.x())+dx+0.5,Math.floor(r.y())+dy*sign,Math.floor(r.z())+dz+0.5);
-                if(safe(p,dest,candidate)){at=candidate;break outer;}
-            }
+        var dest=spawn?p.server.overworld():p.server.getLevel(ResourceKey.create(Registries.DIMENSION,new ResourceLocation(r.dimension())));
+        Vec3 at=null;
+        if(dest!=null){
+            var original=spawn?Vec3.atBottomCenterOf(dest.getSharedSpawnPos()):new Vec3(r.x(),r.y(),r.z());
+            at=returnPosition(p,dest,original);
         }
         if(at==null){p.sendSystemMessage(Component.translatable("hk3gtl.review.return_blocked"));return false;}
         try{move(p,dest,at,r.yaw(),r.pitch());}
@@ -90,6 +87,15 @@ public final class Hk3ReviewScene {
         if(Hk3ReviewData.get(p.server).snapshot().experienced(p.getUUID(),Hk3ReviewLedger.Kind.FIRST))
             com.sirin.hk3gtl.common.narrative.story.Hk3StoryService.fact(p,"first_review_completed");
         return true;
+    }
+    private static Vec3 returnPosition(ServerPlayer p,ServerLevel level,Vec3 original){
+        if(safe(p,level,original))return original;
+        for(int radius=0;radius<=8;radius++)for(int dy=0;dy<=8;dy++)for(int sign:new int[]{1,-1})for(int dx=-radius;dx<=radius;dx++)for(int dz=-radius;dz<=radius;dz++){
+            if(Math.max(Math.abs(dx),Math.abs(dz))!=radius)continue;
+            var candidate=new Vec3(Math.floor(original.x)+dx+0.5,Math.floor(original.y)+dy*sign,Math.floor(original.z)+dz+0.5);
+            if(safe(p,level,candidate))return candidate;
+        }
+        return null;
     }
     private static boolean safe(ServerPlayer p,ServerLevel level,Vec3 at){
         var feet=BlockPos.containing(at);if(at.y<level.getMinBuildHeight()+1||at.y+2>=level.getMaxBuildHeight()||!level.getWorldBorder().isWithinBounds(feet))return false;

@@ -143,7 +143,7 @@ public final class Hk3ReactorMachine extends Hk3LateIndustrialMachine {
                 lastOriginRecipe = null;
                 var recipe = getRecipe();
                 if (recipe != null) setupRecipe(recipe);
-                recipeDirty = false;
+                recipeDirty = pendingLookup();
             }
             @Override protected boolean handleRecipeIO(GTRecipe recipe, IO io) {
                 boolean committed = super.handleRecipeIO(recipe, io);

@@ -23,11 +23,14 @@
       "tasks": [
         {
           "id": "4B5B03A6D23C5531",
-          "type": "custom",
-          "title": "实际完成空间校准模块制造",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_spatial_module"
-          ]
+          ],
+          "item": "hk3gtl:spatial_calibration_module",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:spatial_calibration_module",
@@ -48,11 +51,14 @@
       "tasks": [
         {
           "id": "4B5896E90C4A08F8",
-          "type": "custom",
-          "title": "实际完成神之键封装框架",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_key_housing"
-          ]
+          ],
+          "item": "hk3gtl:divine_key_housing",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:divine_key_housing",
@@ -73,11 +79,14 @@
       "tasks": [
         {
           "id": "4B5FD1840FDFBA4F",
-          "type": "custom",
-          "title": "实际完成仿制的伊甸之星",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_imitation_star_of_eden"
-          ]
+          ],
+          "item": "hk3gtl:imitation_star_of_eden",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imitation_star_of_eden",
@@ -98,11 +107,11 @@
       "tasks": [
         {
           "id": "4B57A94BBCE313AD",
-          "type": "custom",
-          "title": "实际完成复制仿制休伯利安蓝图",
-          "tags": [
-            "hk3gtl_quest_existing_ship_blueprint_copy"
-          ]
+          "type": "item",
+          "item": "hk3gtl:imitation_hyperion_blueprint",
+          "count": 2,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imitation_hyperion_blueprint",
@@ -150,11 +159,14 @@
       "tasks": [
         {
           "id": "4B5827533612C0C8",
-          "type": "custom",
-          "title": "实际完成电磁响应工况",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_electromagnetic_worktest"
-          ]
+          ],
+          "item": "hk3gtl:polarized_electromagnetic_material",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:polarized_electromagnetic_material",
@@ -176,11 +188,14 @@
       "tasks": [
         {
           "id": "4B5D41D5CE9B9482",
-          "type": "custom",
-          "title": "实际完成深冷凝聚工况",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_cryogenic_worktest"
-          ]
+          ],
+          "item": "hk3gtl:cryogenic_condensed_material",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:cryogenic_condensed_material",
@@ -202,11 +217,14 @@
       "tasks": [
         {
           "id": "4B543E8C83FD9E54",
-          "type": "custom",
-          "title": "实际完成极限铸造工况",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_flame_worktest"
-          ]
+          ],
+          "item": "hk3gtl:extreme_casting_material",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:extreme_casting_material",
@@ -279,11 +297,14 @@
       "tasks": [
         {
           "id": "4B5A324A4A928572",
-          "type": "custom",
-          "title": "实际完成列车导航模块工况",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_train_navigation_module"
-          ]
+          ],
+          "item": "hk3gtl:hyperion_navigation_module",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:hyperion_navigation_module",
@@ -305,11 +326,14 @@
       "tasks": [
         {
           "id": "4B51E5C75C89902C",
-          "type": "custom",
-          "title": "实际完成正式世界泡坐标解算",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_coordinate_solution"
-          ]
+          ],
+          "item": "hk3gtl:spatial_calibration_module",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:spatial_calibration_module",
@@ -1090,11 +1114,14 @@
       "tasks": [
         {
           "id": "4B5E8631A9990096",
-          "type": "custom",
-          "title": "实际完成QAV机壳分层拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qav_n14"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_qev",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_qev",
@@ -1116,11 +1143,14 @@
       "tasks": [
         {
           "id": "4B581EFCA220D924",
-          "type": "custom",
-          "title": "实际完成QAV分类废料分离",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qav_n15"
-          ]
+          ],
+          "item": "hk3gtl:anchored_superlattice_structure_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:anchored_superlattice_structure_recovered_fraction",
@@ -1142,11 +1172,14 @@
       "tasks": [
         {
           "id": "4B55956EECFE6857",
-          "type": "custom",
-          "title": "实际完成QAV回收组分补料重建",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qav_n16"
-          ]
+          ],
+          "item": "hk3gtl:anchored_superlattice_structure_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:anchored_superlattice_structure_stage_1",
@@ -1168,11 +1201,14 @@
       "tasks": [
         {
           "id": "4B5E0F91A7E8FA94",
-          "type": "custom",
-          "title": "实际完成QAV尾料固化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_qav_n17"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -1319,11 +1355,14 @@
       "tasks": [
         {
           "id": "4B5269111434FFF2",
-          "type": "custom",
-          "title": "实际完成逆向工程复现样本",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_reverse_engineering_specimen"
-          ]
+          ],
+          "item": "hk3gtl:reverse_engineering_specimen",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:reverse_engineering_specimen",
@@ -1344,11 +1383,14 @@
       "tasks": [
         {
           "id": "4B594FB4E932FD43",
-          "type": "custom",
-          "title": "实际完成真实世界泡无人采掘",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_existing_unmanned_mining_dispatch"
-          ]
+          ],
+          "item": "hk3gtl:worn_resource_probe",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:worn_resource_probe",

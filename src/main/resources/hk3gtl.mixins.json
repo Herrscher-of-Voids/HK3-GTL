@@ -181,12 +181,16 @@
     "ae.Hk3NexusPlanPacketMixin",
     "stargate.Hk3ClassicStargateActivationMixin",
     "stargate.Hk3DhdQuestOperatorMixin",
+    "stargate.Hk3WormholeTravelMixin",
     "gtceu.Hk3EggItemInterfaceMixin",
     "gtceu.Hk3EggFluidInterfaceMixin",
     "gtceu.Hk3EggEnergyInterfaceMixin",
     "gtlsupb.Hk3EggVoltageRegulatorMixin"
   ],
   "client": [
+    "ae.Hk3CompleteGtPatternTransferMixin",
+    "jei.Hk3ExpandedRecipeLayoutMixin",
+    "ae.Hk3EncodingHelperAccess",
     "client.Hk3AtlasDumpMixin",
     "client.Hk3BuildBusyFrameMixin",
     "enhanced.client.Hk3CampusCreateWorldMixin",

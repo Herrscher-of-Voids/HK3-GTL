@@ -195,6 +195,10 @@ public final class Hk3ReviewSessions {
         if(!disconnect&&p.isAlive()&&m.kind()==Hk3ReviewLedger.Kind.SECOND)DialogueSessionManager.startAt(p,Hk3ReviewDialogues.NOTICE,attacked?"SP05":"SP04",0);
     }
     public static int returnNow(ServerPlayer p){if(active(p.getUUID()))pause(p,false,false);return Hk3ReviewScene.returnHome(p)?1:0;}
+    public static int returnToSpawn(ServerPlayer p){
+        if(active(p.getUUID()))pause(p,false,false);
+        return Hk3ReviewScene.returnHome(p,true)?1:0;
+    }
     @SubscribeEvent public static void tick(TickEvent.ServerTickEvent e){
         if(e.phase!=TickEvent.Phase.END)return;var server=net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer();if(server==null||server.getTickCount()%5!=0)return;
         for(var p:server.getPlayerList().getPlayers()){

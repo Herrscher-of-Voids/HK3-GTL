@@ -91,7 +91,7 @@ public class FluidRecipeCapabilityMixin {
                     entryLists.add(null);
                     continue;
                 }
-                entryLists.add(FluidRecipeCapability.mapFluid(ingredient));
+                entryLists.add(Either.right(List.of(ingredient.getStacks())));
             } catch (RuntimeException exception) {
                 LOGGER.warn("[HK3GTL] JEI 流体内容转换失败，rawClass={}, recipe={}, io={}",
                         content.content.getClass().getName(), recipe.id, io, exception);

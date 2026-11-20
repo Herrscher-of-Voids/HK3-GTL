@@ -62,11 +62,12 @@ public final class Hk3PreviewGreedyMesh implements AutoCloseable {
         var fallback = new IntArrayList();
         var position = new BlockPos.MutableBlockPos();
         var adjacent = new BlockPos.MutableBlockPos();
-        int[] visible=captured.index().renderCells();
-        int count=captured.hasHiddenCells()?layout.cells().length:visible.length;
-        for(int at=0;at<count;at++){
-            int cellIndex=captured.hasHiddenCells()?at:visible[at];
-            long cell = layout.cells()[cellIndex];
+        boolean all = captured.hasHiddenCells();
+        for (int cellIndex = all ? 0 : captured.index().nextVisibleCell(0);
+                cellIndex >= 0 && cellIndex < layout.count();
+                cellIndex = all ? cellIndex + 1 : captured.index().nextVisibleCell(cellIndex + 1)) {
+            if (Thread.currentThread().isInterrupted()) throw new java.util.concurrent.CancellationException();
+            long cell = layout.cell(cellIndex);
             int state = Hk3W01HallLayout.state(cell);
             int x = Hk3W01HallLayout.x(cell), y = Hk3W01HallLayout.y(cell), z = Hk3W01HallLayout.z(cell);
             position.set(x, y, z);
@@ -101,22 +102,17 @@ public final class Hk3PreviewGreedyMesh implements AutoCloseable {
             var ordered = entry.getValue();
             sourceFaces += ordered.size();
             ordered.sort(LongComparators.NATURAL_COMPARATOR);
-            var remaining = new LongOpenHashSet(ordered);
             var rectangles = new IntArrayList();
-            for (long first : ordered) {
-                if (!remaining.remove(first)) continue;
-                int width = 1, height = 1;
-                while (remaining.contains(first + ((long) width << 16))) width++;
-                outer: while (true) {
-                    for (int du = 0; du < width; du++)
-                        if (!remaining.contains(first + ((long) du << 16) + height)) break outer;
-                    height++;
+            var remaining = new LongOpenHashSet();
+            for (int start = 0; start < ordered.size();) {
+                if (Thread.currentThread().isInterrupted()) throw new java.util.concurrent.CancellationException();
+                int end = start;
+                long plane = ordered.getLong(start) >>> 32;
+                while (end < ordered.size() && ordered.getLong(end) >>> 32 == plane) {
+                    remaining.add(ordered.getLong(end++));
                 }
-                for (int du = 0; du < width; du++) for (int dv = 0; dv < height; dv++)
-                    remaining.remove(first + ((long) du << 16) + dv);
-                rectangles.add((int) (first >>> 32));
-                rectangles.add((int) (first >>> 16) & 65535); rectangles.add((int) first & 65535);
-                rectangles.add(width); rectangles.add(height);
+                mergePlane(ordered, start, end, remaining, rectangles);
+                start = end;
             }
             int id = (int) (entry.getLongKey() >>> 21), pattern = (int) (entry.getLongKey() & 0x1fffff);
             var direction = Direction.values()[id % 6];
@@ -128,6 +124,27 @@ public final class Hk3PreviewGreedyMesh implements AutoCloseable {
             if (Thread.currentThread().isInterrupted()) throw new java.util.concurrent.CancellationException();
         }
         return new Prepared(List.copyOf(batches), fallback.toIntArray(), sourceFaces, mergedFaces);
+    }
+
+    private static void mergePlane(LongArrayList ordered, int start, int end, LongOpenHashSet remaining, IntArrayList rectangles) {
+        for (int at = start; at < end; at++) {
+            long first = ordered.getLong(at);
+            if (!remaining.remove(first)) continue;
+            int width = 1, height = 1;
+            while (remaining.contains(first + ((long) width << 16))) width++;
+            outer: while (true) {
+                for (int du = 0; du < width; du++)
+                    if (!remaining.contains(first + ((long) du << 16) + height)) break outer;
+                height++;
+            }
+            for (int du = 0; du < width; du++) for (int dv = 0; dv < height; dv++)
+                remaining.remove(first + ((long) du << 16) + dv);
+            rectangles.add((int) (first >>> 32));
+            rectangles.add((int) (first >>> 16) & 65535);
+            rectangles.add((int) first & 65535);
+            rectangles.add(width);
+            rectangles.add(height);
+        }
     }
 
     private static long key(int plane, int u, int v) { return (long) plane << 32 | (long) u << 16 | v; }

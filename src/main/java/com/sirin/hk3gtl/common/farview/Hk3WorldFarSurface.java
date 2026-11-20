@@ -3,7 +3,6 @@ package com.sirin.hk3gtl.common.farview;
 import com.mojang.serialization.Codec;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.shorts.ShortArrayList;
-import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.world.level.block.Block;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.chunk.PalettedContainer;
 import java.util.Map;
 import java.util.Arrays;
 import java.util.TreeMap;
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 /** 按列压缩真实方块，保留外墙、岛底与不同高度之间的空气间隙。 */
@@ -32,16 +30,32 @@ public record Hk3WorldFarSurface(int[] offsets,short[] starts,short[] ends,int[]
     public static Hk3WorldFarSurface capture(LevelChunk chunk){
         return snapshot(chunk).get();
     }
-    public static CompletableFuture<Hk3WorldFarSurface> captureAsync(LevelChunk chunk){
-        return CompletableFuture.supplyAsync(snapshot(chunk),Util.backgroundExecutor());
-    }
     public static Supplier<Hk3WorldFarSurface> snapshot(LevelChunk chunk){
-        Map<Integer,PalettedContainer<BlockState>> sections=new TreeMap<>();
-        var loaded=chunk.getSections();int first=chunk.getMinSection(),min=chunk.getMinBuildHeight(),top=chunk.getMaxBuildHeight();
-        for(int i=0;i<loaded.length;i++){
-            if(!loaded[i].hasOnlyAir())sections.put(first+i,loaded[i].getStates().copy());
+        var capture=new Snapshot(chunk);
+        capture.copyUntil(Long.MAX_VALUE,Integer.MAX_VALUE);
+        return capture;
+    }
+    public static final class Snapshot implements Supplier<Hk3WorldFarSurface> {
+        private LevelChunk chunk;
+        private final int first,min,top;
+        private int section;
+        private final Map<Integer,PalettedContainer<BlockState>> sections=new TreeMap<>();
+        public Snapshot(LevelChunk chunk){
+            this.chunk=chunk;first=chunk.getMinSection();min=chunk.getMinBuildHeight();top=chunk.getMaxBuildHeight();
         }
-        return ()->collect(sections,min,top);
+        public boolean copyUntil(long deadline,int limit){
+            if(chunk==null)return true;
+            var loaded=chunk.getSections();
+            while(section<loaded.length&&limit-->0&&System.nanoTime()<deadline){
+                var source=loaded[section];
+                if(!source.hasOnlyAir())sections.put(first+section,source.getStates().copy());
+                section++;
+            }
+            if(section<loaded.length)return false;
+            chunk=null;
+            return true;
+        }
+        @Override public Hk3WorldFarSurface get(){return collect(sections,min,top);}
     }
     public static Hk3WorldFarSurface read(CompoundTag chunk,int min,int height){
         Map<Integer,PalettedContainer<BlockState>> sections=new TreeMap<>();

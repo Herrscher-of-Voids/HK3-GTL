@@ -26,6 +26,7 @@ import net.povstalec.sgjourney.common.sgjourney.stargate.Stargate;
 @Mod.EventBusSubscriber(modid = "hk3gtl")
 public final class Hk3StoryTravel {
     private static final Map<UUID, Transit> TRANSITS = new HashMap<>();
+    private static final int ARRIVAL_TIMEOUT_TICKS = 100;
 
     private record Gate(ResourceKey<Level> dimension, Vec3 position, String address, double radius) {
         static Gate of(MinecraftServer server, Stargate gate) {
@@ -58,17 +59,17 @@ public final class Hk3StoryTravel {
             var entry = entries.next();
             var transit = entry.getValue();
             var player = server.getPlayerList().getPlayer(entry.getKey());
-            if (player == null || server.getTickCount() > transit.tick() + 1) {
+            if (player == null || server.getTickCount() - transit.tick() > ARRIVAL_TIMEOUT_TICKS) {
                 entries.remove();
                 continue;
             }
             // 原生通行统计在实际传送后递增，取消请求与护盾阻挡不会递增。
             if (travels(player) <= transit.traveledBefore()) continue;
-            entries.remove();
             double radius = transit.target().radius() + 6;
             if (player.isCreative() || player.isSpectator() || !player.isAlive()
                     || !player.level().dimension().equals(transit.target().dimension())
                     || player.position().distanceToSqr(transit.target().position()) > radius * radius) continue;
+            entries.remove();
             arrived(player, transit);
         }
     }

@@ -224,7 +224,8 @@ public final class Hk3FarViewRenderer {
         signature=signature*31+Hk3W13FieldScenes.signature();
         signature=signature*31+Hk3WonderFxScenes.signature();
         if(signature==dynamicMaskSignature)return;
-        dynamicMaskSignature=signature;dynamicMask=active;clearWorks();Hk3WorldFarTerrain.reload();
+        dynamicMaskSignature=signature;dynamicMask=active;
+        Set<Long> dirtyColumns=new HashSet<>(dynamicColumns);
         if(active){
             Set<Long> selected=new HashSet<>();
             for(var scene:Hk3W03FieldScenes.scenes()){
@@ -240,7 +241,17 @@ public final class Hk3FarViewRenderer {
             }
             Hk3W08FieldScenes.addColumns(selected);Hk3W10FieldScenes.addColumns(selected);Hk3W12FieldScenes.addColumns(selected);Hk3W11FieldScenes.addColumns(selected);Hk3W13FieldScenes.addColumns(selected);Hk3WonderFxScenes.addColumns(selected);dynamicColumns=selected;
         }else dynamicColumns=Set.of();
-        for(var group:REGIONS.values()){group.close();group.invalidate();}
+        dirtyColumns.addAll(dynamicColumns);
+        Set<Long> affected=new HashSet<>(dirtyColumns);
+        for(long column:dirtyColumns){
+            int x=net.minecraft.world.level.ChunkPos.getX(column),z=net.minecraft.world.level.ChunkPos.getZ(column);
+            for(int dx=-1;dx<=1;dx++)for(int dz=-1;dz<=1;dz++)affected.add(net.minecraft.world.level.ChunkPos.asLong(x+dx,z+dz));
+        }
+        Hk3WorldFarTerrain.maskChanged(affected);
+        for(var group:REGIONS.values()){
+            long column=net.minecraft.world.level.ChunkPos.asLong(BlockPos.getX(group.key),BlockPos.getZ(group.key));
+            if(affected.contains(column)){group.close();group.invalidate();discardWork(group.key);}
+        }
     }
     private static long neighbor(long key,int axis,int sign) {
         int x=BlockPos.getX(key),y=BlockPos.getY(key),z=BlockPos.getZ(key);

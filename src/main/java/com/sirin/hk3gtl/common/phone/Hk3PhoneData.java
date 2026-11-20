@@ -18,6 +18,7 @@ public final class Hk3PhoneData extends SavedData {
     public void physicalDelivered(UUID user){if(physicalMigration.remove(user))setDirty();}
     public record Entry(String id,String title,String body,long time,boolean read,String kind,String target,boolean pending) {
         public int priority(){return pending?2:kind.equals("chatter")?0:1;}
+        private Entry asRead(){return new Entry(id,title,body,time,true,kind,target,pending);}
     }
     public static Hk3PhoneData get(ServerPlayer player){return get(player.server);}
     public static Hk3PhoneData get(MinecraftServer server){
@@ -42,7 +43,19 @@ public final class Hk3PhoneData extends SavedData {
     public Entry entry(UUID user,String id){var entries=users.get(user);return entries==null?null:entries.get(id);}
     public void read(UUID user,String id){
         var old=entry(user,id);if(old==null||old.read())return;
-        users.get(user).put(id,new Entry(old.id(),old.title(),old.body(),old.time(),true,old.kind(),old.target(),old.pending()));setDirty();
+        users.get(user).put(id,old.asRead());setDirty();
+    }
+    public void readAll(UUID user){
+        var entries=users.get(user);
+        if(entries==null)return;
+        boolean changed=false;
+        for(var entry:entries.entrySet()){
+            var message=entry.getValue();
+            if(message.read())continue;
+            entry.setValue(message.asRead());
+            changed=true;
+        }
+        if(changed)setDirty();
     }
     /** 待处理仅由真实业务提交结果清除，阅读和通知淡出不清除。 */
     public void resolve(UUID user,String id){

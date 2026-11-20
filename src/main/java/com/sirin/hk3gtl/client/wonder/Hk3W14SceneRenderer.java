@@ -29,16 +29,19 @@ public final class Hk3W14SceneRenderer{
     private static ShaderInstance shader;
     private static CompletableFuture<Hk3W14SceneModel> loading;
     private static Hk3W14SceneModel model;
-    private static int part,material,face,quad,uploadedLayer=-1;
+    private static final int QUADS_PER_BATCH=8192;
+    private static int part,material,face,quad,uploadedLayer=-1,layerMaterial,layerCursor;
     private static long vertexBytes,layerBytes,lastPreview;
     private static boolean prepared,failed;
     private Hk3W14SceneRenderer(){}
-    public static boolean ready(){return prepared;}
+    public static boolean ready(int layer){
+        return layer<0?prepared:model!=null&&uploadedLayer==layer&&layerMaterial==model.materials().length;
+    }
     public static long vertexBytes(){return vertexBytes+layerBytes;}
-    public static boolean preparePreview(){
+    public static boolean preparePreview(int layer){
         if(shader==null||failed)return false;
         lastPreview=System.nanoTime();
-        if(prepared)return true;
+        if(ready(layer))return true;
         if(model==null){
             if(loading==null)loading=CompletableFuture.supplyAsync(Hk3W14SceneModel::load);
             if(!loading.isDone())return false;
@@ -47,18 +50,26 @@ public final class Hk3W14SceneRenderer{
             finally{loading=null;}
         }
         long deadline=System.nanoTime()+2_000_000;
-        do{if(part==model.parts().length)break;upload();}while(System.nanoTime()<deadline);
-        prepared=part==model.parts().length;return prepared;
+        if(layer<0){
+            do{if(part==model.parts().length)break;upload();}while(System.nanoTime()<deadline);
+            prepared=part==model.parts().length;
+        }else{
+            if(uploadedLayer!=layer){
+                LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();
+                uploadedLayer=layer;layerMaterial=layerCursor=0;layerBytes=0;
+            }
+            while(!ready(layer)&&System.nanoTime()<deadline)uploadLayer(layer,deadline);
+        }
+        return ready(layer);
     }
     public static void drawPreview(int layer){
-        if(!prepared)return;
+        if(!ready(layer))return;
         int[] offset=model.data().blueprint_to_export_offset_xyz(),grid=model.data().atlas_grid();
         var origin=new Matrix4f(RenderSystem.getModelViewMatrix()).translate(offset[0],offset[1],offset[2]);
         var projection=new Matrix4f(RenderSystem.getProjectionMatrix());
         shader.getUniform("AtlasGrid").set((float)grid[0],(float)grid[1]);
         RenderSystem.setShaderTexture(0,ATLAS);RenderSystem.setShaderColor(1,1,1,1);
         RenderSystem.enableDepthTest();RenderSystem.disableCull();RenderSystem.enableBlend();RenderSystem.defaultBlendFunc();
-        if(layer>=0&&uploadedLayer!=layer)uploadLayer(layer);
         var batches=layer<0?BUFFERS:LAYER_BUFFERS;
         RenderSystem.depthMask(true);
         for(var batch:batches)if(!model.materials()[batch.material].transparent())drawBatch(batch,origin,projection);
@@ -70,20 +81,22 @@ public final class Hk3W14SceneRenderer{
         shader.getUniform("Glow").set(model.materials()[batch.material].emissive()?1.15f:1f);
         batch.buffer.bind();batch.buffer.drawWithShader(origin,projection,shader);
     }
-    private static void uploadLayer(int layer){
-        LAYER_BUFFERS.forEach(batch->batch.buffer.close());LAYER_BUFFERS.clear();uploadedLayer=layer;layerBytes=0;
+    private static void uploadLayer(int layer,long deadline){
         int y=layer-model.data().blueprint_to_export_offset_xyz()[1];
         var rectangles=model.layers()[layer].rectangles().cells();
-        for(int m=0;m<model.materials().length;m++){
-            int count=0;BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
-            for(int at=0;at<rectangles.length;at+=Hk3CompactScene.Rectangles.STRIDE)if(rectangles[at]==m){
-                int x=rectangles[at+1],z=rectangles[at+2],width=rectangles[at+3],depth=rectangles[at+4];
-                for(int[] c:CORNERS[5])BUILDER.vertex(x+c[0]*width,y+1,z+c[2]*depth).color(255,255,255,model.materials()[m].transparent()?148:255)
-                        .uv((m*6+5)*2048f+c[0]*width,c[2]*depth).endVertex();
-                count++;
-            }
-            layerBytes+=finishBatch(LAYER_BUFFERS,m,count);
+        int m=layerMaterial,count=0,stride=Hk3CompactScene.Rectangles.STRIDE;
+        BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
+        while(layerCursor<rectangles.length&&count<QUADS_PER_BATCH&&System.nanoTime()<deadline){
+            int at=layerCursor;
+            layerCursor+=stride;
+            if(rectangles[at]!=m)continue;
+            int x=rectangles[at+1],z=rectangles[at+2],width=rectangles[at+3],depth=rectangles[at+4];
+            for(int[] c:CORNERS[5])BUILDER.vertex(x+c[0]*width,y+1,z+c[2]*depth).color(255,255,255,model.materials()[m].transparent()?148:255)
+                    .uv((m*6+5)*2048f+c[0]*width,c[2]*depth).endVertex();
+            count++;
         }
+        layerBytes+=finishBatch(LAYER_BUFFERS,m,count);
+        if(layerCursor==rectangles.length){layerMaterial++;layerCursor=0;}
     }
     private static long finishBatch(List<Batch> target,int state,int count){
         var rendered=BUILDER.end();
@@ -94,7 +107,7 @@ public final class Hk3W14SceneRenderer{
     private static void upload(){
         int state=material,count=0;var source=model.parts()[part];int[] size=source.size(),origin=source.origin();var info=model.materials()[material];
         BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR_TEX);
-        while(face<6&&count<8192){
+        while(face<6&&count<QUADS_PER_BATCH){
             int[] starts=source.starts()[material][face];
             if(quad==starts.length){
                 source.starts()[material][face]=null;

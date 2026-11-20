@@ -96,9 +96,13 @@ final class Hk3NexusRecipe {
     }
 
     static KeyCounter[] copy(KeyCounter[] contents) {
+        return scaledInputs(contents, 1);
+    }
+
+    static KeyCounter[] scaledInputs(KeyCounter[] contents, long operations) {
         return Arrays.stream(contents).map(counter -> {
             KeyCounter copy = new KeyCounter();
-            for (var entry : counter) copy.add(entry.getKey(), entry.getLongValue());
+            for (var entry : counter) copy.add(entry.getKey(), Math.multiplyExact(entry.getLongValue(), operations));
             return copy;
         }).toArray(KeyCounter[]::new);
     }

@@ -19,6 +19,6 @@ public abstract class Hk3NativeWonderTraversalMixin {
     @Inject(method = "position", at = @At("HEAD"), cancellable = true)
     private void hk3gtl$batchPosition(int x, int y, int z, CallbackInfoReturnable<BlockPos> callback) {
         var check = Hk3NativeWonderCheck.current();
-        if (check != null) callback.setReturnValue(check.position(x, y, z));
+        if (check != null) callback.setReturnValue(check.position(x, y));
     }
 }

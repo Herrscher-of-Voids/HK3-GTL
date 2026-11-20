@@ -11,28 +11,32 @@ import net.minecraft.world.level.block.Rotation;
 public final class Hk3WonderPositionSet extends AbstractLongSet {
     private final Hk3WonderPatternSource.Header header;
     private final BlockPos origin;
-    private final Rotation rotation,inverse;
+    private final Rotation rotation;
+    private final int xx,xz,zx,zz;
     private final LongArrayList starts=new LongArrayList(),ends=new LongArrayList();
     private int size;
 
     Hk3WonderPositionSet(Hk3WonderPatternSource.Header header,BlockPos origin,Rotation rotation,Rotation inverse){
-        this.header=header;this.origin=origin;this.rotation=rotation;this.inverse=inverse;
+        this.header=header;this.origin=origin;this.rotation=rotation;
+        var axisX=new BlockPos(1,0,0).rotate(inverse);
+        var axisZ=new BlockPos(0,0,1).rotate(inverse);
+        xx=axisX.getX();xz=axisX.getZ();zx=axisZ.getX();zz=axisZ.getZ();
     }
-    private long local(BlockPos world){
-        var p=world.subtract(origin).rotate(inverse);
-        int x=p.getX()+header.cx(),y=p.getY()+header.cy(),z=p.getZ()+header.cz();
+    private long local(int worldX,int worldY,int worldZ){
+        int dx=worldX-origin.getX(),dz=worldZ-origin.getZ();
+        int x=xx*dx+zx*dz+header.cx(),y=worldY-origin.getY()+header.cy(),z=xz*dx+zz*dz+header.cz();
         if(x<0||x>=header.width()||y<0||y>=header.height()||z<0||z>=header.depth())return -1;
         return ((long)x*header.height()+y)*header.depth()+z;
     }
-    public boolean contains(BlockPos pos){return containsLocal(local(pos));}
+    public boolean contains(BlockPos pos){return containsLocal(local(pos.getX(),pos.getY(),pos.getZ()));}
     private boolean containsLocal(long position){
         int low=0,high=starts.size()-1;
         while(low<=high){int mid=(low+high)>>>1;if(starts.getLong(mid)<=position)low=mid+1;else high=mid-1;}
         return high>=0&&position<=ends.getLong(high);
     }
-    @Override public boolean contains(long pos){return contains(BlockPos.of(pos));}
+    @Override public boolean contains(long pos){return containsLocal(local(BlockPos.getX(pos),BlockPos.getY(pos),BlockPos.getZ(pos)));}
     @Override public boolean add(long pos){
-        long position=local(BlockPos.of(pos));
+        long position=local(BlockPos.getX(pos),BlockPos.getY(pos),BlockPos.getZ(pos));
         int last=starts.size()-1;
         if(last>=0&&position==ends.getLong(last)+1)ends.set(last,position);
         else {starts.add(position);ends.add(position);}

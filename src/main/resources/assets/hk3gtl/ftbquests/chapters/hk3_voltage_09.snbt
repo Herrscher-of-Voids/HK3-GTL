@@ -1177,11 +1177,14 @@
       "tasks": [
         {
           "id": "4B530B2B9752F65F",
-          "type": "custom",
-          "title": "实际完成IMV机壳分层拆解",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_n14"
-          ]
+          ],
+          "item": "hk3gtl:voltage_machine_casing_qav",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:voltage_machine_casing_qav",
@@ -1202,11 +1205,14 @@
       "tasks": [
         {
           "id": "4B5344F56374CA0A",
-          "type": "custom",
-          "title": "实际完成虚数相转移陶瓷母材回收组分",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_n15"
-          ]
+          ],
+          "item": "hk3gtl:imaginary_phase_transfer_ceramic_recovered_fraction",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imaginary_phase_transfer_ceramic_recovered_fraction",
@@ -1228,11 +1234,14 @@
       "tasks": [
         {
           "id": "4B57713F11D0832D",
-          "type": "custom",
-          "title": "实际完成IMV回收料重制",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_n16"
-          ]
+          ],
+          "item": "hk3gtl:imaginary_phase_transfer_ceramic_stage_1",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imaginary_phase_transfer_ceramic_stage_1",
@@ -1253,11 +1262,14 @@
       "tasks": [
         {
           "id": "4B5EA6D9F6B49372",
-          "type": "custom",
-          "title": "实际完成IMV尾料固化",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_n17"
-          ]
+          ],
+          "item": "gtceu:ash_dust",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "gtceu:ash_dust",
@@ -1280,11 +1292,14 @@
       "tasks": [
         {
           "id": "4B53FE64FCC43820",
-          "type": "custom",
-          "title": "实际完成差压收容内衬总成",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_f01"
-          ]
+          ],
+          "item": "hk3gtl:differential_containment_liner",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:differential_containment_liner",
@@ -1309,11 +1324,14 @@
       "tasks": [
         {
           "id": "4B51D6556AD7D9D4",
-          "type": "custom",
-          "title": "实际完成大型崩坏能反应堆",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_k21"
-          ]
+          ],
+          "item": "hk3gtl:i21_large_honkai_reactor",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i21_large_honkai_reactor",
@@ -1338,11 +1356,14 @@
       "tasks": [
         {
           "id": "4B52D945A28A8DBC",
-          "type": "custom",
-          "title": "实际完成世界泡整体捕获阵列",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_k27"
-          ]
+          ],
+          "item": "hk3gtl:i27_world_bubble_capture_array",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i27_world_bubble_capture_array",
@@ -1363,11 +1384,14 @@
       "tasks": [
         {
           "id": "4B50C961B28A76E4",
-          "type": "custom",
-          "title": "实际完成真实世界泡终止回收机",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_k28"
-          ]
+          ],
+          "item": "hk3gtl:i28_world_bubble_termination_reclaimer",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:i28_world_bubble_termination_reclaimer",
@@ -1391,11 +1415,14 @@
       "tasks": [
         {
           "id": "4B5B68CD5220E7C6",
-          "type": "custom",
-          "title": "实际完成空世界泡收容容器",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_g04"
-          ]
+          ],
+          "item": "hk3gtl:empty_bubble_containment_vessel",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:empty_bubble_containment_vessel",
@@ -1416,11 +1443,14 @@
       "tasks": [
         {
           "id": "4B535716C01E7C80",
-          "type": "custom",
-          "title": "实际完成世界泡终止组件",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_imv_g06"
-          ]
+          ],
+          "item": "hk3gtl:bubble_termination_charge",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:bubble_termination_charge",
@@ -1441,11 +1471,14 @@
       "tasks": [
         {
           "id": "4B5FA383D72AC9DA",
-          "type": "custom",
-          "title": "实际完成虚数燃料耦合工装总装",
+          "type": "item",
           "tags": [
             "hk3gtl_quest_energy_t03"
-          ]
+          ],
+          "item": "hk3gtl:imaginary_fuel_coupling_fixture",
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
         }
       ],
       "icon": "hk3gtl:imaginary_fuel_coupling_fixture",

@@ -6,7 +6,7 @@ import struct
 from pathlib import Path
 
 import numpy as np
-from scipy.ndimage import binary_dilation, binary_erosion
+from scipy.ndimage import binary_dilation, binary_erosion, generate_binary_structure
 
 
 HK3P = 0x484B3350
@@ -19,6 +19,31 @@ POINT = np.dtype([('start', '>i4'), ('state', '>u2'), ('entity_bytes', '>i4')])
 WONDER = np.dtype([('x', '>i4'), ('y', '>i4'), ('z', '>i4'),
     ('count', 'u1'), ('state', '>u2')])
 INTERVAL = np.dtype('<i4')
+FACE_NEIGHBORS = generate_binary_structure(3, 1)
+OPEN_BLOCKS = {
+    'minecraft:air', 'minecraft:amethyst_cluster', 'minecraft:beacon', 'minecraft:daylight_detector',
+    'minecraft:end_rod', 'minecraft:glass', 'minecraft:iron_bars', 'minecraft:light',
+    'minecraft:piston_head', 'minecraft:soul_sand', 'minecraft:wall_torch',
+    'gtceu:assembly_line_grating',
+}
+OPEN_SUFFIXES = ('_glass', '_pane', '_leaves', '_stairs', '_wall', '_fence', '_door', '_trapdoor', '_sign')
+FALLING_REPLACEMENTS = {
+    'minecraft:sand': 'minecraft:sandstone',
+    'minecraft:red_sand': 'minecraft:red_sandstone',
+    'minecraft:gravel': 'minecraft:stone',
+    'ad_astra:moon_sand': 'ad_astra:moon_stone',
+    'ad_astra:mars_sand': 'ad_astra:mars_stone',
+    'ad_astra:venus_sand': 'ad_astra:venus_stone',
+}
+
+
+def _exposes_backing(state):
+    block = state.split('[', 1)[0]
+    if block in OPEN_BLOCKS or block.endswith(('_glass', '_frame')):
+        return True
+    return block.startswith('minecraft:') and (block.endswith(OPEN_SUFFIXES)
+        or (block.endswith('_slab') and 'type=double' not in state)
+        or (block in {'minecraft:piston', 'minecraft:sticky_piston'} and 'extended=true' in state))
 
 
 class _PackedReader:
@@ -105,11 +130,7 @@ class HollowBlueprint:
         self.count = self.count_before = metadata['count']
         self.palette = metadata['palette']
         self.header = [self.magic, self.version, *self.shape, *self.controller, self.count_before]
-        self.palette_raw = bytearray(struct.pack('>H', len(self.palette)))
-        for state in self.palette:
-            raw = state.encode('utf8')
-            self.palette_raw.extend(struct.pack('>H', len(raw)) + raw)
-        self.body_offset = 36 + (4 if self.magic == HK3W else 0) + len(self.palette_raw)
+        self.body_offset = 36 + (4 if self.magic == HK3W else 0) + len(self._palette_bytes())
         self.work_dir = Path(work_dir)
         self.work_dir.mkdir(parents=True, exist_ok=True)
         self.raw_path = self.work_dir / 'source.raw'
@@ -119,11 +140,23 @@ class HollowBlueprint:
         self.intervals = {}
         self.record_count = 0
         self.entity_count = 0
+        self.replacements = {}
+        self.falling_supports_kept = 0
+
+    def _palette_bytes(self):
+        output = bytearray(struct.pack('>H', len(self.palette)))
+        for state in self.palette:
+            raw = state.encode('utf8')
+            output.extend(struct.pack('>H', len(raw)) + raw)
+        return output
 
     def prepare(self):
         _unpack(self.path, self.raw_path)
-        self.protected_palette = np.array([state in self.protected_states
+        self.protected_palette = np.array([_exposes_backing(state) or state in self.protected_states
             or state.split('[', 1)[0] in self.protected_states for state in self.palette])
+        falling_palette = np.array([state in FALLING_REPLACEMENTS for state in self.palette])
+        has_falling = falling_palette.any()
+        falling_runs = []
         self.counts_before = np.zeros(len(self.palette), dtype=np.int64)
         self.occupied = np.zeros(self.shape, dtype=np.bool_)
         self.protection = np.zeros(self.shape, dtype=np.bool_)
@@ -135,11 +168,13 @@ class HollowBlueprint:
             self.counts_before += np.bincount(runs['state'], weights=runs['count'],
                 minlength=len(self.palette)).astype(np.int64)
             self._mark(runs)
+            if has_falling:
+                falling_runs.append(runs[falling_palette[runs['state']]])
             if entity:
                 protected.append(int(runs[-1]['start']))
                 self.entity_count += 1
         self.protection.reshape(-1)[protected] = True
-        self._hollow()
+        self._hollow(falling_runs)
         self.counts_after = np.zeros(len(self.palette), dtype=np.int64)
         self.count_after = 0
         return self
@@ -204,17 +239,40 @@ class HollowBlueprint:
                 cells += int(runs['count'].sum(dtype=np.int64))
                 yield runs, entity
 
-    def _hollow(self):
+    def _hollow(self, falling_runs):
         radius = self.thickness
-        removed = binary_erosion(self.occupied, iterations=radius)
+        removed = binary_erosion(self.occupied, FACE_NEIGHBORS, iterations=radius)
         if self.protection.any():
-            removed &= ~binary_dilation(self.protection, iterations=radius)
+            removed &= ~binary_dilation(self.protection, FACE_NEIGHBORS, iterations=radius)
+        if falling_runs:
+            self._preserve_falling(np.concatenate(falling_runs), removed.reshape(-1))
         for x in range(self.width):
             self.intervals['removed', x] = _intervals(removed[x].reshape(-1))
             self.intervals['kept', x] = _intervals((self.occupied[x] & ~removed[x]).reshape(-1))
         self.occupied &= ~removed
         self.keep = self.occupied.reshape(-1)
         self.protection = None
+
+    def _preserve_falling(self, runs, removed):
+        indices, positions = self._expand(runs)
+        below = positions - self.depth
+        within = positions // self.depth % self.height != 0
+        supported = within.copy()
+        supported[within] = self.occupied.reshape(-1)[below[within]]
+        supports = below[supported]
+        self.falling_supports_kept = int(np.count_nonzero(removed[supports]))
+        removed[positions] = False
+        removed[supports] = False
+
+        for state in np.unique(runs['state'][indices[~supported]]):
+            replacement = FALLING_REPLACEMENTS[self.palette[state]]
+            if replacement not in self.palette:
+                self.palette.append(replacement)
+                self.counts_before = np.append(self.counts_before, 0)
+            points = positions[~supported & (runs['state'][indices] == state)]
+            self.replacements.update(dict.fromkeys(map(int, points), self.palette.index(replacement)))
+        if self.replacements:
+            self.replacement_positions, self.replacement_states = np.array(sorted(self.replacements.items())).T
 
     def _ranges(self, kind, x):
         return self.intervals[kind, x]
@@ -253,9 +311,25 @@ class HollowBlueprint:
         for x in range(self.width):
             yield x, self.removed_x(x)
 
+    @staticmethod
+    def _expand(runs):
+        counts = runs['count'].astype(np.int64)
+        indices = np.repeat(np.arange(len(runs)), counts)
+        offsets = np.arange(int(counts.sum())) - np.repeat(np.cumsum(counts) - counts, counts)
+        return indices, runs['start'][indices].astype(np.int64) + offsets * runs['step'][indices]
+
+    def _replace_falling(self, positions, states):
+        indices = np.searchsorted(self.replacement_positions, positions)
+        np.minimum(indices, len(self.replacement_positions) - 1, out=indices)
+        changed = self.replacement_positions[indices] == positions
+        states[changed] = self.replacement_states[indices[changed]]
+
     def _filter(self, runs):
         if np.all(runs['count'] == 1):
-            return runs[self.keep[runs['start']]]
+            kept = runs[self.keep[runs['start']]]
+            if self.replacements:
+                self._replace_falling(kept['start'], kept['state'])
+            return kept
         pieces = []
         cumulative = np.cumsum(runs['count'], dtype=np.int64)
         first = 0
@@ -263,17 +337,20 @@ class HollowBlueprint:
             base = cumulative[first - 1] if first else 0
             end = max(first + 1, int(np.searchsorted(cumulative, base + 1_000_000, side='right')))
             batch = runs[first:end]
-            counts = batch['count'].astype(np.int64)
-            indices = np.repeat(np.arange(len(batch)), counts)
-            offsets = np.arange(int(counts.sum()), dtype=np.int64) - np.repeat(np.cumsum(counts) - counts, counts)
-            positions = batch['start'][indices].astype(np.int64) + offsets * batch['step'][indices]
+            indices, positions = self._expand(batch)
             keep = self.keep[positions]
             same = indices[1:] == indices[:-1]
+            if self.replacements:
+                states = batch['state'][indices]
+                self._replace_falling(positions, states)
+                same &= states[1:] == states[:-1]
             starts = np.flatnonzero(keep & np.r_[True, ~keep[:-1] | ~same])
             ends = np.flatnonzero(keep & np.r_[~keep[1:] | ~same, True]) + 1
             selected = batch[indices[starts]].copy()
             selected['start'] = positions[starts]
             selected['count'] = ends - starts
+            if self.replacements:
+                selected['state'] = states[starts]
             pieces.append(selected)
             first = end
         return np.concatenate(pieces)
@@ -318,7 +395,7 @@ class HollowBlueprint:
             output.write(struct.pack('>9i', *header))
             if self.magic == HK3W:
                 output.write(struct.pack('>i', run_count))
-            output.write(self.palette_raw)
+            output.write(self._palette_bytes())
             with body_path.open('rb') as body:
                 shutil.copyfileobj(body, output, 1024 * 1024)
         digest = hashlib.sha256()
@@ -327,4 +404,5 @@ class HollowBlueprint:
                 digest.update(block)
         return dict(before=self.count_before, after=self.count_after,
             removed=self.count_before - self.count_after, runs=run_count,
-            entities=self.entity_count, bytes=target.stat().st_size, sha256=digest.hexdigest())
+            entities=self.entity_count, falling_supports_kept=self.falling_supports_kept,
+            unsupported_falling_replaced=len(self.replacements), bytes=target.stat().st_size, sha256=digest.hexdigest())

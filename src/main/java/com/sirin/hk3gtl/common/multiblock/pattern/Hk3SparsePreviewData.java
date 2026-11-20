@@ -52,28 +52,39 @@ public final class Hk3SparsePreviewData {
         InputStream stream=Hk3ApprovedArchitecture.IDS.contains(source.key)?Hk3StructureStream.open(source.key)
                 :Hk3PackedResources.resource(Hk3SparsePreviewData.class,"/data/hk3gtl/structures/"+source.key+".bin.gz");
         if(stream==null)throw new IllegalStateException("缺少完整预览源："+source.key);
-        class Read {
-            Hk3LargeArchitectureShapes.Header header;
-            long[] cells;
-            int next;
-            final Map<Long,CompoundTag> entities=new HashMap<>();
-        }
-        Read data=new Read();
-        try(stream) {
-            Hk3LargeArchitectureShapes.read(stream,h->{
-                if(h.width()>4096||h.height()>4096||h.depth()>4096)throw new IllegalArgumentException("完整预览坐标超过十二位编码");
-                data.header=h;data.cells=new long[h.count()];
-            },(linear,state,entity)->{
-                if((data.next&4095)==0 && Thread.currentThread().isInterrupted())throw new java.util.concurrent.CancellationException("预览读取已取消");
-                var h=data.header;
-                long cell=Hk3W01HallLayout.pack(linear/h.depth()/h.height(),linear/h.depth()%h.height(),linear%h.depth(),state);
-                data.cells[data.next++]=cell;
-                if(entity!=null)data.entities.put(cell>>>16,entity);
-            });
-        }catch(IOException failure) { throw new IllegalStateException("完整稀疏预览读取失败："+source.key,failure); }
-        Arrays.sort(data.cells);var h=data.header;
-        return new Data(new Hk3W01HallLayout(h.width(),h.height(),h.depth(),h.controllerX(),h.controllerY(),h.controllerZ(),h.palette(),data.cells),
-                Map.copyOf(data.entities),source.front);
+        try (stream; var input = new Hk3StructureStream(stream)) {
+            var h = input.header();
+            if (h.width() > 4096 || h.height() > 4096 || h.depth() > 4096)
+                throw new IOException("完整预览坐标超过十二位编码");
+            var cells = new Hk3W01HallLayout.Cells(h.count(), h.palette().size());
+            Map<Long,CompoundTag> entities = new HashMap<>();
+            int previous = -1, controller = (h.cx() * h.height() + h.cy()) * h.depth() + h.cz();
+            boolean ordered = true, hasController = false;
+            for (int i = 0; i < h.count(); i++) {
+                if ((i & 4095) == 0 && Thread.currentThread().isInterrupted())
+                    throw new java.util.concurrent.CancellationException();
+                var cell = input.next();
+                int pos = cell.linear();
+                cells.set(i, pos, cell.state());
+                ordered &= previous < pos;
+                previous = pos;
+                hasController |= pos == controller;
+                if (cell.entity() != null) {
+                    long key = Hk3W01HallLayout.pack(pos / h.depth() / h.height(), pos / h.depth() % h.height(), pos % h.depth(), 0);
+                    entities.put(key >>> 16, Hk3LargeArchitectureShapes.entity(cell.entity()));
+                }
+            }
+            input.finish();
+            if (!hasController) throw new IOException("巨构预览主控缺格");
+            if (!ordered) {
+                cells.sort();
+                for (int i = 1; i < h.count(); i++) {
+                    if (cells.position(i - 1) == cells.position(i)) throw new IOException("巨构预览坐标重复");
+                }
+            }
+            return new Data(new Hk3W01HallLayout(h.width(), h.height(), h.depth(), h.cx(), h.cy(), h.cz(), h.palette(), cells),
+                    Map.copyOf(entities), source.front);
+        } catch(IOException failure) { throw new IllegalStateException("完整稀疏预览读取失败：" + source.key, failure); }
     }
 
     /** 没有独立资源的小型机器仍使用自家场景，读取其真实形状而非主控占位。 */

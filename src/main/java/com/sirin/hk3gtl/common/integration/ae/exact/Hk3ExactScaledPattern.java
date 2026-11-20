@@ -132,6 +132,12 @@ public final class Hk3ExactScaledPattern implements IPatternDetails {
         return List.copyOf(result);
     }
 
+    public static IPatternDetails forDispatch(IPatternDetails pattern, long count) {
+        if (count <= 1 || !enabled(pattern)) return pattern;
+        long scale = limit(pattern, count);
+        return scale > 1 ? new Hk3ExactScaledPattern((AEProcessingPattern) pattern, scale) : pattern;
+    }
+
     public IPatternDetails source() { return source; }
     public static long operations(IPatternDetails pattern) {
         return pattern instanceof Hk3ExactScaledPattern scaled ? scaled.multiplier : 1;

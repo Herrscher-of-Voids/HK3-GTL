@@ -141,15 +141,18 @@ def chapter(entries):
     for group, title, x, y, columns in sections:
         for index, entry in enumerate(group):
             key, controller = entry['key'], entry['controller']
+            materials = json.dumps(entry['materials'], separators=(',', ':'))
+            reward = object_id(key + ':' + materials, 'reward')
             quests.append(dict(id=object_id(key, 'quest'), title=entry['title'], subtitle=title + ' · 建材样板',
                 description=['取得这台设备的控制器，即可领取填好建材与数量的 AE 样板。',
+                             '建材清单更新后可在此重新领取。请用新样板替换供应器里的旧样板。',
                              '将样板放入朝向独立备料容器的样板供应器，关闭供应器的自动扩大样板。每张下单 1 份，并持续腾出收料空间。',
                              '材料全部到齐后取消等待材料清单的订单，释放合成 CPU。备料容器不要接回同一 AE 库存。',
                              '样板包含主体建材；输入输出仓、能源仓等按实际工艺另配。控制器已经取得，不再重复计入。',
                              '样板只写入能够转成物品的建材；末地传送门、活塞头等无物品状态不会进入 AE 订单，门上半不重复计数，双层台阶按两块计算。',
                              '请按建材数量准备容量充足的备料容器，大型建筑需要存放数百万乃至更多方块。'],
                 tasks=[dict(id=object_id(key, 'task'), type='item', item=controller, count=1, consume_items=False)],
-                rewards=[dict(id=object_id(key, 'reward'), type='custom', title='预制建材样板', team_reward=False,
+                rewards=[dict(id=reward, type='custom', title='预制建材样板', team_reward=False,
                               icon='ae2:processing_pattern', tags=['hk3gtl:multiblock_pattern:' + key])],
                 icon=controller, x=x + index % columns * 4, y=y + index // columns * 4))
             if key == 'w01':

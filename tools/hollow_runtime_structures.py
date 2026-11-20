@@ -58,9 +58,9 @@ def material_counts(palette, counts):
 
 
 def update_metadata(path, metadata, hollow, result):
-    removed = material_counts(hollow.palette, hollow.counts_before - hollow.counts_after)
     counts = Counter(metadata['material_counts'])
-    counts.subtract(removed)
+    for state, change in zip(hollow.palette, hollow.counts_after - hollow.counts_before):
+        counts[state] += int(change)
     metadata['blocks'] = result['after']
     metadata['material_counts'] = dict(sorted((+counts).items()))
     metadata['compact_sha256'] = result['sha256']
