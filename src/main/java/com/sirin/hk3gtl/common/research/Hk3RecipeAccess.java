@@ -8,7 +8,6 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.gtlcore.gtlcore.common.machine.multiblock.electric.SuprachronalAssemblyLineMachine;
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public final class Hk3RecipeAccess {
         if (requirements.requirements().isEmpty()) return false;
         if (machine == null) return true;
         return !Hk3ResearchRequirementPolicy.evaluate(requirements,
-                research -> !blocksResearch(research, machine, recipe)).allowed();
+                research -> !blocksResearch(research, machine)).allowed();
     }
     public static Component blockedReason(GTRecipe recipe, MetaMachine machine) {
         if (recipe.data.contains(Hk3ResearchRecipeRuntime.PLAN)
@@ -60,7 +59,7 @@ public final class Hk3RecipeAccess {
                 if (!((BlockEntity) machine.getHolder()).getPersistentData()
                         .hasUUID(Hk3EggProduction.OWNER))
                     return Component.translatable("hk3gtl.compat.research_owner_missing");
-                var missing = Hk3ResearchRequirementPolicy.evaluate(requirements, id -> !blocksResearch(id, machine, recipe)).missing();
+                var missing = Hk3ResearchRequirementPolicy.evaluate(requirements, id -> !blocksResearch(id, machine)).missing();
                 if (!missing.isEmpty()) return Component.translatable("hk3gtl.compat.research_team_missing", String.join(", ", missing));
             }
             return Component.translatable("hk3gtl.compat.execution_plan_blocked");
@@ -68,29 +67,21 @@ public final class Hk3RecipeAccess {
         return Component.translatable("hk3gtl.compat.research_locked");
     }
 
-    private static boolean blocksResearch(String research, MetaMachine machine, GTRecipe recipe) {
+    private static boolean blocksResearch(String research, MetaMachine machine) {
         if (!Hk3RecipeResearchGate.isCurrentResearchId(research)) return true;
         var level = machine.getLevel();
         if (level == null) return true;
         if (level.isClientSide()) return false;
-        ServerPlayer player;
         if (machine instanceof Hk3WorkableMultiblockMachine owned) {
             if (owned.getOwnerUUID() == null || level.getServer() == null) return true;
-            var scope=owned.getResearchTeamUUID();
-            return scope==null || !Hk3ResearchData.get(level.getServer()).permits(scope,research);
-        } else if (recipe.data.contains(Hk3ResearchRecipeRuntime.PLAN)) {
-            if (!(machine.getHolder() instanceof BlockEntity holder)
-                    || !holder.getPersistentData().hasUUID(Hk3EggProduction.OWNER)) return true;
-            var owner = holder.getPersistentData().getUUID(Hk3EggProduction.OWNER);
-            var scope = Hk3ResearchTeams.scope(level.getServer(), owner);
-            return !Hk3ResearchData.get(level.getServer()).permits(scope, research);
-        } else {
-            var pos = machine.getPos();
-            if (pos == null) return true;
-            var nearest = level.getNearestPlayer(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 64, false);
-            player = nearest instanceof ServerPlayer serverPlayer ? serverPlayer : null;
+            var scope = owned.getResearchTeamUUID();
+            return scope == null || !Hk3ResearchData.get(level.getServer()).permits(scope, research);
         }
-        return player == null || !Hk3ResearchManager.isCompleted(player, research);
+        if (level.getServer() == null || !(machine.getHolder() instanceof BlockEntity holder)
+                || !holder.getPersistentData().hasUUID(Hk3EggProduction.OWNER)) return true;
+        var owner = holder.getPersistentData().getUUID(Hk3EggProduction.OWNER);
+        var scope = Hk3ResearchTeams.scope(level.getServer(), owner);
+        return !Hk3ResearchData.get(level.getServer()).permits(scope, research);
     }
 }
 

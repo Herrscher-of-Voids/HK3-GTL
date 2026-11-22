@@ -191,9 +191,7 @@ dependencies {
     modImplementation("earth.terrarium.adastra:ad_astra-forge-${project.minecraft_version}:${project.ad_astra_version}") { transitive false }
 
     // ── JEI ──
-    modCompileOnly("mezz.jei:jei-${project.minecraft_version}-forge-api:${project.jei_version}") { transitive = false }
-    modCompileOnly("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}") { transitive = false }
-    modImplementation("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}") { transitive = false }
+    modImplementation(files("libs/jei-${project.minecraft_version}-forge-${project.jei_version}.jar"))
 
     // ── JEI Integration（JEI 补充 tooltip 等；仅运行时，无需编译进 hk3gtl）──
     modRuntimeOnly("curse.maven:jei-integration-265917:${project.jei_integration_curse_file}") { transitive = false }

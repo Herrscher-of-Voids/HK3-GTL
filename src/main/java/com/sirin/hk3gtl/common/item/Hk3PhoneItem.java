@@ -28,6 +28,8 @@ public final class Hk3PhoneItem extends Item {
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level,Player player,InteractionHand hand){
         ItemStack stack=player.getItemInHand(hand);
+        if(level.isClientSide())net.minecraftforge.fml.DistExecutor.unsafeRunWhenOn(net.minecraftforge.api.distmarker.Dist.CLIENT,
+                ()->()->com.sirin.hk3gtl.client.phone.Hk3PhoneScreen.requestOpen());
         if(!level.isClientSide()&&player instanceof ServerPlayer owner){
             Hk3PhoneData.get(owner).install(owner.getUUID());
             com.sirin.hk3gtl.common.phone.Hk3PhoneRuntime.prefer(owner,stack);

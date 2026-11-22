@@ -2,7 +2,6 @@ package com.sirin.hk3gtl.common.multiblock.build;
 
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.sirin.hk3gtl.common.capability.HonkaiWirelessNetwork;
-import com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionInterior;
 import com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionJumpData;
 import com.sirin.hk3gtl.common.machine.hyperion.Hk3HyperionMachine;
 import com.sirin.hk3gtl.common.research.Hk3ResearchTeams;
@@ -21,20 +20,25 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Rotation;
 import java.math.BigInteger;
-import java.util.BitSet;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 /** 目的端完整落盘后才清除原舰；两段各自分帧，复制中重启从原舰重新复制。 */
 public final class Hk3HyperionJumpTask implements AutoCloseable {
-    private enum Stage {PREPARE,CHECK,COPY,CLEAR,ARRIVE}
+    private enum Stage {PREPARE,CHECK,COPY,SAVE_COPY,CLEAR,SAVE_SOURCE,ARRIVE}
     private static final TicketType<Long> CONTROL=TicketType.create("hk3gtl_hyperion_jump",Long::compare);
     private static final BigInteger COST=BigInteger.valueOf(4_915_200);
     private static final int FLAGS=Block.UPDATE_CLIENTS|Block.UPDATE_KNOWN_SHAPE|Block.UPDATE_MOVE_BY_PISTON;
     private final Hk3HyperionJumpData data;
     private final CompoundTag route;
     private final Map<UUID,CompoundTag> passengers=new LinkedHashMap<>();
+    private final Set<Long> destinationSaveChunks=new LinkedHashSet<>(),sourceSaveChunks=new LinkedHashSet<>();
     private final BlockPos origin,target;
     private final Direction facing;
     private final Rotation rotation;
@@ -42,10 +46,11 @@ public final class Hk3HyperionJumpTask implements AutoCloseable {
     private Hk3BuildPlan plan;
     private Hk3BuildOrder order;
     private Hk3BuildChunkWindow sourceChunks,destinationChunks;
-    private BitSet volume;
     private int[] cells;
     private Stage stage=Stage.PREPARE;
-    private int cursor,planCursor,volumeCursor,cellCursor;
+    private int cursor,planCursor;
+    private Iterator<Long> saveIterator;
+    private CompletableFuture<Void> saveFuture;
     private boolean planReady,writing,tickets;
 
     public Hk3HyperionJumpTask(Hk3HyperionJumpData data,Hk3HyperionMachine ship,ServerLevel destination,BlockPos target) {
@@ -59,7 +64,10 @@ public final class Hk3HyperionJumpTask implements AutoCloseable {
     public Hk3HyperionJumpTask(Hk3HyperionJumpData data,CompoundTag saved) {
         this.data=data;route=saved.getCompound("Route");origin=BlockPos.of(route.getLong("Origin"));target=BlockPos.of(route.getLong("Target"));
         facing=Direction.byName(route.getString("Facing"));rotation=Hk3UniversalTerminalBuilder.rotation(Direction.EAST,facing);
-        stage=Stage.valueOf(saved.getString("Stage"));cursor=stage==Stage.COPY?0:saved.getInt("Cursor");
+        stage=Stage.valueOf(saved.getString("Stage"));
+        if(stage==Stage.COPY||stage==Stage.SAVE_COPY){stage=Stage.COPY;cursor=0;}
+        else if(stage==Stage.CLEAR||stage==Stage.SAVE_SOURCE){stage=Stage.CLEAR;cursor=0;}
+        else cursor=saved.getInt("Cursor");
         if(saved.contains("Cells"))cells=saved.getIntArray("Cells");
         for(var raw:saved.getList("Passengers",10)) {var point=(CompoundTag)raw;passengers.put(point.getUUID("Player"),point);}
     }
@@ -78,7 +86,7 @@ public final class Hk3HyperionJumpTask implements AutoCloseable {
                 ||dimension.equals(route.getString("Destination"))&&Hk3HyperionMachine.hullBounds(target,facing).contains(pos);
     }
     public String progress() {
-        return switch(stage) {case PREPARE->"准备整舰跃迁范围";case CHECK->"检查目标净空";case COPY->"迁移真实舰体与仓储";case CLEAR->"清除原停泊舰体";case ARRIVE->"登舰成员到站";}
+        return switch(stage) {case PREPARE->"准备整舰跃迁范围";case CHECK->"检查目标净空";case COPY->"迁移真实舰体与仓储";case SAVE_COPY->"保存跃迁后舰体区块";case CLEAR->"清除原停泊舰体";case SAVE_SOURCE->"保存起点区块";case ARRIVE->"登舰成员到站";}
                 +" · "+cursor+"/"+(cells==null?"准备中":cells.length);
     }
     private void open(MinecraftServer server) {
@@ -94,15 +102,24 @@ public final class Hk3HyperionJumpTask implements AutoCloseable {
         long deadline=System.nanoTime()+2_000_000;
         for(int steps=0;steps<8192&&System.nanoTime()<deadline;steps++) {
             if(stage==Stage.PREPARE) {prepare();continue;}
+            if(stage==Stage.SAVE_COPY) {
+                if(!saveChunk(destination,saveIterator))return;
+                stage=Stage.CLEAR;cursor=0;data.setDirty();continue;
+            }
+            if(stage==Stage.SAVE_SOURCE) {
+                if(!saveChunk(source,saveIterator))return;
+                stage=Stage.ARRIVE;data.setDirty();continue;
+            }
             if(order==null)createOrder();
             if(!order.step())continue;
             if(stage==Stage.ARRIVE) {arrive();return;}
             if(stage==Stage.CHECK&&cursor==cells.length) {depart();return;}
             if(stage==Stage.COPY&&cursor==cells.length) {
-                // 复制完成的检查点先包含COPY状态；重启可从原舰重做，原舰不提前销毁。
-                data.setDirty();server.saveEverything(false,true,true);stage=Stage.CLEAR;cursor=0;data.setDirty();continue;
+                saveIterator=destinationSaveChunks.iterator();stage=Stage.SAVE_COPY;cursor=0;data.setDirty();continue;
             }
-            if(stage==Stage.CLEAR&&cursor==cells.length) {clearController();stage=Stage.ARRIVE;data.setDirty();continue;}
+            if(stage==Stage.CLEAR&&cursor==cells.length) {
+                clearController();saveIterator=sourceSaveChunks.iterator();stage=Stage.SAVE_SOURCE;data.setDirty();continue;
+            }
             if(!ready())return;
             int cell=cells[order.index(cursor)];var from=position(cell,origin);var to=position(cell,target);
             if(stage==Stage.CHECK) {
@@ -116,18 +133,15 @@ public final class Hk3HyperionJumpTask implements AutoCloseable {
     private void prepare() {
         if(plan==null) {
             if(source.getChunkSource().getChunkNow(origin.getX()>>4,origin.getZ()>>4)==null)return;
-            plan=Hk3BuildPlans.create((Hk3HyperionMachine)MetaMachine.getMachine(source,origin));volume=Hk3HyperionInterior.movementVolume();
-            volume.set(linear(0,0,0));
+            plan=Hk3BuildPlans.create((Hk3HyperionMachine)MetaMachine.getMachine(source,origin));
         }
         if(!planReady) {planReady=plan.prepareStep();return;}
-        if(planCursor<plan.size()) {
-            volume.set(linear(plan.x(planCursor),plan.y(planCursor),plan.z(planCursor)));planCursor++;return;
+        if(cells==null)cells=new int[plan.size()];
+        if(planCursor<cells.length) {
+            cells[planCursor]=linear(plan.x(planCursor),plan.y(planCursor),plan.z(planCursor));planCursor++;return;
         }
-        if(cells==null)cells=new int[volume.cardinality()];
-        if(cellCursor<cells.length) {
-            int cell=volume.nextSetBit(volumeCursor);cells[cellCursor++]=cell;volumeCursor=cell+1;return;
-        }
-        volume=null;plan.close();plan=null;stage=Stage.CHECK;cursor=0;data.setDirty();
+        Arrays.sort(cells);
+        plan.close();plan=null;stage=Stage.CHECK;cursor=0;data.setDirty();
     }
     private void createOrder() {
         var bounds=Hk3HyperionMachine.hullBounds(origin,facing);int minX=bounds.min().getX()>>4,minZ=bounds.min().getZ()>>4;
@@ -163,14 +177,27 @@ public final class Hk3HyperionJumpTask implements AutoCloseable {
                 nbt.putInt("x",to.getX());nbt.putInt("y",to.getY());nbt.putInt("z",to.getZ());
                 var moved=destination.getBlockEntity(to);moved.load(nbt);moved.setChanged();
             }
+            destinationSaveChunks.add(ChunkPos.asLong(to.getX()>>4,to.getZ()>>4));
         } finally {writing=false;}
     }
     private void clear(BlockPos from) {
+        sourceSaveChunks.add(ChunkPos.asLong(from.getX()>>4,from.getZ()>>4));
         writing=true;
         try {source.removeBlockEntity(from);source.setBlock(from,Blocks.AIR.defaultBlockState(),FLAGS);}
         finally {writing=false;}
     }
     private void clearController() {clear(origin);}
+    private boolean saveChunk(ServerLevel level,Iterator<Long> chunks) {
+        if(chunks.hasNext()) {
+            long key=chunks.next();var chunk=level.getChunkSource().getChunkNow(ChunkPos.getX(key),ChunkPos.getZ(key));
+            ((com.sirin.hk3gtl.mixin.Hk3ChunkMapSaveAccess)(Object)level.getChunkSource().chunkMap).hk3gtl$save(chunk);
+            return false;
+        }
+        if(saveFuture==null)saveFuture=((com.sirin.hk3gtl.mixin.Hk3ChunkStorageAccess)(Object)level.getChunkSource().chunkMap).hk3gtl$worker().synchronize(true);
+        if(!saveFuture.isDone())return false;
+        saveFuture.join();saveFuture=null;
+        return true;
+    }
     private void holdPassengers() {
         if(stage!=Stage.COPY&&stage!=Stage.CLEAR)return;
         passengers.forEach((id,point)->{
@@ -189,7 +216,11 @@ public final class Hk3HyperionJumpTask implements AutoCloseable {
         });
         var ship=(Hk3HyperionMachine)MetaMachine.getMachine(destination,target);
         com.sirin.hk3gtl.common.easter.Hk3EggProductionData.get(source.getServer()).produced(route.getUUID("Owner"),"receipt:49",1);
-        data.finish("整舰跃迁搬移结束 · 正在重新检查完整舰体");ship.requestIntegrityCheck();source.getServer().saveEverything(false,true,true);
+        data.finish("整舰跃迁搬移结束 · 正在重新检查完整舰体");ship.requestIntegrityCheck();
+        var controllerChunk=destination.getChunkSource().getChunkNow(target.getX()>>4,target.getZ()>>4);
+        ((com.sirin.hk3gtl.mixin.Hk3ChunkMapSaveAccess)(Object)destination.getChunkSource().chunkMap).hk3gtl$save(controllerChunk);
+        var storage=source.getServer().overworld().getDataStorage();
+        data.save(((com.sirin.hk3gtl.mixin.Hk3DimensionDataStorageAccess)(Object)storage).hk3gtl$getDataFile("hk3gtl_hyperion_jump"));
     }
     private static int linear(int x,int y,int z) {return ((y+82)*549+z+274)*1145+x+1061;}
     private BlockPos position(int cell,BlockPos anchor) {

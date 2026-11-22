@@ -4,7 +4,6 @@ import appeng.api.crafting.IPatternDetails;
 import appeng.api.crafting.PatternDetailsHelper;
 import appeng.api.inventories.InternalInventory;
 import appeng.api.stacks.AEKey;
-import com.glodblock.github.extendedae.util.FCUtil;
 import com.lowdragmc.lowdraglib.misc.ItemStackTransfer;
 import com.lowdragmc.lowdraglib.side.item.IItemTransfer;
 import net.minecraft.nbt.CompoundTag;
@@ -18,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 
@@ -31,7 +31,7 @@ public final class Hk3NexusPatternInventory implements IItemTransfer, InternalIn
     private long revision;
 
     private record IndexedPattern(int slot, IPatternDetails pattern, List<AEKey> inputs, List<AEKey> outputs) {}
-    private record SearchEntry(int slot, List<List<String>> inputs, List<List<String>> outputs) {}
+    private record SearchEntry(int slot, List<String> inputs, List<String> outputs) {}
 
     public Hk3NexusPatternInventory(Supplier<Level> level, Runnable changed) {
         this.level = level;
@@ -184,14 +184,14 @@ public final class Hk3NexusPatternInventory implements IItemTransfer, InternalIn
             int count = buffer.readVarInt();
             var rows = new ArrayList<SearchEntry>(count);
             for (int row = 0; row < count; row++) rows.add(new SearchEntry(buffer.readVarInt(),
-                    buffer.readList(AEKey::readKey).stream().map(key -> FCUtil.tokenize(key.getDisplayName().getString())).toList(),
-                    buffer.readList(AEKey::readKey).stream().map(key -> FCUtil.tokenize(key.getDisplayName().getString())).toList()));
+                    buffer.readList(AEKey::readKey).stream().map(key -> searchText(key.getDisplayName().getString())).toList(),
+                    buffer.readList(AEKey::readKey).stream().map(key -> searchText(key.getDisplayName().getString())).toList()));
             searchEntries = List.copyOf(rows);
         }
 
         public void writeFilter(FriendlyByteBuf buffer) {
-            var inputs = FCUtil.tokenize(inputSearch.get());
-            var outputs = FCUtil.tokenize(outputSearch.get());
+            var inputs = searchText(inputSearch.get());
+            var outputs = searchText(outputSearch.get());
             boolean active = !inputs.isEmpty() || !outputs.isEmpty();
             buffer.writeBoolean(active);
             buffer.writeCollection(active ? searchEntries.stream()
@@ -205,8 +205,8 @@ public final class Hk3NexusPatternInventory implements IItemTransfer, InternalIn
             refresh();
         }
 
-        private boolean matches(List<String> query, List<List<String>> values) {
-            return query.isEmpty() || values.stream().anyMatch(tokens -> FCUtil.compareTokens(query, tokens));
+        private boolean matches(String query, List<String> values) {
+            return query.isEmpty() || values.stream().anyMatch(value -> value.contains(query));
         }
 
         public void refresh() {
@@ -234,5 +234,9 @@ public final class Hk3NexusPatternInventory implements IItemTransfer, InternalIn
         @Override public boolean isItemValid(int slot, ItemStack stack) { return Hk3NexusPatternInventory.this.isItemValid(at(slot), stack); }
         @Override public Object createSnapshot() { return inventory().createSnapshot(); }
         @Override public void restoreFromSnapshot(Object snapshot) { inventory().restoreFromSnapshot(snapshot); }
+    }
+
+    private static String searchText(String value) {
+        return value.trim().toLowerCase(Locale.ROOT);
     }
 }

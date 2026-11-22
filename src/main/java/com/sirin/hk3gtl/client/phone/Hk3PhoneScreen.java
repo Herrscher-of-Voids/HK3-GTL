@@ -24,7 +24,7 @@ import java.util.*;
 public final class Hk3PhoneScreen extends Hk3FittedScreen {
     private static final Hk3NotificationQueue TOASTS=new Hk3NotificationQueue();
     private static List<Hk3NotificationQueue.Card> previous=List.of();
-    private static boolean installed;
+    private static boolean installed, closed;
     private static CompoundTag runtime=new CompoundTag();
     private CompoundTag view;
     private final List<FormattedCharSequence> lines=new ArrayList<>();
@@ -42,7 +42,8 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
     private final Hk3EggReadClient eggReading=new Hk3EggReadClient();
     private String lastFilter="all",lastArchiveFilter="all";private int lastInboxPage,lastArchivePage;
     private Hk3PhoneScreen(CompoundTag view){super(Component.literal("HK3GTL · 手机"),380,640);this.view=view.copy();desktop.accept(view);gallery.accept(view);}
-    public static void reset(){Hk3SocialPane.reset();Hk3PhoneCipherPane.reset();TOASTS.clear();previous=List.of();installed=false;runtime=new CompoundTag();}
+    public static void reset(){closed=false;Hk3SocialPane.reset();Hk3PhoneCipherPane.reset();TOASTS.clear();previous=List.of();installed=false;runtime=new CompoundTag();}
+    public static void requestOpen(){closed=false;}
     public static void open(CompoundTag view){
         if(view.getString("Mode").equals("read_complete")){
             if(view.hasUUID("ReadToken")&&Minecraft.getInstance().screen instanceof Hk3PhoneScreen phone){phone.eggReading.confirm(view.getUUID("ReadToken"));phone.initFitted();}
@@ -56,6 +57,7 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
                 TOASTS.offer(new Hk3NotificationQueue.Notice(view.getString("Id"),view.getString("Title"),view.getString("Body"),view.getString("Kind"),view.getInt("Priority")),now());
             return;
         }
+        if(closed)return;
         if(!view.getString("Mode").equals("letter"))installed=true;
         var mc=Minecraft.getInstance();
         if(mc.screen instanceof Hk3PhoneScreen phone){if(phone.extras.accept(view))return;phone.social.accept(view);phone.gallery.accept(view);phone.view=view.copy();phone.desktop.accept(view);phone.page=0;phone.initFitted();}
@@ -376,7 +378,9 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
         return super.releaseFitted(mx,my,button);
     }
     @Override public void onClose(){extras.navigate(()->{gallery.close();if(mode().equals("instruction_read"))eggReading.leaveInstruction(view);Hk3EggUiClient.send("close",mode());super.onClose();});}
-    @Override public void removed(){gallery.cancel();desktop.removed();eggReading.close();gazeSettings.release();settings.release();Hk3PhoneConfig.SPEC.save();super.removed();}
+    @Override public void removed(){
+        closed=true;
+        gallery.cancel();desktop.removed();eggReading.close();gazeSettings.release();settings.release();Hk3PhoneConfig.SPEC.save();super.removed();}
     @Override public boolean keyPressed(int key,int scan,int modifiers){
         if(outOfPower()&&key!=256)return true;
         if(extras.pending())return true;

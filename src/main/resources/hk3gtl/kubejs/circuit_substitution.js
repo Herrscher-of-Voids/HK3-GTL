@@ -133,7 +133,7 @@ ServerEvents.recipes(event => {
         return result
     }
     function bodyKey(json) {
-        return stable([json.type, mapKey(json.inputs, true, false), mapKey(json.outputs, false, false), mapKey(json.tickOutputs, false, false)])
+        return stable([json.type, json.duration, mapKey(json.tickInputs, false, false), mapKey(json.inputs, true, false), mapKey(json.outputs, false, false), mapKey(json.tickOutputs, false, false)])
     }
     function otherCatalysts(json) {
         let result = Object.create(null)

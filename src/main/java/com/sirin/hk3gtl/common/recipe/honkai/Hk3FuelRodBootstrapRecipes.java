@@ -8,19 +8,16 @@ import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 import com.sirin.hk3gtl.common.item.honkai.HonkaiMaterialItems;
-import com.sirin.hk3gtl.common.machine.research.Hk3LiquidProcessMachine;
-import com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes;
 import com.sirin.hk3gtl.common.research.Hk3RecipeResearchGate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import java.util.function.Consumer;
 
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.fluid;
 import static com.sirin.hk3gtl.common.recipe.honkai.Hk3LiquidLineRecipes.item;
 
-/** 首批普通燃料棒的低吞吐封装与无损抽检；实验记录不代替正式研究。 */
+/** 首批普通燃料棒的低吞吐封装。 */
 public final class Hk3FuelRodBootstrapRecipes {
     private Hk3FuelRodBootstrapRecipes() {}
 
@@ -50,14 +47,6 @@ public final class Hk3FuelRodBootstrapRecipes {
                 .inputItems(item("honkai_fuel_rod_casing", 1), item("fuel_encapsulation_part", 2))
                 .inputFluids(fluid("liquid_honkai_fuel", 1000))
                 .outputItems(new ItemStack(HonkaiMaterialItems.HONKAI_FUEL_ROD.get())).save(provider);
-
-        recipe(Hk3IndustrialRecipeTypes.SPECTRUM_ANALYSIS, "industrial_fuel_rod_isolation_experiment", 800)
-                .circuitMeta(3)
-                .inputItems(new ItemStack(HonkaiMaterialItems.HONKAI_FUEL_ROD.get()))
-                .notConsumable(item("honkai_reference_sample", 1))
-                .inputItems(Items.PAPER, 2)
-                .outputItems(new ItemStack(HonkaiMaterialItems.HONKAI_FUEL_ROD.get()))
-                .addData(Hk3LiquidProcessMachine.EXPERIMENT, "RN-FRP").save(provider);
     }
 }
 

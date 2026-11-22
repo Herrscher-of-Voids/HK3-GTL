@@ -58,18 +58,20 @@ public final class Hk3ControllerRecipes {
     private Hk3ControllerRecipes() {}
 
     public static void register(Consumer<FinishedRecipe> provider) {
+        var selectors = circuitSelectors();
         controller(provider, "i18", Hk3IndustrialExtensionMachines.HONKAI_FUEL_ROD_ENCAPSULATION_ARRAY,
-                GTValues.MAX, List.of("RN-FRP"));
+                GTValues.MAX, List.of("RN-FRP"), selectors.getOrDefault("i18", 0));
         for (var entry : INDUSTRIAL) {
             var machine = Hk3LateIndustrialMachines.get(entry.key());
             controller(provider, entry.key(), machine, Math.max(GTValues.MAX, machine.getTier() - 1),
-                    List.of(entry.research()));
+                    List.of(entry.research()), selectors.getOrDefault(entry.key(), 0));
         }
         controller(provider, "hyperion", Hk3HyperionMachines.FLAGSHIP, GTValues.MAX,
-                List.of("RN-HBD", "RN-HVI"));
+                List.of("RN-HBD", "RN-HVI"), selectors.getOrDefault("hyperion", 0));
         var first = WONDERS.get(0);
         controller(provider, first.key().toLowerCase(java.util.Locale.ROOT),
-                Hk3WonderMachines.get(first.key()), inputTier(first.key()), List.of(first.research()));
+                Hk3WonderMachines.get(first.key()), inputTier(first.key()), List.of(first.research()),
+                selectors.getOrDefault(first.key().toLowerCase(java.util.Locale.ROOT), 0));
         for (int i = 1; i < WONDERS.size(); i++) {
             var predecessor = WONDERS.get(i - 1);
             var target = WONDERS.get(i);
@@ -84,6 +86,30 @@ public final class Hk3ControllerRecipes {
             case "W03", "W07", "W08", "W10", "W12" -> Hk3Tiers.WSV;
             default -> Hk3Tiers.CIV;
         };
+    }
+
+    private static java.util.Map<String, Integer> circuitSelectors() {
+        var groups = new java.util.LinkedHashMap<Integer, java.util.List<String>>();
+        addControllerGroup(groups, "i18", GTValues.MAX);
+        for (var entry : INDUSTRIAL) {
+            var machine = Hk3LateIndustrialMachines.get(entry.key());
+            addControllerGroup(groups, entry.key(), Math.max(GTValues.MAX, machine.getTier() - 1));
+        }
+        addControllerGroup(groups, "hyperion", GTValues.MAX);
+        var first = WONDERS.get(0);
+        addControllerGroup(groups, first.key().toLowerCase(java.util.Locale.ROOT), inputTier(first.key()));
+
+        var selectors = new java.util.HashMap<String, Integer>();
+        for (var group : groups.values()) {
+            if (group.size() < 2) continue;
+            for (int i = 0; i < group.size(); i++) selectors.put(group.get(i), i + 1);
+        }
+        return selectors;
+    }
+
+    private static void addControllerGroup(java.util.Map<Integer, java.util.List<String>> groups,
+                                           String key, int inputTier) {
+        groups.computeIfAbsent(inputTier, ignored -> new java.util.ArrayList<>()).add(key);
     }
 
     private static void wonderController(Consumer<FinishedRecipe> provider, Controller predecessor, Controller target) {
@@ -116,7 +142,8 @@ public final class Hk3ControllerRecipes {
 
     // 首建只消耗前置档材料，目标机器的工艺产物不进入自己的控制器配方。
     private static void controller(Consumer<FinishedRecipe> provider, String key,
-                                   MultiblockMachineDefinition machine, int inputTier, List<String> research) {
+                                   MultiblockMachineDefinition machine, int inputTier, List<String> research,
+                                   int circuit) {
         String id = "hk3gtl_controller_" + key;
         var recipe = GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(id)
                 .inputItems(inputTier == GTValues.MAX ? CustomTags.MAX_CIRCUITS : Hk3CircuitCatalog.tag(inputTier), 8)
@@ -126,6 +153,7 @@ public final class Hk3ControllerRecipes {
                 .inputItems(Hk3MainComponentRecipes.component(inputTier, "emitter", 2))
                 .inputFluids(GTMaterials.SolderingAlloy.getFluid(4608))
                 .outputItems(machine.asStack()).duration(2400).EUt(Hk3Values.VA_LONG[inputTier]);
+        if (circuit > 0) recipe.circuitMeta(circuit);
         if (inputTier == GTValues.MAX) {
             recipe.inputItems(TagPrefix.plate, GTMaterials.TungstenSteel, 32)
                     .inputItems(TagPrefix.frameGt, GTMaterials.TungstenSteel, 8)

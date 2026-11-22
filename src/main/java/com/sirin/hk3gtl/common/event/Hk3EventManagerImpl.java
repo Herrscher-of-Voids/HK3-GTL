@@ -104,7 +104,9 @@ public class Hk3EventManagerImpl {
                 && inventoryContains(inv, HonkaiMaterialItems.HONKAI_ENERGY_CRYSTAL.get())) {
             Hk3EventService.tryTriggerFirstTime(player, "E-MS-001", "hk3gtl.event.ms001");
             sendHint(player, "hk3gtl.event.ms001.hint");
-            player.addItem(new ItemStack(HonkaiMaterialItems.RAW_HONKAI_PARTICLE.get(), 8));
+            var reward = new ItemStack(HonkaiMaterialItems.RAW_HONKAI_PARTICLE.get(), 8);
+            player.addItem(reward);
+            if (!reward.isEmpty()) player.drop(reward, false);
         }
 
         // 内测5首信仅记录情报，禁止调用旧奖励/研究桥接；旧触发完整源码已归档。

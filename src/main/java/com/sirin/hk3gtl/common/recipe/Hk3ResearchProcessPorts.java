@@ -5,7 +5,7 @@ public final class Hk3ResearchProcessPorts {
     public record Ports(int itemsIn,int itemsOut,int fluidsIn,int fluidsOut) {}
     public static Ports get(String role){
         return switch(role){
-            case "GT_ASSEMBLER" -> new Ports(16,2,5,2);
+            case "GT_ASSEMBLER" -> new Ports(17,2,5,2);
             case "GT_MIXER" -> new Ports(6,2,4,2);
             case "GT_CHEMICAL" -> new Ports(2,2,3,2);
             case "GT_LARGE_CHEMICAL" -> new Ports(4,2,4,2);

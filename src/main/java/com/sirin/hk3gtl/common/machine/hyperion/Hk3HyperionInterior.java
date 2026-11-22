@@ -23,12 +23,6 @@ public final class Hk3HyperionInterior {
         return run >= 0 && cell <= INSTANCE.ends[run];
     }
 
-    public static java.util.BitSet movementVolume() {
-        var volume = new java.util.BitSet(1145 * 549 * 240);
-        for (int i = 0; i < INSTANCE.starts.length; i++) volume.set(INSTANCE.starts[i], INSTANCE.ends[i] + 1);
-        return volume;
-    }
-
     private static Hk3HyperionInterior load() {
         try (var input = new DataInputStream(new GZIPInputStream(Hk3HyperionInterior.class
                 .getResourceAsStream("/data/hk3gtl/structures/hyperion_interior.bin.gz")))) {

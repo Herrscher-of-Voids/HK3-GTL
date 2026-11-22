@@ -296,6 +296,7 @@
     },
     {
       "id": "industrial_experiment_nsp",
+      "circuit": 1,
       "role": "I02",
       "requirements": [
         "RN-NRA"
@@ -333,6 +334,7 @@
     },
     {
       "id": "industrial_experiment_cbs",
+      "circuit": 1,
       "role": "I02",
       "requirements": [
         "RN-NSP",
@@ -371,6 +373,7 @@
     },
     {
       "id": "industrial_experiment_hrc",
+      "circuit": 2,
       "role": "I02",
       "requirements": [
         "RN-NSP"
@@ -557,6 +560,7 @@
     },
     {
       "id": "industrial_experiment_ssc",
+      "circuit": 1,
       "role": "I02",
       "requirements": [
         "RN-ALE",
@@ -596,6 +600,7 @@
     },
     {
       "id": "industrial_experiment_cce",
+      "circuit": 1,
       "role": "I02",
       "requirements": [
         "RN-SSC"
@@ -633,6 +638,7 @@
     },
     {
       "id": "industrial_experiment_mre",
+      "circuit": 1,
       "role": "I02",
       "requirements": [
         "RN-CFR",
@@ -713,6 +719,7 @@
     },
     {
       "id": "industrial_experiment_era",
+      "circuit": 1,
       "role": "I02",
       "requirements": [
         "RN-RAT",
@@ -751,6 +758,7 @@
     },
     {
       "id": "industrial_experiment_gsc",
+      "circuit": 2,
       "role": "I02",
       "requirements": [
         "RN-SSC",
@@ -865,6 +873,7 @@
     },
     {
       "id": "industrial_experiment_fca",
+      "circuit": 2,
       "role": "I02",
       "requirements": [
         "RN-CCE"
@@ -902,6 +911,7 @@
     },
     {
       "id": "industrial_experiment_ica",
+      "circuit": 3,
       "role": "I02",
       "requirements": [
         "RN-CCE",
@@ -940,6 +950,7 @@
     },
     {
       "id": "industrial_experiment_rca",
+      "circuit": 4,
       "role": "I02",
       "requirements": [
         "RN-CCE",
@@ -978,6 +989,7 @@
     },
     {
       "id": "industrial_experiment_vca",
+      "circuit": 5,
       "role": "I02",
       "requirements": [
         "RN-CCE",
@@ -1016,6 +1028,7 @@
     },
     {
       "id": "industrial_experiment_eca",
+      "circuit": 6,
       "role": "I02",
       "requirements": [
         "RN-CCE",
@@ -1054,6 +1067,7 @@
     },
     {
       "id": "industrial_experiment_gca",
+      "circuit": 7,
       "role": "I02",
       "requirements": [
         "RN-CCE"
@@ -1091,6 +1105,7 @@
     },
     {
       "id": "industrial_experiment_bca",
+      "circuit": 8,
       "role": "I02",
       "requirements": [
         "RN-CCE",
@@ -1129,6 +1144,7 @@
     },
     {
       "id": "industrial_experiment_tca",
+      "circuit": 9,
       "role": "I02",
       "requirements": [
         "RN-CCE",
@@ -1167,6 +1183,7 @@
     },
     {
       "id": "industrial_experiment_wca",
+      "circuit": 10,
       "role": "I02",
       "requirements": [
         "RN-CCE",
@@ -1205,6 +1222,7 @@
     },
     {
       "id": "industrial_experiment_dke",
+      "circuit": 1,
       "role": "I02",
       "requirements": [
         "RN-CPT",
@@ -1396,6 +1414,7 @@
     },
     {
       "id": "industrial_experiment_ssq",
+      "circuit": 2,
       "role": "I02",
       "requirements": [
         "RN-ALE",
@@ -1436,6 +1455,7 @@
     },
     {
       "id": "industrial_experiment_cqs",
+      "circuit": 2,
       "role": "I02",
       "requirements": [
         "RN-CPT",
@@ -1513,6 +1533,7 @@
     },
     {
       "id": "industrial_experiment_uaa",
+      "circuit": 2,
       "role": "I02",
       "requirements": [
         "RN-WCP",
@@ -1630,6 +1651,7 @@
     },
     {
       "id": "industrial_experiment_hcc",
+      "circuit": 3,
       "role": "I02",
       "requirements": [
         "RN-HBD",
@@ -1826,6 +1848,7 @@
     },
     {
       "id": "industrial_experiment_lre",
+      "circuit": 2,
       "role": "I02",
       "requirements": [
         "RN-MRE",
@@ -4010,6 +4033,7 @@
     },
     {
       "id": "industrial_heat_exchange",
+      "circuit": 1,
       "role": "I05",
       "requirements": [
         "RN-HLC"
@@ -4127,6 +4151,7 @@
     },
     {
       "id": "industrial_optimized_heat_exchange",
+      "circuit": 2,
       "role": "I05",
       "requirements": [
         "RN-OPR"

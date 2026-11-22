@@ -92,6 +92,8 @@ public final class Hk3RecipeCalculationHelper {
         // 无线网按实际余额供电，物料初筛不使用单安培电压限制。
         GTRecipe testRecipe = machine instanceof Hk3WorkableMultiblockMachine
                 ? Hk3RecipePower.withoutEU(recipe) : recipe.copy();
+        // 并行计算仅读取已匹配的输入仓，先试配并绑定样板槽。
+        if (!RecipeRunnerHelper.matchRecipeInputNoMEInnerCache(machine, testRecipe)) return new long[]{0, 0};
         var parallelResult = ParallelLogic.applyParallel((MetaMachine) machine, testRecipe,
                 (int) Math.min(maxParallel, Integer.MAX_VALUE), false);
         int limitedParallel = parallelResult.getSecond();

@@ -5,6 +5,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,10 +20,17 @@ public final class Hk3PhoneKey {
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT)
     public static final class Input {
         @SubscribeEvent public static void logout(net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggingOut e){Hk3PhoneScreen.reset();}
+        @SubscribeEvent public static void command(ClientChatEvent event){
+            String message=event.getMessage().stripLeading();
+            if(message.startsWith("/"))message=message.substring(1);
+            int end=message.indexOf(' ');
+            String root=end<0?message:message.substring(0,end);
+            if(root.equals("hk3phone")||root.equals("hk3letter"))Hk3PhoneScreen.requestOpen();
+        }
         @SubscribeEvent public static void tick(TickEvent.ClientTickEvent e){
             if(e.phase!=TickEvent.Phase.END)return;
             var mc=Minecraft.getInstance();
-            while(OPEN.consumeClick())if(mc.player!=null&&mc.screen==null&&mc.getConnection()!=null)mc.getConnection().sendCommand("hk3phone");
+            while(OPEN.consumeClick())if(mc.player!=null&&mc.screen==null&&mc.getConnection()!=null){Hk3PhoneScreen.requestOpen();mc.getConnection().sendCommand("hk3phone");}
         }
     }
 }

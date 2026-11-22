@@ -46,11 +46,11 @@ public final class Hk3IndustrialApprovedPatterns {
         }
         builder.where('S', Predicates.controller(Predicates.blocks(definition.getBlock())))
                 .where('#', Hk3InterfacePredicates.clearance());
-        boolean first = id.equals("i01"), dry = id.equals("i02") || id.equals("i07");
+        boolean first = id.equals("i01"), dry = id.equals("i07"), optionalFluids = id.equals("i02");
         var itemIn = ability(PartAbility.IMPORT_ITEMS, true);
         var itemOut = ability(PartAbility.EXPORT_ITEMS, !first);
-        var fluidIn = ability(PartAbility.IMPORT_FLUIDS, !first && !dry);
-        var fluidOut = ability(PartAbility.EXPORT_FLUIDS, !dry && !id.equals("i11"));
+        var fluidIn = ability(PartAbility.IMPORT_FLUIDS, !first && !dry && !optionalFluids);
+        var fluidOut = ability(PartAbility.EXPORT_FLUIDS, !dry && !id.equals("i11") && !optionalFluids);
         var universal = Hk3InterfacePredicates.interfaces(itemIn.or(itemOut).or(fluidIn).or(fluidOut));
         for (var entry : palette.entrySet())
             builder.where(entry.getValue(), Predicates.states(state(entry.getKey())).or(universal));

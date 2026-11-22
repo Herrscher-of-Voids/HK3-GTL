@@ -3,10 +3,12 @@ package com.sirin.hk3gtl.common.recipe;
 import com.sirin.hk3gtl.common.research.*;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 import com.sirin.hk3gtl.common.registration.Hk3IndustrialFluids;
+import com.google.gson.JsonObject;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
 import java.util.function.Consumer;
 
@@ -23,7 +25,7 @@ public final class Hk3ResearchProcessRecipes {
                     type.registryName.getPath(),p.id(),p.inputHw());
             if(p.role().equals("NETWORK_INJECTION"))com.sirin.hk3gtl.common.machine.energy.Hk3HonkaiNetworkInjectorMachine.bindYield(
                     type.registryName.getPath(),p.id(),p.networkCredit());
-            builder(p).save(provider);
+            save(p, provider);
         }
     }
     public static com.gregtechceu.gtceu.api.recipe.GTRecipe expected(Hk3ResearchProcessPlans.Plan p) {
@@ -32,8 +34,26 @@ public final class Hk3ResearchProcessRecipes {
         var serialized = new com.google.gson.JsonObject();
         builder.toJson(serialized);
         // GTLCore在toJson阶段应用耗时倍率，buildRawRecipe不经过这一步。
-        recipe.duration = serialized.get("duration").getAsInt();
+        recipe.duration = p.role().equals("I02") ? p.ticks() : serialized.get("duration").getAsInt();
         return recipe;
+    }
+    private static void save(Hk3ResearchProcessPlans.Plan p, Consumer<FinishedRecipe> provider) {
+        builder(p).save(recipe -> {
+            if (!p.role().equals("I02")) {
+                provider.accept(recipe);
+                return;
+            }
+            provider.accept(new FinishedRecipe() {
+                @Override public void serializeRecipeData(JsonObject json) {
+                    recipe.serializeRecipeData(json);
+                    json.addProperty("duration", p.ticks());
+                }
+                @Override public ResourceLocation getId() { return recipe.getId(); }
+                @Override public RecipeSerializer<?> getType() { return recipe.getType(); }
+                @Override public JsonObject serializeAdvancement() { return recipe.serializeAdvancement(); }
+                @Override public ResourceLocation getAdvancementId() { return recipe.getAdvancementId(); }
+            });
+        });
     }
     private static com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder builder(Hk3ResearchProcessPlans.Plan p) {
             var type=Hk3ResearchProcessTypes.of(p);

@@ -31,7 +31,7 @@ public final class Hk3CampusExpansion {
     private record Packing(List<Placed> placed, int width, int depth) {
         double score() { return (double) width * depth * (1 + Math.abs(Math.log((double) width / depth)) * 0.24); }
     }
-    private static final Map<Key, Plan> PLANS = new ConcurrentHashMap<>();
+    private static final Map<Key, Plan> PLANS = com.google.common.cache.CacheBuilder.newBuilder().maximumSize(8).<Key, Plan>build().asMap();
 
     public record Plot(Hk3CampusCatalog.Entry entry, int minX, int minZ, int maxX, int maxZ,
                        int controllerX, int controllerY, int controllerZ, int arrivalX, int arrivalY, int arrivalZ) {
@@ -408,8 +408,8 @@ public final class Hk3CampusExpansion {
 
     public static Plan plan(String identity, int minX, int minZ, int maxX, int maxZ, int surfaceY,
                             Hk3CampusStyle style, int version, PlannedCampus.Bounds aeBounds) {
-        return PLANS.computeIfAbsent(new Key(identity, minX, minZ, maxX, maxZ, surfaceY, style, version, aeBounds),
-                key -> create(key, Hk3CampusCatalog.entries(version)));
+        var key = new Key(identity, minX, minZ, maxX, maxZ, surfaceY, style, version, aeBounds);
+        return PLANS.computeIfAbsent(key, value -> create(value, Hk3CampusCatalog.entries(version)));
     }
 
     public static Plan layout(List<Hk3CampusCatalog.Entry> entries, String identity, int minX, int minZ,

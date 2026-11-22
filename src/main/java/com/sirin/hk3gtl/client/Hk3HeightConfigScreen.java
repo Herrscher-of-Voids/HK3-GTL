@@ -31,14 +31,16 @@ public final class Hk3HeightConfigScreen extends Screen {
             mode = modes[(mode.ordinal() + 1) % modes.length];
             button.setMessage(modeLabel());
         }).bounds(left, 68, 300, 24).build());
+        String topValue = top == null ? Integer.toString(Hk3HeightConfig.TOP_EXCLUSIVE.get()) : top.getValue();
+        String worldList = existing == null ? String.join(";", Hk3HeightConfig.EXISTING_WORLDS.get()) : existing.getValue();
         top = new EditBox(font, left + 170, 100, 130, 22, Component.translatable("hk3gtl.height.config.top"));
-        top.setValue(Integer.toString(Hk3HeightConfig.TOP_EXCLUSIVE.get()));
+        top.setValue(topValue);
         top.setMaxLength(4);
         top.setFilter(value -> value.isEmpty() || value.chars().allMatch(Character::isDigit));
         addRenderableWidget(top);
         existing = new EditBox(font, left, 140, 300, 22, Component.translatable("hk3gtl.height.config.existing"));
         existing.setMaxLength(4096);
-        existing.setValue(String.join(";", Hk3HeightConfig.EXISTING_WORLDS.get()));
+        existing.setValue(worldList);
         addRenderableWidget(existing);
         addRenderableWidget(Button.builder(Component.translatable("gui.done"), button -> save()).bounds(left, height - 28, 145, 24).build());
         addRenderableWidget(Button.builder(Component.translatable("gui.cancel"), button -> onClose()).bounds(left + 155, height - 28, 145, 24).build());

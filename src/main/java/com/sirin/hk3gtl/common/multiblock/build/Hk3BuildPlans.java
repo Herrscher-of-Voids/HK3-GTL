@@ -13,6 +13,7 @@ import com.sirin.hk3gtl.common.multiblock.pattern.Hk3W01HallLayout;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3W01HallPattern;
 import com.sirin.hk3gtl.common.multiblock.pattern.Hk3StructureBlocks;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -31,6 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class Hk3BuildPlans {
+    private static final int SPARSE_OCCUPANCY_RATIO = 128;
     /** 工业依赖审计复用正式控制器身份，不从机号推测布局。 */
     public static String layoutForMachine(String machine) { return Keys.BY_MACHINE.get(machine); }
     private static final String ROOT = "/data/hk3gtl/structures/";
@@ -186,6 +188,7 @@ public final class Hk3BuildPlans {
     private static final class PackedPlan extends SparsePlan {
         private Hk3StructureStream input;
         private BitSet occupied;
+        private IntOpenHashSet sparseOccupied;
         private final net.minecraft.world.level.block.Block controller;
         private int cursor;
         private boolean foundController;
@@ -196,15 +199,19 @@ public final class Hk3BuildPlans {
             super(header.width, header.height, header.depth, header.cx, header.cy, header.cz, header.count, header.palette);
             this.input = header.input; this.controller = controller;
             sourceFacing = header.sourceFacing;
-            occupied = new BitSet(Math.multiplyExact(Math.multiplyExact(width,height),depth));
+            int volume = Math.multiplyExact(Math.multiplyExact(width,height),depth);
+            if ((long) size() * SPARSE_OCCUPANCY_RATIO < volume) sparseOccupied = new IntOpenHashSet(size());
+            else occupied = new BitSet(volume);
         }
         @Override public boolean prepareStep() {
             if (input == null) return true;
             try {
                 var cell=input.next();int linear=cell.linear(),material=cell.state();
-                if(occupied.get(linear))throw new IOException("巨构建造记录重复");
+                if(sparseOccupied!=null) {
+                    if(!sparseOccupied.add(linear))throw new IOException("巨构建造记录重复");
+                } else if(occupied.get(linear))throw new IOException("巨构建造记录重复");
                 CompoundTag tag=Hk3LargeArchitectureShapes.entity(cell.entity());
-                put(cursor, linear, material, tag); occupied.set(linear);
+                put(cursor, linear, material, tag); if(occupied!=null)occupied.set(linear);
                 if (palette[material].getBlock() == controller && linear != linear(cx,cy,cz))
                     throw new IOException("巨构建造模板含重复主控");
                 if (linear == linear(cx,cy,cz)) {
@@ -223,7 +230,7 @@ public final class Hk3BuildPlans {
         }
         @Override public void close() {
             if (input != null) try { input.close(); } catch (IOException ignored) {} finally { input = null; }
-            occupied = null;
+            occupied = null; sparseOccupied = null;
         }
         private record Header(Hk3StructureStream input, int width, int height, int depth, int cx, int cy, int cz,
                               int count, BlockState[] palette, Direction sourceFacing) {}

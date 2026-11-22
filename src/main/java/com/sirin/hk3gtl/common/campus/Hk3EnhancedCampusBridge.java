@@ -18,11 +18,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /** 保留原园区与传送索引，附区仅生成主控占位标记。 */
 public final class Hk3EnhancedCampusBridge {
-    private static final ConcurrentHashMap<Hk3CampusLayoutVersion.Key, Hk3CampusExpansion.Plan> EXPANSIONS = new ConcurrentHashMap<>();
-    private static final ConcurrentHashMap<Hk3CampusLayoutVersion.Key, CampusPlanAccess.Plan> PLANS = new ConcurrentHashMap<>();
+    private record Campus(Hk3CampusExpansion.Plan annex, CampusPlanAccess.Plan plan) {}
+    private static final java.util.concurrent.ConcurrentMap<Hk3CampusLayoutVersion.Key, Campus> PLANS =
+            com.google.common.cache.CacheBuilder.newBuilder().maximumSize(8).<Hk3CampusLayoutVersion.Key, Campus>build().asMap();
     private static final ConcurrentHashMap<String, BlockState> MATERIALS = new ConcurrentHashMap<>();
 
     private Hk3EnhancedCampusBridge() {}
+
 
     public static BlockState blockState(PlotSettings settings, int x, int y, int z) {
         var block = expansion(settings).blockAt(x, y, z);
@@ -34,16 +36,21 @@ public final class Hk3EnhancedCampusBridge {
     }
 
     public static Hk3CampusExpansion.Plan expansion(PlotSettings settings) {
+        return campus(settings).annex();
+    }
+
+    private static Campus campus(PlotSettings settings) {
         var key = Hk3CampusLayoutVersion.key(settings);
-        var result = EXPANSIONS.get(key);
-        if (result == null) {
+        var found = PLANS.get(key);
+        if (found != null) return found;
+        synchronized (PLANS) {
             CampusPlanAccess.of(settings);
-            result = EXPANSIONS.get(key);
+            return PLANS.get(key);
         }
-        return result;
     }
 
     public static CampusPlanAccess.Plan extend(PlotSettings settings, CampusPlanAccess.Plan original) {
+        synchronized (PLANS) {
         return PLANS.computeIfAbsent(Hk3CampusLayoutVersion.key(settings), key -> {
             var bounds = original == null ? new PlannedCampus.Bounds(-128, -128, 127, 127) : original.bounds();
             var annex = key.version() == 1
@@ -51,7 +58,6 @@ public final class Hk3EnhancedCampusBridge {
                     : Hk3CampusExpansion.plan(settings.campusKey() + ":" + key.version(), bounds.minX(), bounds.minZ(),
                             bounds.maxX(), bounds.maxZ(), settings.surfaceY(), key.version() >= 3 ? Hk3CampusStyle.of(settings) : null,
                             key.version(), original == null ? null : original.aeBounds());
-            EXPANSIONS.put(key, annex);
             var plots = new ArrayList<PlannedCampus.Plot>(original == null ? List.of() : original.plots());
             var tiers = new ArrayList<Integer>(original == null ? List.of() : original.tiers());
             var targets = new ArrayList<CampusPlanAccess.Target>(original == null ? List.of() : original.targets());
@@ -65,10 +71,11 @@ public final class Hk3EnhancedCampusBridge {
             var overall = new PlannedCampus.Bounds(Math.min(bounds.minX(), annex.minX()), Math.min(bounds.minZ(), annex.minZ()),
                     Math.max(bounds.maxX(), annex.maxX()), Math.max(bounds.maxZ(), annex.maxZ()));
             com.mojang.logging.LogUtils.getLogger().info("HK3GTL园区扩展 {}：追加{}台，目录{}项，用地{}", settings.campusKey(), annex.plots().size(), targets.size(), overall);
-            return new CampusPlanAccess.Plan(List.copyOf(plots), original == null ? List.of() : original.workshops(),
+            return new Campus(annex, new CampusPlanAccess.Plan(List.copyOf(plots), original == null ? List.of() : original.workshops(),
                     overall, original == null ? new PlannedCampus.Bounds(0, 0, 0, 0) : original.aeBounds(),
-                    List.copyOf(tiers), List.copyOf(targets));
-        });
+                    List.copyOf(tiers), List.copyOf(targets)));
+        }).plan();
+        }
     }
 
     private static PlannedCampus.Plot external(Hk3CampusExpansion.Plot plot, int index) {
@@ -81,15 +88,16 @@ public final class Hk3EnhancedCampusBridge {
     }
 
     public static void populate(PlotSettings settings, ChunkAccess chunk) {
-        var annex = expansion(settings);
-        var plan = PLANS.get(Hk3CampusLayoutVersion.key(settings));
+        var campus = campus(settings);
+        var annex = campus.annex();
+        var plan = campus.plan();
         var position = new BlockPos.MutableBlockPos();
         for (int x = chunk.getPos().getMinBlockX(); x <= chunk.getPos().getMaxBlockX(); x++) {
             for (int z = chunk.getPos().getMinBlockZ(); z <= chunk.getPos().getMaxBlockZ(); z++) {
                 int top = annex.generationTopAt(x, z);
                 for (int y = annex.bottomAt(x, z); y <= top; y++) {
-                    var state = blockState(settings, x, y, z);
-                    if (state != null) chunk.setBlockState(position.set(x, y, z), state, false);
+                    var block = annex.blockAt(x, y, z);
+                    if (block != null) chunk.setBlockState(position.set(x, y, z), material(block), false);
                 }
             }
         }

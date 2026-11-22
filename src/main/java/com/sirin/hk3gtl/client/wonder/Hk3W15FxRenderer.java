@@ -6,6 +6,8 @@ import com.mojang.blaze3d.vertex.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.ShaderInstance;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.RegisterShadersEvent;
@@ -15,15 +17,23 @@ import net.minecraftforge.fml.common.Mod;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT)
 public final class Hk3W15FxRenderer {
+    private static final long DYNAMIC_REFRESH_NANOS=33_333_333L;
     private static final BufferBuilder BUILDER=new BufferBuilder(8*1024*1024);
     private static final Vector3f RIGHT=new Vector3f(),UP=new Vector3f();
+    private static final DynamicBuffers PREVIEW_BUFFERS=new DynamicBuffers();
+    private static final Map<Long,DynamicBuffers> SCENE_BUFFERS=new HashMap<>();
     private static CompletableFuture<Hk3W15FxGeometry> loading;
     private static Hk3W15FxGeometry geometry;
-    private static VertexBuffer branches,spirals,dynamic;
+    private static VertexBuffer branches,spirals,water;
+    private static ShaderInstance waterShader;
     private static boolean failed;
     private Hk3W15FxRenderer() {}
 
@@ -40,61 +50,59 @@ public final class Hk3W15FxRenderer {
         }
         begin();lines(geometry.branches,.32,.66);lines(geometry.diamonds,.25,.6);branches=upload(null);
         begin();lines(geometry.spirals,.35,.1);spirals=upload(null);
+        BUILDER.begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION);
+        for(int ring=0;ring<30;ring++)for(int j=0;j<144;j++) {
+            waterVertex(ring,j);waterVertex(ring+1,j);waterVertex(ring+1,j+1);waterVertex(ring,j+1);
+        }
+        water=new VertexBuffer(VertexBuffer.Usage.STATIC);
+        water.bind();water.upload(BUILDER.end());
         VertexBuffer.unbind();return true;
     }
     public static void drawPreview(double seconds) {
         draw(new Matrix4f(RenderSystem.getModelViewMatrix()).translate(550,-78,405),
-                new Matrix4f(RenderSystem.getProjectionMatrix()),0,seconds,true);
+                new Matrix4f(RenderSystem.getProjectionMatrix()),0,seconds,true,PREVIEW_BUFFERS);
     }
     @SubscribeEvent public static void render(RenderLevelStageEvent event) {
         if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS)return;
         Hk3W15FieldScenes.maintain();var mc=Minecraft.getInstance();
-        if(mc.level==null||Hk3W15FieldScenes.scenes().isEmpty())return;
+        var scenes=Hk3W15FieldScenes.scenes();
+        if(mc.level==null||scenes.isEmpty()){clearSceneBuffers();return;}
         var camera=event.getCamera().getPosition();var projection=new Matrix4f(event.getProjectionMatrix());
-        for(var scene:Hk3W15FieldScenes.scenes()) {
+        var active=new HashSet<Long>();
+        for(var scene:scenes) {
             var state=scene.state();var pos=state.pos();
             if(camera.distanceToSqr(pos.getX(),pos.getY(),pos.getZ())>2500d*2500)continue;
+            long key=pos.asLong();active.add(key);
             float angle=switch(state.facing()){case NORTH->(float)Math.PI;case EAST->(float)Math.PI/2;case WEST->-(float)Math.PI/2;default->0;};
             var origin=new Matrix4f(event.getPoseStack().last().pose()).translate((float)(pos.getX()-camera.x),(float)(pos.getY()-camera.y),(float)(pos.getZ()-camera.z));
             origin.translate(.5f,0,.5f).rotateY(angle).translate(-.5f,-153,-404.5f);
             double elapsed=(mc.level.getGameTime()-state.epoch()+event.getPartialTick())/20.;
             draw(origin,projection,state.idle()+(state.running()?0:elapsed),
-                    state.work()+(state.running()?elapsed:0),state.running());
+                    state.work()+(state.running()?elapsed:0),state.running(),SCENE_BUFFERS.computeIfAbsent(key,ignored->new DynamicBuffers()));
         }
+        SCENE_BUFFERS.keySet().removeIf(key->{if(active.contains(key))return false;SCENE_BUFFERS.get(key).close();return true;});
     }
-    private static void draw(Matrix4f origin,Matrix4f projection,double idle,double work,boolean working) {
+    private static void draw(Matrix4f origin,Matrix4f projection,double idle,double work,boolean working,DynamicBuffers buffers) {
         if(!prepare())return;
         double time=idle+work;
         var inverse=new Matrix3f(origin).invert();inverse.transform(RIGHT.set(1,0,0)).normalize();inverse.transform(UP.set(0,1,0)).normalize();
         double power=working?1:.58;
         RenderSystem.enableDepthTest();RenderSystem.disableCull();RenderSystem.depthMask(false);RenderSystem.enableBlend();
         RenderSystem.setShaderColor(1,1,1,1);RenderSystem.defaultBlendFunc();
-        begin();sea(time,power);drawDynamic(origin,projection);
+        waterShader.getUniform("Time").set((float)time);
+        waterShader.getUniform("Power").set((float)power);
+        water.bind();water.drawWithShader(origin,projection,waterShader);
+        buffers.update(time,power,idle,work,working,System.nanoTime());
         RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA,GlStateManager.DestFactor.ONE);
         RenderSystem.setShaderColor(1,1,1,working?1:.7f);drawBuffer(branches,origin,projection);drawBuffer(spirals,origin,projection);
         RenderSystem.setShaderColor(1,1,1,1);
-        begin();waves(time,power);worlds(time,power);stars(geometry.dust,time,power,false);stars(geometry.nodes,time,power,true);
-        flows(work+idle*.32,power);glyphs(work+idle*.22,power);if(working)writing(work);drawDynamic(origin,projection);
-        RenderSystem.defaultBlendFunc();begin();leaves(time,power);drawDynamic(origin,projection);
+        drawBuffer(buffers.additive,origin,projection);
+        RenderSystem.defaultBlendFunc();drawBuffer(buffers.leaves,origin,projection);
         VertexBuffer.unbind();RenderSystem.disableBlend();RenderSystem.depthMask(true);RenderSystem.enableCull();
     }
-    private static void sea(double time,double power) {
-        for(int ring=0;ring<30;ring++)for(int j=0;j<144;j++) {
-            double a=j*Math.PI/72,b=(j+1)*Math.PI/72,r=ring/30.,s=(ring+1)/30.;
-            waterVertex(Math.cos(a)*r*630,Math.sin(a)*r*470,r,a,time,power);
-            waterVertex(Math.cos(a)*s*630,Math.sin(a)*s*470,s,a,time,power);
-            waterVertex(Math.cos(b)*s*630,Math.sin(b)*s*470,s,b,time,power);
-            waterVertex(Math.cos(b)*r*630,Math.sin(b)*r*470,r,b,time,power);
-        }
-    }
-    private static void waterVertex(double x,double z,double radius,double angle,double time,double power) {
-        double drift=Math.sin(x*.011+z*.017+time*.19)*.5+Math.cos(x*.018-z*.009-time*.23)*.5;
-        double wave=smooth(.2,.95,Math.sin(radius*28-time*.43+Math.sin(angle*4+radius*5)*1.8+drift));
-        double blend=.5+drift*.25;
-        double red=.07+.07*blend+.1*wave,green=.095+.195*blend+.12*wave,blue=.28+.3*blend+.2*wave;
-        double alpha=(.19+wave*.1)*(1-smooth(.88,1,radius))*(.78+power*.22);
-        vertex(x,27+Math.sin(x*.013+time*.32)*3+Math.cos(z*.017-time*.25)*2,z,
-                rgb(red,green,blue),alpha);
+    private static void waterVertex(int ring,int sector) {
+        double angle=sector*Math.PI/72, radius=ring/30.;
+        BUILDER.vertex(Math.cos(angle)*radius*630,0,Math.sin(angle)*radius*470).endVertex();
     }
     private static void waves(double time,double power) {
         var source=geometry.waves;float[] p=source.positions();
@@ -171,8 +179,22 @@ public final class Hk3W15FxRenderer {
         if(buffer==null)buffer=new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
         buffer.bind();buffer.upload(BUILDER.end());return buffer;
     }
-    private static void drawDynamic(Matrix4f origin,Matrix4f projection) {dynamic=upload(dynamic);drawBuffer(dynamic,origin,projection);}
     private static void drawBuffer(VertexBuffer buffer,Matrix4f origin,Matrix4f projection) {buffer.bind();buffer.drawWithShader(origin,projection,GameRenderer.getPositionColorShader());}
+    private static final class DynamicBuffers {
+        private VertexBuffer additive,leaves;
+        private long updated;
+        void update(double time,double power,double idle,double work,boolean working,long now) {
+            if(updated!=0&&now-updated<DYNAMIC_REFRESH_NANOS)return;
+            begin();waves(time,power);worlds(time,power);stars(geometry.dust,time,power,false);stars(geometry.nodes,time,power,true);
+            flows(work+idle*.32,power);glyphs(work+idle*.22,power);if(working)writing(work);additive=upload(additive);
+            begin();leaves(time,power);leaves=upload(leaves);updated=now;
+        }
+        void close() {
+            if(additive!=null){additive.close();additive=null;}
+            if(leaves!=null){leaves.close();leaves=null;}
+            updated=0;
+        }
+    }
     private static void lines(Hk3W15FxGeometry.Lines source,double width,double alpha) {
         float[] p=source.positions();
         for(int i=0;i<p.length;i+=6)line(p[i],p[i+1],p[i+2],p[i+3],p[i+4],p[i+5],width,source.colors()[i/3],alpha);
@@ -198,22 +220,27 @@ public final class Hk3W15FxRenderer {
         vertex(x+rx+ux,y+ry+uy,z+rz+uz,color,alpha);vertex(x-rx+ux,y-ry+uy,z-rz+uz,color,alpha);
     }
     private static void vertex(double x,double y,double z,int color,double alpha) {BUILDER.vertex(x,y,z).color((color>>16)&255,(color>>8)&255,color&255,(int)(255*alpha)).endVertex();}
-    private static int rgb(double r,double g,double b) {return ((int)(r*255)<<16)|((int)(g*255)<<8)|(int)(b*255);}
     private static int mix(int a,int b,double t) {
         int red=(int)(((a>>16)&255)*(1-t)+((b>>16)&255)*t),green=(int)(((a>>8)&255)*(1-t)+((b>>8)&255)*t),blue=(int)((a&255)*(1-t)+(b&255)*t);
         return (red<<16)|(green<<8)|blue;
     }
     private static double fract(double x) {return x-Math.floor(x);}
-    private static double smooth(double a,double b,double x) {double t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t);}
     private static void clear() {
         if(branches!=null){branches.close();branches=null;}
         if(spirals!=null){spirals.close();spirals=null;}
-        if(dynamic!=null){dynamic.close();dynamic=null;}
+        if(water!=null){water.close();water=null;}
+        clearSceneBuffers();PREVIEW_BUFFERS.close();
         geometry=null;loading=null;failed=false;
+    }
+    private static void clearSceneBuffers() {
+        SCENE_BUFFERS.values().forEach(DynamicBuffers::close);SCENE_BUFFERS.clear();
     }
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event) {Hk3W15FieldScenes.clear();clear();}
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
     public static final class Resources {
-        @SubscribeEvent public static void shaders(RegisterShadersEvent event) {clear();}
+        @SubscribeEvent public static void shaders(RegisterShadersEvent event) throws java.io.IOException {
+            clear();
+            event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w15_sea"),DefaultVertexFormat.POSITION),shader->waterShader=shader);
+        }
     }
 }

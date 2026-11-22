@@ -185,7 +185,11 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
         addWidget(scroll);
     }
 
+    private float layerYaw = 25, layerPitch = -135, layerZoom;
+
     private void changeLayer(int next) {
+        var visible = movingScene != null && movingScene.isVisible() ? movingScene : scene;
+        if (visible != null) visible.rememberCamera();
         effectsEnabled = false;
         layer = next;
         if (movingScene != null) { movingScene.close(); removeWidget(movingScene); movingScene = null; }
@@ -416,8 +420,8 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
             center = new Vector3f(world.layout.width() / 2f,
                     world.layer < 0 ? world.layout.height() / 2f : world.layer + 0.5f, world.layout.depth() / 2f);
             setCenter(center);
-            setZoom(Math.max(world.layout.width(), world.layout.depth()) * (isW11() ? 1.65f : 1.1f));
-            setCameraYawAndPitch(25, -135);
+            setZoom(layerZoom > 0 ? layerZoom : Math.max(world.layout.width(), world.layout.depth()) * (isW11() ? 1.65f : 1.1f));
+            setCameraYawAndPitch(layerYaw, layerPitch);
             // LDLib的正常场景缓存后台编译；不每帧重画193万模型，也不在JEI注册阶段烘焙。
             useCacheBuffer(!(Minecraft.getInstance().screen instanceof Hk3PreviewFullscreenScreen));
             renderer.setAfterWorldRender(ignored -> {
@@ -449,6 +453,7 @@ public final class Hk3W01PreviewWidget extends WidgetGroup {
 
         void resize(int width, int height) { setSize(width - 6, height - 72); frame.invalidate(); }
         void close() { frame.close(); renderer.deleteCacheBuffer(); }
+        void rememberCamera() { layerZoom = zoom; layerYaw = rotationYaw; layerPitch = rotationPitch; }
         void copyCamera(SparseScene other) {
             setCenter(new Vector3f(other.center));
             setZoom(other.zoom);

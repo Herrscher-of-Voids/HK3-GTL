@@ -7,6 +7,9 @@
   "verbose": true,
   "mixins": [
     "ae.Hk3NexusChunkMapAccess",
+    "Hk3ChunkMapSaveAccess",
+    "Hk3ChunkStorageAccess",
+    "Hk3DimensionDataStorageAccess",
     "ae.Hk3NexusNodeReadyMixin",
     "ae.Hk3NexusCraftingServiceMixin",
     "ae.Hk3NexusCpuMenuMixin",
@@ -190,6 +193,9 @@
   "client": [
     "ae.Hk3CompleteGtPatternTransferMixin",
     "jei.Hk3ExpandedRecipeLayoutMixin",
+    "jei.Hk3JeiSingleRecipePageMixin",
+    "jei.Hk3JeiRecipeHeightMixin",
+    "jei.Hk3JeiRecipeViewportMixin",
     "ae.Hk3EncodingHelperAccess",
     "client.Hk3AtlasDumpMixin",
     "client.Hk3BuildBusyFrameMixin",

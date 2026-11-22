@@ -32,20 +32,20 @@ public final class Hk3W03FxRenderer {
     private static int uploadGroup,uploadFace,uploaded;
     private static long epoch,frames,started;
     private static double fixedTime=-1;
-    private static boolean failed;
+    private static long retryAt;
     private static boolean worldPrepared;
     private static volatile boolean prepared;
     private Hk3W03FxRenderer() {}
 
     public static void show(Vec3 position) {
         var mc=Minecraft.getInstance();anchor=position;level=mc.level;epoch=mc.level.getGameTime();fixedTime=-1;
-        frames=0;started=System.nanoTime();failed=false;
+        frames=0;started=System.nanoTime();retryAt=0;
         if(model==null&&loading==null)loading=CompletableFuture.supplyAsync(Hk3W03FxModel::load);
     }
     public static void hide(){anchor=null;level=null;if(Hk3W03FieldScenes.scenes().isEmpty())clearGeometry();}
     public static boolean ready(){return prepared;}
     public static boolean preparePreview(){
-        if(shader==null||failed)return false;
+        if(shader==null||System.nanoTime()<retryAt)return false;
         if(prepared)return true;
         if(model==null){
             if(loading==null)loading=CompletableFuture.supplyAsync(Hk3W03FxModel::load);
@@ -70,7 +70,7 @@ public final class Hk3W03FxRenderer {
         if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS)return;
         var mc=Minecraft.getInstance();Hk3W03FieldScenes.maintain();
         if(anchor!=null&&mc.level!=level)hide();
-        if(mc.level==null||shader==null||failed)return;
+        if(mc.level==null||shader==null||System.nanoTime()<retryAt)return;
         if(anchor==null&&Hk3W03FieldScenes.scenes().isEmpty())return;
         try {
             if(!preparePreview())return;
@@ -83,7 +83,7 @@ public final class Hk3W03FxRenderer {
             }
             frames++;
         }catch(RuntimeException failure) {
-            failed=true;clearGeometry();Hk3WonderSectionRefresh.request("W03");LogUtils.getLogger().error("W03 C9特效显示失败",failure);
+            retryAt=System.nanoTime()+10_000_000_000L;clearGeometry();Hk3WonderSectionRefresh.request("W03");LogUtils.getLogger().error("W03 C9特效显示失败",failure);
             if(mc.player!=null)mc.player.displayClientMessage(Component.literal("W03 C9特效加载失败，详见日志；未更改世界方块。"),false);
         }
     }
@@ -133,7 +133,7 @@ public final class Hk3W03FxRenderer {
     @Mod.EventBusSubscriber(modid="hk3gtl",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
     public static final class Resources {
         @SubscribeEvent public static void shaders(RegisterShadersEvent event)throws java.io.IOException {
-            clearGeometry();event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w03_c9"),DefaultVertexFormat.POSITION_COLOR_TEX),s->shader=s);
+            retryAt=0;clearGeometry();event.registerShader(new ShaderInstance(event.getResourceProvider(),new ResourceLocation("hk3gtl","w03_c9"),DefaultVertexFormat.POSITION_COLOR_TEX),s->shader=s);
         }
     }
 }
