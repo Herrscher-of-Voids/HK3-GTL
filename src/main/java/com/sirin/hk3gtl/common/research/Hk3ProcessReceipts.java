@@ -17,7 +17,7 @@ public final class Hk3ProcessReceipts {
         if (!id.startsWith("industrial_medium_regeneration/")) return "";
         if (id.endsWith("/industrial_stabilization_medium_recovery")) return "medium";
         if (id.endsWith("/industrial_heat_exchange")) return "heat";
-        if (id.endsWith("/industrial_spent_rod_reprocessing")) return "spent_rods";
+        if (id.endsWith("/industrial_spent_rod_reprocessing") || id.endsWith("/approved_hdv_p25")) return "spent_rods";
         return "";
     }
     public static CompoundTag snapshot(GTRecipe recipe) {

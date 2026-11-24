@@ -5469,7 +5469,7 @@
   "hk3gtl.research.terminal.experimentHint": "Research payment still required",
   "hk3gtl.research.terminal.experiment.ale": "Standalone experiment: bring 64 soulium plates, 64 soulium fine wires, 16 etched circuit layers, 2 HRV sensors, and 16 paper in your main inventory. Supply 1A MAX for 120 seconds. After success, claim back all samples except the paper. Canceling returns all inputs.",
   "hk3gtl.research.terminal.experiment.erm": "Baseline and assisted runs: 300s each at 1A QSV; each uses 2 MAX circuits and 4 paper. Assisted run escrows 1 imitation corruption core, returned after success. Both runs are required; no research acceleration.",
-  "hk3gtl.research.terminal.experiment.opr": "OPR checks three distinct successful I05 receipts: medium regeneration, heat exchange and spent-rod reprocessing. Use 3 paper in S01 for a 90-second MAX-powered audit, then pay for the research separately.",
+  "hk3gtl.research.terminal.experiment.opr": "Your team must complete spent stabilization medium regeneration (HBV:C02) and hot industrial coolant reconditioning (HBV:C03) in I03, and normal spent fuel reprocessing (HDV:P25) in I05. With all three receipts recorded, bring 3 paper in your inventory to S01 and run the audit at MAX power for 90 seconds. Pay for the research separately after the audit.",
   "item.hk3gtl.world_mining_legacy_record": "World Mining Legacy Record",
   "item.hk3gtl.ship_engineering_archive": "Ship Engineering Archive",
   "hk3gtl.research.execution.source": "Experimental evidence source: %s",

@@ -5470,7 +5470,7 @@
   "hk3gtl.research.terminal.experimentHint": "实验成功后仍需付款研究",
   "hk3gtl.research.terminal.experiment.ale": "独立实验：在玩家主背包备齐魂钢板 ×64、魂钢细线 ×64、已蚀刻电路层 ×16、HRV 传感器 ×2、纸 ×16。持续供电 120 秒（1A MAX）。成功后消耗纸，其余样件可点「领取待退材料」取回。取消时可领回全部材料。",
   "hk3gtl.research.terminal.experiment.erm": "独立实验：普通、辅助各300秒，均1A QSV。每次2个MAX电路及4纸；辅助另托管1个仿制侵蚀核心，成功返还。两次完成才产生证据，实验不受研究加速。",
-  "hk3gtl.research.terminal.experiment.opr": "OPR先核验I05的介质再生、换热、失活棒后处理三份不同成功回执，再投入3张纸，在S01以MAX供电完成90秒收支实验。成功后仍须正常付款研究。",
+  "hk3gtl.research.terminal.experiment.opr": "同一队伍须在 I03 崩坏能离心分离中心完成废稳定介质再生（HBV:C02）和热工业冷却液再调理（HBV:C03），并在 I05 稳定介质再生塔完成普通乏燃料有限后处理（HDV:P25），每条工艺各取得一份成功回执。背包准备3张纸，在 S01 以 MAX 功率运行90秒。实验通过后另行付款研究。",
   "item.hk3gtl.world_mining_legacy_record": "真实采掘遗留资料",
   "item.hk3gtl.ship_engineering_archive": "舰船工程档案",
   "hk3gtl.research.execution.source": "实验证据来源：%s",
