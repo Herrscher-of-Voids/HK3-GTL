@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.common.integration.ae.nexus.crafting;
 
+import com.sirin.hk3gtl.common.config.Hk3AeSettings;
 import appeng.api.config.Actionable;
 import appeng.api.config.CpuSelectionMode;
 import appeng.api.crafting.IPatternDetails;
@@ -40,6 +41,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
+import org.gtlcore.gtlcore.integration.ae2.graph.AeGraphPlan;
 
 import java.math.BigInteger;
 import java.util.ArrayDeque;
@@ -54,6 +56,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -295,7 +298,7 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         final Map<IPatternDetails, Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>> sharedOutputs = new LinkedHashMap<>();
         final Set<AEKey> infiniteKeys = new LinkedHashSet<>();
         final Set<AEKey> conditionalKeys = new LinkedHashSet<>();
-        final Set<IPatternDetails> conditionalPatterns = new java.util.HashSet<>();
+        final Map<IPatternDetails, Hk3ProbabilityOrderService.PatternOutputs> chanceOutputs = new java.util.HashMap<>();
         final ArrayDeque<AEKey> pending = new ArrayDeque<>();
         java.util.Iterator<IPatternDetails> candidates = java.util.Collections.emptyIterator();
         java.util.Iterator<Hk3ExactBoundPattern> variants = java.util.Collections.emptyIterator();
@@ -324,7 +327,7 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
             for (int steps = 0; steps < 64 && System.nanoTime() < deadline; steps++) {
                 if (variants.hasNext()) {
                     var variant = variants.next();
-                    if (variant.sameResult(level()) && addRecipe(variant)) return true;
+                    if (variant.sameResult(level()) && addRecipe(variant, Set.of())) return true;
                     continue;
                 }
                 if (!candidates.hasNext()) {
@@ -341,33 +344,32 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
                 }
                 var pattern = candidates.next();
                 if (++inspected > PLAN_LIMITS.maxEdges()) return reject();
-                if (conditionalPatterns.contains(pattern)) { conditionalKeys.add(key); continue; }
+                Set<AEKey> omitted = Set.of();
                 if (!(pattern instanceof IMolecularAssemblerSupportedPattern) && Hk3ProbabilitySupport.AVAILABLE) {
-                    boolean conditional = false, ordinary = false;
-                    for (var provider : ((CraftingService) grid().getCraftingService()).getProviders(pattern)) {
-                        if (Hk3ProbabilityOrderService.conditional(provider, pattern)) conditional = true;
-                        else ordinary = true;
-                        if (conditional && ordinary) break;
+                    var chance = chanceOutputs.get(pattern);
+                    if (chance == null) {
+                        var service = (CraftingService) grid().getCraftingService();
+                        chance = Hk3ProbabilityOrderService.patternOutputs(service.getProviders(pattern), pattern);
+                        if (chance.probabilityPrimary() || !chance.omitted().isEmpty()) chanceOutputs.put(pattern, chance);
                     }
-                    if (conditional) {
-                        conditionalKeys.add(key);
-                        if (!ordinary) { conditionalPatterns.add(pattern); continue; }
-                    }
+                    if (chance.probabilityPrimary() && key.equals(pattern.getPrimaryOutput().what())) conditionalKeys.add(key);
+                    omitted = chance.omitted();
+                    if (omitted.contains(key)) continue;
                 }
                 if (Hk3ExactBoundPattern.hasAlternatives(pattern)) {
                     hasAlternatives = true;
                     variants = Hk3ExactBoundPattern.alternativeCandidates((IMolecularAssemblerSupportedPattern) pattern, level(),
                             expand ? routeBudget : 1,
                             resource -> Hk3NexusLedger.project(stock.computeIfAbsent(resource, this::readStock)));
-                } else if (addRecipe(pattern)) return true;
+                } else if (addRecipe(pattern, omitted)) return true;
             }
             return false;
         }
 
-        private boolean addRecipe(IPatternDetails pattern) {
+        private boolean addRecipe(IPatternDetails pattern, Set<AEKey> omitted) {
             var recipe = sharedOutputs.get(pattern);
             if (recipe == null) {
-                var bound = new Hk3NexusRecipe(pattern, resource -> stock.computeIfAbsent(resource, this::readStock));
+                var bound = new Hk3NexusRecipe(pattern, resource -> stock.computeIfAbsent(resource, this::readStock), omitted);
                 if (!bound.outputs.containsKey(key)) return !(pattern instanceof Hk3ExactBoundPattern) && rejectOutput();
                 edges += bound.inputs.size() + bound.outputs.size();
                 if (edges > PLAN_LIMITS.maxEdges() || bindings.size() >= PLAN_LIMITS.maxNodes()) return reject();
@@ -398,12 +400,15 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
 
         boolean expandAfter(Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails> plan) {
             var result = plan.result();
-            return !expand && hasAlternatives && routeBudget > plan.routeAttempts() && (result.status() == Hk3ExactPlanner.Status.UNSUPPORTED
+            return !expand && hasAlternatives && routeBudget > plan.routeAttempts()
+                    && (result.status() == Hk3ExactPlanner.Status.UNSUPPORTED
+                    || result.status() == Hk3ExactPlanner.Status.BUDGET_EXCEEDED
                     || result.status() == Hk3ExactPlanner.Status.MISSING_INPUT && !conditionalKeys.containsAll(result.missing().keySet()));
         }
 
         Solved solve(AEKey target, BigInteger amount, boolean craftLess, long deadline) {
-            var search = new Hk3ExactPlanner.SearchLimits(routeBudget, SEARCH_LIMITS.maxOrderAttempts(), SEARCH_LIMITS.maxSteps());
+            int attempts = !expand && hasAlternatives ? routeBudget / 2 : routeBudget;
+            var search = new Hk3ExactPlanner.SearchLimits(attempts, SEARCH_LIMITS.maxOrderAttempts(), SEARCH_LIMITS.maxSteps());
             java.util.function.BooleanSupplier stop = () -> Thread.currentThread().isInterrupted() || System.nanoTime() >= deadline;
             var solver = Hk3ExactPlanner.capturedNexus(target, stock, infiniteKeys, graph, sharedOutputs.values(),
                     edges, PLAN_LIMITS, search, conditionalKeys, stop);
@@ -434,8 +439,10 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
             try {
                 var solved = planning.get();
                 var result = solved.plan();
-                if (captured.expandAfter(result)) job.capture = new PlanningCapture(job, captured.routeBudget - result.routeAttempts(), true);
-                else {
+                if (captured.expandAfter(result)) {
+                    rememberPreview(job, captured, result);
+                    job.capture = new PlanningCapture(job, captured.routeBudget - result.routeAttempts(), true);
+                } else {
                     job.requested = solved.amount();
                     applyPlan(job, captured, result);
                 }
@@ -502,6 +509,16 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         return missing;
     }
 
+    private void rememberPreview(Hk3NexusJob job, PlanningCapture captured,
+            Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails> detailed) {
+        var result = detailed.result();
+        if (job.calculation == null || result.batches().isEmpty()) return;
+        Map<Hk3NexusRecipe, BigInteger> tasks = new LinkedHashMap<>();
+        result.batches().forEach((pattern, count) -> tasks.put(captured.bindings.get(pattern), count));
+        job.missingPreview = Hk3NexusPlanSummary.of(job, result.logicalBytes(), detailed.orderedExecutionRequired(),
+                result.missing(), tasks, result.stockUsed());
+    }
+
     private void applyPlan(Hk3NexusJob job, PlanningCapture captured,
             Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails> detailed) {
         job.missing.clear();
@@ -514,11 +531,13 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         if (job.probabilityTarget) {
             if (job.missing.isEmpty()) job.missing.put(job.target, job.requested);
             job.probabilityNeeds.put(job.target, job.requested);
-        } else job.missing.forEach((key, count) -> {
+        } else if (status == Hk3ExactPlanner.Status.MISSING_INPUT) job.missing.forEach((key, count) -> {
             if (captured.conditionalKeys.contains(key)) job.probabilityNeeds.put(key, count);
         });
         job.bytes = detailed.result().logicalBytes();
         if (!detailed.result().successful()) {
+            rememberPreview(job, captured, detailed);
+            if (job.missingPreview != null) job.bytes = job.missingPreview.exactBytes;
             boolean missing = detailed.result().status() == Hk3ExactPlanner.Status.MISSING_INPUT || !job.probabilityNeeds.isEmpty();
             job.ordered = detailed.orderedExecutionRequired();
             job.dispatchNote = detailed.result().reason();
@@ -536,6 +555,7 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
             if (job.calculation == null) changed();
             return;
         }
+        job.missingPreview = null;
         job.probability = null;
         job.initialize(captured.bindings, detailed);
         if (!job.confirmed) job.state = "PREVIEW";
@@ -552,11 +572,7 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         UUID owner = source.player().map(player -> player.getUUID()).orElse(node.get().getOwningPlayerProfileId());
         if (owner == null) owner = new UUID(0, 0);
         if (!(plan instanceof Hk3ExactProgramPlan program)) {
-            // 外部计划的原料与次数已受long限制，按最终目标重新精确规划。
-            var output = plan.finalOutput();
-            var job = new Hk3NexusJob(this, UUID.randomUUID(), owner, output.what(),
-                    BigInteger.valueOf(output.amount()), 0, requester == null);
-            return enqueueNative(job, requester);
+            return submitExternal(plan, requester, owner);
         }
         for (var entry : plan.usedItems()) {
             if (available(entry.getKey()).compareTo(BigInteger.valueOf(entry.getLongValue())) < 0)
@@ -585,6 +601,40 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         }
         job.rounds = job.phases.getFirst().repetitions();
         job.totalOperations = job.tasks.values().stream().reduce(BigInteger.ZERO, BigInteger::add);
+        job.planned = true;
+        job.state = "RESERVING";
+        return enqueueNative(job, requester);
+    }
+
+    private ICraftingSubmitResult submitExternal(ICraftingPlan plan, ICraftingRequester requester, UUID owner) {
+        var output = plan.finalOutput();
+        var job = new Hk3NexusJob(this, UUID.randomUUID(), owner, output.what(),
+                BigInteger.valueOf(output.amount()), 0, requester == null);
+        Map<IPatternDetails, BigInteger> counts = new LinkedHashMap<>();
+        if (plan instanceof AeGraphPlan graph) {
+            job.bytes = graph.exactBytes();
+            job.reservation.putAll(graph.graph().initialExact());
+            graph.emittedExact().forEach((key, quantity) -> {
+                Hk3NexusLedger.add(job.reservation, key, quantity.negate());
+                job.waiting.put(key, quantity);
+            });
+            graph.graph().patternTimesExact().forEach((id, count) -> {
+                var recipe = graph.graph().recipes().get(id);
+                counts.merge(graph.bindings().get(recipe.binding()), count, BigInteger::add);
+            });
+        } else {
+            job.bytes = BigInteger.valueOf(plan.bytes());
+            for (var entry : plan.usedItems()) job.reservation.put(entry.getKey(), BigInteger.valueOf(entry.getLongValue()));
+            for (var entry : plan.emittedItems()) job.waiting.put(entry.getKey(), BigInteger.valueOf(entry.getLongValue()));
+            plan.patternTimes().forEach((pattern, count) -> counts.put(pattern, BigInteger.valueOf(count)));
+        }
+        for (var entry : job.reservation.entrySet()) {
+            if (available(entry.getKey()).compareTo(entry.getValue()) < 0)
+                return CraftingSubmitResult.missingIngredient(new GenericStack(entry.getKey(), Hk3NexusLedger.project(entry.getValue())));
+        }
+        counts.forEach((pattern, count) -> job.tasks.put(new Hk3NexusRecipe(pattern, this::available), count));
+        job.totalOperations = job.tasks.values().stream().reduce(BigInteger.ZERO, BigInteger::add);
+        job.flexible = true;
         job.planned = true;
         job.state = "RESERVING";
         return enqueueNative(job, requester);
@@ -628,10 +678,12 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
     }
 
     public Hk3NexusNativePlan supplyPlan(UUID owner, AEKey target, long amount,
-            Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails> detailed) {
+            Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails> detailed,
+            Function<IPatternDetails, Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>> captured) {
         var preview = new Hk3NexusJob(this, UUID.randomUUID(), owner, target, BigInteger.valueOf(amount), 0, true);
         Map<IPatternDetails, Hk3NexusRecipe> recipes = new LinkedHashMap<>();
-        for (var pattern : detailed.result().batches().keySet()) recipes.put(pattern, new Hk3NexusRecipe(pattern, this::available));
+        for (var pattern : detailed.result().batches().keySet())
+            recipes.put(pattern, new Hk3NexusRecipe(pattern, this::available).bindCounts(captured.apply(pattern)));
         preview.initialize(recipes, detailed);
         return new Hk3NexusNativePlan(preview);
     }
@@ -678,6 +730,10 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
     }
 
     public void read(CompoundTag tag) { pending = tag.copy(); }
+
+    public static Hk3NexusCrafting plannerOn(IGrid grid) {
+        return Hk3AeSettings.nexusPlannerEnabled() ? firstOn(grid) : null;
+    }
 
     public static Hk3NexusCrafting firstOn(IGrid grid) {
         for (var node : grid.getMachineNodes(Hk3NexusGrid.class)) {

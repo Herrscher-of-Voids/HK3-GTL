@@ -75,6 +75,7 @@ public final class Hk3AeExactSnapshot {
         private Iterator<IPatternDetails> candidates = Collections.emptyIterator();
         private Iterator<? extends IPatternDetails> variants = Collections.emptyIterator();
         private IPatternDetails pattern;
+        private Set<AEKey> omitted = Set.of();
         private List<Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>> expanded;
         private List<Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>> accepted;
         private AEKey key;
@@ -150,20 +151,21 @@ public final class Hk3AeExactSnapshot {
             var storage = grid.getStorageService().getInventory();
             if (++inspected > limits.maxEdges()) { rejected = true; return; }
             if (!seen.add(pattern)) return;
-            boolean available = false, hasProvider = false;
-            for (var provider : ((CraftingService) grid.getCraftingService()).getProviders(pattern)) {
-                hasProvider = true;
-                if (nexus && Hk3ProbabilityOrderService.conditional(provider, pattern)) {
-                    if (supplyHost != null) probabilitySources.add(key);
-                    continue;
-                }
-                onlyConditional = false;
-                if (!Hk3ProbabilitySupport.AVAILABLE || !Hk3ProbabilityOrderService.blocksPush(provider)) {
-                    available = true;
-                    if (supplyHost == null || probabilitySources.contains(key)) break;
-                }
+            var providers = ((CraftingService) grid.getCraftingService()).getProviders(pattern);
+            omitted = Set.of();
+            if (nexus && !(pattern instanceof IMolecularAssemblerSupportedPattern)) {
+                var chance = Hk3ProbabilityOrderService.patternOutputs(providers, pattern);
+                if (supplyHost != null && chance.probabilityPrimary() && key.equals(pattern.getPrimaryOutput().what()))
+                    probabilitySources.add(key);
+                omitted = chance.omitted();
+                if (omitted.contains(key)) return;
             }
-            if (!hasProvider) onlyConditional = false;
+            onlyConditional = false;
+            boolean available = false;
+            for (var provider : providers) if (!Hk3ProbabilitySupport.AVAILABLE || !Hk3ProbabilityOrderService.blocksPush(provider)) {
+                available = true;
+                break;
+            }
             if (!available) return;
             var cached = parsed.get(pattern);
             if (cached != null) {
@@ -191,6 +193,7 @@ public final class Hk3AeExactSnapshot {
             boolean valid = outputs.length > 0;
             for (var output : outputs) {
                 if (output == null || output.amount() <= 0) { valid = false; break; }
+                if (omitted.contains(output.what())) continue;
                 outputCounts.merge(output.what(), BigInteger.valueOf(output.amount()), BigInteger::add);
                 if (outputCounts.size() > limits.maxEdges() - edges) { rejected = true; return; }
             }

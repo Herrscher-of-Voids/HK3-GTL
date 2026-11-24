@@ -1,9 +1,6 @@
 package com.sirin.hk3gtl.mixin.ae;
 
 import appeng.api.config.CpuSelectionMode;
-import appeng.api.networking.IGrid;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.llamalad7.mixinextras.sugar.Local;
 import appeng.api.networking.crafting.CalculationStrategy;
 import appeng.api.networking.crafting.ICraftingCPU;
 import appeng.api.networking.crafting.ICraftingPlan;
@@ -32,7 +29,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
-import org.spongepowered.asm.mixin.Dynamic;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -48,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
 
-@Mixin(value = CraftConfirmMenu.class, remap = false, priority = 1300)
+@Mixin(value = CraftConfirmMenu.class, remap = false, priority = 900)
 public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3NexusNativeMenus.Confirm {
     @Shadow private ICraftingCPU selectedCpu;
     @Shadow private AEKey whatToCraft;
@@ -109,13 +105,6 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
         super(type, id, inventory, host);
     }
 
-    @Dynamic("GTLCore 合并到确认页的长整数规划入口")
-    @ModifyExpressionValue(method = "gtlcore$planLongAmountJob(Lappeng/api/stacks/AEKey;JLappeng/api/networking/crafting/CalculationStrategy;Z)Z",
-            at = @At(value = "INVOKE", target = "Lorg/gtlcore/gtlcore/integration/ae2/graph/CraftingEngineRouter;useGraph()Z"), require = 1)
-    private boolean hk3gtl$reserveForCoreGraph(boolean useGraph, @Local IGrid grid) {
-        return useGraph && Hk3NexusCrafting.firstOn(grid) == null;
-    }
-
     @Override public void hk3gtl$planAmount(AEKey target, BigInteger requested, CalculationStrategy strategy) {
         if (hk3gtl$parentPlan != null) hk3gtl$parentPlan.cancel();
         hk3gtl$parentPlan = null;
@@ -128,7 +117,7 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
         clearError();
         whatToCraft = target;
         amount = Integer.MAX_VALUE;
-        var nexus = Hk3NexusCrafting.firstOn(getActionHost().getActionableNode().getGrid());
+        var nexus = Hk3NexusCrafting.plannerOn(getActionHost().getActionableNode().getGrid());
         if (nexus == null) hk3gtl$parentPlan = Hk3ExactOrderService.previewNative((CraftConfirmMenu) (Object) this, getActionHost(), target, requested);
         else job = nexus.calculate(target, requested, new PlayerSource(getPlayer(), getActionHost()), strategy);
     }
@@ -206,7 +195,6 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
         if (host != null) ci.setReturnValue(cpu == host.availableCpu());
         else if (hk3gtl$parentPlan != null) ci.setReturnValue(cpu instanceof CraftingCPUCluster && !cpu.isBusy()
                 && cpu.getSelectionMode() != CpuSelectionMode.MACHINE_ONLY);
-        else if (cpu instanceof Hk3NexusCrafting.NexusCpu) ci.setReturnValue(false);
     }
 
     @Inject(method = "startJob", at = @At("HEAD"), cancellable = true)

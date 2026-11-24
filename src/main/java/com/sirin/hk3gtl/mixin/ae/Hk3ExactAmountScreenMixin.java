@@ -23,7 +23,8 @@ import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport;
 
 import java.math.BigInteger;
 
-@Mixin(value = CraftAmountScreen.class, priority = 1300, remap = false)
+// 同一 HEAD 的回调按低优先级先执行，超 Long 数量必须先于 Core 提交。
+@Mixin(value = CraftAmountScreen.class, priority = 900, remap = false)
 public abstract class Hk3ExactAmountScreenMixin extends AEBaseScreen<CraftAmountMenu> {
     @Shadow @Final private NumberEntryWidget amountToCraft;
     @Shadow @Final private Button next;

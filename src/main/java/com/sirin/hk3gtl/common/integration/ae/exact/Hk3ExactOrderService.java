@@ -499,7 +499,7 @@ public final class Hk3ExactOrderService {
                 if (!job.verification.get())
                     throw new IllegalStateException("批次规划期间样板已改变，请重新规划");
                 var plan = batch.nexusPlan() == null ? batch.plan() : job.binding().supplyHost()
-                        .supplyPlan(job.binding().owner(), entry.target, batch.amount(), batch.nexusPlan());
+                        .supplyPlan(job.binding().owner(), entry.target, batch.amount(), batch.nexusPlan(), batch.snapshot()::recipe);
                 UUID token = entry.order.beginBatch(batch.amount());
                 data.activeTokens.put(token, entry);
                 BigInteger bytes = Hk3ExactCpuCapacity.requiredBytes(plan);

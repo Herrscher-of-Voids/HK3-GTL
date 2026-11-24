@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.common.integration.ae.nexus.management;
 
+import com.sirin.hk3gtl.common.config.Hk3AeSettings;
 import appeng.api.crafting.IPatternDetails;
 import appeng.api.networking.IGrid;
 import appeng.api.stacks.AEKey;
@@ -84,6 +85,7 @@ public final class Hk3NexusManagement {
         IGrid network = grid.get();
         if (network == null) return;
         catalog.refresh(network, localPatterns());
+        if (!Hk3AeSettings.nexusPlannerEnabled()) return;
         for (var view : stockTargets()) {
             if (!view.target().enabled() || view.infinite() || view.inFlight().signum() > 0) continue;
             BigInteger missing = view.target().amount().subtract(view.stored()).subtract(view.inFlight());

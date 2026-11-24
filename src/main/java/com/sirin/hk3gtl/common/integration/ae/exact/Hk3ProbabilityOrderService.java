@@ -66,7 +66,7 @@ public final class Hk3ProbabilityOrderService {
                           Map<AEItemKey, Long> containers, Map<AEKey, Long> returned) {}
     private record Drain(AEFluidKey fluid, long amount, Map<AEKey, Long> returned) {}
     private record Selection(Hk3WorkableMultiblockMachine machine, MEPatternBufferPartMachine provider,
-                             GTRecipe recipe, Inputs inputs, AEKey target, int chance, int scale, long successYield) {}
+                             GTRecipe recipe, Inputs inputs, AEKey target, int chance, int scale, long successYield, boolean rolled) {}
 
     private static MEPatternBufferPartMachine assembly(Object candidate) {
         return candidate instanceof MEPatternBufferPartMachine provider && provider instanceof Hk3ProbabilityAssemblyAccess
@@ -81,23 +81,55 @@ public final class Hk3ProbabilityOrderService {
         return Ae2PatternHelper.readBindingRecipe(provider.getPatternInventory().getStackInSlot(slot), provider.getLevel());
     }
 
-    public static boolean conditional(Object provider, IPatternDetails pattern) {
-        var assembly = assembly(provider);
-        if (assembly == null) return false;
-        var slot = ((Hk3ProbabilityPatternSlot) assembly).hk3gtl$slot(pattern);
-        if (slot == null) return false;
-        var recipe = boundRecipe(assembly, slot);
-        return recipe != null && conditional(recipe, pattern);
+    public record PatternOutputs(Set<AEKey> omitted, boolean probabilityPrimary) {
+        public static final PatternOutputs FIXED = new PatternOutputs(Set.of(), false);
     }
 
-    private static boolean conditional(GTRecipe recipe, IPatternDetails pattern) {
+    public static PatternOutputs patternOutputs(Iterable<?> providers, IPatternDetails pattern) {
+        AEKey primary = pattern.getPrimaryOutput().what();
+        Set<AEKey> omitted = null;
+        boolean probabilityPrimary = false, fixedPrimary = false;
+        for (var provider : providers) {
+            var rolled = rolledOutputs(provider, pattern);
+            if (rolled.contains(primary)) probabilityPrimary = true;
+            else fixedPrimary = true;
+            if (!rolled.isEmpty()) {
+                if (omitted == null) omitted = new HashSet<>();
+                omitted.addAll(rolled);
+            }
+        }
+        if (omitted == null) return PatternOutputs.FIXED;
+        if (fixedPrimary) omitted.remove(primary);
+        return new PatternOutputs(omitted, probabilityPrimary);
+    }
+
+    public static Set<AEKey> rolledOutputs(Object provider, IPatternDetails pattern) {
+        var assembly = assembly(provider);
+        if (assembly == null) return Set.of();
+        var slot = ((Hk3ProbabilityPatternSlot) assembly).hk3gtl$slot(pattern);
+        if (slot == null) return Set.of();
+        var recipe = boundRecipe(assembly, slot);
+        return recipe == null ? Set.of() : rolledOutputs(recipe, pattern);
+    }
+
+    private static Set<AEKey> rolledOutputs(GTRecipe recipe, IPatternDetails pattern) {
+        Set<AEKey> rolled = null;
+        var encoded = pattern.getOutputs();
         for (var content : recipe.getOutputContents(ItemRecipeCapability.CAP)) if (content.chance < content.maxChance)
-            for (var stack : ItemRecipeCapability.CAP.of(content.content).getItems())
-                for (var encoded : pattern.getOutputs()) if (AEItemKey.matches(encoded.what(), stack)) return true;
+            for (var stack : ItemRecipeCapability.CAP.of(content.content).getItems()) for (var output : encoded)
+                if (AEItemKey.matches(output.what(), stack)) {
+                    if (rolled == null) rolled = new HashSet<>();
+                    rolled.add(output.what());
+                }
         for (var content : recipe.getOutputContents(FluidRecipeCapability.CAP)) if (content.chance < content.maxChance)
-            for (var stack : FluidRecipeCapability.CAP.of(content.content).getStacks())
-                for (var encoded : pattern.getOutputs()) if (encoded.what().equals(AEFluidKey.of(stack.getFluid(), stack.getTag()))) return true;
-        return false;
+            for (var stack : FluidRecipeCapability.CAP.of(content.content).getStacks()) {
+                var key = AEFluidKey.of(stack.getFluid(), stack.getTag());
+                for (var output : encoded) if (key.equals(output.what())) {
+                    if (rolled == null) rolled = new HashSet<>();
+                    rolled.add(key);
+                }
+            }
+        return rolled == null ? Set.of() : rolled;
     }
 
     public record NexusQuote(Candidate route, AEKey key, BigInteger amount, CompoundTag binding, String odds,
@@ -186,8 +218,8 @@ public final class Hk3ProbabilityOrderService {
                 boolean fixed = false;
                 for (var provider : service.getProviders(pattern)) {
                     visit();
-                    if (conditional(provider, pattern)) conditional = true;
-                    else fixed = true;
+                    if (!rolledOutputs(provider, pattern).contains(key)) fixed = true;
+                    else if (key.equals(pattern.getPrimaryOutput().what())) conditional = true;
                     if (fixed && conditional) break;
                 }
                 if (fixed) {
@@ -226,6 +258,7 @@ public final class Hk3ProbabilityOrderService {
         String reason = "当前网络没有可为该产物提供逐批回执的绑定机器";
         for (var pattern : search.service.getCraftingFor(target)) {
             search.visit();
+            if (!target.equals(pattern.getPrimaryOutput().what())) continue;
             for (var host : search.service.getProviders(pattern)) {
                 search.visit();
                 var provider = assembly(host);
@@ -238,7 +271,7 @@ public final class Hk3ProbabilityOrderService {
                 if (!path.add(location)) { reason = "概率路线缺少启动原料，无法重复占用同一控制器"; continue; }
                 try {
                     var selected = inspect(player, level, route.controller(), route.assembly(), route.slot(), target, true);
-                    if (seed && selected.inputs.costs.containsKey(target)) continue;
+                    if (!selected.rolled || seed && selected.inputs.costs.containsKey(target)) continue;
                     Map<AEKey, NexusQuote> supplies = new LinkedHashMap<>();
                     for (var input : selected.inputs.costs.entrySet()) {
                         long need = input.getValue() - grid.getStorageService().getInventory().extract(input.getKey(),
@@ -269,8 +302,8 @@ public final class Hk3ProbabilityOrderService {
     private static boolean onlyConditional(CraftingService service, AEKey target) {
         boolean found = false;
         for (var pattern : service.getCraftingFor(target)) for (var host : service.getProviders(pattern)) {
-            if (!conditional(host, pattern)) return false;
-            found = true;
+            if (!rolledOutputs(host, pattern).contains(target)) return false;
+            found |= target.equals(pattern.getPrimaryOutput().what());
         }
         return found;
     }
@@ -556,13 +589,13 @@ public final class Hk3ProbabilityOrderService {
                 ? output.chance > 0 && output.rolled : key.equals(output.key)).toList();
         require(targetContent.size() == 1, "请选择配方内唯一对应的固定数量概率物品或流体；命令自动选择时仅允许一个概率项");
         var output = targetContent.get(0);
-        require(output.chance > 0 && (output.rolled || nexus && conditional(recipe, pattern)), "所选目标没有可用的概率样板");
+        require(output.chance > 0 && (output.rolled || nexus && !rolledOutputs(recipe, pattern).isEmpty()), "所选目标没有可用的概率样板");
         if (nexus) require(BigInteger.valueOf(output.successYield).multiply(BigInteger.valueOf((output.chance + (long) output.scale - 1) / output.scale))
                 .compareTo(BigInteger.valueOf(inputs.costs.getOrDefault(output.key, 0L))) > 0, "该样板即使命中也不能增加目标库存");
         require(outputs.stream().filter(candidate -> candidate.key.equals(output.key)).count() == 1,
                 "目标资源不能同时出现在其他产物项");
         require(!inputs.returned.containsKey(output.key), "概率主目标不能同时是实际排空必返的容器");
-        return new Selection(machine, provider, recipe, inputs, output.key, output.chance, output.scale, output.successYield);
+        return new Selection(machine, provider, recipe, inputs, output.key, output.chance, output.scale, output.successYield, output.rolled);
     }
 
     private static List<Target> targets(Selection selection) {

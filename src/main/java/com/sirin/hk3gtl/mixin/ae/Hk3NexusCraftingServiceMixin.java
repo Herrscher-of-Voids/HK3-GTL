@@ -2,8 +2,6 @@ package com.sirin.hk3gtl.mixin.ae;
 
 import appeng.api.config.Actionable;
 import appeng.api.networking.IGrid;
-import appeng.api.networking.crafting.CalculationStrategy;
-import appeng.api.networking.crafting.ICraftingSimulationRequester;
 import appeng.api.networking.crafting.ICraftingCPU;
 import appeng.api.networking.crafting.ICraftingPlan;
 import appeng.api.networking.crafting.ICraftingRequester;
@@ -18,6 +16,7 @@ import appeng.me.helpers.StackWatcher;
 import com.google.common.collect.ImmutableSet;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.sirin.hk3gtl.common.config.Hk3AeSettings;
 import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusCrafting;
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactCpuTracker;
 import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusNativePlan;
@@ -34,8 +33,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.Future;
-import net.minecraft.world.level.Level;
 
 @Mixin(value = CraftingService.class, remap = false, priority = 1300)
 public abstract class Hk3NexusCraftingServiceMixin {
@@ -71,19 +68,6 @@ public abstract class Hk3NexusCraftingServiceMixin {
         return cpus.build();
     }
 
-    @Inject(method = "beginCraftingCalculation", at = @At("HEAD"), cancellable = true)
-    private void hk3gtl$planOnNexus(Level level, ICraftingSimulationRequester requester, AEKey target, long amount,
-            CalculationStrategy strategy, CallbackInfoReturnable<Future<ICraftingPlan>> ci) {
-        var server = level.getServer();
-        if (server == null) return;
-        if (!server.isSameThread()) {
-            ci.setReturnValue(server.submit(() -> grid.getCraftingService().beginCraftingCalculation(level, requester, target, amount, strategy)).join());
-            return;
-        }
-        var host = Hk3NexusCrafting.firstOn(grid);
-        if (host != null) ci.setReturnValue(host.calculate(target, BigInteger.valueOf(amount), requester.getActionSource(), strategy));
-    }
-
     @Inject(method = "submitJob", at = @At("HEAD"), cancellable = true)
     private void hk3gtl$submitNexus(ICraftingPlan plan, ICraftingRequester requester, ICraftingCPU cpu,
             boolean prioritizePower, IActionSource source, CallbackInfoReturnable<ICraftingSubmitResult> ci) {
@@ -103,6 +87,14 @@ public abstract class Hk3NexusCraftingServiceMixin {
             var submitted = host.submitNative(plan, requester, source);
             if (submitted != CraftingSubmitResult.INCOMPLETE_PLAN) ci.setReturnValue(submitted);
         }
+    }
+
+    @ModifyReturnValue(method = "submitJob", at = @At("RETURN"))
+    private ICraftingSubmitResult hk3gtl$tryNexusCpu(ICraftingSubmitResult result, ICraftingPlan plan,
+            ICraftingRequester requester, ICraftingCPU cpu, boolean prioritizePower, IActionSource source) {
+        if (cpu != null || result != CraftingSubmitResult.NO_CPU_FOUND || Hk3AeSettings.nexusPlannerEnabled()) return result;
+        var host = Hk3NexusCrafting.firstOn(grid);
+        return host == null ? result : host.submitNative(plan, requester, source);
     }
 
     @ModifyVariable(method = "insertIntoCpus", at = @At(value = "STORE", ordinal = 0), ordinal = 1)

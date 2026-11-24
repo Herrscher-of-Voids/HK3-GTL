@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
 @Mixin(value = NumberEntryWidget.class, priority = 900, remap = false)
 public abstract class Hk3NexusNumberEntryMixin implements Hk3NexusNumberEntry {
     @Unique private static final Pattern HK3GTL$EXACT_LITERAL = Pattern.compile(
-            "([+]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+))(?:[eE]([+-]?[0-9]{1,3}))?([kKMBTPEZYRQ]?)");
+            "([+]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+))(?:e([+-]?[0-9]{1,3}))?([KMBTPEZYRQ]?)", Pattern.CASE_INSENSITIVE);
     @Shadow @Final private ConfirmableTextField textField;
     @Shadow @Final private int errorTextColor;
     @Shadow @Final private int normalTextColor;
@@ -72,7 +72,7 @@ public abstract class Hk3NexusNumberEntryMixin implements Hk3NexusNumberEntry {
         if (!literal.matches()) return;
         int exponent = literal.group(2) == null ? 0 : Integer.parseInt(literal.group(2));
         String suffix = literal.group(3);
-        if (!suffix.isEmpty()) exponent += 3 * ("kMBTPEZYRQ".indexOf(suffix.equals("K") ? "k" : suffix) + 1);
+        if (!suffix.isEmpty()) exponent += 3 * ("KMBTPEZYRQ".indexOf(Character.toUpperCase(suffix.charAt(0))) + 1);
         cir.setReturnValue(Optional.of(new BigDecimal(literal.group(1)).scaleByPowerOfTen(exponent)));
     }
 

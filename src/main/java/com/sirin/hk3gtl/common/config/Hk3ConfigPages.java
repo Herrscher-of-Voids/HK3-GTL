@@ -13,6 +13,7 @@ import java.nio.file.Path;
 public final class Hk3ConfigPages {
     public static final String GROUP = "hk3gtl";
     public static Hk3ResearchSettings RESEARCH;
+    public static Hk3AeSettings AE;
     public static Hk3HeightSettings HEIGHT;
     public static Hk3FarViewSettings FAR_VIEW;
     public static Hk3PhoneSettings PHONE;
@@ -30,6 +31,7 @@ public final class Hk3ConfigPages {
         importFarView = Files.notExists(Path.of("config/hk3gtl-farview.json"));
         importPhone = Files.notExists(Path.of("config/hk3gtl-phone.json"));
         RESEARCH = Configuration.registerConfig(Hk3ResearchSettings.class, ConfigFormats.json()).getConfigInstance();
+        AE = Configuration.registerConfig(Hk3AeSettings.class, ConfigFormats.json()).getConfigInstance();
         heightHolder = Configuration.registerConfig(Hk3HeightSettings.class, ConfigFormats.json());
         farViewHolder = Configuration.registerConfig(Hk3FarViewSettings.class, ConfigFormats.json());
         phoneHolder = Configuration.registerConfig(Hk3PhoneSettings.class, ConfigFormats.json());

@@ -147,7 +147,7 @@ final class Hk3ExactGraphPlanner<K, R> {
         var result = plan.result();
         if (!result.successful() && result.status() != Status.MISSING_INPUT) return plan;
         Map<K, BigInteger> needs = new LinkedHashMap<>();
-        boolean completeRoute = result.successful() || !result.batches().isEmpty();
+        boolean completeRoute = result.successful() || !result.leafDemand().isEmpty();
         for (var entry : quotedStock.entrySet()) {
             K key = entry.getKey();
             BigInteger required = completeRoute ? result.stockUsed().getOrDefault(key, ZERO) : entry.getValue();
@@ -172,9 +172,10 @@ final class Hk3ExactGraphPlanner<K, R> {
                 var fixed = prepared == null ? null : prepared.fixedRoute;
                 List<K> branching = fixed == null ? new ArrayList<>() : List.of();
                 DetailedResult<K, R> result;
+                Route<K, R> route = null;
                 try {
                     if (fixed == null) {
-                        var route = select(decision, branching);
+                        route = select(decision, branching);
                         var groups = groups(route);
                         if (prepared != null && branching.isEmpty()) prepared.fixedRoute = new Layout<>(route, groups);
                         result = solve(route, groups, keepAcyclicSteps);
@@ -189,29 +190,46 @@ final class Hk3ExactGraphPlanner<K, R> {
                     if (accepted) return result;
                     result = failed(Status.REJECTED, "库存可行路线均未通过调用方接纳条件");
                 }
-                if (result.result().status() == Status.MISSING_INPUT && (firstMissing == null
-                        || probabilityCanSupply(result) && !probabilityCanSupply(firstMissing))) firstMissing = result;
+                if (result.result().status() == Status.MISSING_INPUT && betterMissing(result, firstMissing)) firstMissing = result;
                 if (result.result().status() == Status.BUDGET_EXCEEDED && firstBudget == null) firstBudget = result;
                 if (result.result().status() == Status.UNSUPPORTED && firstUnsupported == null) firstUnsupported = result;
                 if (result.result().status() == Status.REJECTED && firstRejected == null) firstRejected = result;
-                if (!advance(decision, branching)) {
-                    DetailedResult<K, R> chosen;
-                    if (firstBudget != null) chosen = firstBudget;
-                    else if (firstRejected != null) chosen = firstUnsupported == null ? firstRejected : firstUnsupported;
-                    else chosen = firstMissing == null ? firstUnsupported : firstMissing;
+                var unused = result.result().status() == Status.MISSING_INPUT && !result.result().leafDemand().isEmpty()
+                        ? result.result().batches().keySet() : null;
+                if (!advance(decision, branching, route, unused)) {
+                    if (firstBudget != null) return budgetPreview(firstMissing, firstBudget.result().reason());
+                    var chosen = firstRejected != null ? (firstUnsupported == null ? firstRejected : firstUnsupported)
+                            : (firstMissing == null ? firstUnsupported : firstMissing);
                     return new DetailedResult<>(chosen.result(), chosen.execution(), chosen.seedRequired(),
                             chosen.orderedExecutionRequired(), attempts);
                 }
                 if (seedRouteBudget != null) seedRouteBudget.take();
                 if (attempts >= search.maxRouteAttempts())
-                    return failed(Status.BUDGET_EXCEEDED, "候选路线预算耗尽，未将未经证明的路线当作可执行计划");
+                    return budgetPreview(firstMissing, "候选路线搜索已达上限");
             }
         } catch (Halt failure) { return failed(failure.status, failure.getMessage()); }
     }
 
+    private DetailedResult<K, R> budgetPreview(DetailedResult<K, R> preview, String reason) {
+        if (preview == null) return failed(Status.BUDGET_EXCEEDED, reason);
+        var detail = preview.result();
+        return new DetailedResult<>(result(Status.BUDGET_EXCEEDED, reason, detail.batches(), detail.stockUsed(),
+                detail.leafDemand(), detail.missing(), detail.surplus(), detail.logicalBytes()),
+                List.of(), preview.seedRequired(), preview.orderedExecutionRequired(), attempts);
+    }
+
     private boolean incompleteProbabilityPlan(DetailedResult<K, R> plan) {
         return plan.result().status() == Status.MISSING_INPUT && plan.orderedExecutionRequired()
-                && plan.result().batches().isEmpty() && probabilityCanSupply(plan);
+                && plan.result().leafDemand().isEmpty() && probabilityCanSupply(plan);
+    }
+
+    private boolean betterMissing(DetailedResult<K, R> candidate, DetailedResult<K, R> current) {
+        if (current == null) return true;
+        boolean candidateProbability = probabilityCanSupply(candidate), currentProbability = probabilityCanSupply(current);
+        if (candidateProbability != currentProbability) return candidateProbability;
+        if (candidate.result().leafDemand().isEmpty() != current.result().leafDemand().isEmpty())
+            return !candidate.result().leafDemand().isEmpty();
+        return !candidate.result().batches().isEmpty() && current.result().batches().isEmpty();
     }
 
     private boolean probabilityCanSupply(DetailedResult<K, R> plan) {
@@ -297,7 +315,7 @@ final class Hk3ExactGraphPlanner<K, R> {
         while (!pending.isEmpty()) {
             check();
             K key = pending.removeFirst();
-            if (producer.containsKey(key)) continue;
+            if (producer.containsKey(key) || infinite.contains(key) && !targets.containsKey(key)) continue;
             var candidates = candidates(key);
             if (candidates.isEmpty()) continue;
             int paths = pathCount(key, candidates.size());
@@ -324,11 +342,15 @@ final class Hk3ExactGraphPlanner<K, R> {
         return probabilitySources.contains(key) && !targets.containsKey(key) ? recipes + 1 : recipes;
     }
 
-    private boolean advance(Map<K, Integer> decision, List<K> branching) {
+    private boolean advance(Map<K, Integer> decision, List<K> branching, Route<K, R> route, Set<R> usedRecipes) {
         for (int index = branching.size() - 1; index >= 0; index--) {
             K key = branching.get(index);
+            var candidates = choices.get(key);
             int next = decision.getOrDefault(key, 0) + 1;
-            if (next < pathCount(key, choices.get(key).size())) {
+            // 没有开工的单产物样板，换成另一张单产物样板也不会补上当前缺口。
+            if (usedRecipes != null && !usedRecipes.contains(route.producer().get(key))
+                    && candidates.stream().allMatch(recipe -> recipe.outputs().size() == 1)) continue;
+            if (next < pathCount(key, candidates.size())) {
                 decision.put(key, next);
                 Set<K> prefix = new HashSet<>(branching.subList(0, index + 1));
                 decision.keySet().removeIf(previous -> !prefix.contains(previous));
@@ -400,8 +422,8 @@ final class Hk3ExactGraphPlanner<K, R> {
                         if (rounds.signum() == 0) {
                             Map<K, BigInteger> shortfall = new LinkedHashMap<>();
                             for (K key : outputs) add(shortfall, key, demand.getOrDefault(key, ZERO).subtract(stock.getOrDefault(key, ZERO)));
-                            return new DetailedResult<>(result(Status.MISSING_INPUT, "循环不能补充自身净消耗的周转料",
-                                    Map.of(), Map.of(), Map.of(), shortfall, Map.of(), ZERO), List.of(), Map.of(), true, attempts);
+                            return missingCycle("循环不能补充自身净消耗的周转料",
+                                    batches, stock, shortfall, surplus, bytes, Map.of());
                         }
                         losses = losses(net, demand, rounds);
                     } else losses = Map.of();
@@ -412,13 +434,13 @@ final class Hk3ExactGraphPlanner<K, R> {
                     rebalance = true;
                 }
                 if (proof == null) {
-                    return new DetailedResult<>(result(Status.MISSING_INPUT, losses.isEmpty() ? "循环缺少启动种子" : "循环周转料不足",
-                            Map.of(), Map.of(), Map.of(), missingSeed(required), Map.of(), ZERO), List.of(), required, true, attempts);
+                    return missingCycle(losses.isEmpty() ? "循环缺少启动种子" : "循环周转料不足",
+                            batches, stock, missingSeed(required), surplus, bytes, required);
                 }
                 if (proof.startup() != null) {
                     var startup = proof.startup().result();
-                    if (!startup.successful()) return new DetailedResult<>(result(Status.MISSING_INPUT, "制种样板缺少概率原料",
-                            Map.of(), Map.of(), Map.of(), startup.missing(), Map.of(), ZERO), List.of(), proof.seed(), true, attempts);
+                    if (!startup.successful()) return missingCycle("制种样板缺少概率原料",
+                            batches, stock, startup.missing(), surplus, bytes, proof.seed());
                     starts = proof.startup().execution();
                     made = missingSeed(proof.seed());
                     for (var extra : startup.surplus().entrySet()) {
@@ -475,6 +497,12 @@ final class Hk3ExactGraphPlanner<K, R> {
         return new DetailedResult<>(result(missing.isEmpty() ? Status.SUCCESS : Status.MISSING_INPUT,
                 missing.isEmpty() ? "守恒规划与压缩执行顺序已证明" : "外部原料不足；执行证书仅供诊断",
                 batches, stock, demand, missing, surplus, bytes), execution, seeds, ordered, attempts);
+    }
+
+    private DetailedResult<K, R> missingCycle(String reason, Map<R, BigInteger> batches, Map<K, BigInteger> stock,
+            Map<K, BigInteger> missing, Map<K, BigInteger> surplus, BigInteger bytes, Map<K, BigInteger> seed) {
+        return new DetailedResult<>(result(Status.MISSING_INPUT, reason, batches, stock, Map.of(), missing, surplus, bytes),
+                List.of(), seed, true, attempts);
     }
 
     private BigInteger requiredRounds(Map<K, BigInteger> net, Map<K, BigInteger> demand,

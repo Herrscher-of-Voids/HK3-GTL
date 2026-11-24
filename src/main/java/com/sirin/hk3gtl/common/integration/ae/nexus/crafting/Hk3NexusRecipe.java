@@ -20,6 +20,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 
 final class Hk3NexusRecipe {
@@ -29,12 +30,17 @@ final class Hk3NexusRecipe {
     final Map<AEKey, BigInteger> outputs;
 
     Hk3NexusRecipe(IPatternDetails selected, Function<AEKey, BigInteger> stock) {
+        this(selected, stock, Set.of());
+    }
+
+    Hk3NexusRecipe(IPatternDetails selected, Function<AEKey, BigInteger> stock, Set<AEKey> omitted) {
         pattern = Hk3ExactBoundPattern.original(selected);
         var ingredients = selected.getInputs();
         KeyCounter[] counters = new KeyCounter[ingredients.length];
         Map<AEKey, BigInteger> remaining = null;
         outputs = new LinkedHashMap<>();
-        for (var output : selected.getOutputs()) Hk3NexusLedger.add(outputs, output.what(), BigInteger.valueOf(output.amount()));
+        for (var output : selected.getOutputs()) if (!omitted.contains(output.what()))
+            Hk3NexusLedger.add(outputs, output.what(), BigInteger.valueOf(output.amount()));
         for (int index = 0; index < counters.length; index++) {
             var input = ingredients[index];
             var choices = input.getPossibleInputs();

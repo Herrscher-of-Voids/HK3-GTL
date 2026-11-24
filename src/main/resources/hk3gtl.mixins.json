@@ -183,6 +183,7 @@
     "gtmthings.Hk3AdvancedTerminalPreviewMixin",
     "gtmthings.Hk3AdvancedTerminalSettingsAccess",
     "ae.Hk3NexusConfirmMenuMixin",
+    "ae.Hk3NexusCoreGraphMixin",
     "ae.Hk3NexusPlanPacketMixin",
     "stargate.Hk3ClassicStargateActivationMixin",
     "stargate.Hk3DhdQuestOperatorMixin",

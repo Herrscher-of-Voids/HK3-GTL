@@ -31,18 +31,22 @@ public final class Hk3NexusPlanSummary extends CraftingPlanSummary {
     }
 
     static Hk3NexusPlanSummary of(Hk3NexusJob job) {
+        return of(job, job.bytes, job.ordered, job.missing, job.tasks, job.reservation);
+    }
+
+    static Hk3NexusPlanSummary of(Hk3NexusJob job, BigInteger bytes, boolean ordered, Map<AEKey, BigInteger> missing,
+            Map<Hk3NexusRecipe, BigInteger> tasks, Map<AEKey, BigInteger> stored) {
         Map<AEKey, BigInteger> crafting = new LinkedHashMap<>();
         Map<AEKey, BigInteger> operations = new LinkedHashMap<>();
         Map<IPatternDetails, BigInteger> patterns = new LinkedHashMap<>();
-        job.tasks.forEach((recipe, count) -> recipe.outputs.forEach((key, output) -> {
+        tasks.forEach((recipe, count) -> recipe.outputs.forEach((key, output) -> {
             crafting.merge(key, output.multiply(count), BigInteger::add);
             operations.merge(key, count, BigInteger::add);
         }));
-        job.tasks.forEach((recipe, count) -> patterns.merge(recipe.pattern, count, BigInteger::add));
+        tasks.forEach((recipe, count) -> patterns.merge(recipe.pattern, count, BigInteger::add));
         crafting.putIfAbsent(job.target, job.requested);
-        var summary = of(job.target, job.requested, job.bytes, !job.planned, job.missing,
-                job.reservation, crafting, operations, patterns);
-        ((Hk3CraftingCycleFlag) (Object) summary).hk3gtl$setHasCycles(job.ordered);
+        var summary = of(job.target, job.requested, bytes, !job.planned, missing, stored, crafting, operations, patterns);
+        ((Hk3CraftingCycleFlag) (Object) summary).hk3gtl$setHasCycles(ordered);
         return summary;
     }
 

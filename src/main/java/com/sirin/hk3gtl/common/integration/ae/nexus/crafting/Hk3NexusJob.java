@@ -12,6 +12,8 @@ import appeng.crafting.pattern.AEProcessingPattern;
 import appeng.me.service.CraftingService;
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactPlanner;
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactScaledPattern;
+import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilityOrderService;
+import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -23,6 +25,7 @@ import org.gtlcore.gtlcore.integration.ae2.crafting.CraftingPatternAutoExpand;
 import java.math.BigInteger;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,6 +61,7 @@ final class Hk3NexusJob {
     UUID batchToken;
     boolean cancelUnsettled;
     java.util.concurrent.Future<Hk3NexusCrafting.Solved> planning;
+    Hk3NexusPlanSummary missingPreview;
     boolean ordered, planned, canceled, flexible, confirmed = true, paused;
     String state = "PLANNING", dispatchNote = "";
 
@@ -263,8 +267,8 @@ final class Hk3NexusJob {
         for (var provider : service.getProviders(part.pattern)) {
             if (System.nanoTime() >= deadline || total.equals(limit)) break;
             if (provider == host || provider.isBusy()) continue;
-            if (com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport.AVAILABLE
-                    && com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilityOrderService.conditional(provider, part.pattern)) continue;
+            if (Hk3ProbabilitySupport.AVAILABLE && !Collections.disjoint(effective.outputs.keySet(),
+                    Hk3ProbabilityOrderService.rolledOutputs(provider, part.pattern))) continue;
             BigInteger max = batchable ? limit.subtract(total).min(maxTransfer) : BigInteger.ONE;
             for (var entry : effective.inputs.entrySet()) {
                 BigInteger available = held.getOrDefault(entry.getKey(), BigInteger.ZERO);

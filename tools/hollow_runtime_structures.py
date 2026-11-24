@@ -4,6 +4,7 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from datetime import datetime
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -108,7 +109,7 @@ def main():
             for key, path, metadata_path in structures(resources) if read_header(path)['count'] >= THRESHOLD]
     report.parent.mkdir(parents=True, exist_ok=True)
     completed = {}
-    with ProcessPoolExecutor(max_workers=min(4, len(jobs))) as pool:
+    with ProcessPoolExecutor(max_workers=min(int(os.environ.get("HK3GTL_HOLLOW_WORKERS", "4")), len(jobs))) as pool:
         futures = {pool.submit(process_structure, job): index for index, job in enumerate(jobs)}
         for future in as_completed(futures):
             index = futures[future]

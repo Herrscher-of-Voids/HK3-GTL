@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.common.integration.ae.nexus.crafting;
 
+import com.sirin.hk3gtl.common.config.Hk3AeSettings;
 import appeng.api.networking.security.IActionHost;
 import appeng.api.stacks.AEKey;
 import appeng.menu.me.crafting.CraftAmountMenu;
@@ -37,6 +38,7 @@ public final class Hk3NexusTerminalOrders {
         AEKey target = menu.getWhatToCraft().what();
         String[] parts = action.split(":", 2);
         String verb = parts[0];
+        if ((verb.equals("preview") || verb.equals("start")) && !Hk3AeSettings.nexusPlannerEnabled()) return false;
         UUID id = parts.length == 2 && !verb.equals("preview") ? UUID.fromString(parts[1])
                 : previous != null && previous.crafting() == crafting && previous.target().equals(target) ? previous.order() : null;
         if (verb.equals("preview")) {

@@ -53,5 +53,7 @@ public final class Hk3NexusNativePlan implements ICraftingPlan, Hk3ExactBytePlan
         return result;
     }
 
-    public Hk3NexusPlanSummary summary() { return Hk3NexusPlanSummary.of(preview); }
+    public Hk3NexusPlanSummary summary() {
+        return preview.missingPreview == null ? Hk3NexusPlanSummary.of(preview) : preview.missingPreview;
+    }
 }
