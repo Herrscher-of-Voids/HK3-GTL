@@ -30,6 +30,7 @@ public final class Hk3ExactOrderData extends SavedData {
         final AEKey target;
         final BigInteger plannedBytes;
         UUID parent;
+        Map<AEKey, BigInteger> missingSupply = Map.of();
         String note;
 
         Entry(Hk3ExactOrder order, AEKey target, BigInteger plannedBytes, String note) {

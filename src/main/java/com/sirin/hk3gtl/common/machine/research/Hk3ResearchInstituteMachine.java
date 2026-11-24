@@ -14,6 +14,7 @@ import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 import com.lowdragmc.lowdraglib.syncdata.field.ManagedFieldHolder;
 import com.sirin.hk3gtl.common.capability.Hk3EnergyTick;
 import com.sirin.hk3gtl.common.capability.Hk3RefundJournal;
+import com.sirin.hk3gtl.common.config.Hk3ResearchSettings;
 import com.sirin.hk3gtl.common.gui.Hk3ResearchTerminalWidget;
 import com.sirin.hk3gtl.common.item.Hk3Items;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
@@ -88,6 +89,7 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
     private void researchTick() {
         erosionActive = false;
         erosionPowerLimited = false;
+        if (!Hk3ResearchSettings.enabled()) return;
         if (isInValid() || !isFormed() || !getRecipeLogic().isWorkingEnabled() || getOwnerUUID()==null || getLevel().getServer()==null) return;
         if (researchRefund == null) researchRefund=Hk3RefundJournal.resume(this);
         if (researchRefund != null) {

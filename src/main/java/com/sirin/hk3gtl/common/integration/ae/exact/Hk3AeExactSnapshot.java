@@ -7,6 +7,8 @@ import appeng.api.networking.crafting.ICraftingSimulationRequester;
 import appeng.api.stacks.AEKey;
 import appeng.blockentity.crafting.IMolecularAssemblerSupportedPattern;
 import appeng.me.service.CraftingService;
+import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusCrafting;
+import com.sirin.hk3gtl.common.integration.ae.nexus.network.Hk3NexusStock;
 import net.minecraft.world.level.Level;
 
 import java.math.BigInteger;
@@ -30,22 +32,24 @@ public final class Hk3AeExactSnapshot {
     private final Map<AEKey, List<Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>>> recipes;
     private final Map<IPatternDetails, Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>> byPattern;
     private final Set<IPatternDetails> remainderPatterns;
-    private final Set<AEKey> unsupportedKeys;
+    private final Set<AEKey> unsupportedKeys, infiniteKeys, probabilitySources;
     private final Hk3ExactPlanner.Limits limits;
     private final BigInteger treeNodes;
 
     private Hk3AeExactSnapshot(AEKey target, Map<AEKey, BigInteger> inventory,
                                Map<AEKey, List<Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>>> recipes,
-                               Set<IPatternDetails> remainderPatterns, Set<AEKey> unsupportedKeys,
+                               Set<IPatternDetails> remainderPatterns, Set<AEKey> unsupportedKeys, Set<AEKey> infiniteKeys, Set<AEKey> probabilitySources,
                                Hk3ExactPlanner.Limits limits, BigInteger treeNodes) {
         this.target = target;
-        this.inventory = Collections.unmodifiableMap(new LinkedHashMap<>(inventory));
-        this.recipes = Collections.unmodifiableMap(new LinkedHashMap<>(recipes));
+        this.inventory = Collections.unmodifiableMap(inventory);
+        this.recipes = Collections.unmodifiableMap(recipes);
         Map<IPatternDetails, Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>> bindings = new LinkedHashMap<>();
         recipes.values().forEach(values -> values.forEach(recipe -> bindings.put(recipe.id(), recipe)));
         this.byPattern = Collections.unmodifiableMap(bindings);
-        this.remainderPatterns = Set.copyOf(remainderPatterns);
-        this.unsupportedKeys = Set.copyOf(unsupportedKeys);
+        this.remainderPatterns = Collections.unmodifiableSet(remainderPatterns);
+        this.unsupportedKeys = Collections.unmodifiableSet(unsupportedKeys);
+        this.infiniteKeys = Collections.unmodifiableSet(infiniteKeys);
+        this.probabilitySources = Collections.unmodifiableSet(probabilitySources);
         this.limits = limits;
         this.treeNodes = treeNodes;
     }
@@ -55,6 +59,10 @@ public final class Hk3AeExactSnapshot {
         private final IGrid grid;
         private final ICraftingSimulationRequester requester;
         private final AEKey target;
+        private final boolean nexus, captureInventory;
+        private final Hk3NexusCrafting supplyHost;
+        private final Set<AEKey> infiniteKeys = new HashSet<>(), probabilitySources = new HashSet<>();
+        private Map<AEKey, BigInteger> overflowStock;
         private final Hk3ExactPlanner.Limits limits;
         private final Map<AEKey, BigInteger> stock = new LinkedHashMap<>();
         private final Map<IPatternDetails, List<Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>>> parsed = new LinkedHashMap<>();
@@ -65,20 +73,23 @@ public final class Hk3AeExactSnapshot {
         private final ArrayDeque<AEKey> pending = new ArrayDeque<>();
         private final Set<IPatternDetails> seen = new HashSet<>();
         private Iterator<IPatternDetails> candidates = Collections.emptyIterator();
-        private Iterator<IPatternDetails> variants = Collections.emptyIterator();
+        private Iterator<? extends IPatternDetails> variants = Collections.emptyIterator();
         private IPatternDetails pattern;
         private List<Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>> expanded;
         private List<Hk3ExactPlanner.Recipe<AEKey, IPatternDetails>> accepted;
         private AEKey key;
         private int edges, inspected, recipeCount;
-        private boolean done, rejected;
+        private boolean done, rejected, onlyConditional;
 
         Capture(Level level, IGrid grid, ICraftingSimulationRequester requester, AEKey target,
-                Hk3ExactPlanner.Limits limits) {
+                Hk3ExactPlanner.Limits limits, boolean captureInventory, Hk3NexusCrafting supplyHost) {
+            this.supplyHost = supplyHost;
+            this.captureInventory = captureInventory;
             this.level = level;
             this.grid = grid;
             this.requester = requester;
             this.target = target;
+            nexus = Hk3ProbabilitySupport.AVAILABLE && !com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusCrafting.forGrid(grid).isEmpty();
             this.limits = limits;
             pending.add(target);
             discovered.add(target);
@@ -97,12 +108,23 @@ public final class Hk3AeExactSnapshot {
                 if (key == null) {
                     if (pending.isEmpty()) { done = true; break; }
                     key = pending.removeFirst();
-                    long available = storage.extract(key, Long.MAX_VALUE, Actionable.SIMULATE, source);
-                    if (available < 0) { rejected = true; break; }
-                    if (available > 0) stock.put(key, BigInteger.valueOf(available));
+                    if (captureInventory) {
+                        long available = storage.extract(key, Long.MAX_VALUE, Actionable.SIMULATE, source);
+                        if (available < 0) { rejected = true; break; }
+                        if (supplyHost != null && supplyHost.isInfiniteSource(key)) infiniteKeys.add(key);
+                        if (available > 0) {
+                            BigInteger count = BigInteger.valueOf(available);
+                            if (supplyHost != null && available == Long.MAX_VALUE && !infiniteKeys.contains(key)) {
+                                if (overflowStock == null) overflowStock = Hk3NexusStock.snapshot(grid);
+                                count = overflowStock.getOrDefault(key, count).max(count);
+                            }
+                            stock.put(key, count);
+                        }
+                    }
                     candidates = List.copyOf(service.getCraftingFor(key)).iterator();
                     accepted = new ArrayList<>();
                     seen.clear();
+                    onlyConditional = nexus;
                 } else if (pattern != null) {
                     if (variants.hasNext()) inspectVariant(variants.next());
                     else {
@@ -115,7 +137,7 @@ public final class Hk3AeExactSnapshot {
                     inspect(candidates.next());
                 } else {
                     if (accepted.isEmpty() && key.equals(target)) { rejected = true; break; }
-                    if (accepted.isEmpty() && (service.canEmitFor(key) || !seen.isEmpty())) unsupportedKeys.add(key);
+                    if (accepted.isEmpty() && (service.canEmitFor(key) || !seen.isEmpty() && !onlyConditional)) unsupportedKeys.add(key);
                     recipes.put(key, List.copyOf(accepted));
                     key = null;
                 }
@@ -128,13 +150,20 @@ public final class Hk3AeExactSnapshot {
             var storage = grid.getStorageService().getInventory();
             if (++inspected > limits.maxEdges()) { rejected = true; return; }
             if (!seen.add(pattern)) return;
-            boolean available = false;
+            boolean available = false, hasProvider = false;
             for (var provider : ((CraftingService) grid.getCraftingService()).getProviders(pattern)) {
+                hasProvider = true;
+                if (nexus && Hk3ProbabilityOrderService.conditional(provider, pattern)) {
+                    if (supplyHost != null) probabilitySources.add(key);
+                    continue;
+                }
+                onlyConditional = false;
                 if (!Hk3ProbabilitySupport.AVAILABLE || !Hk3ProbabilityOrderService.blocksPush(provider)) {
                     available = true;
-                    break;
+                    if (supplyHost == null || probabilitySources.contains(key)) break;
                 }
             }
+            if (!hasProvider) onlyConditional = false;
             if (!available) return;
             var cached = parsed.get(pattern);
             if (cached != null) {
@@ -201,12 +230,16 @@ public final class Hk3AeExactSnapshot {
             accepted.add(recipe);
         }
 
+        boolean matches(Hk3AeExactSnapshot planned) {
+            return !rejected && target.equals(planned.target) && recipes.equals(planned.recipes);
+        }
+
         Hk3AeExactSnapshot finish() {
             if (rejected) throw new IllegalArgumentException(
                     "此路线超出图预算或不支持当前加工／工作台输入；未知动态样板与概率样板仍用原入口");
             BigInteger nodes = countTreeNodes(target, recipes);
             if (nodes == null) nodes = BigInteger.valueOf((long) discovered.size() + edges);
-            return new Hk3AeExactSnapshot(target, stock, recipes, remainderPatterns, unsupportedKeys, limits, nodes);
+            return new Hk3AeExactSnapshot(target, stock, recipes, remainderPatterns, unsupportedKeys, infiniteKeys, probabilitySources, limits, nodes);
         }
     }
 
@@ -229,10 +262,10 @@ public final class Hk3AeExactSnapshot {
 
     Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails> planDetailed(BigInteger amount,
             BooleanSupplier cancelled, Predicate<Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails>> acceptance,
-            Hk3ExactGraphPlanner.Prepared<AEKey, IPatternDetails> prepared) {
-        return supportedMissing(new Hk3ExactGraphPlanner<>(Map.of(target, amount), inventory,
+            Hk3ExactGraphPlanner.Prepared<AEKey, IPatternDetails> prepared, boolean nexusSupply) {
+        return supportedMissing(new Hk3ExactGraphPlanner<>(Map.of(target, amount), inventory, infiniteKeys,
                 key -> recipes.getOrDefault(key, List.of()), limits, Hk3ExactPlanner.SearchLimits.defaults(),
-                cancelled, acceptance).plan(prepared));
+                cancelled, acceptance).plan(prepared, !nexusSupply, nexusSupply, probabilitySources));
     }
 
     private Hk3ExactPlanner.Result<AEKey, IPatternDetails> supportedMissing(

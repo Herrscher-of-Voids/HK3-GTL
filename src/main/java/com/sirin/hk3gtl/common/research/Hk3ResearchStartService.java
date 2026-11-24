@@ -7,6 +7,7 @@ package com.sirin.hk3gtl.common.research;
 
 
 import com.gregtechceu.gtceu.api.GTValues;
+import com.sirin.hk3gtl.common.config.Hk3ResearchSettings;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -37,6 +38,7 @@ public final class Hk3ResearchStartService {
     }
     public static Result start(ServerPlayer player, java.util.UUID owner, String facility, int lab, boolean available,
                                String topicId, boolean points, double gaze, double suppression, String role) {
+        if (!Hk3ResearchSettings.enabled()) return Result.UNAVAILABLE;
         if (!available || !Hk3ResearchData.get(player).isMember(player.getUUID(),owner)) return Result.UNAVAILABLE;
         if (dedicatedToW13(topicId) != role.equals("W13")) return Result.LOCKED;
         var definition = Hk3ResearchCatalog.bundled().get(topicId);

@@ -87,6 +87,7 @@ public class Hk3Gtl {
         net.minecraftforge.fml.ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.SERVER,
                 com.sirin.hk3gtl.common.easter.Hk3EggCalendar.SPEC,"hk3gtl-easter-server.toml");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        com.sirin.hk3gtl.common.config.Hk3ConfigPages.register(modEventBus);
         modEventBus.register(this);
 
         // ── 普通物品/方块/流体注册（DeferredRegister，顺序无严格要求）──

@@ -137,6 +137,7 @@
     {
       "id": "industrial_experiment_rat",
       "role": "I02",
+      "circuit": 11,
       "requirements": [
         "RN-HSA",
         "RN-LES"
@@ -680,6 +681,7 @@
     {
       "id": "industrial_experiment_cpt",
       "role": "I02",
+      "circuit": 28,
       "requirements": [
         "RN-ALE",
         "RN-MCE",
@@ -798,6 +800,7 @@
     {
       "id": "industrial_experiment_pce",
       "role": "I02",
+      "circuit": 29,
       "requirements": [
         "RN-GSC",
         "RN-HLC"
@@ -836,6 +839,7 @@
     {
       "id": "industrial_experiment_gpr",
       "role": "I02",
+      "circuit": 30,
       "requirements": [
         "RN-GSC",
         "RN-SMR"
@@ -1614,6 +1618,7 @@
     {
       "id": "industrial_experiment_lta",
       "role": "I02",
+      "circuit": 31,
       "requirements": [
         "RN-UED",
         "RN-HSA"
@@ -10170,6 +10175,7 @@
     {
       "id": "industrial_failed_package_section_analysis",
       "role": "I02",
+      "circuit": 32,
       "requirements": [
         "RN-CPT"
       ],

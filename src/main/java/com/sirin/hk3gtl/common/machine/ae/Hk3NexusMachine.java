@@ -26,10 +26,11 @@ public final class Hk3NexusMachine extends MultiblockControllerMachine
         implements IFancyUIMachine, IGridConnectedMachine, IMachineLife, IDropSaveMachine {
     private final Hk3NexusGrid network = new Hk3NexusGrid(this::markDirty);
     private final Hk3NexusCrafting crafting = new Hk3NexusCrafting(
-            network::getActionableNode, this::getLevel, this::markDirty);
+            network::getActionableNode, this::getLevel, this::plannerId, this::markDirty);
     private final Hk3NexusManagement management = new Hk3NexusManagement(
             network::getGrid, this::getLevel, crafting, this::markDirty);
     private UUID owner;
+    private UUID plannerId;
     private boolean attached;
     private boolean online;
 
@@ -92,7 +93,18 @@ public final class Hk3NexusMachine extends MultiblockControllerMachine
     }
 
     @Override public void onMachinePlaced(LivingEntity placer, ItemStack stack) {
-        if (!isRemote() && placer instanceof Player player) setOwner(player);
+        if (!isRemote() && placer instanceof Player player) {
+            if (plannerId == null) plannerId = UUID.randomUUID();
+            setOwner(player);
+        }
+    }
+
+    private UUID plannerId() {
+        if (plannerId == null) {
+            String origin = getLevel().dimension().location() + ":" + getPos().asLong() + ":" + owner;
+            plannerId = UUID.nameUUIDFromBytes(origin.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        }
+        return plannerId;
     }
 
     @Override public void setOwner(Player player) {
@@ -116,6 +128,7 @@ public final class Hk3NexusMachine extends MultiblockControllerMachine
         super.saveCustomPersistedData(tag, forDrop);
         var state = new CompoundTag();
         if (owner != null) state.putUUID("Owner", owner);
+        if (plannerId != null) state.putUUID("PlannerId", plannerId);
         state.put("Network", network.save());
         crafting.write(state);
         management.write(state);
@@ -130,6 +143,7 @@ public final class Hk3NexusMachine extends MultiblockControllerMachine
         super.loadCustomPersistedData(tag);
         var state = tag.getCompound("Hk3Nexus");
         if (state.hasUUID("Owner")) owner = state.getUUID("Owner");
+        if (state.hasUUID("PlannerId")) plannerId = state.getUUID("PlannerId");
         network.load(state.getCompound("Network"));
         crafting.read(state);
         management.read(state);

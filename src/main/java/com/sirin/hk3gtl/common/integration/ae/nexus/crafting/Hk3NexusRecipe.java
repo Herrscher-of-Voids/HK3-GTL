@@ -9,6 +9,7 @@ import appeng.api.stacks.KeyCounter;
 import appeng.blockentity.crafting.IMolecularAssemblerSupportedPattern;
 import appeng.menu.AutoCraftingMenu;
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactBoundPattern;
+import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactPlanner;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -29,59 +30,59 @@ final class Hk3NexusRecipe {
 
     Hk3NexusRecipe(IPatternDetails selected, Function<AEKey, BigInteger> stock) {
         pattern = Hk3ExactBoundPattern.original(selected);
-        KeyCounter[] counters = new KeyCounter[selected.getInputs().length];
-        Map<AEKey, BigInteger> remaining = new LinkedHashMap<>();
-        Map<AEKey, BigInteger> remainders = new LinkedHashMap<>();
+        var ingredients = selected.getInputs();
+        KeyCounter[] counters = new KeyCounter[ingredients.length];
+        Map<AEKey, BigInteger> remaining = null;
+        outputs = new LinkedHashMap<>();
+        for (var output : selected.getOutputs()) Hk3NexusLedger.add(outputs, output.what(), BigInteger.valueOf(output.amount()));
         for (int index = 0; index < counters.length; index++) {
-            var input = selected.getInputs()[index];
+            var input = ingredients[index];
             var choices = input.getPossibleInputs();
             GenericStack chosen = choices[0];
-            for (var choice : choices) {
-                BigInteger available = remaining.computeIfAbsent(choice.what(), stock);
-                if (available.compareTo(BigInteger.valueOf(choice.amount()).multiply(BigInteger.valueOf(input.getMultiplier()))) >= 0) {
-                    chosen = choice;
-                    break;
+            if (choices.length > 1) {
+                if (remaining == null) {
+                    remaining = new LinkedHashMap<>();
+                    for (int i = 0; i < index; i++) for (var used : counters[i]) {
+                        remaining.computeIfAbsent(used.getKey(), stock);
+                        remaining.merge(used.getKey(), BigInteger.valueOf(used.getLongValue()).negate(), BigInteger::add);
+                    }
+                }
+                for (var choice : choices) {
+                    BigInteger available = remaining.computeIfAbsent(choice.what(), stock);
+                    if (available.compareTo(BigInteger.valueOf(choice.amount()).multiply(BigInteger.valueOf(input.getMultiplier()))) >= 0) {
+                        chosen = choice;
+                        break;
+                    }
                 }
             }
             long amount = Math.multiplyExact(chosen.amount(), input.getMultiplier());
             counters[index] = new KeyCounter();
             counters[index].add(chosen.what(), amount);
-            remaining.merge(chosen.what(), BigInteger.valueOf(amount).negate(), BigInteger::add);
+            if (remaining != null) {
+                remaining.computeIfAbsent(chosen.what(), stock);
+                remaining.merge(chosen.what(), BigInteger.valueOf(amount).negate(), BigInteger::add);
+            }
             AEKey remainder = input.getRemainingKey(chosen.what());
-            if (remainder != null) Hk3NexusLedger.add(remainders, remainder, BigInteger.valueOf(input.getMultiplier()));
+            if (remainder != null) Hk3NexusLedger.add(outputs, remainder, BigInteger.valueOf(input.getMultiplier()));
         }
         grouped = Hk3ExactBoundPattern.providerInputs(selected, counters);
         inputs = counts(grouped);
-        if (molecular()) outputs = assemble(grouped, null);
-        else {
-            outputs = remainders;
-            for (var output : selected.getOutputs()) Hk3NexusLedger.add(outputs, output.what(), BigInteger.valueOf(output.amount()));
-        }
     }
 
-    private Hk3NexusRecipe(IPatternDetails pattern, KeyCounter[] grouped, Map<AEKey, BigInteger> outputs) {
+    private Hk3NexusRecipe(IPatternDetails pattern, KeyCounter[] grouped, Map<AEKey, BigInteger> inputs, Map<AEKey, BigInteger> outputs) {
         this.pattern = pattern;
         this.grouped = grouped;
-        inputs = counts(grouped);
+        this.inputs = inputs;
         this.outputs = outputs;
+    }
+
+    Hk3NexusRecipe bindCounts(Hk3ExactPlanner.Recipe<AEKey, IPatternDetails> recipe) {
+        return new Hk3NexusRecipe(pattern, grouped, recipe.inputs(), recipe.outputs());
     }
 
     boolean molecular() { return pattern instanceof IMolecularAssemblerSupportedPattern; }
 
     Map<AEKey, BigInteger> assemble(KeyCounter[] contents, Level level) {
-        // 输出由真实工作台配方计算；规划阶段沿用已编码样板的输出与容器语义。
-        if (level == null) {
-            Map<AEKey, BigInteger> result = new LinkedHashMap<>();
-            for (var output : pattern.getOutputs()) Hk3NexusLedger.add(result, output.what(), BigInteger.valueOf(output.amount()));
-            for (int index = 0; index < grouped.length; index++) {
-                for (var entry : grouped[index]) {
-                    AEKey remainder = pattern.getInputs()[index].getRemainingKey(entry.getKey());
-                    if (remainder != null) Hk3NexusLedger.add(result, remainder,
-                            BigInteger.valueOf(entry.getLongValue() / pattern.getInputs()[index].getPossibleInputs()[0].amount()));
-                }
-            }
-            return result;
-        }
         var assembler = (IMolecularAssemblerSupportedPattern) pattern;
         var grid = new TransientCraftingContainer(new AutoCraftingMenu(), 3, 3);
         assembler.fillCraftingGrid(copy(contents), grid::setItem);
@@ -133,6 +134,6 @@ final class Hk3NexusRecipe {
             var counter = counters[index];
             Hk3NexusLedger.read((ListTag) groups.get(index)).forEach((key, count) -> counter.add(key, count.longValueExact()));
         }
-        return new Hk3NexusRecipe(pattern, counters, Hk3NexusLedger.read(tag.getList("outputs", Tag.TAG_COMPOUND)));
+        return new Hk3NexusRecipe(pattern, counters, counts(counters), Hk3NexusLedger.read(tag.getList("outputs", Tag.TAG_COMPOUND)));
     }
 }

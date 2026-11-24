@@ -43,6 +43,12 @@ public class Hk3RecipeLogic extends RecipeLogic {
 
     public Hk3RecipeLogic(IRecipeLogicMachine machine) { super(machine); }
 
+    @Override public void serverTick() {
+        if (!isIdle() && !isSuspend() && Hk3ProbabilitySupport.AVAILABLE
+                && com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilityOrderService.retireCompleted(this)) return;
+        super.serverTick();
+    }
+
     public boolean dispatchProbabilityOrder() {
         boolean handled = Hk3ProbabilitySupport.AVAILABLE
                 && com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilityOrderService.find(this);

@@ -15,6 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import com.sirin.hk3gtl.common.constants.Hk3Values;
 import com.sirin.hk3gtl.common.registration.Hk3IndustrialContent;
 import java.util.*;
+import com.sirin.hk3gtl.common.config.Hk3ResearchSettings;
 import static com.sirin.hk3gtl.common.research.Hk3ResearchMaterialPayment.Requirement;
 
 public final class Hk3LabExperimentService {
@@ -25,6 +26,7 @@ public final class Hk3LabExperimentService {
         return new Requirement(s -> s.is(tag),count,tool);
     }
     public static Hk3ResearchStartService.Result start(ServerPlayer player,UUID scope,String facility,int lab,boolean available,String research) {
+        if (!Hk3ResearchSettings.enabled()) return Hk3ResearchStartService.Result.UNAVAILABLE;
         var data=Hk3ResearchData.get(player);
         if(!available || !data.isMember(player.getUUID(),scope))return Hk3ResearchStartService.Result.UNAVAILABLE;
         String id=Hk3LabExperimentRules.next(research,data.hasLabBaseline(scope));

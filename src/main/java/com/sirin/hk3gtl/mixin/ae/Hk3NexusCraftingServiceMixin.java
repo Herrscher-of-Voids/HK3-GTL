@@ -2,6 +2,8 @@ package com.sirin.hk3gtl.mixin.ae;
 
 import appeng.api.config.Actionable;
 import appeng.api.networking.IGrid;
+import appeng.api.networking.crafting.CalculationStrategy;
+import appeng.api.networking.crafting.ICraftingSimulationRequester;
 import appeng.api.networking.crafting.ICraftingCPU;
 import appeng.api.networking.crafting.ICraftingPlan;
 import appeng.api.networking.crafting.ICraftingRequester;
@@ -17,7 +19,8 @@ import com.google.common.collect.ImmutableSet;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusCrafting;
-import org.gtlcore.gtlcore.integration.ae2.graph.AeGraphPlan;
+import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactCpuTracker;
+import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusNativePlan;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -31,6 +34,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.Future;
+import net.minecraft.world.level.Level;
 
 @Mixin(value = CraftingService.class, remap = false, priority = 1300)
 public abstract class Hk3NexusCraftingServiceMixin {
@@ -40,8 +45,11 @@ public abstract class Hk3NexusCraftingServiceMixin {
 
     @Inject(method = "onServerEndTick", at = @At("RETURN"))
     private void hk3gtl$notifyNexusRequests(CallbackInfo ci) {
+        var runtimes = Hk3NexusCrafting.forGrid(grid);
+        if (runtimes.isEmpty() && hk3gtl$waiting.isEmpty()) return;
         Set<AEKey> current = new HashSet<>();
-        Hk3NexusCrafting.forGrid(grid).forEach(runtime -> current.addAll(runtime.waitingKeys()));
+        runtimes.forEach(runtime -> runtime.collectWaitingKeys(current));
+        if (hk3gtl$waiting.equals(current)) return;
         Set<AEKey> changed = new HashSet<>(current);
         changed.addAll(hk3gtl$waiting);
         changed.removeIf(key -> current.contains(key) == hk3gtl$waiting.contains(key));
@@ -63,15 +71,36 @@ public abstract class Hk3NexusCraftingServiceMixin {
         return cpus.build();
     }
 
+    @Inject(method = "beginCraftingCalculation", at = @At("HEAD"), cancellable = true)
+    private void hk3gtl$planOnNexus(Level level, ICraftingSimulationRequester requester, AEKey target, long amount,
+            CalculationStrategy strategy, CallbackInfoReturnable<Future<ICraftingPlan>> ci) {
+        var server = level.getServer();
+        if (server == null) return;
+        if (!server.isSameThread()) {
+            ci.setReturnValue(server.submit(() -> grid.getCraftingService().beginCraftingCalculation(level, requester, target, amount, strategy)).join());
+            return;
+        }
+        var host = Hk3NexusCrafting.firstOn(grid);
+        if (host != null) ci.setReturnValue(host.calculate(target, BigInteger.valueOf(amount), requester.getActionSource(), strategy));
+    }
+
     @Inject(method = "submitJob", at = @At("HEAD"), cancellable = true)
     private void hk3gtl$submitNexus(ICraftingPlan plan, ICraftingRequester requester, ICraftingCPU cpu,
             boolean prioritizePower, IActionSource source, CallbackInfoReturnable<ICraftingSubmitResult> ci) {
-        var runtimes = Hk3NexusCrafting.forGrid(grid);
-        if (cpu instanceof Hk3NexusCrafting.NexusCpu selected) {
-            ci.setReturnValue(!runtimes.contains(selected.host()) ? CraftingSubmitResult.CPU_OFFLINE
-                    : selected.isBusy() ? CraftingSubmitResult.CPU_BUSY : selected.host().submitNative(plan, requester, source));
-        } else if (cpu == null && !runtimes.isEmpty() && !(plan instanceof AeGraphPlan)) {
-            var submitted = runtimes.get(0).submitNative(plan, requester, source);
+        if (!(cpu instanceof Hk3NexusCrafting.NexusCpu) && !(plan instanceof Hk3NexusNativePlan)
+                && Hk3ExactCpuTracker.currentSubmission() == null) return;
+        if (plan instanceof Hk3NexusNativePlan exact) {
+            var host = exact.host();
+            if (exact.grid() != grid || !host.isOn(grid)) ci.setReturnValue(CraftingSubmitResult.CPU_OFFLINE);
+            else if (cpu == null || cpu == host.availableCpu()) ci.setReturnValue(host.submitNative(plan, requester, source));
+            else ci.setReturnValue(cpu.isBusy() ? CraftingSubmitResult.CPU_BUSY : CraftingSubmitResult.NO_CPU_FOUND);
+        } else if (cpu instanceof Hk3NexusCrafting.NexusCpu selected) {
+            ci.setReturnValue(!selected.host().isOn(grid) ? CraftingSubmitResult.CPU_OFFLINE : selected.isBusy()
+                    ? CraftingSubmitResult.CPU_BUSY : selected.host().submitNative(plan, requester, source));
+        } else if (cpu == null && Hk3ExactCpuTracker.currentSubmission() != null) {
+            var host = Hk3NexusCrafting.firstOn(grid);
+            if (host == null) return;
+            var submitted = host.submitNative(plan, requester, source);
             if (submitted != CraftingSubmitResult.INCOMPLETE_PLAN) ci.setReturnValue(submitted);
         }
     }

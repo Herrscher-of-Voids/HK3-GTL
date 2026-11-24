@@ -222,7 +222,7 @@ public final class Hk3ProbabilityTerminalService {
 
     private static String describe(ServerPlayer player, Session session) {
         var text = new StringBuilder("目标：").append(session.target.getDisplayName().getString());
-        if (session.candidates.isEmpty()) text.append("\n没有可绑定总成：需64格内本人／本队标准HK宿主、同网络独占总成及单张1:1概率样板。");
+        if (session.candidates.isEmpty()) text.append("\n没有可绑定总成：需64格内本人／本队标准HK宿主、同网络独占总成及倍率为 1:1 的概率样板。");
         else text.append("\n绑定 ").append(session.candidateIndex + 1).append("/")
                 .append(session.candidates.size()).append("：").append(session.candidates.get(session.candidateIndex).label());
         if (!session.routes.isEmpty()) {

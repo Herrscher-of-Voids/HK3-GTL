@@ -13,7 +13,7 @@ public record Hk3ExactProbabilityPlan<K>(String metadataId, BigInteger target,
         inputsPerAttempt = Map.copyOf(inputsPerAttempt);
         inputCaps = Map.copyOf(inputCaps);
         if (metadataId.isBlank() || target.signum() <= 0 || chanceScale.signum() <= 0
-                || chance.signum() < 0 || chance.compareTo(chanceScale) > 0
+                || chance.signum() < 0
                 || successYield.signum() <= 0 || attemptLimit.signum() <= 0 || maxBatch <= 0) {
             throw new IllegalArgumentException("概率计划参数无效");
         }

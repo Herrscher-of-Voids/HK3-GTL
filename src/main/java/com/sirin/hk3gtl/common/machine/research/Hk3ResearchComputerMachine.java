@@ -99,6 +99,7 @@ public final class Hk3ResearchComputerMachine extends TieredEnergyMachine implem
     private String facility() { return getLevel().dimension().location() + "@" + getPos().asLong(); }
 
     private void producePoints() {
+        if (!com.sirin.hk3gtl.common.config.Hk3ResearchSettings.enabled()) return;
         if (isInValid()) return;
         if (owner == null || getLevel() == null || getLevel().getServer() == null) return;
         if (computerRefund == null) computerRefund = Hk3RefundJournal.resume(this);

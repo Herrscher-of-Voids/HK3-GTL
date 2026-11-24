@@ -23,7 +23,7 @@ import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport;
 
 import java.math.BigInteger;
 
-@Mixin(value = CraftAmountScreen.class, priority = 900, remap = false)
+@Mixin(value = CraftAmountScreen.class, priority = 1300, remap = false)
 public abstract class Hk3ExactAmountScreenMixin extends AEBaseScreen<CraftAmountMenu> {
     @Shadow @Final private NumberEntryWidget amountToCraft;
     @Shadow @Final private Button next;
@@ -53,11 +53,11 @@ public abstract class Hk3ExactAmountScreenMixin extends AEBaseScreen<CraftAmount
                 .filter(amount -> amount.signum() > 0).isPresent();
         if (Hk3ProbabilitySupport.AVAILABLE) {
             if (hk3gtl$probabilityButton == null)
-                hk3gtl$probabilityButton = Button.builder(Component.literal("HK3 概率订单"), button ->
+                hk3gtl$probabilityButton = Button.builder(Component.literal("概率订单"), button ->
                         switchToScreen(new Hk3ProbabilityAmountScreen((CraftAmountScreen) (Object) this, getMenu())))
                         .bounds(0, 0, 104, 20).build();
             if (!children().contains(hk3gtl$probabilityButton)) addRenderableWidget(hk3gtl$probabilityButton);
-            hk3gtl$probabilityButton.setX(Math.max(4, Math.min(width - 108, getGuiLeft() + (imageWidth - 104) / 2)));
+            hk3gtl$probabilityButton.setX(Math.max(2, (width - 104) / 2));
             hk3gtl$probabilityButton.setY(Math.max(4, getGuiTop() - 24));
         }
     }
@@ -67,8 +67,7 @@ public abstract class Hk3ExactAmountScreenMixin extends AEBaseScreen<CraftAmount
         ((Hk3NexusNumberEntry) amountToCraft).hk3gtl$enableExact();
         var amount = ((Hk3NexusNumberEntry) amountToCraft).hk3gtl$exactValue();
         var menu = (Hk3NexusNativeMenus.Amount) getMenu();
-        if (amount.isPresent() && amount.get().signum() > 0
-                && (menu.hk3gtl$hasNexus() || amount.get().compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0)) {
+        if (amount.isPresent() && amount.get().compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0) {
             menu.hk3gtl$confirmAmount(amount.get(), amountToCraft.startsWithEquals(), Screen.hasShiftDown());
             ci.cancel();
         }

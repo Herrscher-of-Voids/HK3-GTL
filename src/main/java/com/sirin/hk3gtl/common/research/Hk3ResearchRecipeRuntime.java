@@ -1,6 +1,7 @@
 package com.sirin.hk3gtl.common.research;
 
 import com.sirin.hk3gtl.common.recipe.*;
+import com.sirin.hk3gtl.common.config.Hk3ResearchSettings;
 import com.sirin.hk3gtl.common.machine.research.*;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
@@ -43,6 +44,7 @@ public final class Hk3ResearchRecipeRuntime {
     }
 
     public static boolean allowed(MetaMachine machine,GTRecipe recipe){
+        if (!Hk3ResearchSettings.enabled()) return true;
         if(recipe.data.contains(MERGED)){
             if(!recipe.data.contains(MERGED,Tag.TAG_LIST))return false;
             var entries=recipe.data.getList(MERGED,Tag.TAG_COMPOUND);

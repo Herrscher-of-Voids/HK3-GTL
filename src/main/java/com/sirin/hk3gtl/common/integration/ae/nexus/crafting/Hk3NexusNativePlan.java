@@ -1,6 +1,7 @@
 package com.sirin.hk3gtl.common.integration.ae.nexus.crafting;
 
 import appeng.api.crafting.IPatternDetails;
+import appeng.api.networking.IGrid;
 import appeng.api.networking.crafting.ICraftingPlan;
 import appeng.api.stacks.AEKey;
 import appeng.api.stacks.GenericStack;
@@ -14,11 +15,21 @@ import java.util.Map;
 public final class Hk3NexusNativePlan implements ICraftingPlan, Hk3ExactBytePlan {
     final Hk3NexusJob preview;
 
-    Hk3NexusNativePlan(Hk3NexusJob preview) { this.preview = preview; }
+    private final IGrid grid;
+
+    Hk3NexusNativePlan(Hk3NexusJob preview) {
+        this.preview = preview;
+        grid = preview.host.grid();
+    }
+
+    public IGrid grid() { return grid; }
 
     public Hk3NexusCrafting host() { return preview.host; }
     public AEKey target() { return preview.target; }
     public BigInteger amount() { return preview.requested; }
+    public String reason() { return preview.dispatchNote; }
+    public Map<AEKey, BigInteger> probabilityNeeds() { return preview.probabilityNeeds; }
+    public boolean onlyProbabilityMissing() { return preview.probabilityTarget || preview.probabilityNeeds.size() == preview.missing.size(); }
     @Override public BigInteger exactBytes() { return preview.bytes; }
     @Override public GenericStack finalOutput() { return new GenericStack(target(), Hk3NexusLedger.project(amount())); }
     @Override public long bytes() { return Hk3NexusLedger.project(exactBytes()); }

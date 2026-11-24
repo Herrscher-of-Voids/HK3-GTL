@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.common.integration.ae.nexus.crafting;
 
+import appeng.api.networking.crafting.CalculationStrategy;
 import appeng.api.stacks.AEKey;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
@@ -17,14 +18,14 @@ public final class Hk3NexusNativeMenus {
     }
 
     public interface Amount {
-        boolean hk3gtl$hasNexus();
         String hk3gtl$initialAmount();
         void hk3gtl$initialAmount(String amount);
         void hk3gtl$confirmAmount(BigInteger amount, boolean missing, boolean immediate);
     }
 
     public interface Confirm {
-        void hk3gtl$planNexus(AEKey target, BigInteger amount);
-        void hk3gtl$planParent(AEKey target, BigInteger amount);
+        void hk3gtl$planAmount(AEKey target, BigInteger amount, CalculationStrategy strategy);
+        String hk3gtl$probabilityHint();
+        void hk3gtl$startProbability(String attempts);
     }
 }

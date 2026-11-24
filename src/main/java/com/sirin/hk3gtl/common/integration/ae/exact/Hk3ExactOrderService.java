@@ -11,6 +11,7 @@ import appeng.api.stacks.AEKey;
 import appeng.me.cluster.implementations.CraftingCPUCluster;
 import appeng.menu.me.crafting.CraftAmountMenu;
 import appeng.menu.me.crafting.CraftConfirmMenu;
+import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusCrafting;
 import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusPlanSummary;
 import com.mojang.logging.LogUtils;
 import com.sirin.hk3gtl.common.integration.ae.Hk3AePlanningService;
@@ -51,6 +52,7 @@ public final class Hk3ExactOrderService {
                            IActionSource source, ICraftingCPU preferredCpu) implements ICraftingSimulationRequester {
         @Override public IActionSource getActionSource() { return source; }
         @Override public IGridNode getGridNode() { return node; }
+        Hk3NexusCrafting supplyHost() { return preferredCpu instanceof Hk3NexusCrafting.NexusCpu cpu ? cpu.host() : null; }
         boolean valid(MinecraftServer server) {
             return server.getPlayerList().getPlayer(owner) != null && host.getActionableNode() == node
                     && node.isActive() && node.getGrid() == grid
@@ -64,19 +66,28 @@ public final class Hk3ExactOrderService {
                             boolean hasCycles, Map<AEKey, BigInteger> seeds, boolean seedsAvailable) {}
     private static final class PlanWork<T> {
         private Hk3AeExactSnapshot.Capture capture;
-        private Function<Hk3AeExactSnapshot, T> calculation;
+        private Function<Hk3AeExactSnapshot.Capture, T> calculation;
         private Future<T> running;
 
         PlanWork(Binding binding, AEKey target, Function<Hk3AeExactSnapshot, T> calculation) {
-            capture = new Hk3AeExactSnapshot.Capture(binding.node().getLevel(), binding.grid(), binding, target, LIMITS);
+            this(binding, target, true, null, collected -> calculation.apply(collected.finish()));
+        }
+
+        private PlanWork(Binding binding, AEKey target, boolean captureInventory, Hk3NexusCrafting supplyHost,
+                         Function<Hk3AeExactSnapshot.Capture, T> calculation) {
+            capture = new Hk3AeExactSnapshot.Capture(binding.node().getLevel(), binding.grid(), binding, target, LIMITS, captureInventory, supplyHost);
             this.calculation = calculation;
+        }
+
+        static PlanWork<Boolean> verify(Binding binding, Hk3AeExactSnapshot planned) {
+            return new PlanWork<>(binding, planned.target(), false, null, collected -> collected.matches(planned));
         }
 
         void step(MinecraftServer server, long deadline) {
             if (capture == null || !capture.step(deadline)) return;
             var collected = capture;
             var work = calculation;
-            running = Hk3AePlanningService.submit(server, () -> work.apply(collected.finish()));
+            running = Hk3AePlanningService.submit(server, () -> work.apply(collected));
             capture = null;
             calculation = null;
         }
@@ -91,11 +102,11 @@ public final class Hk3ExactOrderService {
     }
     private static final class BatchJob {
         private final Binding binding;
-        private final PlanWork<Hk3ExactBatchPlanner.Batch> future;
+        private final PlanWork<Hk3ExactBatchPlanner.Selection> future;
         private Hk3ExactBatchPlanner.Batch batch;
-        private PlanWork<Hk3AeExactSnapshot> verification;
+        private PlanWork<Boolean> verification;
 
-        BatchJob(Binding binding, PlanWork<Hk3ExactBatchPlanner.Batch> future) {
+        BatchJob(Binding binding, PlanWork<Hk3ExactBatchPlanner.Selection> future) {
             this.binding = binding;
             this.future = future;
         }
@@ -303,9 +314,9 @@ public final class Hk3ExactOrderService {
                 throw new IllegalArgumentException("该订单当前无法恢复");
             long amount = state.activeAmount().longValueExact();
             long matches = binding.grid().getCraftingService().getCpus().stream()
-                    .filter(cpu -> cpu instanceof CraftingCPUCluster cluster
-                            && ((Hk3ExactCpuTracker.BatchAccess) cluster.craftingLogic)
-                                .hk3gtl$matchesBatch(state.activeToken(), entry.target, amount)).count();
+                    .map(cpu -> cpu instanceof CraftingCPUCluster cluster ? cluster.craftingLogic : cpu)
+                    .filter(cpu -> cpu instanceof Hk3ExactCpuTracker.BatchAccess batch
+                            && batch.hk3gtl$matchesBatch(state.activeToken(), entry.target, amount)).count();
             if (matches != 1)
                 throw new IllegalArgumentException("请将原CPU接回当前AE网络并恢复工作；当前批次保持暂停，不会重复投料");
             entry.note = "已核对同网原CPU；当前批次不重投，收到真实成功回执后继续后续批次";
@@ -319,8 +330,9 @@ public final class Hk3ExactOrderService {
             throw new IllegalArgumentException("该订单当前不能开始");
         BatchJob stale = runtime.jobs.remove(id);
         if (stale != null) stale.cancel();
+        entry.missingSupply = Map.of();
         runtime.bindings.remove(id);
-        entry.note = "已确认；每批重新核对样板和库存，由原生AE CPU生产";
+        entry.note = "已确认，每批投料前核对样板和库存";
         try { data.checkpoint(server); }
         catch (IOException failure) { entry.order.pause(); data.setDirty(); throw failure; }
         runtime.bindings.put(id, binding);
@@ -347,13 +359,13 @@ public final class Hk3ExactOrderService {
         return entry;
     }
 
-    static void resumeSupply(ServerPlayer player, IActionHost host, UUID parent, UUID id) throws IOException {
+    static void resumeSupply(ServerPlayer player, IActionHost host, UUID parent, UUID id, ICraftingCPU cpu) throws IOException {
         var entry = supply(player.server, parent, id);
         var state = entry.order.snapshot();
         if (!state.owner().equals(player.getUUID())) throw new IllegalArgumentException("前置订单不属于本人");
         if (state.state() == Hk3ExactOrder.State.COMPLETE || state.state() == Hk3ExactOrder.State.CANCELLED) return;
         var node = host.getActionableNode();
-        var binding = new Binding(player.getUUID(), host, node, node.getGrid(), IActionSource.ofPlayer(player), null);
+        var binding = new Binding(player.getUUID(), host, node, node.getGrid(), IActionSource.ofPlayer(player), cpu);
         var runtime = RUNTIMES.computeIfAbsent(player.server, ignored -> new RuntimeState());
         if (runtime.ledgerFault) throw new IllegalStateException("确定性订单账本已冻结");
         start(player.server, runtime, Hk3ExactOrderData.get(player.server), entry, binding);
@@ -414,8 +426,10 @@ public final class Hk3ExactOrderService {
             if (capacity.signum() <= 0) { entry.note = "等待可用的玩家合成CPU"; return; }
             if (!Hk3AePlanningService.hasCapacity(server, runtime.collecting())) { entry.note = "等待AE规划队列空位"; return; }
             BigInteger remaining = entry.order.remaining();
-            runtime.jobs.put(id, new BatchJob(binding, new PlanWork<>(binding, entry.target,
-                    snapshot -> Hk3ExactBatchPlanner.select(snapshot, remaining, capacity, () -> Thread.currentThread().isInterrupted()))));
+            var supplyHost = entry.parent == null ? null : binding.supplyHost();
+            runtime.jobs.put(id, new BatchJob(binding, new PlanWork<>(binding, entry.target, true, supplyHost,
+                    capture -> Hk3ExactBatchPlanner.plan(capture.finish(), remaining, capacity,
+                            () -> Thread.currentThread().isInterrupted(), supplyHost != null))));
         } catch (Exception failure) {
             ledgerFault(server, new IllegalStateException("大数订单调度失败", failure));
         }
@@ -468,28 +482,32 @@ public final class Hk3ExactOrderService {
                 job.future.step(server, deadline);
                 if (!job.future.isDone()) continue;
                 if (job.verification == null) {
-                    job.batch = job.future.get();
+                    var selected = job.future.get();
+                    job.batch = selected.batch();
+                    if (entry.parent != null) entry.missingSupply = selected.missing();
                     if (job.batch == null) {
                         runtime.jobs.remove(item.getKey());
                         entry.note = "等待材料或足够的CPU容量（最小批次尚不可执行）";
                         continue;
                     }
-                    job.verification = new PlanWork<>(job.binding(), entry.target, Function.identity());
+                    job.verification = PlanWork.verify(job.binding(), job.batch.snapshot());
                 }
                 job.verification.step(server, deadline);
                 if (!job.verification.isDone()) continue;
                 runtime.jobs.remove(item.getKey());
                 var batch = job.batch;
-                if (!job.verification.get().sameRecipes(batch.snapshot()))
+                if (!job.verification.get())
                     throw new IllegalStateException("批次规划期间样板已改变，请重新规划");
+                var plan = batch.nexusPlan() == null ? batch.plan() : job.binding().supplyHost()
+                        .supplyPlan(job.binding().owner(), entry.target, batch.amount(), batch.nexusPlan());
                 UUID token = entry.order.beginBatch(batch.amount());
                 data.activeTokens.put(token, entry);
-                entry.note = "原生CPU批次投料中：" + batch.amount()
-                        + "；本批所需存储字节：" + Hk3ExactCpuCapacity.requiredBytes(batch.plan());
+                BigInteger bytes = Hk3ExactCpuCapacity.requiredBytes(plan);
+                entry.note = "合成 CPU 正在投料：" + batch.amount() + "；本批所需存储字节：" + bytes;
                 // 先持久化意图。后续结果未知也保留令牌，绝不推测成未提交后重发。
                 data.checkpoint(server);
                 var submitted = Hk3ExactCpuTracker.submit(token, () -> job.binding().grid().getCraftingService()
-                        .submitJob(batch.plan(), null, job.binding().preferredCpu(), true, job.binding().source()));
+                        .submitJob(plan, null, job.binding().preferredCpu(), true, job.binding().source()));
                 if (!submitted.successful()) {
                     entry.order.finish(token, false, BigInteger.ZERO);
                     data.activeTokens.remove(token);
@@ -497,7 +515,7 @@ public final class Hk3ExactOrderService {
                     data.checkpoint(server);
                 } else {
                     entry.note = "当前批次生产数量：" + batch.amount() + "；本批所需存储字节："
-                            + Hk3ExactCpuCapacity.requiredBytes(batch.plan()) + "；网络中最大单CPU容量："
+                            + bytes + "；网络中最大单CPU容量："
                             + job.binding().grid().getCraftingService().getCpus().stream()
                                 .map(Hk3ExactCpuCapacity::exactBytes).max(BigInteger::compareTo).orElse(BigInteger.ZERO)
                             + "；等待本批产物";

@@ -13,7 +13,6 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-/** 唯一单输出无环配方的精确批量规划；不读取世界，不执行投料。 */
 public final class Hk3ExactPlanner {
     private static final BigInteger ZERO = BigInteger.ZERO;
 
@@ -92,6 +91,41 @@ public final class Hk3ExactPlanner {
         return planDetailed(target, amount, inventory, lookup, limits, cancelled, result -> true);
     }
 
+    public static <K, R> DetailedResult<K, R> planNexus(K target, BigInteger amount,
+            Map<K, BigInteger> inventory, Set<K> infinite, Function<K, List<Recipe<K, R>>> lookup,
+            Limits limits, BooleanSupplier cancelled) {
+        return new Hk3ExactGraphPlanner<>(Map.of(target, amount), inventoryCopy(inventory), infinite, lookup, limits,
+                SearchLimits.defaults(), cancelled, result -> true).plan(null, false, true, Set.of());
+    }
+
+    /** 接收本单独占的候选表；后台仅补副产物，库存快照只读。 */
+    public static <K, R> DetailedResult<K, R> planCapturedNexus(K target, BigInteger amount,
+            Map<K, BigInteger> inventory, Set<K> infinite, Map<K, List<Recipe<K, R>>> graph,
+            Iterable<Recipe<K, R>> multiOutput, int edges, Limits limits, Set<K> probabilitySources, BooleanSupplier cancelled) {
+        return planCapturedNexus(target, amount, inventory, infinite, graph, multiOutput, edges, limits,
+                SearchLimits.defaults(), probabilitySources, cancelled);
+    }
+
+    public static <K, R> DetailedResult<K, R> planCapturedNexus(K target, BigInteger amount,
+            Map<K, BigInteger> inventory, Set<K> infinite, Map<K, List<Recipe<K, R>>> graph,
+            Iterable<Recipe<K, R>> multiOutput, int edges, Limits limits, SearchLimits search,
+            Set<K> probabilitySources, BooleanSupplier cancelled) {
+        return capturedNexus(target, inventory, infinite, graph, multiOutput, edges, limits, search, probabilitySources, cancelled)
+                .solve(amount, true);
+    }
+
+    public interface CapturedNexus<K, R> {
+        DetailedResult<K, R> solve(BigInteger amount, boolean quoteProbability);
+    }
+
+    public static <K, R> CapturedNexus<K, R> capturedNexus(K target, Map<K, BigInteger> inventory, Set<K> infinite,
+            Map<K, List<Recipe<K, R>>> graph, Iterable<Recipe<K, R>> multiOutput, int edges, Limits limits,
+            SearchLimits search, Set<K> probabilitySources, BooleanSupplier cancelled) {
+        var prepared = new Hk3ExactGraphPlanner.Prepared<K, R>();
+        return (amount, quote) -> new Hk3ExactGraphPlanner<>(Map.of(target, amount), inventory, infinite, graph::get,
+                limits, search, cancelled, result -> true).planCaptured(graph, multiOutput, edges, probabilitySources, prepared, quote);
+    }
+
     public static <K, R> DetailedResult<K, R> planDetailed(K target, BigInteger amount,
             Map<K, BigInteger> inventory, Function<K, List<Recipe<K, R>>> lookup,
             Limits limits, BooleanSupplier cancelled, Predicate<DetailedResult<K, R>> acceptance) {
@@ -129,7 +163,7 @@ public final class Hk3ExactPlanner {
             Map<K, BigInteger> inventory, Function<K, List<Recipe<K, R>>> lookup,
             Limits limits, SearchLimits searchLimits, BooleanSupplier cancelled,
             Predicate<DetailedResult<K, R>> acceptance) {
-        return new Hk3ExactGraphPlanner<K, R>(targets, inventory, lookup, limits, searchLimits, cancelled, acceptance).plan();
+        return new Hk3ExactGraphPlanner<K, R>(targets, inventoryCopy(inventory), lookup, limits, searchLimits, cancelled, acceptance).plan();
     }
 
     /** amount为新增产量，目标库存不抵扣；inventory与lookup必须来自同一稳定快照。 */
@@ -264,6 +298,17 @@ public final class Hk3ExactPlanner {
     }
 
     private static <K, V> Map<K, V> immutable(Map<K, V> source) {
-        return Collections.unmodifiableMap(new LinkedHashMap<>(source));
+        return switch (source.size()) {
+            case 0 -> Map.of();
+            case 1 -> Map.copyOf(source);
+            default -> Collections.unmodifiableMap(new LinkedHashMap<>(source));
+        };
+    }
+
+    private static <K> Map<K, BigInteger> inventoryCopy(Map<K, BigInteger> inventory) {
+        inventory.forEach((key, value) -> {
+            if (key == null || value == null || value.signum() < 0) throw new IllegalArgumentException("库存必须为非负整数");
+        });
+        return new LinkedHashMap<>(inventory);
     }
 }

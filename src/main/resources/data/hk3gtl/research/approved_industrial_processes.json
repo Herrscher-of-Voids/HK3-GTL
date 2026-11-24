@@ -1853,7 +1853,7 @@
       "experiment": "RN-CBS",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 19
     },
     {
       "id": "approved_hrv_e18",
@@ -2314,7 +2314,7 @@
       "experiment": "RN-SPC",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 20
     },
     {
       "id": "approved_hrv_s06",
@@ -2700,7 +2700,7 @@
       "experiment": "RN-SRA",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 20
     },
     {
       "id": "approved_hrv_s11",
@@ -2942,7 +2942,7 @@
       "experiment": "RN-SPM",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 20
     },
     {
       "id": "approved_hrv_s14",
@@ -10634,7 +10634,7 @@
       "experiment": "RN-BCE",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 13
     },
     {
       "id": "approved_hcv_p03",
@@ -12446,7 +12446,7 @@
       "experiment": "RN-SSP",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 14
     },
     {
       "id": "approved_hcv_p23",
@@ -12505,7 +12505,7 @@
       "experiment": "RN-NBS",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 14
     },
     {
       "id": "approved_hcv_p24",
@@ -12564,7 +12564,7 @@
       "experiment": "RN-NRA",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 14
     },
     {
       "id": "approved_hcv_p25",
@@ -12623,7 +12623,7 @@
       "experiment": "RN-NSP",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 14
     },
     {
       "id": "approved_hcv_p26",
@@ -12682,7 +12682,7 @@
       "experiment": "RN-HRC",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 14
     },
     {
       "id": "approved_hcv_p27",
@@ -17556,7 +17556,7 @@
       "experiment": "RN-FRP",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 23
     },
     {
       "id": "approved_hdv_p05",
@@ -17697,7 +17697,7 @@
       "experiment": "RN-SRE",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 24
     },
     {
       "id": "approved_hdv_p07",
@@ -18251,7 +18251,7 @@
       "experiment": "RN-HLC",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 12
     },
     {
       "id": "approved_hdv_p21",
@@ -18299,7 +18299,7 @@
       "experiment": "RN-SFR",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 25
     },
     {
       "id": "approved_hdv_p22",
@@ -22478,7 +22478,7 @@
       "experiment": "RN-MCE",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 26
     },
     {
       "id": "approved_qsv_p03",
@@ -22659,7 +22659,7 @@
       "experiment": "RN-SSQ",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 27
     },
     {
       "id": "approved_qsv_m01",

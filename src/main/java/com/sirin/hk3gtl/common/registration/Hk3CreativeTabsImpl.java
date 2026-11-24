@@ -227,7 +227,10 @@ public class Hk3CreativeTabsImpl {
                                 }
                             }
                         }
-                        items.forEach(stack -> output.accept(stack.copy()));
+                        items.stream()
+                                .filter(stack -> com.sirin.hk3gtl.common.config.Hk3ResearchSettings.enabled()
+                                        || !com.sirin.hk3gtl.common.config.Hk3ResearchInstituteVisibility.isInstitute(stack.getItem()))
+                                .forEach(stack -> output.accept(stack.copy()));
                         int invocation = ++hk3gtl$displayInvocationCount;
                         if (invocation <= 3) {
                             LOGGER.info("[DEBUG] 创造页签 displayItems 耗时={}ms, invocation={}",

@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.mixin.ae;
 
+import appeng.api.networking.crafting.CalculationStrategy;
 import appeng.api.storage.ISubMenuHost;
 import appeng.menu.AEBaseMenu;
 import appeng.menu.me.crafting.CraftAmountMenu;
@@ -26,7 +27,6 @@ import java.math.BigInteger;
 
 @Mixin(value = CraftAmountMenu.class, remap = false)
 public abstract class Hk3ExactAmountMenuMixin extends AEBaseMenu implements Hk3ExactAmountMenu, Hk3NexusNativeMenus.Amount {
-    @Unique @GuiSync(40) public boolean hk3gtl$nexusAvailable;
     @Unique @GuiSync(41) public String hk3gtl$initialExactAmount = "";
     protected Hk3ExactAmountMenuMixin(MenuType<?> type, int id, Inventory inventory, Object host) {
         super(type, id, inventory, host);
@@ -34,10 +34,6 @@ public abstract class Hk3ExactAmountMenuMixin extends AEBaseMenu implements Hk3E
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void hk3gtl$registerExactAction(int id, Inventory inventory, ISubMenuHost host, CallbackInfo ci) {
-        if (isServerSide()) {
-            var node = getActionHost().getActionableNode();
-            hk3gtl$nexusAvailable = node != null && !Hk3NexusCrafting.forGrid(node.getGrid()).isEmpty();
-        }
         registerClientAction("hk3gtlNexusAmount", String.class, action -> {
             String[] parts = action.split("\\|", 3);
             if (parts.length == 3 && parts[0].matches("[0-9]{1,512}"))
@@ -53,7 +49,6 @@ public abstract class Hk3ExactAmountMenuMixin extends AEBaseMenu implements Hk3E
         });
     }
 
-    @Override public boolean hk3gtl$hasNexus() { return hk3gtl$nexusAvailable; }
     @Override public String hk3gtl$initialAmount() { return hk3gtl$initialExactAmount; }
     @Override public void hk3gtl$initialAmount(String amount) { hk3gtl$initialExactAmount = amount; }
 
@@ -63,14 +58,15 @@ public abstract class Hk3ExactAmountMenuMixin extends AEBaseMenu implements Hk3E
             return;
         }
         var menu = (CraftAmountMenu) (Object) this;
-        var runtimes = Hk3NexusCrafting.forGrid(getActionHost().getActionableNode().getGrid());
+        var node = getActionHost().getActionableNode();
+        if (node == null || !node.isActive()) return;
         if (amount.signum() <= 0) return;
         var target = menu.getWhatToCraft().what();
         BigInteger requested = amount;
         if (missing) {
-            requested = runtimes.isEmpty() ? amount.subtract(Hk3NexusStock.snapshot(getActionHost().getActionableNode()
-                    .getGrid()).getOrDefault(target, BigInteger.ZERO)).max(BigInteger.ZERO)
-                    : runtimes.get(0).missingAmount(target, amount);
+            var nexus = Hk3NexusCrafting.firstOn(node.getGrid());
+            requested = nexus == null ? amount.subtract(Hk3NexusStock.snapshot(node.getGrid()).getOrDefault(target, BigInteger.ZERO)).max(BigInteger.ZERO)
+                    : nexus.missingAmount(target, amount);
         }
         if (requested.signum() == 0) {
             menu.getHost().returnToMainMenu(getPlayer(), (ISubMenu) menu);
@@ -80,8 +76,7 @@ public abstract class Hk3ExactAmountMenuMixin extends AEBaseMenu implements Hk3E
         if (getPlayer().containerMenu instanceof CraftConfirmMenu confirm) {
             confirm.setAutoStart(immediate);
             var exact = (Hk3NexusNativeMenus.Confirm) confirm;
-            if (runtimes.isEmpty()) exact.hk3gtl$planParent(target, requested);
-            else exact.hk3gtl$planNexus(target, requested);
+            exact.hk3gtl$planAmount(target, requested, CalculationStrategy.REPORT_MISSING_ITEMS);
         }
     }
 

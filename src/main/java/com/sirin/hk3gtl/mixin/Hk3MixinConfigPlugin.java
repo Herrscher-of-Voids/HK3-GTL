@@ -58,7 +58,7 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
         }
         if (mixinClassName.endsWith(".Hk3ProbabilityAssemblyMixin") || mixinClassName.endsWith(".Hk3ProbabilityOutputMixin")
                 || mixinClassName.endsWith(".Hk3RecipeRunnerInvoker") || mixinClassName.endsWith(".Hk3ProbabilitySlotAccess")
-                || mixinClassName.endsWith(".Hk3ProbabilityPushMixin"))
+                || mixinClassName.endsWith(".Hk3ProbabilityPatternSlot") || mixinClassName.endsWith(".Hk3ProbabilityPushMixin"))
             return Hk3ProbabilitySupport.AVAILABLE;
         if(mixinClassName.endsWith(".Hk3FarNativeRenderMixin"))return LoadingModList.get().getModFileById("embeddium")==null;
         if(mixinClassName.contains(".Hk3W03Embeddium")||mixinClassName.contains(".Hk3FarEmbeddium"))return LoadingModList.get().getModFileById("embeddium")!=null;

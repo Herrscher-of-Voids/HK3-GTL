@@ -73,7 +73,12 @@ public final class Hk3ExactBoundPattern implements IPatternDetails {
                 || crafting.canSubstitute() || crafting.canSubstituteFluids();
     }
 
-    static Iterator<IPatternDetails> alternativeCandidates(IMolecularAssemblerSupportedPattern source, Level level, int budget,
+    public static boolean hasAlternatives(IPatternDetails pattern) {
+        return supports(pattern) && requiresBinding(pattern)
+                && Arrays.stream(pattern.getInputs()).anyMatch(input -> input.getPossibleInputs().length > 1);
+    }
+
+    public static Iterator<Hk3ExactBoundPattern> alternativeCandidates(IMolecularAssemblerSupportedPattern source, Level level, int budget,
             ToLongFunction<AEKey> available) {
         if (budget <= 0) return Collections.emptyIterator();
         List<List<GenericStack>> candidates = new ArrayList<>();
@@ -92,7 +97,7 @@ public final class Hk3ExactBoundPattern implements IPatternDetails {
         LinkedHashSet<List<List<Allocation>>> combinations = new LinkedHashSet<>();
         int starts = candidates.stream().mapToInt(List::size).max().orElse(1);
         for (int start = 0; start < Math.min(starts, budget); start++) {
-            Map<AEKey, Long> remainingStock = new LinkedHashMap<>(stock);
+            Map<AEKey, Long> remainingStock = new java.util.HashMap<>();
             List<List<Allocation>> selection = new ArrayList<>();
             for (int group = 0; group < candidates.size(); group++) {
                 var choices = candidates.get(group);
@@ -101,9 +106,11 @@ public final class Hk3ExactBoundPattern implements IPatternDetails {
                 for (int i = 0; i < choices.size() && remaining > 0; i++) {
                     int index = (start + i) % choices.size();
                     var stack = choices.get(index);
-                    long units = Math.min(remaining, remainingStock.get(stack.what()) / stack.amount());
+                    long have = remainingStock.getOrDefault(stack.what(), stock.get(stack.what()));
+                    long units = Math.min(remaining, have / stack.amount());
+                    if (units == 0) continue;
                     counts[index] = units;
-                    remainingStock.merge(stack.what(), -Math.multiplyExact(units, stack.amount()), Long::sum);
+                    remainingStock.put(stack.what(), have - units * stack.amount());
                     remaining -= units;
                 }
                 counts[start % choices.size()] += remaining;
@@ -114,19 +121,28 @@ public final class Hk3ExactBoundPattern implements IPatternDetails {
             }
             combinations.add(List.copyOf(selection));
         }
-        List<List<List<Allocation>>> uniform = new ArrayList<>(), mixed = new ArrayList<>();
-        for (int group = 0; group < candidates.size(); group++) {
-            long units = source.getInputs()[group].getMultiplier();
-            List<List<Allocation>> groupUniform = new ArrayList<>();
-            for (var candidate : candidates.get(group)) groupUniform.add(List.of(new Allocation(candidate, units)));
-            uniform.add(List.copyOf(groupUniform));
-            var groupMixed = new LinkedHashSet<>(groupUniform);
-            enumerateAllocations(candidates.get(group), 0, units, new ArrayList<>(), groupMixed, budget);
-            mixed.add(List.copyOf(groupMixed));
+        if (combinations.size() < budget) {
+            List<List<List<Allocation>>> groups = new ArrayList<>();
+            for (int group = 0; group < candidates.size(); group++) {
+                long units = source.getInputs()[group].getMultiplier();
+                groups.add(candidates.get(group).stream().map(stack -> List.of(new Allocation(stack, units))).toList());
+            }
+            enumerateSelections(groups, 0, new ArrayList<>(), combinations, budget);
+            if (combinations.size() < budget) {
+                boolean expanded = false;
+                for (int group = 0; group < groups.size(); group++) {
+                    long units = source.getInputs()[group].getMultiplier();
+                    var uniform = groups.get(group);
+                    if (units == 1 || uniform.size() == 1 || uniform.size() >= budget) continue;
+                    var mixed = new LinkedHashSet<>(uniform);
+                    enumerateAllocations(candidates.get(group), 0, units, new ArrayList<>(), mixed, budget);
+                    groups.set(group, List.copyOf(mixed));
+                    expanded |= mixed.size() > uniform.size();
+                }
+                if (expanded) enumerateSelections(groups, 0, new ArrayList<>(), combinations, budget);
+            }
         }
-        enumerateSelections(uniform, 0, new ArrayList<>(), combinations, budget);
-        enumerateSelections(mixed, 0, new ArrayList<>(), combinations, budget);
-        return combinations.stream().<IPatternDetails>map(selection ->
+        return combinations.stream().map(selection ->
                 new Hk3ExactBoundPattern(source, selection)).iterator();
     }
 
@@ -156,7 +172,7 @@ public final class Hk3ExactBoundPattern implements IPatternDetails {
         }
     }
 
-    boolean sameResult(Level level) {
+    public boolean sameResult(Level level) {
         var grid = new TransientCraftingContainer(new AutoCraftingMenu(), 3, 3);
         KeyCounter[] contents = new KeyCounter[inputs.length];
         Map<AEKey, Long> expected = new LinkedHashMap<>();

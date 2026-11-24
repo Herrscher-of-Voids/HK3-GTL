@@ -10,7 +10,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.function.BooleanSupplier;
 import java.util.function.Function;
@@ -18,23 +17,30 @@ import java.util.function.Predicate;
 
 import static com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactPlanner.*;
 
-/** 独立的守恒图规划：共享多产物、有限路线与真实库存启动的非负净增益循环。 */
+/** 独立的守恒图规划：共享多产物、有限路线与可制种、可按库存承担周转损耗的循环。 */
 final class Hk3ExactGraphPlanner<K, R> {
     private static final BigInteger ZERO = BigInteger.ZERO;
     private final Map<K, BigInteger> targets;
     private final Map<K, BigInteger> inventory;
+    private final Set<K> infinite;
     private final Function<K, List<Recipe<K, R>>> lookup;
     private final Limits limits;
     private final SearchLimits search;
     private final BooleanSupplier cancelled;
     private final Predicate<DetailedResult<K, R>> acceptance;
-    private Map<K, List<Recipe<K, R>>> choices = new LinkedHashMap<>();
-    private Set<K> keys = new HashSet<>();
+    private Map<K, List<Recipe<K, R>>> choices;
+    private Set<K> keys;
     private int edges;
     private int attempts;
+    private boolean routeNeedsCycle;
+    private boolean allowSeedCraft;
+    private Set<K> probabilitySources = Set.of();
+    private Map<K, BigInteger> quotedStock = Map.of();
+    private OrderBudget seedRouteBudget;
 
     static final class Prepared<K, R> {
         private Graph<K, R> graph;
+        private Layout<K, R> fixedRoute;
     }
 
     private record Graph<K, R>(Map<K, List<Recipe<K, R>>> choices, Set<K> keys, int edges) {}
@@ -43,16 +49,43 @@ final class Hk3ExactGraphPlanner<K, R> {
         final Status status;
         Halt(Status status, String reason) { super(reason, null, false, false); this.status = status; }
     }
-    private record Walk<R>(R recipe, Iterator<R> next) {}
-    private record Route<K, R>(Map<R, Recipe<K, R>> recipes, Map<K, R> producer) {}
-    private record Group<R>(List<R> recipes, boolean cyclic) {}
-    private record Proof<K, R>(List<R> order, Map<K, BigInteger> seed) {}
+    private record Walk<K, R>(R recipe, Iterator<K> inputs, Iterator<R> shared) {
+        R next(Map<K, R> producer) {
+            while (inputs.hasNext()) {
+                R next = producer.get(inputs.next());
+                if (next != null) return next;
+            }
+            return shared.hasNext() ? shared.next() : null;
+        }
+    }
+    private record Route<K, R>(Map<R, Recipe<K, R>> recipes, Map<K, R> producer, Map<R, List<R>> shared) {
+        Walk<K, R> walk(R id) {
+            var extra = shared.get(id);
+            return new Walk<>(id, recipes.get(id).inputs().keySet().iterator(), extra == null ? Collections.emptyIterator() : extra.iterator());
+        }
+    }
+    private record Groups<R>(List<R> order, Map<R, List<R>> cycles) {}
+    private record Layout<K, R>(Route<K, R> route, Groups<R> groups) {}
+    private record Loss(BigInteger tail, BigInteger floor) {}
+    private record Proof<K, R>(List<R> order, Map<K, BigInteger> seed, DetailedResult<K, R> startup) {}
+    private static final class OrderBudget {
+        int left;
+        OrderBudget(int left) { this.left = left; }
+        void take() { if (left == 0) throw budget("循环启动顺序与制种样板的搜索次数已用完"); left--; }
+    }
 
     Hk3ExactGraphPlanner(Map<K, BigInteger> targets, Map<K, BigInteger> inventory,
             Function<K, List<Recipe<K, R>>> lookup, Limits limits, SearchLimits search, BooleanSupplier cancelled,
             Predicate<DetailedResult<K, R>> acceptance) {
+        this(targets, inventory, Set.of(), lookup, limits, search, cancelled, acceptance);
+    }
+
+    Hk3ExactGraphPlanner(Map<K, BigInteger> targets, Map<K, BigInteger> inventory, Set<K> infinite,
+            Function<K, List<Recipe<K, R>>> lookup, Limits limits, SearchLimits search, BooleanSupplier cancelled,
+            Predicate<DetailedResult<K, R>> acceptance) {
         this.targets = new LinkedHashMap<>(targets);
-        this.inventory = new LinkedHashMap<>(inventory);
+        this.inventory = inventory;
+        this.infinite = infinite;
         this.lookup = lookup;
         this.limits = limits;
         this.search = search;
@@ -62,9 +95,6 @@ final class Hk3ExactGraphPlanner<K, R> {
         targets.forEach((key, value) -> {
             if (key == null || value == null || value.signum() <= 0) throw new IllegalArgumentException("目标数量必须为正整数");
         });
-        inventory.forEach((key, value) -> {
-            if (key == null || value == null || value.signum() < 0) throw new IllegalArgumentException("库存必须为非负整数");
-        });
     }
 
     DetailedResult<K, R> plan() {
@@ -72,7 +102,13 @@ final class Hk3ExactGraphPlanner<K, R> {
     }
 
     DetailedResult<K, R> plan(Prepared<K, R> prepared) {
-        try {
+        return plan(prepared, true, false, Set.of());
+    }
+
+    DetailedResult<K, R> plan(Prepared<K, R> prepared, boolean keepAcyclicSteps, boolean allowSeedCraft, Set<K> probabilitySources) {
+        this.probabilitySources = probabilitySources;
+        this.allowSeedCraft = allowSeedCraft;
+        return search(keepAcyclicSteps, prepared, () -> {
             if (prepared == null) {
                 capture();
             } else if (prepared.graph == null) {
@@ -85,15 +121,65 @@ final class Hk3ExactGraphPlanner<K, R> {
                 keys = prepared.graph.keys();
                 edges = prepared.graph.edges();
             }
-            Map<K, Integer> decision = new LinkedHashMap<>();
+        });
+    }
+
+    DetailedResult<K, R> planCaptured(Map<K, List<Recipe<K, R>>> captured, Iterable<Recipe<K, R>> multiOutput,
+            int edgeCount, Set<K> probabilitySources, Prepared<K, R> prepared, boolean quoteProbability) {
+        this.probabilitySources = probabilitySources;
+        allowSeedCraft = true;
+        choices = captured;
+        keys = captured.keySet();
+        edges = edgeCount;
+        var plan = search(false, prepared, () -> {
+            if (prepared.graph != null) return;
+            indexByproducts(multiOutput, new LinkedHashMap<>());
+            prepared.graph = new Graph<>(choices, keys, edges);
+        });
+        if (!quoteProbability || !incompleteProbabilityPlan(plan)) return plan;
+        var first = plan;
+        quotedStock = new LinkedHashMap<>();
+        do {
+            if (attempts >= search.maxRouteAttempts()) return failed(Status.BUDGET_EXCEEDED, "概率前置规划超过路线预算");
+            plan.result().missing().forEach((key, amount) -> quotedStock.put(key, stock(key).add(amount)));
+            plan = search(false, prepared, () -> {});
+        } while (incompleteProbabilityPlan(plan));
+        var result = plan.result();
+        if (!result.successful() && result.status() != Status.MISSING_INPUT) return plan;
+        Map<K, BigInteger> needs = new LinkedHashMap<>();
+        boolean completeRoute = result.successful() || !result.batches().isEmpty();
+        for (var entry : quotedStock.entrySet()) {
+            K key = entry.getKey();
+            BigInteger required = completeRoute ? result.stockUsed().getOrDefault(key, ZERO) : entry.getValue();
+            add(needs, key, required.subtract(inventory.getOrDefault(key, ZERO)).max(ZERO));
+        }
+        result.missing().forEach((key, amount) -> add(needs, key, amount));
+        if (needs.isEmpty()) return first;
+        // 报价只交出缺口。机器实物入网后，主单用真实库存重新规划。
+        return new DetailedResult<>(result(Status.MISSING_INPUT, "等待制种与生产原料", Map.of(), Map.of(), Map.of(),
+                needs, Map.of(), result.logicalBytes()), List.of(), first.seedRequired(), true, attempts);
+    }
+
+    private DetailedResult<K, R> search(boolean keepAcyclicSteps, Prepared<K, R> prepared, Runnable prepare) {
+        try {
+            prepare.run();
+            Map<K, Integer> decision = prepared != null && prepared.fixedRoute != null ? Map.of() : new LinkedHashMap<>();
             DetailedResult<K, R> firstMissing = null, firstUnsupported = null, firstBudget = null, firstRejected = null;
             while (true) {
                 check();
                 attempts++;
-                List<K> branching = new ArrayList<>();
+                routeNeedsCycle = false;
+                var fixed = prepared == null ? null : prepared.fixedRoute;
+                List<K> branching = fixed == null ? new ArrayList<>() : List.of();
                 DetailedResult<K, R> result;
-                try { result = solve(select(decision, branching)); }
-                catch (Halt failure) {
+                try {
+                    if (fixed == null) {
+                        var route = select(decision, branching);
+                        var groups = groups(route);
+                        if (prepared != null && branching.isEmpty()) prepared.fixedRoute = new Layout<>(route, groups);
+                        result = solve(route, groups, keepAcyclicSteps);
+                    } else result = solve(fixed.route(), fixed.groups(), keepAcyclicSteps);
+                } catch (Halt failure) {
                     if (failure.status == Status.CANCELLED) throw failure;
                     result = failed(failure.status, failure.getMessage());
                 }
@@ -103,7 +189,8 @@ final class Hk3ExactGraphPlanner<K, R> {
                     if (accepted) return result;
                     result = failed(Status.REJECTED, "库存可行路线均未通过调用方接纳条件");
                 }
-                if (result.result().status() == Status.MISSING_INPUT && firstMissing == null) firstMissing = result;
+                if (result.result().status() == Status.MISSING_INPUT && (firstMissing == null
+                        || probabilityCanSupply(result) && !probabilityCanSupply(firstMissing))) firstMissing = result;
                 if (result.result().status() == Status.BUDGET_EXCEEDED && firstBudget == null) firstBudget = result;
                 if (result.result().status() == Status.UNSUPPORTED && firstUnsupported == null) firstUnsupported = result;
                 if (result.result().status() == Status.REJECTED && firstRejected == null) firstRejected = result;
@@ -115,14 +202,28 @@ final class Hk3ExactGraphPlanner<K, R> {
                     return new DetailedResult<>(chosen.result(), chosen.execution(), chosen.seedRequired(),
                             chosen.orderedExecutionRequired(), attempts);
                 }
+                if (seedRouteBudget != null) seedRouteBudget.take();
                 if (attempts >= search.maxRouteAttempts())
                     return failed(Status.BUDGET_EXCEEDED, "候选路线预算耗尽，未将未经证明的路线当作可执行计划");
             }
         } catch (Halt failure) { return failed(failure.status, failure.getMessage()); }
     }
 
+    private boolean incompleteProbabilityPlan(DetailedResult<K, R> plan) {
+        return plan.result().status() == Status.MISSING_INPUT && plan.orderedExecutionRequired()
+                && plan.result().batches().isEmpty() && probabilityCanSupply(plan);
+    }
+
+    private boolean probabilityCanSupply(DetailedResult<K, R> plan) {
+        return !probabilitySources.isEmpty() && !plan.result().missing().isEmpty()
+                && probabilitySources.containsAll(plan.result().missing().keySet());
+    }
+
     private void capture() {
+        choices = new LinkedHashMap<>();
+        keys = new HashSet<>();
         Map<R, Recipe<K, R>> definitions = new LinkedHashMap<>();
+        Map<K, Set<R>> indexedIds = new LinkedHashMap<>();
         ArrayDeque<K> pending = new ArrayDeque<>(targets.keySet());
         Set<K> queued = new HashSet<>(targets.keySet());
         while (!pending.isEmpty()) {
@@ -132,13 +233,18 @@ final class Hk3ExactGraphPlanner<K, R> {
             var found = lookup.apply(key);
             if (found == null) throw unsupported("配方来源无效");
             if (found.size() > limits.maxNodes()) throw budget("单资源候选数量超过图预算");
-            List<Recipe<K, R>> candidates = List.copyOf(found);
+            if (keys.size() > limits.maxNodes()) throw budget("目标闭包资源数超过图预算");
+            if (found.isEmpty()) continue;
+            List<Recipe<K, R>> candidates = new ArrayList<>(found.size());
+            Set<R> candidateIds = found.size() == 1 ? null : new HashSet<>();
             choices.put(key, candidates);
-            for (var recipe : candidates) {
+            if (candidateIds != null) indexedIds.put(key, candidateIds);
+            for (var recipe : found) {
                 check();
                 if (!recipe.outputs().containsKey(key)) throw unsupported("配方未产出对应需求");
                 var old = definitions.putIfAbsent(recipe.id(), recipe);
                 if (old != null && !old.equals(recipe)) throw unsupported("同一配方身份对应了不同定义");
+                if (candidateIds == null || candidateIds.add(recipe.id())) candidates.add(recipe);
                 if (old != null) continue;
                 if (definitions.size() > limits.maxNodes()) throw budget("候选样板数量超过图预算");
                 int added = recipe.inputs().size() + recipe.outputs().size();
@@ -149,51 +255,80 @@ final class Hk3ExactGraphPlanner<K, R> {
                 if (keys.size() > limits.maxNodes()) throw budget("目标闭包资源数超过图预算");
                 for (K input : recipe.inputs().keySet()) if (queued.add(input)) pending.addLast(input);
             }
-            if (keys.size() > limits.maxNodes()) throw budget("目标闭包资源数超过图预算");
         }
-        // 部分AE索引只登记主产物；已发现的副产物仍必须共享同一样板。
-        Map<K, Map<R, Recipe<K, R>>> indexed = new LinkedHashMap<>();
-        choices.forEach((key, recipes) -> {
-            Map<R, Recipe<K, R>> candidates = new LinkedHashMap<>();
-            recipes.forEach(recipe -> candidates.putIfAbsent(recipe.id(), recipe));
-            indexed.put(key, candidates);
-        });
-        for (var recipe : definitions.values()) {
+        indexByproducts(definitions.values(), indexedIds);
+    }
+
+    // 部分 AE 索引只登记主产物；保留原候选顺序，再补副产物。
+    private void indexByproducts(Iterable<Recipe<K, R>> recipes, Map<K, Set<R>> indexedIds) {
+        for (var recipe : recipes) {
             check();
-            for (K output : recipe.outputs().keySet())
-                indexed.computeIfAbsent(output, key -> new LinkedHashMap<>()).putIfAbsent(recipe.id(), recipe);
+            if (recipe.outputs().size() == 1) continue;
+            for (K output : recipe.outputs().keySet()) {
+                var candidates = choices.get(output);
+                if (candidates == null || candidates.isEmpty()) {
+                    List<Recipe<K, R>> first = new ArrayList<>(1);
+                    first.add(recipe);
+                    choices.put(output, first);
+                    if (keys.size() > limits.maxNodes()) throw budget("目标闭包资源数超过图预算");
+                    continue;
+                }
+                if (candidates.get(0).id().equals(recipe.id())) continue;
+                var ids = indexedIds.computeIfAbsent(output, key -> {
+                    Set<R> known = new HashSet<>();
+                    for (var candidate : candidates) known.add(candidate.id());
+                    return known;
+                });
+                if (ids.add(recipe.id())) candidates.add(recipe);
+            }
         }
-        indexed.forEach((key, candidates) -> choices.put(key, List.copyOf(candidates.values())));
+    }
+
+    private List<Recipe<K, R>> candidates(K key) {
+        return seedRouteBudget == null ? choices.getOrDefault(key, List.of()) : choices.computeIfAbsent(key, lookup);
     }
 
     private Route<K, R> select(Map<K, Integer> decision, List<K> branching) {
         Map<R, Recipe<K, R>> selected = new LinkedHashMap<>();
         Map<K, R> producer = new LinkedHashMap<>();
-        Set<K> visited = new HashSet<>();
+        Map<R, List<R>> shared = new java.util.HashMap<>();
+        Set<K> queued = new HashSet<>(targets.keySet());
         ArrayDeque<K> pending = new ArrayDeque<>(targets.keySet());
         while (!pending.isEmpty()) {
             check();
             K key = pending.removeFirst();
-            if (!visited.add(key) || producer.containsKey(key)) continue;
-            var candidates = choices.getOrDefault(key, List.of());
+            if (producer.containsKey(key)) continue;
+            var candidates = candidates(key);
             if (candidates.isEmpty()) continue;
-            if (candidates.size() > 1) branching.add(key);
+            int paths = pathCount(key, candidates.size());
+            if (paths > 1) branching.add(key);
             int index = decision.getOrDefault(key, 0);
-            if (index >= candidates.size()) throw unsupported("路线选择无效");
+            if (index == candidates.size()) continue;
             var recipe = candidates.get(index);
             if (selected.putIfAbsent(recipe.id(), recipe) != null) continue;
-            for (K output : recipe.outputs().keySet()) producer.putIfAbsent(output, recipe.id());
-            pending.addAll(recipe.inputs().keySet());
+            for (K output : recipe.outputs().keySet()) {
+                R previous = producer.putIfAbsent(output, recipe.id());
+                if (previous != null) {
+                    shared.computeIfAbsent(recipe.id(), k -> new ArrayList<>()).add(previous);
+                    shared.computeIfAbsent(previous, k -> new ArrayList<>()).add(recipe.id());
+                }
+            }
+            for (K input : recipe.inputs().keySet()) if (queued.add(input)) pending.addLast(input);
         }
         for (K target : targets.keySet()) if (!producer.containsKey(target)) throw unsupported("新增目标没有生产路线");
-        return new Route<>(selected, producer);
+        return new Route<>(selected, producer, shared);
+    }
+
+    private int pathCount(K key, int recipes) {
+        // 另一路从库存取料，缺口只能由已确认的概率机器实际补齐。
+        return probabilitySources.contains(key) && !targets.containsKey(key) ? recipes + 1 : recipes;
     }
 
     private boolean advance(Map<K, Integer> decision, List<K> branching) {
         for (int index = branching.size() - 1; index >= 0; index--) {
             K key = branching.get(index);
             int next = decision.getOrDefault(key, 0) + 1;
-            if (next < choices.get(key).size()) {
+            if (next < pathCount(key, choices.get(key).size())) {
                 decision.put(key, next);
                 Set<K> prefix = new HashSet<>(branching.subList(0, index + 1));
                 decision.keySet().removeIf(previous -> !prefix.contains(previous));
@@ -204,114 +339,239 @@ final class Hk3ExactGraphPlanner<K, R> {
         return false;
     }
 
-    private DetailedResult<K, R> solve(Route<K, R> route) {
-        var groups = groups(route);
-        Map<R, Integer> membership = new LinkedHashMap<>();
-        for (int group = 0; group < groups.size(); group++)
-            for (R recipe : groups.get(group).recipes()) membership.put(recipe, group);
+    private DetailedResult<K, R> solve(Route<K, R> route, Groups<R> groups, boolean keepAcyclicSteps) {
+        boolean hasCycles = !groups.cycles().isEmpty();
+        if (seedRouteBudget != null && hasCycles) throw unsupported("制种路线包含循环");
+        boolean keepSteps = keepAcyclicSteps || hasCycles;
         Map<K, BigInteger> demand = new LinkedHashMap<>(targets), stock = new LinkedHashMap<>();
         Map<K, BigInteger> seeds = new LinkedHashMap<>(), surplus = new LinkedHashMap<>();
         Map<R, BigInteger> batches = new LinkedHashMap<>();
-        List<Step<R>> execution = new ArrayList<>();
+        List<Step<R>> execution = keepSteps ? new ArrayList<>() : List.of();
         BigInteger bytes = ZERO;
         int certificateSize = 0;
         boolean ordered = false;
-        for (int groupIndex = 0; groupIndex < groups.size(); groupIndex++) {
+        for (R id : groups.order()) {
             check();
-            Group<R> group = groups.get(groupIndex);
-            Set<K> outputs = new LinkedHashSet<>();
-            Map<K, BigInteger> net = new LinkedHashMap<>(), take = new LinkedHashMap<>(), minimum = new LinkedHashMap<>();
-            for (R id : group.recipes()) {
-                var recipe = route.recipes().get(id);
-                outputs.addAll(recipe.outputs().keySet());
-                recipe.outputs().forEach((key, count) -> net.merge(key, count, BigInteger::add));
-                for (var input : recipe.inputs().entrySet()) {
-                    if (Objects.equals(membership.get(route.producer().get(input.getKey())), groupIndex))
-                        net.merge(input.getKey(), input.getValue().negate(), BigInteger::add);
+            List<R> group = hasCycles ? groups.cycles().get(id) : null;
+            boolean cyclic = group != null;
+            Map<K, BigInteger> net = cyclic ? new LinkedHashMap<>() : route.recipes().get(id).outputs();
+            Set<K> outputs = cyclic ? new LinkedHashSet<>() : net.keySet();
+            if (cyclic) {
+                for (R member : group) outputs.addAll(route.recipes().get(member).outputs().keySet());
+                for (R member : group) {
+                    var recipe = route.recipes().get(member);
+                    recipe.outputs().forEach((key, count) -> net.merge(key, count, BigInteger::add));
+                    for (var input : recipe.inputs().entrySet()) {
+                        if (outputs.contains(input.getKey()))
+                            net.merge(input.getKey(), input.getValue().negate(), BigInteger::add);
+                    }
                 }
             }
             boolean productionNeeded = false;
             for (K key : outputs) {
                 BigInteger needed = demand.getOrDefault(key, ZERO);
-                BigInteger used = targets.containsKey(key) ? ZERO : inventory.getOrDefault(key, ZERO).min(needed);
-                take.put(key, used);
-                minimum.put(key, needed.compareTo(used) > 0 ? BigInteger.ONE : ZERO);
+                BigInteger used = targets.containsKey(key) ? ZERO : available(key, needed);
+                if (used.signum() > 0) stock.put(key, used);
                 productionNeeded |= needed.compareTo(used) > 0;
             }
-            if (!productionNeeded) { take.forEach((key, count) -> add(stock, key, count)); continue; }
-            Proof<K, R> proof = new Proof<>(group.recipes(), Map.of());
-            if (group.cyclic()) {
-                if (outputs.stream().anyMatch(key -> net.getOrDefault(key, ZERO).compareTo(minimum.get(key)) < 0))
-                    group = balance(group, route, net, outputs, minimum, search.maxSteps() - certificateSize);
-                proof = prove(group, route.recipes(), outputs);
-                if (proof == null) {
-                    boolean anyStart = group.recipes().stream().anyMatch(id -> route.recipes().get(id).inputs().entrySet()
-                            .stream().filter(input -> outputs.contains(input.getKey())).allMatch(input ->
-                                    inventory.getOrDefault(input.getKey(), ZERO).compareTo(input.getValue()) >= 0));
-                    if (anyStart) {
-                        if (new HashSet<>(group.recipes()).size() > search.maxOrderAttempts()) throw budget("循环顺序搜索预算耗尽");
-                        throw unsupported("当前有界顺序搜索未能证明此循环可执行，不宣称种子不可能存在");
-                    }
-                    Map<K, BigInteger> required = prefix(group.recipes(), route.recipes(), outputs);
-                    Map<K, BigInteger> missingSeed = new LinkedHashMap<>();
-                    required.forEach((key, count) -> add(missingSeed, key, count.subtract(inventory.getOrDefault(key, ZERO)).max(ZERO)));
-                    return new DetailedResult<>(result(Status.MISSING_INPUT, "循环缺少可核验的真实启动种子；没有生成可提交程序",
-                            Map.of(), Map.of(), Map.of(), missingSeed, Map.of(), ZERO), List.of(), required, true, attempts);
+            if (!productionNeeded) {
+                outputs.forEach(demand::remove);
+                continue;
+            }
+            List<R> order = group;
+            List<Step<R>> starts = List.of();
+            Map<K, BigInteger> made = Map.of();
+            Map<K, Loss> losses = Map.of();
+            BigInteger rounds = ZERO;
+            if (cyclic) {
+                Map<K, BigInteger> minimum = new LinkedHashMap<>();
+                routeNeedsCycle = true;
+                for (K key : outputs) minimum.put(key, demand.getOrDefault(key, ZERO)
+                        .compareTo(stock.getOrDefault(key, ZERO)) > 0 ? BigInteger.ONE : ZERO);
+                boolean rebalance = outputs.stream().anyMatch(key -> net.get(key).compareTo(minimum.get(key)) < 0)
+                        && !canFundLosses(group, net, minimum, demand, stock);
+                var orderBudget = new OrderBudget(search.maxOrderAttempts() - 1);
+                Proof<K, R> proof;
+                Map<K, BigInteger> required;
+                while (true) {
+                    if (rebalance) group = balance(group, route, net, outputs, minimum, search.maxSteps() - certificateSize);
+                    if (net.values().stream().anyMatch(amount -> amount.signum() < 0)) {
+                        rounds = requiredRounds(net, demand, stock, made);
+                        if (rounds.signum() == 0) {
+                            Map<K, BigInteger> shortfall = new LinkedHashMap<>();
+                            for (K key : outputs) add(shortfall, key, demand.getOrDefault(key, ZERO).subtract(stock.getOrDefault(key, ZERO)));
+                            return new DetailedResult<>(result(Status.MISSING_INPUT, "循环不能补充自身净消耗的周转料",
+                                    Map.of(), Map.of(), Map.of(), shortfall, Map.of(), ZERO), List.of(), Map.of(), true, attempts);
+                        }
+                        losses = losses(net, demand, rounds);
+                    } else losses = Map.of();
+                    required = requiredStock(group, route.recipes(), outputs, losses);
+                    boolean stockOnly = !rebalance && group.size() > 1 && !coversLosses(losses.keySet(), required);
+                    proof = prove(group, route, outputs, losses, required, orderBudget, stockOnly);
+                    if (proof != null || !stockOnly) break;
+                    rebalance = true;
                 }
-                proof.seed().forEach((key, count) -> {
-                    take.merge(key, count, BigInteger::max);
-                    seeds.merge(key, count, BigInteger::add);
-                });
+                if (proof == null) {
+                    return new DetailedResult<>(result(Status.MISSING_INPUT, losses.isEmpty() ? "循环缺少启动种子" : "循环周转料不足",
+                            Map.of(), Map.of(), Map.of(), missingSeed(required), Map.of(), ZERO), List.of(), required, true, attempts);
+                }
+                if (proof.startup() != null) {
+                    var startup = proof.startup().result();
+                    if (!startup.successful()) return new DetailedResult<>(result(Status.MISSING_INPUT, "制种样板缺少概率原料",
+                            Map.of(), Map.of(), Map.of(), startup.missing(), Map.of(), ZERO), List.of(), proof.seed(), true, attempts);
+                    starts = proof.startup().execution();
+                    made = missingSeed(proof.seed());
+                    for (var extra : startup.surplus().entrySet()) {
+                        if (outputs.contains(extra.getKey())) add(made, extra.getKey(), extra.getValue());
+                        else add(surplus, extra.getKey(), extra.getValue());
+                    }
+                    startup.batches().forEach((part, count) -> add(batches, part, count));
+                    startup.stockUsed().forEach((key, count) -> add(demand, key, count));
+                    bytes = bytes.add(startup.logicalBytes());
+                }
+                for (var seed : proof.seed().entrySet()) {
+                    K key = seed.getKey();
+                    BigInteger fromStock = seed.getValue().subtract(made.getOrDefault(key, ZERO)).max(ZERO);
+                    if (fromStock.signum() > 0) {
+                        stock.merge(key, fromStock, BigInteger::max);
+                        seeds.merge(key, fromStock, BigInteger::add);
+                    }
+                }
+                order = proof.order();
                 ordered = true;
             }
-            BigInteger rounds = ZERO;
-            for (K key : outputs) {
-                BigInteger deficit = demand.getOrDefault(key, ZERO);
-                if (!targets.containsKey(key)) deficit = deficit.subtract(take.getOrDefault(key, ZERO));
-                if (deficit.signum() <= 0) continue;
-                BigInteger gain = net.getOrDefault(key, ZERO);
-                if (gain.signum() <= 0) throw unsupported("循环对此需求没有正净产出，不能用回流抵扣新增量");
-                rounds = rounds.max(ceil(deficit, gain));
-            }
-            if (rounds.signum() <= 0) throw unsupported("执行单元没有可证明的新增需求");
-            certificateSize += group.recipes().size();
+            if (losses.isEmpty()) rounds = requiredRounds(net, demand, stock, made);
+            if (rounds.signum() <= 0 && starts.isEmpty()) throw unsupported("执行单元没有可证明的新增需求");
+            int parts = cyclic ? group.size() : 1;
+            certificateSize += (rounds.signum() > 0 ? parts : 0) + starts.size();
             if (certificateSize > search.maxSteps()) throw budget("压缩执行程序超过样板条目预算");
-            execution.add(new Step<>(proof.order(), rounds));
-            for (R id : group.recipes()) {
-                var recipe = route.recipes().get(id);
-                batches.merge(id, rounds, BigInteger::add);
+            if (keepSteps) {
+                if (rounds.signum() > 0) execution.add(new Step<>(cyclic ? order : List.of(id), rounds));
+                for (int i = starts.size() - 1; i >= 0; i--) execution.add(starts.get(i));
+            }
+            if (rounds.signum() > 0) for (int part = 0; part < parts; part++) {
+                R member = cyclic ? group.get(part) : id;
+                var recipe = route.recipes().get(member);
+                batches.merge(member, rounds, BigInteger::add);
                 bytes = bytes.add(recipe.logicalBytesPerBatch().multiply(rounds));
                 for (var input : recipe.inputs().entrySet())
-                    if (!Objects.equals(membership.get(route.producer().get(input.getKey())), groupIndex))
+                    if (!cyclic || !outputs.contains(input.getKey()))
                         demand.merge(input.getKey(), input.getValue().multiply(rounds), BigInteger::add);
             }
             for (K key : outputs) {
-                add(stock, key, take.getOrDefault(key, ZERO));
-                add(surplus, key, take.getOrDefault(key, ZERO).add(net.getOrDefault(key, ZERO).multiply(rounds))
-                        .subtract(demand.getOrDefault(key, ZERO)));
+                var needed = demand.remove(key);
+                add(surplus, key, stock.getOrDefault(key, ZERO).add(made.getOrDefault(key, ZERO)).add(net.get(key).multiply(rounds))
+                        .subtract(needed == null ? ZERO : needed));
             }
         }
-        Map<K, BigInteger> leafDemand = new LinkedHashMap<>(), missing = new LinkedHashMap<>();
+        Map<K, BigInteger> missing = new LinkedHashMap<>();
         for (var entry : demand.entrySet()) {
             check();
-            if (route.producer().containsKey(entry.getKey())) continue;
-            BigInteger used = inventory.getOrDefault(entry.getKey(), ZERO).min(entry.getValue());
-            add(leafDemand, entry.getKey(), entry.getValue());
+            BigInteger used = available(entry.getKey(), entry.getValue());
             add(stock, entry.getKey(), used);
             add(missing, entry.getKey(), entry.getValue().subtract(used));
         }
-        Collections.reverse(execution);
+        if (keepSteps) Collections.reverse(execution);
         return new DetailedResult<>(result(missing.isEmpty() ? Status.SUCCESS : Status.MISSING_INPUT,
                 missing.isEmpty() ? "守恒规划与压缩执行顺序已证明" : "外部原料不足；执行证书仅供诊断",
-                batches, stock, leafDemand, missing, surplus, bytes), execution, seeds, ordered, attempts);
+                batches, stock, demand, missing, surplus, bytes), execution, seeds, ordered, attempts);
+    }
+
+    private BigInteger requiredRounds(Map<K, BigInteger> net, Map<K, BigInteger> demand,
+            Map<K, BigInteger> stock, Map<K, BigInteger> made) {
+        BigInteger rounds = ZERO;
+        for (var output : net.entrySet()) {
+            K key = output.getKey();
+            BigInteger gain = output.getValue();
+            if (gain.signum() < 0 && !targets.containsKey(key)) continue;
+            BigInteger deficit = demand.getOrDefault(key, ZERO).subtract(made.getOrDefault(key, ZERO));
+            if (!targets.containsKey(key)) deficit = deficit.subtract(stock.getOrDefault(key, ZERO));
+            if (deficit.signum() <= 0) continue;
+            if (gain.signum() <= 0) throw unsupported("循环对此需求没有正净产出，不能用回流抵扣新增量");
+            rounds = rounds.max(ceil(deficit, gain));
+        }
+        return rounds;
+    }
+
+    private Map<K, Loss> losses(Map<K, BigInteger> net, Map<K, BigInteger> demand, BigInteger rounds) {
+        Map<K, Loss> losses = new LinkedHashMap<>();
+        net.forEach((key, gain) -> {
+            if (gain.signum() < 0) {
+                BigInteger consumed = gain.negate().multiply(rounds);
+                losses.put(key, new Loss(consumed.add(gain), demand.getOrDefault(key, ZERO).add(consumed)));
+            }
+        });
+        return losses;
+    }
+
+    private Map<K, BigInteger> missingSeed(Map<K, BigInteger> required) {
+        Map<K, BigInteger> missing = new LinkedHashMap<>();
+        required.forEach((key, count) -> add(missing, key, count.subtract(available(key, count))));
+        return missing;
+    }
+
+    private DetailedResult<K, R> seedPlan(Map<K, BigInteger> missing, Route<K, R> route, Set<K> internal, OrderBudget budget) {
+        var startup = new Hk3ExactGraphPlanner<>(missing, inventory, infinite, key ->
+                choices.getOrDefault(key, List.of()).stream().filter(recipe -> !route.recipes().containsKey(recipe.id())
+                        && (recipe.outputs().size() == 1 || recipe.outputs().keySet().stream()
+                                .noneMatch(output -> route.producer().containsKey(output) && !internal.contains(output)))
+                        && Collections.disjoint(recipe.inputs().keySet(), route.producer().keySet())).toList(),
+                limits, search, cancelled, result -> true);
+        startup.probabilitySources = probabilitySources;
+        startup.quotedStock = quotedStock;
+        startup.seedRouteBudget = budget;
+        startup.choices = new java.util.HashMap<>();
+        startup.keys = keys;
+        startup.edges = edges;
+        var plan = startup.search(true, null, () -> {});
+        var status = plan.result().status();
+        if (status == Status.CANCELLED || status == Status.BUDGET_EXCEEDED) throw new Halt(status, plan.result().reason());
+        return plan.result().successful() || status == Status.MISSING_INPUT && probabilityCanSupply(plan) ? plan : null;
+    }
+
+    private boolean canFundLosses(List<R> group, Map<K, BigInteger> net, Map<K, BigInteger> minimum,
+            Map<K, BigInteger> demand, Map<K, BigInteger> stock) {
+        if (!allowSeedCraft) return false;
+        for (var output : net.entrySet()) {
+            var gain = output.getValue();
+            if (gain.compareTo(minimum.get(output.getKey())) < 0
+                    && (gain.signum() >= 0 || targets.containsKey(output.getKey()))) return false;
+        }
+        if (group.size() == 1) return true;
+        BigInteger rounds = requiredRounds(net, demand, stock, Map.of());
+        if (rounds.signum() == 0) return false;
+        // 净消耗与样板顺序无关；每轮先投哪一份周转料由 prove 选择。
+        for (var output : net.entrySet()) if (output.getValue().signum() < 0) {
+            K key = output.getKey();
+            var floor = demand.getOrDefault(key, ZERO).subtract(output.getValue().multiply(rounds));
+            if (available(key, floor).compareTo(floor) < 0) return false;
+        }
+        return true;
+    }
+
+    private boolean coversLosses(Set<K> keys, Map<K, BigInteger> required) {
+        for (K key : keys) if (available(key, required.get(key)).compareTo(required.get(key)) < 0) return false;
+        return true;
     }
 
     /** 按短缺资源选择正净产出样板增配，展开规模服从现有程序预算。 */
-    private Group<R> balance(Group<R> group, Route<K, R> route, Map<K, BigInteger> net,
+    private List<R> balance(List<R> group, Route<K, R> route, Map<K, BigInteger> net,
             Set<K> internal, Map<K, BigInteger> minimum, int budget) {
         Map<R, Integer> weights = new LinkedHashMap<>();
-        group.recipes().forEach(id -> weights.put(id, 1));
-        int size = group.recipes().size();
+        record Producer<R>(R id, BigInteger gain) {}
+        Map<K, Producer<R>> producers = new java.util.HashMap<>();
+        for (R id : group) {
+            weights.put(id, 1);
+            var recipe = route.recipes().get(id);
+            for (var output : recipe.outputs().entrySet()) {
+                K key = output.getKey();
+                BigInteger gain = output.getValue().subtract(recipe.inputs().getOrDefault(key, ZERO));
+                var best = producers.get(key);
+                if (gain.signum() > 0 && (best == null || gain.compareTo(best.gain()) > 0))
+                    producers.put(key, new Producer<>(id, gain));
+            }
+        }
+        int size = group.size();
         ArrayDeque<K> deficits = new ArrayDeque<>();
         Set<K> queued = new HashSet<>();
         net.forEach((key, amount) -> {
@@ -323,17 +583,12 @@ final class Hk3ExactGraphPlanner<K, R> {
             queued.remove(key);
             BigInteger deficit = minimum.getOrDefault(key, ZERO).subtract(net.get(key));
             if (deficit.signum() <= 0) continue;
-            R id = null;
-            BigInteger gain = ZERO;
-            for (R candidate : weights.keySet()) {
-                var definition = route.recipes().get(candidate);
-                BigInteger available = definition.outputs().getOrDefault(key, ZERO)
-                        .subtract(definition.inputs().getOrDefault(key, ZERO));
-                if (available.compareTo(gain) > 0) { id = candidate; gain = available; }
-            }
-            if (id == null) throw unsupported("所选执行组没有能补足短缺资源的正净产出样板");
+            var best = producers.get(key);
+            if (best == null && allowSeedCraft && net.get(key).signum() < 0 && !targets.containsKey(key)) continue;
+            if (best == null) throw unsupported("所选执行组没有能补足短缺资源的正净产出样板");
+            R id = best.id();
             var recipe = route.recipes().get(id);
-            BigInteger added = ceil(deficit, gain);
+            BigInteger added = ceil(deficit, best.gain());
             if (added.compareTo(BigInteger.valueOf(budget - size)) > 0)
                 throw budget("循环整数配比搜索达到程序预算，未断言不存在可行配比");
             int count = added.intValueExact();
@@ -348,46 +603,118 @@ final class Hk3ExactGraphPlanner<K, R> {
         }
         List<R> expanded = new ArrayList<>(size);
         weights.forEach((id, count) -> { for (int i = 0; i < count; i++) expanded.add(id); });
-        return new Group<>(expanded, true);
+        return expanded;
     }
 
-    /** 所有内部资源的整轮净量非负，首轮前缀种子足够即可归纳证明任意大数轮数。 */
-    private Proof<K, R> prove(Group<R> group, Map<R, Recipe<K, R>> recipes, Set<K> internal) {
-        Map<R, Integer> counts = new LinkedHashMap<>();
-        group.recipes().forEach(id -> counts.merge(id, 1, Integer::sum));
-        int attempts = Math.min(search.maxOrderAttempts(), counts.size());
-        for (int start = 0; start < attempts; start++) {
-            check();
-            List<R> candidates = new ArrayList<>(counts.keySet());
-            Collections.rotate(candidates, -start);
-            Map<R, Integer> left = new LinkedHashMap<>(counts);
-            Map<K, BigInteger> balance = new LinkedHashMap<>();
-            internal.forEach(key -> balance.put(key, inventory.getOrDefault(key, ZERO)));
-            List<R> order = new ArrayList<>();
-            while (!left.isEmpty()) {
-                check();
-                R chosen = null;
-                for (R id : candidates) {
-                    if (!left.containsKey(id)) continue;
-                    boolean ready = true;
-                    for (var input : recipes.get(id).inputs().entrySet())
-                        if (internal.contains(input.getKey()) && balance.getOrDefault(input.getKey(), ZERO).compareTo(input.getValue()) < 0)
-                            ready = false;
-                    if (ready) { chosen = id; break; }
-                }
-                if (chosen == null) break;
-                var recipe = recipes.get(chosen);
-                recipe.inputs().forEach((key, count) -> { if (internal.contains(key)) balance.merge(key, count.negate(), BigInteger::add); });
-                recipe.outputs().forEach((key, count) -> balance.merge(key, count, BigInteger::add));
-                order.add(chosen);
-                if (left.merge(chosen, -1, Integer::sum) == 0) left.remove(chosen);
-            }
-            if (left.isEmpty()) return new Proof<>(order, prefix(order, recipes, internal));
+    /** 净损耗资源按最后一轮的前缀验证，其余资源按首轮验证。 */
+    private Proof<K, R> prove(List<R> group, Route<K, R> route, Set<K> internal, Map<K, Loss> losses,
+            Map<K, BigInteger> required, OrderBudget budget, boolean stockOnly) {
+        if (required.entrySet().stream().allMatch(seed -> available(seed.getKey(), seed.getValue()).equals(seed.getValue())))
+            return new Proof<>(group, required, null);
+        if (group.size() == 1) {
+            if (!allowSeedCraft) return null;
+            var startup = seedPlan(missingSeed(required), route, internal, budget);
+            return startup == null ? null : new Proof<>(group, required, startup);
         }
-        return null;
+        Map<R, Integer> counts = new LinkedHashMap<>();
+        group.forEach(id -> counts.merge(id, 1, Integer::sum));
+        var candidates = counts.keySet().stream().map(route.recipes()::get).toList();
+        int[] left = counts.values().stream().mapToInt(Integer::intValue).toArray();
+        int length = group.size(), size = candidates.size();
+        int[] next = new int[length], path = new int[length];
+        boolean[] tried = new boolean[length];
+        Map<K, BigInteger> balance = new java.util.HashMap<>();
+        internal.forEach(key -> balance.put(key, stock(key)));
+        record Raised<K>(K key, BigInteger before) {}
+        record SeedChange<K>(int depth, List<Raised<K>> keys) {}
+        Map<K, BigInteger> extra = new LinkedHashMap<>();
+        losses.forEach((key, loss) -> {
+            if (infinite.contains(key)) return;
+            BigInteger have = balance.get(key);
+            balance.put(key, have.subtract(loss.tail()));
+            add(extra, key, loss.floor().subtract(have).max(ZERO));
+        });
+        var changes = new ArrayDeque<SeedChange<K>>();
+        var order = new ArrayList<R>(length);
+        Proof<K, R> awaitingSupply = null;
+        while (true) {
+            check();
+            int depth = order.size();
+            if (depth == length) {
+                var startup = extra.isEmpty() ? null : seedPlan(extra, route, internal, budget);
+                if (extra.isEmpty() || startup != null && startup.result().successful())
+                    return new Proof<>(order, requiredStock(order, route.recipes(), internal, losses), startup);
+                if (startup != null && awaitingSupply == null)
+                    awaitingSupply = new Proof<>(List.of(), requiredStock(order, route.recipes(), internal, losses), startup);
+            }
+            int end = allowSeedCraft && !stockOnly ? size * 2 : size;
+            while (depth < length && next[depth] < end) {
+                int slot = next[depth]++;
+                boolean craft = slot >= size;
+                int index = craft ? slot - size : slot;
+                if (left[index] == 0) continue;
+                var recipe = candidates.get(index);
+                boolean needsSeed = !ready(recipe, internal, balance, extra);
+                if (needsSeed != craft) continue;
+                if (tried[depth]) {
+                    if (stockOnly && budget.left == 0) return null;
+                    budget.take();
+                }
+                tried[depth] = true;
+                if (craft) {
+                    var raised = new ArrayList<Raised<K>>();
+                    for (var input : recipe.inputs().entrySet()) {
+                        K key = input.getKey();
+                        if (!internal.contains(key) || infinite.contains(key)) continue;
+                        BigInteger shortage = input.getValue().subtract(balance.getOrDefault(key, ZERO));
+                        var before = extra.getOrDefault(key, ZERO);
+                        if (shortage.compareTo(before) > 0) {
+                            raised.add(new Raised<>(key, before));
+                            extra.put(key, shortage);
+                        }
+                    }
+                    changes.push(new SeedChange<>(depth, raised));
+                }
+                path[depth] = index;
+                left[index]--;
+                applyRoundStep(recipe, internal, balance, true);
+                order.add(recipe.id());
+                break;
+            }
+            if (order.size() > depth) continue;
+            if (depth == 0) return awaitingSupply;
+            if (depth < length) {
+                next[depth] = 0;
+                tried[depth] = false;
+            }
+            int parent = depth - 1, index = path[parent];
+            order.remove(parent);
+            left[index]++;
+            applyRoundStep(candidates.get(index), internal, balance, false);
+            if (!changes.isEmpty() && changes.peek().depth() == parent) for (var change : changes.pop().keys()) {
+                if (change.before().signum() == 0) extra.remove(change.key());
+                else extra.put(change.key(), change.before());
+            }
+        }
     }
 
-    private Map<K, BigInteger> prefix(List<R> order, Map<R, Recipe<K, R>> recipes, Set<K> internal) {
+    private boolean ready(Recipe<K, R> recipe, Set<K> internal, Map<K, BigInteger> balance, Map<K, BigInteger> extra) {
+        for (var input : recipe.inputs().entrySet()) {
+            K key = input.getKey();
+            if (!internal.contains(key) || infinite.contains(key)) continue;
+            BigInteger have = balance.getOrDefault(key, ZERO);
+            if (have.compareTo(input.getValue()) < 0 && have.add(extra.getOrDefault(key, ZERO)).compareTo(input.getValue()) < 0)
+                return false;
+        }
+        return true;
+    }
+
+    private void applyRoundStep(Recipe<K, R> recipe, Set<K> internal, Map<K, BigInteger> balance, boolean forward) {
+        recipe.inputs().forEach((key, count) -> { if (internal.contains(key)) balance.merge(key, forward ? count.negate() : count, BigInteger::add); });
+        recipe.outputs().forEach((key, count) -> balance.merge(key, forward ? count : count.negate(), BigInteger::add));
+    }
+
+    private Map<K, BigInteger> requiredStock(List<R> order, Map<R, Recipe<K, R>> recipes, Set<K> internal, Map<K, Loss> losses) {
         Map<K, BigInteger> balance = new LinkedHashMap<>(), seed = new LinkedHashMap<>();
         for (R id : order) {
             check();
@@ -399,58 +726,68 @@ final class Hk3ExactGraphPlanner<K, R> {
             }
             recipe.outputs().forEach((key, count) -> balance.merge(key, count, BigInteger::add));
         }
+        losses.forEach((key, loss) -> seed.put(key, seed.getOrDefault(key, ZERO).add(loss.tail()).max(loss.floor())));
         return seed;
     }
 
-    /** 迭代Kosaraju，再对分量图按需求向原料方向排序；没有Java递归。 */
-    private List<Group<R>> groups(Route<K, R> route) {
-        Map<R, Set<R>> graph = new LinkedHashMap<>(), reverse = new LinkedHashMap<>();
-        route.recipes().keySet().forEach(id -> { graph.put(id, new LinkedHashSet<>()); reverse.put(id, new LinkedHashSet<>()); });
-        route.recipes().forEach((id, recipe) -> recipe.inputs().keySet().forEach(key -> {
-            R producer = route.producer().get(key);
-            if (producer != null) { graph.get(id).add(producer); reverse.get(producer).add(id); }
-        }));
-        // 共享副产物的样板同组核算；整组执行可能多产，但不会重复抵扣同一份产物。
-        route.recipes().forEach((id, recipe) -> recipe.outputs().keySet().forEach(key -> {
-            R producer = route.producer().get(key);
-            if (!id.equals(producer)) {
-                graph.get(id).add(producer); reverse.get(producer).add(id);
-                graph.get(producer).add(id); reverse.get(id).add(producer);
-            }
-        }));
-        Set<R> visited = new HashSet<>();
-        List<R> finish = new ArrayList<>();
-        for (R id : graph.keySet()) {
-            if (!visited.add(id)) continue;
-            ArrayDeque<Walk<R>> stack = new ArrayDeque<>();
-            stack.push(new Walk<>(id, graph.get(id).iterator()));
+    private Groups<R> groups(Route<K, R> route) {
+        if (route.recipes().size() == 1) {
+            var recipe = route.recipes().values().iterator().next();
+            var order = List.of(recipe.id());
+            return new Groups<>(order, Collections.disjoint(recipe.inputs().keySet(), recipe.outputs().keySet())
+                    ? Map.of() : Map.of(recipe.id(), order));
+        }
+        // Gabow 双栈遍历：根栈中的下标分隔尚未归组的样板，回边只合并这些分界。
+        var position = new it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap<R>(route.recipes().size());
+        position.defaultReturnValue(-2);
+        var open = new ArrayList<R>();
+        int[] roots = new int[route.recipes().size()];
+        int depth = 0;
+        List<R> finish = new ArrayList<>(route.recipes().size());
+        ArrayDeque<Walk<K, R>> stack = new ArrayDeque<>();
+        Map<R, List<R>> cycles = new java.util.HashMap<>(), memberGroups = new java.util.HashMap<>();
+        for (R id : route.recipes().keySet()) {
+            if (position.containsKey(id)) continue;
+            position.put(id, open.size()); roots[depth++] = open.size(); open.add(id);
+            stack.push(route.walk(id));
             while (!stack.isEmpty()) {
                 check();
                 var frame = stack.peek();
-                if (!frame.next().hasNext()) { finish.add(frame.recipe()); stack.pop(); continue; }
-                R next = frame.next().next();
-                if (visited.add(next)) stack.push(new Walk<>(next, graph.get(next).iterator()));
+                R next = frame.next(route.producer());
+                if (next != null) {
+                    int seen = position.putIfAbsent(next, open.size());
+                    if (seen == -2) {
+                        roots[depth++] = open.size(); open.add(next); stack.push(route.walk(next));
+                    } else if (seen >= 0) while (roots[depth - 1] > seen) depth--;
+                    continue;
+                }
+                stack.pop();
+                R root = frame.recipe();
+                int first = roots[depth - 1];
+                if (position.getInt(root) != first) continue;
+                depth--;
+                finish.add(root);
+                if (open.size() - first > 1) {
+                    var ordered = new ArrayList<R>(open.size() - first);
+                    cycles.put(root, ordered);
+                    while (open.size() > first) {
+                        R member = open.remove(open.size() - 1);
+                        position.put(member, -1); memberGroups.put(member, ordered);
+                    }
+                } else {
+                    open.remove(open.size() - 1); position.put(root, -1);
+                    var recipe = route.recipes().get(root);
+                    if (!Collections.disjoint(recipe.inputs().keySet(), recipe.outputs().keySet())) cycles.put(root, List.of(root));
+                }
             }
+        }
+        // 沿选路时的样板顺序填回各组，保留原先的制种顺序。
+        if (!memberGroups.isEmpty()) for (R id : route.recipes().keySet()) {
+            var group = memberGroups.get(id);
+            if (group != null) group.add(id);
         }
         Collections.reverse(finish);
-        visited.clear();
-        Map<R, Integer> position = new LinkedHashMap<>();
-        for (R id : route.recipes().keySet()) position.put(id, position.size());
-        List<Group<R>> result = new ArrayList<>();
-        for (R id : finish) {
-            if (!visited.add(id)) continue;
-            List<R> members = new ArrayList<>();
-            ArrayDeque<R> stack = new ArrayDeque<>();
-            stack.push(id);
-            while (!stack.isEmpty()) {
-                check();
-                R current = stack.pop(); members.add(current);
-                for (R next : reverse.get(current)) if (visited.add(next)) stack.push(next);
-            }
-            members.sort(java.util.Comparator.comparingInt(position::get));
-            result.add(new Group<>(members, members.size() > 1 || graph.get(members.get(0)).contains(members.get(0))));
-        }
-        return result;
+        return new Groups<>(finish, cycles);
     }
 
     private Result<K, R> result(Status status, String reason, Map<R, BigInteger> batches,
@@ -460,14 +797,23 @@ final class Hk3ExactGraphPlanner<K, R> {
     }
     private DetailedResult<K, R> failed(Status status, String reason) {
         return new DetailedResult<>(result(status, reason, Map.of(), Map.of(), Map.of(), Map.of(), Map.of(), ZERO),
-                List.of(), Map.of(), false, attempts);
+                List.of(), Map.of(), routeNeedsCycle, attempts);
     }
     private void check() {
         if (Thread.currentThread().isInterrupted() || cancelled.getAsBoolean()) throw new Halt(Status.CANCELLED, "规划已取消");
     }
+    private BigInteger stock(K key) {
+        var quoted = quotedStock.get(key);
+        return quoted == null ? inventory.getOrDefault(key, ZERO) : quoted;
+    }
+    private BigInteger available(K key, BigInteger needed) {
+        return infinite.contains(key) ? needed : stock(key).min(needed);
+    }
     private static Halt unsupported(String message) { return new Halt(Status.UNSUPPORTED, message); }
     private static Halt budget(String message) { return new Halt(Status.BUDGET_EXCEEDED, message); }
-    private static BigInteger ceil(BigInteger amount, BigInteger perBatch) { return amount.subtract(BigInteger.ONE).divide(perBatch).add(BigInteger.ONE); }
+    private static BigInteger ceil(BigInteger amount, BigInteger perBatch) {
+        return BigInteger.ONE.equals(perBatch) ? amount : amount.subtract(BigInteger.ONE).divide(perBatch).add(BigInteger.ONE);
+    }
     private static <K> void add(Map<K, BigInteger> map, K key, BigInteger amount) {
         if (amount.signum() < 0) throw new IllegalStateException("守恒规划产生了负余量");
         if (amount.signum() > 0) map.merge(key, amount, BigInteger::add);

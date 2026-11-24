@@ -70,6 +70,7 @@ public final class Hk3W13ResearchMachine extends Hk3AnimatedWonderMachine {
 
     private void researchTick() {
         researchWorking = false;
+        if (!com.sirin.hk3gtl.common.config.Hk3ResearchSettings.enabled()) return;
         if (!researchMode || !ready()) return;
         if (!Hk3W13ResearchService.settleRefund(this)) { researchStatus = "等待供能退款结清"; return; }
         var server = getLevel().getServer();

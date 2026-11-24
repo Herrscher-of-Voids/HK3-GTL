@@ -33,6 +33,8 @@ public final class Hk3ExactProbabilityLedger<K> {
             BigInteger actualOutput, Pending pending, Receipt lastReceipt, boolean cancelled) {}
 
     private final Hk3ExactProbabilityPlan<K> plan;
+    private final BigInteger capacity;
+    private final BigInteger maxYield;
     private BigInteger allocatedAttempts = BigInteger.ZERO;
     private BigInteger actualOutput = BigInteger.ZERO;
     private Pending pending;
@@ -42,6 +44,9 @@ public final class Hk3ExactProbabilityLedger<K> {
 
     public Hk3ExactProbabilityLedger(Hk3ExactProbabilityPlan<K> plan) {
         this.plan = Objects.requireNonNull(plan);
+        capacity = plan.attemptCapacity();
+        maxYield = plan.chance().compareTo(plan.chanceScale()) <= 0 ? plan.successYield()
+                : plan.chance().add(plan.chanceScale()).subtract(BigInteger.ONE).divide(plan.chanceScale()).multiply(plan.successYield());
     }
 
     public static <K> Hk3ExactProbabilityLedger<K> restore(Snapshot<K> snapshot) {
@@ -50,7 +55,7 @@ public final class Hk3ExactProbabilityLedger<K> {
         BigInteger allocated = snapshot.allocatedAttempts();
         Pending pending = snapshot.pending();
         Receipt receipt = snapshot.lastReceipt();
-        if (allocated.signum() < 0 || allocated.compareTo(ledger.plan.attemptCapacity()) > 0 || snapshot.actualOutput() == null
+        if (allocated.signum() < 0 || allocated.compareTo(ledger.capacity) > 0 || snapshot.actualOutput() == null
                 || snapshot.actualOutput().signum() < 0 || pending != null
                 && (!pending.metadataId().equals(ledger.plan.metadataId()) || BigInteger.valueOf(pending.attempts()).compareTo(allocated) > 0)
                 || receipt != null && (!receipt.metadataId().equals(ledger.plan.metadataId())
@@ -87,10 +92,9 @@ public final class Hk3ExactProbabilityLedger<K> {
 
     public synchronized Optional<Pending> begin(boolean targetsSatisfied) {
         if (status(targetsSatisfied) != Status.ACTIVE || pending != null) return Optional.empty();
-        BigInteger remaining = plan.target().subtract(actualOutput).max(BigInteger.ONE);
-        long attempts = plan.expectedAttempts(remaining).orElseThrow()
+        long attempts = plan.maxBatch() == 1 ? 1 : plan.expectedAttempts(plan.target().subtract(actualOutput).max(BigInteger.ONE)).orElseThrow()
                 .min(BigInteger.valueOf(plan.maxBatch()))
-                .min(plan.attemptCapacity().subtract(allocatedAttempts)).longValueExact();
+                .min(capacity.subtract(allocatedAttempts)).longValueExact();
         pending = new Pending(UUID.randomUUID(), plan.metadataId(), attempts);
         allocatedAttempts = allocatedAttempts.add(BigInteger.valueOf(attempts));
         return Optional.of(pending);
@@ -141,8 +145,12 @@ public final class Hk3ExactProbabilityLedger<K> {
         if (cancelled) return Status.CANCELLED;
         if (targetsSatisfied) return Status.SATISFIED;
         if (plan.chance().signum() == 0) return Status.NO_CHANCE;
-        if (pending == null && allocatedAttempts.equals(plan.attemptCapacity())) return Status.BUDGET_EXHAUSTED;
+        if (pending == null && allocatedAttempts.equals(capacity)) return Status.BUDGET_EXHAUSTED;
         return Status.ACTIVE;
+    }
+
+    synchronized boolean hasReceipt(UUID token) {
+        return lastReceipt != null && lastReceipt.token().equals(token);
     }
 
     public synchronized Snapshot<K> snapshot() {
@@ -150,7 +158,7 @@ public final class Hk3ExactProbabilityLedger<K> {
     }
 
     private void validateOutput(BigInteger attempts, BigInteger output) {
-        BigInteger upper = plan.successYield().multiply(attempts);
+        BigInteger upper = maxYield.multiply(attempts);
         if (output.compareTo(upper) > 0 || output.remainder(plan.successYield()).signum() != 0
                 || plan.chance().equals(plan.chanceScale()) && !output.equals(upper)) {
             throw new IllegalArgumentException("真实回执与固定单次产出元数据矛盾");

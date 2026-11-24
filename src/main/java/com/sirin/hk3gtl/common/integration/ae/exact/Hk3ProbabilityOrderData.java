@@ -25,6 +25,9 @@ public final class Hk3ProbabilityOrderData extends SavedData {
     private static final String NAME = "hk3gtl_ae_probability_orders_v1";
     final Map<UUID, Entry> entries = new LinkedHashMap<>();
     final Map<UUID, Group> groups = new LinkedHashMap<>();
+    final Map<UUID, CompoundTag> nexusProgress = new HashMap<>();
+    final Map<UUID, Map<UUID, CompoundTag>> startsByHost = new HashMap<>();
+    final Map<UUID, Long> completedByMachine = new HashMap<>();
     final Map<Location, Entry> controllers = new HashMap<>();
     final Map<Location, Entry> assemblies = new HashMap<>();
 
@@ -41,7 +44,11 @@ public final class Hk3ProbabilityOrderData extends SavedData {
     }
 
     static final class Entry {
-        UUID id, owner, team, machineIdentity, assemblyIdentity, group, supplyOrder;
+        UUID id, owner, team, machineIdentity, assemblyIdentity, group, supplyOrder, nexusParent;
+        UUID supplyParent, probabilitySupply;
+        BigInteger supplyAttempts = BigInteger.ZERO;
+        BigInteger unclaimedTarget = BigInteger.ZERO;
+        final Map<AEKey, Hk3ProbabilityOrderService.NexusQuote> supplyRoutes = new LinkedHashMap<>();
         String dimension, recipeId;
         long controller, assembly;
         int slot;
@@ -56,10 +63,19 @@ public final class Hk3ProbabilityOrderData extends SavedData {
         final Map<AEKey, BigInteger> actualOutputs = new LinkedHashMap<>();
         final Map<AEKey, BigInteger> escrow = new LinkedHashMap<>();
         Phase phase = Phase.IDLE;
-        boolean paused, released;
+        boolean paused, released, receiptClaimed;
         String note = "等待真实投料";
 
+        BigInteger netTarget(Hk3ExactProbabilityLedger.Snapshot<AEKey> batch) {
+            long cost = inputs.getOrDefault(target, 0L);
+            if (nexusParent == null || cost == 0) return batch.actualOutput();
+            var completed = batch.allocatedAttempts();
+            if (batch.pending() != null) completed = completed.subtract(BigInteger.valueOf(batch.pending().attempts()));
+            return batch.actualOutput().subtract(completed.multiply(BigInteger.valueOf(cost)));
+        }
+
         boolean satisfied() {
+            if (nexusParent != null && inputs.containsKey(target)) return netTarget(ledger.snapshot()).compareTo(goals.get(target)) >= 0;
             return goals.entrySet().stream().allMatch(goal ->
                     actualOutputs.getOrDefault(goal.getKey(), BigInteger.ZERO).compareTo(goal.getValue()) >= 0);
         }
@@ -103,6 +119,14 @@ public final class Hk3ProbabilityOrderData extends SavedData {
             CompoundTag tag = (CompoundTag) element;
             Entry entry = new Entry();
             entry.id = tag.getUUID("Id");
+            if (tag.hasUUID("NexusParent")) entry.nexusParent = tag.getUUID("NexusParent");
+            if (tag.hasUUID("SupplyParent")) entry.supplyParent = tag.getUUID("SupplyParent");
+            if (tag.hasUUID("ProbabilitySupply")) entry.probabilitySupply = tag.getUUID("ProbabilitySupply");
+            if (tag.contains("SupplyAttempts")) entry.supplyAttempts = integer(tag, "SupplyAttempts");
+            for (Tag row : tag.getList("SupplyRoutes", Tag.TAG_COMPOUND)) {
+                var route = Hk3ProbabilityOrderService.NexusQuote.read((CompoundTag) row);
+                entry.supplyRoutes.put(route.key(), route);
+            }
             if (tag.hasUUID("Group")) entry.group = tag.getUUID("Group");
             if (tag.hasUUID("SupplyOrder")) entry.supplyOrder = tag.getUUID("SupplyOrder");
             entry.owner = tag.getUUID("Owner");
@@ -167,7 +191,12 @@ public final class Hk3ProbabilityOrderData extends SavedData {
                 entry.escrow.put(AEKey.fromTagGeneric(row.getCompound("Key")), integer(row, "Amount"));
             }
             entry.phase = Phase.valueOf(tag.getString("Phase"));
+            if (entry.nexusParent != null) {
+                entry.unclaimedTarget = tag.contains("UnclaimedTarget") ? integer(tag, "UnclaimedTarget")
+                        : entry.ledger.snapshot().actualOutput().min(entry.escrow.getOrDefault(entry.target, BigInteger.ZERO));
+            }
             entry.released = tag.getBoolean("Released");
+            entry.receiptClaimed = tag.getBoolean("ReceiptClaimed");
             entry.paused = true;
             entry.note = "重载后暂停；需以原机器令牌及独占槽位证据恢复，未知事务不得重投";
             data.add(entry);
@@ -188,15 +217,41 @@ public final class Hk3ProbabilityOrderData extends SavedData {
             }
             data.groups.put(group.id, group);
         }
+        for (Tag row : root.getList("NexusProgress", Tag.TAG_COMPOUND)) {
+            var progress = (CompoundTag) row;
+            data.nexusProgress.put(progress.getUUID("Parent"), progress);
+        }
+        for (Tag row : root.getList("NexusStarts", Tag.TAG_COMPOUND)) {
+            var start = (CompoundTag) row;
+            data.rememberStart(start);
+        }
+        for (Tag row : root.getList("MachineBatches", Tag.TAG_COMPOUND)) {
+            var batch = (CompoundTag) row;
+            data.completedByMachine.put(batch.getUUID("Machine"), batch.getLong("Batch"));
+        }
         return data;
+    }
+
+    void rememberStart(CompoundTag start) {
+        startsByHost.computeIfAbsent(start.getUUID("Host"), ignored -> new LinkedHashMap<>()).put(start.getUUID("id"), start);
     }
 
     @Override
     public CompoundTag save(CompoundTag root) {
         ListTag orders = new ListTag();
         for (Entry entry : entries.values()) {
+            if (entry.receiptClaimed && entry.released && entry.supplyOrder == null) continue;
             CompoundTag tag = new CompoundTag();
             tag.putUUID("Id", entry.id);
+            if (entry.nexusParent != null) tag.putUUID("NexusParent", entry.nexusParent);
+            if (entry.supplyParent != null) tag.putUUID("SupplyParent", entry.supplyParent);
+            if (entry.probabilitySupply != null) tag.putUUID("ProbabilitySupply", entry.probabilitySupply);
+            if (entry.supplyAttempts.signum() != 0) number(tag, "SupplyAttempts", entry.supplyAttempts);
+            if (!entry.supplyRoutes.isEmpty()) {
+                ListTag routes = new ListTag();
+                entry.supplyRoutes.values().forEach(route -> routes.add(route.save()));
+                tag.put("SupplyRoutes", routes);
+            }
             if (entry.group != null) tag.putUUID("Group", entry.group);
             if (entry.supplyOrder != null) tag.putUUID("SupplyOrder", entry.supplyOrder);
             tag.putUUID("Owner", entry.owner);
@@ -242,6 +297,7 @@ public final class Hk3ProbabilityOrderData extends SavedData {
             number(tag, "Capacity", plan.attemptCapacity());
             number(tag, "Allocated", snapshot.allocatedAttempts());
             number(tag, "Actual", snapshot.actualOutput());
+            if (entry.nexusParent != null) number(tag, "UnclaimedTarget", entry.unclaimedTarget);
             if (snapshot.pending() != null) tag.putUUID("Pending", snapshot.pending().token());
             if (snapshot.lastReceipt() != null) {
                 tag.putUUID("Receipt", snapshot.lastReceipt().token());
@@ -258,9 +314,22 @@ public final class Hk3ProbabilityOrderData extends SavedData {
             tag.put("Escrow", escrow);
             tag.putString("Phase", entry.phase.name());
             tag.putBoolean("Released", entry.released);
+            if (entry.receiptClaimed) tag.putBoolean("ReceiptClaimed", true);
             orders.add(tag);
         }
         root.put("Orders", orders);
+        ListTag progress = new ListTag();
+        progress.addAll(nexusProgress.values());
+        root.put("NexusProgress", progress);
+        ListTag starts = new ListTag();
+        startsByHost.values().forEach(jobs -> starts.addAll(jobs.values()));
+        root.put("NexusStarts", starts);
+        ListTag machines = new ListTag();
+        completedByMachine.forEach((id, sequence) -> {
+            var batch = new CompoundTag();
+            batch.putUUID("Machine", id); batch.putLong("Batch", sequence); machines.add(batch);
+        });
+        root.put("MachineBatches", machines);
         ListTag groups = new ListTag();
         for (Group group : this.groups.values()) {
             CompoundTag tag = new CompoundTag();

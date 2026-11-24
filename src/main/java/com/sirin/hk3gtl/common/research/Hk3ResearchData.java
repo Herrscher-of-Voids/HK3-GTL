@@ -8,6 +8,7 @@ package com.sirin.hk3gtl.common.research;
  * 【文件职责／本轮边界】同一SavedData保存团队知识、个人付款、任务及待领退款；完成成果迁移、在研不复制、解散退款。
  */
 
+import com.sirin.hk3gtl.common.config.Hk3ResearchSettings;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -143,6 +144,7 @@ public final class Hk3ResearchData extends SavedData {
 
     public boolean tickComputer(UUID owner, String facility, long tick, int circuit, boolean online,
                                 java.util.function.BooleanSupplier debitEnergy) {
+        if (!Hk3ResearchSettings.enabled()) return false;
         rejectComputerReentry();
         if (owner == null || facility == null || facility.isBlank() || tick < 0)
             throw new IllegalArgumentException("Invalid computer identity");
@@ -396,6 +398,7 @@ public final class Hk3ResearchData extends SavedData {
 
     /** 单个完成标记不够：同时验证全部祖先，缺前置或未知课题不得放行。 / A completion flag must include all ancestors; unknown/orphaned nodes cannot unlock. */
     public boolean completed(UUID id, String research) {
+        if (!Hk3ResearchSettings.enabled()) return true;
         Set<String> complete = values(id, "Completed");
         return validCompleted(research, complete);
     }
@@ -437,10 +440,12 @@ public final class Hk3ResearchData extends SavedData {
     }
     /** 逐级授权，不把MAX知识自动展开为所有电路；物理核心仍由配方notConsumable检查。 / Per-tier entitlement; physical core is separately required by recipe input. */
     public boolean canReconstruct(UUID id, String tier) {
+        if (!Hk3ResearchSettings.enabled()) return true;
         return CIRCUIT_TIERS.contains(tier) && completed(id, CORE_RESEARCH)
                 && hasCircuitTechnology(id, tier) && hasCircuitAnalysis(id, tier);
     }
     public boolean permits(UUID id, String key) {
+        if (!Hk3ResearchSettings.enabled()) return true;
         if (key.startsWith(CIRCUIT_PREFIX)) return canReconstruct(id, key.substring(CIRCUIT_PREFIX.length()));
         return completed(id, key);
     }
