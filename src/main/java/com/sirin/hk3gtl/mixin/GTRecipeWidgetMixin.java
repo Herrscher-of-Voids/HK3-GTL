@@ -14,6 +14,7 @@ import com.sirin.hk3gtl.client.compat.Hk3WorldMiningJei;
 import com.sirin.hk3gtl.common.research.Hk3RecipeAccess;
 import com.sirin.hk3gtl.common.research.Hk3ResearchRecipeRuntime;
 import com.sirin.hk3gtl.common.recipe.Hk3IndustrialRecipeTypes;
+import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessTypes;
 import com.sirin.hk3gtl.client.compat.Hk3JeiResearchWidget;
 import com.sirin.hk3gtl.common.research.Hk3ResearchData;
 import com.sirin.hk3gtl.common.research.Hk3ResearchCatalog;
@@ -93,7 +94,8 @@ public abstract class GTRecipeWidgetMixin {
                 self.addWidget(researchNames);
                 nextY += researchNames.getSize().height + 2;
             }
-            if (recipe.recipeType == Hk3IndustrialRecipeTypes.SPECTRUM_ANALYSIS) {
+            if (recipe.recipeType == Hk3IndustrialRecipeTypes.SPECTRUM_ANALYSIS
+                    || recipe.recipeType == Hk3ResearchProcessTypes.get("I11")) {
                 var records = Hk3ResearchRecipeRuntime.requiredProcessFacts(recipe);
                 if (!records.isEmpty()) {
                     int textX = 3 - xOffset;

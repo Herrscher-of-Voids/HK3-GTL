@@ -70,6 +70,7 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
     private final Supplier<UUID> identity;
     private final Runnable changed;
     private final Map<UUID, Hk3NexusJob> jobs = new LinkedHashMap<>();
+    private final Map<AEKey, Set<Hk3NexusJob>> awaitingOutputs = new LinkedHashMap<>();
     private final ArrayDeque<Hk3NexusJob> previews = new ArrayDeque<>();
     private final Map<AEKey, BigInteger> bufferedOutputs = new LinkedHashMap<>();
     private final NexusCpu availableCpu = new NexusCpu(this, null);
@@ -198,13 +199,11 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         if (pending != null) {
             var saved = pending.getList("orders", Tag.TAG_COMPOUND);
             for (Tag element : saved) {
-                var job = Hk3NexusJob.read(this, (CompoundTag) element);
-                jobs.put(job.id, job);
+                register(Hk3NexusJob.read(this, (CompoundTag) element));
             }
             if (Hk3ProbabilitySupport.AVAILABLE) {
                 for (var start : Hk3ProbabilityOrderService.recoverStarts(level().getServer(), identity(), saved)) {
-                    var job = Hk3NexusJob.read(this, start);
-                    jobs.put(job.id, job);
+                    register(Hk3NexusJob.read(this, start));
                     changed();
                 }
             }
@@ -772,7 +771,7 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
 
     private ICraftingSubmitResult enqueueNative(Hk3NexusJob job, ICraftingRequester requester) {
         job.batchToken = Hk3ExactCpuTracker.currentSubmission();
-        jobs.put(job.id, job);
+        register(job);
         publish(job);
         CraftingLink requesterLink = null;
         if (requester != null) {
@@ -889,18 +888,36 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         return cpus;
     }
 
+    private void register(Hk3NexusJob job) {
+        jobs.put(job.id, job);
+        for (var key : job.waiting.keySet()) indexOutput(key, job);
+    }
+
+    void indexOutput(AEKey key, Hk3NexusJob job) {
+        awaitingOutputs.computeIfAbsent(key, ignored -> new LinkedHashSet<>()).add(job);
+    }
+
+    void unindexOutput(AEKey key, Hk3NexusJob job) {
+        var jobsWaiting = awaitingOutputs.get(key);
+        jobsWaiting.remove(job);
+        if (jobsWaiting.isEmpty()) awaitingOutputs.remove(key);
+    }
+
     public long accept(AEKey key, long amount, Actionable mode) {
         if (amount == 0) return 0;
+        var candidates = awaitingOutputs.get(key);
+        if (candidates == null) return 0;
+        if (candidates.size() == 1) return candidates.iterator().next().insert(key, amount, mode);
         if (mode == Actionable.SIMULATE) {
             long remaining = amount;
-            for (var job : jobs.values()) {
+            for (var job : candidates) {
                 remaining -= job.insert(key, remaining, mode);
                 if (remaining == 0) break;
             }
             return amount - remaining;
         }
-        var awaiting = new ArrayList<Hk3NexusJob>();
-        for (var job : jobs.values()) if (job.waiting.containsKey(key) && job.awaitsOutput()) awaiting.add(job);
+        var awaiting = new ArrayList<Hk3NexusJob>(candidates.size());
+        for (var job : candidates) if (job.awaitsOutput()) awaiting.add(job);
         if (awaiting.isEmpty()) return 0;
         if (awaiting.size() == 1) return awaiting.get(0).insert(key, amount, mode);
 
@@ -919,14 +936,27 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
     }
 
     public BigInteger waiting(AEKey key) {
-        return jobs.values().stream().filter(Hk3NexusJob::awaitsOutput)
-                .map(job -> job.waiting.getOrDefault(key, BigInteger.ZERO)).reduce(BigInteger.ZERO, BigInteger::add);
+        var candidates = awaitingOutputs.get(key);
+        if (candidates == null) return BigInteger.ZERO;
+        BigInteger total = BigInteger.ZERO;
+        for (var job : candidates) if (job.awaitsOutput()) total = total.add(job.waiting.get(key));
+        return total;
     }
 
-    public boolean requestingAny() { return jobs.values().stream().anyMatch(Hk3NexusJob::awaitsOutput); }
+    public boolean requestingAny() {
+        for (var candidates : awaitingOutputs.values())
+            for (var job : candidates) if (job.awaitsOutput()) return true;
+        return false;
+    }
 
     public void collectWaitingKeys(Set<AEKey> keys) {
-        jobs.values().stream().filter(Hk3NexusJob::awaitsOutput).forEach(job -> keys.addAll(job.waiting.keySet()));
+        awaitingOutputs.forEach((key, candidates) -> {
+            for (var job : candidates) {
+                if (!job.awaitsOutput()) continue;
+                keys.add(key);
+                break;
+            }
+        });
     }
 
     public static final class NexusCpu implements ICraftingCPU, Hk3ExactCpuTracker.BatchAccess {

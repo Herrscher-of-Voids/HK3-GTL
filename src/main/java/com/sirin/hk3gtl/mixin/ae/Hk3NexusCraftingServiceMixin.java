@@ -99,7 +99,11 @@ public abstract class Hk3NexusCraftingServiceMixin {
 
     @ModifyVariable(method = "insertIntoCpus", at = @At(value = "STORE", ordinal = 0), ordinal = 1)
     private long hk3gtl$nexusReturn(long inserted, AEKey key, long amount, Actionable mode) {
-        for (var runtime : Hk3NexusCrafting.forGrid(grid)) inserted += runtime.accept(key, amount - inserted, mode);
+        if (inserted == amount) return inserted;
+        for (var runtime : Hk3NexusCrafting.forGrid(grid)) {
+            inserted += runtime.accept(key, amount - inserted, mode);
+            if (inserted == amount) break;
+        }
         return inserted;
     }
 

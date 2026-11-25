@@ -109,6 +109,7 @@ final class Hk3NexusJob {
         tasks.clear();
         phases.clear();
         reservation.clear();
+        for (var key : waiting.keySet()) host.unindexOutput(key, this);
         waiting.clear();
     }
 
@@ -305,7 +306,11 @@ final class Hk3NexusJob {
             }
             BigInteger count = BigInteger.valueOf(operations);
             effective.inputs.forEach((key, amount) -> Hk3NexusLedger.add(held, key, amount.multiply(count).negate()));
-            effective.outputs.forEach((key, amount) -> Hk3NexusLedger.add(waiting, key, amount.multiply(count)));
+            effective.outputs.forEach((key, amount) -> {
+                boolean first = !waiting.containsKey(key);
+                Hk3NexusLedger.add(waiting, key, amount.multiply(count));
+                if (first) host.indexOutput(key, this);
+            });
             decrement(part, count);
             host.changed();
             return count;
@@ -324,8 +329,10 @@ final class Hk3NexusJob {
         if (!awaitsOutput()) return 0;
         long accepted = Hk3NexusLedger.project(waiting.getOrDefault(key, BigInteger.ZERO).min(BigInteger.valueOf(amount)));
         if (mode == Actionable.MODULATE && accepted > 0) {
-            Hk3NexusLedger.add(waiting, key, BigInteger.valueOf(accepted).negate());
-            Hk3NexusLedger.add(held, key, BigInteger.valueOf(accepted));
+            BigInteger received = BigInteger.valueOf(accepted);
+            Hk3NexusLedger.add(waiting, key, received.negate());
+            if (!waiting.containsKey(key)) host.unindexOutput(key, this);
+            Hk3NexusLedger.add(held, key, received);
             host.changed();
         }
         return accepted;
