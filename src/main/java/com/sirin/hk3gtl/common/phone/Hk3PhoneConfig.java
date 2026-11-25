@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.common.phone;
 
+import com.sirin.hk3gtl.common.config.Hk3ConfigPages;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public final class Hk3PhoneConfig {
@@ -26,5 +27,9 @@ public final class Hk3PhoneConfig {
         GAZE_SCALE=b.comment("注视HUD显示缩放，手机设定中可预览和拖动。").defineInRange("gazeScale",1.0,.6,1.5);
         SPEC=b.build();
     }
+    public static void save() {
+        Hk3ConfigPages.savePhoneSettings();
+    }
+
     private Hk3PhoneConfig(){}
 }

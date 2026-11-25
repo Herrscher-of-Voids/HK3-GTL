@@ -18,6 +18,6 @@ public abstract class Hk3NexusBulkInsertMixin {
             target = "Ljava/math/BigInteger;valueOf(J)Ljava/math/BigInteger;"))
     private BigInteger hk3gtl$insertExactAmount(BigInteger original, AEKey key, long amount,
             Actionable mode, IActionSource source) {
-        return Hk3NexusBulkInsert.expand(key, original, source);
+        return mode == Actionable.MODULATE ? Hk3NexusBulkInsert.expand(key, original, source) : original;
     }
 }

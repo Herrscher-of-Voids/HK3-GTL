@@ -44,13 +44,13 @@ final class Hk3PhoneSettingsPane {
         Hk3PhoneConfig.POSITION_Y.set(Hk3PhoneLayout.unit(((my-y)/ratio-grabY)/Math.max(1,sh-p.stackHeight())));
         return true;
     }
-    boolean release(){if(!dragging)return false;dragging=false;Hk3PhoneConfig.SPEC.save();var current=placement();if(current.x()!=originalX||current.y()!=originalY)Hk3EggUiClient.send("notification_position",Hk3PhoneConfig.POSITION_X.get()+","+Hk3PhoneConfig.POSITION_Y.get());return true;}
+    boolean release(){if(!dragging)return false;dragging=false;Hk3PhoneConfig.save();var current=placement();if(current.x()!=originalX||current.y()!=originalY)Hk3EggUiClient.send("notification_position",Hk3PhoneConfig.POSITION_X.get()+","+Hk3PhoneConfig.POSITION_Y.get());return true;}
     static AbstractSliderButton scaleSlider(int x,int y,int width){
         return new AbstractSliderButton(x,y,width,22,Component.empty(),(Hk3PhoneConfig.SCALE.get()-.6)/.9){
             {updateMessage();}
             @Override protected void updateMessage(){setMessage(Component.literal("通知大小  "+Math.round((.6+value*.9)*100)+"%"));}
             @Override protected void applyValue(){Hk3PhoneConfig.SCALE.set(.6+value*.9);}
-            @Override public void onRelease(double mx,double my){super.onRelease(mx,my);Hk3PhoneConfig.SPEC.save();}
+            @Override public void onRelease(double mx,double my){super.onRelease(mx,my);Hk3PhoneConfig.save();}
         };
     }
 }

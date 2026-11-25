@@ -33,6 +33,7 @@ final class Hk3ExactGraphPlanner<K, R> {
     private int edges;
     private int attempts;
     private boolean routeNeedsCycle;
+    private final Set<R> routeCycleRecipes = new LinkedHashSet<>();
     private boolean allowSeedCraft;
     private Set<K> probabilitySources = Set.of();
     private Map<K, BigInteger> quotedStock = Map.of();
@@ -40,7 +41,7 @@ final class Hk3ExactGraphPlanner<K, R> {
 
     static final class Prepared<K, R> {
         private Graph<K, R> graph;
-        private Layout<K, R> fixedRoute;
+        private Layout<K, R> firstRoute;
     }
 
     private record Graph<K, R>(Map<K, List<Recipe<K, R>>> choices, Set<K> keys, int edges) {}
@@ -49,23 +50,38 @@ final class Hk3ExactGraphPlanner<K, R> {
         final Status status;
         Halt(Status status, String reason) { super(reason, null, false, false); this.status = status; }
     }
-    private record Walk<K, R>(R recipe, Iterator<K> inputs, Iterator<R> shared) {
-        R next(Map<K, R> producer) {
-            while (inputs.hasNext()) {
-                R next = producer.get(inputs.next());
-                if (next != null) return next;
+    private static final class Walk<K, R> {
+        final R recipe;
+        final Iterator<K> inputs;
+        final Iterator<R> coupled;
+        Iterator<R> alternatives = Collections.emptyIterator();
+
+        Walk(R recipe, Iterator<K> inputs, Iterator<R> coupled) {
+            this.recipe = recipe;
+            this.inputs = inputs;
+            this.coupled = coupled;
+        }
+
+        R next(Route<K, R> route) {
+            while (!alternatives.hasNext() && inputs.hasNext()) {
+                K input = inputs.next();
+                var producers = route.otherProducers().get(input);
+                if (producers != null) alternatives = producers.iterator();
+                R primary = route.producer().get(input);
+                if (primary != null) return primary;
             }
-            return shared.hasNext() ? shared.next() : null;
+            if (alternatives.hasNext()) return alternatives.next();
+            return coupled.hasNext() ? coupled.next() : null;
         }
     }
-    private record Route<K, R>(Map<R, Recipe<K, R>> recipes, Map<K, R> producer, Map<R, List<R>> shared) {
-        Walk<K, R> walk(R id) {
-            var extra = shared.get(id);
+    private record Route<K, R>(Map<R, Recipe<K, R>> recipes, Map<K, R> producer, Map<K, List<R>> otherProducers) {
+        Walk<K, R> walk(R id, Map<R, List<R>> dependencies) {
+            var extra = dependencies.get(id);
             return new Walk<>(id, recipes.get(id).inputs().keySet().iterator(), extra == null ? Collections.emptyIterator() : extra.iterator());
         }
     }
     private record Groups<R>(List<R> order, Map<R, List<R>> cycles) {}
-    private record Layout<K, R>(Route<K, R> route, Groups<R> groups) {}
+    private record Layout<K, R>(Route<K, R> route, Groups<R> groups, List<K> branching) {}
     private record Loss(BigInteger tail, BigInteger floor) {}
     private record Proof<K, R>(List<R> order, Map<K, BigInteger> seed, DetailedResult<K, R> startup) {}
     private static final class OrderBudget {
@@ -140,7 +156,7 @@ final class Hk3ExactGraphPlanner<K, R> {
         var first = plan;
         quotedStock = new LinkedHashMap<>();
         do {
-            if (attempts >= search.maxRouteAttempts()) return failed(Status.BUDGET_EXCEEDED, "概率前置规划超过路线预算");
+            if (attempts >= search.maxRouteAttempts()) return budgetPreview(plan, "概率前置规划超过路线预算");
             plan.result().missing().forEach((key, amount) -> quotedStock.put(key, stock(key).add(amount)));
             plan = search(false, prepared, () -> {});
         } while (incompleteProbabilityPlan(plan));
@@ -157,33 +173,40 @@ final class Hk3ExactGraphPlanner<K, R> {
         if (needs.isEmpty()) return first;
         // 报价只交出缺口。机器实物入网后，主单用真实库存重新规划。
         return new DetailedResult<>(result(Status.MISSING_INPUT, "等待制种与生产原料", Map.of(), Map.of(), Map.of(),
-                needs, Map.of(), result.logicalBytes()), List.of(), first.seedRequired(), true, attempts);
+                needs, Map.of(), result.logicalBytes()), List.of(), first.seedRequired(), true, attempts,
+                plan.cycleRecipes().isEmpty() ? first.cycleRecipes() : plan.cycleRecipes());
     }
 
     private DetailedResult<K, R> search(boolean keepAcyclicSteps, Prepared<K, R> prepared, Runnable prepare) {
         try {
             prepare.run();
-            Map<K, Integer> decision = prepared != null && prepared.fixedRoute != null ? Map.of() : new LinkedHashMap<>();
+            Map<K, Integer> decision = new LinkedHashMap<>();
+            boolean first = true;
             DetailedResult<K, R> firstMissing = null, firstUnsupported = null, firstBudget = null, firstRejected = null;
             while (true) {
                 check();
                 attempts++;
                 routeNeedsCycle = false;
-                var fixed = prepared == null ? null : prepared.fixedRoute;
-                List<K> branching = fixed == null ? new ArrayList<>() : List.of();
+                routeCycleRecipes.clear();
+                var layout = first && prepared != null ? prepared.firstRoute : null;
+                List<K> branching = layout == null ? new ArrayList<>() : layout.branching();
                 DetailedResult<K, R> result;
                 Route<K, R> route = null;
                 try {
-                    if (fixed == null) {
+                    if (layout == null) {
                         route = select(decision, branching);
                         var groups = groups(route);
-                        if (prepared != null && branching.isEmpty()) prepared.fixedRoute = new Layout<>(route, groups);
+                        if (first && prepared != null) prepared.firstRoute = new Layout<>(route, groups, branching);
                         result = solve(route, groups, keepAcyclicSteps);
-                    } else result = solve(fixed.route(), fixed.groups(), keepAcyclicSteps);
+                    } else {
+                        route = layout.route();
+                        result = solve(route, layout.groups(), keepAcyclicSteps);
+                    }
                 } catch (Halt failure) {
                     if (failure.status == Status.CANCELLED) throw failure;
                     result = failed(failure.status, failure.getMessage());
                 }
+                first = false;
                 if (result.result().successful()) {
                     boolean accepted = acceptance.test(result);
                     check();
@@ -197,25 +220,25 @@ final class Hk3ExactGraphPlanner<K, R> {
                 var unused = result.result().status() == Status.MISSING_INPUT && !result.result().leafDemand().isEmpty()
                         ? result.result().batches().keySet() : null;
                 if (!advance(decision, branching, route, unused)) {
-                    if (firstBudget != null) return budgetPreview(firstMissing, firstBudget.result().reason());
+                    if (firstBudget != null) return budgetPreview(firstMissing == null ? firstBudget : firstMissing,
+                            firstBudget.result().reason());
                     var chosen = firstRejected != null ? (firstUnsupported == null ? firstRejected : firstUnsupported)
                             : (firstMissing == null ? firstUnsupported : firstMissing);
                     return new DetailedResult<>(chosen.result(), chosen.execution(), chosen.seedRequired(),
-                            chosen.orderedExecutionRequired(), attempts);
+                            chosen.orderedExecutionRequired(), attempts, chosen.cycleRecipes());
                 }
                 if (seedRouteBudget != null) seedRouteBudget.take();
                 if (attempts >= search.maxRouteAttempts())
-                    return budgetPreview(firstMissing, "候选路线搜索已达上限");
+                    return budgetPreview(firstMissing == null ? result : firstMissing, "候选路线搜索已达上限");
             }
         } catch (Halt failure) { return failed(failure.status, failure.getMessage()); }
     }
 
     private DetailedResult<K, R> budgetPreview(DetailedResult<K, R> preview, String reason) {
-        if (preview == null) return failed(Status.BUDGET_EXCEEDED, reason);
         var detail = preview.result();
         return new DetailedResult<>(result(Status.BUDGET_EXCEEDED, reason, detail.batches(), detail.stockUsed(),
                 detail.leafDemand(), detail.missing(), detail.surplus(), detail.logicalBytes()),
-                List.of(), preview.seedRequired(), preview.orderedExecutionRequired(), attempts);
+                List.of(), preview.seedRequired(), preview.orderedExecutionRequired(), attempts, preview.cycleRecipes());
     }
 
     private boolean incompleteProbabilityPlan(DetailedResult<K, R> plan) {
@@ -309,7 +332,7 @@ final class Hk3ExactGraphPlanner<K, R> {
     private Route<K, R> select(Map<K, Integer> decision, List<K> branching) {
         Map<R, Recipe<K, R>> selected = new LinkedHashMap<>();
         Map<K, R> producer = new LinkedHashMap<>();
-        Map<R, List<R>> shared = new java.util.HashMap<>();
+        Map<K, List<R>> otherProducers = new java.util.HashMap<>();
         Set<K> queued = new HashSet<>(targets.keySet());
         ArrayDeque<K> pending = new ArrayDeque<>(targets.keySet());
         while (!pending.isEmpty()) {
@@ -326,15 +349,12 @@ final class Hk3ExactGraphPlanner<K, R> {
             if (selected.putIfAbsent(recipe.id(), recipe) != null) continue;
             for (K output : recipe.outputs().keySet()) {
                 R previous = producer.putIfAbsent(output, recipe.id());
-                if (previous != null) {
-                    shared.computeIfAbsent(recipe.id(), k -> new ArrayList<>()).add(previous);
-                    shared.computeIfAbsent(previous, k -> new ArrayList<>()).add(recipe.id());
-                }
+                if (previous != null) otherProducers.computeIfAbsent(output, k -> new ArrayList<>()).add(recipe.id());
             }
             for (K input : recipe.inputs().keySet()) if (queued.add(input)) pending.addLast(input);
         }
         for (K target : targets.keySet()) if (!producer.containsKey(target)) throw unsupported("新增目标没有生产路线");
-        return new Route<>(selected, producer, shared);
+        return new Route<>(selected, producer, otherProducers);
     }
 
     private int pathCount(K key, int recipes) {
@@ -363,6 +383,22 @@ final class Hk3ExactGraphPlanner<K, R> {
 
     private DetailedResult<K, R> solve(Route<K, R> route, Groups<R> groups, boolean keepAcyclicSteps) {
         boolean hasCycles = !groups.cycles().isEmpty();
+        if (hasCycles && targets.size() == 1) {
+            var target = targets.entrySet().iterator().next();
+            var recipe = route.recipes().get(route.producer().get(target.getKey()));
+            if (Collections.disjoint(recipe.inputs().keySet(), recipe.outputs().keySet())) {
+                var count = ceil(target.getValue(), recipe.outputs().get(target.getKey()));
+                if (recipe.inputs().entrySet().stream().allMatch(input -> {
+                    var needed = input.getValue().multiply(count);
+                    return available(input.getKey(), needed).equals(needed);
+                })) {
+                    Map<K, R> producer = new java.util.HashMap<>();
+                    recipe.outputs().keySet().forEach(key -> producer.put(key, recipe.id()));
+                    var direct = new Route<>(Map.of(recipe.id(), recipe), producer, Map.of());
+                    return solve(direct, new Groups<>(List.of(recipe.id()), Map.of()), keepAcyclicSteps);
+                }
+            }
+        }
         if (seedRouteBudget != null && hasCycles) throw unsupported("制种路线包含循环");
         boolean keepSteps = keepAcyclicSteps || hasCycles;
         Map<K, BigInteger> demand = new LinkedHashMap<>(targets), stock = new LinkedHashMap<>();
@@ -379,33 +415,50 @@ final class Hk3ExactGraphPlanner<K, R> {
             Map<K, BigInteger> net = cyclic ? new LinkedHashMap<>() : route.recipes().get(id).outputs();
             Set<K> outputs = cyclic ? new LinkedHashSet<>() : net.keySet();
             if (cyclic) {
-                for (R member : group) outputs.addAll(route.recipes().get(member).outputs().keySet());
+                Set<K> inputs = new HashSet<>();
                 for (R member : group) {
                     var recipe = route.recipes().get(member);
-                    recipe.outputs().forEach((key, count) -> net.merge(key, count, BigInteger::add));
+                    inputs.addAll(recipe.inputs().keySet());
+                    outputs.addAll(recipe.outputs().keySet());
+                }
+                if (!route.otherProducers().isEmpty()) {
+                    Set<R> members = new HashSet<>(group);
+                    outputs.removeIf(key -> !members.contains(route.producer().get(key)) && !inputs.contains(key));
+                }
+                for (R member : group) {
+                    var recipe = route.recipes().get(member);
+                    recipe.outputs().forEach((key, count) -> {
+                        if (outputs.contains(key)) net.merge(key, count, BigInteger::add);
+                    });
                     for (var input : recipe.inputs().entrySet()) {
                         if (outputs.contains(input.getKey()))
                             net.merge(input.getKey(), input.getValue().negate(), BigInteger::add);
                     }
                 }
             }
+            BigInteger rounds = ZERO;
             boolean productionNeeded = false;
             for (K key : outputs) {
-                BigInteger needed = demand.getOrDefault(key, ZERO);
+                if (!cyclic && !id.equals(route.producer().get(key))) continue;
+                BigInteger needed = demand.get(key);
+                if (needed == null) continue;
                 BigInteger used = targets.containsKey(key) ? ZERO : available(key, needed);
                 if (used.signum() > 0) stock.put(key, used);
-                productionNeeded |= needed.compareTo(used) > 0;
+                if (needed.compareTo(used) > 0) {
+                    productionNeeded = true;
+                    if (!cyclic) rounds = rounds.max(ceil(needed.subtract(used), net.get(key)));
+                }
             }
             if (!productionNeeded) {
-                outputs.forEach(demand::remove);
+                for (K key : outputs) if (cyclic || id.equals(route.producer().get(key))) demand.remove(key);
                 continue;
             }
             List<R> order = group;
             List<Step<R>> starts = List.of();
             Map<K, BigInteger> made = Map.of();
             Map<K, Loss> losses = Map.of();
-            BigInteger rounds = ZERO;
             if (cyclic) {
+                routeCycleRecipes.addAll(group);
                 Map<K, BigInteger> minimum = new LinkedHashMap<>();
                 routeNeedsCycle = true;
                 for (K key : outputs) minimum.put(key, demand.getOrDefault(key, ZERO)
@@ -461,8 +514,8 @@ final class Hk3ExactGraphPlanner<K, R> {
                 }
                 order = proof.order();
                 ordered = true;
+                if (losses.isEmpty()) rounds = requiredRounds(net, demand, stock, made);
             }
-            if (losses.isEmpty()) rounds = requiredRounds(net, demand, stock, made);
             if (rounds.signum() <= 0 && starts.isEmpty()) throw unsupported("执行单元没有可证明的新增需求");
             int parts = cyclic ? group.size() : 1;
             certificateSize += (rounds.signum() > 0 ? parts : 0) + starts.size();
@@ -479,8 +532,17 @@ final class Hk3ExactGraphPlanner<K, R> {
                 for (var input : recipe.inputs().entrySet())
                     if (!cyclic || !outputs.contains(input.getKey()))
                         demand.merge(input.getKey(), input.getValue().multiply(rounds), BigInteger::add);
+                if (!route.otherProducers().isEmpty()) for (var output : recipe.outputs().entrySet()) {
+                    K key = output.getKey();
+                    if (cyclic ? outputs.contains(key) : id.equals(route.producer().get(key))) continue;
+                    var produced = output.getValue().multiply(rounds);
+                    var used = produced.min(demand.getOrDefault(key, ZERO));
+                    if (used.signum() > 0) demand.compute(key, (k, needed) -> needed.equals(used) ? null : needed.subtract(used));
+                    add(surplus, key, produced.subtract(used));
+                }
             }
             for (K key : outputs) {
+                if (!cyclic && !id.equals(route.producer().get(key))) continue;
                 var needed = demand.remove(key);
                 add(surplus, key, stock.getOrDefault(key, ZERO).add(made.getOrDefault(key, ZERO)).add(net.get(key).multiply(rounds))
                         .subtract(needed == null ? ZERO : needed));
@@ -496,13 +558,14 @@ final class Hk3ExactGraphPlanner<K, R> {
         if (keepSteps) Collections.reverse(execution);
         return new DetailedResult<>(result(missing.isEmpty() ? Status.SUCCESS : Status.MISSING_INPUT,
                 missing.isEmpty() ? "守恒规划与压缩执行顺序已证明" : "外部原料不足；执行证书仅供诊断",
-                batches, stock, demand, missing, surplus, bytes), execution, seeds, ordered, attempts);
+                batches, stock, demand, missing, surplus, bytes), execution, seeds, ordered, attempts,
+                List.copyOf(routeCycleRecipes));
     }
 
     private DetailedResult<K, R> missingCycle(String reason, Map<R, BigInteger> batches, Map<K, BigInteger> stock,
             Map<K, BigInteger> missing, Map<K, BigInteger> surplus, BigInteger bytes, Map<K, BigInteger> seed) {
         return new DetailedResult<>(result(Status.MISSING_INPUT, reason, batches, stock, Map.of(), missing, surplus, bytes),
-                List.of(), seed, true, attempts);
+                List.of(), seed, true, attempts, List.copyOf(routeCycleRecipes));
     }
 
     private BigInteger requiredRounds(Map<K, BigInteger> net, Map<K, BigInteger> demand,
@@ -622,7 +685,9 @@ final class Hk3ExactGraphPlanner<K, R> {
             int count = added.intValueExact();
             size += count;
             weights.merge(id, count, Integer::sum);
-            recipe.outputs().forEach((resource, amount) -> net.merge(resource, amount.multiply(added), BigInteger::add));
+            recipe.outputs().forEach((resource, amount) -> {
+                if (internal.contains(resource)) net.merge(resource, amount.multiply(added), BigInteger::add);
+            });
             for (var input : recipe.inputs().entrySet()) if (internal.contains(input.getKey())) {
                 BigInteger amount = net.merge(input.getKey(), input.getValue().multiply(added).negate(), BigInteger::add);
                 if (amount.compareTo(minimum.getOrDefault(input.getKey(), ZERO)) < 0 && queued.add(input.getKey()))
@@ -759,6 +824,30 @@ final class Hk3ExactGraphPlanner<K, R> {
     }
 
     private Groups<R> groups(Route<K, R> route) {
+        var actual = groups(route, Map.of());
+        if (actual.cycles().isEmpty() || route.otherProducers().isEmpty()) return actual;
+        // 只联合核算回流实际消耗的共享物料。
+        Set<K> feedback = new HashSet<>();
+        for (var group : actual.cycles().values()) {
+            Set<R> members = new HashSet<>(group);
+            for (R id : group) for (K input : route.recipes().get(id).inputs().keySet()) {
+                var producers = route.otherProducers().get(input);
+                if (producers != null && (members.contains(route.producer().get(input))
+                        || producers.stream().anyMatch(members::contains))) feedback.add(input);
+            }
+        }
+        if (feedback.isEmpty()) return actual;
+        Map<R, List<R>> dependencies = new java.util.HashMap<>();
+        for (K key : feedback) {
+            R primary = route.producer().get(key);
+            var producers = route.otherProducers().get(key);
+            dependencies.computeIfAbsent(primary, k -> new ArrayList<>()).addAll(producers);
+            for (R id : producers) dependencies.computeIfAbsent(id, k -> new ArrayList<>()).add(primary);
+        }
+        return groups(route, dependencies);
+    }
+
+    private Groups<R> groups(Route<K, R> route, Map<R, List<R>> dependencies) {
         if (route.recipes().size() == 1) {
             var recipe = route.recipes().values().iterator().next();
             var order = List.of(recipe.id());
@@ -770,27 +859,27 @@ final class Hk3ExactGraphPlanner<K, R> {
         position.defaultReturnValue(-2);
         var open = new ArrayList<R>();
         int[] roots = new int[route.recipes().size()];
-        int depth = 0;
+        int depth = 0, visits = 0;
         List<R> finish = new ArrayList<>(route.recipes().size());
         ArrayDeque<Walk<K, R>> stack = new ArrayDeque<>();
         Map<R, List<R>> cycles = new java.util.HashMap<>(), memberGroups = new java.util.HashMap<>();
         for (R id : route.recipes().keySet()) {
             if (position.containsKey(id)) continue;
             position.put(id, open.size()); roots[depth++] = open.size(); open.add(id);
-            stack.push(route.walk(id));
+            stack.push(route.walk(id, dependencies));
             while (!stack.isEmpty()) {
-                check();
+                if ((visits++ & 63) == 0) check();
                 var frame = stack.peek();
-                R next = frame.next(route.producer());
+                R next = frame.next(route);
                 if (next != null) {
                     int seen = position.putIfAbsent(next, open.size());
                     if (seen == -2) {
-                        roots[depth++] = open.size(); open.add(next); stack.push(route.walk(next));
+                        roots[depth++] = open.size(); open.add(next); stack.push(route.walk(next, dependencies));
                     } else if (seen >= 0) while (roots[depth - 1] > seen) depth--;
                     continue;
                 }
                 stack.pop();
-                R root = frame.recipe();
+                R root = frame.recipe;
                 int first = roots[depth - 1];
                 if (position.getInt(root) != first) continue;
                 depth--;
@@ -825,7 +914,8 @@ final class Hk3ExactGraphPlanner<K, R> {
     }
     private DetailedResult<K, R> failed(Status status, String reason) {
         return new DetailedResult<>(result(status, reason, Map.of(), Map.of(), Map.of(), Map.of(), Map.of(), ZERO),
-                List.of(), Map.of(), routeNeedsCycle, attempts);
+                List.of(), Map.of(), routeNeedsCycle, attempts,
+                List.copyOf(routeCycleRecipes));
     }
     private void check() {
         if (Thread.currentThread().isInterrupted() || cancelled.getAsBoolean()) throw new Halt(Status.CANCELLED, "规划已取消");

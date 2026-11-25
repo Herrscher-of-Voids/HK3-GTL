@@ -15,7 +15,6 @@ import net.minecraft.world.level.Level;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +24,7 @@ import java.util.function.Supplier;
 
 public final class Hk3NexusManagement {
     public record StockTarget(AEKey key, BigInteger amount, BigInteger batch, boolean enabled,
-                              UUID owner, int priority) {}
+                              UUID owner) {}
     public record StockView(StockTarget target, BigInteger stored, BigInteger inFlight, boolean infinite) {}
 
     private final Supplier<IGrid> grid;
@@ -58,10 +57,8 @@ public final class Hk3NexusManagement {
     }
 
     public void setTarget(AEKey key, BigInteger amount, BigInteger batch, boolean enabled, UUID owner) {
-        StockTarget previous = targets.get(key);
         if (amount.signum() == 0) targets.remove(key);
-        else targets.put(key, new StockTarget(key, amount, batch, enabled, owner,
-                previous == null ? 0 : previous.priority()));
+        else targets.put(key, new StockTarget(key, amount, batch, enabled, owner));
         changed.run();
     }
 
@@ -70,7 +67,7 @@ public final class Hk3NexusManagement {
     public List<StockView> stockTargets() {
         IGrid network = grid.get();
         Map<AEKey, BigInteger> stock = network == null ? Map.of() : Hk3NexusStock.snapshot(network);
-        return targets.values().stream().sorted(Comparator.comparingInt(StockTarget::priority).reversed())
+        return targets.values().stream()
                 .map(target -> new StockView(target, stock.getOrDefault(target.key(), BigInteger.ZERO),
                         inFlight(network, target.key()), network != null && infiniteSource.test(target.key()))).toList();
     }
@@ -91,7 +88,7 @@ public final class Hk3NexusManagement {
             BigInteger missing = view.target().amount().subtract(view.stored()).subtract(view.inFlight());
             if (missing.signum() > 0 && network.getCraftingService().isCraftable(view.target().key())) {
                 var target = view.target();
-                crafting.submit(target.key(), target.batch(), target.owner(), target.priority());
+                crafting.submit(target.key(), target.batch(), target.owner());
             }
         }
     }
@@ -123,7 +120,6 @@ public final class Hk3NexusManagement {
             row.putByteArray("Batch", target.batch().toByteArray());
             row.putBoolean("Enabled", target.enabled());
             row.putUUID("Owner", target.owner());
-            row.putInt("Priority", target.priority());
             stock.add(row);
         }
         tag.put("StockTargets", stock);
@@ -137,7 +133,7 @@ public final class Hk3NexusManagement {
             AEKey key = AEKey.fromTagGeneric(row.getCompound("Key"));
             targets.put(key, new StockTarget(key, new BigInteger(row.getByteArray("Amount")),
                     row.contains("Batch") ? new BigInteger(row.getByteArray("Batch")) : BigInteger.ONE,
-                    !row.contains("Enabled") || row.getBoolean("Enabled"), row.getUUID("Owner"), row.getInt("Priority")));
+                    !row.contains("Enabled") || row.getBoolean("Enabled"), row.getUUID("Owner")));
         }
     }
 }

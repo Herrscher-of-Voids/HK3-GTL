@@ -9,7 +9,6 @@ import appeng.api.stacks.AEKey;
 import appeng.crafting.CraftingLink;
 import appeng.crafting.execution.CraftingCpuHelper;
 import appeng.crafting.pattern.AEProcessingPattern;
-import appeng.me.service.CraftingService;
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactPlanner;
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ExactScaledPattern;
 import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilityOrderService;
@@ -52,7 +51,8 @@ final class Hk3NexusJob {
     final ArrayDeque<Phase> phases = new ArrayDeque<>();
     BigInteger bytes = BigInteger.ZERO, delivered = BigInteger.ZERO, totalOperations = BigInteger.ZERO;
     BigInteger rounds = BigInteger.ZERO;
-    int recipe, priority;
+    int recipe;
+    boolean processingPhase;
     long ticks, retryAt;
     Map<AEKey, BigInteger> previousMissingStock = Map.of();
     Hk3NexusCrafting.Calculation calculation;
@@ -62,17 +62,17 @@ final class Hk3NexusJob {
     boolean cancelUnsettled;
     java.util.concurrent.Future<Hk3NexusCrafting.Solved> planning;
     Hk3NexusPlanSummary missingPreview;
+    Hk3NexusPlanSummary.Cycle cycle;
     boolean ordered, planned, canceled, flexible, confirmed = true, paused;
     String state = "PLANNING", dispatchNote = "";
 
     Hk3NexusJob(Hk3NexusCrafting host, UUID id, UUID owner, AEKey target, BigInteger requested,
-            int priority, boolean standalone) {
+            boolean standalone) {
         this.host = host;
         this.id = id;
         this.owner = owner;
         this.target = target;
         this.requested = requested;
-        this.priority = priority;
         cpu = new Hk3NexusCrafting.NexusCpu(host, this);
         link = new CraftingLink(CraftingCpuHelper.generateLinkData(id, standalone, false), cpu);
     }
@@ -105,40 +105,41 @@ final class Hk3NexusJob {
         capture = null;
     }
 
-    void tick(long deadline) {
+    void clearWork() {
+        tasks.clear();
+        phases.clear();
+        reservation.clear();
+        waiting.clear();
+    }
+
+    boolean tick(long deadline) {
         ticks++;
         if (batchToken != null) {
             var level = (ServerLevel) host.level();
-            if (Hk3ExactCpuTracker.freezeRequested(level, batchToken)) return;
+            if (Hk3ExactCpuTracker.freezeRequested(level, batchToken)) return false;
             if (!canceled && Hk3ExactCpuTracker.cancelRequested(level, batchToken)) host.cancel(id);
         }
         if (link.isCanceled() && !canceled) host.cancel(id);
         if (canceled) {
-            if (probability != null && probability.child != null) { probability.tick(this); return; }
-            cancelPlanning();
-            tasks.clear();
-            phases.clear();
-            reservation.clear();
-            waiting.clear();
-            flush(false, deadline);
-            state = held.isEmpty() ? "CANCELED" : "CANCELING";
-            if (held.isEmpty()) finishBatch(false);
-            return;
+            clearWork();
+            if (probability != null && probability.child != null) probability.tick(this);
+            return false;
         }
-        if (paused) { state = "PAUSED"; return; }
-        if (probability != null && probability.index < probability.routes.size()) { probability.tick(this); return; }
+        if (paused) { state = "PAUSED"; return false; }
+        if (state.equals("DRAINING")) return false;
+        if (probability != null && probability.index < probability.routes.size()) { probability.tick(this); return false; }
         if (!planned) {
             host.plan(this, deadline);
-            return;
+            return false;
         }
-        if (!confirmed) return;
+        if (!confirmed) return false;
         if (!reservation.isEmpty()) {
             missing.clear();
             var entries = reservation.entrySet().iterator();
             while (entries.hasNext()) {
                 var entry = entries.next();
                 var key = entry.getKey();
-                BigInteger extracted = host.extract(key, entry.getValue());
+                BigInteger extracted = host.extract(key, entry.getValue(), deadline);
                 var left = entry.getValue().subtract(extracted);
                 if (extracted.signum() > 0) {
                     Hk3NexusLedger.add(held, key, extracted);
@@ -147,25 +148,23 @@ final class Hk3NexusJob {
                     host.changed();
                 }
                 if (left.signum() > 0) missing.put(key, left);
-                if (System.nanoTime() >= deadline) return;
+                if (System.nanoTime() >= deadline) return false;
             }
-            if (!reservation.isEmpty()) { state = "MISSING_INPUT"; return; }
+            if (!reservation.isEmpty()) { state = "MISSING_INPUT"; return false; }
         }
+        return advance(deadline);
+    }
+
+    boolean advance(long deadline) {
         state = "RUNNING";
-        boolean advanced;
-        do {
-            missing.clear();
-            advanced = ordered ? executeOrdered(deadline) : executeUnordered(deadline);
-        } while (advanced && !tasks.isEmpty() && System.nanoTime() < deadline);
+        missing.clear();
+        boolean advanced = ordered ? executeOrdered(deadline) : executeUnordered(deadline);
         if (tasks.isEmpty() && waiting.isEmpty()) {
             state = "DRAINING";
-            flush(true, deadline);
-            if (held.isEmpty() && delivered.equals(requested)) {
-                state = "DONE";
-                if (!link.isDone()) { link.markDone(); host.changed(); }
-                finishBatch(true);
-            }
-        } else if (!advanced) state = waiting.isEmpty() ? "WAITING_MACHINE" : "WAITING_OUTPUT";
+        } else if (!advanced) {
+            state = waiting.isEmpty() ? "WAITING_MACHINE" : "WAITING_OUTPUT";
+        }
+        return advanced && !tasks.isEmpty();
     }
 
     private void finishBatch(boolean success) {
@@ -177,18 +176,30 @@ final class Hk3NexusJob {
     }
 
     private boolean executeUnordered(long deadline) {
-        for (var entry : tasks.entrySet()) {
-            if (entry.getKey().molecular()) {
-                BigInteger done = executeMolecular(List.of(entry.getKey()), entry.getValue());
-                if (done.signum() > 0) return true;
-            } else if (dispatch(entry.getKey(), entry.getValue(), deadline).signum() > 0) return true;
+        for (int remaining = tasks.size(); remaining > 0 && System.nanoTime() < deadline; remaining--) {
+            var entry = tasks.entrySet().iterator().next();
+            var part = entry.getKey();
+            var count = entry.getValue();
+            var done = part.molecular() ? executeMolecular(List.of(part), count) : dispatch(part, count, deadline);
+            if (done.signum() > 0) return true;
+            tasks.remove(part);
+            tasks.put(part, count);
         }
         return false;
     }
 
     private boolean executeOrdered(long deadline) {
-        if (!waiting.isEmpty() || phases.isEmpty()) return false;
-        Phase step = phases.getFirst();
+        if (phases.isEmpty()) return false;
+        var step = phases.getFirst();
+        if (rounds.signum() == 0) {
+            if (!waiting.isEmpty()) return false;
+            nextPhase();
+            return true;
+        }
+        var current = step.recipes().get(recipe);
+        boolean parallel = step.recipes().size() == 1 && !current.molecular()
+                && Collections.disjoint(current.inputs.keySet(), current.outputs.keySet());
+        if (!waiting.isEmpty() && !(parallel && processingPhase)) return false;
         if (recipe == 0 && step.recipes().stream().allMatch(Hk3NexusRecipe::molecular)) {
             BigInteger done = executeMolecular(step.recipes(), rounds);
             if (done.signum() == 0) return false;
@@ -196,15 +207,15 @@ final class Hk3NexusJob {
             if (rounds.signum() == 0) nextPhase();
             return true;
         }
-        Hk3NexusRecipe current = step.recipes().get(recipe);
         BigInteger limit = step.recipes().size() == 1 ? rounds : BigInteger.ONE;
         BigInteger pushed = current.molecular()
                 ? executeMolecular(List.of(current), BigInteger.ONE) : dispatch(current, limit, deadline);
         if (pushed.signum() == 0) return false;
+        processingPhase = parallel;
         if (++recipe == step.recipes().size()) {
             recipe = 0;
             rounds = rounds.subtract(pushed);
-            if (rounds.signum() == 0) nextPhase();
+            if (rounds.signum() == 0 && waiting.isEmpty()) nextPhase();
         }
         return true;
     }
@@ -212,6 +223,7 @@ final class Hk3NexusJob {
     private void nextPhase() {
         phases.removeFirst();
         recipe = 0;
+        processingPhase = false;
         rounds = phases.isEmpty() ? BigInteger.ZERO : phases.getFirst().repetitions();
     }
 
@@ -262,19 +274,18 @@ final class Hk3NexusJob {
         }
         boolean batchable = dispatchNote.isEmpty();
         BigInteger maxTransfer = BigInteger.valueOf(Long.MAX_VALUE);
-        BigInteger total = BigInteger.ZERO;
-        var service = (CraftingService) host.grid().getCraftingService();
-        for (var provider : service.getProviders(part.pattern)) {
-            if (System.nanoTime() >= deadline || total.equals(limit)) break;
+        var turn = host.providers(part.pattern);
+        for (int remaining = turn.providers.size(); remaining > 0 && System.nanoTime() < deadline; remaining--) {
+            var provider = turn.next();
             if (provider == host || provider.isBusy()) continue;
             if (Hk3ProbabilitySupport.AVAILABLE && !Collections.disjoint(effective.outputs.keySet(),
                     Hk3ProbabilityOrderService.rolledOutputs(provider, part.pattern))) continue;
-            BigInteger max = batchable ? limit.subtract(total).min(maxTransfer) : BigInteger.ONE;
+            BigInteger max = batchable ? limit.min(maxTransfer) : BigInteger.ONE;
             for (var entry : effective.inputs.entrySet()) {
                 BigInteger available = held.getOrDefault(entry.getKey(), BigInteger.ZERO);
                 if (available.compareTo(entry.getValue()) < 0) {
-                    if (total.signum() == 0) missing.put(entry.getKey(), entry.getValue().subtract(available));
-                    return total;
+                    missing.put(entry.getKey(), entry.getValue().subtract(available));
+                    return BigInteger.ZERO;
                 }
                 max = max.min(available.min(maxTransfer).divide(entry.getValue()));
             }
@@ -297,9 +308,9 @@ final class Hk3NexusJob {
             effective.outputs.forEach((key, amount) -> Hk3NexusLedger.add(waiting, key, amount.multiply(count)));
             decrement(part, count);
             host.changed();
-            total = total.add(count);
+            return count;
         }
-        return total;
+        return BigInteger.ZERO;
     }
 
     private void decrement(Hk3NexusRecipe part, BigInteger count) {
@@ -320,26 +331,26 @@ final class Hk3NexusJob {
         return accepted;
     }
 
-    private void flush(boolean deliverTarget, long deadline) {
-        if (deliverTarget && delivered.compareTo(requested) < 0) {
-            BigInteger amount = held.getOrDefault(target, BigInteger.ZERO).min(requested.subtract(delivered));
-            BigInteger accepted = link.isStandalone() ? host.insert(target, amount)
-                    : BigInteger.valueOf(link.insert(target, Hk3NexusLedger.project(amount), Actionable.MODULATE));
-            if (accepted.signum() > 0) {
-                Hk3NexusLedger.add(held, target, accepted.negate());
-                delivered = delivered.add(accepted);
-                host.changed();
-            }
+    boolean returning() {
+        return (canceled || !paused && state.equals("DRAINING")) && active()
+                && (batchToken == null || !Hk3ExactCpuTracker.freezeRequested((ServerLevel) host.level(), batchToken));
+    }
+
+    boolean delivering(AEKey key) {
+        return !canceled && target.equals(key) && delivered.compareTo(requested) < 0;
+    }
+
+    void finishReturns() {
+        if (canceled) {
+            if (probability != null && probability.child != null) return;
+            state = "CANCELED";
+        } else {
             if (!delivered.equals(requested)) return;
+            state = "DONE";
+            if (!link.isDone()) link.markDone();
         }
-        for (var entry : List.copyOf(held.entrySet())) {
-            BigInteger accepted = host.insert(entry.getKey(), entry.getValue());
-            if (accepted.signum() > 0) {
-                Hk3NexusLedger.add(held, entry.getKey(), accepted.negate());
-                host.changed();
-            }
-            if (System.nanoTime() >= deadline) return;
-        }
+        finishBatch(!canceled);
+        host.changed();
     }
 
     boolean active() { return !state.equals("DONE") && !state.equals("CANCELED") && !state.equals("PROBABILITY_STOPPED"); }
@@ -349,7 +360,7 @@ final class Hk3NexusJob {
         tag.putUUID("id", id); tag.putUUID("owner", owner); tag.put("target", target.toTagGeneric());
         tag.putByteArray("requested", requested.toByteArray()); tag.putByteArray("delivered", delivered.toByteArray());
         tag.putByteArray("bytes", bytes.toByteArray()); tag.putByteArray("operations", totalOperations.toByteArray());
-        tag.putInt("priority", priority); tag.putLong("ticks", ticks); tag.putString("state", state);
+        tag.putLong("ticks", ticks); tag.putString("state", state);
         if (state.equals("PROBABILITY_STOPPED")) tag.putString("dispatchNote", dispatchNote);
         tag.putBoolean("planned", planned); tag.putBoolean("ordered", ordered); tag.putBoolean("canceled", canceled);
         tag.putBoolean("flexible", flexible);
@@ -379,12 +390,13 @@ final class Hk3NexusJob {
         }
         tag.put("program", program); tag.putInt("recipe", recipe);
         tag.putByteArray("rounds", rounds.toByteArray());
+        tag.putBoolean("processingPhase", processingPhase);
         return tag;
     }
 
     static Hk3NexusJob read(Hk3NexusCrafting host, CompoundTag tag) {
         var job = new Hk3NexusJob(host, tag.getUUID("id"), tag.getUUID("owner"), AEKey.fromTagGeneric(tag.getCompound("target")),
-                new BigInteger(tag.getByteArray("requested")), tag.getInt("priority"), tag.getCompound("link").getBoolean("standalone"));
+                new BigInteger(tag.getByteArray("requested")), tag.getCompound("link").getBoolean("standalone"));
         job.delivered = new BigInteger(tag.getByteArray("delivered")); job.bytes = new BigInteger(tag.getByteArray("bytes"));
         job.totalOperations = new BigInteger(tag.getByteArray("operations")); job.ticks = tag.getLong("ticks");
         job.state = tag.getString("state"); job.planned = tag.getBoolean("planned"); job.ordered = tag.getBoolean("ordered");
@@ -415,6 +427,7 @@ final class Hk3NexusJob {
         }
         job.recipe = tag.getInt("recipe");
         job.rounds = new BigInteger(tag.getByteArray("rounds"));
+        job.processingPhase = tag.getBoolean("processingPhase");
         job.probabilityReceipt = tag.getBoolean("probabilityReceipt");
         if ((job.probability != null || job.probabilityReceipt) && com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport.AVAILABLE)
             Hk3NexusProbabilityRun.restore(job);

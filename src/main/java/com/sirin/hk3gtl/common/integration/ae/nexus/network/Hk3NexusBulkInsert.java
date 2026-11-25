@@ -26,7 +26,19 @@ public final class Hk3NexusBulkInsert {
 
     private Hk3NexusBulkInsert() {}
 
-    public static BigInteger insert(MEStorage inventory, AEKey key, BigInteger amount, IActionSource source) {
+    public static BigInteger insert(MEStorage inventory, AEKey key, BigInteger amount, IActionSource source,
+            long deadline) {
+        BigInteger remaining = amount;
+        for (int batch = 0; batch < 16 && remaining.signum() > 0 && System.nanoTime() < deadline; batch++) {
+            var accepted = insertOnce(inventory, key, remaining, source);
+            if (accepted.equals(remaining)) return amount;
+            remaining = remaining.subtract(accepted);
+            if (accepted.compareTo(LONG_MAX) < 0) break;
+        }
+        return amount.subtract(remaining);
+    }
+
+    public static BigInteger insertOnce(MEStorage inventory, AEKey key, BigInteger amount, IActionSource source) {
         long offered = amount.min(LONG_MAX).longValueExact();
         if (amount.compareTo(LONG_MAX) <= 0)
             return BigInteger.valueOf(inventory.insert(key, offered, Actionable.MODULATE, source));
@@ -43,11 +55,28 @@ public final class Hk3NexusBulkInsert {
     }
 
     public static BigInteger expand(AEKey key, BigInteger amount, IActionSource source) {
-        Transfer transfer = CURRENT.get();
-        if (transfer == null || transfer.source != source || !transfer.key.equals(key)) return amount;
-        BigInteger expanded = amount.add(transfer.extra);
-        transfer.accepted = transfer.accepted.add(transfer.extra);
-        transfer.extra = BigInteger.ZERO;
-        return expanded;
+        var transfer = matchingTransfer(key, source);
+        return transfer == null ? amount : addExtra(transfer, amount, transfer.extra);
+    }
+
+    public static boolean hasExtra(AEKey key, IActionSource source) {
+        var transfer = matchingTransfer(key, source);
+        return transfer != null && transfer.extra.signum() > 0;
+    }
+
+    public static BigInteger expand(AEKey key, BigInteger amount, IActionSource source, BigInteger capacity) {
+        var transfer = matchingTransfer(key, source);
+        return transfer == null ? amount : addExtra(transfer, amount, transfer.extra.min(capacity.subtract(amount)));
+    }
+
+    private static Transfer matchingTransfer(AEKey key, IActionSource source) {
+        var transfer = CURRENT.get();
+        return transfer != null && transfer.source == source && transfer.key.equals(key) ? transfer : null;
+    }
+
+    private static BigInteger addExtra(Transfer transfer, BigInteger amount, BigInteger extra) {
+        transfer.extra = transfer.extra.subtract(extra);
+        transfer.accepted = transfer.accepted.add(extra);
+        return amount.add(extra);
     }
 }

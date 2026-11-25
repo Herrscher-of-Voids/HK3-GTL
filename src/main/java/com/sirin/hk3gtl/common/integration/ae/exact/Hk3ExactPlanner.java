@@ -46,10 +46,12 @@ public final class Hk3ExactPlanner {
     /** 循环必须按证书执行；原生无序patternTimes不能替代种子与回流证明。 */
     public record DetailedResult<K, R>(Result<K, R> result, List<Step<R>> execution,
                                        Map<K, BigInteger> seedRequired,
-                                       boolean orderedExecutionRequired, int routeAttempts) {
+                                       boolean orderedExecutionRequired, int routeAttempts,
+                                       List<R> cycleRecipes) {
         public DetailedResult {
             execution = List.copyOf(execution);
             seedRequired = immutable(seedRequired);
+            cycleRecipes = List.copyOf(cycleRecipes);
         }
     }
 

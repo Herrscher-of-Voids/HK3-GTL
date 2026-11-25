@@ -109,7 +109,7 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
                 boolean enabled=!Hk3PhoneConfig.DO_NOT_DISTURB.get();
                 Hk3PhoneConfig.DO_NOT_DISTURB.set(enabled);
                 if(enabled){TOASTS.clear();previous=List.of();}
-                Hk3PhoneConfig.SPEC.save();
+                Hk3PhoneConfig.save();
             }
         }
     }
@@ -155,24 +155,24 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
             widget(new Hk3PhoneAppCard("更新详情","查看本次内测更新","版本记录  ›",cx,y+427,312,69,0xFFE8C673,()->command("hk3updates")));
             int size=Hk3PhoneConfig.PHONE_SIZE.get();
             button(Component.translatable("hk3gtl.phone.bodySize",size).getString(),cx,y+505,312,()->{
-                Hk3PhoneConfig.PHONE_SIZE.set(size<72?72:size<86?86:60);Hk3PhoneConfig.SPEC.save();init();
+                Hk3PhoneConfig.PHONE_SIZE.set(size<72?72:size<86?86:60);Hk3PhoneConfig.save();init();
             });
         }else if(mode.equals("gaze_settings")){
             gazeSettings.layout(cx,y+157,312);widget(Hk3GazeSettingsPane.slider(cx,y+388));
-            button("恢复默认位置与大小",cx,y+438,312,()->{Hk3PhoneConfig.GAZE_X.set(-1.0);Hk3PhoneConfig.GAZE_Y.set(-1.0);Hk3PhoneConfig.GAZE_SCALE.set(1.0);Hk3PhoneConfig.SPEC.save();initFitted();});
+            button("恢复默认位置与大小",cx,y+438,312,()->{Hk3PhoneConfig.GAZE_X.set(-1.0);Hk3PhoneConfig.GAZE_Y.set(-1.0);Hk3PhoneConfig.GAZE_SCALE.set(1.0);Hk3PhoneConfig.save();initFitted();});
         }else if(mode.equals("notification_settings")){
             settings.layout(cx,y+152,312);
             addRenderableWidget(Hk3PhoneSettingsPane.scaleSlider(cx,y+359,312));
             button("声音："+(Hk3PhoneConfig.SOUND.get()?"开":"关"),cx,y+404,148,()->{
-                Hk3PhoneConfig.SOUND.set(!Hk3PhoneConfig.SOUND.get());Hk3PhoneConfig.SPEC.save();initFitted();
+                Hk3PhoneConfig.SOUND.set(!Hk3PhoneConfig.SOUND.get());Hk3PhoneConfig.save();initFitted();
             });
             button("闲话："+(Hk3PhoneConfig.CHATTER.get()?"提醒":"静默"),cx+164,y+404,148,()->{
-                Hk3PhoneConfig.CHATTER.set(!Hk3PhoneConfig.CHATTER.get());Hk3PhoneConfig.SPEC.save();initFitted();
+                Hk3PhoneConfig.CHATTER.set(!Hk3PhoneConfig.CHATTER.get());Hk3PhoneConfig.save();initFitted();
             });
             button("恢复默认通知位置",cx,y+450,312,()->{
                 Hk3PhoneConfig.POSITION_X.set(-1.0);Hk3PhoneConfig.POSITION_Y.set(-1.0);
                 Hk3PhoneConfig.RIGHT.set(true);Hk3PhoneConfig.MARGIN.set(12);Hk3PhoneConfig.TOP.set(24);Hk3PhoneConfig.SCALE.set(1.0);
-                Hk3PhoneConfig.SPEC.save();initFitted();
+                Hk3PhoneConfig.save();initFitted();
             });
         }else if(reading()){
             lines.clear();
@@ -380,7 +380,7 @@ public final class Hk3PhoneScreen extends Hk3FittedScreen {
     @Override public void onClose(){extras.navigate(()->{gallery.close();if(mode().equals("instruction_read"))eggReading.leaveInstruction(view);Hk3EggUiClient.send("close",mode());super.onClose();});}
     @Override public void removed(){
         closed=true;
-        gallery.cancel();desktop.removed();eggReading.close();gazeSettings.release();settings.release();Hk3PhoneConfig.SPEC.save();super.removed();}
+        gallery.cancel();desktop.removed();eggReading.close();gazeSettings.release();settings.release();Hk3PhoneConfig.save();super.removed();}
     @Override public boolean keyPressed(int key,int scan,int modifiers){
         if(outOfPower()&&key!=256)return true;
         if(extras.pending())return true;

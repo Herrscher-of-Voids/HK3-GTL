@@ -30,13 +30,13 @@ final class Hk3GazeSettingsPane {
         Hk3PhoneConfig.GAZE_X.set(Hk3PhoneLayout.unit(((mx-x)/ratio-grabX)/Math.max(1,sw-p.width())));
         Hk3PhoneConfig.GAZE_Y.set(Hk3PhoneLayout.unit(((my-y)/ratio-grabY)/Math.max(1,sh-p.height())));return true;
     }
-    boolean release(){if(!dragging)return false;dragging=false;Hk3PhoneConfig.SPEC.save();return true;}
+    boolean release(){if(!dragging)return false;dragging=false;Hk3PhoneConfig.save();return true;}
     static AbstractSliderButton slider(int x,int y){
         return new AbstractSliderButton(x,y,312,24,Component.empty(),(Hk3PhoneConfig.GAZE_SCALE.get()-.6)/.9){
             {updateMessage();}
             @Override protected void updateMessage(){setMessage(Component.literal("注视 HUD 大小  "+Math.round((.6+value*.9)*100)+"%"));}
             @Override protected void applyValue(){Hk3PhoneConfig.GAZE_SCALE.set(.6+value*.9);}
-            @Override public void onRelease(double mx,double my){Hk3PhoneConfig.SPEC.save();super.onRelease(mx,my);}
+            @Override public void onRelease(double mx,double my){Hk3PhoneConfig.save();super.onRelease(mx,my);}
         };
     }
 }

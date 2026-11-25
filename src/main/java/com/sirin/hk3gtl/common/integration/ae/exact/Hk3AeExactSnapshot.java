@@ -285,7 +285,8 @@ public final class Hk3AeExactSnapshot {
             Hk3ExactPlanner.DetailedResult<AEKey, IPatternDetails> detailed) {
         var result = supportedMissing(detailed.result());
         return result == detailed.result() ? detailed : new Hk3ExactPlanner.DetailedResult<>(result,
-                detailed.execution(), detailed.seedRequired(), detailed.orderedExecutionRequired(), detailed.routeAttempts());
+                detailed.execution(), detailed.seedRequired(), detailed.orderedExecutionRequired(), detailed.routeAttempts(),
+                detailed.cycleRecipes());
     }
 
     public AEKey target() { return target; }

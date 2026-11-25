@@ -39,7 +39,7 @@ final class Hk3PhoneDesktop {
         if(pressed<0)return "";int from=pressed;pressed=-1;
         if(dragging){
             int to=cell(x,y);dragging=false;
-            if(to>=0){order=Hk3PhoneDesktopOrder.move(order,from,to);Hk3PhoneConfig.APP_ORDER.set(order);Hk3PhoneConfig.SPEC.save();Hk3EggUiClient.send("layout",String.join(",",order));}
+            if(to>=0){order=Hk3PhoneDesktopOrder.move(order,from,to);Hk3PhoneConfig.APP_ORDER.set(order);Hk3PhoneConfig.save();Hk3EggUiClient.send("layout",String.join(",",order));}
             return "";
         }
         return cell(x,y)==from?order.get(from):"";

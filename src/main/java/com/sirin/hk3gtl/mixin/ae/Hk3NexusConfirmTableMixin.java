@@ -24,6 +24,13 @@ import java.util.List;
 
 @Mixin(value = CraftConfirmTableRenderer.class, priority = 900, remap = false)
 public abstract class Hk3NexusConfirmTableMixin {
+    @Inject(method = "getEntryOverlayColor(Lappeng/menu/me/crafting/CraftingPlanSummaryEntry;)I",
+            at = @At("RETURN"), cancellable = true)
+    private void hk3gtl$markCycle(CraftingPlanSummaryEntry entry, CallbackInfoReturnable<Integer> cir) {
+        if (entry instanceof Hk3NexusPlanSummary.Entry exact && exact.cycle && exact.missing.signum() == 0)
+            cir.setReturnValue(0x36FFD54F);
+    }
+
     // 桥接方法在 GTL 可取消回调之后返回，保留其状态说明。
     @Inject(method = "getEntryDescription(Ljava/lang/Object;)Ljava/util/List;",
             at = @At("RETURN"), cancellable = true)
@@ -31,6 +38,8 @@ public abstract class Hk3NexusConfirmTableMixin {
         var entry = (CraftingPlanSummaryEntry) value;
         var lines = hk3gtl$quantities(entry, true);
         cir.getReturnValue().stream().filter(line -> !hk3gtl$isQuantity(line)).forEach(lines::add);
+        if (lines.isEmpty() && entry instanceof Hk3NexusPlanSummary.Entry exact && exact.cycle)
+            lines.add(Component.translatable("hk3gtl.ae.cycle.entry"));
         cir.setReturnValue(lines);
     }
 
@@ -41,6 +50,8 @@ public abstract class Hk3NexusConfirmTableMixin {
         var lines = new ArrayList<>(cir.getReturnValue());
         lines.removeIf(Hk3NexusConfirmTableMixin::hk3gtl$isQuantity);
         lines.addAll(hk3gtl$quantities(entry, false));
+        if (entry instanceof Hk3NexusPlanSummary.Entry exact && exact.cycle)
+            lines.add(Component.translatable("hk3gtl.ae.cycle.entry").withStyle(ChatFormatting.GOLD));
         cir.setReturnValue(lines);
     }
 

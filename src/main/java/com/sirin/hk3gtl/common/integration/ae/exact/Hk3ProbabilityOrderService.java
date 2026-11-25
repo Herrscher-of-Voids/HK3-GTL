@@ -24,6 +24,7 @@ import com.mojang.logging.LogUtils;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.machine.Hk3RecipeLogic;
 import com.sirin.hk3gtl.common.integration.ae.nexus.crafting.Hk3NexusCrafting;
+import com.sirin.hk3gtl.common.integration.ae.nexus.network.Hk3NexusBulkInsert;
 import com.sirin.hk3gtl.common.machine.research.Hk3LiquidProcessMachine;
 import com.sirin.hk3gtl.common.research.Hk3ProductionOutput;
 import com.sirin.hk3gtl.common.research.Hk3RecipeAccess;
@@ -841,10 +842,13 @@ public final class Hk3ProbabilityOrderService {
         if (!persist(player.server, entry)) return BigInteger.ZERO;
         BigInteger moved = BigInteger.ZERO;
         var storage = binding.provider.getGrid().getStorageService().getInventory();
+        var source = IActionSource.ofPlayer(player);
+        long deadline = System.nanoTime() + 2_000_000L;
         for (var output : entry.escrow.entrySet()) {
-            long requested = output.getValue().min(BigInteger.valueOf(Long.MAX_VALUE)).longValueExact();
-            long accepted = storage.insert(output.getKey(), requested, Actionable.MODULATE, IActionSource.ofPlayer(player));
-            var inserted = BigInteger.valueOf(accepted);
+            var inserted = entry.nexusParent != null
+                    ? Hk3NexusBulkInsert.insert(storage, output.getKey(), output.getValue(), source, deadline)
+                    : BigInteger.valueOf(storage.insert(output.getKey(),
+                            output.getValue().min(BigInteger.valueOf(Long.MAX_VALUE)).longValueExact(), Actionable.MODULATE, source));
             output.setValue(output.getValue().subtract(inserted));
             if (entry.unclaimedTarget.signum() > 0 && entry.target.equals(output.getKey()))
                 entry.unclaimedTarget = entry.unclaimedTarget.subtract(entry.unclaimedTarget.min(inserted));

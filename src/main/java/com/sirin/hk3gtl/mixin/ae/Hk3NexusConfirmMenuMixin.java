@@ -148,7 +148,8 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
         hk3gtl$chanceText = "";
         if (!preview.probabilityNeeds().isEmpty()) {
             autoStart = false;
-            plan = preview.summary();
+            var summary = preview.summary();
+            plan = summary;
             if (preview.onlyProbabilityMissing()) {
                 try {
                     var routes = Hk3ProbabilityOrderService.nexusQuotes((ServerPlayer) getPlayer(), preview.host().grid(), preview.probabilityNeeds());
@@ -156,7 +157,7 @@ public abstract class Hk3NexusConfirmMenuMixin extends AEBaseMenu implements Hk3
                     hk3gtl$chanceText = title + '\n' + String.join("\n", routes.stream()
                             .map(Hk3ProbabilityOrderService.NexusQuote::description).toList());
                     plan = Hk3NexusPlanSummary.of(preview.target(), preview.amount(), preview.exactBytes(), false,
-                            Map.of(), Map.of(), preview.probabilityNeeds(), Map.of(), Map.of());
+                            Map.of(), Map.of(), preview.probabilityNeeds(), Map.of(), Map.of(), summary.cycle);
                     hk3gtl$routes = routes;
                 } catch (IllegalArgumentException unavailable) {
                     getPlayer().sendSystemMessage(Component.literal("概率合成：" + unavailable.getMessage()));

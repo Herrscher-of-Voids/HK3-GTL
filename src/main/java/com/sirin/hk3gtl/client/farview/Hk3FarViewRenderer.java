@@ -2,6 +2,7 @@ package com.sirin.hk3gtl.client.farview;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
+import com.sirin.hk3gtl.common.config.Hk3ConfigPages;
 import com.sirin.hk3gtl.common.farview.*;
 import com.sirin.hk3gtl.common.network.Hk3Network;
 import com.sirin.hk3gtl.client.wonder.Hk3W03FieldScenes;
@@ -495,7 +496,7 @@ public final class Hk3FarViewRenderer {
     }
     private static void setEnabled(boolean enabled) {
         if(Hk3FarViewConfig.ENABLED.get()!=enabled){session++;lastDistance=-1;}
-        Hk3FarViewConfig.ENABLED.set(enabled);Hk3FarViewConfig.SPEC.save();
+        Hk3ConfigPages.setFarViewEnabled(enabled);
         var player=Minecraft.getInstance().player;if(player!=null)player.displayClientMessage(net.minecraft.network.chat.Component.literal("HK3GTL远景已"+(enabled?"开启":"关闭")),false);
     }
     private static double distance(long key,double x,double y,double z){

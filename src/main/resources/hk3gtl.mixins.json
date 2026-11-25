@@ -18,6 +18,8 @@
     "ae.Hk3InfiniteSourceMenuMixin",
     "ae.Hk3InfinityBigIntegerCellMixin",
     "ae.Hk3NexusBulkInsertMixin",
+    "ae.Hk3GtlNexusBulkInsertMixin",
+    "ae.Hk3FastNexusBulkInsertMixin",
     "ae.Hk3NexusMatrixUploadMixin",
     "ae.Hk3NexusGtMatrixUploadMixin",
     "ae.Hk3NexusPathingMixin",
@@ -194,6 +196,8 @@
     "gtlsupb.Hk3EggVoltageRegulatorMixin"
   ],
   "client": [
+    "client.Hk3ConfigDescriptionMixin",
+    "client.Hk3ConfigHeightModeMixin",
     "ae.Hk3CompleteGtPatternTransferMixin",
     "jei.Hk3ExpandedRecipeLayoutMixin",
     "jei.Hk3JeiSingleRecipePageMixin",
@@ -214,6 +218,7 @@
     "client.Hk3W03EmbeddiumContext",
     "client.Hk3W03EmbeddiumRenderMixin",
     "client.Hk3FarProjectionMixin",
+    "client.Hk3ConfigScreenSaveMixin",
     "client.Hk3FarFrameMixin",
     "client.Hk3FarNativeRenderMixin",
     "client.Hk3FarEmbeddiumRenderMixin",
