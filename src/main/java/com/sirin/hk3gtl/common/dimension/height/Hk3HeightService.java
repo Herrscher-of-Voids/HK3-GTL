@@ -29,6 +29,7 @@ public final class Hk3HeightService {
     public static Hk3HeightWorldState freezeBeforeSave(RegistryAccess registryAccess, Hk3HeightWorldState state, boolean applied) {
         if (!state.enabled()) return state;
         validateReferencedTypes(registryAccess);
+        state = migrateStargateJourney062(registryAccess, state);
         var registry = registryAccess.registryOrThrow(Registries.DIMENSION_TYPE);
         Map<String, Hk3HeightBounds> original = new TreeMap<>();
         for (var entry : registry.entrySet()) {
@@ -61,6 +62,30 @@ public final class Hk3HeightService {
         }
     }
 
+    private static Hk3HeightWorldState migrateStargateJourney062(RegistryAccess access, Hk3HeightWorldState state) {
+        if (state.dimensions().isEmpty()) return state;
+        var registry = access.registryOrThrow(Registries.DIMENSION_TYPE);
+        var migrated = new TreeMap<>(state.dimensions());
+        boolean changed = false;
+        for (var entry : registry.entrySet()) {
+            String id = entry.getKey().location().toString();
+            var type = entry.getValue();
+            var saved = migrated.get(id);
+            if ("sgjourney:rima".equals(id) && saved != null
+                    && saved.originalMinY() == -64 && saved.originalHeight() == 384 && saved.logicalHeight() == 384
+                    && type.minY() == 0 && type.height() == 256 && type.logicalHeight() == 256) {
+                migrated.put(id, Hk3HeightPolicy.expand(type.minY(), type.height(), type.logicalHeight(), state.topExclusive()));
+                changed = true;
+            } else if ("sgjourney:tollan".equals(id) && saved == null
+                    && type.minY() == 0 && type.height() == 256 && type.logicalHeight() == 256) {
+                migrated.put(id, Hk3HeightPolicy.expand(type.minY(), type.height(), type.logicalHeight(), state.topExclusive()));
+                changed = true;
+            }
+        }
+        if (changed) LOGGER.info("[HK3GTL高度] 已迁移 Stargate Journey 0.6.52 的维度合同：rima/tollan");
+        return changed ? state.withDimensions(migrated) : state;
+    }
+
     public static void applyBeforeLevels(MinecraftServer server) {
         if (!(server.getWorldData() instanceof Hk3HeightWorldData data))
             throw new IllegalStateException("HK3GTL高度合同接口未加载，拒绝创建世界。");
@@ -80,6 +105,30 @@ public final class Hk3HeightService {
             LOGGER.info("[HK3GTL高度] 本世界没有启用合同，保持所有维度原高度；不自动迁移已有世界。");
             return;
         }
+        state = migrateStargateJourney062(server.registryAccess(), state);
+        if (state.topExclusive() < Hk3HeightConfig.TOP_EXCLUSIVE.get()) {
+            try {
+                var backup = Hk3HeightWorldUpgrade.backup(server.getWorldPath(LevelResource.ROOT),
+                    Hk3HeightConfig.TOP_EXCLUSIVE.get());
+                LOGGER.info("[HK3GTL高度] 已备份扩高前的高度合同元数据：{}", backup);
+            } catch (java.io.IOException failure) {
+                throw new IllegalStateException("高度合同扩高备份失败，拒绝修改已有世界。", failure);
+            }
+            Map<String, Hk3HeightBounds> migrated = new TreeMap<>();
+            for (var entry : state.dimensions().entrySet()) {
+                var bounds = entry.getValue();
+                migrated.put(entry.getKey(), Hk3HeightPolicy.expand(bounds.originalMinY(),
+                    bounds.originalHeight(), bounds.logicalHeight(), Hk3HeightConfig.TOP_EXCLUSIVE.get()));
+            }
+            state = new Hk3HeightWorldState(state.worldId(), state.contractVersion(),
+                Hk3HeightConfig.TOP_EXCLUSIVE.get(), state.enabled(), migrated);
+            LOGGER.info("[HK3GTL高度] 已将已有世界高度合同扩展至{}，最高可建Y={}",
+                state.topExclusive(), state.topExclusive() - 1);
+        } else if (state.topExclusive() > Hk3HeightConfig.TOP_EXCLUSIVE.get()) {
+            throw new IllegalStateException("已有世界高度合同高于当前配置，拒绝缩高：合同="
+                + state.topExclusive() + "，配置=" + Hk3HeightConfig.TOP_EXCLUSIVE.get());
+        }
+        data.hk3gtl$setHeightState(state);
         if (data.hk3gtl$isHeightApplied()) return;
         Hk3HeightPolicy.requireTopExclusive(state.topExclusive());
         validateReferencedTypes(server.registryAccess());

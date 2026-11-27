@@ -11,26 +11,42 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
+import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3EggVanilla {
     private record Placement(java.util.UUID player,net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> dimension,BlockPos pos,BlockState before,BlockState after){}
+    private record Broken(java.util.UUID player,net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> dimension,BlockPos pos,BlockState old,boolean madeObsidian){}
     private static final Map<net.minecraft.server.MinecraftServer,ArrayDeque<Placement>> PENDING=new java.util.concurrent.ConcurrentHashMap<>();
+    private static final Map<net.minecraft.server.MinecraftServer,ArrayDeque<Broken>> PENDING_BROKEN=new java.util.concurrent.ConcurrentHashMap<>();
     private Hk3EggVanilla(){}
     public static void queuePlacement(ServerPlayer p,BlockPos pos,BlockState before,BlockState after){
         var queue=PENDING.computeIfAbsent(p.server,k->new ArrayDeque<>());
         if(queue.size()<4096)queue.addLast(new Placement(p.getUUID(),p.level().dimension(),pos.immutable(),before,after));
     }
+    public static void queueBroken(ServerPlayer p,BlockPos pos,BlockState old,boolean madeObsidian){
+        PENDING_BROKEN.computeIfAbsent(p.server,k->new ArrayDeque<>()).addLast(new Broken(p.getUUID(),p.level().dimension(),pos.immutable(),old,madeObsidian));
+    }
     @SubscribeEvent public static void flush(TickEvent.ServerTickEvent e){
-        if(e.phase!=TickEvent.Phase.END)return;var server=e.getServer();var queue=PENDING.remove(server);if(queue==null)return;
-        for(var pending:queue){var p=server.getPlayerList().getPlayer(pending.player);var level=server.getLevel(pending.dimension);
+        if(e.phase!=TickEvent.Phase.END)return;var server=e.getServer();var queue=PENDING.remove(server);var broken=PENDING_BROKEN.remove(server);if(queue==null&&broken==null)return;
+        if(queue!=null)for(var pending:queue){var p=server.getPlayerList().getPlayer(pending.player);var level=server.getLevel(pending.dimension);
             if(p==null||level==null||p.level()!=level||!level.hasChunkAt(pending.pos)||!level.getBlockState(pending.pos).equals(pending.after))continue;
             placed(p,pending.pos,pending.before,pending.after);
         }
+        if(broken!=null)for(var pending:broken){var p=server.getPlayerList().getPlayer(pending.player);var level=server.getLevel(pending.dimension);
+            if(p==null||level==null||p.level()!=level||!level.hasChunkAt(pending.pos)||!level.getBlockState(pending.pos).isAir())continue;
+            broken(p,pending.pos,pending.old);if(pending.madeObsidian&&!p.isCreative())caseEvent(p,446);
+        }
     }
-    @SubscribeEvent public static void stop(net.minecraftforge.event.server.ServerStoppedEvent e){PENDING.remove(e.getServer());}
+    @SubscribeEvent public static void stop(net.minecraftforge.event.server.ServerStoppedEvent e){PENDING.remove(e.getServer());PENDING_BROKEN.remove(e.getServer());}
+    @SubscribeEvent(priority=EventPriority.LOWEST) public static void breakEvent(BlockEvent.BreakEvent e){
+        if(e.isCanceled()||!(e.getPlayer() instanceof ServerPlayer p))return;
+        var old=e.getState();var pos=e.getPos();
+        queueBroken(p,pos,old,old.is(Blocks.OBSIDIAN)&&Hk3EggBuildMemory.get(p.serverLevel()).madeObsidian(p,pos));
+    }
     public static void placed(ServerPlayer p,BlockPos pos,BlockState before,BlockState after){
         if(before.equals(after))return;
         Hk3EggBuildings.placed(p,pos,after);

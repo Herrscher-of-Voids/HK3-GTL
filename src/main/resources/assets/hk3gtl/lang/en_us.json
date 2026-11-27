@@ -8047,7 +8047,7 @@
   "config.hk3gtl-height.option.newWorldMode": "New World Height Mode",
   "hk3gtl.config.height.new_world_mode.comment": "Choose which new saves use extended build height. Saves keep the height assigned when they are created.",
   "config.hk3gtl-height.option.topExclusive": "Build Height Limit (Exclusive)",
-  "hk3gtl.config.height.top_exclusive.comment": "Enter a multiple of 16 from 528 to 2032. The highest buildable Y is one block below this value (2031 if set to 2032). Applies to new worlds and first-time save upgrades.",
+  "hk3gtl.config.height.top_exclusive.comment": "Enter a multiple of 16 from 528 to 2032. The highest buildable Y is one block below this value (2031 if set to 2032). Applies to new worlds and upward upgrades of existing contracts.",
   "config.hk3gtl-height.option.existingWorlds": "Existing Worlds to Upgrade",
   "hk3gtl.config.height.existing_worlds.comment": "Add the exact folder name of a save to upgrade in each entry. Changes apply when you fully reopen that save.",
   "config.hk3gtl-farview.option.enabled": "Enable Distant Structures",

@@ -125,7 +125,6 @@
     "AvaritiaAbilityHandlerMixin",
     "Hk3EggContainerMixin",
     "Hk3EggBlockItemMixin",
-    "Hk3EggMiningMixin",
     "ae.Hk3EggEncodeMixin",
     "ae.Hk3EggInscriberMixin",
     "Hk3EggFrameMixin",
