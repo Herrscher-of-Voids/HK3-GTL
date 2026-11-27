@@ -19,6 +19,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.Level;
 import org.gtlcore.gtlcore.common.item.VirtualIngredientBehavior;
+import org.gtlcore.gtlcore.common.machine.multiblock.part.ae.MEPatternBufferPartMachineBase;
 import org.gtlcore.gtlcore.integration.ae2.AEUtils;
 import org.gtlcore.gtlcore.integration.ae2.crafting.CraftingPatternAutoExpand;
 import org.gtlcore.gtlcore.integration.ae2.crafting.IPatternProviderAutoExpand;
@@ -269,17 +270,13 @@ final class Hk3NexusJob {
                 key -> held.getOrDefault(key, BigInteger.ZERO)) : part;
         dispatchNote = "";
         boolean recirculating = effective.inputs.keySet().stream().anyMatch(effective.outputs::containsKey);
-        if (!(effective.pattern instanceof AEProcessingPattern) || !effective.pattern.supportsPushInputsToExternalInventory()) {
-            dispatchNote = "供给器接口不支持批量加工";
-        } else if (recirculating) {
-            dispatchNote = "样板有同键回流，逐批保留周转物资";
-        } else if (effective.inputs.keySet().stream().anyMatch(key -> AEUtils.isIntegratedCircuit(key)
-                || key instanceof AEItemKey item && VirtualIngredientBehavior.isMarked(item.getReadOnlyStack()))) {
-            dispatchNote = "含配置电路或虚拟原料，按供给器原生路径发料";
-        }
-        boolean batchable = dispatchNote.isEmpty();
+        boolean externalBatch = effective.pattern instanceof AEProcessingPattern
+                && effective.pattern.supportsPushInputsToExternalInventory()
+                && effective.inputs.keySet().stream().noneMatch(key -> AEUtils.isIntegratedCircuit(key)
+                        || key instanceof AEItemKey item && VirtualIngredientBehavior.isMarked(item.getReadOnlyStack()));
+        if (recirculating) dispatchNote = "样板有同键回流，逐批保留周转物资";
         BigInteger ready = recirculating ? BigInteger.ONE : limit;
-        BigInteger perPush = batchable ? BigInteger.valueOf(Long.MAX_VALUE) : BigInteger.ONE;
+        BigInteger perPush = BigInteger.valueOf(Long.MAX_VALUE);
         for (var entry : effective.inputs.entrySet()) {
             BigInteger available = held.getOrDefault(entry.getKey(), BigInteger.ZERO);
             if (available.compareTo(entry.getValue()) < 0) {
@@ -293,7 +290,7 @@ final class Hk3NexusJob {
             perPush = perPush.min(BigInteger.valueOf(Long.MAX_VALUE).divide(amount));
         BigInteger dispatched = BigInteger.ZERO;
         Map<AEKey, Long> inputs = new LinkedHashMap<>();
-        if (batchable) effective.inputs.forEach((key, amount) -> inputs.put(key, amount.longValueExact()));
+        if (!recirculating) effective.inputs.forEach((key, amount) -> inputs.put(key, amount.longValueExact()));
         var turn = host.providers(part.pattern);
         for (int remaining = turn.providers.size(); remaining > 0 && dispatched.compareTo(ready) < 0
                 && System.nanoTime() < deadline; remaining--) {
@@ -302,10 +299,11 @@ final class Hk3NexusJob {
             if (Hk3ProbabilitySupport.AVAILABLE && !Collections.disjoint(effective.outputs.keySet(),
                     Hk3ProbabilityOrderService.rolledOutputs(provider, part.pattern))) continue;
             long operations = 1;
-            if (batchable) {
+            boolean patternBuffer = provider instanceof MEPatternBufferPartMachineBase;
+            if (!recirculating && (patternBuffer || externalBatch)) {
                 BigInteger divisor = BigInteger.valueOf(remaining);
                 BigInteger share = ready.subtract(dispatched).add(divisor).subtract(BigInteger.ONE).divide(divisor);
-                operations = push(provider, effective, inputs, share.min(perPush).longValueExact());
+                operations = push(provider, effective, inputs, share.min(perPush).longValueExact(), patternBuffer);
             } else if (!provider.pushPattern(effective.pattern, Hk3NexusRecipe.copy(effective.grouped))) continue;
             if (operations == 0) continue;
             BigInteger count = BigInteger.valueOf(operations);
@@ -324,9 +322,10 @@ final class Hk3NexusJob {
         return dispatched;
     }
 
-    private long push(ICraftingProvider provider, Hk3NexusRecipe recipe, Map<AEKey, Long> inputs, long limit) {
+    private long push(ICraftingProvider provider, Hk3NexusRecipe recipe, Map<AEKey, Long> inputs, long limit,
+            boolean patternBuffer) {
         var pattern = recipe.pattern;
-        boolean nativeBatch = limit > 1 && CraftingPatternAutoExpand.canAutoExpand(true, provider);
+        boolean nativeBatch = limit > 1 && (patternBuffer || CraftingPatternAutoExpand.canAutoExpand(true, provider));
         long operations = limit;
         if (provider instanceof GraphDispatchPreflight preflight) {
             if (!preflight.gtlcore$canProduceGraphPattern(pattern)) return 0;
