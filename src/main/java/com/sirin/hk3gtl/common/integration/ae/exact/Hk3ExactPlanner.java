@@ -64,6 +64,10 @@ public final class Hk3ExactPlanner {
 
             if (logicalBytesPerBatch.signum() < 0) throw new IllegalArgumentException("逻辑成本不能为负数");
         }
+
+        public boolean produces(K key) {
+            return outputs.getOrDefault(key, BigInteger.ZERO).compareTo(inputs.getOrDefault(key, BigInteger.ZERO)) > 0;
+        }
     }
 
     /** 缺料计划仅供诊断；只有SUCCESS允许适配器提交。surplus只含本次生产余量。 */

@@ -21,8 +21,12 @@ public final class Hk3ResearchMath {
     }
 
     public static double speed(int lab, double gaze, double suppression, boolean erosion, boolean wonder) {
+        return speed(lab, gaze, suppression, erosion ? 1 : 0, wonder);
+    }
+
+    public static double speed(int lab, double gaze, double suppression, int erosionModules, boolean wonder) {
         double q = pressure(lab, gaze, suppression), q2 = q * q;
-        return Math.min(3, 1 + (erosion ? 0.5 : 0) + (wonder ? 1.5 : 0)) / (1 + 1.2 * q + 1.2 * q2 + 0.6 * q2 * q2);
+        return Math.min(3, 1 + 0.5 * erosionModules + (wonder ? 1.5 : 0)) / (1 + 1.2 * q + 1.2 * q2 + 0.6 * q2 * q2);
     }
 
     public static long materialCount(long base, int lab, double gaze, double suppression) {

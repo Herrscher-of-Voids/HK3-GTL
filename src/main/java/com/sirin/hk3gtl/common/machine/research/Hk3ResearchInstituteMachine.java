@@ -53,8 +53,14 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
     /** 阶级是注册定义常量，非法值拒绝；不通过NBT或玩家包升级研究所。 / Lab level is fixed by registration, never client/NBT-upgradable. */
     public Hk3ResearchInstituteMachine(IMachineBlockEntity holder, int lab) {
         super(holder); Hk3ResearchMath.slots(lab); this.lab=lab;
-        erosionModule = new ItemStackTransfer(1) {
+        erosionModule = new ItemStackTransfer(Hk3ErosionResearch.MAX_MODULES) {
             @Override public int getSlotLimit(int slot) { return 1; }
+
+            @Override public void deserializeNBT(CompoundTag saved) {
+                var modules = saved.copy();
+                modules.putInt("Size", Hk3ErosionResearch.MAX_MODULES);
+                super.deserializeNBT(modules);
+            }
         };
         erosionModule.setFilter(stack -> stack.is(Hk3Items.EROSION_RESEARCH_MODULE.get()));
         erosionModule.setOnContentsChanged(this::markDirty);
@@ -67,9 +73,17 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
         clearInventory(erosionModule);
     }
 
-    private boolean erosionInstalled() {
-        var module = erosionModule.getStackInSlot(0);
-        return module.getCount() == 1 && module.is(Hk3Items.EROSION_RESEARCH_MODULE.get());
+    private int installedModules() {
+        int count = 0;
+        for (int slot = 0; slot < erosionModule.getSlots(); slot++)
+            if (erosionModule.getStackInSlot(slot).is(Hk3Items.EROSION_RESEARCH_MODULE.get())) count++;
+        return count;
+    }
+
+    private int moduleSlot(boolean empty) {
+        for (int slot = 0; slot < erosionModule.getSlots(); slot++)
+            if (erosionModule.getStackInSlot(slot).isEmpty() == empty) return slot;
+        return -1;
     }
     @Override protected boolean enableMultiRecipe() { return false; }
 
@@ -115,7 +129,7 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
         var online=Hk3ResearchTeams.online(server,scope);
         double gaze=Hk3ResearchTeams.gaze(server,scope);
         double suppression=suppression();
-        boolean researched=data.completed(scope,"RN-ERM"), installed=erosionInstalled();
+        boolean researched=data.completed(scope,"RN-ERM");
         long base=job.quote().eut();
         var ports=Hk3PowerPorts.of(getRecipeLogic());
         long tick=server.overworld().getGameTime();
@@ -126,13 +140,12 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
         long available=Hk3PortPayment.available(ports)
                 .min(Hk3PortPayment.power(ports).subtract(researchPowerUsed).max(BigInteger.ZERO))
                 .min(BigInteger.valueOf(Long.MAX_VALUE)).longValue();
-        boolean boosted=Hk3ErosionResearch.boost(lab,researched,installed,erosionEnabled,
-                job.quote().topic(),base,available);
-        long cost=Hk3ErosionResearch.cost(base,boosted);
-        double speed=Hk3ResearchMath.speed(lab,gaze,suppression,boosted,wonder);
-        if (!boosted && !online.isEmpty() && job.progress()<job.quote().ticks()
-                && Hk3ErosionResearch.boost(lab,researched,installed,erosionEnabled,
-                job.quote().topic(),base,Long.MAX_VALUE)) erosionPowerLimited=true;
+        int eligible=Hk3ErosionResearch.eligibleModules(lab,researched,installedModules(),erosionEnabled,
+                job.quote().topic(),wonder);
+        int powered=Hk3ErosionResearch.poweredModules(eligible,base,available);
+        long cost=Hk3ErosionResearch.cost(base,powered);
+        double speed=Hk3ResearchMath.speed(lab,gaze,suppression,powered,wonder);
+        if (powered < eligible && !online.isEmpty() && job.progress()<job.quote().ticks()) erosionPowerLimited=true;
         boolean[] energyPaid={false};
         var payment=Hk3RefundJournal.open(this);
         Hk3ResearchWorkQueue.Outcome result;
@@ -147,7 +160,7 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
             if (!payment.finish(energyPaid[0])) researchRefund=payment;
             if (energyPaid[0]) advanced.run();
         }
-        if (boosted && energyPaid[0]) erosionActive=true;
+        if (powered > 0 && energyPaid[0]) erosionActive=true;
         var experiment=com.sirin.hk3gtl.common.research.Hk3LabExperimentRules.get(job.quote().topic());
         if(result==Hk3ResearchWorkQueue.Outcome.PAUSED&&experiment!=null&&job.progress()>0
                 &&job.progress()<job.quote().ticks()&&!online.isEmpty()&&available<cost)
@@ -218,13 +231,13 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
             view.putInt("slots", Hk3ResearchMath.slots(lab));
             view.putInt("active", data.usedResearchSlots(facility()));
             view.putString("points", data.points(server.getUUID()).toString());
-            boolean installed=erosionInstalled();
+            int installed=installedModules();
             boolean allowed=Hk3ErosionResearch.allowed(lab,data.completed(owner,"RN-ERM"));
-            view.putBoolean("ermInstalled",installed);
+            view.putInt("ermCount",installed);
             view.putBoolean("ermAllowed",allowed);
             view.putBoolean("ermEnabled",erosionEnabled);
-            view.putString("ermState",!allowed?"locked":!installed?"missing":!erosionEnabled?"off"
-                    :erosionActive?"active":erosionPowerLimited?"power":"idle");
+            view.putString("ermState",!allowed?"locked":installed==0?"missing":!erosionEnabled?"off"
+                    :erosionPowerLimited?"power":erosionActive?"active":"idle");
             view.putString("w13State",Hk3W13ResearchService.status(Hk3ResearchInstituteMachine.this));
             view.putString("selected", selected);
             if (selected.equals(Hk3ResearchData.CORE_RESEARCH)) {
@@ -375,22 +388,22 @@ public final class Hk3ResearchInstituteMachine extends Hk3WorkableMultiblockMach
         private void moduleAction(ServerPlayer server,String action) {
             boolean allowed=Hk3ErosionResearch.allowed(lab,
                     Hk3ResearchData.get(server).completed(getResearchTeamUUID(),"RN-ERM"));
-            if ("erm_remove".equals(action) && !erosionModule.getStackInSlot(0).isEmpty()) {
-                var module=erosionModule.extractItem(0,1,false);
-                erosionEnabled=false;
+            int slot=moduleSlot("erm_install".equals(action));
+            if ("erm_remove".equals(action) && slot >= 0) {
+                var module=erosionModule.extractItem(slot,1,false);
+                if (installedModules() == 0) erosionEnabled=false;
                 server.getInventory().placeItemBackInInventory(module);
                 feedback="hk3gtl.research.terminal.erm.removed";
-            } else if ("erm_install".equals(action) && allowed && erosionModule.getStackInSlot(0).isEmpty()) {
+            } else if ("erm_install".equals(action) && allowed && slot >= 0) {
                 var held=server.getMainHandItem();
                 if (!held.is(Hk3Items.EROSION_RESEARCH_MODULE.get())) {
                     feedback="hk3gtl.research.terminal.erm.held";
                     return;
                 }
-                if (!erosionModule.insertItem(0,held.copyWithCount(1),false).isEmpty()) return;
+                if (!erosionModule.insertItem(slot,held.copyWithCount(1),false).isEmpty()) return;
                 held.shrink(1);
-                erosionEnabled=false;
                 feedback="hk3gtl.research.terminal.erm.installed";
-            } else if ("erm_toggle".equals(action) && allowed && erosionInstalled()) {
+            } else if ("erm_toggle".equals(action) && allowed && slot >= 0) {
                 erosionEnabled=!erosionEnabled;
             } else {
                 feedback="hk3gtl.research.terminal.erm.denied";

@@ -70,6 +70,7 @@ public class Hk3Gtl {
     public Hk3Gtl() {
         LOGGER.info("[HK3GTL] 崩坏三-GTL 模组初始化开始...");
         Hk3Network.init();
+        com.sirin.hk3gtl.common.compat.stargate.Hk3StargateApi.registerConnectionEvents();
         com.sirin.hk3gtl.common.dimension.height.Hk3HeightConfig.register();
         net.minecraftforge.fml.ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT,
                 com.sirin.hk3gtl.common.farview.Hk3FarViewConfig.SPEC,"hk3gtl-farview-client.toml");

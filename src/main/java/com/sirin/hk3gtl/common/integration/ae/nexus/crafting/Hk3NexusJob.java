@@ -2,6 +2,7 @@ package com.sirin.hk3gtl.common.integration.ae.nexus.crafting;
 
 import appeng.api.config.Actionable;
 import appeng.api.crafting.IPatternDetails;
+import appeng.api.networking.crafting.ICraftingProvider;
 import appeng.api.networking.crafting.ICraftingRequester;
 import appeng.api.networking.security.IActionSource;
 import appeng.api.stacks.AEItemKey;
@@ -20,6 +21,9 @@ import net.minecraft.world.level.Level;
 import org.gtlcore.gtlcore.common.item.VirtualIngredientBehavior;
 import org.gtlcore.gtlcore.integration.ae2.AEUtils;
 import org.gtlcore.gtlcore.integration.ae2.crafting.CraftingPatternAutoExpand;
+import org.gtlcore.gtlcore.integration.ae2.crafting.IPatternProviderAutoExpand;
+import org.gtlcore.gtlcore.integration.ae2.graph.GraphDispatchContext;
+import org.gtlcore.gtlcore.integration.ae2.graph.GraphDispatchPreflight;
 
 import java.math.BigInteger;
 import java.util.ArrayDeque;
@@ -274,36 +278,36 @@ final class Hk3NexusJob {
             dispatchNote = "含配置电路或虚拟原料，按供给器原生路径发料";
         }
         boolean batchable = dispatchNote.isEmpty();
-        BigInteger maxTransfer = BigInteger.valueOf(Long.MAX_VALUE);
+        BigInteger ready = recirculating ? BigInteger.ONE : limit;
+        BigInteger perPush = batchable ? BigInteger.valueOf(Long.MAX_VALUE) : BigInteger.ONE;
+        for (var entry : effective.inputs.entrySet()) {
+            BigInteger available = held.getOrDefault(entry.getKey(), BigInteger.ZERO);
+            if (available.compareTo(entry.getValue()) < 0) {
+                missing.put(entry.getKey(), entry.getValue().subtract(available));
+                return BigInteger.ZERO;
+            }
+            ready = ready.min(available.divide(entry.getValue()));
+            perPush = perPush.min(BigInteger.valueOf(Long.MAX_VALUE).divide(entry.getValue()));
+        }
+        for (BigInteger amount : effective.outputs.values())
+            perPush = perPush.min(BigInteger.valueOf(Long.MAX_VALUE).divide(amount));
+        BigInteger dispatched = BigInteger.ZERO;
+        Map<AEKey, Long> inputs = new LinkedHashMap<>();
+        if (batchable) effective.inputs.forEach((key, amount) -> inputs.put(key, amount.longValueExact()));
         var turn = host.providers(part.pattern);
-        for (int remaining = turn.providers.size(); remaining > 0 && System.nanoTime() < deadline; remaining--) {
+        for (int remaining = turn.providers.size(); remaining > 0 && dispatched.compareTo(ready) < 0
+                && System.nanoTime() < deadline; remaining--) {
             var provider = turn.next();
             if (provider == host || provider.isBusy()) continue;
             if (Hk3ProbabilitySupport.AVAILABLE && !Collections.disjoint(effective.outputs.keySet(),
                     Hk3ProbabilityOrderService.rolledOutputs(provider, part.pattern))) continue;
-            BigInteger max = batchable ? limit.min(maxTransfer) : BigInteger.ONE;
-            for (var entry : effective.inputs.entrySet()) {
-                BigInteger available = held.getOrDefault(entry.getKey(), BigInteger.ZERO);
-                if (available.compareTo(entry.getValue()) < 0) {
-                    missing.put(entry.getKey(), entry.getValue().subtract(available));
-                    return BigInteger.ZERO;
-                }
-                max = max.min(available.min(maxTransfer).divide(entry.getValue()));
-            }
-            for (BigInteger amount : effective.outputs.values()) max = max.min(maxTransfer.divide(amount));
-            long cap = Math.max(1, max.longValueExact());
-            long operations = cap > 1 ? CraftingPatternAutoExpand.getOperations(true, provider, effective.pattern, cap) : 1;
-            IPatternDetails pattern = effective.pattern;
-            if (operations == 1 && cap > 1) {
-                var scaled = Hk3ExactScaledPattern.forDispatch(pattern, cap);
-                operations = Hk3ExactScaledPattern.operations(scaled);
-                pattern = Hk3ExactScaledPattern.providerPattern(scaled);
-            }
-            if (!provider.pushPattern(pattern, Hk3NexusRecipe.scaledInputs(effective.grouped, operations))) {
-                if (operations == 1 || !provider.pushPattern(effective.pattern, Hk3NexusRecipe.copy(effective.grouped))) continue;
-                dispatchNote = "供给器拒绝批量，已改为单次派单";
-                operations = 1;
-            }
+            long operations = 1;
+            if (batchable) {
+                BigInteger divisor = BigInteger.valueOf(remaining);
+                BigInteger share = ready.subtract(dispatched).add(divisor).subtract(BigInteger.ONE).divide(divisor);
+                operations = push(provider, effective, inputs, share.min(perPush).longValueExact());
+            } else if (!provider.pushPattern(effective.pattern, Hk3NexusRecipe.copy(effective.grouped))) continue;
+            if (operations == 0) continue;
             BigInteger count = BigInteger.valueOf(operations);
             effective.inputs.forEach((key, amount) -> Hk3NexusLedger.add(held, key, amount.multiply(count).negate()));
             effective.outputs.forEach((key, amount) -> {
@@ -311,11 +315,47 @@ final class Hk3NexusJob {
                 Hk3NexusLedger.add(waiting, key, amount.multiply(count));
                 if (first) host.indexOutput(key, this);
             });
-            decrement(part, count);
-            host.changed();
-            return count;
+            dispatched = dispatched.add(count);
         }
-        return BigInteger.ZERO;
+        if (dispatched.signum() > 0) {
+            decrement(part, dispatched);
+            host.changed();
+        }
+        return dispatched;
+    }
+
+    private long push(ICraftingProvider provider, Hk3NexusRecipe recipe, Map<AEKey, Long> inputs, long limit) {
+        var pattern = recipe.pattern;
+        boolean nativeBatch = limit > 1 && CraftingPatternAutoExpand.canAutoExpand(true, provider);
+        long operations = limit;
+        if (provider instanceof GraphDispatchPreflight preflight) {
+            if (!preflight.gtlcore$canProduceGraphPattern(pattern)) return 0;
+            operations = Math.min(operations, preflight.gtlcore$graphCapacity(pattern, inputs, operations));
+        }
+        if (operations <= 0) return 0;
+        if (operations > 1 && nativeBatch && provider instanceof IPatternProviderAutoExpand expand) {
+            long cap = operations;
+            operations = GraphDispatchContext.call(inputs, cap, () -> expand.gtlcore$getMaxPatternOperations(recipe.pattern, cap));
+            if (operations <= 0) return 0;
+            operations = Math.min(cap, operations);
+        }
+        if (!(nativeBatch && (provider instanceof IPatternProviderAutoExpand || provider instanceof GraphDispatchPreflight))) {
+            var scaled = Hk3ExactScaledPattern.forDispatch(pattern, operations);
+            operations = Hk3ExactScaledPattern.operations(scaled);
+            pattern = Hk3ExactScaledPattern.providerPattern(scaled);
+        }
+        if (pushBatch(provider, recipe, inputs, pattern, operations)) return operations;
+        if (operations == 1 || !pushBatch(provider, recipe, inputs, recipe.pattern, 1)) return 0;
+        dispatchNote = "供给器拒绝批量，已改为单次派单";
+        return 1;
+    }
+
+    private static boolean pushBatch(ICraftingProvider provider, Hk3NexusRecipe recipe, Map<AEKey, Long> inputs,
+            IPatternDetails pattern, long operations) {
+        var grouped = Hk3NexusRecipe.scaledInputs(recipe.grouped, operations);
+        return provider instanceof GraphDispatchPreflight
+                ? GraphDispatchContext.call(inputs, operations, () -> provider.pushPattern(pattern, grouped))
+                : provider.pushPattern(pattern, grouped);
     }
 
     private void decrement(Hk3NexusRecipe part, BigInteger count) {

@@ -18,6 +18,7 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import com.sirin.hk3gtl.common.compat.stargate.Hk3StargateApi;
 import net.povstalec.sgjourney.common.events.custom.StargateEvent;
 import net.povstalec.sgjourney.common.init.StatisticsInit;
 import net.povstalec.sgjourney.common.sgjourney.StargateInfo;
@@ -30,7 +31,7 @@ public final class Hk3StoryTravel {
 
     private record Gate(ResourceKey<Level> dimension, Vec3 position, String address, double radius) {
         static Gate of(MinecraftServer server, Stargate gate) {
-            return new Gate(gate.getDimension(), gate.getPosition(server),
+            return new Gate(gate.getDimension(), Hk3StargateApi.position(server, gate),
                     gate.get9ChevronAddress().toString(), gate.getInnerRadius());
         }
     }

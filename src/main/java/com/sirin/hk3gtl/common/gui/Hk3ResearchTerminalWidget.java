@@ -5,6 +5,7 @@ package com.sirin.hk3gtl.common.gui;
  */
 
 import com.lowdragmc.lowdraglib.gui.widget.Widget;
+import com.sirin.hk3gtl.common.research.Hk3ErosionResearch;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.nbt.CompoundTag;
@@ -114,9 +115,11 @@ public final class Hk3ResearchTerminalWidget extends Widget {
         text(g,(rows.isEmpty()?0:listOffset+1)+"–"+Math.min(rows.size(),listOffset+8)+" / "+rows.size(),12,285,MUTED,142);
         panel(g,7,299,149,20,0xff40536e,0xff080e18);
         String ermState=state.getString("ermState");
-        text(g,ermState.isEmpty()?ui("waiting"):ui("erm."+ermState),13,305,CYAN,137);
-        button(g,7,325,72,state.getBoolean("ermInstalled")?"erm.remove":"erm.install",canChangeErmModule());
-        button(g,84,325,72,state.getBoolean("ermEnabled")?"erm.disable":"erm.enable",canToggleErmModule());
+        text(g,ermState.isEmpty()?ui("waiting"):ui("erm."+ermState),13,305,CYAN,110);
+        if (!ermState.isEmpty()) text(g,state.getInt("ermCount")+"/"+Hk3ErosionResearch.MAX_MODULES,128,305,CYAN,24);
+        button(g,7,325,47,"erm.install",canInstallErmModule());
+        button(g,58,325,47,"erm.remove",canRemoveErmModule());
+        button(g,109,325,47,state.getBoolean("ermEnabled")?"erm.disable":"erm.enable",canToggleErmModule());
         panel(g,162,33,351,172,0xff40536e,0xff080e18);
         String selected=state.getString("selected");
         text(g,name(selected),170,40,WHITE,230);
@@ -219,11 +222,15 @@ public final class Hk3ResearchTerminalWidget extends Widget {
         panel(g,x,y,w,20,enabled?0xff8771b4:0xff344159,enabled?0xff2a2343:0xff151c29);
         text(g,ui(key),x+5,y+6,enabled?WHITE:MUTED,w-10);
     }
-    @OnlyIn(Dist.CLIENT) private boolean canChangeErmModule() {
-        return state.getBoolean("authorized") && (state.getBoolean("ermInstalled") || state.getBoolean("ermAllowed"));
+    @OnlyIn(Dist.CLIENT) private boolean canInstallErmModule() {
+        return state.getBoolean("authorized") && state.getBoolean("ermAllowed")
+                && state.getInt("ermCount") < Hk3ErosionResearch.MAX_MODULES;
+    }
+    @OnlyIn(Dist.CLIENT) private boolean canRemoveErmModule() {
+        return state.getBoolean("authorized") && state.getInt("ermCount") > 0;
     }
     @OnlyIn(Dist.CLIENT) private boolean canToggleErmModule() {
-        return state.getBoolean("authorized") && state.getBoolean("ermAllowed") && state.getBoolean("ermInstalled");
+        return canRemoveErmModule() && state.getBoolean("ermAllowed");
     }
     @OnlyIn(Dist.CLIENT) private void scrollbar(GuiGraphics g,int x,int y,int h,int count,int visible,int offset) {
         g.fill(x,y,x+3,y+h,0xff24314a);
@@ -277,8 +284,9 @@ public final class Hk3ResearchTerminalWidget extends Widget {
             if(index<rows.size()) send("select:"+rows.get(index).getString("id"));
         }
         if(y>=325 && y<345) {
-            if(x>=7 && x<79 && canChangeErmModule()) send(state.getBoolean("ermInstalled")?"erm_remove":"erm_install");
-            else if(x>=84 && x<156 && canToggleErmModule()) send("erm_toggle");
+            if(x>=7 && x<54 && canInstallErmModule()) send("erm_install");
+            else if(x>=58 && x<105 && canRemoveErmModule()) send("erm_remove");
+            else if(x>=109 && x<156 && canToggleErmModule()) send("erm_toggle");
         }
         if(y>=273 && y<293) {
             if(x>=162 && x<272 && state.getBoolean("authorized")) send("points");

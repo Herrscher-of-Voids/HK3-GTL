@@ -21,11 +21,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.povstalec.sgjourney.common.block_entities.dhd.AbstractDHDEntity;
 import net.povstalec.sgjourney.common.block_entities.stargate.ClassicStargateEntity;
 import net.povstalec.sgjourney.common.data.StargateNetwork;
-import net.povstalec.sgjourney.common.events.custom.ConnectionEvent;
 import net.povstalec.sgjourney.common.init.StatisticsInit;
-import net.povstalec.sgjourney.common.menu.AbstractDHDMenu;
 import net.povstalec.sgjourney.common.sgjourney.StargateConnection;
-import net.povstalec.sgjourney.common.sgjourney.stargate.SGJourneyStargate;
 import net.povstalec.sgjourney.common.sgjourney.stargate.Stargate;
 
 @Mod.EventBusSubscriber(modid = "hk3gtl")
@@ -41,7 +38,7 @@ public final class Hk3StargateQuestEvents {
     private record Dial(UUID player, StargateConnection connection) {}
     private static String gateIdentity(MinecraftServer server, Stargate gate) {
         return gate.getDimension().location() + "|" + gate.get9ChevronAddress()
-                + "|" + BlockPos.containing(gate.getPosition(server)).asLong();
+                + "|" + BlockPos.containing(Hk3StargateApi.position(server, gate)).asLong();
     }
 
     private Hk3StargateQuestEvents() {}
@@ -50,37 +47,34 @@ public final class Hk3StargateQuestEvents {
         if (player.isCreative() || player.isSpectator()
                 || !(player.serverLevel().getBlockEntity(pos) instanceof ClassicStargateEntity gate)) return;
         var registered = StargateNetwork.get(player.serverLevel()).getStargate(gate.get9ChevronAddress());
-        if (registered != null && registered.isValid(player.server))
+        if (registered != null && Hk3StargateApi.registered(player.server, registered))
             Hk3QuestEvents.recordPlayer(player.server, player.getUUID(), "stargate-classic-activation");
     }
 
-    public static void press(ServerPlayer player, AbstractDHDEntity dhd, int symbol) {
+    public static void press(ServerPlayer player, AbstractDHDEntity dhd, Runnable invoke) {
         DHD_OPERATOR.set(new Press(player, dhd));
         try {
-            dhd.engageChevron(symbol);
+            invoke.run();
         } finally {
             DHD_OPERATOR.remove();
         }
     }
 
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void connected(ConnectionEvent.Establish event) {
+    static void connected(StargateConnection connection) {
         var press = DHD_OPERATOR.get();
         if (press == null) return;
         var player = press.player();
-        var connection = event.getStargateConnection();
         if (player.isCreative() || player.isSpectator()
-                || !(player.containerMenu instanceof AbstractDHDMenu)
+                || !Hk3StargateApi.isDhdMenu(player.containerMenu)
                 || player.level() != press.dhd().getLevel()
                 || player.distanceToSqr(Vec3.atCenterOf(press.dhd().getBlockPos())) > 64
-                || !(connection.getDialingStargate() instanceof SGJourneyStargate gate)
-                || !(gate.getStargateEntity(event.getServer()) instanceof ClassicStargateEntity)) return;
+                || !(Hk3StargateApi.blockEntity(player.server, connection.getDialingStargate())
+                instanceof ClassicStargateEntity)) return;
         DIALS.put(connection.getID(), new Dial(player.getUUID(), connection));
     }
 
-    @SubscribeEvent
-    public static void terminated(ConnectionEvent.Terminate event) {
-        DIALS.remove(event.getStargateConnection().getID());
+    static void terminated(StargateConnection connection) {
+        DIALS.remove(connection.getID());
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -112,7 +106,7 @@ public final class Hk3StargateQuestEvents {
             var destination = transit.to();
             double radius = destination.getInnerRadius() + 6;
             if (player.level().dimension().equals(destination.getDimension())
-                    && player.position().distanceToSqr(destination.getPosition(server)) <= radius * radius) {
+                    && player.position().distanceToSqr(Hk3StargateApi.position(server, destination)) <= radius * radius) {
                 transits.remove();
                 completed(player, transit.from(), destination);
             }

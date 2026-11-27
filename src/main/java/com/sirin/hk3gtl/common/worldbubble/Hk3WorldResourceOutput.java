@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.machine.trait.NotifiableItemStackHandler;
 import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
 import com.gregtechceu.gtceu.api.recipe.ingredient.SizedIngredient;
 import com.gregtechceu.gtceu.api.recipe.ingredient.FluidIngredient;
+import com.sirin.hk3gtl.common.item.Hk3StackableWorldItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -98,7 +99,8 @@ public final class Hk3WorldResourceOutput {
         var saved = item.getCompound("StackData").copy();
         saved.putString("id", id.toString()); saved.putByte("Count", (byte) 1);
         var stack = ItemStack.of(saved); stack.setCount(count);
-        if (item.hasUUID("Source")) stack.getOrCreateTag().putUUID("Source", item.getUUID("Source"));
+        if (stack.getItem() instanceof Hk3StackableWorldItem) stack.removeTagKey("Source");
+        else if (item.hasUUID("Source")) stack.getOrCreateTag().putUUID("Source", item.getUUID("Source"));
         for (var target : ports.items()) {
             for (int slot = 0; slot < target.getSlots(); slot++) {
                 insert(target, slot, stack, item, changed);

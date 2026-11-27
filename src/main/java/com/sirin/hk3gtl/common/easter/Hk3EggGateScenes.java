@@ -1,5 +1,6 @@
 package com.sirin.hk3gtl.common.easter;
 
+import com.sirin.hk3gtl.common.compat.stargate.Hk3StargateApi;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.phys.Vec3;
@@ -27,10 +28,10 @@ public final class Hk3EggGateScenes {
     private Hk3EggGateScenes(){}
     private static int travels(ServerPlayer p){return p.getStats().getValue(Stats.CUSTOM.get(StatisticsInit.TIMES_USED_WORMHOLE.get()));}
     private static double depth(ServerPlayer p,Stargate gate){
-        var offset=p.position().subtract(gate.getPosition(p.server));
-        if(Math.abs(offset.dot(gate.getRight(p.server)))>.75
-                ||Math.abs(offset.dot(gate.getUp(p.server)))>gate.getInnerRadius())return -1;
-        return offset.dot(gate.getForward(p.server));
+        var offset=p.position().subtract(Hk3StargateApi.position(p.server, gate));
+        if(Math.abs(offset.dot(Hk3StargateApi.right(p.server, gate)))>.75
+                ||Math.abs(offset.dot(Hk3StargateApi.up(p.server, gate)))>gate.getInnerRadius())return -1;
+        return offset.dot(Hk3StargateApi.forward(p.server, gate));
     }
     private static Walk find(ServerPlayer p){
         var pos=p.blockPosition();var level=p.serverLevel();var network=StargateNetwork.get(level);
@@ -39,7 +40,7 @@ public final class Hk3EggGateScenes {
                 if(!level.hasChunk(x,z))continue;
                 for(var be:level.getChunk(x,z).getBlockEntities().values()){
                     if(!(be instanceof AbstractStargateEntity gate)||!gate.getConnectionState().isConnected()
-                            ||!network.hasConnection(gate.getConnectionID())||network.getOpenTime(gate.getConnectionID())<=0)continue;
+                            ||Hk3StargateApi.openTime(network, gate.getConnectionID())<=0)continue;
                     var registered=network.getStargate(gate.get9ChevronAddress());
                     if(registered==null)continue;
                     double depth=depth(p,registered);if(depth<.75||depth>3.25)continue;
@@ -61,7 +62,7 @@ public final class Hk3EggGateScenes {
         long now=p.server.overworld().getGameTime();var gate=walk.gate;var network=StargateNetwork.get(p.serverLevel());
         if(gate.getLevel()!=p.level()||!p.level().hasChunkAt(gate.getBlockPos())
                 ||p.level().getBlockEntity(gate.getBlockPos())!=gate||!gate.getConnectionState().isConnected()
-                ||!walk.connection.equals(gate.getConnectionID())||!network.hasConnection(walk.connection)||network.getOpenTime(walk.connection)<=0
+                ||!walk.connection.equals(gate.getConnectionID())||Hk3StargateApi.openTime(network, walk.connection)<=0
                 ||travels(p)!=walk.travels||walk.tick!=now-1||p.position().distanceToSqr(walk.previous)>=2.25
                 ||!p.onGround()||p.getAbilities().flying||p.isPassenger()){
             WALKS.remove(p.getUUID());return;

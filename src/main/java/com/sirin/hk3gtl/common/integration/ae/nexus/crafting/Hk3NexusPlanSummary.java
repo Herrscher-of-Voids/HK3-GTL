@@ -33,10 +33,10 @@ public final class Hk3NexusPlanSummary extends CraftingPlanSummary {
     }
 
     static Hk3NexusPlanSummary of(Hk3NexusJob job) {
-        return of(job, job.bytes, job.ordered, job.missing, job.tasks, job.reservation);
+        return of(job, job.bytes, job.missing, job.tasks, job.reservation);
     }
 
-    static Hk3NexusPlanSummary of(Hk3NexusJob job, BigInteger bytes, boolean ordered, Map<AEKey, BigInteger> missing,
+    static Hk3NexusPlanSummary of(Hk3NexusJob job, BigInteger bytes, Map<AEKey, BigInteger> missing,
             Map<Hk3NexusRecipe, BigInteger> tasks, Map<AEKey, BigInteger> stored) {
         Map<AEKey, BigInteger> crafting = new LinkedHashMap<>();
         Map<AEKey, BigInteger> operations = new LinkedHashMap<>();
@@ -47,10 +47,8 @@ public final class Hk3NexusPlanSummary extends CraftingPlanSummary {
         }));
         tasks.forEach((recipe, count) -> patterns.merge(recipe.pattern, count, BigInteger::add));
         crafting.putIfAbsent(job.target, job.requested);
-        var summary = of(job.target, job.requested, bytes, !job.planned, missing, stored, crafting, operations,
+        return of(job.target, job.requested, bytes, !job.planned, missing, stored, crafting, operations,
                 patterns, job.cycle);
-        ((Hk3CraftingCycleFlag) (Object) summary).hk3gtl$setHasCycles(ordered);
-        return summary;
     }
 
     public static Hk3NexusPlanSummary of(AEKey target, BigInteger amount, BigInteger bytes, boolean simulation,
@@ -65,9 +63,15 @@ public final class Hk3NexusPlanSummary extends CraftingPlanSummary {
             Map<AEKey, BigInteger> crafting, Map<AEKey, BigInteger> operations,
             Map<IPatternDetails, BigInteger> patterns, Cycle cycle) {
         var marked = new LinkedHashSet<AEKey>();
-        if (cycle != null) for (var step : cycle.steps()) {
-            marked.addAll(step.inputs().keySet());
-            marked.addAll(step.outputs().keySet());
+        if (cycle != null) {
+            var consumed = new LinkedHashSet<AEKey>();
+            for (var step : cycle.steps()) {
+                consumed.addAll(step.inputs().keySet());
+                step.outputs().forEach((key, count) -> {
+                    if (count.compareTo(step.inputs().getOrDefault(key, BigInteger.ZERO)) > 0) marked.add(key);
+                });
+            }
+            marked.retainAll(consumed);
         }
         var keys = new LinkedHashSet<>(stored.keySet());
         keys.addAll(missing.keySet()); keys.addAll(crafting.keySet()); keys.addAll(marked);
@@ -77,6 +81,7 @@ public final class Hk3NexusPlanSummary extends CraftingPlanSummary {
                 operations.getOrDefault(key, BigInteger.ZERO), marked.contains(key)));
         Collections.sort(entries);
         var summary = new Hk3NexusPlanSummary(amount, bytes, simulation, false, entries, cycle);
+        ((Hk3CraftingCycleFlag) (Object) summary).hk3gtl$setHasCycles(!marked.isEmpty());
         if (ModList.get().isLoaded("ae2ct"))
             Hk3NexusCraftingTree.initialize(summary, target, amount, patterns);
         return summary;

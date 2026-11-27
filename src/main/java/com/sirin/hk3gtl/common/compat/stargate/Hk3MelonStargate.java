@@ -30,7 +30,6 @@ import net.povstalec.sgjourney.common.blockstates.Orientation;
 import net.povstalec.sgjourney.common.init.BlockInit;
 import net.povstalec.sgjourney.common.events.custom.StargateEvent;
 import net.povstalec.sgjourney.common.sgjourney.StargateInfo;
-import net.povstalec.sgjourney.common.sgjourney.stargate.SGJourneyStargate;
 
 @Mod.EventBusSubscriber(modid = Hk3Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Hk3MelonStargate {
@@ -88,12 +87,13 @@ public final class Hk3MelonStargate {
             player.sendSystemMessage(Component.literal("折页尚未读完。这片海不会向未署名的旅人打开。"));
             return;
         }
-        if (!(event.getStargate() instanceof SGJourneyStargate gate)
-                || event.getWormholeTravel() == StargateInfo.WormholeTravel.DISABLED
+        if (event.getWormholeTravel() == StargateInfo.WormholeTravel.DISABLED
                 || event.getWormholeTravel() == StargateInfo.WormholeTravel.CREATIVE_ONLY && !player.isCreative()) return;
+        var gate = event.getStargate();
+        var source = Hk3StargateApi.blockEntity(event.getServer(), gate);
+        if (source == null) return;
         var ledger = ledger(event.getServer());
-        var source = gate.getStargateEntity(event.getServer());
-        ledger.arrivals.put(player.getUUID(), new GateSource(gate.getDimension(), gate.getBlockPos(),
+        ledger.arrivals.put(player.getUUID(), new GateSource(gate.getDimension(), source.getBlockPos(),
                 gate.get9ChevronAddress().toString(), source.getDirection(), source.getOrientation()));
         ledger.setDirty();
     }
@@ -106,9 +106,9 @@ public final class Hk3MelonStargate {
             return false;
         }
         // 原生参数只关闭本次连接的开启浪涌，通行与能耗仍由星门处理。
-        var feedback = from.engageStargate(to.get9ChevronAddress(), false);
-        if (feedback.isError()) player.sendSystemMessage(feedback.getFeedbackMessage());
-        return !feedback.isError();
+        var error = Hk3StargateApi.dialError(from, to.get9ChevronAddress());
+        if (error != null) player.sendSystemMessage(error);
+        return error == null;
     }
 
     private static AbstractStargateEntity place(ServerLevel level, BlockPos base) {
@@ -120,7 +120,7 @@ public final class Hk3MelonStargate {
         var gate = (AbstractStargateEntity) level.getBlockEntity(base);
         gate.generate();
         gate.setProtected(true);
-        gate.updateStargate(true);
+        Hk3StargateApi.update(gate);
         return gate;
     }
 
@@ -151,12 +151,7 @@ public final class Hk3MelonStargate {
     }
 
     private static void charge(AbstractStargateEntity gate) {
-        var tag = gate.getPersistentData();
-        if (tag.getBoolean(DESTINATION)
-                && gate.getEnergyStored() < gate.getEnergyCapacity()) {
-            gate.setEnergy(gate.getEnergyCapacity());
-            gate.setChanged();
-        }
+        if (gate.getPersistentData().getBoolean(DESTINATION)) Hk3StargateApi.charge(gate);
     }
 
     private static Ledger ledger(MinecraftServer server) {

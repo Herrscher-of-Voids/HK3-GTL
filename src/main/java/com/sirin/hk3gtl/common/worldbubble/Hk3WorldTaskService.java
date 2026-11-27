@@ -105,11 +105,10 @@ public final class Hk3WorldTaskService {
                         && machine.getResearchTeamUUID().equals(tx.receipt().getUUID("Team")))
                 .map(Hk3WorldBubbleLedger.Transaction::target).collect(Collectors.toSet()) : Set.<UUID>of();
         var routes = world.routes(machine.getResearchTeamUUID());
-        boolean sourced = role.equals("I26") || role.equals("I28");
-        var inputs = sourced ? bubbleInputs(machine).keySet() : Set.<UUID>of();
+        var inputs = role.equals("I28") ? bubbleInputs(machine).keySet() : Set.<UUID>of();
         var result = new ArrayList<UUID>();
         for (UUID id : routes) {
-            if (sourced && !inputs.contains(id)) continue;
+            if (role.equals("I28") && !inputs.contains(id)) continue;
             var snapshot = ledger.real(id);
             boolean eligible = role.equals("I28") ? snapshot.state() == Hk3WorldBubbleLedger.RealState.CAPTURED
                     && captured.contains(id)
@@ -212,7 +211,7 @@ public final class Hk3WorldTaskService {
         var groups = batches(recipe).copy();
         boolean sourced = role.equals("I26") || role.equals("I28");
         long planned = groups.stream().mapToLong(raw -> ((CompoundTag) raw).getLong("Count")).sum();
-        if (!(sourced ? consumeBubbleInputs(machine, recipe, targets, planned, consume) : consume.getAsBoolean())) return false;
+        if (!(role.equals("I28") ? consumeBubbleInputs(machine, recipe, targets, planned, consume) : consume.getAsBoolean())) return false;
         int targetIndex = 0; long count = 0;
         for (var raw : groups) {
             var batch = (CompoundTag) raw; batch.putUUID(OPERATION, UUID.randomUUID());
@@ -275,7 +274,7 @@ public final class Hk3WorldTaskService {
                     ledger.cancel(tx.id(), tx.actor());
                     if (batch.getBoolean(BUBBLE_CONSUMED)) {
                         var stack = new ItemStack(Hk3IndustrialContent.items().get(batch.contains(BUBBLE_ITEM) ? batch.getString(BUBBLE_ITEM) : bubbleItem(machine.researchRole())).get());
-                        stack.getOrCreateTag().putUUID("Source", tx.target());
+                        if (tx.action() == Hk3WorldBubbleLedger.Action.TERMINATE_REAL) stack.getOrCreateTag().putUUID("Source", tx.target());
                         Block.popResource(machine.getLevel(), machine.getPos(), stack);
                     }
                 }

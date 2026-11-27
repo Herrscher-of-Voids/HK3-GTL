@@ -1,6 +1,7 @@
 package com.sirin.hk3gtl.common.registration;
 
 import com.sirin.hk3gtl.common.item.Hk3Items;
+import com.sirin.hk3gtl.common.item.Hk3StackableWorldItem;
 import com.sirin.hk3gtl.common.block.Hk3Blocks;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -10,6 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public final class Hk3IndustrialContent {
     // 注册线程写入，完成后只读；保持目录顺序，不允许调用方修改。
@@ -18,8 +20,8 @@ public final class Hk3IndustrialContent {
     private Hk3IndustrialContent() {}
 
     public static void registerItems() {
-        item("world_mining_legacy_record",64);
-        item("ship_engineering_archive",64);
+        item("world_mining_legacy_record", Hk3StackableWorldItem::new);
+        item("ship_engineering_archive", Hk3StackableWorldItem::new);
         item("honkai_detector_calibration_report", 64); // 探测器真实校准的纸质报告，升级时消耗。
         item("prototype_honkai_detector", 1); // 试作型崩坏能探测器 / Prototype Honkai Detector; I01/I07
         item("liquid_honkai_detector", 1); // 一阶液态崩坏能探测器 / Liquid Honkai Detector; I01/I07
@@ -91,7 +93,7 @@ public final class Hk3IndustrialContent {
         item("worn_work_drone", 1); // 磨损的作业无人机 / Worn Work Drone; I24–I32/I51/I53
         item("drone_disassembly_scrap", 1); // 无人设备拆解废料 / Drone Disassembly Scrap; I24–I32/I51/I53
         item("empty_bubble_containment_vessel", 1); // 空世界泡收容容器 / Empty Bubble Containment Vessel; I24–I32/I51/I53
-        item("located_real_world_bubble", 1);
+        item("located_real_world_bubble", Hk3StackableWorldItem::new);
         item("sealed_real_world_bubble", 1); // 中文备注：该处说明已按当前代码行为整理。
         item("unstable_simulated_world_bubble", 1); // 中文备注：该处说明已按当前代码行为整理。
         item("stable_simulated_world_bubble", 1); // 中文备注：该处说明已按当前代码行为整理。
@@ -310,8 +312,11 @@ public final class Hk3IndustrialContent {
 
     /** @param id 稳定路径 / stable registry path; @param stack 最大件数 / maximum stack count. */
     private static void item(String id, int stack) {
+        item(id, () -> new Item(new Item.Properties().stacksTo(stack)));
+    }
+    private static void item(String id, Supplier<Item> factory) {
         if (ITEMS.containsKey(id)) throw new IllegalStateException("Duplicate industrial item: " + id);
-        ITEMS.put(id, Hk3Items.ITEMS.register(id, () -> new Item(new Item.Properties().stacksTo(stack))));
+        ITEMS.put(id, Hk3Items.ITEMS.register(id, factory));
     }
     /** @param id 方块与物品共用路径 / shared block and BlockItem registry path. */
     private static void block(String id) {

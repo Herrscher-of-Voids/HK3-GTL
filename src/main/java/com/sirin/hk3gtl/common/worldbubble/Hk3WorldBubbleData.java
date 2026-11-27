@@ -33,7 +33,6 @@ public final class Hk3WorldBubbleData extends SavedData {
         var token = new CompoundTag();
         token.putString("id", "hk3gtl:located_real_world_bubble");
         token.putInt("Count", 1);
-        token.putUUID("Source", target);
         var entry = receipt.copy(); entry.putUUID("Target", target); entry.put("Token", token); entries.add(entry);
         routes.put(team.toString(), entries); setDirty();
     }
@@ -70,6 +69,7 @@ public final class Hk3WorldBubbleData extends SavedData {
                 var entry = (CompoundTag) raw;
                 if (!entry.contains("Token") || !facility.equals(entry.getString("Facility"))) continue;
                 var token = entry.getCompound("Token");
+                token.remove("Source");
                 Hk3WorldResourceOutput.deliverItem(token, ports, this::setDirty);
                 if (token.getInt("Count") == 0) entry.remove("Token");
             }

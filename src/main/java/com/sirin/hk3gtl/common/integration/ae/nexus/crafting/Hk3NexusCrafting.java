@@ -257,7 +257,7 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
             var service = (CraftingService) grid().getCraftingService();
             var list = new ArrayList<ICraftingProvider>();
             service.getProviders(key).forEach(list::add);
-            return new ProviderTurn(list);
+            return new ProviderTurn(list, level().getGameTime());
         });
     }
 
@@ -265,7 +265,10 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         final List<ICraftingProvider> providers;
         private int cursor;
 
-        ProviderTurn(List<ICraftingProvider> providers) { this.providers = providers; }
+        ProviderTurn(List<ICraftingProvider> providers, long tick) {
+            this.providers = providers;
+            if (!providers.isEmpty()) cursor = Math.floorMod(tick, providers.size());
+        }
 
         ICraftingProvider next() {
             var provider = providers.get(cursor);
@@ -483,16 +486,17 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
             if (recipe == null) {
                 var bound = new Hk3NexusRecipe(pattern, resource -> stock.computeIfAbsent(resource, this::readStock), omitted);
                 if (!bound.outputs.containsKey(key)) return !(pattern instanceof Hk3ExactBoundPattern) && rejectOutput();
+                recipe = new Hk3ExactPlanner.Recipe<>(pattern, bound.inputs, bound.outputs, BigInteger.ONE);
+                if (!recipe.produces(key)) return false;
                 edges += bound.inputs.size() + bound.outputs.size();
                 if (edges > PLAN_LIMITS.maxEdges() || bindings.size() >= PLAN_LIMITS.maxNodes()) return reject();
-                recipe = new Hk3ExactPlanner.Recipe<>(pattern, bound.inputs, bound.outputs, BigInteger.ONE);
                 bindings.put(pattern, bound.bindCounts(recipe));
                 if (bound.outputs.size() > 1) sharedOutputs.put(pattern, recipe);
                 bound.inputs.keySet().forEach(this::enqueue);
                 if (graph.size() > PLAN_LIMITS.maxNodes()) return reject();
             }
-            if (recipe.outputs().containsKey(key)) graph.get(key).add(recipe);
-            else if (!(pattern instanceof Hk3ExactBoundPattern)) return rejectOutput();
+            if (recipe.produces(key)) graph.get(key).add(recipe);
+            else if (!recipe.outputs().containsKey(key) && !(pattern instanceof Hk3ExactBoundPattern)) return rejectOutput();
             return false;
         }
 
@@ -629,7 +633,7 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
         if (job.calculation == null || result.batches().isEmpty() && job.cycle == null) return;
         Map<Hk3NexusRecipe, BigInteger> tasks = new LinkedHashMap<>();
         result.batches().forEach((pattern, count) -> tasks.put(captured.bindings.get(pattern), count));
-        job.missingPreview = Hk3NexusPlanSummary.of(job, result.logicalBytes(), detailed.orderedExecutionRequired(),
+        job.missingPreview = Hk3NexusPlanSummary.of(job, result.logicalBytes(),
                 result.missing(), tasks, result.stockUsed());
     }
 
