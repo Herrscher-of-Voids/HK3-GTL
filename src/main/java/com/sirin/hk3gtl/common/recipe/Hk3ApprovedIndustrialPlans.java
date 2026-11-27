@@ -12,7 +12,7 @@ import java.util.Set;
 
 public final class Hk3ApprovedIndustrialPlans {
     private static final JsonObject DATA = load("approved_industrial_processes");
-    private static final Set<String> SUPERSEDED = ids();
+    private static final Set<String> OBSOLETE_ORIGINALS = obsoleteOriginals();
 
     private Hk3ApprovedIndustrialPlans() {}
 
@@ -25,19 +25,20 @@ public final class Hk3ApprovedIndustrialPlans {
         }
     }
 
-    private static Set<String> ids() {
+    private static Set<String> obsoleteOriginals() {
         var ids = new HashSet<String>();
         DATA.getAsJsonArray("superseded_ids").forEach(value -> ids.add(value.getAsString()));
+        DATA.getAsJsonArray("replacement_ids").forEach(value -> ids.add(value.getAsString()));
         return Set.copyOf(ids);
     }
 
-    public static boolean isSuperseded(ResourceLocation id) {
+    public static boolean isObsoleteOriginal(ResourceLocation id) {
         if (!id.getNamespace().equals("hk3gtl") && !id.getNamespace().equals("gtceu")) return false;
         String path = id.getPath();
-        if (SUPERSEDED.contains(path)) return true;
+        if (OBSOLETE_ORIGINALS.contains(path)) return true;
         for (int slash = path.indexOf('/'); slash >= 0; slash = path.indexOf('/', slash + 1)) {
             String suffix = path.substring(slash + 1);
-            if (SUPERSEDED.contains(suffix)) return true;
+            if (OBSOLETE_ORIGINALS.contains(suffix)) return true;
         }
         for (var prefix : DATA.getAsJsonArray("superseded_prefixes")) {
             if (path.startsWith(prefix.getAsString()) || path.contains("/" + prefix.getAsString())) return true;
@@ -49,7 +50,7 @@ public final class Hk3ApprovedIndustrialPlans {
         var recipes = new JsonArray();
         for (var value : original) {
             String id = value.getAsJsonObject().get("id").getAsString();
-            if (!isSuperseded(new ResourceLocation("hk3gtl", id))) recipes.add(value);
+            if (!isObsoleteOriginal(new ResourceLocation("hk3gtl", id))) recipes.add(value);
         }
         recipes.addAll(DATA.getAsJsonArray("recipes"));
         return recipes;

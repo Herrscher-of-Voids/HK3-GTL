@@ -150,9 +150,11 @@ def main():
         'hk3gtl_electronic_lithography_mask', 'hk3gtl_electronic_etched_layer',
         'hk3gtl_electronic_encapsulation',
     })
+    replacement_ids = superseded & {p['id'] for p in plans}
     output = {
         'schema': 1, 'source': str(SOURCE.relative_to(ROOT)).replace('\\', '/'),
-        'recipes': plans, 'superseded_ids': sorted(superseded),
+        'recipes': plans, 'superseded_ids': sorted(superseded - replacement_ids),
+        'replacement_ids': sorted(replacement_ids),
         'superseded_prefixes': ['main_material/'],
         'source_count': len(design), 'new_recipe_count': len(approved),
         'modified_recipe_count': len(modifications),
@@ -188,7 +190,8 @@ def main():
         'updated_at': datetime.now().astimezone().isoformat(), 'production_resource': str(RESOURCE.relative_to(ROOT)),
         'new_registered_plans': len(approved), 'modified_registered_plans': len(modifications),
         'total_registered_plans': len(plans), 'roles': dict(Counter(r['role'] for r in plans)),
-        'superseded_ids': len(superseded), 'superseded_prefixes': output['superseded_prefixes'],
+        'superseded_ids': len(output['superseded_ids']), 'replacement_ids': len(replacement_ids),
+        'superseded_prefixes': output['superseded_prefixes'],
         'lab_queue': output['lab_queue'], 'energy_runtime_excluded': output['energy_runtime_count'],
         'aliases': ALIASES, 'source_hashes': {f: hashlib.sha256((SOURCE / f).read_bytes()).hexdigest()
             for f in ['recipes.json', 'existing-processes.json', 'research.json']},

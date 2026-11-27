@@ -16,7 +16,7 @@ public final class Hk3ResearchProcessRecipes {
     private Hk3ResearchProcessRecipes() {}
     public static void register(Consumer<FinishedRecipe> provider){
         com.sirin.hk3gtl.common.recipe.honkai.Hk3ReactorFuelRecipes.register(recipe -> {
-            if (!Hk3ApprovedIndustrialPlans.isSuperseded(recipe.getId())) provider.accept(recipe);
+            if (!Hk3ApprovedIndustrialPlans.isObsoleteOriginal(recipe.getId())) provider.accept(recipe);
         });
         for(var p:Hk3ResearchProcessPlans.all()){
             var type=Hk3ResearchProcessTypes.of(p);

@@ -8,10 +8,12 @@ OUT = ROOT / 'deliveries/0003_40台工业内容补全_20261119'
 recipes, items, fluids, links = [], [], [], []
 plans = {}
 approved = json.loads((DATA / 'approved_industrial_processes.json').read_text(encoding='utf-8'))
-for name in ['industrial_processes', 'reactor_fuel_processes', 'industrial_support_processes', 'approved_industrial_processes']:
+obsolete_originals = set(approved['superseded_ids']) | set(approved['replacement_ids'])
+for name in ['industrial_processes', 'reactor_fuel_processes', 'industrial_support_processes']:
     for plan in json.loads((DATA / f'{name}.json').read_text(encoding='utf-8'))['recipes']:
-        if plan['id'] not in approved.get('superseded_ids', []) and not any(plan['id'].startswith(p) for p in approved.get('superseded_prefixes', [])):
+        if plan['id'] not in obsolete_originals and not any(plan['id'].startswith(p) for p in approved.get('superseded_prefixes', [])):
             plans[plan['id']] = plan
+plans.update((plan['id'], plan) for plan in approved['recipes'])
 
 
 def ns(identifier):

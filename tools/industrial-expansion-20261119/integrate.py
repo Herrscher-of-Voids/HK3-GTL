@@ -31,13 +31,14 @@ def hexid(value):
 
 
 approved = read(DATA / 'research/approved_industrial_processes.json')
+obsolete_originals = set(approved['superseded_ids']) | set(approved['replacement_ids'])
 base = {}
 groups = ['industrial', 'wonder', 'reactor_fuel', 'wonder_w01_w05', 'wonder_w06_w10', 'wonder_w11_w15']
 groups += [f'wonder_expansion_w{i:02}' for i in range(1, 16)]
 for group in groups:
     for recipe in read(DATA / f'research/{group}_processes.json')['recipes']:
         rid = recipe['id']
-        if rid not in approved['superseded_ids'] and not any(rid.startswith(p) for p in approved['superseded_prefixes']):
+        if rid not in obsolete_originals and not any(rid.startswith(p) for p in approved['superseded_prefixes']):
             base[rid] = recipe
 base.update({r['id']: r for r in approved['recipes']})
 original = deepcopy(base)

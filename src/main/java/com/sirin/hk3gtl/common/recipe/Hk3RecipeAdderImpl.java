@@ -83,7 +83,7 @@ public class Hk3RecipeAdderImpl {
         provider = RecipeCycleDetector.wrap(provider);
         Consumer<FinishedRecipe> approvedProvider = provider;
         provider = recipe -> {
-            if (!Hk3ApprovedIndustrialPlans.isSuperseded(recipe.getId())) approvedProvider.accept(recipe);
+            if (!Hk3ApprovedIndustrialPlans.isObsoleteOriginal(recipe.getId())) approvedProvider.accept(recipe);
         };
         com.sirin.hk3gtl.common.recipe.machine.Hk3ResearchComputerRecipes.register(provider);
         com.sirin.hk3gtl.common.recipe.machine.Hk3SpectrumBootstrapRecipes.register(provider);
