@@ -201,6 +201,7 @@ public final class Hk3ElectronicRecipes {
                 case 4 -> builder.inputItems(TagPrefix.ring, GTMaterials.Neutronium, 2);
                 default -> throw new IllegalStateException("未知贴片类型");
             }
+            if (p == 0) builder.circuitMeta(1);
             builder.inputFluids(fluid("circuit_growth_medium", 125 * (p + 1)))
                     .outputItems(part(p, names[component], 8)).save(provider);
         }

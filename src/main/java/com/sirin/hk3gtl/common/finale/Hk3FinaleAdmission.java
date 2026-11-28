@@ -47,8 +47,8 @@ public final class Hk3FinaleAdmission {
         return Hk3FinaleRequirements.evaluate(actor,team,p.server.overworld().getGameTime(),facts);
     }
     private static Hk3FinaleRequirements.Fact engineering(ServerPlayer player,Hk3ResearchData research,UUID team,String role){
-        var receipt=com.sirin.hk3gtl.common.civ.Hk3EngineeringFacts.receipt(player.server,research,team,role);
-        return receipt.isEmpty()?Hk3FinaleRequirements.Fact.missing("尚无实际生产回执，或原机当前未加载/未成型")
+        var receipt=com.sirin.hk3gtl.common.civ.Hk3EngineeringFacts.accepted(player.server,research,team,role);
+        return receipt.isEmpty()?Hk3FinaleRequirements.Fact.missing("尚无有效工程验收回执，或原机加载后未通过成型验证")
                 :Hk3FinaleRequirements.Fact.complete(receipt);
     }
     public static String summary(ServerPlayer p){

@@ -18,7 +18,8 @@ import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.machine.trait.Hk3PlayerGridEnergyTrait;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import com.sirin.hk3gtl.common.easter.Hk3EggProduction;
 import org.gtlcore.gtlcore.common.machine.trait.MultipleRecipesLogic;
 
 import java.math.BigInteger;
@@ -34,6 +35,7 @@ public final class Hk3RecipePower {
     public static final String MINIMUM_COST_KEY = "hk3_required_eut";
     public static final String EXACT_COST_KEY = "hk3_exact_eut";
     private static final String INVALID_KEY = "hk3_invalid_power";
+    private static final ThreadLocal<RecipeLogic> ISOLATED = new ThreadLocal<>();
     private static final BigInteger LONG_MAX = BigInteger.valueOf(Long.MAX_VALUE);
 
     private Hk3RecipePower() {}
@@ -102,11 +104,13 @@ public final class Hk3RecipePower {
                 if (hk.getOwnerUUID() == null || WirelessEnergyManager.getUserEU(hk.getOwnerUUID()).compareTo(cost) < 0)
                     return fail("balance", cost.toString());
             } else {
-                if (!(machine instanceof WorkableElectricMultiblockMachine) || !supported(logic)) return fail("executor");
+                if (!(machine instanceof WorkableElectricMultiblockMachine electric) || !supported(logic)) return fail("executor");
+                if (fixed && Hk3PowerPorts.inputTier(electric, GTValues.MAX) < tier(recipe))
+                    return fail("rating", Hk3Values.getVN(tier(recipe)), GTValues.V[tier(recipe)]);
                 var ports = Hk3PowerPorts.of(logic);
                 if (ports.isEmpty()) return fail("executor");
                 if (Hk3PortPayment.power(ports).compareTo(cost) < 0) return fail("capacity", cost.toString());
-                if (Hk3PortPayment.available(ports).compareTo(cost) < 0) return fail("balance", cost.toString());
+                if (Hk3PortPayment.availablePower(ports).compareTo(cost) < 0) return fail("balance", cost.toString());
                 BigInteger honkai = Hk3DualEnergyCosts.getMergedCost(recipe);
                 if (honkai != null && honkai.signum() > 0) {
                     UUID payer = externalPayer(machine);
@@ -120,8 +124,17 @@ public final class Hk3RecipePower {
         }
     }
 
+    public static GTRecipe.ActionResult checkIsolated(GTRecipe recipe, RecipeLogic logic) {
+        if (!marked(recipe)) return recipe.checkConditions(logic);
+        RecipeLogic previous = ISOLATED.get();
+        ISOLATED.set(logic);
+        try { return recipe.checkConditions(logic); }
+        finally { if (previous == null) ISOLATED.remove(); else ISOLATED.set(previous); }
+    }
+
     public static boolean supported(RecipeLogic logic) {
-        if (logic instanceof Hk3PowerWork.Suprachronal supra && supra.hk3gtl$usesFixedSuprachronalPower()) return true;
+        if (ISOLATED.get() == logic || logic instanceof Hk3PowerWork.Isolated || logic instanceof Hk3PowerWork.Batch) return true;
+        if (logic instanceof Hk3PowerWork.Mutable mutable && mutable.hk3gtl$usesFixedMutablePower()) return true;
         try {
             return logic instanceof Hk3PowerWork
                     && logic.getClass().getMethod("handleRecipeWorking").getDeclaringClass() == RecipeLogic.class
@@ -137,13 +150,26 @@ public final class Hk3RecipePower {
                 || !logic.getMachine().getLevel().getServer().isSameThread()) return false;
         BigInteger honkai = Hk3DualEnergyCosts.getMergedCost(recipe);
         return Hk3PortPayment.pay(Hk3PowerPorts.of(logic), cost(recipe), tick)
-                && (honkai == null || HonkaiWirelessNetwork.reserve(externalPayer(logic.getMachine()), honkai, tick));
+                && reserveHonkai(logic, honkai, tick);
     }
 
-    private static UUID externalPayer(MetaMachine machine) {
-        var pos = machine.getPos();
-        var player = machine.getLevel().getNearestPlayer(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 64, false);
-        return player instanceof ServerPlayer serverPlayer ? serverPlayer.getUUID() : null;
+    public static boolean reserveHonkai(RecipeLogic logic, BigInteger cost, Hk3EnergyTick tick) {
+        return cost == null || cost.signum() == 0 || HonkaiWirelessNetwork.reserve(externalPayer(logic.getMachine()), cost, tick);
+    }
+
+    public static GTRecipe isolatedTick(GTRecipe tick) {
+        tick.data = tick.data.copy();
+        tick.data.remove(TIER_KEY);
+        tick.data.remove(MATERIAL_TIER_KEY);
+        tick.data.remove(MINIMUM_COST_KEY);
+        tick.data.remove(EXACT_COST_KEY);
+        return tick;
+    }
+
+    static UUID externalPayer(MetaMachine machine) {
+        if (machine instanceof Hk3WorkableMultiblockMachine owned) return owned.getOwnerUUID();
+        var data = ((BlockEntity) machine.getHolder()).getPersistentData();
+        return data.hasUUID(Hk3EggProduction.OWNER) ? data.getUUID(Hk3EggProduction.OWNER) : null;
     }
 
     /** HK工作票据已开启后精确付款；其余tick IO使用移除EU的副本，避免真实仓抢先支付或重复扣款。 */
@@ -210,6 +236,10 @@ public final class Hk3RecipePower {
         base.data.putString(MINIMUM_COST_KEY, required.toString());
         base.data.putString(EXACT_COST_KEY, mergedCost.toString());
         if (invalid) base.data.putBoolean(INVALID_KEY, true);
+    }
+
+    public static GTRecipe.ActionResult unsupportedExecutor() {
+        return fail("executor");
     }
 
     private static GTRecipe.ActionResult fail(String reason, Object... arguments) {

@@ -2,6 +2,7 @@ package com.sirin.hk3gtl.common.research;
 
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
+import com.sirin.hk3gtl.common.config.Hk3ResearchSettings;
 import com.sirin.hk3gtl.common.easter.Hk3EggProduction;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import net.minecraft.nbt.ListTag;
@@ -39,10 +40,11 @@ public final class Hk3RecipeAccess {
 
     public static boolean blocks(GTRecipe recipe, MetaMachine machine) {
         if (recipe == null) return false;
-        if (recipe.data.contains(Hk3ResearchRecipeRuntime.PLAN)
+        if ((recipe.data.contains(Hk3ResearchRecipeRuntime.PLAN) || recipe.data.contains(Hk3ResearchRecipeRuntime.MERGED))
                 && !(machine instanceof com.sirin.hk3gtl.common.machine.research.Hk3LiquidProcessMachine)
                 && (machine == null || machine.getLevel() == null
                     || !machine.getLevel().isClientSide() && !Hk3ResearchRecipeRuntime.allowed(machine, recipe))) return true;
+        if (!Hk3ResearchSettings.enabled()) return false;
         var requirements = effectiveRequirements(recipe);
         if (!requirements.valid()) return true;
         if (requirements.requirements().isEmpty()) return false;

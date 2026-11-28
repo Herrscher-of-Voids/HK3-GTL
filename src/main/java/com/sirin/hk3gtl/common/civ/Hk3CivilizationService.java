@@ -48,10 +48,10 @@ public final class Hk3CivilizationService {
     }
     public static Set<String> facts(MinecraftServer server,Hk3ResearchData research,Hk3ReviewData review,UUID team){
         var result=new HashSet<>(facts(research,review,team));int wonders=0;
-        for(int i=1;i<=15;i++)if(!Hk3EngineeringFacts.receipt(server,research,team,String.format(Locale.ROOT,"W%02d",i)).isEmpty())wonders++;
+        for(int i=1;i<=15;i++)if(!Hk3EngineeringFacts.accepted(server,research,team,String.format(Locale.ROOT,"W%02d",i)).isEmpty())wonders++;
         if(wonders>0)result.add("engineering:any_wonder");
         if(wonders==15)result.add("engineering:15_wonders");
-        if(!Hk3EngineeringFacts.receipt(server,research,team,"H01").isEmpty())result.add("engineering:hyperion");
+        if(!Hk3EngineeringFacts.accepted(server,research,team,"H01").isEmpty())result.add("engineering:hyperion");
         return Set.copyOf(result);
     }
     public static Status status(Hk3ResearchData research,Hk3ReviewData review,Hk3CivilizationData history,UUID team){
@@ -61,9 +61,9 @@ public final class Hk3CivilizationService {
     }
     /** 只报告缺少实际提供者，不能据结构成型、耗电或研究推断工程验收。 */
     public static String pendingSource(String key){return switch(key){
-        case "engineering:any_wonder" -> "至少一座奇观实际完成生产，且原机当前加载并完整成型";
+        case "engineering:any_wonder" -> "至少一座奇观取得工程验收回执，原机加载时需保持成型";
         case "engineering:15_wonders" -> "十五座奇观均完成生产并保持原机完整";
-        case "engineering:hyperion" -> "休伯利安实际完成舰载工程，且原舰当前完整成型";
+        case "engineering:hyperion" -> "休伯利安取得舰载工程验收回执，原舰加载时需保持成型";
         default -> "";
     };}
     /** 每五秒按在线队伍去重，只读内存账本，不扫描方块、不加载区块。 */

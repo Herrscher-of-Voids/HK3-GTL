@@ -37,9 +37,14 @@ public final class Hk3FarViewSync {
     @SubscribeEvent public static void unload(LevelEvent.Unload event){if(event.getLevel() instanceof ServerLevel level){Hk3FarViewCapture.unload(level);Hk3WorldFarSurfaceService.unload(level);}}
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent event){WATCHES.remove(event.getEntity().getUUID());Hk3WorldFarSurfaceService.remove(event.getEntity().getUUID());}
     @SubscribeEvent public static void stop(ServerStoppedEvent event){Hk3FarViewCapture.stop(event.getServer());WATCHES.clear();Hk3FarViewData.clear();Hk3WorldFarSurfaceService.clear();}
-    @SubscribeEvent public static void serverTick(TickEvent.ServerTickEvent event){if(event.phase==TickEvent.Phase.END){Hk3FarViewCapture.tick(event.getServer());Hk3WorldFarSurfaceService.tick(event.getServer());}}
+    @SubscribeEvent public static void serverTick(TickEvent.ServerTickEvent event){
+        if(event.phase!=TickEvent.Phase.END)return;
+        if(!WATCHES.isEmpty())Hk3FarViewCapture.tick(event.getServer());
+        Hk3WorldFarSurfaceService.tick(event.getServer());
+    }
     @SubscribeEvent public static void worldTick(TickEvent.LevelTickEvent event) {
         if(event.phase!=TickEvent.Phase.END||!(event.level instanceof ServerLevel level))return;
+        if(WATCHES.isEmpty()||level.players().stream().noneMatch(player->WATCHES.containsKey(player.getUUID())))return;
         var data=Hk3FarViewData.get(level);
         data.refresh(level);
         if(level.getServer().getTickCount()%2!=0)return;

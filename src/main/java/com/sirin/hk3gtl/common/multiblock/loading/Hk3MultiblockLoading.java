@@ -25,20 +25,21 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-/** GT共用成型入口；仅分批搬运世界读取，不替换任何机器的原判定。 */
 @Mod.EventBusSubscriber(modid="hk3gtl")
 public final class Hk3MultiblockLoading {
     private static final Set<MultiblockControllerMachine> QUEUED=ConcurrentHashMap.newKeySet();
     private static final ConcurrentLinkedQueue<MultiblockControllerMachine> REQUESTS=new ConcurrentLinkedQueue<>();
-    private static final Set<MultiblockState> QUEUED_STATES=ConcurrentHashMap.newKeySet();
-    private static final ConcurrentLinkedQueue<MultiblockState> STATES=new ConcurrentLinkedQueue<>();
     private static final LinkedHashMap<MultiblockControllerMachine,Hk3PatternLoading> CHECKS=new LinkedHashMap<>();
     private record Formation(ServerLevel level,Hk3InterfaceChunks tickets) {}
     private static final Map<MultiblockControllerMachine,Formation> FORMED=new IdentityHashMap<>();
     private static final Map<ServerLevel,Long2ObjectOpenHashMap<MultiblockControllerMachine>> FORMED_POSITIONS=new IdentityHashMap<>();
     private Hk3MultiblockLoading(){}
 
-    public static boolean managed(MultiblockControllerMachine controller){return !(controller instanceof Hk3IntegrityHost);}
+    public static boolean managed(MultiblockControllerMachine controller){
+        // Add 的分级和虚拟结构需要走原有的成型流程。
+        return !(controller instanceof Hk3IntegrityHost)
+                &&!"gtladditions".equals(controller.getDefinition().getId().getNamespace());
+    }
     public static boolean intercept(MultiblockControllerMachine controller){
         if(!(controller.getLevel() instanceof ServerLevel level)||!managed(controller)||Hk3PatternLoading.current(level)!=null)return false;
         if(level.getServer().isSameThread())controller.getMultiblockState().setError(MultiblockState.UNLOAD_ERROR);
@@ -46,13 +47,11 @@ public final class Hk3MultiblockLoading {
     }
     public static boolean intercept(MultiblockState state){
         if(!(state.world instanceof ServerLevel level)||Hk3PatternLoading.current(level)!=null)return false;
-        if(state.lastController!=null&&!managed(state.lastController.self()))return false;
-        if(!level.getServer().isSameThread()){
-            if(QUEUED_STATES.add(state))STATES.add(state);
-            return true;
-        }
-        if(!(state.getController() instanceof MultiblockControllerMachine controller)||!managed(controller))return false;
-        state.setError(MultiblockState.UNLOAD_ERROR);queue(controller);return true;
+        boolean serverThread=level.getServer().isSameThread();
+        var owner=serverThread?state.getController():state.lastController;
+        if(owner==null||!managed(owner.self()))return false;
+        if(serverThread)state.setError(MultiblockState.UNLOAD_ERROR);
+        queue(owner.self());return true;
     }
     public static void queue(MultiblockControllerMachine controller){
         if(controller.getLevel() instanceof ServerLevel&&managed(controller)&&QUEUED.add(controller))REQUESTS.add(controller);
@@ -94,11 +93,6 @@ public final class Hk3MultiblockLoading {
     @SubscribeEvent public static void tick(TickEvent.ServerTickEvent event){
         if(event.phase!=TickEvent.Phase.END)return;
         long admissionDeadline=System.nanoTime()+500_000L;
-        MultiblockState state;
-        while(System.nanoTime()<admissionDeadline&&(state=STATES.poll())!=null){
-            QUEUED_STATES.remove(state);
-            if(state.getController() instanceof MultiblockControllerMachine controller)queue(controller);
-        }
         int snapshotChecks=(int)CHECKS.values().stream().filter(Hk3PatternLoading::keepsSnapshots).count();
         MultiblockControllerMachine requested;
         for(int scanned=0;scanned<32 && CHECKS.size()<32 && System.nanoTime()<admissionDeadline
@@ -148,6 +142,5 @@ public final class Hk3MultiblockLoading {
     @SubscribeEvent public static void stopped(ServerStoppedEvent event){
         CHECKS.values().forEach(Hk3PatternLoading::close);CHECKS.clear();
         FORMED.values().forEach(formation->formation.tickets().close());FORMED.clear();FORMED_POSITIONS.clear();QUEUED.clear();REQUESTS.clear();
-        QUEUED_STATES.clear();STATES.clear();
     }
 }

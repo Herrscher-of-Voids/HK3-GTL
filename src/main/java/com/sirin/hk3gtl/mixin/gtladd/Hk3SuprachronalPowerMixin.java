@@ -4,10 +4,10 @@ import com.gregtechceu.gtceu.api.machine.feature.IRecipeLogicMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import com.sirin.hk3gtl.common.recipe.power.Hk3PowerWork;
+import com.sirin.hk3gtl.common.recipe.power.Hk3PowerPorts;
 import com.sirin.hk3gtl.common.recipe.power.Hk3RecipePower;
 import org.gtlcore.gtlcore.api.machine.trait.ILockRecipe;
 import org.gtlcore.gtlcore.api.recipe.RecipeRunnerHelper;
-import org.gtlcore.gtlcore.common.machine.multiblock.electric.SuprachronalAssemblyLineMachine;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
@@ -22,7 +22,7 @@ import java.util.function.BiPredicate;
 
 @Pseudo
 @Mixin(targets = "com.gtladd.gtladditions.api.machine.logic.MutableRecipesLogic", remap = false)
-public abstract class Hk3SuprachronalPowerMixin extends RecipeLogic implements Hk3PowerWork.Suprachronal, ILockRecipe {
+public abstract class Hk3SuprachronalPowerMixin extends RecipeLogic implements Hk3PowerWork.Mutable, ILockRecipe {
     @Shadow @Final private BiPredicate<GTRecipe, IRecipeLogicMachine> recipeCheck;
 
     protected Hk3SuprachronalPowerMixin(IRecipeLogicMachine machine) {
@@ -30,13 +30,13 @@ public abstract class Hk3SuprachronalPowerMixin extends RecipeLogic implements H
     }
 
     @Override
-    public boolean hk3gtl$usesFixedSuprachronalPower() {
-        return machine instanceof SuprachronalAssemblyLineMachine;
+    public boolean hk3gtl$usesFixedMutablePower() {
+        return Hk3PowerPorts.usesExtendedVoltage(machine.getRecipeType());
     }
 
     @Inject(method = "handleRecipeWorking", at = @At("HEAD"), cancellable = true, require = 1)
     private void hk3gtl$workFixed(CallbackInfo callback) {
-        if (hk3gtl$usesFixedSuprachronalPower() && Hk3RecipePower.marked(lastRecipe)) {
+        if (hk3gtl$usesFixedMutablePower() && Hk3RecipePower.marked(lastRecipe)) {
             super.handleRecipeWorking();
             callback.cancel();
         }
@@ -44,7 +44,7 @@ public abstract class Hk3SuprachronalPowerMixin extends RecipeLogic implements H
 
     @Inject(method = "onRecipeFinish", at = @At("HEAD"), cancellable = true, require = 1)
     private void hk3gtl$finishFixed(CallbackInfo callback) {
-        if (hk3gtl$usesFixedSuprachronalPower() && Hk3RecipePower.marked(lastRecipe)) {
+        if (hk3gtl$usesFixedMutablePower() && Hk3RecipePower.marked(lastRecipe)) {
             super.onRecipeFinish();
             callback.cancel();
         }
@@ -71,7 +71,7 @@ public abstract class Hk3SuprachronalPowerMixin extends RecipeLogic implements H
 
     @Unique
     private GTRecipe hk3gtl$findFixed() {
-        if (!hk3gtl$usesFixedSuprachronalPower() || !machine.hasProxies()) return null;
+        if (!hk3gtl$usesFixedMutablePower() || !machine.hasProxies()) return null;
         GTRecipe locked = isLock() ? getLockRecipe() : null;
         if (locked != null) return hk3gtl$prepareFixed(locked);
         var recipes = machine.getRecipeType().getLookup().getRecipeIterator(machine, Hk3RecipePower::marked);
@@ -84,7 +84,7 @@ public abstract class Hk3SuprachronalPowerMixin extends RecipeLogic implements H
 
     @Unique
     private GTRecipe hk3gtl$prepareFixed(GTRecipe recipe) {
-        if (!Hk3RecipePower.marked(recipe) || !recipeCheck.test(recipe, machine)) return null;
+        if (!Hk3RecipePower.marked(recipe) || recipeCheck != null && !recipeCheck.test(recipe, machine)) return null;
         GTRecipe fixed = machine.doModifyRecipe(recipe.copy(), ocParams, ocResult);
         if (fixed == null || !RecipeRunnerHelper.matchRecipe(machine, fixed)
                 || !fixed.checkConditions(this).isSuccess() || !fixed.matchTickRecipe(machine).isSuccess()) return null;
@@ -95,6 +95,6 @@ public abstract class Hk3SuprachronalPowerMixin extends RecipeLogic implements H
 
     @Inject(method = "checkRecipe", at = @At("HEAD"), cancellable = true, require = 1)
     private void hk3gtl$excludeFixedFromPooling(GTRecipe recipe, CallbackInfoReturnable<Boolean> callback) {
-        if (hk3gtl$usesFixedSuprachronalPower() && Hk3RecipePower.marked(recipe)) callback.setReturnValue(false);
+        if (hk3gtl$usesFixedMutablePower() && Hk3RecipePower.marked(recipe)) callback.setReturnValue(false);
     }
 }

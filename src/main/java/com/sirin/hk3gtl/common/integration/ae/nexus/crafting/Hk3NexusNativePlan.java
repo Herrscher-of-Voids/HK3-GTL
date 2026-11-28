@@ -18,8 +18,12 @@ public final class Hk3NexusNativePlan implements ICraftingPlan, Hk3ExactBytePlan
     private final IGrid grid;
 
     Hk3NexusNativePlan(Hk3NexusJob preview) {
+        this(preview, preview.host.grid());
+    }
+
+    Hk3NexusNativePlan(Hk3NexusJob preview, IGrid grid) {
         this.preview = preview;
-        grid = preview.host.grid();
+        this.grid = grid;
     }
 
     public IGrid grid() { return grid; }

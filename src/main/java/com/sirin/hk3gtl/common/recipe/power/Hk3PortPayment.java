@@ -28,12 +28,16 @@ public final class Hk3PortPayment {
     public static BigInteger power(List<Port> ports) {
         return ports.stream().map(Port::power).reduce(BigInteger.ZERO, BigInteger::add);
     }
+    public static BigInteger availablePower(List<Port> ports) {
+        return ports.stream().map(port -> port.available().min(port.power()).max(BigInteger.ZERO))
+                .reduce(BigInteger.ZERO, BigInteger::add);
+    }
     public static boolean pay(List<Port> ports, BigInteger cost, Hk3EnergyTick tick) {
         tick.requireOpen();
-        if (cost.signum() <= 0 || available(ports).compareTo(cost) < 0 || power(ports).compareTo(cost) < 0) return false;
+        if (cost.signum() <= 0 || availablePower(ports).compareTo(cost) < 0) return false;
         BigInteger left = cost;
         for (Port port : ports) {
-            BigInteger take = left.min(port.available().max(BigInteger.ZERO));
+            BigInteger take = left.min(port.available().min(port.power()).max(BigInteger.ZERO));
             if (take.signum() == 0) continue;
             BigInteger changed;
             boolean failed = false;

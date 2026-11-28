@@ -668,6 +668,7 @@
   "hk3gtl.research.requirement.finality_circuit_2": "WSV Circuit",
   "hk3gtl.research.requirement.finality_circuit_3": "CIV Circuit",
   "hk3gtl.research.requirement.finality_circuit_4": "CEV Circuit",
+  "hk3gtl.build_task.controls": "HK3GTL: Shift + left-click to resume. Ctrl + left-click to cancel.",
   "key.categories.hk3gtl": "HK3GTL",
   "key.hk3gtl.phone": "Open Phone",
   "entity.hk3gtl.imaginary_rift": "Imaginary Rift",

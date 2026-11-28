@@ -25,6 +25,13 @@ public final class Hk3ResearchRecipeRuntime {
     public static CompoundTag snapshot(GTRecipe recipe){
         var out=Hk3ProcessReceipts.snapshot(recipe);out.putString(PLAN,recipe.data.getString(PLAN));return out;
     }
+    public static void mergeReceipt(GTRecipe batch, GTRecipe executed) {
+        if (!executed.data.contains(PLAN, Tag.TAG_STRING)) return;
+        var receipts = batch.data.getList(MERGED, Tag.TAG_COMPOUND);
+        receipts.add(snapshot(executed));
+        batch.data.put(MERGED, receipts);
+    }
+
     public static Set<String> requiredProcessFacts(GTRecipe recipe) {
         var plan = PLANS.get(recipe.data.getString(PLAN));
         if (plan == null) return Set.of();
@@ -44,7 +51,6 @@ public final class Hk3ResearchRecipeRuntime {
     }
 
     public static boolean allowed(MetaMachine machine,GTRecipe recipe){
-        if (!Hk3ResearchSettings.enabled()) return true;
         if(recipe.data.contains(MERGED)){
             if(!recipe.data.contains(MERGED,Tag.TAG_LIST))return false;
             var entries=recipe.data.getList(MERGED,Tag.TAG_COMPOUND);
@@ -86,7 +92,10 @@ public final class Hk3ResearchRecipeRuntime {
         if (p.role().equals("GTL_SUPRACHRONAL_ASSEMBLY_LINE") && p.id().startsWith("approved_")
                 && p.requirements().isEmpty() && p.requiredFacts().isEmpty() && p.facts().isEmpty()
                 && p.experiment().isBlank() && p.inputHw() == 0) return true;
-        var source=source(machine);if(source==null||source.owner()==null||source.team()==null)return false;
+        var source=source(machine);
+        if(source==null||source.owner()==null||source.team()==null)
+            return !Hk3ResearchSettings.enabled() && p.role().startsWith("GT") && p.inputHw()==0
+                    && p.requiredFacts().isEmpty() && p.experiment().isBlank();
         var data=Hk3ResearchData.get(machine.getLevel().getServer());var scope=source.team();
         if(machine instanceof Hk3LiquidProcessMachine){
             if(machine instanceof Hk3HonkaiAbsorptionMachine){
@@ -104,8 +113,21 @@ public final class Hk3ResearchRecipeRuntime {
                 .allMatch(role->data.hasProcessFact(scope,"wonder_"+role)))return false;
         // 加强观测读取真实会面许可；基础QOM校准不能代替，资格/场景尚未接入时保持关闭。
         if(p.id().equals("industrial_enhanced_beacon_signal")&&!data.hasProcessFact(scope,"cocoon_authorization"))return false;
-        return p.experiment().isBlank()||Hk3ResearchExecutionContracts.ready(data,scope,Hk3ResearchExecutionContracts.get(p.experiment()));
+        return !Hk3ResearchSettings.enabled()||p.experiment().isBlank()||Hk3ResearchExecutionContracts.ready(data,scope,Hk3ResearchExecutionContracts.get(p.experiment()));
     }
+    public static void isolatedSettled(MetaMachine machine, GTRecipe recipe) {
+        if (recipe.data.contains(MERGED)) {
+            if (!allowed(machine, recipe)) return;
+            for (var raw : recipe.data.getList(MERGED, Tag.TAG_COMPOUND)) {
+                var batch = (CompoundTag) raw;
+                if (PLANS.get(batch.getString(PLAN)).chancedOutputs().isEmpty()) settled(machine, batch);
+            }
+        } else {
+            var plan = PLANS.get(recipe.data.getString(PLAN));
+            if (plan != null && plan.chancedOutputs().isEmpty()) settled(machine, recipe);
+        }
+    }
+
     public static void settled(MetaMachine machine,GTRecipe recipe){
         if(!allowed(machine,recipe))return;
         if(recipe.data.contains(MERGED)){

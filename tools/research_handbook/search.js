@@ -1,0 +1,8 @@
+const $=s=>document.querySelector(s),all=s=>Array.from(document.querySelectorAll(s));
+const topics=all('.topic'),facts=all('.record'),tiers=all('.tier');
+for(const el of [...topics,...facts])el._search=(el.id+' '+(el.dataset.key||'')+' '+el.textContent+' '+Array.from(el.querySelectorAll('a[href^="#fact-"]'),a=>a.hash.slice(6)).join(' ')).toLowerCase();
+function filter(){const q=$('#tquery').value.trim().toLowerCase(),f=$('#fquery').value.trim().toLowerCase(),s=$('#stage').value;
+const exactTopic=topics.find(el=>el.id.toLowerCase()===q),exactFact=facts.find(el=>el.id.slice(5)===f);for(const el of topics)el.hidden=Boolean((s&&s!==el.dataset.stage)||(exactTopic?el!==exactTopic:!el._search.includes(q)));for(const el of facts)el.hidden=exactFact?el!==exactFact:!el._search.includes(f);for(const el of tiers)el.hidden=!el.querySelector('.topic:not([hidden])');for(const [id,els] of [['tcount',topics],['fcount',facts]]){const n=els.filter(x=>!x.hidden).length;$('#'+id).textContent=n?n+' 项':'没有匹配项；请换一个关键词。';}}
+for(const id of ['tquery','fquery','stage'])$('#'+id).addEventListener('input',filter);
+function reveal(){const key=decodeURIComponent(location.hash.slice(1));const el=document.getElementById(key);if(!el?.matches('.entry'))return;if(el.hidden){if(el.classList.contains('topic')){$('#tquery').value='';$('#stage').value='';}else $('#fquery').value='';filter();}el.open=true;requestAnimationFrame(()=>el.scrollIntoView({block:'start'}));}
+addEventListener('hashchange',reveal);document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&a.hash===location.hash)reveal();});filter();reveal();

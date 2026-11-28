@@ -17,6 +17,7 @@ import com.sirin.hk3gtl.common.integration.ae.exact.Hk3ProbabilitySupport;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.gtlcore.gtlcore.common.item.VirtualIngredientBehavior;
 import org.gtlcore.gtlcore.common.machine.multiblock.part.ae.MEPatternBufferPartMachineBase;
@@ -43,6 +44,7 @@ final class Hk3NexusJob {
     final Hk3NexusCrafting host;
     final UUID id, owner;
     final AEKey target;
+    final boolean materialList;
     BigInteger requested;
     final Hk3NexusCrafting.NexusCpu cpu;
     CraftingLink link;
@@ -77,6 +79,7 @@ final class Hk3NexusJob {
         this.id = id;
         this.owner = owner;
         this.target = target;
+        this.materialList = isMaterialList(target);
         this.requested = requested;
         cpu = new Hk3NexusCrafting.NexusCpu(host, this);
         link = new CraftingLink(CraftingCpuHelper.generateLinkData(id, standalone, false), cpu);
@@ -164,8 +167,10 @@ final class Hk3NexusJob {
     boolean advance(long deadline) {
         state = "RUNNING";
         missing.clear();
+        if (materialList && waiting.remove(target) != null) host.unindexOutput(target, this);
         boolean advanced = ordered ? executeOrdered(deadline) : executeUnordered(deadline);
         if (tasks.isEmpty() && waiting.isEmpty()) {
+            if (materialList) delivered = requested;
             state = "DRAINING";
         } else if (!advanced) {
             state = waiting.isEmpty() ? "WAITING_MACHINE" : "WAITING_OUTPUT";
@@ -309,6 +314,7 @@ final class Hk3NexusJob {
             BigInteger count = BigInteger.valueOf(operations);
             effective.inputs.forEach((key, amount) -> Hk3NexusLedger.add(held, key, amount.multiply(count).negate()));
             effective.outputs.forEach((key, amount) -> {
+                if (materialList && key.equals(target)) return;
                 boolean first = !waiting.containsKey(key);
                 Hk3NexusLedger.add(waiting, key, amount.multiply(count));
                 if (first) host.indexOutput(key, this);
@@ -360,6 +366,11 @@ final class Hk3NexusJob {
     private void decrement(Hk3NexusRecipe part, BigInteger count) {
         BigInteger remaining = tasks.get(part).subtract(count);
         if (remaining.signum() == 0) tasks.remove(part); else tasks.put(part, remaining);
+    }
+
+    private static boolean isMaterialList(AEKey key) {
+        return key instanceof AEItemKey item && item.getItem() == Items.WRITTEN_BOOK && item.hasTag()
+                && item.getTag().contains("display", Tag.TAG_COMPOUND) && !item.getTag().contains("pages");
     }
 
     boolean awaitsOutput() { return !waiting.isEmpty() && !canceled && !link.isCanceled(); }

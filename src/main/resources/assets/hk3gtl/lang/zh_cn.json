@@ -782,6 +782,7 @@
   "hk3gtl.research.requirement.finality_circuit_2": "稳界压 电路板",
   "hk3gtl.research.requirement.finality_circuit_3": "统合压 电路板",
   "hk3gtl.research.requirement.finality_circuit_4": "恒续压 电路板",
+  "hk3gtl.build_task.controls": "HK3GTL：Shift + 左键恢复，Ctrl + 左键取消。",
   "key.categories.hk3gtl": "HK3GTL",
   "key.hk3gtl.phone": "打开手机",
   "entity.hk3gtl.imaginary_rift": "虚数裂隙",

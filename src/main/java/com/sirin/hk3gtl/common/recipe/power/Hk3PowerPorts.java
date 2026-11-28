@@ -1,6 +1,12 @@
 package com.sirin.hk3gtl.common.recipe.power;
 
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.IEnergyContainer;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessPlans;
+import com.sirin.hk3gtl.common.recipe.Hk3ResearchProcessTypes;
+import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.trait.MachineTrait;
 import com.gtl.enhancedcore.common.recipe.GridEnergyRecipeInput;
 import com.hepdd.gtmthings.api.capability.IBindable;
@@ -14,6 +20,7 @@ import com.sirin.hk3gtl.common.capability.Hk3GridEnergyRefund;
 import com.sirin.hk3gtl.common.capability.Hk3RefundActions;
 import com.sirin.hk3gtl.common.capability.Hk3RefundJournal;
 import com.sirin.hk3gtl.common.capability.Hk3RefundTarget;
+import com.sirin.hk3gtl.common.constants.Hk3Tiers;
 import com.sirin.hk3gtl.common.machine.Hk3WorkableMultiblockMachine;
 import com.sirin.hk3gtl.common.machine.trait.Hk3PlayerGridEnergyTrait;
 import net.minecraft.nbt.CompoundTag;
@@ -25,6 +32,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -37,8 +45,7 @@ public final class Hk3PowerPorts {
     public static List<Hk3PortPayment.Port> of(RecipeLogic logic) {
         var result = new ArrayList<Hk3PortPayment.Port>();
         var seen = Collections.newSetFromMap(new IdentityHashMap<IEnergyContainer, Boolean>());
-        boolean addonGrid = logic instanceof Hk3PowerWork.Suprachronal supra
-                && supra.hk3gtl$usesFixedSuprachronalPower() && ModList.get().isLoaded("gtl_enhancedcore");
+        boolean addonGrid = ModList.get().isLoaded("gtl_enhancedcore");
         var gridAccounts = new HashSet<UUID>();
         for (IO io : List.of(IO.IN, IO.BOTH)) {
             var handlers = logic.machine.getCapabilitiesProxy().get(io, EURecipeCapability.CAP);
@@ -56,6 +63,39 @@ public final class Hk3PowerPorts {
             }
         }
         return result;
+    }
+
+    public static boolean usesExtendedVoltage(GTRecipeType recipeType) {
+        return ExtendedTypes.TYPES.contains(recipeType);
+    }
+
+    private static class ExtendedTypes {
+        private static final Set<GTRecipeType> TYPES = load();
+        private static Set<GTRecipeType> load() {
+            var types = new HashSet<>(List.of(GTRecipeTypes.WIREMILL_RECIPES, GTRecipeTypes.BENDER_RECIPES,
+                    GTRecipeTypes.COMPRESSOR_RECIPES, GTRecipeTypes.CANNER_RECIPES, GTRecipeTypes.CHEMICAL_RECIPES,
+                    GTRecipeTypes.PACKER_RECIPES));
+            for (var plan : Hk3ResearchProcessPlans.all())
+                if (plan.role().startsWith("GT") && plan.energyTier() > GTValues.MAX)
+                    types.add(Hk3ResearchProcessTypes.of(plan));
+            return Set.copyOf(types);
+        }
+    }
+
+    public static int inputTier(WorkableElectricMultiblockMachine machine, int baseTier) {
+        boolean enhanced = ModList.get().isLoaded("gtl_enhancedcore");
+        long voltage = 0;
+        for (IO io : List.of(IO.IN, IO.BOTH)) {
+            var handlers = machine.getCapabilitiesProxy().get(io, EURecipeCapability.CAP);
+            if (handlers == null) continue;
+            for (var handler : handlers) {
+                if (!(handler instanceof IEnergyContainer energy) || energy.getInputAmperage() <= 0) continue;
+                voltage = Math.max(voltage, enhanced ? AddonGrid.inputVoltage(energy) : energy.getInputVoltage());
+            }
+        }
+        for (int tier = Hk3Tiers.CEV; tier > Math.max(baseTier, GTValues.MAX); tier--)
+            if (voltage >= GTValues.V[tier]) return tier;
+        return baseTier;
     }
 
     // 自家玩家网沿既有额定接口计功率，退款固定付款时的原团队账户。
@@ -86,6 +126,12 @@ public final class Hk3PowerPorts {
             this.server = server;
             this.owner = owner;
         }
+        private static long inputVoltage(IEnergyContainer energy) {
+            if (energy instanceof GridEnergyRecipeInput input && input.gridEnergyUnboundedPower())
+                return input.gridEnergyConnected() ? Long.MAX_VALUE : 0;
+            return energy.getInputVoltage();
+        }
+
         private static AddonGrid from(IEnergyContainer energy) {
             if (energy instanceof GridEnergyRecipeInput input && input.gridEnergyUnboundedPower()
                     && input.gridEnergyConnected() && energy instanceof MachineTrait trait

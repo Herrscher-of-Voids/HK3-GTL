@@ -8,10 +8,12 @@ import com.gregtechceu.gtceu.api.pattern.MultiblockWorldSavedData;
 import com.mojang.logging.LogUtils;
 import com.sirin.hk3gtl.common.farview.Hk3FarViewData;
 import com.sirin.hk3gtl.common.machine.Hk3W01HallMachine;
+import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.TicketType;
@@ -22,6 +24,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.ChunkEvent;
@@ -88,9 +91,10 @@ public final class Hk3UniversalTerminalBuilder {
             return;
         }
 
-        var resumeData = Hk3BuildResumeData.get(level.getServer());
-        if (resumeData.pending() && !resumeData.matches(owner, controller)) {
-            tell(owner, "服务器有另一项已保存的HK3GTL终端任务；请先恢复或取消该任务。");
+        var resumeData = Hk3BuildResumeData.get(level.getServer(), owner.getUUID());
+        if (resumeData.pending() && !JOBS.containsKey(owner.server)) clearCompleted(owner.server, resumeData);
+        if (resumeData.pending() && !resumeData.matches(controller)) {
+            tell(owner, "你还有一项已保存的HK3GTL终端任务；手持终端按 Shift + 左键恢复，或 Ctrl + 左键取消自己的任务。");
             return;
         }
 
@@ -107,11 +111,7 @@ public final class Hk3UniversalTerminalBuilder {
                     release(previous, "控制器或建造者状态已改变，原建造任务已停止；再次使用终端可重新开始。", true);
                     return;
                 }
-                previous.paused = !previous.paused;
-                if (previous.resumable) Hk3BuildResumeData.get(level.getServer())
-                        .remember(previous.owner, previous.level, previous.controller, previous.setting, previous.paused);
-                if (previous.paused) previous.removeTargetTickets();
-                tell(owner, previous.paused ? "HK3GTL终端任务已暂停；再次使用相同模式可继续。" : "HK3GTL终端任务继续。" );
+                setPaused(previous, owner, !previous.paused);
             }
             return;
         }
@@ -142,7 +142,7 @@ public final class Hk3UniversalTerminalBuilder {
             if (JOBS.putIfAbsent(level.getServer(),job) != null) {
                 plan.close(); tell(owner, "服务器当前已有一项HK3GTL多方块建造任务。"); return;
             }
-            if (job.resumable) resumeData.remember(job.owner, level, controller, setting, resume && resumePaused);
+            if (job.resumable) resumeData.remember(level, controller, setting, resume && resumePaused);
             else if (resumeData.pending()) resumeData.clear();
             job.addControllerTicket();
             var saved = MultiblockWorldSavedData.getOrCreate(level);
@@ -173,10 +173,12 @@ public final class Hk3UniversalTerminalBuilder {
     public static boolean cancel(Player player, IMultiController target) {
         if (!(player instanceof ServerPlayer owner)) return false;
         Job job = JOBS.get(owner.server);
-        if (job == null || job.controller != target || !job.owner.equals(owner.getUUID())) return false;
         if (!owner.server.isSameThread()) return false;
-        release(job, "HK3GTL终端任务已取消；已完成部分保留。", true);
-        return true;
+        if (job != null) {
+            if (job.controller != target || !job.owner.equals(owner.getUUID())) return false;
+        } else if (!(target instanceof MultiblockControllerMachine controller)
+                || !Hk3BuildResumeData.get(owner.server, owner.getUUID()).matches(controller)) return false;
+        return cancelOwned(owner) == 1;
     }
 
     public static boolean isBuilding(IMultiController controller) {
@@ -227,7 +229,7 @@ public final class Hk3UniversalTerminalBuilder {
     }
 
     @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) resume(player.server);
+        if (event.getEntity() instanceof ServerPlayer player) resume(player);
     }
 
     @SubscribeEvent public static void dimensionChanged(PlayerEvent.PlayerChangedDimensionEvent event) {
@@ -235,19 +237,22 @@ public final class Hk3UniversalTerminalBuilder {
             Job job = JOBS.get(player.server);
             if (job != null && job.owner.equals(player.getUUID()))
                 suspend(job, "操作者切换维度，HK3GTL终端任务已保存；返回目标维度并加载主控区块后继续。", true);
-            resume(player.server);
+            resume(player);
         }
     }
 
     @SubscribeEvent public static void chunkLoad(ChunkEvent.Load event) {
         if (!(event.getLevel() instanceof ServerLevel level)) return;
-        var data = Hk3BuildResumeData.get(level.getServer());
-        if (!data.pending()) return;
-        BlockPos center = data.position();
-        if (!data.dimension().equals(level.dimension())
-                || (center.getX() >> 4) != event.getChunk().getPos().x
-                || (center.getZ() >> 4) != event.getChunk().getPos().z) return;
-        resume(level.getServer());
+        var server = level.getServer();
+        var chunk = event.getChunk().getPos();
+        if (!server.isSameThread() || JOBS.containsKey(server)) return;
+        for (var player : level.players()) {
+            var task = Hk3BuildResumeData.get(server, player.getUUID());
+            if (!task.pending() || !task.dimension().equals(level.dimension())) continue;
+            var center = task.position();
+            if ((center.getX() >> 4) == chunk.x && (center.getZ() >> 4) == chunk.z)
+                server.tell(new TickTask(server.getTickCount(), () -> resume(player)));
+        }
     }
 
     @SubscribeEvent public static void chunkUnload(ChunkEvent.Unload event) {
@@ -269,36 +274,98 @@ public final class Hk3UniversalTerminalBuilder {
         if (job != null && job.controller == controller) suspend(job,null,false);
     }
 
-    private static void resume(MinecraftServer server) {
-        if (JOBS.containsKey(server)) return;
-        var data = Hk3BuildResumeData.get(server);
-        if (!data.pending()) return;
-        ServerPlayer owner = server.getPlayerList().getPlayer(data.owner());
+    @SubscribeEvent public static void commands(RegisterCommandsEvent event) {
+        event.getDispatcher().register(Commands.literal("hk3build")
+                .then(Commands.literal("resume").executes(ctx -> resumeOwned(ctx.getSource().getPlayerOrException())))
+                .then(Commands.literal("cancel").executes(ctx -> cancelOwned(ctx.getSource().getPlayerOrException()))));
+    }
+
+    private static int cancelOwned(ServerPlayer owner) {
+        Job job = JOBS.get(owner.server);
+        if (job != null && job.owner.equals(owner.getUUID())) {
+            release(job, "HK3GTL终端任务已取消；已完成部分保留。", true);
+            return 1;
+        }
+        var data = Hk3BuildResumeData.get(owner.server, owner.getUUID());
+        if (!data.pending()) {
+            tell(owner, "没有属于你的HK3GTL终端任务。");
+            return 0;
+        }
+        data.clear();
+        tell(owner, "已取消保存的HK3GTL终端任务；已放置的方块保留。");
+        return 1;
+    }
+
+    private static int resumeOwned(ServerPlayer owner) {
+        Job job = JOBS.get(owner.server);
+        if (job != null && job.owner.equals(owner.getUUID())) {
+            setPaused(job, owner, false);
+            return 1;
+        }
+        var data = Hk3BuildResumeData.get(owner.server, owner.getUUID());
+        if (!data.pending()) {
+            tell(owner, "没有属于你的HK3GTL终端任务。");
+            return 0;
+        }
+        return resume(owner.server, data, owner, true) ? 1 : 0;
+    }
+
+    private static void setPaused(Job job, ServerPlayer owner, boolean paused) {
+        job.paused = paused;
+        if (job.resumable) Hk3BuildResumeData.get(owner.server, owner.getUUID())
+                .remember(job.level, job.controller, job.setting, paused);
+        if (paused) job.removeTargetTickets();
+        tell(owner, paused ? "HK3GTL终端任务已暂停；再次使用相同模式可继续。" : "HK3GTL终端任务继续。");
+    }
+
+    private static boolean targetLoaded(ServerLevel level, BlockPos center) {
+        return level.getChunkSource().getChunkNow(center.getX() >> 4, center.getZ() >> 4) != null;
+    }
+
+    private static void clearCompleted(MinecraftServer server, Hk3BuildResumeData.Task data) {
+        var level = server.getLevel(data.dimension());
+        if (level != null && targetLoaded(level, data.position())
+                && MetaMachine.getMachine(level, data.position()) instanceof MultiblockControllerMachine controller
+                && data.sameController(controller) && controller.isFormed()) data.clear();
+    }
+
+    private static void resume(ServerPlayer owner) {
+        var server = owner.server;
+        if (JOBS.containsKey(server) || server.getPlayerList().getPlayer(owner.getUUID()) != owner) return;
+        var data = Hk3BuildResumeData.get(server, owner.getUUID());
+        if (data.pending() && !data.paused()) resume(server, data, owner, false);
+    }
+
+    private static boolean resume(MinecraftServer server, Hk3BuildResumeData.Task data, ServerPlayer owner, boolean manual) {
         ServerLevel level = server.getLevel(data.dimension());
-        if (owner == null || level == null || owner.level() != level) return;
         BlockPos center = data.position();
-        if (level.getChunkSource().getChunkNow(center.getX() >> 4, center.getZ() >> 4) == null) return;
+        if (level == null || owner.level() != level || !targetLoaded(level, center)) {
+            if (manual) tell(owner, "请前往 " + data.dimension().location() + " " + center.toShortString()
+                    + " 加载目标控制器；也可直接取消这项任务。");
+            return false;
+        }
         MetaMachine machine = MetaMachine.getMachine(level, center);
-        if (machine == null) return;
+        if (machine == null && level.getBlockState(center).hasBlockEntity()) {
+            if (manual) tell(owner, "目标控制器尚未就绪，请稍后重试，或者直接取消任务。");
+            return false;
+        }
         if (!(machine instanceof MultiblockControllerMachine controller) || !data.sameController(controller)) {
             data.clear();
-            tell(owner, "已保存的终端任务目标已改变，任务记录已清除。");
-            return;
+            tell(owner, "已保存的终端任务目标已移除或改变，任务记录已清除。");
+            return true;
         }
         if (controller.isFormed()) {
             data.clear();
-            return;
+            if (manual) tell(owner, "该多方块已经成型，保存的终端任务已清除。");
+            return true;
         }
-        var lock = controller.getPatternLock();
-        if (!lock.tryLock()) return;
-        try {
-            use(owner, controller.getMultiblockState(), data.setting(), null, true, data.paused());
-        } finally { lock.unlock(); }
+        use(owner, controller.getMultiblockState(), data.setting(), null, true, !manual && data.paused());
+        return JOBS.containsKey(server);
     }
 
     private static void suspend(Job job, String message, boolean restoreChecks) {
-        if (job.resumable) Hk3BuildResumeData.get(job.level.getServer())
-                .remember(job.owner, job.level, job.controller, job.setting, job.paused);
+        if (job.resumable) Hk3BuildResumeData.get(job.level.getServer(), job.owner)
+                .remember(job.level, job.controller, job.setting, job.paused);
         release(job, message, restoreChecks, true);
     }
 
@@ -314,7 +381,7 @@ public final class Hk3UniversalTerminalBuilder {
     private static void release(Job job, String message, boolean restoreChecks, boolean preserveResume) {
         MinecraftServer server = job.level.getServer();
         if (!JOBS.remove(server,job)) return;
-        if (job.resumable && !preserveResume) Hk3BuildResumeData.get(server).clear();
+        if (job.resumable && !preserveResume) Hk3BuildResumeData.get(server, job.owner).clear();
         job.removeTickets();
         if(job.pipeline!=null) job.pipeline.close();
         try { if(job.preparation!=null) job.preparation.close(); else job.plan.close(); }
@@ -642,7 +709,7 @@ public final class Hk3UniversalTerminalBuilder {
         private void pause(String message) {
             if (JOBS.get(level.getServer()) != this) return;
             paused = true;
-            if (resumable) Hk3BuildResumeData.get(level.getServer()).remember(owner, level, controller, setting, true);
+            if (resumable) Hk3BuildResumeData.get(level.getServer(), owner).remember(level, controller, setting, true);
             removeTargetTickets();
             ServerPlayer ownerPlayer = player();
             if (ownerPlayer != null) tell(ownerPlayer, message + " 再次使用终端继续。");

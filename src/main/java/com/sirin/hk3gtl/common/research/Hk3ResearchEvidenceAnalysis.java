@@ -26,7 +26,8 @@ public final class Hk3ResearchEvidenceAnalysis {
                     .distinct().count() == DOMAIN_SOURCES.size();
             case COMPUTE -> data.hasProcessFact(team, "liquid_collection");
             case VERIFY -> data.hasProcessFact(team, "bounded_computation_result");
-            case LAB_FOUR -> data.hasProcessFact(team, "lab_four_operation") && data.hasProcessFact(team, "three_domains");
+            case LAB_FOUR -> (!com.sirin.hk3gtl.common.config.Hk3ResearchSettings.enabled()
+                    || data.hasProcessFact(team, "lab_four_operation")) && data.hasProcessFact(team, "three_domains");
             case CROSS_ORDER -> data.hasProcessFact(team, "cross_machine_handoff") && data.hasProcessFact(team, "manual_dispatch");
             default -> Hk3ContradictionRetest.ready(data, team, plan);
         };

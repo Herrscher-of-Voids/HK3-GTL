@@ -358,10 +358,15 @@ public final class Hk3NexusCrafting implements ICraftingProvider {
     private void discardCalculations(IGrid activeGrid) {
         for (var it = previews.iterator(); it.hasNext();) {
             var job = it.next();
-            if (job.calculation.grid == activeGrid && !job.calculation.isDone()) continue;
+            var calculation = job.calculation;
+            if (calculation.grid == activeGrid && !calculation.isDone()) continue;
             it.remove();
             job.cancelPlanning();
-            job.calculation.cancel(false);
+            if (calculation.isDone()) continue;
+            job.dispatchNote = "合成规划中断：万象天枢已离开原 AE 网络";
+            unsupportedPlan(job);
+            job.calculation = null;
+            calculation.complete(new Hk3NexusNativePlan(job, calculation.grid));
         }
     }
 

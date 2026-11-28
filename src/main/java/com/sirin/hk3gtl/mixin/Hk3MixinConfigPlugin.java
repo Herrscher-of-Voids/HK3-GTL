@@ -42,8 +42,28 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
         if (mixinClassName.endsWith(".Hk3CompleteGtPatternTransferMixin")
                 || mixinClassName.endsWith(".Hk3EncodingHelperAccess"))
             return supportsCompleteTransfer();
+        if (mixinClassName.endsWith(".Hk3QuestEnhanceEmptyPanelMixin")) {
+            var enhance = bytecode("quest_enhance", "com.quest_enhance.mixin.ViewQuestPanelMixin");
+            return LoadingModList.get().getModFileById("ftbquests") != null && enhance != null
+                    && enhance.methods.stream().anyMatch(method -> method.name.equals("quest_enhance$request_player_persistent_data")
+                        && calls(method, "dev/ftb/mods/ftbquests/quest/Quest", "getDescription", "()Ljava/util/List;"));
+        }
         if (mixinClassName.endsWith(".Hk3ConflictingRecipeTypesMixin")) {
             return !conflictingRecipeTypes().isEmpty();
+        }
+        if (mixinClassName.startsWith("com.sirin.hk3gtl.mixin.enhanced.iv.")) {
+            String job = IV + "IvJob";
+            var data = bytecode("gtl_enhancedcore", job.replace('/', '.'));
+            if (data == null || !hasMethod(data, "validateAccounting", "()V")
+                    || !hasField(data, "recipe", GT_RECIPE) || !hasField(data, "parallel", "J")) return false;
+            if (mixinClassName.endsWith(".Hk3IvJobAccess")) return true;
+            if (mixinClassName.endsWith(".Hk3IvNativePowerMixin") || mixinClassName.endsWith(".Hk3IvNativeMatchMixin"))
+                return supportsNativeIvPower();
+            var logic = bytecode("gtl_enhancedcore", targetClassName);
+            if (logic == null || !methodCalls(logic, "acknowledgeDelivery", job, "validateAccounting", "()V")) return false;
+            if (mixinClassName.endsWith(".Hk3IvPowerMixin")) return supportsDedicatedIvPower(logic);
+            if (!mixinClassName.endsWith(".Hk3IvNativeDeliveryMixin")) return true;
+            return hasField(logic, "machine", IV_HOST) && nativeIvConditions(logic);
         }
         if (mixinClassName.startsWith("com.sirin.hk3gtl.mixin.enhanced.")) {
             var file = LoadingModList.get().getModFileById("gtl_enhancedcore");
@@ -83,7 +103,8 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
         if(mixinClassName.startsWith("com.sirin.hk3gtl.mixin.ae."))return LoadingModList.get().getModFileById("ae2")!=null;
         if (mixinClassName.startsWith("com.sirin.hk3gtl.mixin.gtladd.")) {
             var logic = bytecode("gtladditions", targetClassName);
-            boolean compatible = mutableRecipeLogic(logic);
+            boolean compatible = mixinClassName.endsWith(".Hk3AddPowerBatchMixin")
+                    ? addBatchLogic(logic) : mutableRecipeLogic(logic);
             if (!compatible && LoadingModList.get().getModFileById("gtladditions") != null)
                 com.mojang.logging.LogUtils.getLogger().warn("[HK3GTL] GTLAdditions 缺少匹配的多配方动力接口，跳过该联动：{}", targetClassName);
             return compatible;
@@ -106,7 +127,8 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
         if (!Files.isRegularFile(path)) return null;
         try (var in = Files.newInputStream(path)) {
             var node = new ClassNode();
-            new ClassReader(in).accept(node, ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
+            new ClassReader(in).accept(node, ClassReader.SKIP_FRAMES
+                    | (modId.equals("gtl_enhancedcore") ? 0 : ClassReader.SKIP_DEBUG));
             return node;
         } catch (IOException failure) {
             com.mojang.logging.LogUtils.getLogger().warn("[HK3GTL] 无法读取兼容接口 {}:{}", modId, className, failure);
@@ -149,6 +171,79 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
         return type.methods.stream().anyMatch(m -> m.name.equals(name) && m.desc.equals(descriptor));
     }
 
+    private static final String IV = "com/gtl/enhancedcore/common/recipe/iv/";
+    private static final String GT_RECIPE = "Lcom/gregtechceu/gtceu/api/recipe/GTRecipe;";
+    private static final String GT_LOGIC = "Lcom/gregtechceu/gtceu/api/machine/trait/RecipeLogic;";
+    private static final String IV_HOST = "Lcom/gregtechceu/gtceu/api/machine/multiblock/WorkableMultiblockMachine;";
+    private static final String GRID_INPUT = "Lcom/gtl/enhancedcore/common/recipe/GridEnergyRecipeInput;";
+    private static final String ADD_CALCULATOR = "com/gtladd/gtladditions/utils/recipe/RecipeCalculationHelper";
+
+    private static boolean supportsNativeIvPower() {
+        var engine = bytecode("gtl_enhancedcore", IV.replace('/', '.') + "IvNativeEngine");
+        var match = bytecode("gtl_enhancedcore", IV.replace('/', '.') + "IvNativeMatchContext");
+        return engine != null && match != null && nativeIvConditions(engine)
+                && hasField(engine, "machine", IV_HOST) && hasField(engine, "logic", GT_LOGIC)
+                && methodCalls(engine, "acknowledgeDelivery", IV + "IvJob", "validateAccounting", "()V")
+                && hasMethod(engine, "wireless", "()Lcom/gtladd/gtladditions/api/machine/trait/IWirelessNetworkEnergyHandler;")
+                && methodCalls(engine, "prepare", IV + "IvBuffers", "availableVirtual",
+                "(Lorg/gtlcore/gtlcore/common/machine/multiblock/part/ae/MEPatternBufferPartMachine;L" + IV + "IvJob;)Ljava/util/Map;")
+                && methodCalls(engine, "prepare", IV + "IvMachineScope", "batching", "(" + IV_HOST + ")Z")
+                && methodCalls(engine, "start", IV + "IvMachineScope", "unmeteredBatch", "(" + IV_HOST + GT_RECIPE + ")Z")
+                && methodCalls(engine, "prepare", IV + "IvNativeRecipeContext", "tickRecipe", "(" + GT_RECIPE + ")" + GT_RECIPE)
+                && methodCalls(engine, "advance", IV + "IvNativeRecipeContext", "tickRecipe", "(" + GT_RECIPE + ")" + GT_RECIPE)
+                && methodCalls(engine, "advance", "com/gtl/enhancedcore/common/recipe/GridEnergyInputs", "remove",
+                "(Lcom/gregtechceu/gtceu/api/capability/IEnergyContainer;" + GRID_INPUT + "J)J")
+                && methodCalls(engine, "advance", "org/gtlcore/gtlcore/api/machine/computation/ComputationRecipes", "undoOnFailure", "(Ljava/lang/Runnable;)V")
+                && methodCalls(engine, "advance", "org/gtlcore/gtlcore/api/machine/computation/ComputationRecipes$Scope", "commit", "(Z)V")
+                && hasField(match, "machine", IV_HOST) && hasField(match, "capacity", "J")
+                && hasMethod(match, "limit", "(" + GT_RECIPE + "J)J") && hasMethod(match, "reserved", "(J)V")
+                && methodCalls(match, "lambda$prepare$0", "com/gtl/enhancedcore/common/recipe/RecipeBatchPreparation", "apply",
+                "(Lcom/gregtechceu/gtceu/api/machine/MetaMachine;" + GT_RECIPE + GT_RECIPE + ")" + GT_RECIPE);
+    }
+
+    private static boolean nativeIvConditions(ClassNode logic) {
+        for (String phase : List.of("allowed", "prepare", "advance"))
+            if (!methodCalls(logic, phase, "com/gregtechceu/gtceu/api/recipe/GTRecipe", "checkConditions",
+                    "(" + GT_LOGIC + ")Lcom/gregtechceu/gtceu/api/recipe/GTRecipe$ActionResult;")) return false;
+        return true;
+    }
+
+    private static boolean supportsDedicatedIvPower(ClassNode logic) {
+        return hasField(logic, "currentEUt", "J") && hasField(logic, "currentGridEUt", "Ljava/math/BigInteger;")
+                && methodCalls(logic, "start", IV + "IvRecipeInputs", "maxParallel", "(" + GT_RECIPE + "Ljava/util/Map;Ljava/util/Map;J)J")
+                && methodCalls(logic, "prepare", ADD_CALCULATOR, "multipleRecipe", "(" + GT_RECIPE + "J)" + GT_RECIPE)
+                && methodCalls(logic, "prepare", ADD_CALCULATOR, "buildNormalRecipe", "(Ljava/util/List;Ljava/util/List;DJI)" + GT_RECIPE)
+                && localSlot(logic, "prepare", "stellar", 7, "Z") && localSlot(logic, "prepare", "scaled", 9, GT_RECIPE)
+                && localSlot(logic, "advance", "i", 8, "I") && localSlot(logic, "advance", "i", 11, "I");
+    }
+
+    private static boolean addBatchLogic(ClassNode logic) {
+        return logic != null && logic.superName.equals("org/gtlcore/gtlcore/common/machine/trait/MultipleRecipesLogic")
+                && hasMethod(logic, "getMaxParallel", "(" + GT_RECIPE + "J)J") && hasMethod(logic, "checkBeforeWorking", "()Z")
+                && hasMethod(logic, "lookupRecipeIterator", "()Ljava/util/Set;")
+                && methodCalls(logic, "findAndHandleRecipe", logic.name, "getGTRecipe", "()" + GT_RECIPE)
+                && methodCalls(logic, "onRecipeFinish", logic.name, "getGTRecipe", "()" + GT_RECIPE)
+                && consumesBatchInput(logic, "buildFinalNormalRecipe") && consumesBatchInput(logic, "buildFinalWirelessRecipe");
+    }
+
+    private static boolean consumesBatchInput(ClassNode logic, String phase) {
+        return methodCalls(logic, phase, "org/gtlcore/gtlcore/api/recipe/RecipeRunnerHelper", "handleRecipeInput",
+                "(Lcom/gregtechceu/gtceu/api/machine/feature/IRecipeLogicMachine;" + GT_RECIPE + ")Z");
+    }
+
+    private static boolean methodCalls(ClassNode type, String method, String owner, String name, String desc) {
+        return type.methods.stream().anyMatch(m -> m.name.equals(method) && calls(m, owner, name, desc));
+    }
+
+    private static boolean hasField(ClassNode type, String name, String desc) {
+        return type.fields.stream().anyMatch(field -> field.name.equals(name) && field.desc.equals(desc));
+    }
+
+    private static boolean localSlot(ClassNode type, String method, String name, int index, String desc) {
+        return type.methods.stream().anyMatch(m -> m.name.equals(method) && m.localVariables != null
+                && m.localVariables.stream().anyMatch(v -> v.name.equals(name) && v.index == index && v.desc.equals(desc)));
+    }
+
     private static boolean mutableRecipeLogic(ClassNode logic) {
         return logic != null && logic.superName.equals("com/gregtechceu/gtceu/api/machine/trait/RecipeLogic")
                 && logic.interfaces.contains("org/gtlcore/gtlcore/api/machine/trait/ILockRecipe")
@@ -156,7 +251,7 @@ public final class Hk3MixinConfigPlugin implements IMixinConfigPlugin {
                 && hasMethod(logic, "handleRecipeWorking", "()V") && hasMethod(logic, "onRecipeFinish", "()V")
                 && hasMethod(logic, "isMultipleRecipeMode", "()Z") && hasMethod(logic, "findAndHandleRecipe", "()V")
                 && hasMethod(logic, "getRecipe", "()Lcom/gregtechceu/gtceu/api/recipe/GTRecipe;")
-                && hasMethod(logic, "checkRecipe", "(Lcom/gregtechceu/gtceu/api/recipe/GTRecipe;)Z");
+                && hasMethod(logic, "checkRecipe", "(" + GT_RECIPE + ")Z");
     }
 
     public static Set<String> conflictingRecipeTypes() {

@@ -9061,7 +9061,7 @@
       "experiment": "",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 2
     },
     {
       "id": "approved_hcv_e22",
@@ -9134,7 +9134,7 @@
       "experiment": "",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 2
     },
     {
       "id": "approved_hcv_e23",
@@ -9207,7 +9207,7 @@
       "experiment": "",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 2
     },
     {
       "id": "approved_hcv_e24",
@@ -9280,7 +9280,7 @@
       "experiment": "",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 2
     },
     {
       "id": "approved_hcv_e25",
@@ -9353,7 +9353,7 @@
       "experiment": "",
       "provisional": false,
       "network_credit": 0,
-      "circuit": 0
+      "circuit": 2
     },
     {
       "id": "approved_hcv_e26",
